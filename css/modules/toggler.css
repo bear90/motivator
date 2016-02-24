@@ -1,0 +1,93 @@
+/*Btn toggle*/
+.btn {
+    padding: 10px 10px 7px;
+    margin-left: 5px;
+    border-radius: 8px;
+}
+
+@media (min-width: 768px) {
+    header .btn {
+        padding: 15px 15px 7px;
+        border-radius: 9px;
+    }
+}
+
+.btn.btn-default.toogle-left {
+    width: 35px;
+    height: 32px;
+}
+
+.btn-default {
+    background-color: #db711b;
+    border: none;
+    margin: 0;
+    background-color: #18AB00;
+    margin: 0px;
+    color: #FFF;
+    font-weight: bold;
+}
+
+header .btn-default {
+    background-color: #fd8625;
+}
+
+.toggle-left .icon-bar {
+    display: block;
+    width: 15px;
+    height: 2px;
+    margin-bottom: 3px;
+    background-color: #fff;
+}
+
+@media (min-width: 768px) {
+    header .toggle-left .icon-bar {
+        width: 22px;
+        margin-bottom: 5px;
+    }
+}
+
+header .toggle-left {
+    margin-top: 16px;
+    margin-left: 6px;
+    vertical-align: top;
+}
+
+@media (min-width: 768px) {
+    .toggle-left {
+        display: none;
+    }
+
+    header .toggle-left {
+        display: inline-block;
+        width: 51px;
+        height: 46px;
+        margin-top: 20px;
+    }
+}
+
+@media (min-width: 992px) {
+    header .toggle-left {
+        display: none;
+    }
+}
+
+.btn-default.active,
+.btn-default.focus,
+.btn-default:active,
+.btn-default:focus,
+.btn-default:hover {
+    background-color: #db711b;
+}
+
+.toggle-left-animation {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    -ms-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s;
+}

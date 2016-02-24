@@ -1,0 +1,38 @@
+<?php
+/**
+ * @author mikhail.soza@soxes.ch
+ */
+
+class ModuleUrlRulesBehavior extends CBehavior{
+
+
+    public function events() {
+
+        return array_merge(parent::events(),array(
+            'onBeginRequest'=>'beginRequest',
+        ));
+    }
+
+    public function beginRequest($event) {
+
+        $moduleName = $this->_getCurrentModuleName();
+
+        if(Yii::app()->hasModule($moduleName)) {
+            $class = ucfirst($moduleName) . 'Module';
+            Yii::import("application.modules.{$moduleName}.{$class}");
+            if(method_exists($class, 'routes')) {
+                $urlManager = Yii::app()->getUrlManager();
+                $urlManager->addRules(call_user_func($class .'::routes'));
+            }
+        }
+    }
+
+    protected function _getCurrentModuleName() {
+
+        $route = Yii::app()->getRequest()->getPathInfo();
+        $domains = explode('/', $route);
+        $moduleName = array_shift($domains);
+
+        return $moduleName;
+    }
+}

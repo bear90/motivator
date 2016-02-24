@@ -1,0 +1,491 @@
+::-webkit-input-placeholder {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+::-moz-placeholder{
+    text-transform: uppercase;
+    font-weight: bold;
+}/* Firefox 19+ */
+:-moz-placeholder{
+    text-transform: uppercase;
+    font-weight: bold;
+}/* Firefox 18- */
+:-ms-input-placeholder{
+    text-transform: uppercase;
+    font-weight: bold;
+}
+@media (max-width: 500px){
+    ::-webkit-input-placeholder {
+        font-size: 1em;
+    }
+    ::-moz-placeholder{
+        font-size: 1em;
+    }/* Firefox 19+ */
+    :-moz-placeholder{
+        font-size: 1em;
+    }/* Firefox 18- */
+    :-ms-input-placeholder{
+        font-size: 1em;
+    }
+}
+.motivator-form {
+    margin: 30px 0 -30px ;
+    padding: 20px 0 5px;
+}
+
+@media (min-width: 768px) {
+    .motivator-form {
+        padding-left: 5%;
+        padding-right: 5%;
+        width: 387px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (min-width: 992px) {
+    .motivator-form {
+        margin-top: 0px;
+        padding-bottom: 10px;
+        border: 1px solid #CCC;
+        border-radius: 2px;
+    }
+}
+
+.motivator-form label {
+    font: bold 1.0em Arial;
+    font-weight: bold;
+}
+
+@media (min-width: 768px) {
+    .motivator-form label {
+        font-size: 0.9em;
+    }
+}
+
+.motivator-form input {
+    border-radius: 8px;
+    border: 1px solid #cccccc;
+    padding: 5px 10px;
+    font: 1em Arial;
+}
+
+@media (min-width: 768px) {
+    .motivator-form input {
+        font-size: 0.9em;
+        padding: 8px 10px;
+    }
+}
+
+.motivator-form a {
+    color: #ffffff;
+    padding: 0 15px;
+    font: 0.9em/30px Arial;
+    background: url("../../img/btn-bg-calc-green.png") no-repeat;
+    background-position: 0 0;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+@media (min-width: 768px) {
+    .motivator-form a {
+        line-height: 33px;
+        padding: 0 15px;
+        margin-bottom: 18px;
+    }
+}
+
+.motivator-form a:hover {
+    background-position: 0 -33px;
+    color: #fff;
+}
+
+.motivator-form a.btn:active, .motivator-form a.btn.active,
+.motivator-form a.btn:focus, .motivator-form a.btn.focus {
+    background: #18ab00;
+    color: #fff;
+}
+
+.motivator-form .help-block {
+    color: rgba(255, 0, 0, 0.7);
+}
+
+.input-fld {
+    margin-bottom: 15px;
+}
+
+@media (min-width: 768px) {
+    .input-fld {
+        margin-bottom: 25px;
+    }
+}
+
+.input-fld input {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .input-fld input {
+        width: 275px;
+    }
+}
+
+.radio-fld {
+    margin-bottom: 15px;
+}
+
+@media (min-width: 768px) {
+    .radio-fld {
+        margin-bottom: 25px;
+    }
+}
+
+.radio{
+    position: relative;
+    margin-top: 0;
+}
+
+.radio label{
+    display: inline;
+    padding-left: 10px;
+}
+
+@media (min-width: 360px) {
+    .radio label{
+        padding-left: 15px;
+    }
+}
+
+/*Custom radio-buttons*/
+.radio input[type="radio"] {
+    display:none;
+}
+
+.radio input[type="radio"] + label {
+    cursor: pointer;
+}
+
+.radio input[type="radio"] + label:after {
+    content: '';
+    display: inline-block;
+    height: 19px;
+    width: 19px;
+    background-image: url(../../img/radio.png);
+    background-repeat: no-repeat;
+    position: relative;
+    top: 5px;
+    left: 0;
+    margin-left: 5px;
+}
+
+.radio input[type="radio"] + label:after{
+    background-position: 0 0;
+}
+
+.radio input[type="radio"]:checked + label::after{
+    background-position: 0 -19px;
+}
+
+.radio input[type="radio"]:disabled + label::after{
+    background-position: 0 0;
+}
+
+.result-fld {
+    margin-bottom: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+@media (min-width: 768px) {
+    .result-fld {
+        padding-right: 10%;
+        padding-left: 5px;
+    }
+
+    #attract-discount-form {
+        padding-bottom: 10px;
+    }
+
+    #attract-discount-form  .result-fld {
+        padding-right: 8%;
+    }
+
+    .result-fld label {
+        width: 50%;
+    }
+}
+
+.result-fld label {
+    font-size: 0.75em;
+}
+
+@media (min-width: 768px) {
+    .result-fld label {
+        font-size: 0.93em;
+    }
+}
+
+.result-fld input {
+    min-width: 190px;
+}
+
+@media (min-width: 768px) {
+    .result-fld input {
+        min-width: 250px;
+    }
+}
+
+
+#attract-discount-form .radio-fld {
+    margin-bottom: 7px;
+}
+
+@media (min-width: 768px) {
+    #attract-discount-form .input-fld {
+        margin-bottom: 15px;
+    }
+}
+
+#attract-discount-form .note {
+    font: 0.6em Arial;
+    font-style: italic;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+@media (min-width: 768px) {
+    #attract-discount-form .note {
+        font-size: 0.8em;
+    }
+}
+
+@media (min-width: 992px) {
+    #attract-discount-form .note {
+        font-size: 0.9em;
+    }
+}
+
+
+/*info-board-form*/
+
+#info-board-form .input-fld {
+    margin-bottom: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+@media (min-width: 1200px) {
+    #info-board-form .input-fld {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+#info-board-issue .input-fld label {
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    #info-board-issue .input-fld label {
+        text-align: left;
+        width: 273px;
+    }
+}
+
+#info-board-issue > p {
+    font: 0.82em Arial;
+     margin-bottom: 20px;
+}
+
+.form-head {
+    padding: 0 10px;
+}
+
+.form-head h3 {
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+@media (min-width: 768px) {
+    .form-head h3 {
+        font-size: 1.22em;
+    }
+}
+
+.form-head  p {
+    font-size: 0.73em;
+    line-height: 0.9em;
+    margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+    #info-board-issue .form-head  p {
+        font-size: 1.05em;
+        line-height: 1.1em;
+        margin-bottom: 20px;
+    }
+}
+
+.fld-group {
+    margin-bottom: 15px;
+}
+
+@media (min-width: 768px) {
+    .fld-group {
+        margin-bottom: 30px;
+    }
+}
+
+.motivator-form .btn-continue {
+    font-size: 1em;
+    font-weight: bold;
+    background-color: #18AB00;
+}
+
+.motivator-form .btn-continue:hover {
+    background-position: 0px -38px;
+}
+
+.motivator-form a.btn-continue:active, .motivator-form a.btn-continue:focus,
+.motivator-form a.btn-continue.active, .motivator-form a.btn-continue.focus {
+    background: #ff790b;
+}
+
+@media (min-width: 768px) {
+    .motivator-form .btn-continue {
+        font-size: 1.1em;
+        margin-bottom: 20px;
+        line-height: 38px;
+
+    }
+}
+
+/*issue-yes-form*/
+#issue-yes-form {
+    background: transparent;
+    border: 0;
+    margin-top: 10px;
+    padding-top: 0px;
+    margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
+    #issue-yes-form {
+        margin-bottom: 15px;
+        padding-top: 15px;
+    }
+}
+
+#issue-yes-form > p {
+    font-size: 0.73em;
+    font-weight: bold;
+}
+
+@media (min-width: 768px) {
+    #issue-yes-form > p {
+        font-size: 1em;
+    }
+}
+
+@media (min-width: 992px) {
+    #issue-yes-form > p {
+        font-size: 1.1em;
+    }
+}
+
+#issue-yes-form .input-fld:last-child {
+    margin-bottom: 25px;
+}
+
+#btn-place-date {
+    padding: 0 15px;
+    background-size: cover;
+    font-size: 0.7em;
+}
+
+@media (min-width: 768px) {
+    #btn-place-date {
+        line-height: 38px;
+        background-position: 0 -2px;
+    }
+
+    #btn-place-date:hover {
+        background-position: 0 -48px;
+    }
+}
+
+#check-place-date {
+    display: block;
+    padding: 0;
+    color: #f37c1b;
+    background: transparent;
+    font-size: 0.7em;
+    line-height: 1.4em;
+    text-decoration: underline;
+}
+
+@media (min-width: 768px) {
+    #btn-place-date,
+    #check-place-date {
+        font-size: 0.9em;
+    }
+}
+
+/*Captcha (modal)*/
+#myModal .modal-sm {
+    width: 310px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+@media (min-width: 768px) {
+    #myModal .modal-sm {
+        width: 320px;
+        margin: 20px auto;
+    }
+}
+
+#myModal{
+    z-index: 1050;
+}
+
+.g-recaptcha {
+    margin: 5px auto;
+    width: 304px;
+}
+
+
+@media (min-width: 768px) {
+    .g-recaptcha {
+        margin: 20px auto;
+    }
+}
+
+#btn-continue-2{
+    background: url("../../img/btn-bg-calc.png") no-repeat;
+    background-position: 0 0;
+    border-radius: 8px;
+    color: #fff;
+    font: 0.8em/30px Arial;
+    line-height: 30px;
+    padding: 0 50px;
+    margin-bottom: 10px;
+}
+
+@media (min-width: 768px){
+    #btn-continue-2 {
+        font-size: 0.9em;
+        margin-bottom: 20px;
+        line-height: 38px;
+        padding: 0 60px;
+    }
+}
+.btn-default.active,
+.btn-default.focus,
+.btn-default:active,
+.btn-default:focus,
+.btn-default:hover {
+    background-color: #db711b;
+}

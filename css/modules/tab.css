@@ -1,0 +1,91 @@
+#wrapper {
+    max-width: 1000px;
+    border: solid 1px #e8e8e8;
+    margin: 0 auto;
+}
+#wrapper div {
+    display:none;
+}
+#wrapper a{
+    color: black;
+    line-height: 1em;  
+    padding: 20px 10px;
+    display: block;
+    width: 33.3%;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    height: 60px;
+    float: left;
+    background-color: #e8e8e8;
+    margin-bottom: 30px;
+}
+#wrapper h4{
+    font-weight: bold;
+    margin-left: 40px;
+}
+#wrapper p{
+    margin-bottom: 30px;
+    margin-left: 40px;
+}
+#secondTab,
+#threeTab{
+    line-height: 40px;
+}
+#wrapper.tab1 div.tab1 {
+    display:block;
+    width:100%;
+}
+#wrapper.tab2 div.tab2 {
+    display:block;
+    width:100%;
+}
+#wrapper.tab3 div.tab3 {
+    display:block;
+    width:100%;
+}
+#wrapper.tab1 a.tab1 {
+    color: black;
+    background-color: #ffffff;
+    cursor: default;
+    font-weight: bold;
+    text-decoration: none;
+}
+#wrapper.tab2 a.tab2 {
+    color: black;
+     background-color: #ffffff;
+    cursor: default;
+    font-weight: bold;
+    text-decoration: none;
+}
+#wrapper.tab3 a.tab3 {
+    color: black;
+     background-color: #ffffff;
+    cursor: default;
+    font-weight: bold;
+    text-decoration: none;
+}
+@media (max-width: 768px){
+    #rule-tab{
+         width: 100%;
+    }
+    #wrapper {
+        width: 100%;
+        border: solid 1px #e8e8e8;
+    }
+    #wrapper a{
+        float: left;
+        width: 100%;
+        margin-bottom: 0px;
+    }
+    #wrapper.tab1 div.tab1,
+    #wrapper.tab2 div.tab2,
+    #wrapper.tab3 div.tab3{
+        
+    }
+
+    a#threeTab{
+        margin-bottom: 20px;
+    }
+}
