@@ -124,6 +124,8 @@
 <!--ReCaptcha-->
 <script src='https://www.google.com/recaptcha/api.js'></script>
 
+<script data-main="js/app/main.js" src="js/app/vendor/requirejs/require.js"></script>
+
 <!--Local settings-->
 <script src="js/settings-tourist.js"></script>
 </body>

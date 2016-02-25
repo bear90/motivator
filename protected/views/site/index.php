@@ -3,7 +3,7 @@
  * @author soza.mihail@gmail.com
  */
 ?>
-<section id="blank" class="container-fluid">
+<section id="blank" class="container-fluid" data-structure="index">
     <!--Menu-->
     <div class="row" id="main-menu">
         <div class="col-md-12 col-lg-11 col-lg-offset-1">
