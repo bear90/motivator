@@ -60,6 +60,16 @@
     <div class="center-block" id="discount-attraction"></div>
     <div class="center-block" id="privet-cabinet">
         <a href="/kabunet-turista/lk-turista.html" id="btn-privet-cabinet" class="btn btn-default text-uppercase text-center" style="font-size: 1.2em;">Личные кабинеты туристов</a>
+
+        <div class="block-login">
+            <form action="/" class="clearfix">
+                <label class="title">Введите пароль:</label>
+                <input type="password" placeholder="Пароль">
+               <div class="submit-block">
+                 <input type="submit" value="Войти">
+                </div>
+            </form>
+        </div>
     </div>
 
     <!--Rule tab-->
