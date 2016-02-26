@@ -6,10 +6,10 @@ return array(
     // application components
     'components'=>array(
         'db'=>array(
-            'connectionString'  => 'mysql:host=localhost;dbname=alarm',
+            'connectionString'  => 'mysql:host=localhost;dbname=user2007764_motivator',
             'emulatePrepare'    => true,
-            'username'          => 'root',
-            'password'          => '5Hf!8edd',
+            'username'          => 'motivator',
+            'password'          => 'OrOrUPWr',
             'charset'           => 'utf8',
         ),
 
@@ -25,7 +25,7 @@ return array(
     ),
 
     'params'=>array(
-        'adminEmail'    =>'vmishin@soxes.com',
-        'yiiPath'       => '/var/frameworks/yii/framework/yii.php',
+        'adminEmail'    =>'soza.mihail@gmail.com',
+        'yiiPath'       => '/home/user2007764/frameworks/1.1.17/framework/yii.php',
     ),
 );
