@@ -1,12 +1,16 @@
 <?php
 
-class SiteController extends CController {
+namespace application\controllers;
+
+class SiteController extends \CController {
 
     public $layout = 'site';
 
-    public function actionIndex()
-    {
-        $this->render('index');
+    public function actions(){
+        return [
+            'captcha' => ['class'=>'CCaptchaAction'],
+            'index' => 'application\\controllers\\site\\IndexAction',
+        ];
     }
 
 //    public function actionError() {

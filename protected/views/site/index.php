@@ -1,5 +1,7 @@
 <?php
 /**
+ * @var \CForm $loginForm
+ * @var \CForm $registerForm
  * @author soza.mihail@gmail.com
  */
 ?>
@@ -59,16 +61,12 @@
     <!--Privet cabinet tourist-->
     <div class="center-block" id="discount-attraction"></div>
     <div class="center-block" id="privet-cabinet">
-        <a href="/kabunet-turista/lk-turista.html" id="btn-privet-cabinet" class="btn btn-default text-uppercase text-center" style="font-size: 1.2em;">Личные кабинеты туристов</a>
-
-        <div class="block-login">
-            <form action="/" class="clearfix">
-                <label class="title">Введите пароль:</label>
-                <input type="password" placeholder="Пароль">
-               <div class="submit-block">
-                 <input type="submit" value="Войти">
-                </div>
-            </form>
+        <a href="#login-form" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default text-uppercase text-center" style="font-size: 1.2em;">Личные кабинеты туристов</a>
+        <div class="block-login collapse" id="login-form">
+            <?php echo $loginForm->renderBegin(); ?>
+            <?php echo $loginForm['password']; ?>
+            <?php echo $loginForm->renderButtons(); ?>
+            <?php echo $loginForm->renderEnd(); ?>
         </div>
     </div>
 
@@ -191,28 +189,25 @@
         <!--Info board (hide block) -->
         <div class="collapse" id="info-board-issue">
             <!--Form3-->
-            <form class="motivator-form" id="info-board-form" name="info-board-form" method="post" action="php_file" data-bv-message="This value is not valid"
-                  data-bv-feedbackicons-valid="glyphicon glyphicon-ok"
-                  data-bv-feedbackicons-invalid="glyphicon glyphicon-remove"
-                  data-bv-feedbackicons-validating="glyphicon glyphicon-refresh">
+            <?php echo $registerForm->renderBegin(); ?>
+
                 <div class="row fld-group">
                     <div class="input-fld col-xs-12">
-                        <label class="text-uppercase" for="last_name">Фамилия:</label>
-                        <input placeholder="Фамилия" type="text" name="last_name" id="last_name" data-bv-notempty data-bv-notempty-message="Введите фамилию!">
+                        <?php echo $registerForm['last_name']; ?>
                     </div>
                     <div class="input-fld col-xs-12">
-                        <label class="text-uppercase" for="first_name">Имя:</label>
-                        <input placeholder="Имя" type="text" name="first_name" id="first_name" data-bv-notempty data-bv-notempty-message="Введите имя!">
+                        <?php echo $registerForm['first_name']; ?>
                     </div>
                     <div class="input-fld col-xs-12">
-                        <label class="text-uppercase" for="email">E-mail:</label>
-                        <input placeholder="e-mail" type="email" name="email" id="email" data-bv-notempty data-bv-notempty-message="E-mail адрес обязателен!">
+                        <?php echo $registerForm['email']; ?>
                     </div>
                 </div>
                 <div class="row">
-                    <a style="width: 250px;" class="btn btn-default btn-continue text-uppercase btn-continue" id="btn-continue-1">Продолжить</a>
+                    <a style="width: 250px;" class="btn btn-default btn-continue btn-continue" id="btn-continue-1" href="#">ПРОДОЛЖИТЬ</a>
                 </div>
-            </form>
+
+            <?php echo $registerForm->renderEnd(); ?>
+
             <!--Result on submit form3 (hidden)-->
             <div class="row hidden" id="form-result">
                 <!-- BEGIN: ReCAPTCHA implementation. -->

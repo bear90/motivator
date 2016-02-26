@@ -79,7 +79,7 @@ $(document).ready(function() {
     });
 
     //Form3 validate
-    $('#info-board-form').bootstrapValidator({
+    $('#info-board-issue form').bootstrapValidator({
         message: 'Данные введены неверно',
         feedbackIcons: {
             valid: 'glyphicon glyphicon-ok',

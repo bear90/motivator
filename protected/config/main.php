@@ -11,10 +11,13 @@ return array(
     'language' => 'ru',
 
     'import' => array(
-        'application.models.*',
-        'application.models.entities.*',
-        'application.models.Defines.*',
-        'application.components.*',
+        //'application.models.*',
+        //'application.models.entities.*',
+        //'application.models.Defines.*',
+        //'application.components.*',
+    ),
+    'controllerMap' => array(
+        'site' => '\application\controllers\SiteController',
     ),
     /*'modules' => array(
         'api' => array(

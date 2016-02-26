@@ -504,6 +504,8 @@ li#tourist-cabinet > a:active, li#tourist-cabinet > a.active {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#128700', endColorstr='#44bb32', GradientType=0 );
 }
 
+#info-board-issue .input-fld label {text-transform: uppercase}
+
 @media (min-width: 768px) {
     .passive > a,
     .personal > a,
@@ -660,6 +662,11 @@ footer .logo > img {
     footer .logo > img {
         width: 240px;
     }
+}
+
+#privet-cabinet .block-login .row
+{
+    margin: 0;
 }
 
 #privet-cabinet .block-login {
