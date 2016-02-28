@@ -67,7 +67,7 @@ return array(
         ),
         'mail' => array(
             'class' => 'application.extensions.yii-mail.YiiMail',
-            'transportType' => 'smtp',
+            /*'transportType' => 'smtp',
             'transportOptions' => array(
                 'host' => 'webmail.active.by',
                 'username' => 'user@Мотиватор.бел',
@@ -76,7 +76,7 @@ return array(
                 'encryption'=>'tls',
             ),
             'logging' => true,
-            'dryRun' => false
+            'dryRun' => false*/
         ),
 
         'log' => array(
