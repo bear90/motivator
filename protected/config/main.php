@@ -67,15 +67,15 @@ return array(
         ),
         'mail' => array(
             'class' => 'application.extensions.yii-mail.YiiMail',
-            //'transportType' => 'smtp',
-            /*'transportOptions' => array(
-                'host' => 'smtp.gmail.com',
-                'username' => 'XXXX@gmail.com',
-                'password' => 'XXXX',
+            'transportType' => 'smtp',
+            'transportOptions' => array(
+                'host' => 'webmail.active.by',
+                'username' => 'user@xn--80adrpkdold.xn--90ais',
+                'password' => '871900',
                 'port' => '465',
                 'encryption'=>'tls',
-            ),*/
-            //'logging' => true,
+            ),
+            'logging' => true,
             'dryRun' => false
         ),
 
