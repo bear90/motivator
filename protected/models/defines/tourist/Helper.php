@@ -12,11 +12,11 @@ class Helper {
     public function create(array $data)
     {
         // create user
-        $userHelper = new UserHelper;
+        $userHelper = new UserHelper();
         $pass = UserHelper::generatePassword();
         $user = $userHelper->create($pass, UserRole::USER);
         // Create Tourist
-        $tourist = new Tourist;
+        $tourist = new Tourist();
         $tourist->attributes = $data;
         $tourist->statusId = TouristStatus::WANT_DISCONT;
         $tourist->userId = $user->id;
