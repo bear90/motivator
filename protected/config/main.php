@@ -79,18 +79,24 @@ return array(
             'dryRun' => false
         ),
 
-        /*'log' => array(
-            'class' => 'CLogRouter',
-            'routes' => array(
+        'log' => array(
+            'class'=>'CLogRouter',
+            'routes'=>array(
                 array(
-                    'class' => 'CFileLogRoute',
-                    'levels' => 'error, warning',
+                    'class'=>'CFileLogRoute',
+                    'levels'=>'trace, info, error, warning',
+                    'categories'=>'system.*',
                 ),
+                /*array(
+                    'class'=>'CEmailLogRoute',
+                    'levels'=>'error, warning',
+                    'emails'=>'admin@example.com',
+                ),*/
             ),
         ),
         'fixture'=>array(
             'class'=>'system.test.CDbFixtureManager',
-        )*/
+        )
     ),
 
     'params' => [
