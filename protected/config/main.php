@@ -85,7 +85,7 @@ return array(
                 array(
                     'class'=>'CFileLogRoute',
                     'levels'=>'trace, info, error, warning',
-                    'categories'=>'system.*',
+                    //'categories'=>'system.*',
                 ),
                 /*array(
                     'class'=>'CEmailLogRoute',
