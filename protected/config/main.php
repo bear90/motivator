@@ -75,9 +75,8 @@ return array(
                 'port' => '465',
                 'encryption'=>'tls',
             ),*/
-            //'viewPath' => 'application.views.mail',
             //'logging' => true,
-            //'dryRun' => true
+            'dryRun' => false
         ),
 
         /*'log' => array(
