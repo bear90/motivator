@@ -70,8 +70,8 @@ return array(
             'transportType' => 'smtp',
             'transportOptions' => array(
                 'host' => 'webmail.active.by',
-                'username' => 'user@xn--80adrpkdold.xn--90ais',
-                'password' => '871900',
+                'username' => 'user@Мотиватор.бел',
+                'password' => 'zaq1$RFV',
                 'port' => '465',
                 'encryption'=>'tls',
             ),
