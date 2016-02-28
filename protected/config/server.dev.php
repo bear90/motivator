@@ -8,7 +8,7 @@ $data =  array(
             'connectionString'  => 'mysql:host=localhost;dbname=motivator',
             'emulatePrepare'    => true,
             'username'          => 'root',
-            'password'          => 'root',
+            'password'          => 'start123',
             'charset'           => 'utf8',
             'enableParamLogging' => true,
             // 'initSQLs'          => array("SET collation_connection  = 'utf8_unicode_ci'")

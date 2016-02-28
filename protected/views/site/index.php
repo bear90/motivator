@@ -182,63 +182,6 @@
         </div><!--/3rd panel-->
 
     </div><!--/accordion -->
-
-    <!--Info board -->
-    <div class="row center-block text-center">
-        <a href="#info-board-issue" data-toggle="collapse" data-parent="#info-board-issue" id="btn-info-board-issue" class="btn btn-default text-uppercase text-center">Зарегистрироваться</a>
-        <!--Info board (hide block) -->
-        <div class="collapse" id="info-board-issue">
-            <!--Form3-->
-            <?php echo $registerForm->renderBegin(); ?>
-
-                <div class="row fld-group">
-                    <div class="input-fld col-xs-12">
-                        <?php echo $registerForm['last_name']; ?>
-                    </div>
-                    <div class="input-fld col-xs-12">
-                        <?php echo $registerForm['first_name']; ?>
-                    </div>
-                    <div class="input-fld col-xs-12">
-                        <?php echo $registerForm['email']; ?>
-                    </div>
-                </div>
-                <div class="row">
-                    <a style="width: 250px;" class="btn btn-default btn-continue btn-continue" id="btn-continue-1" href="#">ПРОДОЛЖИТЬ</a>
-                </div>
-
-            <?php echo $registerForm->renderEnd(); ?>
-
-            <!--Result on submit form3 (hidden)-->
-            <div class="row hidden" id="form-result">
-                <!-- BEGIN: ReCAPTCHA implementation. -->
-                <div class="g-recaptcha" data-sitekey="6LfzgAoTAAAAAM1tzq2tBzRXBgy9HxWSN_BDqEGp"></div>
-                <!-- END: ReCAPTCHA implementation. -->
-                <div class="info-result">
-                            <span style="font-size: 1.5em;">В случае привлечения вас абонентом системы «МОТИВАТОР»<br>
-                            введите сообщенный им код группы<br></span>
-                    <div class="groupCode center-block">
-                        <div class="input-fld">
-                            <label class="text-uppercase" for="first_name">Введите код группы:</label>
-                            <input placeholder="Код" type="text" name="Code_group" id="Code_group" data-bv-notempty data-bv-notempty-message="Введите имя!">
-                        </div>
-                    </div>
-                </div>
-                <div class="row center-block" id="issue-btns">
-                    <a style="width: 250px;" class="btn btn-default btn-continue text-uppercase btn-continue" id="btn-continue-1">Продолжить</a>
-                </div>
-                <div class="UserGaide">
-                    <input type="checkbox"><label style="font-size: 1.3em; padding-left: 10px;">Я подтверждаю свое согласие с условиями <a href="#" style="text-decoration: underline;">пользовательского соглашения</a></label>
-                </div>
-
-                <div class="row center-block text-center" style="margin-bottom: 30px;">
-                    <a href="#info-board-issue" data-toggle="collapse" data-parent="#info-board-issue" id="btn-info-board-issue-2" class="btn btn-default text-uppercase text-center">Зарегистрироваться</a>
-                </div>
-
-                <div class="info-result" style="font-size: 1.4em;">
-                    На ваш адрес отправлено сообщение <br>о присвоении вам статуса абонента системы
-                    «МОТИВАТОР»,<br> а также инструкция и пароль для вашего личного кабинета
-                </div>
-            </div><!--/form-result -->
-        </div><!--/info-board-issue -->
-    </div><!--/info board block-->
+    
+    <?php $this->renderPartial('partials/registration')?>
 </section>

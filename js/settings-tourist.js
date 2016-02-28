@@ -78,67 +78,7 @@ $(document).ready(function() {
         }
     });
 
-    //Form3 validate
-    $('#info-board-issue form').bootstrapValidator({
-        message: 'Данные введены неверно',
-        feedbackIcons: {
-            valid: 'glyphicon glyphicon-ok',
-            invalid: 'glyphicon glyphicon-remove',
-            validating: 'glyphicon glyphicon-refresh'
-        },
-        fields: {
-            first_name: {
-                validators: {
-                    notEmpty: {
-                        message: "Вам необходимо ввести имя!"
-                    }, // notEmpty
-                    regexp: {
-                        regexp: /^[A-Za-z\s.'-]+$/,
-                        message: "Буквенные символы, дефисы и пробелы"
-                    }
-                } // validators
-            },  // firstname
-            last_name: {
-                validators: {
-                    notEmpty: {
-                        message: "Вы забыли ввести фамилию!"
-                    }, // notEmpty
-                    regexp: {
-                        regexp: /^[A-Za-z\s.'-]+$/,
-                        message: "Буквенные символы, дефисы и пробелы"
-                    }
-                } // validators
-            },  // lastname
-            middle_name: {
-                validators: {
-                    notEmpty: {
-                        message: "Вы забыли ввести отчество!"
-                    }, // notEmpty
-                    regexp: {
-                        regexp: /^[A-Za-z\s.'-]+$/,
-                        message: "Буквенные символы, дефисы и пробелы"
-                    }
-                } // validators
-            },  // middlename
-            email: {
-                validators: {
-                    notEmpty: {
-                        message: "Необходимо ввести e-mail адрес."
-                    }, // notEmpty
-                    emailAddress: {
-                        message: "E-mail адрес введен неверно!"
-                    } // emailAddress
-                } // validators
-            }  // email
-        } // fields
-    });
-
-
-    //Button submit form (on modal)
-    $('#btn-continue-1').click(function(){
-        $('#form-result').removeClass('hidden');
-        //Then whatever you actually want to do i.e. submit form and send  email...
-    });
+    
 
     //Green button 'place date on the info-board'
     $('#btn-place-date').click(function () {

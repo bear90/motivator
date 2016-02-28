@@ -6,10 +6,6 @@ return [
     'action' => Yii::app()->createUrl('user/register'),
     'attributes' => [
         'class' => 'motivator-form bv-form',
-        'data-bv-message' => 'This value is not valid',
-        'data-bv-feedbackicons-valid' => 'glyphicon glyphicon-ok',
-        'bv-feedbackicons-invalid' => 'glyphicon glyphicon-remove',
-        'data-bv-feedbackicons-validating' => 'glyphicon glyphicon-refresh',
     ],
     'elements' => [
         'last_name' => [
@@ -17,9 +13,7 @@ return [
             'type' => 'text',
             'layout' => '{label}{input}',
             'attributes' => [
-                'name' => 'email',
-                'data-bv-notempty' => '',
-                'data-bv-notempty-message' => 'Введите фамилию!',
+                'name' => 'last_name',
                 'placeholder' => 'Фамилия'
             ]
         ],
@@ -29,8 +23,6 @@ return [
             'layout' => '{label}{input}',
             'attributes' => [
                 'name' => 'first_name',
-                'data-bv-notempty',
-                'data-bv-notempty-message' => 'Введите имя!',
                 'placeholder' => 'Имя'
             ]
         ],
@@ -40,9 +32,25 @@ return [
             'layout' => '{label}{input}',
             'attributes' => [
                 'name' => 'email',
-                'data-bv-notempty',
-                'data-bv-notempty-message' => 'E-mail адрес обязателен!',
                 'placeholder' => 'e-mail'
+            ]
+
+        ],
+        'verifyCode' => [
+            'type' => 'text',
+            'layout' => '{input}',
+            'attributes' => [
+                'name' => 'verifyCode'
+            ]
+
+        ],
+        'groupCode' => [
+            'label' => 'Введите код группы:',
+            'type' => 'text',
+            'layout' => '{label}{input}',
+            'attributes' => [
+                'name' => 'groupCode',
+                'placeholder' => 'Код'
             ]
 
         ]

@@ -106,7 +106,7 @@
     color: #fff;
 }
 
-.motivator-form .help-block {
+form .help-block {
     color: rgba(255, 0, 0, 0.7);
 }
 
@@ -269,14 +269,14 @@
 
 /*info-board-form*/
 
-#info-board-form .input-fld {
+#register-block form .input-fld {
     margin-bottom: 5px;
     padding-left: 25px;
     padding-right: 25px;
 }
 
 @media (min-width: 1200px) {
-    #info-board-form .input-fld {
+    #register-block form .input-fld {
         padding-left: 0;
         padding-right: 0;
     }

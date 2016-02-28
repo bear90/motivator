@@ -1,12 +1,18 @@
 /**
  * Created by m.soza on 25.02.2016.
  */
-define(['backbone'], function(Backbone){
+define([
+    'structures/registration/view'
+], function(RegisterView){
 
     var Index = Backbone.View.extend({
 
         render: function(){
-            console.log("Render Index page");
+            
+            (new RegisterView({
+                el: '#register-block'
+            })).render();
+
         }
     });
 

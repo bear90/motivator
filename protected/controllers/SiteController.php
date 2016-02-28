@@ -8,8 +8,9 @@ class SiteController extends \CController {
 
     public function actions(){
         return [
-            'captcha' => ['class'=>'CCaptchaAction'],
+            'captcha' => ['class'=>'CCaptchaAction', 'maxLength' => 6],
             'index' => 'application\\controllers\\site\\IndexAction',
+            'checkcapture' => 'application\\controllers\\site\\CheckcaptureAction',
         ];
     }
 

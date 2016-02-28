@@ -8,16 +8,17 @@
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => 'Motivator web application',
-    'language' => 'ru',
+    'language' => 'en',
 
     'import' => array(
         //'application.models.*',
         //'application.models.entities.*',
         //'application.models.Defines.*',
-        //'application.components.*',
+        'application.components.*',
     ),
     'controllerMap' => array(
         'site' => '\application\controllers\SiteController',
+        'api' => '\application\controllers\ApiController',
     ),
     /*'modules' => array(
         'api' => array(
@@ -50,6 +51,9 @@ return array(
             'urlFormat' => 'path',
             'showScriptName'=>false,
             'rules' => array(
+                // REST patterns
+                ['api/touristCreate', 'pattern'=>'api/tourist', 'verb'=>'POST'],
+                // Others
                 '<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
@@ -60,6 +64,20 @@ return array(
             'username' => 'root',
             'password' => 'start123',
             'charset' => 'utf8',
+        ),
+        'mail' => array(
+            'class' => 'application.extensions.yii-mail.YiiMail',
+            //'transportType' => 'smtp',
+            /*'transportOptions' => array(
+                'host' => 'smtp.gmail.com',
+                'username' => 'XXXX@gmail.com',
+                'password' => 'XXXX',
+                'port' => '465',
+                'encryption'=>'tls',
+            ),*/
+            //'viewPath' => 'application.views.mail',
+            //'logging' => true,
+            'dryRun' => true
         ),
 
         /*'log' => array(
@@ -76,8 +94,7 @@ return array(
         )*/
     ),
 
-    'params' => array(
-
+    'params' => [
         'adminEmail' => 'webmaster@example.com',
-    ),
+    ],
 );
