@@ -13,7 +13,7 @@ class TouristStatus extends \CActiveRecord{
     public function relations()
     {
         return [
-            'tourists'=>[self::HAS_MANY, 'application\\models\\Tourist', 'status'],
+            'tourists'=>[self::HAS_MANY, 'application\\models\\Tourist', 'statusId'],
         ];
     }
 
