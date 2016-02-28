@@ -3,7 +3,7 @@
 namespace application\models\defines\user;
 
 use application\models\defines\UserRole;
-use application\models\user;
+use application\models\User;
 
 class Helper {
 
