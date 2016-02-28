@@ -77,7 +77,7 @@ return array(
             ),*/
             //'viewPath' => 'application.views.mail',
             //'logging' => true,
-            'dryRun' => true
+            //'dryRun' => true
         ),
 
         /*'log' => array(
