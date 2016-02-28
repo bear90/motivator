@@ -2,7 +2,7 @@
 
 namespace application\models;
 
-class TouristStatus extends \CActiveRecord{
+class TouristStatus extends \CActiveRecord {
 
     public function rules(){
         return [
