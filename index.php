@@ -1,6 +1,5 @@
 <?php
 
-
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
@@ -12,7 +11,7 @@ if (file_exists($sEnvFile)) {
     $environment = trim(file_get_contents($sEnvFile));
 }
 
-if ( !in_array($environment, ['production', 'dev']) )
+if ( !in_array($environment, [/*'production', */'dev']) )
 {
     defined('YII_DEBUG') or define('YII_DEBUG', true);
     defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL', 3);
