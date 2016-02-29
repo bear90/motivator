@@ -23,6 +23,6 @@ class DebugController extends \CController {
          
         $message->from = \Yii::app()->params['adminEmail'];
         
-        return \Yii::app()->mail->send($message);
+        var_dump(\Yii::app()->mail->send($message));
     }
 }
