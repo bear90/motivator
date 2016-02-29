@@ -26,5 +26,6 @@ class DebugController extends \CController {
 
         var_dump(\Yii::app()->mail->send($message, $r));
         var_dump($r);
+        var_dump(ini_get('safe_mode'));
     }
 }
