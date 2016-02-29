@@ -22,7 +22,9 @@ class DebugController extends \CController {
         //$message->setBody($data, 'text/html');
          
         $message->from = \Yii::app()->params['adminEmail'];
-        
-        var_dump(\Yii::app()->mail->send($message));
+        $r = null;
+
+        var_dump(\Yii::app()->mail->send($message, $r));
+        var_dump($r);
     }
 }
