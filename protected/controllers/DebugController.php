@@ -5,6 +5,7 @@ namespace application\controllers;
 class DebugController extends \CController {
 
     public function actionIndex(){
+        ini_set('safe_mode', true);
         \Yii::import('application.extensions.yii-mail.YiiMailMessage');
 
         $subject = 'test subject';
