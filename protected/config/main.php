@@ -19,6 +19,7 @@ return array(
     'controllerMap' => array(
         'site' => '\application\controllers\SiteController',
         'api' => '\application\controllers\ApiController',
+        'debug' => '\application\controllers\DebugController',
     ),
     /*'modules' => array(
         'api' => array(
