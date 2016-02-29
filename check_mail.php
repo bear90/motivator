@@ -12,5 +12,5 @@ $headers = "Message-ID: <1456760595.56d4671398752@xn--80adrpkdold.xn--90ais>" . 
         . "Content-Transfer-Encoding: quoted-printable" . "\r\n". "\r\n";
 
 // Send
-mail('soza.mihail@gmail.com', 'test subject', "", $headers);
+mail('soza.mihail@gmail.com', 'test subject', "", $headers, "-fsoza.mihail@gmail.com");
 ?>
