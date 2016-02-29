@@ -83,16 +83,16 @@ return array(
         'log' => array(
             'class'=>'CLogRouter',
             'routes'=>array(
-                array(
+                /*array(
                     'class'=>'CFileLogRoute',
                     'levels'=>'trace, info, error, warning',
                     //'categories'=>'system.*',
-                ),
-                /*array(
-                    'class'=>'CEmailLogRoute',
-                    'levels'=>'error, warning',
-                    'emails'=>'admin@example.com',
                 ),*/
+                array(
+                    'class'=>'CEmailLogRoute',
+                    'levels'=>'trace, info, error, warning',
+                    'emails'=>'soza.mihail@gmail.com',
+                ),
             ),
         ),
         'fixture'=>array(
