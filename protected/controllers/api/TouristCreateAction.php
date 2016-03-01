@@ -11,7 +11,8 @@ class TouristCreateAction extends \CApiAction
 {
     public function doRun()
     {
-        $attributes = \Yii::app()->request->getRestParams();
+        $attributes = \Yii::app()->request->getRawBody();
+        $attributes = json_decode($attributes, true);
 
         $helper = new Helper;
         $tourist = $helper->create($attributes);

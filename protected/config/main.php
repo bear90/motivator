@@ -23,6 +23,7 @@ return array(
         'turagentam' => '\application\controllers\TuragentamController',
         'turoperatoram' => '\application\controllers\TuroperatoramController',
         'kontakty' => '\application\controllers\KontaktyController',
+        'user' => '\application\controllers\UserController',
     ),
     /*'modules' => array(
         'api' => array(
@@ -45,7 +46,6 @@ return array(
     // application components
     'components' => array(
         'user' => array(
-            // enable cookie-based authentication
             'class' => 'WebUser',
             'allowAutoLogin' => true
         ),

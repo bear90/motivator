@@ -3,13 +3,23 @@
  * @author soza.mihail@gmail.com
  */
 return [
-    'action' => Yii::app()->createUrl('user/login'),
+    'action' => Yii::app()->createUrl('/'),
     'elements' => [
-
+        'submit' => [
+            'type' => 'hidden',
+            'value' => '1',
+            'attributes' => [
+                'name' => 'submit',
+            ],
+            'layout' => '{input}',
+        ],
         'password' => [
             'label' => 'Введите пароль:',
             'type' => 'password',
-            'layout' => '{label}{input}'
+            'layout' => '{label}{input}',
+            'attributes' => [
+                'name' => 'password',
+            ]
         ]
     ],
 

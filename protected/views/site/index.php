@@ -2,6 +2,7 @@
 /**
  * @var \CForm $loginForm
  * @var \CForm $registerForm
+ * @var string $loginError
  * @author soza.mihail@gmail.com
  */
 ?>
@@ -61,13 +62,22 @@
     <!--Privet cabinet tourist-->
     <div class="center-block" id="discount-attraction"></div>
     <div class="center-block" id="privet-cabinet">
-        <a href="#login-form" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default text-uppercase text-center" style="font-size: 1.2em;">Личные кабинеты туристов</a>
-        <div class="block-login collapse" id="login-form">
-            <?php echo $loginForm->renderBegin(); ?>
-            <?php echo $loginForm['password']; ?>
-            <?php echo $loginForm->renderButtons(); ?>
-            <?php echo $loginForm->renderEnd(); ?>
-        </div>
+        <?php if (Yii::app()->user->isUser()):?>
+            <a href="<?php echo Yii::app()->createUrl('user/dashboard'); ?>" id="btn-privet-cabinet" class="btn btn-default text-uppercase text-center" style="font-size: 1.2em;">Личные кабинеты туристов</a>
+        <?php else: ?>
+            <a href="#login-form" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default text-uppercase text-center" style="font-size: 1.2em;">Личные кабинеты туристов</a>
+            <div class="block-login collapse<?php if ($loginError): ?> in<?php endif; ?>" id="login-form">
+                <?php echo $loginForm->renderBegin(); ?>
+                <?php echo $loginForm['submit']; ?>
+                <?php echo $loginForm['password']; ?>
+                <?php if ($loginError): ?>
+                    <small class="help-block" ><?php echo $loginError; ?></small>
+                <?php endif; ?>
+
+                <?php echo $loginForm->renderButtons(); ?>
+                <?php echo $loginForm->renderEnd(); ?>
+            </div>
+        <?php endif; ?>
     </div>
 
     <!--Rule tab-->
