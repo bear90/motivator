@@ -20,6 +20,9 @@ return array(
         'site' => '\application\controllers\SiteController',
         'api' => '\application\controllers\ApiController',
         'debug' => '\application\controllers\DebugController',
+        'turagentam' => '\application\controllers\TuragentamController',
+        'turoperatoram' => '\application\controllers\TuroperatoramController',
+        'kontakty' => '\application\controllers\KontaktyController',
     ),
     /*'modules' => array(
         'api' => array(
