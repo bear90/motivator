@@ -13,6 +13,10 @@ $data =  array(
             'enableParamLogging' => true,
             // 'initSQLs'          => array("SET collation_connection  = 'utf8_unicode_ci'")
         ),
+        'mail' => array(
+            'class' => 'application.extensions.yii-mail.YiiMail',
+            'dryRun' => true
+        ),
     ),
 
     'params'=>array(

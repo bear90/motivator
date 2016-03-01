@@ -13,7 +13,7 @@ class User extends \CActiveRecord{
     public function relations()
     {
         return [
-            'tourists'=>[self::HAS_MANY, 'application\\models\\Tourist', 'userId'],
+            'tourist'=>[self::HAS_ONE, 'application\\models\\Tourist', 'userId'],
             'role'=>[self::BELONGS_TO, 'application\\models\\UserRole', 'roleId'],
         ];
     }

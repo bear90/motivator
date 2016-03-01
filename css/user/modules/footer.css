@@ -1,0 +1,160 @@
+footer {
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+    footer {
+        width: 766px;
+    }
+}
+
+@media (min-width: 992px) {
+    footer{
+        width: 974px;
+    }
+}
+
+@media (min-width: 1200px) {
+    footer {
+        width: 1182px;
+    }
+}
+
+/*Logo*/
+footer .logo {
+    width: 100%;
+    margin-left: 0;
+}
+
+@media (min-width: 360px) {
+    footer .logo {
+        margin-left: 25px;
+    }
+}
+
+@media (min-width: 420px) {
+    footer .logo {
+        margin-left: 15%;
+    }
+}
+
+@media (min-width: 500px) {
+    footer .logo {
+        margin-left: 22%;
+    }
+}
+
+@media (min-width: 600px) {
+    footer .logo {
+        margin-left: 28%;
+    }
+}
+
+@media (min-width: 768px) {
+    footer .logo {
+        margin-left: 0;
+    }
+}
+
+footer .logo > img {
+    width: 240px;
+}
+
+footer .logo > h1 {
+    font-size: 0.7em;
+    margin: 0;
+    vertical-align: bottom;
+    padding-left: 5px;
+}
+
+
+/*Menu*/
+footer ul.navbar-nav {
+    margin-top: 15px;
+    margin-left: 55px;
+}
+
+#footer-menu {
+    display: none;
+}
+
+@media (min-width: 1200px) {
+    #footer-menu {
+        display: block;
+    }
+}
+
+footer ul.navbar-nav > li > a {
+    padding: 0;
+    color: #000;
+    margin: 0 13px;
+    font: 14px Arial;
+    font-weight: bold;
+    display: inline-block;
+}
+
+footer ul > li > a:hover,
+footer ul > li > a:focus {
+    border-bottom: 1px solid #000;
+}
+
+footer ul > li.active > a {
+    color: #fd8019;
+    line-height: 15px;
+    border-bottom: 1px solid #fd8019;
+}
+
+footer ul > li.active > a:hover {
+    border-color: #fd8019;
+}
+
+#creator {
+    display: none;
+}
+
+@media (min-width: 1200px) {
+    #creator {
+        display: block;
+    }
+
+    #creator span {
+        color: #000;
+        font: 0.85em Arial;
+        vertical-align: bottom;
+    }
+
+    .creator {
+        display: inline-block;
+        vertical-align: bottom;
+        margin-top: 10px;
+    }
+
+    .creator:hover {
+        opacity: 0.8;
+    }
+
+    .creator > img {
+        padding-left: 5px;
+    }
+}
+
+#copyright {
+    color: #4a4a4a;
+    font: 0.6em Arial;
+    position: relative;
+    top: 10px;
+}
+
+@media (min-width: 768px) {
+    #copyright {
+        font-size: 0.9em;
+    }
+}
+
+@media (min-width: 1200px) {
+    #copyright {
+        top: -10px;
+    }
+}

@@ -92,6 +92,12 @@ $(document).ready(function() {
         $('#check-place-date').removeClass('hidden');
     });
 
+    //countdown time
+    var austDay = new Date();
+    austDay = new Date(austDay.getFullYear() + 1, 1 - 1, 26);
+    $('#wrapper .bottom-block.tourists .countdown-time').countdown({until: austDay});
+    // $('#year').text(austDay.getFullYear());
+
 
 });
 
