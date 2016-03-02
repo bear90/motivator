@@ -1,3 +1,4 @@
 env
 assets
-protected/config/server.mikhail.php
+protected/config/server.*.php
+protected/config/console.*.php
