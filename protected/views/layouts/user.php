@@ -35,7 +35,7 @@
                 <span>/</span>
                 <a href="#" class="link-now">Личный кабинет туриста</a>
             </div>
-            <div class="lk-block hidden-sm hidden-md hidden-lg">
+            <div class="lk-block ">
                 <span>ЛИЧНЫЙ КАБИНЕТ <b>№<?php echo Yii::app()->user->model->tourist->id; ?></b></span>
             </div>
         </header>
