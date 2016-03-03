@@ -55,14 +55,7 @@ $(document).ready(function() {
     //Input format (forms)
    // $('.money-format').priceFormat();
 
-    //Accordion
-    $('#accordion')
-        .on('show.bs.collapse', function(e) {
-            $(e.target).prev('.panel-heading').addClass('open-accordion');
-        })
-        .on('hide.bs.collapse', function(e) {
-            $(e.target).prev('.panel-heading').removeClass('open-accordion');
-        });
+
 
     //Button 'load more' (3rd panel)
     $('#load-more').click(function(){
@@ -91,12 +84,6 @@ $(document).ready(function() {
         },1000);
         $('#check-place-date').removeClass('hidden');
     });
-
-    //countdown time
-    var austDay = new Date();
-    austDay = new Date(austDay.getFullYear() + 1, 1 - 1, 26);
-    $('#wrapper .bottom-block.tourists .countdown-time').countdown({until: austDay});
-    // $('#year').text(austDay.getFullYear());
 
 
 });

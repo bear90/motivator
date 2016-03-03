@@ -12,7 +12,7 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.57);
 }
 
-[off-canvas*=left] #side-menu > li > a {color: #000000; line-height: 60px; padding: 0;}
+[off-canvas*=left] #side-menu > li > a {color: #000000; line-height: 60px; padding: 0; text-align: center;}
 [off-canvas*=left] #side-menu > li.active > a { color: #ffffff;}
 
 [off-canvas*=left] #side-menu > li.active,
@@ -44,5 +44,4 @@
   .navbar-nav li {
     display: block;
   }
-}
 }

@@ -4,6 +4,7 @@
 require.config({
     paths: {
         "jquery": "vendor/jquery/dist/jquery.min",
+        "bootstrap": "vendor/bootstrap/bootstrap.min",
         "underscore": "vendor/underscore-amd/underscore-min",
         "backbone": "vendor/backbone-amd/backbone-min",
         "validator": "vendor/bootstrap-validator/bootstrapValidator.min"

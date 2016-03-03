@@ -40,7 +40,7 @@
             </div>
         </header>
 
-        <section id="blank" class="container-fluid">
+        <section id="blank" class="container-fluid" data-structure="user">
             <div class="row">
                 <div class="head">
                     <h1>
@@ -267,14 +267,11 @@
 
     <!-- Main bxSlider -->
     <script src="/js/jquery.bxslider.min.js" type="text/javascript"></script>
-    <!--Local settings-->
-    <script src="/js/jquery.plugin.js" type="text/javascript"></script>
-    <script src="/js/jquery.countdown.js" type="text/javascript"></script>
-    <script src="/js/jquery.countdown-ru.js" type="text/javascript"></script>
-    <!-- // <script src="js/settings-contacts.js"></script> -->
 
     <!--Local settings-->
     <script src="/js/settings-contacts.js"></script>
+
+    <script data-main="/js/app/main.js" src="/js/app/vendor/requirejs/require.js"></script>
 
     <!--Local settings-->
     <script src="/js/settings-tourist.js"></script>

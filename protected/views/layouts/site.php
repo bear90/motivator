@@ -20,10 +20,6 @@
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="/js/html5shiv.min.js"></script>
-    <script src="/js/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body>
 
@@ -51,30 +47,7 @@
                 </a>
             </div>
             <div class="col-md-6" id="footer-menu">
-                <?php $this->widget('zii.widgets.CMenu',array(
-                    'items' => [
-                        [
-                            'label' => 'Туристам',
-                            'url' => ['/'],
-                            'active' => true
-                        ],
-                        [
-                            'label' => 'Турагентам',
-                            'url' => ['/turagentam'],
-                        ],
-                        [
-                            'label' => 'Туроператорам',
-                            'url' => ['/turoperatoram'],
-                        ],
-                        [
-                            'label' => 'Контакты',
-                            'url' => ['/kontakty'],
-                        ]
-                    ],
-                    'htmlOptions' => ['class' => 'nav navbar-nav', 'style' => 'margin-left: 55px;'],
-                    'itemCssClass' => 'text-uppercase'
-                )); ?>
-
+                <?php $this->widget('application\\components\\widgets\\MenuWidget', ['active' => 'turistam']); ?>
             </div>
             <div class="col-md-3" id="creator"></div>
         </div>
@@ -86,45 +59,24 @@
 
 <!-- Left Slidebar menu -->
 <div off-canvas="sb-1 left reveal">
-    <ul class="nav navbar-nav" id="side-menu">
-        <li class="active"><a href="/index.html" class="text-uppercase text-center">Туристам</a></li>
-        <li><a href="/turagentam/turagentam.html" class="text-uppercase text-center">Турагентам</a></li>
-        <li><a href="/turoperatoram/turoperatoram.html" class="text-uppercase text-center">Туроператорам</a></li>
-        <li><a href="/kontakty/contacts.html" class="text-uppercase text-center">Контакты</a></li>
-    </ul>
+    <?php $this->widget('application\\components\\widgets\\MenuWidget', [
+        'active' => 'turistam',
+        'htmlOptions' => [
+            'id' => 'side-menu'
+        ]
+    ]); ?>
 </div>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-            <!-- BEGIN: ReCAPTCHA implementation. -->
-            <div class="g-recaptcha" data-sitekey="6LfzgAoTAAAAAM1tzq2tBzRXBgy9HxWSN_BDqEGp"></div>
-            <!-- END: ReCAPTCHA implementation. -->
-            <div class="row text-center">
-                <a class="btn btn-default btn-continue text-uppercase btn-continue"  data-dismiss="modal">Продолжить</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <!--SlideBars plugin-->
 <script src="js/slidebars.js" type="text/javascript"></script>
 
 <!-- Main bxSlider -->
-<script src="js/jquery.bxslider.min.js" type="text/javascript"></script>
-<!--PriceFormat-->
-<script src="js/price.format.js" type="text/javascript"></script>
+<script src="/js/jquery.bxslider.min.js" type="text/javascript"></script>
+<script src="/js/settings-tourist.js" type="text/javascript"></script>
 
 <script data-main="js/app/main.js" src="js/app/vendor/requirejs/require.js"></script>
 
 <!--Local settings-->
-<script src="js/settings-tourist.js"></script>
 </body>
 </html>
 
