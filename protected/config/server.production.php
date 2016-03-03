@@ -12,16 +12,6 @@ return array(
             'password'          => 'OrOrUPWr',
             'charset'           => 'utf8',
         ),
-
-        'twilio' => array(
-            'class'         => 'ext.SoxesTwilio.SoxesTwilio',
-            'account_sid'   => 'ACf0a71422fc4101136a3b7aeb38698ca6',
-            'auth_token'    => '2536620b9a43d50030318353380de5f5',
-            'numbers'       => array(
-                'sms'   => '+41798071606',
-                'voice' => '+41435083291'
-            )
-        ),
     ),
 
     'params'=>array(
