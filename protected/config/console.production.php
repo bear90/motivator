@@ -3,7 +3,7 @@
  * @author soza.mihail@gmail.com
  */
 return [
-    'components' => [
+    'components' => array(
         'db' => array(
             'connectionString' => 'mysql:host=localhost;dbname=user2007764_motivator',
             'emulatePrepare' => true,
@@ -11,9 +11,9 @@ return [
             'password' => 'OrOrUPWr',
             'charset' => 'utf8',
         )
-    ],
-    'params' => [
+    ),
+    'params' => array(
         'yiiPath'       => '/home/user2007762/frameworks/1.1.17/framework/yii.php',
         'yiicPath'       => '/home/user2007762/frameworks/1.1.17/framework/yiic.php'
-    ]
+    )
 ];
