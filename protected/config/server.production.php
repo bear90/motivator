@@ -6,7 +6,7 @@ return array(
     // application components
     'components'=>array(
         'db'=>array(
-            'connectionString'  => 'mysql:host=localhost;dbname=user2007764_motivator',
+            'connectionString'  => 'mysql:host=localhost;dbname=user2007762_motivator',
             'emulatePrepare'    => true,
             'username'          => 'motivator',
             'password'          => 'OrOrUPWr',
