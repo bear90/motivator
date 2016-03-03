@@ -26,6 +26,6 @@ return array(
 
     'params'=>array(
         'adminEmail'    =>'soza.mihail@gmail.com',
-        'yiiPath'       => '/home/user2007764/frameworks/1.1.17/framework/yii.php',
+        'yiiPath'       => '/home/user2007762/frameworks/1.1.17/framework/yii.php',
     ),
 );
