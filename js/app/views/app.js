@@ -24,6 +24,25 @@ define(['backbone'], function(Backbone){
                     }
                 });
             }
+
+            $('.ms_tabs a.tab').on('click', function(e){
+                e.preventDefault();
+
+                var $el = $(e.target);
+                var $wrapper = $el.closest('.ms_tabs');
+                var prevTab = $wrapper.data('selected');
+                var curTab = $el.attr('href').substr(1);
+
+                if(prevTab != curTab)
+                {
+                    $wrapper.find('.tabs-link a.tab[href="#' + prevTab + '"]').removeClass('active');
+                    $wrapper.find('.tabs-link a.tab[href="#' + curTab + '"]').addClass('active');
+                    $wrapper
+                        .removeClass($wrapper.data('selected'))
+                        .addClass(curTab)
+                        .data('selected', curTab);
+                }
+            });
         }
     });
 

@@ -825,6 +825,11 @@
     display:block;
     clear: left;
 }
+
+#wrapper.tab7 div.tab7 {
+    display:block;
+    clear: left;
+}
 /*#wrapper.tab1 a.tab1 {
     color: black;
     background-color: #ffffff;
@@ -891,7 +896,7 @@
 }
 
 @media (max-width: 768px)  {
-    #blank {
+    #tourist-cabinet {
         padding-bottom: 0 !important;
     }
     .content {

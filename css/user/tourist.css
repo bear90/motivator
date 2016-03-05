@@ -25,7 +25,7 @@ body {
 }
 
 
-#blank {
+#tourist-cabinet {
     padding-bottom: 25px;
 }
 
@@ -734,4 +734,41 @@ footer .logo > img {
     footer .logo > img {
         width: 240px;
     }
+}
+
+#tourist-cabinet .tabs-block.tab7 {
+    text-align: center;
+}
+
+#tourist-cabinet .tabs-block p {
+    margin: 0 0 10px;
+}
+
+#tourist-cabinet .btn-green {
+    display: inline-block;
+    float: initial;
+    width: initial;
+    padding: 13px 12px;
+    height: initial;
+    font-weight: bold;
+    background: rgba(18,135,0,1);
+    background: -moz-linear-gradient(top, rgba(18,135,0,1) 0%, rgba(68,187,50,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(18,135,0,1)), color-stop(100%, rgba(68,187,50,1)));
+    background: -webkit-linear-gradient(top, rgba(18,135,0,1) 0%, rgba(68,187,50,1) 100%);
+    background: -o-linear-gradient(top, rgba(18,135,0,1) 0%, rgba(68,187,50,1) 100%);
+    background: -ms-linear-gradient(top, rgba(18,135,0,1) 0%, rgba(68,187,50,1) 100%);
+    background: linear-gradient(to bottom, rgba(18,135,0,1) 0%, rgba(68,187,50,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#128700', endColorstr='#44bb32', GradientType=0 );
+    color: #ffffff;
+}
+
+#tourist-cabinet .btn-green:hover {
+    background: rgba(68,187,50,1);
+    background: -moz-linear-gradient(top, rgba(68,187,50,1) 0%, rgba(18,135,0,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(68,187,50,1)), color-stop(100%, rgba(18,135,0,1)));
+    background: -webkit-linear-gradient(top, rgba(68,187,50,1) 0%, rgba(18,135,0,1) 100%);
+    background: -o-linear-gradient(top, rgba(68,187,50,1) 0%, rgba(18,135,0,1) 100%);
+    background: -ms-linear-gradient(top, rgba(68,187,50,1) 0%, rgba(18,135,0,1) 100%);
+    background: linear-gradient(to bottom, rgba(68,187,50,1) 0%, rgba(18,135,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#44bb32', endColorstr='#128700', GradientType=0 );
 }

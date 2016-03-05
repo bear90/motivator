@@ -1,5 +1,5 @@
 
-#blank {
+#tourist-cabinet {
     background-color: #fff;
     box-shadow: 0 0 24px rgba(0, 0, 0, 0.33);
     width: 90%;
@@ -7,20 +7,20 @@
 }
 
 @media (min-width: 768px) {
-    #blank {
+    #tourist-cabinet {
         width: 766px;
         margin: 10px auto;
     }
 }
 
 @media (min-width: 992px) {
-    #blank {
+    #tourist-cabinet {
         width: 974px;
     }
 }
 
 @media (min-width: 1200px) {
-    #blank {
+    #tourist-cabinet {
         width: 1182px;
     }
 }

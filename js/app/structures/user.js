@@ -38,9 +38,10 @@ define([
             //countdown time
             this.initCountDown();
 
-            var austDay = new Date();
-            austDay = new Date(austDay.getFullYear() + 1, 1 - 1, 26);
-            this.$('#wrapper .bottom-block.tourists .countdown-time').countdown({until: '2016-03-05'});
+            var date = this.$('.countdown-time').data('date');
+            var austDay = new Date(date);
+            
+            this.$('.countdown-time').countdown({until: austDay});
         }
     });
 

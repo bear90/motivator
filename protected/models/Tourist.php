@@ -2,7 +2,9 @@
 
 namespace application\models;
 
-class Tourist extends \CActiveRecord{
+use application\components\DBEntity;
+
+class Tourist extends DBEntity {
 
     public function rules(){
         return [
@@ -27,5 +29,15 @@ class Tourist extends \CActiveRecord{
     public function tableName()
     {
         return 'tourists';
+    }
+
+    public function getTimer1($format = 'Y-m-d H:i:s')
+    {
+        $days = Configuration::get(Configuration::ORDER_TOUR_TIMER, 1);
+
+        $date = new \DateTime($this->createdAt);
+        $date->add(new \DateInterval("P{$days}D"));
+        
+        return $date->format($format);
     }
 }

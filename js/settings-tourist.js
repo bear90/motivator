@@ -63,14 +63,6 @@ $(document).ready(function() {
         $('#agent-list1').toggleClass('single-agent-list');
         $(this).children().toggleClass('glyphicon-chevron-down glyphicon-chevron-up');
     });
-
-    //tab click
-    $('#wrapper a').click(function() {
-        if ($(this).attr('class') != $('#wrapper').attr('class') ) {
-            $('#wrapper').attr('class',$(this).attr('class'));
-        }
-    });
-
     
 
     //Green button 'place date on the info-board'
@@ -84,8 +76,6 @@ $(document).ready(function() {
         },1000);
         $('#check-place-date').removeClass('hidden');
     });
-
-
 });
 
 function localSettings() {
