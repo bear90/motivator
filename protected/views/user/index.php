@@ -20,7 +20,7 @@
         </div>
     </div>
     <div id="rule-tab" class="center-block">
-        <div id="wrapper" class="ms_tabs tab7" data-selected="tab7">
+        <div id="wrapper" class="ms_tabs tab1" data-selected="tab1">
             <div class="tabs-link clearfix">
                 <a href="#tab1" class="tab">ВЫБОР ТУРА</a>
                 <a href="#tab5" class="tab" id="fiveTab">ВАШ ТУР</a>
@@ -30,58 +30,8 @@
                 <a href="#tab6" class="tab" id="sixTab">ВАШ МЕНЕДЖЕР</a>
             </div>
 
-            <div class="tab1 tabs-block clearfix">
-                <div class="tabs-block-inner">
-                    <div class="head-inner-block">
-                        <h4 class="title">Заполните и отправьте заявку на тур!</h4>
-                        <span class="sub-title">Вы всегда сможете <br>сменить выбранный тур!</span>
-                    </div>
-                    
-                    <div class="head-inner-block">
-                        <h3>ЗАЯВКА НА ТУР</h3>
-                        <form action="/" class="request-head-block clearfix">
-                            <div class="inner-block">
-                                <select>
-                                    <option value="val1">Выберите турагента</option>
-                                    <option value="val2">Выберите турагента</option>
-                                    <option value="val3">Выберите турагента</option>
-                                    <option value="val4">Выберите турагента</option>
-                                    <option value="val5">Выберите турагента</option>
-                                </select>
-                            </div>
-                            <div class="inner-block second">
-                                <label>Укажите страну отдыха:</label>
-                                <input type="text">
-                                <a href="#" class="add">+ ещё страна</a>
-                            </div>
-                            <div class="inner-block">
-                                <label>Продолжительность тура:</label>
-                                <input type="text" class="days">
-                                <span>дней</span>
-                            </div>
-                            <div class="inner-block full clearfix">
-                                <label class="big">Ориентировочная <b>дата начала тура</b>:</label>
-                                <span class="little">от</span>
-                                <input class="little" type="text" value="20.12.2016">
-                                <span>до</span>
-                                <input class="little" type="text" value="30.12.2016">
-                            </div>
-                
-                            <div class="inner-block full">
-                                <input type="submit" value="ОТПРАВИТЬ ЗАЯВКУ НА ТУР">
-                            </div>
-                        </form>
-                    </div>
-                    <a href="#" class="hide-block">Скрыть</a>
-                </div>
-
-                <div class="send-block center">
-                    <span class="arrow-ok"></span>
-                    <h2>ОТПРАВЛЕНО</h2>
-                    <p>Ваша заявка отправлена турагенту.</p>
-                    <p>Ждите звонок менеджера турагента.</p>
-                    <p>На адрес личного кабинета и по электронному адресу вам будут  отправлены данные вашего менеджера,  а также предложения туров согласно заявке. Желаю вам удачного выбора тура!<br>Система «МОТИВАТОР».</p>
-                </div>
+            <div class="tab1 tabs-block clearfix" id="order-tour">
+                <?php $this->renderPartial('partials/your_tour'); ?>
             </div>
             <div class="tab2 tabs-block">
                 <div class="inner-block">

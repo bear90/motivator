@@ -2,9 +2,10 @@
  * Created by m.soza on 03.03.2016.
  */
 define([
+    "structures/user/orderTour",
     "vendor/jquery.countdown/jquery.plugin",
     "vendor/jquery.countdown/jquery.countdown",
-], function(){
+], function(OrderTourView){
 
     var Index = Backbone.View.extend({
 
@@ -42,6 +43,10 @@ define([
             var austDay = new Date(date);
             
             this.$('.countdown-time').countdown({until: austDay});
+
+            (new OrderTourView({
+                el: '#order-tour'
+            })).render();
         }
     });
 

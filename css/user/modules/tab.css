@@ -191,7 +191,8 @@
 
 #wrapper .tabs-block.tab1 .inner-block {
     width: 100%;
-    text-align: center;
+    text-align: left;
+    margin-bottom: 12px;
 }
 
 #wrapper .tabs-block.tab1 {
@@ -212,6 +213,12 @@
     margin: 28px auto 0;
     text-align: center;
 }
+#wrapper .tabs-block.tab1 .tabs-block-inner .glyphicon {
+    position: absolute;
+    right: 0;
+    top: -5px;
+    cursor: pointer;
+}
 
 #wrapper .tabs-block.tab1 .head-inner-block {
     position: relative;
@@ -220,6 +227,7 @@
     -moz-border-radius: 8px;
     border-radius: 8px;
     padding: 20px 5px;
+    margin-bottom: 20px;
 }
 
 #wrapper .tabs-block.tab1 .head-inner-block:first-child {
@@ -237,7 +245,6 @@
     display: block;
     font-size: 22px;
     font-weight: 400;
-    margin-bottom: 20px;
 }
 
 #wrapper .tabs-block.tab1 h3 {
@@ -252,20 +259,11 @@
     margin-top: 35px;
 }
 
-#wrapper .tabs-block.tab1 .request-head-block .inner-block {
-    width: 47%;
-    float: left;
-}
-
 #wrapper .tabs-block.tab1 .request-head-block .inner-block.full {
     width: 100%;
     float: none;
     clear: both;
     margin-top: 15px;
-}
-
-#wrapper .tabs-block.tab1 .request-head-block .inner-block.second {
-    float: right;
 }
 
 #wrapper .tabs-block.tab1 .request-head-block select {
@@ -274,23 +272,23 @@
     -moz-border-radius: 7px;
     border-radius: 7px;
     color: #a8a8a8;
-    width: 100%;
-    padding: 2px 11px;
+    padding: 2px 20px 2px 11px;
     font-size: 17px;
     color: #000;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     background: transparent url('../../../img/arrow.png') 99% 50% no-repeat;
-    margin-bottom: 15px;
 }
+
+#wrapper .tabs-block.tab1 .view .request-head-block label {display: inline;}
 
 #wrapper .tabs-block.tab1 .request-head-block label {
     display: block;
     font-size: 18px;
     font-weight: 400;
     text-align: left;
-
+    margin-bottom: 0;
 }
 
 #wrapper .tabs-block.tab1 .request-head-block input {
@@ -299,9 +297,10 @@
     -moz-border-radius: 7px;
     border-radius: 7px;
     color: #000;
-    width: 100%;
     padding: 4px 11px;
     font-size: 12px;
+    display: block;
+    margin-bottom: 2px;
 }
 
 #wrapper .tabs-block.tab1 .request-head-block input.days {
@@ -327,6 +326,7 @@
     text-align: left;
     text-transform: lowercase;
     font-weight: 400;
+    float: initial;
 }
 
 #wrapper .tabs-block.tab1 .inner-block .clients-link {
@@ -451,10 +451,6 @@
 
 #wrapper .tabs-block.tab1 .inner-block .clients-link.green {
     background-color: #45ac44;
-}
-
-#wrapper .tabs-block.tab1 .inner-block:first-child {
-    margin-left: 0;
 }
 
 #wrapper .tabs-block.tab1 .inner-block .users-block {

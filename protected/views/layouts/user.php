@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/css/user/plugins/slidebars.css">
     <link rel="stylesheet" href="/css/user/tourist.css">
     <link rel="stylesheet" href="/css/user/contacts.css">
+    <link rel="stylesheet" href="/css/jquery-ui.min.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
