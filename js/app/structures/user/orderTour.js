@@ -6,8 +6,8 @@ define([
     var view = Backbone.View.extend({
 
         events: {
-            "click #submit": "submitForm",
-            "click #add-city": "addCity"
+            "click #add-city": "addCity",
+            "change #site": "showSite"
         },
 
         initialize: function(){
@@ -83,16 +83,17 @@ define([
             $lastInput.clone().val('').insertAfter($lastInput);
         },
 
-        submitForm: function(e)
+        showSite: function(e)
         {
-            e.preventDefault();
+            var $el = this.$(e.target);
 
-            this.$('form.addForm').submit();
+            var win = window.open($el.val(), '_blank');
+            win.focus();
         },
 
         render:  function (){
 
-        },
+        }
     });
 
     return view;

@@ -20,7 +20,7 @@
         </div>
     </div>
     <div id="rule-tab" class="center-block">
-        <div id="wrapper" class="ms_tabs tab1" data-selected="tab1">
+        <div id="wrapper" class="ms_tabs <?php echo $this->activeTab; ?>" data-selected="<?php echo $this->activeTab; ?>">
             <div class="tabs-link clearfix">
                 <a href="#tab1" class="tab">ВЫБОР ТУРА</a>
                 <a href="#tab5" class="tab" id="fiveTab">ВАШ ТУР</a>
@@ -31,7 +31,10 @@
             </div>
 
             <div class="tab1 tabs-block clearfix" id="order-tour">
-                <?php $this->renderPartial('partials/your_tour'); ?>
+                <?php $this->renderPartial('partials/your_tour', [
+                    'tourFormSubmitted' => $tourFormSubmitted,
+                    'tours' => $tours
+                ]); ?>
             </div>
             <div class="tab2 tabs-block">
                 <div class="inner-block">

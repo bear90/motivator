@@ -15,7 +15,6 @@
         <?php echo $form->renderBegin(); ?>
             <div class="inner-block col-xs-12">
                 <?php echo $form['site']; ?>
-                <a href="#" class="hidden">перейти</a>
             </div>
 
             <div class="inner-block col-xs-12">
@@ -42,37 +41,45 @@
     <a href="#" class="hide-block">Скрыть</a>
 </div>
 
-<div class="send-block center">
-    <span class="arrow-ok"></span>
-    <h2>ОТПРАВЛЕНО</h2>
-    <p>Ваша заявка отправлена турагенту.</p>
-    <p>Ждите звонок менеджера турагента.</p>
-    <p>На адрес личного кабинета и по электронному адресу вам будут  отправлены данные вашего менеджера,  а также предложения туров согласно заявке. Желаю вам удачного выбора тура!<br>Система «МОТИВАТОР».</p>
-</div>
-
-<div class="tabs-block-inner">
-    <div class="head-inner-block view">
-
-        <i class="glyphicon glyphicon-trash"><!-- --></i>
-        
-        <h3>ЗАЯВКА НА ТУР</h3>
-        <span class="request-head-block clearfix">
-            <div class="inner-block">
-                <label for="">Выберите турагента:</label> Турагент 1
-            </div>
-
-            <div class="inner-block">
-                <label>Укажите страну отдыха:</label>
-                Франция, Германия
-            </div>
-            <div class="inner-block">
-                <label>Ориентировочная дата начала тура:</label>
-                12.12.2016
-            </div>
-            <div class="inner-block">
-                <label>Ориентировочная дата окончания тура:</label>
-                12.12.2016
-            </div>
-        </span>
+<?php if ($tourFormSubmitted): ?>
+    <div class="send-block center" id="success">
+        <span class="arrow-ok"></span>
+        <h2>ОТПРАВЛЕНО</h2>
+        <p>Ваша заявка отправлена турагенту.</p>
+        <p>Ждите звонок менеджера турагента.</p>
+        <p>На адрес личного кабинета и по электронному адресу вам будут  отправлены данные вашего менеджера,  а также предложения туров согласно заявке. Желаю вам удачного выбора тура!<br>Система «МОТИВАТОР».</p>
     </div>
-</div>
+<?php endif; ?>
+
+<?php if (count($tours)):?>
+        <?php foreach ($tours as $tour): ?>
+        <div class="tabs-block-inner">
+            <div class="head-inner-block view">
+
+                <i class="glyphicon glyphicon-trash"><!-- --></i>
+
+                <h3>ЗАЯВКА НА ТУР</h3>
+
+                <span class="request-head-block clearfix">
+                    <div class="inner-block">
+                        <label for="">Турагента:</label> <?php echo $tour->touragent->name; ?>
+                    </div>
+
+                    <div class="inner-block">
+                        <label>Cтрана отдыха:</label>
+                        <?php echo $tour->getCities(); ?>
+                    </div>
+                    <div class="inner-block">
+                        <label>Ориентировочная дата начала тура:</label>
+                        <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $tour->startDate); ?>
+
+                    </div>
+                    <div class="inner-block">
+                        <label>Ориентировочная дата окончания тура:</label>
+                        <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $tour->endDate); ?>
+                    </div>
+                </span>
+            </div>
+        </div>
+        <?php endforeach; ?>
+<?php endif;?>

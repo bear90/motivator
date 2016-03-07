@@ -3,7 +3,7 @@
  * @author soza.mihail@gmail.com
  */
 return [
-    'action' => Yii::app()->createUrl('tourist/ordertour'),
+    'action' => Yii::app()->createUrl('user/ordertour'),
     'attributes' => [
         'class' => 'request-head-block clearfix addForm',
     ],
