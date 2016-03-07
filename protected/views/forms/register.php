@@ -53,6 +53,6 @@ return [
                 'placeholder' => 'Код'
             ]
 
-        ]
+        ],
     ]
 ];

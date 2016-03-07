@@ -1,40 +1,57 @@
 <?php
     use application\models\forms\OrderTour;
 
-    $form = new \CForm('application.views.forms.order_tour', new OrderTour())
+    $form = new \CForm('application.views.forms.order_tour', new OrderTour());
 ?>
 
 <div class="tabs-block-inner">
     <div class="head-inner-block">
         <h4 class="title">Заполните и отправьте заявку на тур!</h4>
-        <span class="sub-title">Вы всегда сможете <br>сменить выбранный тур!</span>
+        <span class="sub-title">Вы можете отправить несколько заявок на предполагаемые туры.</span>
     </div>
     
     <div class="head-inner-block">
         <h3>ЗАЯВКА НА ТУР</h3>
         <?php echo $form->renderBegin(); ?>
-            <div class="inner-block col-xs-12">
-                <?php echo $form['site']; ?>
+            <div class="step1">
+                <div class="inner-block col-xs-12">
+                    <?php echo $form['site']; ?>
+                </div>
+
+                <div class="inner-block col-xs-12">
+                    <?php echo $form['touragent']; ?>
+                </div>
+
+                <div class="inner-block col-xs-12">
+                    <?php echo $form['city']; ?>
+                    <a href="#" id="add-city" class="add">+ ещё страна</a>
+                </div>
+                <div class="inner-block col-xs-12">
+                    <?php echo $form['startDate']; ?>
+                </div>
+                <div class="inner-block col-xs-12">
+                    <?php echo $form['endDate']; ?>
+                </div>
+
+                <p>
+                    <button type="<?php echo $tourist->phone ? 'submit' : 'button'; ?>" class="btn btn-default btn-green">ОТПРАВИТЬ ЗАЯВКУ НА ТУР</button>
+                </p>
+            </div>
+            <div class="step2 hidden">
+                <h4>Сообщите дополнительно свои данные:</h4>
+                <div class="inner-block col-xs-12">
+                    <?php echo $form['middleName']; ?>
+                </div>
+                <div class="inner-block col-xs-12">
+                    <?php echo $form['phone']; ?>
+                </div>
+
+                <p>
+                    <button type="submit" class="btn btn-default btn-green">ОТПРАВИТЬ ЗАЯВКУ НА ТУР</button>
+                </p>
             </div>
 
-            <div class="inner-block col-xs-12">
-                <?php echo $form['touragent']; ?>
-            </div>
-
-            <div class="inner-block col-xs-12">
-                <?php echo $form['city']; ?>
-                <a href="#" id="add-city" class="add">+ ещё страна</a>
-            </div>
-            <div class="inner-block col-xs-12">
-                <?php echo $form['startDate']; ?>
-            </div>
-            <div class="inner-block col-xs-12">
-                <?php echo $form['endDate']; ?>
-            </div>
-
-            <p>
-                <button type="submit" class="btn btn-default btn-green">ОТПРАВИТЬ ЗАЯВКУ НА ТУР</button>
-            </p>
+            
         <?php echo $form->renderEnd(); ?>
     </div>
 
@@ -46,8 +63,9 @@
         <span class="arrow-ok"></span>
         <h2>ОТПРАВЛЕНО</h2>
         <p>Ваша заявка отправлена турагенту.</p>
-        <p>Ждите звонок менеджера турагента.</p>
-        <p>На адрес личного кабинета и по электронному адресу вам будут  отправлены данные вашего менеджера,  а также предложения туров согласно заявке. Желаю вам удачного выбора тура!<br>Система «МОТИВАТОР».</p>
+        <p>В Вашем личном кабинете и по почте ожидайте сообщения с предложениями туров  согласно заявке, а также звонок Вашего менеджера.</p>
+        <p>Для отправки заявок нескольким турагентам воспользуйтесь кнопкой «ВЫБОР ТУРА».</p>
+        <p>Желаю вам удачного выбора тура!<br>Система «МОТИВАТОР».</p>
     </div>
 <?php endif; ?>
 

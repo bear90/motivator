@@ -12,4 +12,7 @@ class OrderTour extends \CFormModel
     public $city;
     public $startDate;
     public $endDate;
+    // step 2
+    public $middleName;
+    public $phone;
 }

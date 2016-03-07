@@ -4,6 +4,7 @@
             <h1>
             <?php echo $tourist->lastName; ?>
             <?php echo $tourist->firstName; ?>
+            <?php echo $tourist->middleName; ?>
             </h1>
             <?php if($tourist->phone): ?>
                 <span><?php echo $tourist->phone; ?></span><br>
@@ -30,10 +31,11 @@
                 <a href="#tab6" class="tab" id="sixTab">ВАШ МЕНЕДЖЕР</a>
             </div>
 
-            <div class="tab1 tabs-block clearfix" id="order-tour">
+            <div class="tab1 tabs-block clearfix" id="order-tour" data-first-tour="<?php echo $tourist->phone ? 0 : 1; ?>">
                 <?php $this->renderPartial('partials/your_tour', [
                     'tourFormSubmitted' => $tourFormSubmitted,
-                    'tours' => $tours
+                    'tours' => $tours,
+                    'tourist' => $tourist
                 ]); ?>
             </div>
             <div class="tab2 tabs-block">

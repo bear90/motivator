@@ -28,4 +28,17 @@ class Helper {
 
         return $tourist;
     }
+
+    public function update($id, array $data)
+    {
+        $tourist = Tourist::model()->findByPk($id);
+        $tourist->attributes = $data;
+        $tourist->save();
+
+        if($tourist->hasErrors()){
+            throw new \Exception(\Tool::errorToString($tourist->errors));
+        }
+
+        return $tourist;
+    }
 }

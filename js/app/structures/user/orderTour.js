@@ -6,6 +6,7 @@ define([
     var view = Backbone.View.extend({
 
         events: {
+            "click form button[type=button]": "submitTour",
             "click #add-city": "addCity",
             "change #site": "showSite",
             "click .glyphicon-trash": "removeTour"
@@ -69,6 +70,20 @@ define([
                             }
                         }
                     },
+                    "tourist[middleName]": {
+                        validators: {
+                            notEmpty: {
+                                message: "Введите Ваше отчество!"
+                            }
+                        }
+                    },
+                    "tourist[phone]": {
+                        validators: {
+                            notEmpty: {
+                                message: "Введите Ваш телефон!"
+                            }
+                        }
+                    },
                 }
             });
         },
@@ -97,6 +112,18 @@ define([
             if(confirm('Вы уверены что хотите удилить тур?'))
             {
                 window.location = this.$(e.target).data('href');
+            }
+        },
+
+        submitTour: function(e){
+            e.preventDefault();
+
+            var validator = this.$('form.addForm').data('bootstrapValidator');
+            validator.validate();
+
+            if (validator.isValid() && this.$el.data('first-tour')){
+                this.$('.step1').addClass('hidden');
+                this.$('.step2').removeClass('hidden');
             }
         },
 

@@ -49,6 +49,23 @@ return [
             'attributes' => [
                 'name' => 'endDate',
             ]
-        ]
+        ],
+        // When order first tour
+        'middleName' => [
+            'label' => 'Очество:',
+            'type' => 'text',
+            'layout' => '{label}{input}',
+            'attributes' => [
+                'name' => 'tourist[middleName]'
+            ]
+        ],
+        'phone' => [
+            'label' => 'Номер телефона:',
+            'type' => 'text',
+            'layout' => '{label}{input}',
+            'attributes' => [
+                'name' => 'tourist[phone]'
+            ]
+        ],
     ]
 ];
