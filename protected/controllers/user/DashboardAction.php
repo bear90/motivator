@@ -19,6 +19,12 @@ class DashboardAction extends \CAction
             \Yii::app()->user->setState('tour::created', null);
             $this->controller->activeTab = 'tab1';
         }
+        
+        if (\Yii::app()->user->hasState('tour::deleted'))
+        {
+            \Yii::app()->user->setState('tour::deleted', null);
+            $this->controller->activeTab = 'tab1';
+        }
 
         $criteria = new \CDbCriteria();
         $criteria->with = ['cities', 'touragent'];

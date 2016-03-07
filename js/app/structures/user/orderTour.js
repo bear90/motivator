@@ -7,7 +7,8 @@ define([
 
         events: {
             "click #add-city": "addCity",
-            "change #site": "showSite"
+            "change #site": "showSite",
+            "click .glyphicon-trash": "removeTour"
         },
 
         initialize: function(){
@@ -89,6 +90,14 @@ define([
 
             var win = window.open($el.val(), '_blank');
             win.focus();
+        },
+
+        removeTour: function(e)
+        {
+            if(confirm('Вы уверены что хотите удилить тур?'))
+            {
+                window.location = this.$(e.target).data('href');
+            }
         },
 
         render:  function (){

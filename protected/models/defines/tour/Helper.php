@@ -33,4 +33,15 @@ class Helper {
 
         return $tour;
     }
+
+    public function delete($id)
+    {
+        $tour = Tour::model()->findByPk($id);
+        if($tour)
+        {
+            $tour->delete();
+        }
+
+        return true;
+    }
 }

@@ -56,7 +56,7 @@
         <div class="tabs-block-inner">
             <div class="head-inner-block view">
 
-                <i class="glyphicon glyphicon-trash"><!-- --></i>
+                <i class="glyphicon glyphicon-trash" data-href="/user/removetour?id=<?php echo $tour->id; ?>"><!-- --></i>
 
                 <h3>ЗАЯВКА НА ТУР</h3>
 
