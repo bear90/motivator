@@ -19,7 +19,7 @@
     <script src="js/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body class="turagentam">
     <div class="content" canvas="container" class="close-any">
         <header class="container-fluid">
             <div class="btn btn-default toggle-left">
@@ -27,7 +27,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </div>
-            <a class="logo" href="../index.html">
+            <a class="logo" href="/">
                 <img src="img/logo.png" alt="Motivator">
                 <h1 class="text-uppercase text-right text-logo">Для турагентов – это система, облегчающая привлечение новых клиентов
 </h1>
@@ -39,7 +39,7 @@
         <footer class="container-fluid">
             <div class="row">
                 <div class="col-xs-12 col-xs-offset-0 col-sm-4 col-sm-offset-4 col-lg-3 col-lg-offset-0">
-                    <a class="logo" href="../index.html">
+                    <a class="logo" href="/">
                         <img src="img/logo.png" alt="Motivator">
                     </a>
                 </div>

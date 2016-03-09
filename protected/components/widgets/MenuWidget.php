@@ -16,7 +16,7 @@ class MenuWidget extends \CWidget
         [
             'key' => 'turistam',
             'label' => 'Туристам',
-            'url' => ['/'],
+            'url' => '/',
         ],
         [
             'key' => 'turagentam',

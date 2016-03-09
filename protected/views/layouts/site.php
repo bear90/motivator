@@ -41,7 +41,7 @@
     <footer class="container-fluid">
         <div class="row">
             <div class="col-xs-12 col-xs-offset-0 col-sm-4 col-sm-offset-4 col-lg-3 col-lg-offset-0">
-                <a class="logo" href="../index.html">
+                <a class="logo" href="/">
                     <img src="img/logo.png" alt="Motivator">
                     <h1 class="text-uppercase text-right text-logo visible-xs-inline-block">для туристов</h1>
                 </a>

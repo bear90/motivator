@@ -74,6 +74,13 @@ header .toggle-left {
         margin: 0 auto;
         padding-top: 20px;
     }
+
+    .turagentam .logo {
+        display: block;
+        width: 100%;
+        margin: 0 auto;
+        padding-top: 20px;
+    }
 }
 
 .logo:hover {
@@ -93,6 +100,10 @@ header .toggle-left {
 @media (min-width: 768px) {
     .logo img {
         width: 370px;
+        vertical-align: sub;
+    }
+    .turagentam .logo img {
+        width: 340px;
         vertical-align: sub;
     }
 }
@@ -144,6 +155,18 @@ h1.text-logo {
 }
 
 @media (min-width: 1200px) {
+    .turagentam .logo img {
+        float: left;
+    }
+    .turagentam .logo h1.text-logo{
+        position: relative;
+        width: auto;
+        text-align: left;
+        vertical-align: super;
+        float: left;
+        width: 800px;
+        bottom: 0;
+    }
     .logo h1.text-logo{
         width: auto;
         text-align: center;

@@ -46,17 +46,12 @@
         <footer class="container-fluid">
             <div class="row">
                 <div class="col-xs-12 col-xs-offset-0 col-sm-4 col-sm-offset-4 col-lg-3 col-lg-offset-0">
-                    <a class="logo" href="index.html">
+                    <a class="logo" href="/">
                         <img src="/img/logo.png" alt="Motivator">
                     </a>
                 </div>
                 <div class="col-md-6" id="footer-menu">
-                    <ul class="nav navbar-nav">
-                        <li><a href="/index.html" class="text-uppercase">Туристам</a></li>
-                        <li><a href="/turagentam/turagentam.html" class="text-uppercase">Турагентам</a></li>
-                        <li><a href="/turoperatoram/turoperatoram.html" class="text-uppercase">Туроператорам</a></li>
-                        <li><a href="/kontakty/contacts.html" class="text-uppercase">Контакты</a></li>
-                    </ul>
+                    <?php $this->widget('application\\components\\widgets\\MenuWidget'); ?>
                 </div>
                 <div class="col-md-3" id="creator">
                   
@@ -71,12 +66,12 @@
 
     <!-- Left Slidebar menu -->
     <div off-canvas="sb-1 left reveal">
-        <ul class="nav navbar-nav" id="side-menu">
-            <li><a href="/index.html" class="text-uppercase text-center">Туристам</a></li>
-            <li><a href="/turagentam/turagentam.html" class="text-uppercase text-center">Турагентам</a></li>
-            <li><a href="/turoperatoram/turoperatoram.html" class="text-uppercase text-center">Туроператорам</a></li>
-            <li><a href="/kontakty/contacts.html" class="text-uppercase text-center">Контакты</a></li>
-        </ul>
+        <?php $this->widget('application\\components\\widgets\\MenuWidget', 
+            [
+                'htmlOptions' => [
+                    'id' => 'side-menu'
+                ]
+            ]); ?>
     </div>
 
 
