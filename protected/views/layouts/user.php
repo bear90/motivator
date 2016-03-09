@@ -28,11 +28,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </div>
-            <a class="logo" href="../index.html">
+            <a class="logo" href="/">
                 <img src="/img/logo.png" alt="Motivator">
             </a>
             <div class="breadcrumbs hidden-sm hidden-xs">
-                <a href="../index.html">Туристам</a>
+                <a href="/">Туристам</a>
                 <span>/</span>
                 <a href="#" class="link-now">Личный кабинет туриста</a>
             </div>

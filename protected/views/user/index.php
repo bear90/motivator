@@ -14,7 +14,7 @@
                 <h1><b>Город покупки тура:</b> <span><?php echo $tourist->tourCity; ?></span></h1>
             <?php endif; ?>
             <h1><b>Статус:</b> <span><?php echo $tourist->status->description; ?></span></h1>
-           <!-- <a href="#" class="hide-block">Скрыть</a>-->
+
             <a class="right-escape" href="<?php echo Yii::app()->createUrl('user/logout'); ?>">
                 <span>Вых</span>
             </a>
@@ -43,21 +43,21 @@
                     <h4>Приз</h4>
                     <p>Розыграш призов будет производиться <span>с 01.03.2016</span></p>
                 </div>
-                <a href="#" class="hide-block">Скрыть</a>
+
             </div>
             <div class="tab3 tabs-block">
                 <div class="inner-block">
                     <h4>Инструкция</h4>
                     <p>Как я уже писал Вам ранее, я предлагаю до сделать некоторые заготовки двух вкладок, планируемых к работе (кстати, Вы можете кое что взять из ранее сделанных нами вкладок.</p>
                 </div>
-                <a href="#" class="hide-block">Скрыть</a>
+
             </div>
             <div class="tab4 tabs-block">
                 <div class="inner-block">
                     <h4>Текстовый блок</h4>
                     <p>Как я уже писал Вам ранее, я предлагаю до сделать некоторые заготовки двух вкладок, планируемых к работе (кстати, Вы можете кое что взять из ранее сделанных нами вкладок.</p>
                 </div>
-                <a href="#" class="hide-block">Скрыть</a>
+
             </div>
             <div class="tab5 tabs-block">
                 <div class="inner-block our-tour">
@@ -74,14 +74,14 @@
                     <span class="sell">Сумма скидки: <span class="value money">2 000 000 бел.руб.</span></span>
                     <span>Сумма к доплате: <span class="value money">17 600 000 бел.руб.</span></span>
                 </div> -->
-                <a href="#" class="hide-block">Скрыть</a>
+
             </div>
 
             <div class="tab6 tabs-block">
                 <div class="inner-block">
                     <p>После выбора тура вам будет выделен персональный менеджер!</p>
                 </div>
-                <a href="#" class="hide-block">Скрыть</a>
+
             </div>
 
             <div class="tab7 tabs-block">

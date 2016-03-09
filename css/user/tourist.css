@@ -127,20 +127,6 @@ body {
 
 }
 
-.container-fluid .head .hide-block {
-    display: inline-block;
-    font-size: 14px;
-    color: #fff;
-    background: none;
-    padding: 0;
-    width: auto;
-    height: auto;
-    border-bottom: 2px dashed #fff;
-    text-transform: capitalize;
-    text-decoration: none;
-    margin-top: 30px;
-}
-
 
 .container-fluid .head h1.yellow {
     color: #ecff19;

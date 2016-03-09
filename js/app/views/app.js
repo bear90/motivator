@@ -41,18 +41,12 @@ define(['backbone'], function(Backbone){
                         .removeClass($wrapper.data('selected'))
                         .addClass(curTab)
                         .data('selected', curTab);
+                } else {
+                    $wrapper.find('.tabs-link a.tab[href="#' + prevTab + '"]').removeClass('active');
+                    $wrapper
+                        .removeClass($wrapper.data('selected'))
+                        .data('selected', '');
                 }
-            });
-
-            $('.hide-block').on('click', function(e){
-                e.preventDefault();
-
-                var $el = $(e.target);
-                var $wrapper = $el.closest('#wrapper');
-
-                $wrapper.find('.tabs-link a').removeClass('active');
-                $wrapper.removeClass($wrapper.data('selected'));
-                $wrapper.data('selected', '');
             });
         }
     });

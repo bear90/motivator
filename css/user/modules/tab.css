@@ -173,22 +173,6 @@
     margin: 28px auto 0;
 }
 
-#wrapper .tabs-block .hide-block {
-    display: block;
-    position: absolute;
-    bottom: -20px;
-    left: 0;
-    font-size: 14px;
-    color: #000;
-    background: none;
-    padding: 0;
-    width: auto;
-    height: auto;
-    border-bottom: 2px dashed #000;
-    text-transform: capitalize;
-    text-decoration: none;
-}
-
 #wrapper .tabs-block.tab1 .inner-block {
     width: 100%;
     text-align: left;

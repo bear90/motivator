@@ -178,14 +178,14 @@
             <div class="panel-heading">
                 <h4 class="panel-title text-center text-uppercase">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
-                        <div class="panel-text marginTop marginTopFive">Вопрос №5</div>
+                        <div class="panel-text marginTop marginTopFive">Партнеры  системы «мотиватор» продают туры дороже других?</div>
                         <div class="panel-direction pull-right"></div>
                     </a>
                 </h4>
             </div>
             <div id="collapseFive" class="panel-collapse collapse" style="margin-top: 5px;">
                 <div class="panel-body container-fluid">
-
+                    <p>Исходная базовая  стоимость туров – такая же, как при продаже этих же туров одного туроператора другими турагентствами.</p>
                 </div>
             </div><!--/3rd panel-body-->
             <!-- <div class="hideButton">Скрыть</div>-->

@@ -57,8 +57,6 @@
             
         <?php echo $form->renderEnd(); ?>
     </div>
-
-    <a href="#" class="hide-block">Скрыть</a>
 </div>
 
 <?php if (count($tours)):?>
