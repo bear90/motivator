@@ -34,7 +34,7 @@
                 </div>
 
                 <p>
-                    <button type="<?php echo $tourist->phone ? 'submit' : 'button'; ?>" class="btn btn-default btn-green">ОТПРАВИТЬ ЗАЯВКУ НА ТУР</button>
+                    <button type="<?php echo $tourist->phone ? 'submit' : 'button'; ?>" class="btn btn-default btn-green2">ОТПРАВИТЬ ЗАЯВКУ НА ТУР</button>
                 </p>
             </div>
 
@@ -49,7 +49,7 @@
                 </div>
 
                 <p>
-                    <button type="submit" class="btn btn-default btn-green">ОТПРАВИТЬ ЗАЯВКУ НА ТУР</button>
+                    <button type="submit" class="btn btn-default btn-green2">ОТПРАВИТЬ ЗАЯВКУ НА ТУР</button>
                 </p>
             </div>
             <?php endif;?>

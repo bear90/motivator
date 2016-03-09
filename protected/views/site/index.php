@@ -82,10 +82,10 @@
 
     <!--Rule tab-->
     <div id="rule-tab" class="center-block">
-        <div id="wrapper" class="tab1 ">
-            <a href="#" class="tab1">Как работает система «МОТИВАТОР»</a>
-            <a href="#" class="tab2" id="secondTab">Правила работы</a>
-            <a href="#" class="tab3" id="threeTab">Партнёры системы «МОТИВАТОР»</a>
+        <div id="wrapper" class="ms_tabs tab1" data-selected="tab1">
+            <a href="#tab1" class="tab active">Как работает система «МОТИВАТОР»</a>
+            <a href="#tab2" class="tab" id="secondTab">Правила работы</a>
+            <a href="#tab3" class="tab" id="threeTab">Партнёры системы «МОТИВАТОР»</a>
 
             <div class="tab1">
                 <h4>Инструкция 1</h4>

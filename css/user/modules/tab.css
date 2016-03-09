@@ -744,11 +744,6 @@
     font-weight: 400;
 }
 
-#wrapper .bottom-block.tourists .end-sell .countdown-time .countdown-section:last-child .countdown-amount {
-    background-color: #FF2604;
-    color: #fff;
-}
-
 #wrapper .bottom-block.tourists .end-sell .bottom-inner-block {
     width: 100%;
     clear: both;
