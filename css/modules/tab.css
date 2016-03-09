@@ -45,23 +45,9 @@
     display:block;
     width:100%;
 }
-#wrapper.tab1 a.tab1 {
+#wrapper a.tab.active {
     color: black;
     background-color: #ffffff;
-    cursor: default;
-    font-weight: bold;
-    text-decoration: none;
-}
-#wrapper.tab2 a.tab2 {
-    color: black;
-     background-color: #ffffff;
-    cursor: default;
-    font-weight: bold;
-    text-decoration: none;
-}
-#wrapper.tab3 a.tab3 {
-    color: black;
-     background-color: #ffffff;
     cursor: default;
     font-weight: bold;
     text-decoration: none;
@@ -78,11 +64,6 @@
         float: left;
         width: 100%;
         margin-bottom: 0px;
-    }
-    #wrapper.tab1 div.tab1,
-    #wrapper.tab2 div.tab2,
-    #wrapper.tab3 div.tab3{
-        
     }
 
     a#threeTab{

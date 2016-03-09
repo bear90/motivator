@@ -33,61 +33,7 @@
             </a>
         </header>
 
-        <section id="blank" class="container-fluid">
-            <!--Menu-->
-            <div class="row" id="main-menu">
-                <div class="col-md-12 col-lg-11 col-lg-offset-1">
-                    <?php $this->widget('zii.widgets.CMenu',array(
-                        'items' => [
-                            [
-                                'label' => 'Туристам',
-                                'url' => '/'
-                            ],
-                            [
-                                'label' => 'Турагентам',
-                                'url' => ['/turagentam'],
-                            ],
-                            [
-                                'label' => 'Туроператорам',
-                                'url' => ['/turoperatoram'],
-                            ],
-                            [
-                                'label' => 'Контакты',
-                                'url' => ['/kontakty'],
-                                'active' => true
-                            ]
-                        ],
-                        'htmlOptions' => ['class' => 'nav navbar-nav'],
-                        'itemCssClass' => 'text-uppercase'
-                    )); ?>
-                </div>
-            </div>
-            <!--Gallery-->
-            <div class="row">
-                <ul class="contact-gallery hidden-xs">
-                    <li><img src="img/contact-1.png" alt="1"></li>
-                    <li><img src="img/contact-2.png" alt="2"></li>
-                    <li><img src="img/contact-3.png" alt="3"></li>
-                    <li><img src="img/contact-4.png" alt="4"></li>
-                    <li><img src="img/contact-6.png" alt="5"></li>
-                </ul>
-            </div>
-            <!--Slider-->
-            <div class="row" id="slider">
-                <ul class="contact-slider visible-xs-block">
-                    <li><img src="img/contact-1.png" alt="1"></li>
-                    <li><img src="img/contact-2.png" alt="2"></li>
-                    <li><img src="img/contact-3.png" alt="3"></li>
-                    <li><img src="img/contact-4.png" alt="4"></li>
-                    <li><img src="img/contact-6.png" alt="5"></li>
-                </ul>
-            </div>
-            <!--Address-->
-            <div class="address-block">
-                <p class="text-uppercase">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old.</p>
-                <p class="text-uppercase">Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
-            </div>
-        </section>
+        <?php echo $content; ?>
 
         <footer class="container-fluid">
             <div class="row">
@@ -97,29 +43,9 @@
                     </a>
                 </div>
                 <div class="col-md-6" id="footer-menu">
-                    <?php $this->widget('zii.widgets.CMenu',array(
-                        'items' => [
-                            [
-                                'label' => 'Туристам',
-                                'url' => '/'
-                            ],
-                            [
-                                'label' => 'Турагентам',
-                                'url' => ['/turagentam'],
-                            ],
-                            [
-                                'label' => 'Туроператорам',
-                                'url' => ['/turoperatoram'],
-                            ],
-                            [
-                                'label' => 'Контакты',
-                                'url' => ['/kontakty'],
-                                'active' => true
-                            ]
-                        ],
-                        'htmlOptions' => ['class' => 'nav navbar-nav'],
-                        'itemCssClass' => 'text-uppercase'
-                    )); ?>
+                    <?php $this->widget('application\\components\\widgets\\MenuWidget', [
+                        'active' => 'contacts'
+                    ]); ?>
                 </div>
                 <div class="col-md-3" id="creator">
                   
@@ -134,29 +60,12 @@
 
     <!-- Left Slidebar menu -->
     <div off-canvas="sb-1 left reveal">
-        <?php $this->widget('zii.widgets.CMenu',array(
-            'items' => [
-                [
-                    'label' => 'Туристам',
-                    'url' => '/'
-                ],
-                [
-                    'label' => 'Турагентам',
-                    'url' => ['/turagentam'],
-                ],
-                [
-                    'label' => 'Туроператорам',
-                    'url' => ['/turoperatoram'],
-                ],
-                [
-                    'label' => 'Контакты',
-                    'url' => ['/kontakty'],
-                    'active' => true
-                ]
-            ],
-            'htmlOptions' => ['class' => 'nav navbar-nav'],
-            'itemCssClass' => 'text-uppercase'
-        )); ?>
+        <?php $this->widget('application\\components\\widgets\\MenuWidget', [
+            'active' => 'contacts',
+            'htmlOptions' => [
+                'id' => 'side-menu'
+            ]
+        ]); ?>
     </div>
 
 

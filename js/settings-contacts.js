@@ -58,9 +58,9 @@ function localSettings() {
     var deltaLg = hDoc - $('header').outerHeight() - $('footer').outerHeight() - $('#blank').outerHeight() - 20;
     var deltaXs = hDoc - $('header').outerHeight() - $('footer').outerHeight() - ($('#blank').outerWidth()/2 + 120 );
 
-    if(wDoc <= 768){
+    /*if(wDoc <= 768){
         $('.address-block').height(deltaXs);
     }else{
         $('.address-block').height(hAddr + deltaLg);
-    }
+    }*/
 }

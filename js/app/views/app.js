@@ -35,14 +35,14 @@ define(['backbone'], function(Backbone){
 
                 if(prevTab != curTab)
                 {
-                    $wrapper.find('.tabs-link a.tab[href="#' + prevTab + '"]').removeClass('active');
-                    $wrapper.find('.tabs-link a.tab[href="#' + curTab + '"]').addClass('active');
+                    $wrapper.find('a.tab[href="#' + prevTab + '"]').removeClass('active');
+                    $wrapper.find('a.tab[href="#' + curTab + '"]').addClass('active');
                     $wrapper
                         .removeClass($wrapper.data('selected'))
                         .addClass(curTab)
                         .data('selected', curTab);
-                } else {
-                    $wrapper.find('.tabs-link a.tab[href="#' + prevTab + '"]').removeClass('active');
+                } else if ($wrapper.data('collapse')) {
+                    $wrapper.find('a.tab[href="#' + prevTab + '"]').removeClass('active');
                     $wrapper
                         .removeClass($wrapper.data('selected'))
                         .data('selected', '');

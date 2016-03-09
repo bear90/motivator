@@ -34,110 +34,7 @@
             </a>
         </header>
 
-        <section id="blank" class="container-fluid">
-            <!--Menu-->
-            <div class="row" id="main-menu">
-                <div class="col-md-12 col-lg-11 col-lg-offset-1">
-                    <?php $this->widget('zii.widgets.CMenu',array(
-                        'items' => [
-                            [
-                                'label' => 'Туристам',
-                                'url' => '/'
-                            ],
-                            [
-                                'label' => 'Турагентам',
-                                'url' => ['/turagentam'],
-                                'active' => true
-                            ],
-                            [
-                                'label' => 'Туроператорам',
-                                'url' => ['/turoperatoram'],
-                            ],
-                            [
-                                'label' => 'Контакты',
-                                'url' => ['/kontakty'],
-                            ]
-                        ],
-                        'htmlOptions' => ['class' => 'nav navbar-nav'],
-                        'itemCssClass' => 'text-uppercase'
-                    )); ?>
-                </div>
-            </div>
-            <!--Gallery-->
-            <div class="row">
-                <ul class="contact-gallery hidden-xs">
-                    <li><img src="img/contact-1.png" alt="1"></li>
-                    <li><img src="img/contact-2.png" alt="2"></li>
-                    <li><img src="img/contact-3-new.png" alt="3"></li>
-                    <li><img src="img/contact-4.png" alt="4"></li>
-                    <li><img src="img/contact-5-new.png" alt="5"></li>
-                </ul>
-            </div>
-            <!--Slider-->
-            <div class="row" id="slider">
-                <ul class="contact-slider visible-xs-block">
-                    <li><img src="img/contact-1.png" alt="1"></li>
-                    <li><img src="img/contact-2.png" alt="2"></li>
-                    <li><img src="img/contact-3-new.png" alt="3"></li>
-                    <li><img src="img/contact-4.png" alt="4"></li>
-                    <li><img src="img/contact-5-new.png" alt="5"></li>
-                </ul>
-            </div>
-
-            <!--Privet cabinet tourist-->
-<div class="center-block" id="discount-attraction"></div>
-            <div class="center-block" id="privet-cabinet">
-                <a href="/kabunet-touragenta/lk-touragent.html" >рабочие кабинеты турагентов</a>
-               <div class="block-login">
-                    <form action="/" class="clearfix">
-                        <label class="title">Введите пароль:</label>
-                        <input type="password" placeholder="Пароль">
-                       <div class="submit-block">
-                         <input type="submit" value="Войти">
-                        </div>
-                    </form>
-                </div>
-            </div>               
-<!--Rule tab-->
-            <div id="rule-tab" class="center-block">
-                <div id="wrapper" class="tab1 ">
-                    <a href="#" class="tab1">Как работает система МОТИВАТОР</a>
-                    <a href="#" class="tab2" id="secondTab">Правила работы</a>
-                    <a href="#" class="tab3" id="threeTab">Статьи, Аналитика</a>
-
-                    <div class="tab1 tabs-block">
-                       <h4>Инструкция 1</h4>
-                       <p>Как я уже писал Вам ранее,я предлагаю до сделать некоторые заготовки двух вкладок планируемых к работе (кстати, Вы можете кое что взять из ранее сделанных нами вкладок.</p>
-                       <div class="block-links clearfix">
-                           <a href="#" class="inner-link coral"><img src="img/logo_ct.png" alt=""></a>
-                           <a href="#" class="inner-link"><img src="img/logo_vand.png"alt=""></a>
-                           <a href="#" class="inner-link sunmar"><img src="img/logo_sm.png" alt=""></a>
-                           <a href="#" class="inner-link tez"><img src="img/logo_tt.png" alt=""></a>
-                       </div>
-                    </div>
-                    <div class="tab2 tabs-block">
-                        <h4>Инструкция 2</h4>
-                       <p>Как я уже писал Вам ранее,я предлагаю до сделать некоторые заго</p>
-                       <div class="block-links clearfix">
-                           <a href="#" class="inner-link coral"><img src="img/logo_ct.png" alt=""></a>
-                           <a href="#" class="inner-link"><img src="img/logo_vand.png"alt=""></a>
-                           <a href="#" class="inner-link sunmar"><img src="img/logo_sm.png" alt=""></a>
-                           <a href="#" class="inner-link tez"><img src="img/logo_tt.png" alt=""></a>
-                       </div>
-                    </div>
-                    <div class="tab3 tabs-block">
-                        <h4>Инструкция 3</h4>
-                       <p>Как я уже писал Вам ранее,я предлагаю до сделать некоторые заго</p>
-                       <div class="block-links clearfix">
-                           <a href="#" class="inner-link coral"><img src="img/logo_ct.png" alt=""></a>
-                           <a href="#" class="inner-link"><img src="img/logo_vand.png"alt=""></a>
-                           <a href="#" class="inner-link sunmar"><img src="img/logo_sm.png" alt=""></a>
-                           <a href="#" class="inner-link tez"><img src="img/logo_tt.png" alt=""></a>
-                       </div>
-                    </div>
-                </div>​
-            </div>
-        </section>
+        <?php echo $content; ?>
 
         <footer class="container-fluid">
             <div class="row">
@@ -147,29 +44,9 @@
                     </a>
                 </div>
                 <div class="col-md-6" id="footer-menu">
-                    <?php $this->widget('zii.widgets.CMenu',array(
-                        'items' => [
-                            [
-                                'label' => 'Туристам',
-                                'url' => '/'
-                            ],
-                            [
-                                'label' => 'Турагентам',
-                                'url' => ['/turagentam'],
-                                'active' => true
-                            ],
-                            [
-                                'label' => 'Туроператорам',
-                                'url' => ['/turoperatoram'],
-                            ],
-                            [
-                                'label' => 'Контакты',
-                                'url' => ['/kontakty'],
-                            ]
-                        ],
-                        'htmlOptions' => ['class' => 'nav navbar-nav'],
-                        'itemCssClass' => 'text-uppercase'
-                    )); ?>
+                    <?php $this->widget('application\\components\\widgets\\MenuWidget', [
+                        'active' => 'turagentam'
+                    ]); ?>
                 </div>
                 <div class="col-md-3" id="creator">
                   
@@ -184,12 +61,12 @@
 
     <!-- Left Slidebar menu -->
     <div off-canvas="sb-1 left reveal">
-        <ul class="nav navbar-nav" id="side-menu">
-            <li><a href="/index.html" class="text-uppercase text-center">Туристам</a></li>
-            <li  class="active"><a href="#" class="text-uppercase text-center">Турагентам</a></li>
-            <li><a href="/turoperatoram/turoperatoram.html" class="text-uppercase text-center">Туроператорам</a></li>
-            <li><a href="/kontakty/contacts.html" class="text-uppercase text-center">Контакты</a></li>
-        </ul>
+        <?php $this->widget('application\\components\\widgets\\MenuWidget', [
+            'active' => 'turagentam',
+            'htmlOptions' => [
+                'id' => 'side-menu'
+            ]
+          ]); ?>
     </div>
 
 
@@ -209,6 +86,8 @@
 
     <!--Local settings-->
     <script src="js/settings-tourist.js"></script>
+
+    <script data-main="js/app/main.js" src="js/app/vendor/requirejs/require.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,110 @@
+<section id="blank" class="container-fluid">
+  <!--Menu-->
+  <div class="row" id="main-menu">
+      <div class="col-md-12 col-lg-11 col-lg-offset-1">
+          <?php $this->widget('application\\components\\widgets\\MenuWidget', [
+            'active' => 'turagentam'
+          ]); ?>
+      </div>
+  </div>
+  <!--Gallery-->
+  <div class="row">
+      <ul class="contact-gallery hidden-xs">
+          <li><img src="img/contact-1.png" alt="1"></li>
+          <li><img src="img/contact-2.png" alt="2"></li>
+          <li><img src="img/contact-3-new.png" alt="3"></li>
+          <li><img src="img/contact-4.png" alt="4"></li>
+          <li><img src="img/contact-5-new.png" alt="5"></li>
+      </ul>
+  </div>
+  <!--Slider-->
+  <div class="row" id="slider">
+      <ul class="contact-slider visible-xs-block">
+          <li><img src="img/contact-1.png" alt="1"></li>
+          <li><img src="img/contact-2.png" alt="2"></li>
+          <li><img src="img/contact-3-new.png" alt="3"></li>
+          <li><img src="img/contact-4.png" alt="4"></li>
+          <li><img src="img/contact-5-new.png" alt="5"></li>
+      </ul>
+  </div>
+
+  <!--Privet cabinet tourist-->
+<div class="center-block" id="discount-attraction"></div>
+  <div class="center-block" id="privet-cabinet">
+      <a href="/kabunet-touragenta/lk-touragent.html" >рабочие кабинеты турагентов</a>
+     <div class="block-login">
+          <form action="/" class="clearfix">
+              <label class="title">Введите пароль:</label>
+              <input type="password" placeholder="Пароль">
+             <div class="submit-block">
+               <input type="submit" value="Войти">
+              </div>
+          </form>
+      </div>
+  </div>               
+<!--Rule tab-->
+  <div id="rule-tab" class="center-block">
+      <div id="wrapper" class="tab1 ms_tabs" data-selected="tab1" data-collapse="0">
+          <a href="#tab1" class="tab active">Как работает система МОТИВАТОР</a>
+          <a href="#tab2" class="tab" id="secondTab">Правила работы</a>
+          <a href="#tab3" class="tab" id="threeTab">Статьи, Аналитика</a>
+
+          <div class="tab1 tabs-block">
+             <h4>КАК  РАБОТАЕТ  СИСТЕМА  «МОТИВАТОР»:</h4>
+             <p>
+               <ul>
+                 <li>В основу работы системы «МОТИВАТОР» положена математическая модель начисления скидок во взаимно-перекрывающихся покупательских группах туристов.</li>
+                 <li>Для обслуживания системы на базе данного сайта создана специальная программа автоматического ступенчатого начисления скидок.</li>
+                 <li>Партнёрами системы выделена дополнительная ценовая льгота на стоимость своих туров,которая  расходуется, как на начисление персональной стартовой скидки покупателя тура, так и на формирование общего бонусного фонда, распределяемого между абонентами системы.</li>
+                 <li>Темп роста абонентской скидки туриста до её максимального значения зависит от стоимости туров и количества их покупателей, начавших участвовать в работе системы позже данного туриста.</li>
+                 <li>Начисление скидки каждому абоненту системы в соответствующем статусе  происходит:
+                  <ul>
+                    <li>автоматически: при пассивном накоплении абонентской скидки в рамках личного кабинета на сайте;</li>
+                    <li>при личном участии владельца кабинета: с привлечением им своих знакомых к участию в работе системы ;</li>
+                  </ul>
+                 </li>
+               </ul>
+             </p>
+             <p>Размер общей скидки от системы «МОТИВАТОР» не ограничен!</p>
+             <p>
+               <ul>
+                 <li>В случае внесения предоплаты  и последующего отмены покупки тура туристом для сохранения уже начисленной ему скидки,необходимо поставить менеджера турагента в известность,  предоплата будет использована при покупке нового тура.</li>
+                 <li>Система «МОТИВАТОР» объединила в себе важные элементы надёжности и привлекательности,- такие как:
+                  <ul>
+                    <li>автоматическое управление, исключающее любые злоупотребления в связи с «человеческим фактором»;</li>
+                    <li>гибкость и лояльность, позволяющие не «загонять» туриста в жёсткие рамки, которые требуют от него больших предварительных оплат и грозят ему штрафными санкциями.</li>
+                  </ul>
+                 </li>
+               </ul>
+             </p>
+
+             <div class="block-links clearfix">
+                 <a href="#" class="inner-link coral"><img src="img/logo_ct.png" alt=""></a>
+                 <a href="#" class="inner-link"><img src="img/logo_vand.png"alt=""></a>
+                 <a href="#" class="inner-link sunmar"><img src="img/logo_sm.png" alt=""></a>
+                 <a href="#" class="inner-link tez"><img src="img/logo_tt.png" alt=""></a>
+             </div>
+          </div>
+          <div class="tab2 tabs-block">
+              <h4>Инструкция 2</h4>
+             <p>Как я уже писал Вам ранее,я предлагаю до сделать некоторые заго</p>
+             <div class="block-links clearfix">
+                 <a href="#" class="inner-link coral"><img src="img/logo_ct.png" alt=""></a>
+                 <a href="#" class="inner-link"><img src="img/logo_vand.png"alt=""></a>
+                 <a href="#" class="inner-link sunmar"><img src="img/logo_sm.png" alt=""></a>
+                 <a href="#" class="inner-link tez"><img src="img/logo_tt.png" alt=""></a>
+             </div>
+          </div>
+          <div class="tab3 tabs-block">
+              <h4>Инструкция 3</h4>
+             <p>Как я уже писал Вам ранее,я предлагаю до сделать некоторые заго</p>
+             <div class="block-links clearfix">
+                 <a href="#" class="inner-link coral"><img src="img/logo_ct.png" alt=""></a>
+                 <a href="#" class="inner-link"><img src="img/logo_vand.png"alt=""></a>
+                 <a href="#" class="inner-link sunmar"><img src="img/logo_sm.png" alt=""></a>
+                 <a href="#" class="inner-link tez"><img src="img/logo_tt.png" alt=""></a>
+             </div>
+          </div>
+      </div>​
+  </div>
+</section>

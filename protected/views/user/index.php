@@ -21,7 +21,7 @@
         </div>
     </div>
     <div id="rule-tab" class="center-block">
-        <div id="wrapper" class="ms_tabs <?php echo $this->activeTab; ?>" data-selected="<?php echo $this->activeTab; ?>">
+        <div id="wrapper" class="ms_tabs <?php echo $this->activeTab; ?>" data-selected="<?php echo $this->activeTab; ?>" data-collapse="1">
             <div class="tabs-link clearfix">
                 <a href="#tab1" class="tab">ВЫБОР ТУРА</a>
                 <a href="#tab5" class="tab" id="fiveTab">ВАШ ТУР</a>
