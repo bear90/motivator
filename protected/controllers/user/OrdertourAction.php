@@ -35,6 +35,6 @@ class OrdertourAction extends \CAction
 
         \Yii::app()->user->setState('tour::created', true);
 
-        $this->controller->redirect('/user/dashboard#success');
+        $this->controller->redirect('/user/dashboard');
     }
 }

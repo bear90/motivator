@@ -17,7 +17,6 @@ class DashboardAction extends \CAction
         {
             $tourFormSubmitted = true;
             \Yii::app()->user->setState('tour::created', null);
-            $this->controller->activeTab = 'tab1';
         }
         
         if (\Yii::app()->user->hasState('tour::deleted'))

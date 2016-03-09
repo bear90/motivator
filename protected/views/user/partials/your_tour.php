@@ -37,6 +37,8 @@
                     <button type="<?php echo $tourist->phone ? 'submit' : 'button'; ?>" class="btn btn-default btn-green">ОТПРАВИТЬ ЗАЯВКУ НА ТУР</button>
                 </p>
             </div>
+
+            <?php if(empty($tourist->phone)):?>
             <div class="step2 hidden">
                 <h4>Сообщите дополнительно свои данные:</h4>
                 <div class="inner-block col-xs-12">
@@ -50,6 +52,7 @@
                     <button type="submit" class="btn btn-default btn-green">ОТПРАВИТЬ ЗАЯВКУ НА ТУР</button>
                 </p>
             </div>
+            <?php endif;?>
 
             
         <?php echo $form->renderEnd(); ?>
@@ -57,17 +60,6 @@
 
     <a href="#" class="hide-block">Скрыть</a>
 </div>
-
-<?php if ($tourFormSubmitted): ?>
-    <div class="send-block center" id="success">
-        <span class="arrow-ok"></span>
-        <h2>ОТПРАВЛЕНО</h2>
-        <p>Ваша заявка отправлена турагенту.</p>
-        <p>В Вашем личном кабинете и по почте ожидайте сообщения с предложениями туров  согласно заявке, а также звонок Вашего менеджера.</p>
-        <p>Для отправки заявок нескольким турагентам воспользуйтесь кнопкой «ВЫБОР ТУРА».</p>
-        <p>Желаю вам удачного выбора тура!<br>Система «МОТИВАТОР».</p>
-    </div>
-<?php endif; ?>
 
 <?php if (count($tours)):?>
         <?php foreach ($tours as $tour): ?>

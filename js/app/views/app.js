@@ -43,6 +43,17 @@ define(['backbone'], function(Backbone){
                         .data('selected', curTab);
                 }
             });
+
+            $('.hide-block').on('click', function(e){
+                e.preventDefault();
+
+                var $el = $(e.target);
+                var $wrapper = $el.closest('#wrapper');
+
+                $wrapper.find('.tabs-link a').removeClass('active');
+                $wrapper.removeClass($wrapper.data('selected'));
+                $wrapper.data('selected', '');
+            });
         }
     });
 
