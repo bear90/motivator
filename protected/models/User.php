@@ -4,6 +4,8 @@ namespace application\models;
 
 class User extends \CActiveRecord{
 
+    private $salt = 'SaLtaSd';
+
     public function rules(){
         return [
             ['password, roleId', 'required']
@@ -26,5 +28,11 @@ class User extends \CActiveRecord{
     public function tableName()
     {
         return 'users';
+    }
+
+    public function getAutoLoginLink()
+    {
+        $hash = md5($this->id . $this->salt);
+        return "http://мотиватор.бел/user/login?hash={$hash}";
     }
 }
