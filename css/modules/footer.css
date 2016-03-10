@@ -82,6 +82,7 @@ footer ul.navbar-nav {
 @media (min-width: 1200px) {
     #footer-menu {
         display: block;
+        padding-left: 50px;
     }
 }
 

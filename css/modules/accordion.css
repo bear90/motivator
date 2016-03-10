@@ -148,7 +148,6 @@
 #accordion .panel-body {
     border: 2px solid #FF790B;
     border-radius: 5px;
-    min-height:  500px;
 }
 
 @media (min-width: 1200px) {

@@ -73,7 +73,6 @@ footer .logo > h1 {
 /*Menu*/
 footer ul.navbar-nav {
     margin-top: 15px;
-    margin-left: 55px;
 }
 
 #footer-menu {
@@ -83,6 +82,7 @@ footer ul.navbar-nav {
 @media (min-width: 1200px) {
     #footer-menu {
         display: block;
+        padding-left: 50px;
     }
 }
 

@@ -31,16 +31,22 @@
   <!--Privet cabinet tourist-->
 <div class="center-block" id="discount-attraction"></div>
   <div class="center-block" id="privet-cabinet">
-      <a href="/kabunet-touragenta/lk-touragent.html" >рабочие кабинеты турагентов</a>
-     <div class="block-login">
-          <form action="/" class="clearfix">
-              <label class="title">Введите пароль:</label>
-              <input type="password" placeholder="Пароль">
-             <div class="submit-block">
-               <input type="submit" value="Войти">
-              </div>
-          </form>
-      </div>
+      <?php if (Yii::app()->user->isManager()):?>
+            <a href="<?php echo Yii::app()->createUrl('turagentam/dashboard'); ?>" id="btn-privet-cabinet" class="btn btn-default text-uppercase text-center" style="font-size: 1.2em;">Рабочие кабинеты турагентов</a>
+        <?php else: ?>
+            <a href="#login-form" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default text-uppercase text-center" style="font-size: 1.2em;">Рабочие кабинеты турагентов</a>
+            <div class="block-login collapse<?php if ($loginError): ?> in<?php endif; ?>" id="login-form">
+                <?php echo $loginForm->renderBegin(); ?>
+                <?php echo $loginForm['submit']; ?>
+                <?php echo $loginForm['password']; ?>
+                <?php if ($loginError): ?>
+                    <small class="help-block" ><?php echo $loginError; ?></small>
+                <?php endif; ?>
+
+                <?php echo $loginForm->renderButtons(); ?>
+                <?php echo $loginForm->renderEnd(); ?>
+            </div>
+        <?php endif; ?>
   </div>               
 <!--Rule tab-->
   <div id="rule-tab" class="center-block">
@@ -50,7 +56,6 @@
           <a href="#tab3" class="tab" id="threeTab">Статьи, Аналитика</a>
 
           <div class="tab1 tabs-block">
-             <h4>КАК  РАБОТАЕТ  СИСТЕМА  «МОТИВАТОР»:</h4>
              <p>
                <ul>
                  <li>В основу работы системы «МОТИВАТОР» положена математическая модель начисления скидок во взаимно-перекрывающихся покупательских группах туристов.</li>
@@ -65,14 +70,14 @@
                  </li>
                </ul>
              </p>
-             <p>Размер общей скидки от системы «МОТИВАТОР» не ограничен!</p>
+             <p class="text-center"><strong>Размер общей скидки от системы «МОТИВАТОР» не ограничен!</strong></p>
              <p>
                <ul>
                  <li>В случае внесения предоплаты  и последующего отмены покупки тура туристом для сохранения уже начисленной ему скидки,необходимо поставить менеджера турагента в известность,  предоплата будет использована при покупке нового тура.</li>
                  <li>Система «МОТИВАТОР» объединила в себе важные элементы надёжности и привлекательности,- такие как:
                   <ul>
                     <li>автоматическое управление, исключающее любые злоупотребления в связи с «человеческим фактором»;</li>
-                    <li>гибкость и лояльность, позволяющие не «загонять» туриста в жёсткие рамки, которые требуют от него больших предварительных оплат и грозят ему штрафными санкциями.</li>
+                    <li>гибкость и лояльность, не требующая от туриста больших предварительных оплат и отсутствием  штрафных санкций при замене тура.</li>
                   </ul>
                  </li>
                </ul>

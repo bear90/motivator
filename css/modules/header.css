@@ -75,6 +75,7 @@ header .toggle-left {
         padding-top: 20px;
     }
 
+    .turoperatoram .logo,
     .turagentam .logo {
         display: block;
         width: 100%;
@@ -102,7 +103,8 @@ header .toggle-left {
         width: 370px;
         vertical-align: sub;
     }
-    .turagentam .logo img {
+    .turoperatoram header .logo img,
+    .turagentam header .logo img {
         width: 340px;
         vertical-align: sub;
     }
@@ -155,10 +157,12 @@ h1.text-logo {
 }
 
 @media (min-width: 1200px) {
-    .turagentam .logo img {
+    .turoperatoram header .logo img,
+    .turagentam header .logo img {
         float: left;
     }
-    .turagentam .logo h1.text-logo{
+    .turoperatoram header .logo h1.text-logo,
+    .turagentam header .logo h1.text-logo{
         position: relative;
         width: auto;
         text-align: left;
@@ -175,7 +179,3 @@ h1.text-logo {
         bottom: 8px;
     }
 }
-
-
-
-</br>

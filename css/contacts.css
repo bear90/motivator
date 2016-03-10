@@ -65,7 +65,7 @@ body {}
 }
 
 .address-block p {
-    font: 0.75em/1.5em Arial;
+    font-size: 17px;
     margin-bottom: 16px;
 }
 
@@ -111,9 +111,6 @@ body {}
         padding: 37px 45px 21px;
     }
 
-    .address-block p {
-        font-size: 0.85em;
-    }
 }
 
 @media (min-width: 1200px) {

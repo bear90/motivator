@@ -19,7 +19,7 @@
     <script src="js/respond.min.js"></script>
     <![endif]-->
 </head>
-<body>
+<body class="turoperatoram">
     <div class="content" canvas="container" class="close-any">
         <header class="container-fluid">
             <div class="btn btn-default toggle-left">

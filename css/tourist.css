@@ -82,7 +82,7 @@ body {
 /*----Buttons(internal menu)---*/
 #privet-cabinet{
     margin-bottom: 40px;
-    width: 302px;
+    width: 335px;
     text-transform: uppercase;
     text-align: center;
 }
@@ -760,4 +760,8 @@ footer .logo > img {
     width: 15px;
     height: 13px;
     margin-top: -3.5px;
+}
+
+#rule-tab .tabs-block {
+    font-size: 17px;
 }
