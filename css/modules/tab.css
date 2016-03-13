@@ -29,6 +29,18 @@
     margin-bottom: 30px;
     margin-left: 40px;
 }
+#wrapper .tab-rules p {
+    margin-bottom: 10px;
+}
+#wrapper .tab-rules li > p {
+    margin-left: 0;
+}
+#wrapper .tab-rules .detail-block {
+    color: #3da3ef;
+    border-bottom: 2px dashed #3da3ef;
+    cursor: pointer;
+}
+
 #secondTab,
 #threeTab{
     line-height: 40px;

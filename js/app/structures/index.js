@@ -42,6 +42,12 @@ define([
                 .on('hide.bs.collapse', function(e) {
                     $(e.target).prev('.panel-heading').removeClass('open-accordion');
                 });
+
+            this.$('.detail-block').on('click', function(e){
+                $(e.target).siblings('span.hidden').removeClass('hidden');
+                $(e.target).addClass('hidden');
+            });
+
         }
     });
 
