@@ -42,7 +42,7 @@ header .toggle-left {
 
 header .breadcrumbs {
     float: left;
-    width: 350px;
+    width: 310px;
     margin-left: 20px;
     padding-top: 35px;
 }
@@ -164,6 +164,12 @@ h1.text-logo {
         font-size: 1.5em;
         vertical-align: bottom;
     }
+
+    .lk-block {
+        margin-top: 35px;
+        text-align: right;
+        margin-right: 55px;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -171,6 +177,12 @@ h1.text-logo {
         width: auto;
         text-align: center;
         vertical-align: super;
+    }
+
+    .lk-block {
+        margin-top: 35px;
+        text-align: right;
+        margin-right: 55px;
     }
 }
 

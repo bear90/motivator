@@ -38,7 +38,7 @@
         <footer class="container-fluid">
             <div class="row">
                 <div class="col-xs-12 col-xs-offset-0 col-sm-4 col-sm-offset-4 col-lg-3 col-lg-offset-0">
-                    <a class="logo" href="/">
+                    <a class="logo" href="/admin">
                         <img src="img/logo.png" alt="Motivator">
                     </a>
                 </div>
@@ -88,6 +88,8 @@
 
     <!--Local settings-->
     <script src="js/settings-tourist.js"></script>
+
+    <script data-main="js/app/main.js" src="js/app/vendor/requirejs/require.js"></script>
 
 </body>
 </html>

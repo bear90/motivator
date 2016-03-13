@@ -251,7 +251,7 @@
     margin-top: 15px;
 }
 
-#wrapper .tabs-block.tab1 .request-head-block select {
+#wrapper .tabs-block.tab1 select {
     border: 1px solid #cfcfcf;
     -webkit-border-radius: 7px;
     -moz-border-radius: 7px;
@@ -268,7 +268,7 @@
 
 #wrapper .tabs-block.tab1 .view .request-head-block label {display: inline;}
 
-#wrapper .tabs-block.tab1 .request-head-block label {
+#wrapper .tabs-block.tab1 label {
     display: block;
     font-size: 18px;
     font-weight: 400;
@@ -658,7 +658,7 @@
 }
 
 #wrapper .bottom-block.tourists .sell-block {
-    background-color: #FF2604;
+    background-color: #fddaba;
     text-align: center;
     padding: 35px 0;
 }
@@ -666,7 +666,7 @@
 #wrapper .bottom-block.tourists .sell-block h4 {
     text-transform: uppercase;
     text-align: center;
-    color: #fff;
+    color: #FF2604;
     font-size: 20px;
     line-height: 1em;
     margin: 0;
@@ -678,7 +678,7 @@
 }
 
 #wrapper .bottom-block.tourists .sell-block h4 small {
-    color: #fff;
+    color: #FF2604;
     font-size: 16px;
     margin-left: 10px;
     text-transform: lowercase;

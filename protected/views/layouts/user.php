@@ -37,7 +37,7 @@
                 <a href="#" class="link-now">Личный кабинет туриста</a>
             </div>
             <div class="lk-block ">
-                <span>ЛИЧНЫЙ КАБИНЕТ <b>№<?php echo Yii::app()->user->model->tourist->id; ?></b></span>
+                <span>ЛИЧНЫЙ КАБИНЕТ <b>№<?php echo str_pad(Yii::app()->user->model->tourist->id, 7, "0", STR_PAD_LEFT)?></b></span>
             </div>
         </header>
 
@@ -45,7 +45,7 @@
 
         <footer class="container-fluid">
             <div class="row">
-                <div class="col-xs-12 col-xs-offset-0 col-sm-4 col-sm-offset-4 col-lg-3 col-lg-offset-0">
+                <div class="col-xs-12 col-xs-offset-0 col-sm-12 col-lg-3 col-lg-offset-0 text-center">
                     <a class="logo" href="/">
                         <img src="/img/logo.png" alt="Motivator">
                     </a>

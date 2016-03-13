@@ -86,8 +86,8 @@
     <div id="rule-tab" class="center-block">
         <div id="wrapper" class="ms_tabs tab1" data-selected="tab1">
             <a href="#tab1" class="tab active">Как работает система «МОТИВАТОР»</a>
-            <a href="#tab2" class="tab" id="secondTab">Правила работы</a>
-            <a href="#tab3" class="tab" id="threeTab">Партнёры системы «МОТИВАТОР»</a>
+            <a href="#tab-rules" class="tab" id="tabRules">Правила работы</a>
+            <a href="#tab-partners" class="tab" id="tabPartners">Партнёры системы «МОТИВАТОР»</a>
 
             <div class="tab1 tabs-block">
                 <p>
@@ -117,13 +117,13 @@
                    </ul>
                  </p>
             </div>
-            <div class="tab2">
+            <div class="tab-rules">
                 <h4>Инструкция 2</h4>
                 <p>Как я уже писал Вам ранее,я предлагаю до сделать некоторые заго</p>
                 <h4>Инструкция</h4>
                 <p>Как я уже писал Вам ранее,я предлагаю до сделать некоторые заго</p>
             </div>
-            <div class="tab3">
+            <div class="tab-partners">
                 <h4>Инструкция 3</h4>
                 <p>Как я уже писал Вам ранее,я предлагаю до сделать некоторые заго</p>
                 <h4>Инструкция</h4>
@@ -134,10 +134,10 @@
     <!--Discount calc (hide block)-->
     <div class="center-block discount-attraction-2" id="discount-attraction">
         <p>Присоединяйтесь к нам:
-        <a href="#"><img src="/img/soc-vk.jpg" alt=""></a>
-        <a href="#"><img src="/img/soc-fb.jpg" alt=""></a>
-        <a href="#"><img src="/img/soc-od.jpg" alt=""></a>
-        <a href="#"><img src="/img/soc-vb.jpg" alt=""></a></p>
+        <a href="#"><img src="/img/soc-vk.png" alt=""></a>
+        <a href="#"><img src="/img/soc-fb.png" alt=""></a>
+        <a href="#"><img src="/img/soc-od.png" alt=""></a>
+        <a href="#"><img src="/img/soc-vb.png" alt=""></a></p>
     </div>
     <!--Accordion-->
     <div class="panel-group" id="accordion">
@@ -154,9 +154,9 @@
             <div id="collapseOne" class="panel-collapse collapse">
                 <div class="panel-body">
                     <ol>
-                        <li>Ознакомиться  с <a href="#">правилами работы</a> системы «МОТИВАТОР».</li>
+                        <li>Ознакомиться  с <a href="#tabRules" class="internal">правилами работы</a> системы «МОТИВАТОР».</li>
                         <li>Зарегистрироваться на сайте и получить доступ в свой личный кабинет.</li>
-                        <li>Выбрать тур у <a href="#">турагентов-партнёров системы «МОТИВАТОР»</a>.</li>
+                        <li>Выбрать тур у <a href="#tabPartners" class="internal">турагентов-партнёров системы «МОТИВАТОР»</a>.</li>
                         <li>Внести  турагенту предоплату  в размере 2% от стоимости выбранного тура.</li>
                         <li>Сразу же получить абонентскую скидку в размере 5% от стоимости выбранного тура.</li>
                         <li>Отслеживать увеличение своей абоненской скидки до 11%.</li>
@@ -214,7 +214,7 @@
             </div>
             <div id="collapseFour" class="panel-collapse collapse" style="margin-top: 5px;">
                 <div class="panel-body container-fluid">
-                    <p>Скидка предоставляется на полную стоимость всех туров от <a href="#">партнёров системы «МОТИВАТОР»</a>.</p>
+                    <p>Скидка предоставляется на полную стоимость всех туров от <a href="#tabPartners" class="internal">партнёров системы «МОТИВАТОР»</a>.</p>
                 </div>
             </div><!--/3rd panel-body-->
         </div><!--/3rd panel-->

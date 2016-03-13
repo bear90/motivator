@@ -18,7 +18,7 @@ return [
             ]
         ],
         'touragent' => [
-            'label' => 'Выберите турагента:',
+            'label' => 'Выбранный турагент:',
             'type' => 'dropdownlist',
             'layout' => '{label}{input}',
             'items' => \application\models\Touragent::getOptions(),

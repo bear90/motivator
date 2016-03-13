@@ -48,6 +48,12 @@ define(['backbone'], function(Backbone){
                         .data('selected', '');
                 }
             });
+
+            //Sidebar
+            $('.toggle-left').click(function(e) {
+                e.preventDefault();
+                $(this).toggleClass("toggle-left-animation");
+            });
         }
     });
 

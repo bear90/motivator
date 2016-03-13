@@ -60,14 +60,12 @@
 
     <!-- Left Slidebar menu -->
     <div off-canvas="sb-1 left reveal">
-        <div class="col-md-12 col-lg-11 col-lg-offset-1">
             <?php $this->widget('application\\components\\widgets\\MenuWidget', [
                 'active' => 'turoperatoram',
                 'htmlOptions' => [
                     'id' => 'side-menu'
                 ]
             ]); ?>
-        </div>
     </div>
 
 
@@ -83,6 +81,8 @@
     <script src="js/jquery.bxslider.min.js" type="text/javascript"></script>
     <!--Local settings-->
     <script src="js/settings-contacts.js"></script>
+
+    <script data-main="js/app/main.js" src="js/app/vendor/requirejs/require.js"></script>
 
 </body>
 </html>

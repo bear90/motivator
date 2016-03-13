@@ -34,10 +34,10 @@
         <p>Если у Вас сложный, специфический вопрос,то  получите ответы и найдёте решения, обратившись на электронный адрес <a href="mailto:help@motivator-travel.by">help@motivator-travel.by</a></p>
         <p>Ваши запросы о сотрудничестве можете присылать на электронный адрес <a href="mailto:partners@motivator-travel.by">partners@motivator-travel.by</a></p>
         <p>Присоединяйтесь к нам:
-        <a href="#"><img src="/img/soc-vk.jpg" alt=""></a>
-        <a href="#"><img src="/img/soc-fb.jpg" alt=""></a>
-        <a href="#"><img src="/img/soc-od.jpg" alt=""></a>
-        <a href="#"><img src="/img/soc-vb.jpg" alt=""></a></p>
+        <a href="#"><img src="/img/soc-vk.png" alt=""></a>
+        <a href="#"><img src="/img/soc-fb.png" alt=""></a>
+        <a href="#"><img src="/img/soc-od.png" alt=""></a>
+        <a href="#"><img src="/img/soc-vb.png" alt=""></a></p>
         <p>Сайт зарегистрирован в,,,,,,,,,,,,,,,,, за номером,,,,,,,,,,,,,,,,,,,,,,,,  от ,,,,,,,,,,,,,,,,,,,,,,,,</p>
     </div>
 </section>

@@ -30,12 +30,6 @@ $(document).ready(function() {
         location.reload();
     });
 
-    //Sidebar
-    $('.toggle-left').click(function(e) {
-        e.preventDefault();
-        $(this).toggleClass("toggle-left-animation");
-    });
-
     $('#side-menu a').click(function () {
         $(this).parent().siblings().css('border-color', 'rgba(0, 0, 0, 0.57)');
         $(this).parent().prev().css('border-color', '#ed791a');

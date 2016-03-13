@@ -120,13 +120,13 @@
                 <div class="end-sell">
                    <div class="bottom-container">
                         <div class="inner-block">
-                           <h4>До окончания срока внесения аванса осталось:</h4>
+                           <h4>До окончания срока внесения предоплаты осталось:</h4>
                        </div>
                        <div class="inner-block">
                            <div class="countdown-time clearfix" data-date="<?php echo $tourist->getTimer1(); ?>"></div>
                        </div>
                        <div class="bottom-inner-block">
-                           <h4>Конечная дата внесения аванса: <b><?php echo $tourist->getTimer1('d.m.Y'); ?></b></h4>
+                           <h4>Конечная дата внесения предоплаты: <b><?php echo $tourist->getTimer1('d.m.Y'); ?></b></h4>
                        </div>
                    </div>
                 </div>

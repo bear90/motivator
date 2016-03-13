@@ -64,6 +64,10 @@ body {}
     min-height: 235px;
 }
 
+.address-block li {
+    font-size: 17px;
+}
+
 .address-block p {
     font-size: 17px;
     margin-bottom: 16px;
