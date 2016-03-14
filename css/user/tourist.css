@@ -738,6 +738,7 @@ footer .logo > img {
     padding: 9px 20px;
     height: initial;
     font-weight: bold;
+    white-space: normal;
 }
 
 #tourist-cabinet .btn-green {

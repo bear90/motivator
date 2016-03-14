@@ -82,7 +82,7 @@ body {
 /*----Buttons(internal menu)---*/
 #privet-cabinet{
     margin-bottom: 40px;
-    width: 335px;
+    
     text-transform: uppercase;
     text-align: center;
 }
@@ -100,6 +100,7 @@ body {
     background: -ms-linear-gradient(top, rgba(18,135,0,1) 0%, rgba(68,187,50,1) 100%);
     background: linear-gradient(to bottom, rgba(18,135,0,1) 0%, rgba(68,187,50,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#128700', endColorstr='#44bb32', GradientType=0 );
+    white-space: normal;
 }
 
 #btn-privet-cabinet:hover {
