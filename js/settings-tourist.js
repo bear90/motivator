@@ -27,7 +27,7 @@ $(document).ready(function() {
     });
 
     $(window).bind('resize', function() {
-        location.reload();
+        //location.reload();
     });
 
     $('#side-menu a').click(function () {
