@@ -10,21 +10,21 @@
   <!--Gallery-->
   <div class="row">
       <ul class="contact-gallery hidden-xs">
-          <li><img src="img/contact-1.png" alt="1"></li>
-          <li><img src="img/contact-2.png" alt="2"></li>
-          <li><img src="img/contact-3.png" alt="3"></li>
-          <li><img src="img/contact-4.png" alt="4"></li>
-          <li><img src="img/contact-5.png" alt="5"></li>
+          <li><img src="img/turagentam-1.png" alt="1"></li>
+          <li><img src="img/turagentam-2.png" alt="2"></li>
+          <li><img src="img/turagentam-3.png" alt="3"></li>
+          <li><img src="img/turagentam-4.png" alt="4"></li>
+          <li><img src="img/turagentam-5.png" alt="5"></li>
       </ul>
   </div>
   <!--Slider-->
   <div class="row" id="slider">
       <ul class="contact-slider visible-xs-block">
-          <li><img src="img/contact-1.png" alt="1"></li>
-          <li><img src="img/contact-2.png" alt="2"></li>
-          <li><img src="img/contact-3.png" alt="3"></li>
-          <li><img src="img/contact-4.png" alt="4"></li>
-          <li><img src="img/contact-5.png" alt="5"></li>
+          <li><img src="img/turagentam-1.png" alt="1"></li>
+          <li><img src="img/turagentam-2.png" alt="2"></li>
+          <li><img src="img/turagentam-3.png" alt="3"></li>
+          <li><img src="img/turagentam-4.png" alt="4"></li>
+          <li><img src="img/turagentam-5.png" alt="5"></li>
       </ul>
   </div>
 
