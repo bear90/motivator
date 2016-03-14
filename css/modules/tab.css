@@ -48,6 +48,7 @@
 #wrapper.tab1 div.tab1 {
     display:block;
     width:100%;
+    clear: both;
 }
 #wrapper.tab-rules div.tab-rules {
     display:block;
