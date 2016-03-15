@@ -15,7 +15,9 @@ class Touragent extends DBEntity {
 
     public function relations()
     {
-        return [];
+        return [
+            'user'=>[self::BELONGS_TO, 'application\\models\\User', 'userId'],
+        ];
     }
  
     public function tableName()
