@@ -1,4 +1,4 @@
-<section id="blank" class="container-fluid">
+<section id="blank" class="container-fluid" data-structure="turagentam">
   <!--Menu-->
   <div class="row" id="main-menu">
       <div class="col-md-12 col-lg-11 col-lg-offset-1">
@@ -32,9 +32,16 @@
 <div class="center-block" id="discount-attraction"></div>
   <div class="center-block" id="privet-cabinet">
       <?php if (Yii::app()->user->isManager()):?>
-            <a href="<?php echo Yii::app()->createUrl('turagentam/dashboard'); ?>" id="btn-privet-cabinet" class="btn btn-default text-uppercase text-center" style="font-size: 1.2em;">Рабочие кабинеты турагентов</a>
+            <a href="#" id="btn-privet-cabinet" class="btn btn-default show-list">Рабочие кабинеты турагентов</a>
+            <ul>
+              <li><a href="<?php echo Yii::app()->createUrl('turagentam/dashboard/1'); ?>">Руководитель</a></li>
+              <li><a href="<?php echo Yii::app()->createUrl('turagentam/dashboard/2'); ?>">Петрова Анна</a></li>
+              <li><a href="<?php echo Yii::app()->createUrl('turagentam/dashboard/3'); ?>">Петрова Анна</a></li>
+              <li><a href="<?php echo Yii::app()->createUrl('turagentam/dashboard/4'); ?>">Петрова Анна</a></li>
+              <li><a href="<?php echo Yii::app()->createUrl('turagentam/dashboard/5'); ?>">Петрова Анна</a></li>
+            </ul>
         <?php else: ?>
-            <a href="#login-form" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default text-uppercase text-center" style="font-size: 1.2em;">Рабочие кабинеты турагентов</a>
+            <a href="#login-form" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default">Рабочие кабинеты турагентов</a>
             <div class="block-login collapse<?php if ($loginError): ?> in<?php endif; ?>" id="login-form">
                 <?php echo $loginForm->renderBegin(); ?>
                 <?php echo $loginForm['submit']; ?>

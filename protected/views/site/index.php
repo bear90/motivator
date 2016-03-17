@@ -65,9 +65,9 @@
     <div class="center-block" id="discount-attraction"></div>
     <div class="center-block" id="privet-cabinet">
         <?php if (Yii::app()->user->isUser()):?>
-            <a href="<?php echo Yii::app()->createUrl('user/dashboard'); ?>" id="btn-privet-cabinet" class="btn btn-default text-uppercase text-center" style="font-size: 1.2em;">Личные кабинеты туристов</a>
+            <a href="<?php echo Yii::app()->createUrl('user/dashboard'); ?>" id="btn-privet-cabinet" class="btn btn-default">Личные кабинеты туристов</a>
         <?php else: ?>
-            <a href="#login-form" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default text-uppercase text-center" style="font-size: 1.2em;">Личные кабинеты туристов</a>
+            <a href="#login-form" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default">Личные кабинеты туристов</a>
             <div class="block-login collapse<?php if ($loginError): ?> in<?php endif; ?>" id="login-form">
                 <?php echo $loginForm->renderBegin(); ?>
                 <?php echo $loginForm['submit']; ?>
@@ -115,7 +115,7 @@
                    </ul>
                  </p>
             </div>
-            <div class="tab-rules">
+            <div class="tab-rules tabs-block">
                 <h4>1. ОБЩИЕ ПОЛОЖЕНИЯ.</h4>
                 <ul>
                     <li>Обслуживание абонентов системы производятся программой сайта в автоматическом режиме.</li>
@@ -228,7 +228,7 @@
                 <p>Система «МОТИВАТОР».</p>
             </div>
 
-            <div class="tab-partners">
+            <div class="tab-partners tabs-block">
                 <h4>Инструкция 3</h4>
                 <p>Как я уже писал Вам ранее,я предлагаю до сделать некоторые заго</p>
                 <h4>Инструкция</h4>

@@ -40,6 +40,33 @@ header .toggle-left {
 
 }
 
+.touragentam-dashboard .logo{
+    float:left;
+    margin-left: -20px
+}
+
+header .breadcrumbs {
+    float: left;
+    width: 350px;
+    margin-left: 20px;
+    padding-top: 35px;
+}
+
+header .breadcrumbs span,
+header .breadcrumbs a {
+    display: inline-block;
+    font-size: 13px;
+    line-height: 1em;
+    color: #000;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+header .breadcrumbs a.link-now {
+    color: #f37c1b;
+}
+
+
 @media (min-width: 360px) {
     .logo {
         margin-left: 3%;
@@ -64,6 +91,10 @@ header .toggle-left {
         padding-top: 18px;
         width: 640px;
         margin-left: 4%;
+    }
+    .touragentam-dashboard .logo{
+        width: 370px;
+        margin-left: -20px;
     }
 }
 
@@ -177,5 +208,24 @@ h1.text-logo {
         vertical-align: super;
         position: relative;
         bottom: 8px;
+    }
+}
+
+@media (max-width: 992px) {
+    .touragentam-dashboard .logo {
+        float: none;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+
+
+    .touragentam-dashboard header {
+        padding-bottom: 20px;
+    }
+    .touragentam-dashboard .logo {
+        padding-top: 17px;
+        margin-left: 3px;
     }
 }

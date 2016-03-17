@@ -74,7 +74,7 @@ body {
     /*background-color: #18ab00;*/
     color: #ffffff;
     font-weight: bold;
-    font-size: 0.9em;
+    font-size: 1.2em;
     background: rgba(18,135,0,1);
     background: -moz-linear-gradient(top, rgba(18,135,0,1) 0%, rgba(68,187,50,1) 100%);
     background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(18,135,0,1)), color-stop(100%, rgba(68,187,50,1)));
@@ -772,3 +772,5 @@ footer .logo > img {
 #tourist-cabinet .btn-green2:hover {
     background-color: #db711b;
 }
+
+.turagentam 

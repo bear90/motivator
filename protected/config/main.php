@@ -58,6 +58,7 @@ return array(
                 // REST patterns
                 ['api/touristCreate', 'pattern'=>'api/tourist', 'verb'=>'POST'],
                 // Others
+                '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),

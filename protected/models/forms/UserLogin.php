@@ -13,9 +13,10 @@ class UserLogin extends \CFormModel
     public $password;
     public $rememberMe = true;
 
-    public function login() {
+    public function login($role) {
         if ($this->identity === null) {
             $this->identity = new \UserIdentity('', $this->password);
+            $this->identity->role = $role;
             $this->identity->authenticate();
         }
 

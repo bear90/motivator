@@ -6,6 +6,7 @@
 namespace application\controllers\site;
 
 use application\models\forms\UserLogin;
+use application\models\defines\UserRole;
 
 
 class IndexAction extends \CAction
@@ -21,7 +22,7 @@ class IndexAction extends \CAction
             $password = \Yii::app()->request->getPost('password');
             $loginForm->password = $password;
 
-            if ($loginForm->validate() && $loginForm->login()) {
+            if ($loginForm->validate() && $loginForm->login(UserRole::USER)) {
                 $this->controller->redirect(\Yii::app()->createUrl('user/dashboard'));
                 return;
             } else {

@@ -8,11 +8,17 @@
 use application\models\User;
 
 class UserIdentity extends CUserIdentity {
+
+    private $role;
+
+    public function setRole($role) {
+        $this->role = $role;
+    }
     
     public function authenticate() {
         $user = User::model()->findByAttributes(array('password' => $this->password));
 
-        if ($user == null || $user->id == 0) {
+        if ($user == null || $user->id == 0 || $user->roleId != $this->role) {
             $this->errorCode = self::ERROR_USERNAME_INVALID;
         } else {
             $this->errorCode = self::ERROR_NONE;

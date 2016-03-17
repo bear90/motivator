@@ -6,6 +6,7 @@
 namespace application\controllers\turagentam;
 
 use application\models\forms\UserLogin;
+use application\models\defines\UserRole;
 
 
 class IndexAction extends \CAction
@@ -21,9 +22,8 @@ class IndexAction extends \CAction
             $password = \Yii::app()->request->getPost('password');
             $loginForm->password = $password;
 
-            if ($loginForm->validate() && $loginForm->login()) {
-                $this->controller->redirect(\Yii::app()->createUrl('turagentam/dashboard'));
-                return;
+            if ($loginForm->validate() && $loginForm->login(UserRole::MANAGER)) {
+                $loginError = false;
             } else {
                 $loginError = 'Не верный логин или пароль';
             }
@@ -31,7 +31,7 @@ class IndexAction extends \CAction
 
         $this->controller->render('index', [
             'loginForm' => new \CForm('application.views.forms.login', $loginForm),
-            'loginError' => $loginError
+            'loginError' => $loginError,
         ]);
     }
 }

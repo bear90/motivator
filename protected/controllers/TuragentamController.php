@@ -8,7 +8,9 @@ class TuragentamController extends \CController {
 
     public function actions(){
         return [
-            'index' => 'application\\controllers\\turagentam\\IndexAction'
+            'index' => 'application\\controllers\\turagentam\\IndexAction',
+            'dashboard' => 'application\\controllers\\turagentam\\DashboardAction',
+            'logout' => 'application\\controllers\\turagentam\\LogoutAction'
         ];
     }
 
