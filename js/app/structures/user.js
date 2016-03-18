@@ -42,7 +42,10 @@ define([
             var date = this.$('.countdown-time').data('date');
             var austDay = new Date(date);
             
-            this.$('.countdown-time').countdown({until: austDay});
+            this.$('.countdown-time').countdown({
+                until: austDay,
+                format: 'DHMS'
+            });
 
             (new OrderTourView({
                 el: '#order-tour'
