@@ -40,7 +40,7 @@
         <p>Ваши запросы о сотрудничестве можете присылать на электронный адрес <a href="mailto:partners@motivator-travel.by">partners@motivator-travel.by</a></p>
         <p>Присоединяйтесь к нам:
         <a href="#"><img src="/img/soc-vk.png" alt=""></a>
-        <a href="#"><img src="/img/soc-fb.png" alt=""></a>
+        <a href="https://www.facebook.com/%D0%9C%D0%BE%D1%82%D0%B8%D0%B2%D0%B0%D1%82%D0%BE%D1%80-203321533372476/?__mref=message"><img src="/img/soc-fb.png" alt=""></a>
         <a href="#"><img src="/img/soc-od.png" alt=""></a>
         <a href="#"><img src="/img/soc-vb.png" alt=""></a></p>
     </div>
