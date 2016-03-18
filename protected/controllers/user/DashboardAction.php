@@ -25,8 +25,16 @@ class DashboardAction extends \CAction
             $this->controller->activeTab = 'tab1';
         }
 
+        $touristId = null;
+        if (\Yii::app()->user->model->tourist) {
+            $touristId = \Yii::app()->user->model->tourist->id;
+        }
+        
+
         $criteria = new \CDbCriteria();
         $criteria->with = ['cities', 'touragent'];
+        $criteria->condition = 't.touristId = :touristId';
+        $criteria->params = ['touristId' => $touristId];
         $criteria->order = 't.id desc';
 
         $tours = Tour::model()->findAll($criteria);

@@ -33,8 +33,6 @@ class DBEntity extends \CActiveRecord {
 
     public function scopes()
     {
-        $tenantId = ( !empty(\Yii::app()->user->model) ) ? $tenantId = \Yii::app()->user->model->tenantId : 0;
-        
         return array(
             'options'=>array(
                 'select' => 'id, name'
