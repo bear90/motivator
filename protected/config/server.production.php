@@ -15,7 +15,7 @@ return array(
     ),
 
     'params'=>array(
-        'adminEmail'    =>'soza.mihail@gmail.com',
+        'adminEmail'    =>'help@motivator-travel.by',
         'yiiPath'       => '/home/user2007762/frameworks/1.1.17/framework/yii.php',
     ),
 );
