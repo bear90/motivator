@@ -29,9 +29,17 @@ class IndexAction extends \CAction
             }
         }
 
+        // Get manager list
+        $managers = [];
+        if(\Yii::app()->user->isManager())
+        {
+            $managers = \Yii::app()->user->model->touragent->managers;
+        }
+
         $this->controller->render('index', [
             'loginForm' => new \CForm('application.views.forms.login', $loginForm),
             'loginError' => $loginError,
+            'managers' => $managers
         ]);
     }
 }

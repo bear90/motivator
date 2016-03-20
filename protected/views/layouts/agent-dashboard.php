@@ -16,8 +16,8 @@
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="js/html5shiv.min.js"></script>
-    <script src="js/respond.min.js"></script>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
     <![endif]-->
 </head>
 <body class="touragentam-dashboard">
@@ -81,18 +81,20 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/js/bootstrapValidator.min.js" type="text/javascript"></script>
     <!--SlideBars plugin-->
-    <script src="js/slidebars.js" type="text/javascript"></script>
+    <script src="/js/slidebars.js" type="text/javascript"></script>
 
     <!-- Main bxSlider -->
-    <script src="js/jquery.bxslider.min.js" type="text/javascript"></script>
+    <script src="/js/jquery.bxslider.min.js" type="text/javascript"></script>
     <!--Local settings-->
-    <!-- // <script src="js/settings-contacts.js"></script> -->
+    <!-- // <script src="/js/settings-contacts.js"></script> -->
 
     <!--Local settings-->
-    <script src="js/settings-contacts.js"></script>
+    <script src="/js/settings-contacts.js"></script>
 
     <!--Local settings-->
-    <script src="js/settings-tourist.js"></script>
+    <script src="/js/settings-tourist.js"></script>
+
+    <script data-main="/js/app/main.js" src="/js/app/vendor/requirejs/require.js"></script>
 
 </body>
 </html>

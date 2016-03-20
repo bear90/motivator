@@ -34,11 +34,9 @@
       <?php if (Yii::app()->user->isManager()):?>
             <a href="#" id="btn-privet-cabinet" class="btn btn-default show-list">Рабочие кабинеты турагентов</a>
             <ul>
-              <li><a href="<?php echo Yii::app()->createUrl('turagentam/dashboard/1'); ?>">Руководитель</a></li>
-              <li><a href="<?php echo Yii::app()->createUrl('turagentam/dashboard/2'); ?>">Петрова Анна</a></li>
-              <li><a href="<?php echo Yii::app()->createUrl('turagentam/dashboard/3'); ?>">Петрова Анна</a></li>
-              <li><a href="<?php echo Yii::app()->createUrl('turagentam/dashboard/4'); ?>">Петрова Анна</a></li>
-              <li><a href="<?php echo Yii::app()->createUrl('turagentam/dashboard/5'); ?>">Петрова Анна</a></li>
+              <?php foreach($managers as $manager):?>
+                <li><a href="<?php echo Yii::app()->createUrl("turagentam/dashboard/{$manager->id}"); ?>"><?php echo $manager->name; ?></a></li>
+              <?php endforeach;?>
             </ul>
         <?php else: ?>
             <a href="#login-form" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default">Рабочие кабинеты турагентов</a>

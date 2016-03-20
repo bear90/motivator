@@ -17,6 +17,7 @@ class Touragent extends DBEntity {
     {
         return [
             'user'=>[self::BELONGS_TO, 'application\\models\\User', 'userId'],
+            'managers'=>[self::HAS_MANY, 'application\\models\\TouragentManager', 'touragentId'],
         ];
     }
  
@@ -51,5 +52,17 @@ class Touragent extends DBEntity {
         }
 
         return $list;
+    }
+
+    public function getManager($id)
+    {
+        foreach ($this->managers as $manager) {
+            if ($manager->id == $id)
+            {
+                return $manager;
+            }
+        }
+
+        return null;
     }
 }

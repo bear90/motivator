@@ -40,4 +40,9 @@ class Tourist extends DBEntity {
         
         return $date->format($format);
     }
+
+    public function getFullName()
+    {
+        return trim("{$this->lastName} {$this->firstName} {$this->middleName}");
+    }
 }
