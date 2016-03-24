@@ -347,6 +347,15 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#148700', endColorstr='#44bb32', GradientType=0 );
 }
 
+#wrapper .tabs-block.tab2 .form-block.button {
+    margin-top: 27px;
+    min-height: initial;
+}
+
+#wrapper .tabs-block.tab2 .form-block.button button {
+    width: 100%;
+}
+
 #wrapper .tabs-block.tab2 .form-block {
     width: 47%;
     margin-left: 2%;

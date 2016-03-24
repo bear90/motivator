@@ -31,11 +31,6 @@
                             <li class="clearfix"><span class="name">Первопупкинский Илья</span><span class="date">04.01.2016</span></li>
                         </ul>
                     </div>
-                    <form action="/" class="sign-in">
-                        <input type="text">
-                        <input type="password">
-                        <input type="submit" value="ВОЙTИ В КАБИНЕT">
-                    </form>
                 </div>
             </div>
             <div class="tab2 tabs-block">
@@ -61,6 +56,10 @@
                             <label>Страна отдыха</label>
                             <input type="text">
                         </div>
+                        <div class="form-block button">
+                            <button type="button" class="btn btn-default btn-green">НАЙТИ</button>
+                        </div>
+                        
                     </form>
                 </div>
                 <a href="#" class="hide-block">Скрыть</a>
