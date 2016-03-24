@@ -45,4 +45,9 @@ class Tourist extends DBEntity {
     {
         return trim("{$this->lastName} {$this->firstName} {$this->middleName}");
     }
+
+    public function getFormatedPhone()
+    {
+        return preg_replace('/(\+375)(\d{2})(\d{2})(\d{2})(\d{3})/', '$1 ($2) $3 $4 $5', $this->phone);
+    }
 }

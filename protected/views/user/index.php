@@ -7,7 +7,7 @@
             <?php echo $tourist->middleName; ?>
             </h1>
             <?php if($tourist->phone): ?>
-                <span><?php echo $tourist->phone; ?></span><br>
+                <span><?php echo $tourist->getFormatedPhone(); ?></span><br>
             <?php endif; ?>
             <span class="mail"><?php echo $tourist->email; ?></span>
             <?php if($tourist->tourCity): ?>
@@ -115,7 +115,7 @@
 
             <div class="bottom-block tourists">
                 <div class="sell-block">
-                    <h4>Сумма вашей скидки: <b>9 999 999 <small>бел.руб.</small></b> </h4>
+                    <h4>Сумма вашей скидки: <b>99 999 999 <small>бел.руб.</small></b> </h4>
                 </div>
                 <div class="end-sell">
                    <div class="bottom-container">

@@ -97,9 +97,14 @@ define([
                         }
                     },
                     "tourist[phone]": {
+                        //threshold: 13,
                         validators: {
                             notEmpty: {
                                 message: "Введите Ваш телефон!"
+                            },
+                            regexp: {
+                                regexp: /^\+375[0-9]{9}$/,
+                                message: "Номер телефона должен быть в формате +375 XX XX XX XXX"
                             }
                         }
                     },

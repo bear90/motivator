@@ -37,7 +37,7 @@
                 <a href="#" class="link-now">Личный кабинет туриста</a>
             </div>
             <div class="lk-block ">
-                <span>ЛИЧНЫЙ КАБИНЕТ <b>№<?php echo str_pad(Yii::app()->user->model->tourist->id, 7, "0", STR_PAD_LEFT)?></b></span>
+                <span>ЛИЧНЫЙ КАБИНЕТ <b>№<?php echo Yii::app()->user->model->tourist->id; ?></b></span>
             </div>
         </header>
 

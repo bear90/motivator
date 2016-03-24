@@ -52,7 +52,7 @@ return [
         ],
         // When order first tour
         'middleName' => [
-            'label' => 'Очество:',
+            'label' => 'Отчество:',
             'type' => 'text',
             'layout' => '{label}{input}',
             'attributes' => [
@@ -64,6 +64,8 @@ return [
             'type' => 'text',
             'layout' => '{label}{input}',
             'attributes' => [
+                'placeholder' => "+375 XX XX XX XXX",
+                'autocomplete' => 'off',
                 'name' => 'tourist[phone]'
             ]
         ],
