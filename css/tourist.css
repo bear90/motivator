@@ -858,3 +858,6 @@ footer .logo > img {
 #rule-tab .tabs-block {
     font-size: 17px;
 }
+
+.touragentam-dashboard a{text-decoration: none; color: #000;}
+.touragentam-dashboard a:hover{text-decoration: none;}

@@ -773,4 +773,9 @@ footer .logo > img {
     background-color: #db711b;
 }
 
-.turagentam 
+#tourist-cabinet .tour .info {
+    text-align: left;
+    font-size: 24px;
+    margin-bottom: 18px;
+    font-weight: bold;
+}

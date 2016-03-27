@@ -1,3 +1,22 @@
+<header class="container-fluid">
+    <div class="btn btn-default toggle-left">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </div>
+    <a class="logo" href="/">
+        <img src="/img/logo.png" alt="Motivator">
+    </a>
+    <div class="breadcrumbs hidden-sm hidden-xs">
+        <a href="/">Туристам</a>
+        <span>/</span>
+        <a href="#" class="link-now">Личный кабинет туриста</a>
+    </div>
+    <div class="lk-block ">
+        <span>ЛИЧНЫЙ КАБИНЕТ <b>№<?php echo $tourist->id; ?></b></span>
+    </div>
+</header>
+
 <section id="tourist-cabinet" class="container-fluid tourist" data-structure="user">
     <div class="row">
         <div class="head">
@@ -23,21 +42,27 @@
     <div id="rule-tab" class="center-block">
         <div id="wrapper" class="ms_tabs <?php echo $this->activeTab; ?>" data-selected="<?php echo $this->activeTab; ?>" data-collapse="1">
             <div class="tabs-link clearfix">
-                <a href="#tab1" class="tab">ВЫБОР ТУРА</a>
-                <a href="#tab5" class="tab" id="fiveTab">ВАШ ТУР</a>
-                <a href="#tab2" class="tab" id="secondTab">ПРИЗ</a>
-                <a href="#tab3" class="tab" id="threeTab">ИНСТРУКЦИИ</a>
-                <a href="#tab4" class="tab" id="fourTab">ПРАВИЛА РАБОTЫ</a>
-                <a href="#tab6" class="tab" id="sixTab">ВАШ МЕНЕДЖЕР</a>
+                <?php if($touragent === null):?>
+                <a href="#tab1" class="tab <?php echo $this->activeTab == 'tab1' ? 'active' : ''; ?>">ВЫБОР ТУРА</a>
+                <?php endif;?>
+                <a href="#tab5" class="tab <?php echo $this->activeTab == 'tab5' ? 'active' : ''; ?>" id="fiveTab">ВАШ ТУР</a>
+                <a href="#tab2" class="tab <?php echo $this->activeTab == 'tab2' ? 'active' : ''; ?>" id="secondTab">ПРИЗ</a>
+                <a href="#tab3" class="tab <?php echo $this->activeTab == 'tab3' ? 'active' : ''; ?>" id="threeTab">ИНСТРУКЦИИ</a>
+                <a href="#tab4" class="tab <?php echo $this->activeTab == 'tab4' ? 'active' : ''; ?>" id="fourTab">ПРАВИЛА РАБОTЫ</a>
+                <a href="#tab6" class="tab <?php echo $this->activeTab == 'tab6' ? 'active' : ''; ?>" id="sixTab">ВАШ МЕНЕДЖЕР</a>
             </div>
 
-            <div class="tab1 tabs-block clearfix" id="order-tour" data-first-tour="<?php echo $tourist->phone ? 0 : 1; ?>">
-                <?php $this->renderPartial('partials/your_tour', [
-                    'tourFormSubmitted' => $tourFormSubmitted,
-                    'tours' => $tours,
-                    'tourist' => $tourist
-                ]); ?>
-            </div>
+            <?php if($touragent === null):?>
+                <div 
+                    class="tab1 tabs-block clearfix" id="order-tour" 
+                    data-first-tour="<?php echo $tourist->phone ? 0 : 1; ?>">
+                    <?php $this->renderPartial('partials/tour_form', [
+                        'tourFormSubmitted' => $tourFormSubmitted,
+                        'tours' => $tours,
+                        'tourist' => $tourist
+                    ]); ?>
+                </div>
+            <?php endif;?>
             <div class="tab2 tabs-block">
                 <div class="inner-block">
                     <h4>Приз</h4>
@@ -84,7 +109,6 @@
 
             </div>
 
-            <div class="tab7 tabs-block">
             <?php if ($tourFormSubmitted): ?>
                 <div class="send-block center">
                     <span class="arrow-ok"></span>
@@ -96,6 +120,22 @@
                     <p>Желаю вам удачного выбора тура!<br>Система «МОТИВАТОР».</p>
                 </div>
             <?php else: ?>
+
+                <?php if (count($tours)):?>
+                    <div class="inner-block">
+                    <?php foreach ($tours as $tour): ?>
+                        <?php $touragent === null 
+                            ? $this->renderPartial('partials/tour_item', [
+                                'tour' => $tour
+                            ])
+                            : $this->renderPartial('partials/tour_item_for_manager', [
+                                'tour' => $tour,
+                                'touragent' => $touragent,
+                                'manager' => $manager
+                            ]); ?>
+                    <?php endforeach; ?>
+                    </div>
+                <?php else:?>
                 <div class="inner-block">
                     <h4>Уважаемый соискатель скидки!</h4>
                     <p>Приветствую вас в вашем личном кабинете!</p>
@@ -106,8 +146,9 @@
                         <a class="tab btn btn-default btn-green" href="#tab1">Выбрать тур и заполнить заявку</a>
                     </p>
                 </div>
+                <?php endif;?>
+                
             <?php endif; ?>
-            </div>
 
             <div class="info-block">
                 

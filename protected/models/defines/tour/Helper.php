@@ -34,6 +34,20 @@ class Helper {
         return $tour;
     }
 
+    public function update($id, array $data)
+    {
+        // Update Tour
+        $tour = Tour::model()->findByPk($id);
+        $tour->attributes = $data;
+        $tour->save();
+
+        if($tour->hasErrors()){
+            throw new \Exception(\Tool::errorToString($tour->errors));
+        }
+
+        return $tour;
+    }
+
     public function delete($id)
     {
         $tour = Tour::model()->findByPk($id);

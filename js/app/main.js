@@ -8,7 +8,8 @@ require.config({
         "bootstrap": "vendor/bootstrap/bootstrap.min",
         "underscore": "vendor/underscore-amd/underscore-min",
         "backbone": "vendor/backbone-amd/backbone-min",
-        "validator": "vendor/bootstrap-validator/bootstrapValidator.min"
+        "validator": "vendor/bootstrap-validator/bootstrapValidator.min",
+        "tinymce": "//cdn.tinymce.com/4/tinymce.min"
     }
 });
 

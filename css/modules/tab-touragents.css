@@ -17,7 +17,7 @@
     margin-bottom: 30px;
     margin-left: 40px;
 }
-#wrapper a {
+#wrapper a.tab {
     color: black;
     line-height: 1em;  
     padding: 17px 0;
@@ -73,7 +73,6 @@
 }
 
 #wrapper .info-block {
-    display: table;
     clear: left;
 }
 
@@ -269,10 +268,21 @@
     content: "";
     width: 6px;
     height: 6px;
-    background-color: #90204d;
     -webkit-border-radius: 100px;
     -moz-border-radius: 100px;
     border-radius: 100px;
+}
+
+#wrapper .tabs-block.tab1 .inner-block .users-block.want-discont .name:before {
+    background-color: #365697;
+}
+
+#wrapper .tabs-block.tab1 .inner-block .users-block.getting-discont .name:before {
+    background-color: #90204d;
+}
+
+#wrapper .tabs-block.tab1 .inner-block .users-block.have-discont .name:before {
+    background-color: #45ac44;
 }
 
 #wrapper .tabs-block.tab1 .inner-block .users-block .date {

@@ -22,24 +22,6 @@
 </head>
 <body>
     <div class="content" canvas="container" class="close-any">
-        <header class="container-fluid">
-            <div class="btn btn-default toggle-left">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </div>
-            <a class="logo" href="/">
-                <img src="/img/logo.png" alt="Motivator">
-            </a>
-            <div class="breadcrumbs hidden-sm hidden-xs">
-                <a href="/">Туристам</a>
-                <span>/</span>
-                <a href="#" class="link-now">Личный кабинет туриста</a>
-            </div>
-            <div class="lk-block ">
-                <span>ЛИЧНЫЙ КАБИНЕТ <b>№<?php echo Yii::app()->user->model->tourist->id; ?></b></span>
-            </div>
-        </header>
 
         <?php echo $content; ?>
 

@@ -18,6 +18,7 @@ class Tourist extends DBEntity {
         return [
             'status'=>[self::BELONGS_TO, 'application\\models\\TouristStatus', 'statusId'],
             'user'=>[self::BELONGS_TO, 'application\\models\\User', 'userId'],
+            'tours'=>[self::HAS_MANY, 'application\\models\\Tour', 'touristId'],
         ];
     }
 
@@ -49,5 +50,16 @@ class Tourist extends DBEntity {
     public function getFormatedPhone()
     {
         return preg_replace('/(\+375)(\d{2})(\d{2})(\d{2})(\d{3})/', '$1 ($2) $3 $4 $5', $this->phone);
+    }
+
+    public function hasTouragent($touragentId)
+    {
+        foreach ($this->tours as $tour) {
+            if ($tour->touragentId == $touragentId) 
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

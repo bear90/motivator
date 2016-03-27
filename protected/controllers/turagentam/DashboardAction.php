@@ -14,6 +14,7 @@ class DashboardAction extends \CAction
 
         $id = intval($id);
         $manager = \Yii::app()->user->model->touragent->getManager($id);
+        \Yii::app()->user->setState('manager', $manager);
 
         if(!$manager)
         {
@@ -33,7 +34,7 @@ class DashboardAction extends \CAction
         $touragentId = \Yii::app()->user->model->touragent->id;
 
         $criteria = new \CDbCriteria();
-        $criteria->condition = "t.touragentId = :touragentId";
+        $criteria->condition = "t.touragentId = :touragentId AND managerId is null";
         $criteria->params['touragentId'] = $touragentId;
 
         return Tour::model()->findAll($criteria);

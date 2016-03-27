@@ -18,6 +18,7 @@ class UserController extends \CController
             'logout' => 'application\\controllers\\user\\LogoutAction',
             'ordertour' => 'application\\controllers\\user\\OrdertourAction',
             'removetour' => 'application\\controllers\\user\\RemovetourAction',
+            'updatetour' => 'application\\controllers\\user\\UpdatetourAction',
         ];
     }
 

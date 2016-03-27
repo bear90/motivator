@@ -17,25 +17,23 @@
     margin-bottom: 30px;
     margin-left: 40px;
 }
-#wrapper a {
+#wrapper a.tab {
     color: black;
     line-height: 1em;  
     padding: 17px 0;
-    display: block;
+    display: inline-block;
     width: 33.3%;
     text-transform: uppercase;
     font-weight: bold;
     text-align: center;
     vertical-align: middle;
     height: 60px;
-    float: left;
     background-color: #e8e8e8;
     /*margin-bottom: 30px;*/
 }
 
 #wrapper .tabs-link {
-    width: 907px;
-    margin: 0 auto;
+    text-align: center;
 }
 
 #wrapper .tabs-link a {
@@ -173,7 +171,7 @@
     margin: 28px auto 0;
 }
 
-#wrapper .tabs-block.tab1 .inner-block {
+#wrapper .inner-block {
     width: 100%;
     text-align: left;
     margin-bottom: 12px;
@@ -187,7 +185,7 @@
     width: 100%;
 }
 
-#wrapper .tabs-block.tab1 .tabs-block-inner {
+#wrapper .tabs-block-inner {
     position: relative;
     border: 2px solid #fb7b00;
     -webkit-border-radius: 8px;
@@ -198,15 +196,16 @@
     margin: 28px auto 0;
     text-align: center;
 }
-#wrapper .tabs-block.tab1 .tabs-block-inner .glyphicon {
+#wrapper .tabs-block-inner .glyphicon {
     position: absolute;
     right: 0;
     top: -5px;
     cursor: pointer;
     color: red;
+    font-size: 14px;
 }
 
-#wrapper .tabs-block.tab1 .head-inner-block {
+#wrapper .head-inner-block {
     position: relative;
     border: 2px solid #fb7b00;
     -webkit-border-radius: 8px;
@@ -216,7 +215,7 @@
     margin-bottom: 20px;
 }
 
-#wrapper .tabs-block.tab1 .head-inner-block:first-child {
+#wrapper .head-inner-block:first-child {
     border: 0 none;
     padding: 0;
 }
@@ -233,7 +232,7 @@
     font-weight: 400;
 }
 
-#wrapper .tabs-block.tab1 h3 {
+#wrapper h3 {
     font-size: 22px;
     text-transform: uppercase;
     font-weight: 700;
@@ -267,9 +266,9 @@
     background: transparent url('../../../img/arrow.png') 99% 50% no-repeat;
 }
 
-#wrapper .tabs-block.tab1 .view .request-head-block label {display: inline;}
+#wrapper .view .request-head-block label {display: inline;}
 
-#wrapper .tabs-block.tab1 label {
+#wrapper label {
     display: block;
     font-size: 18px;
     font-weight: 400;
@@ -945,7 +944,7 @@
         font-size: 14px;
     }
 
-    #wrapper .tabs-block.tab1 .tabs-block-inner {
+    #wrapper .tabs-block-inner {
         width: 100%;
     }
 
