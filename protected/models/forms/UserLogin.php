@@ -12,6 +12,7 @@ class UserLogin extends \CFormModel
     public $submit;
     public $password;
     public $rememberMe = true;
+    public $hash;
 
     public function login($role) {
         if ($this->identity === null) {
@@ -23,6 +24,25 @@ class UserLogin extends \CFormModel
         if ($this->identity->errorCode === \UserIdentity::ERROR_NONE) {
             $duration = $this->rememberMe ? 3600 * 24 * 30 : 0; // 30 days
             \Yii::app()->user->login($this->identity, $duration);
+            \Yii::app()->user->model->markLoginTime();
+
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function loginByHash($role, $hash) {
+        if ($this->identity === null) {
+            $this->identity = new \UserIdentity('', $hash);
+            $this->identity->role = $role;
+            $this->identity->authenticateByHash();
+        }
+
+        if ($this->identity->errorCode === \UserIdentity::ERROR_NONE) {
+            $duration = $this->rememberMe ? 3600 * 24 * 30 : 0; // 30 days
+            \Yii::app()->user->login($this->identity, $duration);
+            \Yii::app()->user->model->markLoginTime();
 
             return true;
         } else {

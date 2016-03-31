@@ -34,6 +34,28 @@ class User extends \CActiveRecord{
     public function getAutoLoginLink()
     {
         $hash = md5($this->id . $this->salt);
-        return "http://мотиватор.бел/user/login?hash={$hash}";
+        return Configuration::get(Configuration::SITE_DOMAIN) . "/user/login?hash={$hash}";
+    }
+
+    public function findByHash($hash)
+    {
+        $criteria = new \CDbCriteria();
+        $criteria->addCondition('md5(concat(password, :salt)) = :hash');
+        $criteria->params = [
+            'salt' => $this->salt,
+            'hash' => $hash
+        ];
+
+        return $this->find($criteria);
+    }
+
+    public function markLoginTime()
+    {
+        if (empty($this->firstLogin))
+        {
+            $this->firstLogin = new \CDbExpression('now()');
+        }
+        $this->lastLogin = new \CDbExpression('now()');
+        $this->save();
     }
 }

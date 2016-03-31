@@ -26,6 +26,20 @@ class UserIdentity extends CUserIdentity {
 
         return !$this->errorCode;
     }
+    
+    public function authenticateByHash() 
+    {
+        $user = User::model()->findByHash($this->password);
+
+        if ($user == null || $user->id == 0 || $user->roleId != $this->role) {
+            $this->errorCode = self::ERROR_USERNAME_INVALID;
+        } else {
+            $this->errorCode = self::ERROR_NONE;
+            $this->password = $user->password;
+        }
+
+        return !$this->errorCode;
+    }
 
     public function getId() {
         $user = User::model()->findByAttributes(array('password' => $this->password));

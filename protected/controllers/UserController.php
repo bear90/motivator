@@ -15,6 +15,7 @@ class UserController extends \CController
     public function actions(){
         return [
             'dashboard' => 'application\\controllers\\user\\DashboardAction',
+            'login' => 'application\\controllers\\user\\LoginAction',
             'logout' => 'application\\controllers\\user\\LogoutAction',
             'ordertour' => 'application\\controllers\\user\\OrdertourAction',
             'createoffer' => 'application\\controllers\\user\\CreateofferAction',
@@ -31,7 +32,7 @@ class UserController extends \CController
 
     public function filterAccessControl($filterChain) {
         
-        if(\Yii::app()->user->model === null) {
+        if(\Yii::app()->user->model === null && \Yii::app()->controller->action->id !== 'login') {
             $this->redirect('/');
         } else {
             $filterChain->run();
