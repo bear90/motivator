@@ -22,7 +22,10 @@ class TouragentManager extends DBEntity {
         return [
             'touragent' => [self::BELONGS_TO, 'application\\models\\Touragent', 'touragentId'],
             'tours'     => [self::HAS_MANY, 'application\\models\\Tour', 'managerId'],
-            'tourists'  => [self::HAS_MANY, 'application\\models\\Tourist', 'touristId', 'through' => 'tours' ]
+            'tourists'  => [self::HAS_MANY, 'application\\models\\Tourist', 'touristId', 
+                'through' => 'tours',
+                'order' =>  'tourists.createdAt'],
+            'phones'    => [self::HAS_MANY, 'application\\models\\TouragentManagerPhone', 'managerId']
         ];
     }
 
@@ -50,5 +53,14 @@ class TouragentManager extends DBEntity {
         return array_filter($this->tourists, function($tourist){
             return $tourist->statusId == TouristStatus::HAVE_DISCONT;
         });
+    }
+
+    public function getPhones($asString = true)
+    {
+        $phones = array_map(function($phone){
+            return $phone->phone;
+        }, $this->phones);
+
+        return $asString ? implode(', ', $phones) : $phones;
     }
 }

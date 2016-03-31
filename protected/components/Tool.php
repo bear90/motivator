@@ -1,4 +1,10 @@
 <?php
+
+    //namespace application\models;
+
+    use application\models\Tour;
+    use application\models\TouragentManager;
+
     class Tool {
 
         public static function errorToString($data, $sep = "\n") 
@@ -30,4 +36,22 @@
             
             return Yii::app()->mail->send($message);
         }
+
+        public static function getManagerContacts(Tour $tour, TouragentManager $manager)
+        {
+            $_manager = $manager;
+            if($tour->managerId)
+            {
+                $_manager = TouragentManager::model()->findByPk($tour->managerId);
+            }
+            $touragent = $_manager->touragent;
+
+            $html = '';
+            $html .= $touragent->name . ' ';
+            $html .= '<a href="' . $touragent->getSiteLink() . '" target="_blank">' . $touragent->getSiteName() . '</a>';
+            $html .= '<br>';
+            $html .= $_manager->name . ': ' . $_manager->getPhones();
+
+            return $html;
+        }   
     }

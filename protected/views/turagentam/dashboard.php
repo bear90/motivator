@@ -27,39 +27,30 @@
                 <div class="inner-block">
                     <div class="users-block want-discont hidden">
                         <ul>
-                            <?php foreach($manager->getWantDiscont() as $tourist):
-                                $link = Yii::app()->createUrl('user/dashboard/' . $tourist->id);
-                            ?>
-                                <li class="clearfix">
-                                <span class="name"><a href="<?php echo $link; ?>"><?php echo $tourist->lastName . ' ' . $tourist->firstName; ?></a></span>
-                                <span class="date"><?php echo $tourist->getTimer1("d.m.Y"); ?></span>
-                                </li>
+                            <?php foreach($manager->getWantDiscont() as $tourist): ?>
+                                <?php $this->renderPartial('partials/tourist_item', [
+                                    'tourist' => $tourist
+                                ]); ?>
                             <?php endforeach; ?>
                         </ul>
                     </div>
 
                     <div class="users-block getting-discont hidden">
                         <ul>
-                            <?php foreach($manager->getGettingDiscint() as $tourist):
-                                $link = Yii::app()->createUrl('user/dashboard/' . $tourist->id);
-                            ?>
-                                <li class="clearfix">
-                                <span class="name"><a href="<?php echo $link; ?>"><?php echo $tourist->lastName . ' ' . $tourist->firstName; ?></a></span>
-                                <span class="date"><?php echo $tourist->getTimer1("d.m.Y"); ?></span>
-                                </li>
+                            <?php foreach($manager->getGettingDiscint() as $tourist): ?>
+                                <?php $this->renderPartial('partials/tourist_item', [
+                                    'tourist' => $tourist
+                                ]); ?>
                             <?php endforeach; ?>
                         </ul>
                     </div>
 
                     <div class="users-block have-discont hidden">
                         <ul>
-                            <?php foreach($manager->getHaveDiscont() as $tourist):
-                                $link = Yii::app()->createUrl('user/dashboard/' . $tourist->id);
-                            ?>
-                                <li class="clearfix">
-                                <span class="name"><a href="<?php echo $link; ?>"><?php echo $tourist->lastName . ' ' . $tourist->firstName; ?></a></span>
-                                <span class="date"><?php echo $tourist->getTimer1("d.m.Y"); ?></span>
-                                </li>
+                            <?php foreach($manager->getHaveDiscont() as $tourist): ?>
+                                <?php $this->renderPartial('partials/tourist_item', [
+                                    'tourist' => $tourist
+                                ]); ?>
                             <?php endforeach; ?>
                         </ul>
                     </div>
@@ -92,10 +83,21 @@
                         <div class="form-block button">
                             <button type="button" class="btn btn-default btn-green">НАЙТИ</button>
                         </div>
+
+                        <div class="inner-block">
+                            <div class="users-block want-discont">
+                                <ul>
+                                    <?php foreach($manager->getWantDiscont() as $tourist): ?>
+                                        <?php $this->renderPartial('partials/tourist_item', [
+                                            'tourist' => $tourist
+                                        ]); ?>
+                                    <?php endforeach; ?>
+                                </ul>
+                            </div>
+                        </div>
                         
                     </form>
                 </div>
-                <a href="#" class="hide-block">Скрыть</a>
             </div>
             <div class="tab3 tabs-block">
                 <div class="inner-block">
@@ -118,19 +120,10 @@
                 <a href="#" class="bottom-link hidden-sm hidden-md hidden-lg"></a>
 
                 <?php if(count($newTours)): ?>
-                    <?php foreach($newTours as $tour): 
-                        $link = Yii::app()->createUrl('user/dashboard/' . $tour->tourist->id);
-                    ?>
-                        <div class="inner-block">
-                            <form action="<?php echo $link; ?>" class="clearfix">
-                                <h4>Новый клиент: <?php echo $tour->tourist->getFullName(); ?></h4>
-                                <div class="form-block">
-                                    <label>Страна отдыха:</label>
-                                    <input type="text" value="<?php echo $tour->getCities(); ?>" readonly="true">
-                                </div>
-                                <input type="submit" value="ВОЙTИ В КАБИНЕT">
-                            </form>
-                        </div>
+                    <?php foreach($newTours as $tour): ?>
+                        <?php $this->renderPartial('partials/new_tour', [
+                            'tour' => $tour
+                        ]); ?>
                     <?php endforeach; ?>
                 <?php else: ?>
                     <div class="inner-block">

@@ -1,16 +1,22 @@
 define([
+    'text!structures/user/tmpl/new_offer.html',
     'validator',
     'jqueryui',
-], function(){
+], function(newOfferTmpl){
 
     var view = Backbone.View.extend({
 
         events: {
-            "click form button[type=button]": "submitTour",
+            "click form.addForm button[type=button]": "submitTour",
             "click #add-city": "addCity",
             "change #site": "showSite",
-            "click .glyphicon-trash": "removeTour"
+            "click .glyphicon-trash": "removeTour",
+            "click button.edit": "editOffer",
+            "click a.addOffer": "renderNewOffer",
+            "click a.deleteOffer": "deleteOffer",
         },
+
+        templateNewOffer: _.template(newOfferTmpl),
 
         initialize: function(){
 
@@ -32,6 +38,46 @@ define([
                 isRTL: false,
                 showMonthAfterYear: false,
                 yearSuffix: "" });
+
+            this.initOffer();
+
+            this.initOrderTour();
+        },
+
+        renderNewOffer: function(e) {
+            var $item = this.$(e.target).closest('.item');
+            var number = this.$(e.target).closest('form.offerForm').find('> .item').size();
+            
+            $newItem = $item.after(this.templateNewOffer({num: number+1})).next();
+
+            this.initOfferComponents($newItem);
+            
+            $('form.offerForm').bootstrapValidator('addField', $newItem.find('input.price'));
+            $('form.offerForm').bootstrapValidator('addField', $newItem.find('input.startDate'));
+            $('form.offerForm').bootstrapValidator('addField', $newItem.find('input.endDate'));
+            $('form.offerForm').bootstrapValidator('addField', $newItem.find('textarea.description'));
+        },
+
+        deleteOffer: function(e) {
+            var $item = this.$(e.target).closest('.item');
+            var $form = $item.closest('form.offerForm');
+
+            $form.bootstrapValidator('removeField', $item.find('input.price'));
+            $form.bootstrapValidator('removeField', $item.find('input.startDate'));
+            $form.bootstrapValidator('removeField', $item.find('input.endDate'));
+            $form.bootstrapValidator('removeField', $item.find('textarea.description'));
+
+            $item.remove();
+
+            $form.data('bootstrapValidator').validate();
+        },
+
+        initOrderTour: function() {
+
+            if (!this.$('form.addForm').size()) 
+            {
+                return false;
+            }
 
             this.$( "#startDate" ).datepicker({
                 defaultDate: "+1w",
@@ -110,6 +156,145 @@ define([
                     },
                 }
             });
+        },
+
+        initOfferComponents: function($context){
+
+            $context.find( ".startDate" ).datepicker({
+                changeMonth: true,
+                dateFormat: "dd.mm.yy",
+                onClose: function( selectedDate, calendar ) {
+                    /*var $item = calendar.input.closest('.item');
+                    $item.find(".endDate").datepicker("option", "minDate", selectedDate);
+*/
+                    var $form = calendar.input.closest('form');
+                    $form.bootstrapValidator('revalidateField', 'startDate');
+                }
+            });
+
+            $context.find( ".endDate" ).datepicker({
+                changeMonth: true,
+                dateFormat: "dd.mm.yy",
+                onClose: function( selectedDate, calendar ) {
+                    /*var $item = calendar.input.closest('.item');
+                    $item.find(".startDate").datepicker("option", "maxDate", selectedDate);
+*/
+                    var $form = calendar.input.closest('form');
+                    $form.bootstrapValidator('revalidateField', 'endDate');
+                }
+            });
+
+            $context.find('textarea.description').tinymce({
+                menubar: false,
+                statusbar: false,
+                plugins: [
+                  'autolink link image'
+                ],
+                toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | link image',
+                setup: function(editor) {
+                    
+                    /**/
+                    editor.on('init', function(ed) {
+                       /*if($(ed.target.targetElm).hasClass('hidden'))
+                        {
+                            tinymce.get(ed.target.id).hide();
+                        }*/
+                    });
+
+                    editor.on('change', function(e) {
+                        var $form = $(e.target.editorContainer).closest('form');
+
+                        if($form.data('changed'))
+                        {
+                            return false;
+                        }
+
+                        $form.find('.info').text('Предложение от турагента');
+                        $form.data('changed', true);
+                    });
+                    editor.on('keyup', function(e, a, b) {
+                        var $form = $(editor.editorContainer).closest('form');
+                        $form.bootstrapValidator('revalidateField', 'description');
+                    });
+                }
+            });
+        },
+
+
+        initOffer: function(){
+            if (!this.$('form.offerForm').size()) 
+            {
+                return false;
+            }
+
+            this.initOfferComponents(this.$el);
+
+            this.$('form.offerForm').bootstrapValidator({
+                excluded: [':disabled'],
+                feedbackIcons: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+                fields: {
+                    price: {
+                        selector: 'input.price',
+                        validators: {
+                            notEmpty: {
+                                message: "Исходная стоимость тура должна быть заполнена!"
+                            }
+                        }
+                    },
+                    startDate: {
+                        selector: 'input.startDate',
+                        validators: {
+                            notEmpty: {
+                                message: "Дата начала тура должна быть выбрана!"
+                            }
+                        }
+                    },
+                    endDate: {
+                        selector: 'input.endDate',
+                        validators: {
+                            notEmpty: {
+                                message: "Дата окончания тура должна быть выбрана!"
+                            }
+                        }
+                    },
+                    description: {
+                        selector: 'textarea.description',
+                        validators: {
+                            callback: {
+                                message: 'Введите текст преложения. Он должен быть не менее 5 символов',
+                                callback: function(value, validator, $field) {
+                                    
+                                    // Get the plain text without HTML
+                                    var text = tinyMCE.get($field.attr('id')).getContent({
+                                        format: 'text'
+                                    });
+
+                                    return text.length >= 5;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        },
+
+        editOffer: function(e)
+        {
+            var $item = this.$(e.target).closest('.item');
+
+            switch (true) {
+                case $item.hasClass('view'):
+                    $item.removeClass('view').addClass('edit');
+                    break;
+
+                case $item.hasClass('edit'):
+                    $item.removeClass('edit').addClass('view');
+                    break;
+            }
         },
 
         addCity: function(e)

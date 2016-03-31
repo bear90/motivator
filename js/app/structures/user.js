@@ -6,13 +6,14 @@ define([
     "vendor/jquery.countdown/jquery.plugin",
     "vendor/jquery.countdown/jquery.countdown",
     "tinymce",
+    "tinymce.jquery",
     'validator',
 ], function(OrderTourView){
 
     var Index = Backbone.View.extend({
 
         events: {
-            "click button.edit": "clickEditButton"
+            //"click button.edit": "clickEditButton"
         },
 
         initCountDown: function(){
@@ -32,93 +33,10 @@ define([
             $.countdown.setDefaults($.countdown.regionalOptions['ru']);
         },
 
-        clickEditButton: function(e){
-            var $container = this.$(e.target).siblings('.form-group');
-
-            $container.siblings('button.ok').removeClass('hidden');
-            $container.siblings('button.edit').addClass('hidden');
-            tinymce.get('offer').show();
-            $container.find('.view').addClass('hidden');
-        },
-
-        initTinyMCE: function(){
-            if (!this.$('form.tourForm').size()) 
-            {
-                return false;
-            }
-
-            var self = this;
-
-            this.$('form.tourForm').bootstrapValidator({
-                excluded: [':disabled'],
-                feedbackIcons: {
-                    valid: 'glyphicon glyphicon-ok',
-                    invalid: 'glyphicon glyphicon-remove',
-                    validating: 'glyphicon glyphicon-refresh'
-                },
-                fields: {
-                    offer: {
-                        validators: {
-                            callback: {
-                                message: 'Введите текст преложения. Он должен быть не менее 5 символов',
-                                callback: function(value, validator, $field) {
-                                    
-                                    // Get the plain text without HTML
-                                    var text = tinyMCE.activeEditor.getContent({
-                                        format: 'text'
-                                    });
-
-                                    return text.length >= 5;
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-
-            tinymce.init({ 
-                selector:'textarea.offer',
-                menubar: false,
-                statusbar: false,
-                plugins: [
-                  'autolink link image'
-                ],
-                toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | link image',
-                setup: function(editor) {
-                    
-                    /**/
-                    editor.on('init', function(ed) {
-                       if($(ed.target.targetElm).hasClass('hidden'))
-                        {
-                            tinymce.get(ed.target.id).hide();
-                        }
-                    });
-
-                    editor.on('change', function(e) {
-                        var $form = $(e.target.editorContainer).closest('form');
-
-                        if($form.data('changed'))
-                        {
-                            return false;
-                        }
-
-                        $form.find('.info').text('Предложение от турагента');
-                        $form.find('button.save').removeClass('hidden');
-                        $form.data('changed', true);
-                    });
-                    editor.on('keyup', function(e) {
-                        $('form.tourForm').bootstrapValidator('revalidateField', 'offer');
-                    });
-                }
-            });
-        },
-
         render: function(){
 
             //countdown time
             this.initCountDown();
-
-            this.initTinyMCE();
 
             var self = this;
             var date = this.$('.countdown-time').data('date');

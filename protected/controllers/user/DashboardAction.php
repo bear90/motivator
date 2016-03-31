@@ -14,16 +14,15 @@ class DashboardAction extends \CAction
 
         $tourFormSubmitted = false;
 
+        if(\Yii::app()->request->getParam('tab') !== null)
+        {
+            $this->controller->activeTab = \Yii::app()->request->getParam('tab');
+        }
+
         if (\Yii::app()->user->hasState('tour::created'))
         {
             $tourFormSubmitted = true;
             \Yii::app()->user->setState('tour::created', null);
-        }
-        
-        if (\Yii::app()->user->hasState('tour::deleted'))
-        {
-            \Yii::app()->user->setState('tour::deleted', null);
-            $this->controller->activeTab = 'tab1';
         }
 
         $touragent = null;
@@ -49,7 +48,7 @@ class DashboardAction extends \CAction
         
 
         $criteria = new \CDbCriteria();
-        $criteria->with = ['cities', 'touragent'];
+        $criteria->with = ['cities', 'touragent', 'offers'];
         $criteria->condition = 't.touristId = :touristId';
         $criteria->params = ['touristId' => $tourist->id];
         $criteria->order = 't.id desc';

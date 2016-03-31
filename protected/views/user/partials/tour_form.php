@@ -4,6 +4,8 @@
     $form = new \CForm('application.views.forms.order_tour', new OrderTour());
 ?>
 
+<?php if($touragent === null):?>
+
 <div class="tabs-block-inner">
     <div class="head-inner-block">
         <div class="inner-block col-xs-12">
@@ -54,8 +56,24 @@
                 </p>
             </div>
             <?php endif;?>
-
-            
         <?php echo $form->renderEnd(); ?>
     </div>
 </div>
+
+<?php endif;?>
+
+<?php if (count($tours)):?>
+    <div class="inner-block">
+    <?php foreach ($tours as $tour): ?>
+        <?php $touragent === null 
+            ? $this->renderPartial('partials/tour_item', [
+                'tour' => $tour
+            ])
+            : $this->renderPartial('partials/tour_item_for_manager', [
+                'tour' => $tour,
+                'touragent' => $touragent,
+                'manager' => $manager
+            ]); ?>
+    <?php endforeach; ?>
+    </div>
+<?php endif;?>

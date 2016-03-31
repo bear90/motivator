@@ -65,4 +65,36 @@ class Touragent extends DBEntity {
 
         return null;
     }
+
+    public function getSiteName()
+    {
+        $name = $this->site;
+
+        switch (true) {
+            case strpos($this->site, 'https://') !== false:
+                $name = substr($this->site, 8);
+                break;
+
+            case strpos($this->site, 'http://') !== false:
+                $name = substr($this->site, 7);
+                break;
+        }
+        $name = rtrim($name, '/');
+
+        return $name;
+    }
+
+    public function getSiteLink()
+    {
+        $link = $this->site;
+
+        if (strpos($link, 'https://') === false && strpos($link, 'http://') === false)
+        {
+            $link = 'http://' . $link;
+        }
+
+        $link = rtrim($link, '/') . '/';
+
+        return $link;
+    }
 }

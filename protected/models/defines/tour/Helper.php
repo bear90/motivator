@@ -58,4 +58,9 @@ class Helper {
 
         return true;
     }
+
+    public function setManager($id, $managerId)
+    {
+        return $this->update($id, ['managerId' => $managerId]);
+    }
 }

@@ -1,0 +1,30 @@
+<div class="item edit">
+
+    <h4>ПРЕДЛОЖЕНИЕ_№<%= num %></h4>
+
+    <div class="editBlock">
+
+        <div class="inner-block form-group">
+            <label>Исходная стоимость тура:</label>
+            <input class="price" type="text" value="" name="TourOffer[<%= num %>][price]" data-bv-field="price">
+        </div>
+
+        <h4>ОПИСАНИЕ ТУРА:</h4> 
+        
+        <div class="inner-block form-group">
+            <label>Дата начала тура:</label>
+            <input class="startDate" type="text" value="" name="TourOffer[<%= num %>][startDate]" data-bv-field="startDate">
+        </div>
+        
+        <div class="inner-block form-group">
+            <label>Дата окончания тура:</label>
+            <input class="endDate" type="text" value="" name="TourOffer[<%= num %>][endDate]" data-bv-field="endDate">
+        </div>
+        <div class="inner-block form-group">
+            <textarea class="description" name="TourOffer[<%= num %>][description]" data-bv-field="description"></textarea>
+        </div>
+        <p><a href="#" class="add addOffer">+ ещё одно предложение</a></p>
+        <p><a href="#" class="add deleteOffer">- удалить предложение</a></p>
+        <button type="submit" class="btn btn-default btn-green2 save">РАЗМЕСТИТЬ ПРЕДЛОЖЕНИЕ</button>
+    </div>
+</div>

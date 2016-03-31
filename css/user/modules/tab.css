@@ -196,7 +196,8 @@
     margin: 28px auto 0;
     text-align: center;
 }
-#wrapper .tabs-block-inner .glyphicon {
+
+#wrapper .tabs-block-inner .glyphicon-trash {
     position: absolute;
     right: 0;
     top: -5px;
@@ -389,7 +390,7 @@
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#148700', endColorstr='#44bb32', GradientType=0 );
 }
 
-#wrapper .tabs-block .send-block .arrow-ok {
+#wrapper .send-block .arrow-ok {
     display: block;
     background: url('../../../img/arrow_ok.jpg') 0 0 no-repeat;
     width: 67px;
@@ -397,7 +398,7 @@
     margin: 0 auto;
 }
 
- #wrapper .tabs-block .send-block h2 {
+ #wrapper .send-block h2 {
     font-size: 24px;
     line-height: 1em;
     margin: 0;
@@ -406,14 +407,10 @@
     margin-top: 10px;
     margin-bottom: 25px;
 }
-/*
-#wrapper .tabs-block .send-block p {
-    display: block;
-    margin: 0;
-    padding: 0;
+
+#wrapper .send-block p {
     font-size: 24px;
-    line-height: 1em;
-} */
+}
 
 #wrapper .tabs-block.tab1 .inner-block .clients-link:first-child {
     margin-top: 0;

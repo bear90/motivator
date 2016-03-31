@@ -14,6 +14,21 @@ class TuragentamController extends \CController {
         ];
     }
 
+    public function filters() {
+        return array(
+            'accessControl',
+        );
+    }
+
+    public function filterAccessControl($filterChain) {
+
+        if(\Yii::app()->user->model === null && \Yii::app()->controller->action->id !== 'index') {
+            $this->redirect('/turagentam');
+        } else {
+            $filterChain->run();
+        }
+    }
+
 //    public function actionError() {
 //        $error = Yii::app()->errorHandler->error;
 //die("ERROR INDEX: ");

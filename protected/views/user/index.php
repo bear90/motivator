@@ -42,9 +42,7 @@
     <div id="rule-tab" class="center-block">
         <div id="wrapper" class="ms_tabs <?php echo $this->activeTab; ?>" data-selected="<?php echo $this->activeTab; ?>" data-collapse="1">
             <div class="tabs-link clearfix">
-                <?php if($touragent === null):?>
                 <a href="#tab1" class="tab <?php echo $this->activeTab == 'tab1' ? 'active' : ''; ?>">ВЫБОР ТУРА</a>
-                <?php endif;?>
                 <a href="#tab5" class="tab <?php echo $this->activeTab == 'tab5' ? 'active' : ''; ?>" id="fiveTab">ВАШ ТУР</a>
                 <a href="#tab2" class="tab <?php echo $this->activeTab == 'tab2' ? 'active' : ''; ?>" id="secondTab">ПРИЗ</a>
                 <a href="#tab3" class="tab <?php echo $this->activeTab == 'tab3' ? 'active' : ''; ?>" id="threeTab">ИНСТРУКЦИИ</a>
@@ -52,17 +50,18 @@
                 <a href="#tab6" class="tab <?php echo $this->activeTab == 'tab6' ? 'active' : ''; ?>" id="sixTab">ВАШ МЕНЕДЖЕР</a>
             </div>
 
-            <?php if($touragent === null):?>
-                <div 
-                    class="tab1 tabs-block clearfix" id="order-tour" 
-                    data-first-tour="<?php echo $tourist->phone ? 0 : 1; ?>">
-                    <?php $this->renderPartial('partials/tour_form', [
-                        'tourFormSubmitted' => $tourFormSubmitted,
-                        'tours' => $tours,
-                        'tourist' => $tourist
-                    ]); ?>
-                </div>
-            <?php endif;?>
+            
+            <div 
+                class="tab1 tabs-block clearfix" id="order-tour" 
+                data-first-tour="<?php echo $tourist->phone ? 0 : 1; ?>">
+                <?php $this->renderPartial('partials/tour_form', [
+                    'tourFormSubmitted' => $tourFormSubmitted,
+                    'tours' => $tours,
+                    'tourist' => $tourist,
+                    'manager' => $manager,
+                    'touragent' => $touragent
+                ]); ?>
+            </div>
             <div class="tab2 tabs-block">
                 <div class="inner-block">
                     <h4>Приз</h4>
@@ -109,6 +108,7 @@
 
             </div>
 
+            <div class="tab7 tabs-block">
             <?php if ($tourFormSubmitted): ?>
                 <div class="send-block center">
                     <span class="arrow-ok"></span>
@@ -119,36 +119,18 @@
                     <br>
                     <p>Желаю вам удачного выбора тура!<br>Система «МОТИВАТОР».</p>
                 </div>
-            <?php else: ?>
-
-                <?php if (count($tours)):?>
-                    <div class="inner-block">
-                    <?php foreach ($tours as $tour): ?>
-                        <?php $touragent === null 
-                            ? $this->renderPartial('partials/tour_item', [
-                                'tour' => $tour
-                            ])
-                            : $this->renderPartial('partials/tour_item_for_manager', [
-                                'tour' => $tour,
-                                'touragent' => $touragent,
-                                'manager' => $manager
-                            ]); ?>
-                    <?php endforeach; ?>
-                    </div>
-                <?php else:?>
-                <div class="inner-block">
-                    <h4>Уважаемый соискатель скидки!</h4>
-                    <p>Приветствую вас в вашем личном кабинете!</p>
-                    <p>Выберите понравившийся Вам тур и заполните заявку на него.</p>
-                    <p>Система «МОТИВАТОР».</p>
-
-                    <p>
-                        <a class="tab btn btn-default btn-green" href="#tab1">Выбрать тур и заполнить заявку</a>
-                    </p>
-                </div>
-                <?php endif;?>
                 
+            <?php else: ?>
+                <h4>Уважаемый соискатель скидки!</h4>
+                <p>Приветствую вас в вашем личном кабинете!</p>
+                <p>Выберите понравившийся Вам тур и заполните заявку на него.</p>
+                <p>Система «МОТИВАТОР».</p>
+
+                <p>
+                    <a class=" btn btn-default btn-green" href="#tab1">ВЫБРАТЬ ТУР И ЗАПОЛНИТЬ ЗАЯВКУ</a>
+                </p>
             <?php endif; ?>
+            </div>
 
             <div class="info-block">
                 

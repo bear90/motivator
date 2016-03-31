@@ -24,12 +24,10 @@
                 <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $tour->endDate); ?>
             </div>
             
-            <?php if($tour->offer): ?>
-            <div class="inner-block">
-                <label>Предложение от турагента:</label>
-                <?php echo $tour->offer; ?>
-            </div>
-            <?php endif; ?>
+            <?php $this->renderPartial('partials/offer_list', [
+                'offers' => $tour->offers,
+                'canChange' => false
+            ]); ?>
         </span>
     </div>
 </div>

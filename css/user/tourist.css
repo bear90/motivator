@@ -769,6 +769,11 @@ footer .logo > img {
     color: #ffffff;
 }
 
+#tourist-cabinet .btn-yellow {
+    background-color: #ffff00;
+    color: #000000;
+}
+
 #tourist-cabinet .btn-green2:hover {
     background-color: #db711b;
 }
@@ -778,4 +783,21 @@ footer .logo > img {
     font-size: 24px;
     margin-bottom: 18px;
     font-weight: bold;
+}
+
+#tourist-cabinet .offers .item h4 {
+    margin-left: 0;
+}
+
+#tourist-cabinet .offers .item.view .editBlock {
+    display: none;
+}
+
+#tourist-cabinet .offers .item.edit .viewBlock {
+    display: none;
+}
+
+#order-tour .form-group .glyphicon-ok,
+#order-tour .form-group .glyphicon-remove, {
+    display: none;
 }

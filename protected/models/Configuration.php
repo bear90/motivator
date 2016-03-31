@@ -18,6 +18,10 @@ class Configuration extends DBEntity {
     const TYPE_ARRAY  = 'array';
 
     const ORDER_TOUR_TIMER = 'ORDER_TOUR_TIMER';
+    
+    const MIN_DISCONT = 'MIN_DISCONT';
+
+    const MAX_DISCONT = 'MAX_DISCONT';
 
     private static $aValues = null;
 

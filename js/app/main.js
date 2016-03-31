@@ -9,7 +9,9 @@ require.config({
         "underscore": "vendor/underscore-amd/underscore-min",
         "backbone": "vendor/backbone-amd/backbone-min",
         "validator": "vendor/bootstrap-validator/bootstrapValidator.min",
-        "tinymce": "//cdn.tinymce.com/4/tinymce.min"
+        "tinymce": "vendor/tinymce/tinymce.min",
+        "tinymce.jquery": "vendor/tinymce/jquery.tinymce.min",
+        "text": "vendor/requirejs/text",
     }
 });
 

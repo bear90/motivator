@@ -18,8 +18,6 @@ class RemovetourAction extends \CAction
         $helper = new Helper();
         $helper->delete($id);
 
-        \Yii::app()->user->setState('tour::deleted', true);
-
-        $this->controller->redirect('/user/dashboard');
+        $this->controller->redirect('/user/dashboard?tab=tab1');
     }
 }
