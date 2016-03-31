@@ -8,6 +8,21 @@ define([
 
         events: {
             'click .tourists-tabs a': 'showTourists',
+            'submit form.searchTourist' : 'submitSearchTourist'
+        },
+
+        submitSearchTourist: function(e) {
+
+            var isAllEmpty = true;
+
+            _.each(['touristId', 'touristLastName', 'touristFirstName', 'touristMiddleName', 'tourCity'], $.proxy(function(name){
+                isAllEmpty = isAllEmpty && this.$('input[name='+name+']').val() == '' ;
+            }, this));
+
+            if (isAllEmpty) {
+                alert("Заполните хотя бы одно поле для поиска!");
+                return false;
+            }
         },
 
         showTourists: function(e){

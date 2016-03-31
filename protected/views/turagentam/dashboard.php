@@ -9,12 +9,12 @@
         </div>
     </div>
     <div id="rule-tab" class="center-block">
-        <div id="wrapper" class="ms_tabs" data-collapse="1">
+        <div id="wrapper" class="ms_tabs <?php echo $this->activeTab; ?>" data-selected="<?php echo $this->activeTab; ?>" data-collapse="1">
             <div class="tabs-link clearfix" data-current="">
-                <a href="#tab1" class="tab">Клиенты</a>
-                <a href="#tab2" class="tab tab2" id="secondTab">Поиск Клиента</a>
-                <a href="#tab3" class="tab" id="threeTab">ПОМОЩЬ</a>
-                <a href="#tab4" class="tab" id="fourTab">ПРАВИЛА РАБОTЫ</a>
+                <a href="#tab1" class="tab <?php echo $this->activeTab == 'tab1' ? 'active' : ''; ?>">Клиенты</a>
+                <a href="#tab2" class="tab <?php echo $this->activeTab == 'tab2' ? 'active' : ''; ?> tab2" id="secondTab">Поиск Клиента</a>
+                <a href="#tab3" class="tab <?php echo $this->activeTab == 'tab3' ? 'active' : ''; ?>" id="threeTab">ПОМОЩЬ</a>
+                <a href="#tab4" class="tab <?php echo $this->activeTab == 'tab4' ? 'active' : ''; ?>" id="fourTab">ПРАВИЛА РАБОTЫ</a>
             </div>
 
             <div class="tab1 tabs-block clearfix">
@@ -25,7 +25,7 @@
                 </div>
 
                 <div class="inner-block">
-                    <div class="users-block want-discont hidden">
+                    <div class="users-block hidden">
                         <ul>
                             <?php foreach($manager->getWantDiscont() as $tourist): ?>
                                 <?php $this->renderPartial('partials/tourist_item', [
@@ -35,7 +35,7 @@
                         </ul>
                     </div>
 
-                    <div class="users-block getting-discont hidden">
+                    <div class="users-block hidden">
                         <ul>
                             <?php foreach($manager->getGettingDiscint() as $tourist): ?>
                                 <?php $this->renderPartial('partials/tourist_item', [
@@ -45,7 +45,7 @@
                         </ul>
                     </div>
 
-                    <div class="users-block have-discont hidden">
+                    <div class="users-block hidden">
                         <ul>
                             <?php foreach($manager->getHaveDiscont() as $tourist): ?>
                                 <?php $this->renderPartial('partials/tourist_item', [
@@ -59,35 +59,37 @@
             </div>
             <div class="tab2 tabs-block">
                 <div class="inner-block">
-                    <form action="/" class="clearfix">
+                    <?php echo CHtml::beginForm("/turagentam/dashboard/{$manager->id}/?tab=tab2", 'post', ['class' => 'searchTourist']); ?>
+                    <?php echo CHtml::hiddenField("searchTourist"); ?>
                         <div class="form-block first">
                             <label>Номер личного кабинета</label>
-                            <input type="text">
+                            <?php echo CHtml::textField("touristId"); ?>
                         </div>
                         <div class="form-block second">
                             <label>Фамилия</label>
-                            <input type="text">
+                            <?php echo CHtml::textField("touristLastName"); ?>
                         </div>
                         <div class="form-block third">
                             <label>Имя</label>
-                            <input type="text">
+                            <?php echo CHtml::textField("touristFirstName"); ?>
                         </div>
                         <div class="form-block four">
                             <label>Отчество</label>
-                            <input type="text">
+                            <?php echo CHtml::textField("touristMiddleName"); ?>
                         </div>
                         <div class="form-block five">
                             <label>Страна отдыха</label>
-                            <input type="text">
+                            <?php echo CHtml::textField("tourCity"); ?>
                         </div>
                         <div class="form-block button">
-                            <button type="button" class="btn btn-default btn-green">НАЙТИ</button>
+                            <button type="submit" class="btn btn-default btn-green">НАЙТИ</button>
                         </div>
 
-                        <div class="inner-block">
+                        <?php if(count($foundTourists)): ?>
+                        <div class="inner-block search-results">
                             <div class="users-block want-discont">
                                 <ul>
-                                    <?php foreach($manager->getWantDiscont() as $tourist): ?>
+                                    <?php foreach($foundTourists as $tourist): ?>
                                         <?php $this->renderPartial('partials/tourist_item', [
                                             'tourist' => $tourist
                                         ]); ?>
@@ -95,8 +97,10 @@
                                 </ul>
                             </div>
                         </div>
+                        <?php endif; ?>
                         
-                    </form>
+                        <div class="cls"><!-- --></div>
+                    <?php echo CHtml::endForm(); ?>
                 </div>
             </div>
             <div class="tab3 tabs-block">

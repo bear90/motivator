@@ -1,7 +1,7 @@
 <?php
     $link = Yii::app()->createUrl('user/dashboard/' . $tourist->id . '?tab=tab1');
 ?>
-<li class="clearfix">
+<li class="clearfix <?php echo $tourist->status->name; ?>">
     <span class="name">
         <a href="<?php echo $link; ?>"><?php echo $tourist->lastName . ' ' . $tourist->firstName; ?></a>
     </span>

@@ -273,15 +273,15 @@
     border-radius: 100px;
 }
 
-#wrapper .tabs-block.tab1 .inner-block .users-block.want-discont .name:before {
+#wrapper .tabs-block.tab1 .inner-block ul li.want_discont .name:before {
     background-color: #365697;
 }
 
-#wrapper .tabs-block.tab1 .inner-block .users-block.getting-discont .name:before {
+#wrapper .tabs-block.tab1 .inner-block ul li..getting_discont .name:before {
     background-color: #90204d;
 }
 
-#wrapper .tabs-block.tab1 .inner-block .users-block.have-discont .name:before {
+#wrapper .tabs-block.tab1 .inner-block ul li..have_discont .name:before {
     background-color: #45ac44;
 }
 
@@ -360,6 +360,7 @@
 #wrapper .tabs-block.tab2 .form-block.button {
     margin-top: 27px;
     min-height: initial;
+    margin-bottom: 15px;
 }
 
 #wrapper .tabs-block.tab2 .form-block.button button {
@@ -589,4 +590,68 @@
         float: none;
         margin-left: 0;
     }
+}
+
+.search-results {
+    clear: both;
+    border: 2px solid #fb7b00;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.search-results .users-block {
+    padding: 18px 10px;
+}
+
+.search-results .users-block .name {
+    position: relative;
+    font-size: 15px;
+    color: #000;
+    font-weight: bold;
+    padding-left: 15px;
+}
+
+.search-results .users-block .name:before {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    content: "";
+    width: 6px;
+    height: 6px;
+    -webkit-border-radius: 100px;
+    -moz-border-radius: 100px;
+    border-radius: 100px;
+    background-color: #000000;
+}
+
+.search-results .users-block .date {
+    font-size: 15px;
+    color: #000;
+    font-weight: bold;
+    float: right;
+}
+
+.search-results ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.search-results ul li.want_discont .name:before {
+    background-color: #365697;
+}
+
+.search-results ul li.getting_discont .name:before {
+    background-color: #90204d;
+}
+
+.search-results ul li.have_discont .name:before {
+    background-color: #45ac44;
+}
+
+.cls {
+    display: block;
+    clear: both;
+    height: 1px;
 }

@@ -5,6 +5,7 @@ namespace application\controllers;
 class TuragentamController extends \CController {
 
     public $layout = 'turagentam';
+    public $activeTab = '';
 
     public function actions(){
         return [
