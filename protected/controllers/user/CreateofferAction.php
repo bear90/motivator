@@ -17,6 +17,7 @@ class CreateofferAction extends \CAction
         $tourId = (int) \Yii::app()->request->getPost('tourId');
         $offers = (array) \Yii::app()->request->getPost('TourOffer');
 
+        $hasNewOffer = false;
         $offerHelper = new Helper();
         $tourHelper = new TourHelper();
 
@@ -42,6 +43,7 @@ class CreateofferAction extends \CAction
                 {
                     $offerHelper->update($offer['id'], $data);
                 } else {
+                    $hasNewOffer = true;
                     $offerHelper->create($data);
                 }
                 
@@ -55,6 +57,11 @@ class CreateofferAction extends \CAction
         {
             \application\components\DbTransaction::rollBack();
             throw $e;
+        }
+
+        if ($hasNewOffer)
+        {
+            \Tool::sendEmailWithView($tour->tourist->email, 'Получены новые предложения на сайте МОТИВАТОР', 'new_offers');
         }
 
         $this->controller->redirect('/user/dashboard/' . $tour->touristId . '?tab=tab1');
