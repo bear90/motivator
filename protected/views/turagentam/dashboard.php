@@ -19,13 +19,13 @@
 
             <div class="tab1 tabs-block clearfix">
                 <div class="inner-block tourists-tabs">
-                    <a href="#want-discont" class="clients-link blue">Сооискатели скидки</a>
-                    <a href="#getting-discont" class="clients-link red">Получатели скидки</a>
-                    <a href="#have-discont" class="clients-link green">Обладатели скидки</a>
+                    <a href="#want_discont" class="clients-link blue">Сооискатели скидки</a>
+                    <a href="#getting_discont" class="clients-link red">Получатели скидки</a>
+                    <a href="#have_discont" class="clients-link green">Обладатели скидки</a>
                 </div>
 
                 <div class="inner-block">
-                    <div class="users-block hidden">
+                    <div class="users-block hidden want_discont">
                         <ul>
                             <?php foreach($manager->getWantDiscont() as $tourist): ?>
                                 <?php $this->renderPartial('partials/tourist_item', [
@@ -35,7 +35,7 @@
                         </ul>
                     </div>
 
-                    <div class="users-block hidden">
+                    <div class="users-block hidden getting_discont">
                         <ul>
                             <?php foreach($manager->getGettingDiscint() as $tourist): ?>
                                 <?php $this->renderPartial('partials/tourist_item', [
@@ -45,7 +45,7 @@
                         </ul>
                     </div>
 
-                    <div class="users-block hidden">
+                    <div class="users-block hidden have_discont">
                         <ul>
                             <?php foreach($manager->getHaveDiscont() as $tourist): ?>
                                 <?php $this->renderPartial('partials/tourist_item', [
