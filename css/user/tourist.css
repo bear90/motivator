@@ -106,6 +106,14 @@ body {
     padding: 30px 0 30px 30px;
 }
 
+.container-fluid .head.getting_discont {
+    background-color: #90204d;
+}
+
+.container-fluid .head.have_discont {
+    background-color: #45ac44;
+}
+
 .container-fluid .head h1 {
     font-size: 28px;
     line-height: 1em;

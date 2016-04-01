@@ -19,7 +19,7 @@
 
 <section id="tourist-cabinet" class="container-fluid tourist" data-structure="user">
     <div class="row">
-        <div class="head">
+        <div class="head <?php echo $tourist->status->name; ?>">
             <h1>
             <?php echo $tourist->lastName; ?>
             <?php echo $tourist->firstName; ?>
@@ -29,8 +29,8 @@
                 <span><?php echo $tourist->getFormatedPhone(); ?></span><br>
             <?php endif; ?>
             <span class="mail"><?php echo $tourist->email; ?></span>
-            <?php if($tourist->tourCity): ?>
-                <h1><b>Город покупки тура:</b> <span><?php echo $tourist->tourCity; ?></span></h1>
+            <?php if($tourist->offer): ?>
+                <h1><b>Город покупки тура:</b> <span><?php echo $tourist->offer->tour->getCities(); ?></span></h1>
             <?php endif; ?>
             <h1><b>Статус:</b> <span><?php echo $tourist->status->description; ?></span></h1>
 
@@ -84,20 +84,38 @@
 
             </div>
             <div class="tab5 tabs-block">
-                <div class="inner-block our-tour">
-                    <p>Тур не выбран!</p>
-                </div>
-                <!-- <div class="inner-block our-tour">
-                    <h4>Ваш тур</h4>
-                    <span>Страна: <span class="value">Турция</span></span>
-                    <span>Город/Регион: <span class="value">Стамбул</span></span>
-                    <span>Начало тура: <span class="value date">12.02.2016</span></span>
-                    <span>Окончание тура: <span class="value date">22.02.2016</span></span>
-                    <span>Исходная стоимость тура: <span class="value money">20 000 000 бел.руб.</span></span>
-                    <span>Сумма аванса: <span class="value money">400 000 бел.руб.</span></span>
-                    <span class="sell">Сумма скидки: <span class="value money">2 000 000 бел.руб.</span></span>
-                    <span>Сумма к доплате: <span class="value money">17 600 000 бел.руб.</span></span>
-                </div> -->
+
+                <?php if (!$tourist->offer): ?>
+
+                    <div class="inner-block our-tour">
+                        <p>Тур не выбран!</p>
+                    </div>
+
+                <?php else:?>
+
+                    <div class="inner-block our-tour">
+                        <h4>Ваш тур</h4>
+                        <span>Страна: <span class="value"></span></span>
+                        <span>Город/Регион: <span class="value"><?php echo $tourist->offer->tour->getCities(); ?></span></span>
+                        <span>Начало тура: <span class="value date">
+                            <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $tourist->offer->startDate); ?>
+                            </span>
+                        </span>
+                        <span>Окончание тура: <span class="value date">
+                            <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $tourist->offer->endDate); ?>
+                            </span>
+                        </span>
+                        <span>Исходная стоимость тура: <span class="value money">
+                            <?php echo number_format($tourist->offer->price, 0, ',', ' '); ?> бел.руб.</span></span>
+                        <span>Стартовая абонентская скидка: <span class="value money">
+                            <?php echo number_format($tourist->offer->maxDiscont, 0, ',', ' '); ?> бел.руб.</span></span>
+                        <span class="sell">Сумма скидки: <span class="value money">
+                            <?php echo number_format($tourist->offer->surchange, 0, ',', ' '); ?> бел.руб.</span></span>
+                        <span>Сумма к доплате: 
+                            <span class="value money">17 600 000 бел.руб.</span></span>
+                    </div>
+
+                <?php endif; ?>
 
             </div>
 

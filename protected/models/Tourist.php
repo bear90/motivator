@@ -9,7 +9,7 @@ class Tourist extends DBEntity {
     public function rules(){
         return [
             ['firstName, lastName, email, userId, statusId', 'required'],
-            ['middleName, phone, tourCity, groupCode', 'safe']
+            ['middleName, phone, groupCode, offerId', 'safe']
         ];
     }
 
@@ -18,6 +18,7 @@ class Tourist extends DBEntity {
         return [
             'status'=>[self::BELONGS_TO, 'application\\models\\TouristStatus', 'statusId'],
             'user'=>[self::BELONGS_TO, 'application\\models\\User', 'userId'],
+            'offer'=>[self::BELONGS_TO, 'application\\models\\TourOffer', 'offerId'],
             'tours'=>[self::HAS_MANY, 'application\\models\\Tour', 'touristId'],
         ];
     }

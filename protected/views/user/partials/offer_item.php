@@ -1,8 +1,6 @@
-<?php
-    $mode = isset($mode) ? $mode : 'view';
-?>
 
-<div class="item view">
+
+<div class="item view" data-id="<?php echo $offer->id; ?>">
     
     <?php echo CHtml::hiddenField("TourOffer[{$number}][id]", $offer->id); ?>
 

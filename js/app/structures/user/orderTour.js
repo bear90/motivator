@@ -12,6 +12,7 @@ define([
             "change #site": "showSite",
             "click .glyphicon-trash": "removeTour",
             "click button.edit": "editOffer",
+            "click button.confirm": "confirmOffer",
             "click a.addOffer": "renderNewOffer",
             "click a.deleteOffer": "deleteOffer",
         },
@@ -70,6 +71,14 @@ define([
             $item.remove();
 
             $form.data('bootstrapValidator').validate();
+        },
+
+        confirmOffer: function (e) {
+            if(confirm("Вы уверены что хотите выбрать это предложение?"))
+            {
+                var offerId = this.$(e.target).closest('.item').data('id');
+                window.location = '/user/confirmoffer/' + offerId;
+            }
         },
 
         initOrderTour: function() {

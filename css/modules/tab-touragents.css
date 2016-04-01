@@ -277,11 +277,11 @@
     background-color: #365697;
 }
 
-#wrapper .tabs-block.tab1 .inner-block ul li..getting_discont .name:before {
+#wrapper .tabs-block.tab1 .inner-block ul li.getting_discont .name:before {
     background-color: #90204d;
 }
 
-#wrapper .tabs-block.tab1 .inner-block ul li..have_discont .name:before {
+#wrapper .tabs-block.tab1 .inner-block ul li.have_discont .name:before {
     background-color: #45ac44;
 }
 
