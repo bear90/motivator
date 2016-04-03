@@ -796,6 +796,43 @@
     display:block;
     clear: left;
 }
+
+#wrapper .tabs-block.tab6 .link-to-touragent {
+    float: none;
+    padding: 0;
+    margin: 20px auto 0;
+    width: 100%;
+    max-width: 280px;
+    font-size: 12px;
+    font-weight: 400;
+    padding: 11px 5px;
+    height: 35px;
+    background: rgba(68,187,50,1);
+    background: -moz-linear-gradient(top, rgba(68,187,50,1) 0%, rgba(20,135,0,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(68,187,50,1)), color-stop(100%, rgba(20,135,0,1)));
+    background: -webkit-linear-gradient(top, rgba(68,187,50,1) 0%, rgba(20,135,0,1) 100%);
+    background: -o-linear-gradient(top, rgba(68,187,50,1) 0%, rgba(20,135,0,1) 100%);
+    background: -ms-linear-gradient(top, rgba(68,187,50,1) 0%, rgba(20,135,0,1) 100%);
+    background: linear-gradient(to bottom, rgba(68,187,50,1) 0%, rgba(20,135,0,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#44bb32', endColorstr='#148700', GradientType=0 );
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    color: #fff;
+    text-decoration: none;
+}
+
+#wrapper .tabs-block.tab6 .link-to-touragent:hover {
+    background: rgba(20,135,0,1);
+    background: -moz-linear-gradient(top, rgba(20,135,0,1) 0%, rgba(68,187,50,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(20,135,0,1)), color-stop(100%, rgba(68,187,50,1)));
+    background: -webkit-linear-gradient(top, rgba(20,135,0,1) 0%, rgba(68,187,50,1) 100%);
+    background: -o-linear-gradient(top, rgba(20,135,0,1) 0%, rgba(68,187,50,1) 100%);
+    background: -ms-linear-gradient(top, rgba(20,135,0,1) 0%, rgba(68,187,50,1) 100%);
+    background: linear-gradient(to bottom, rgba(20,135,0,1) 0%, rgba(68,187,50,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#148700', endColorstr='#44bb32', GradientType=0 );
+}
+    
 /*#wrapper.tab1 a.tab1 {
     color: black;
     background-color: #ffffff;
@@ -1026,42 +1063,6 @@
     #wrapper .tabs-block.tab6 span {
         display: block;
         width: 100%;
-    }
-
-    #wrapper .tabs-block.tab6 .link-to-touragent {
-        float: none;
-        padding: 0;
-        margin: 20px auto 0;
-        width: 100%;
-        max-width: 280px;
-        font-size: 12px;
-        font-weight: 400;
-        padding: 11px 5px;
-        height: 35px;
-        background: rgba(68,187,50,1);
-        background: -moz-linear-gradient(top, rgba(68,187,50,1) 0%, rgba(20,135,0,1) 100%);
-        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(68,187,50,1)), color-stop(100%, rgba(20,135,0,1)));
-        background: -webkit-linear-gradient(top, rgba(68,187,50,1) 0%, rgba(20,135,0,1) 100%);
-        background: -o-linear-gradient(top, rgba(68,187,50,1) 0%, rgba(20,135,0,1) 100%);
-        background: -ms-linear-gradient(top, rgba(68,187,50,1) 0%, rgba(20,135,0,1) 100%);
-        background: linear-gradient(to bottom, rgba(68,187,50,1) 0%, rgba(20,135,0,1) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#44bb32', endColorstr='#148700', GradientType=0 );
-        -webkit-border-radius: 7px;
-        -moz-border-radius: 7px;
-        border-radius: 7px;
-        color: #fff;
-        text-decoration: none;
-    }
-
-    #wrapper .tabs-block.tab6 .link-to-touragent:hover {
-        background: rgba(20,135,0,1);
-        background: -moz-linear-gradient(top, rgba(20,135,0,1) 0%, rgba(68,187,50,1) 100%);
-        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(20,135,0,1)), color-stop(100%, rgba(68,187,50,1)));
-        background: -webkit-linear-gradient(top, rgba(20,135,0,1) 0%, rgba(68,187,50,1) 100%);
-        background: -o-linear-gradient(top, rgba(20,135,0,1) 0%, rgba(68,187,50,1) 100%);
-        background: -ms-linear-gradient(top, rgba(20,135,0,1) 0%, rgba(68,187,50,1) 100%);
-        background: linear-gradient(to bottom, rgba(20,135,0,1) 0%, rgba(68,187,50,1) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#148700', endColorstr='#44bb32', GradientType=0 );
     }
 
 

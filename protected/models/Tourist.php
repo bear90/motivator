@@ -3,6 +3,7 @@
 namespace application\models;
 
 use application\components\DBEntity;
+use application\models\defines\TouristStatus;
 
 class Tourist extends DBEntity {
 
@@ -62,5 +63,20 @@ class Tourist extends DBEntity {
             }
         }
         return false;
+    }
+
+    public function hasManager()
+    {
+        return $this->statusId >= TouristStatus::GETTING_DISCONT;
+    }
+
+    public function getManager()
+    {
+        if($this->hasManager())
+        {
+            return $this->offer->tour->manager;
+        }
+
+        return null;
     }
 }

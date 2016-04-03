@@ -21,6 +21,7 @@ class Tour extends DBEntity {
         return [
             'tourist'=>[self::BELONGS_TO, 'application\\models\\Tourist', 'touristId'],
             'touragent'=>[self::BELONGS_TO, 'application\\models\\Touragent', 'touragentId'],
+            'manager'=>[self::BELONGS_TO, 'application\\models\\TouragentManager', 'managerId'],
             'cities'=>[self::HAS_MANY, 'application\\models\\TourCity', 'tourId'],
             'offers'=>[self::HAS_MANY, 'application\\models\\TourOffer', 'tourId'],
         ];

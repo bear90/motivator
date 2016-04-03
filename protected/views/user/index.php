@@ -111,7 +111,20 @@
 
             <div class="tab6 tabs-block">
                 <div class="inner-block">
-                    <p>После выбора тура вам будет выделен персональный менеджер!</p>
+                    <?php if($tourist->hasManager()):?>
+                        <h4><?php echo $tourist->getManager()->name; ?></h4>
+                        <h5>тел:</h5>
+                        <p>
+                        <?php foreach($tourist->getManager()->getPhones(false) as $phone): ?>
+                            <span><?php echo $phone; ?></span>
+                        <?php endforeach;?>
+                        </p>
+                        <p>
+                            <a href="<?php echo $tourist->getManager()->touragent->getSiteLink(); ?>" class="link-to-touragent" target="_blank">перейти на сайт турагента</a>
+                        </p>
+                    <?php else: ?>
+                        <p>После выбора тура вам будет выделен персональный менеджер!</p>
+                    <?php endif;?>
                 </div>
 
             </div>
