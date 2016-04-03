@@ -155,13 +155,14 @@
 
 #wrapper .bottom-link {
     position: relative;
-    bottom: -45px;
+    bottom: -20px;
     display: block;
-    background: url('../../img/bottom-link-bg.png') 0 0 no-repeat;
-    width: 318px;
+    background: url('../../../img/bottom-link-bg.png') 50% 0 repeat;
+    width: 100%;
     height: 50px;
     float: none;
     padding: 0;
+    margin: 0 auto;
 }
 
 #wrapper .tabs-block {

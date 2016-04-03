@@ -53,6 +53,8 @@ define([
 
             this.initOfferComponents($newItem);
             
+            $('form.offerForm').bootstrapValidator('addField', $newItem.find('input.country'));
+            $('form.offerForm').bootstrapValidator('addField', $newItem.find('input.city'));
             $('form.offerForm').bootstrapValidator('addField', $newItem.find('input.price'));
             $('form.offerForm').bootstrapValidator('addField', $newItem.find('input.startDate'));
             $('form.offerForm').bootstrapValidator('addField', $newItem.find('input.endDate'));
@@ -63,6 +65,8 @@ define([
             var $item = this.$(e.target).closest('.item');
             var $form = $item.closest('form.offerForm');
 
+            $form.bootstrapValidator('removeField', $item.find('input.country'));
+            $form.bootstrapValidator('removeField', $item.find('input.city'));
             $form.bootstrapValidator('removeField', $item.find('input.price'));
             $form.bootstrapValidator('removeField', $item.find('input.startDate'));
             $form.bootstrapValidator('removeField', $item.find('input.endDate'));
@@ -246,6 +250,22 @@ define([
                     validating: 'glyphicon glyphicon-refresh'
                 },
                 fields: {
+                    country: {
+                        selector: 'input.country',
+                        validators: {
+                            notEmpty: {
+                                message: "Страна долженв быть заполнена!"
+                            }
+                        }
+                    },
+                    city: {
+                        selector: 'input.city',
+                        validators: {
+                            notEmpty: {
+                                message: "Город/Регион должен быть заполнен!"
+                            }
+                        }
+                    },
                     price: {
                         selector: 'input.price',
                         validators: {

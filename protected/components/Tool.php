@@ -37,7 +37,7 @@
             return Yii::app()->mail->send($message);
         }
 
-        public static function getManagerContacts(Tour $tour, TouragentManager $manager)
+        public static function getManagerContacts(Tour $tour, TouragentManager $manager = null)
         {
             $_manager = $manager;
             if($tour->managerId)

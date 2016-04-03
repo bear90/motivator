@@ -24,6 +24,8 @@ class Configuration extends DBEntity {
     const MAX_DISCONT = 'MAX_DISCONT';
     
     const SITE_DOMAIN = 'SITE_DOMAIN';
+    
+    const PREPAYMENT = 'PREPAYMENT';
 
     private static $aValues = null;
 

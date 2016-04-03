@@ -94,25 +94,9 @@
                 <?php else:?>
 
                     <div class="inner-block our-tour">
-                        <h4>Ваш тур</h4>
-                        <span>Страна: <span class="value"></span></span>
-                        <span>Город/Регион: <span class="value"><?php echo $tourist->offer->tour->getCities(); ?></span></span>
-                        <span>Начало тура: <span class="value date">
-                            <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $tourist->offer->startDate); ?>
-                            </span>
-                        </span>
-                        <span>Окончание тура: <span class="value date">
-                            <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $tourist->offer->endDate); ?>
-                            </span>
-                        </span>
-                        <span>Исходная стоимость тура: <span class="value money">
-                            <?php echo number_format($tourist->offer->price, 0, ',', ' '); ?> бел.руб.</span></span>
-                        <span>Стартовая абонентская скидка: <span class="value money">
-                            <?php echo number_format($tourist->offer->maxDiscont, 0, ',', ' '); ?> бел.руб.</span></span>
-                        <span class="sell">Сумма скидки: <span class="value money">
-                            <?php echo number_format($tourist->offer->surchange, 0, ',', ' '); ?> бел.руб.</span></span>
-                        <span>Сумма к доплате: 
-                            <span class="value money">17 600 000 бел.руб.</span></span>
+                        <?php $this->renderPartial('partials/your_tour', [
+                            'tourist' => $tourist,
+                        ]); ?>
                     </div>
 
                 <?php endif; ?>
@@ -153,6 +137,8 @@
             <div class="info-block">
                 
             </div>
+            
+            <a href="#" class="bottom-link hidden-xs"></a>
 
             <div class="bottom-block tourists">
                 <div class="sell-block">

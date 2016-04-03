@@ -28,11 +28,30 @@
             <?php echo number_format($offer->maxDiscont, 0, ',', ' '); ?> бел.руб.
         </div>
         <div class="inner-block">
+            <label>Предоплата:</label>
+            <?php echo number_format($offer->prepayment, 0, ',', ' '); ?> бел.руб.
+        </div>
+        <div class="inner-block">
             <label>Сумма к доплате при максимальной абонентской скидке:</label>
             <?php echo number_format($offer->surchange, 0, ',', ' '); ?> бел.руб.
         </div>
 
         <h4>ОПИСАНИЕ ТУРА:</h4> 
+        
+        <div class="inner-block form-group">
+            <label>Страна:</label>
+            <?php echo $offer->country; ?>
+        </div>
+        
+        <div class="inner-block form-group">
+            <label>Город/Регион:</label>
+            <?php echo $offer->city; ?>
+        </div>
+        
+        <div class="inner-block form-group">
+            <label>Дата начала тура:</label>
+            <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->startDate); ?>
+        </div>
         
         <div class="inner-block form-group">
             <label>Дата начала тура:</label>
@@ -64,11 +83,31 @@
             
         </div>
         <div class="inner-block">
+            <label>Предоплата:</label>
+            
+        </div>
+        <div class="inner-block">
             <label>Сумма к доплате при максимальной абонентской скидке:</label>
             
         </div>
 
         <h4>ОПИСАНИЕ ТУРА:</h4> 
+        
+        <div class="inner-block form-group">
+            <label>Страна:</label>
+            <?php echo CHtml::textField(
+                "TourOffer[{$number}][country]", 
+                $offer->country, 
+                ['class' => 'country']); ?>
+        </div> 
+        
+        <div class="inner-block form-group">
+            <label>Город/Регион:</label>
+            <?php echo CHtml::textField(
+                "TourOffer[{$number}][city]", 
+                $offer->city, 
+                ['class' => 'city']); ?>
+        </div>
         
         <div class="inner-block form-group">
             <label>Дата начала тура:</label>

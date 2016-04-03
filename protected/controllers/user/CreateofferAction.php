@@ -31,13 +31,10 @@ class CreateofferAction extends \CAction
                 $startDate = new \DateTime($offer['startDate']);
                 $endDate = new \DateTime($offer['endDate']);
                 
-                $data = [
-                    'tourId' => $tourId,
-                    'price' => $offer['price'],
-                    'description' => $offer['description'],
-                    'startDate' => $startDate->format("Y-m-d H:i:s"),
-                    'endDate' => $endDate->format("Y-m-d H:i:s"),
-                ];
+                $data = $offer;
+                $data['tourId'] = $tourId;
+                $data['startDate'] = $startDate->format("Y-m-d H:i:s");
+                $data['endDate'] = $endDate->format("Y-m-d H:i:s");
 
                 if (!empty($offer['id']))
                 {

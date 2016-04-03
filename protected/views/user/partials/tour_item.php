@@ -25,7 +25,8 @@
             </div>
             
             <?php $this->renderPartial('partials/offer_list', [
-                'offers' => $tour->offers,
+                'tour' => $tour,
+                'manager' => null,
                 'canChange' => false
             ]); ?>
         </span>

@@ -6,7 +6,6 @@
 namespace application\models;
 
 use application\components\DBEntity;
-use application\models\defines\TouristStatus;
 
 class TouragentManager extends DBEntity {
 
@@ -37,21 +36,21 @@ class TouragentManager extends DBEntity {
     public function getWantDiscont()
     {
         return array_filter($this->tourists, function($tourist){
-            return $tourist->statusId == TouristStatus::WANT_DISCONT;
+            return $tourist->statusId == \application\models\defines\TouristStatus::WANT_DISCONT;
         });
     }
 
     public function getGettingDiscint()
     {
         return array_filter($this->tourists, function($tourist){
-            return $tourist->statusId == TouristStatus::GETTING_DISCONT;
+            return $tourist->statusId == \application\models\defines\TouristStatus::GETTING_DISCONT;
         });
     }
 
     public function getHaveDiscont()
     {
         return array_filter($this->tourists, function($tourist){
-            return $tourist->statusId == TouristStatus::HAVE_DISCONT;
+            return $tourist->statusId == \application\models\defines\TouristStatus::HAVE_DISCONT;
         });
     }
 
