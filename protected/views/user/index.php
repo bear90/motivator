@@ -44,9 +44,9 @@
             <div class="tabs-link clearfix">
                 <a href="#tab1" class="tab <?php echo $this->activeTab == 'tab1' ? 'active' : ''; ?>">ВЫБОР ТУРА</a>
                 <a href="#tab5" class="tab <?php echo $this->activeTab == 'tab5' ? 'active' : ''; ?>" id="fiveTab">ВАШ ТУР</a>
-                <a href="#tab2" class="tab <?php echo $this->activeTab == 'tab2' ? 'active' : ''; ?>" id="secondTab">ПРИЗ</a>
-                <a href="#tab3" class="tab <?php echo $this->activeTab == 'tab3' ? 'active' : ''; ?>" id="threeTab">ИНСТРУКЦИИ</a>
-                <a href="#tab4" class="tab <?php echo $this->activeTab == 'tab4' ? 'active' : ''; ?>" id="fourTab">ПРАВИЛА РАБОTЫ</a>
+                <a href="#tab2" class="tab <?php echo $this->activeTab == 'tab2' ? 'active' : ''; ?> <?php echo $touragent ? 'disabled' : ''; ?>" id="secondTab">ПРИЗ</a>
+                <a href="#tab3" class="tab <?php echo $this->activeTab == 'tab3' ? 'active' : ''; ?> <?php echo $touragent ? 'disabled' : ''; ?>" id="threeTab">ИНСТРУКЦИИ</a>
+                <a href="#tab4" class="tab <?php echo $this->activeTab == 'tab4' ? 'active' : ''; ?> <?php echo $touragent ? 'disabled' : ''; ?>" id="fourTab">ПРАВИЛА РАБОTЫ</a>
                 <a href="#tab6" class="tab <?php echo $this->activeTab == 'tab6' ? 'active' : ''; ?>" id="sixTab">ВАШ МЕНЕДЖЕР</a>
             </div>
 
@@ -62,6 +62,9 @@
                     'touragent' => $touragent
                 ]); ?>
             </div>
+
+            <?php if($touragent === null):?>
+            
             <div class="tab2 tabs-block">
                 <div class="inner-block">
                     <h4>Приз</h4>
@@ -83,6 +86,9 @@
                 </div>
 
             </div>
+            
+            <?php endif; ?>
+
             <div class="tab5 tabs-block">
 
                 <?php if (!$tourist->offer): ?>

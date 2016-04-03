@@ -33,6 +33,11 @@ define(['backbone'], function(Backbone){
                 var prevTab = $wrapper.data('selected');
                 var curTab = $el.attr('href').substr(1);
 
+                if ($el.hasClass('disabled')) 
+                {
+                    return false;
+                }
+
                 if(prevTab != curTab)
                 {
                     $wrapper.find('a.tab[href="#' + prevTab + '"]').removeClass('active');

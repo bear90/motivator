@@ -254,7 +254,7 @@ define([
                         selector: 'input.country',
                         validators: {
                             notEmpty: {
-                                message: "Страна долженв быть заполнена!"
+                                message: "Страна должена быть заполнена!"
                             }
                         }
                     },

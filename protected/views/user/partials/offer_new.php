@@ -12,6 +12,16 @@
         <h4>ОПИСАНИЕ ТУРА:</h4> 
         
         <div class="inner-block form-group">
+            <label>Страна:</label>
+            <?php echo CHtml::textField("TourOffer[1][country]", '', ['class' => 'country']); ?>
+        </div> 
+        
+        <div class="inner-block form-group">
+            <label>Город/Регион:</label>
+            <?php echo CHtml::textField("TourOffer[1][city]", '', ['class' => 'city']); ?>
+        </div>
+        
+        <div class="inner-block form-group">
             <label>Дата начала тура:</label>
             <?php echo CHtml::textField("TourOffer[1][startDate]", '', ['class' => 'startDate']); ?>
         </div>

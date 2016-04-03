@@ -170,6 +170,11 @@ body {
     margin-top: 17px;
 }
 
+.container-fluid .head h1.touragentName {
+    float: right;
+    margin-right: 85px;
+}
+
 .container-fluid .head .right-escape {
     display: block;
     position: absolute;
