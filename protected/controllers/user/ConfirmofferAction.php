@@ -28,6 +28,7 @@ class ConfirmofferAction extends \CAction
         $tourHelper = new TourHelper();
         $tourist = $touristHelper->confirmOffer($offer);
         $touristHelper->changeStatus($tourist, TouristStatus::GETTING_DISCONT);
+        $touristHelper->resetTimer($tourist);
 
         // Delete other tours
         foreach ($tourist->tours as $tour) 

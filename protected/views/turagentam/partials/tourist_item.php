@@ -1,5 +1,8 @@
 <?php
-    $link = Yii::app()->createUrl('user/dashboard/' . $tourist->id . '?tab=tab1');
+
+    $link = $tourist->statusId == \application\models\defines\TouristStatus::WANT_DISCONT
+        ? Yii::app()->createUrl('user/dashboard/' . $tourist->id . '?tab=tab1')
+        : Yii::app()->createUrl('user/dashboard/' . $tourist->id . '?tab=tab5');
 ?>
 <li class="clearfix <?php echo $tourist->status->name; ?>">
     <span class="name">
@@ -12,7 +15,7 @@
     
     <?php elseif ($tourist->statusId == \application\models\defines\TouristStatus::GETTING_DISCONT): ?>
     
-    <span class="date"><?php echo $tourist->getTimer2("d.m.Y"); ?></span>
+    <span class="date"><?php echo $tourist->getCounterDate("d.m.Y"); ?></span>
     
     <?php endif;?>
 </li>

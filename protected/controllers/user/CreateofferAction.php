@@ -16,6 +16,7 @@ class CreateofferAction extends \CAction
     {
         $tourId = (int) \Yii::app()->request->getPost('tourId');
         $offers = (array) \Yii::app()->request->getPost('TourOffer');
+        $tab = \Yii::app()->request->getPost('tab', 'tab1');
 
         $hasNewOffer = false;
         $offerHelper = new Helper();
@@ -61,6 +62,6 @@ class CreateofferAction extends \CAction
             \Tool::sendEmailWithView($tour->tourist->email, 'Получены новые предложения на сайте МОТИВАТОР', 'new_offers');
         }
 
-        $this->controller->redirect('/user/dashboard/' . $tour->touristId . '?tab=tab1');
+        $this->controller->redirect('/user/dashboard/' . $tour->touristId . '?tab=' . $tab);
     }
 }

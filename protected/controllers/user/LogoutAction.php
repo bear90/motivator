@@ -8,9 +8,15 @@ namespace application\controllers\user;
 class LogoutAction extends \CAction
 {
     public function run() {
-        \Yii::app()->user->identityCookie = array();
-        \Yii::app()->user->logout();
-        
-        $this->controller->redirect('/');
+        if(\Yii::app()->user->isManager())
+        {
+            $manager = \Yii::app()->user->getState('manager');
+            $this->controller->redirect('/turagentam/dashboard/' . $manager->id);
+        } else {
+            \Yii::app()->user->identityCookie = array();
+            \Yii::app()->user->logout();
+            
+            $this->controller->redirect('/');
+        }
     }
 }

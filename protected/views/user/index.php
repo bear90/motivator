@@ -89,7 +89,7 @@
             
             <?php endif; ?>
 
-            <div class="tab5 tabs-block">
+            <div class="tab5 tabs-block" id="your-tour">
 
                 <?php if (!$tourist->offer): ?>
 
@@ -99,9 +99,10 @@
 
                 <?php else:?>
 
-                    <div class="inner-block our-tour">
+                    <div class="inner-block our-tour view" data-id="<?php echo $tourist->id; ?>">
                         <?php $this->renderPartial('partials/your_tour', [
                             'tourist' => $tourist,
+                            'manager' => $manager,
                         ]); ?>
                     </div>
 

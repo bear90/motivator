@@ -797,10 +797,12 @@ footer .logo > img {
     margin-left: 0;
 }
 
+#tourist-cabinet .our-tour.view .editBlock,
 #tourist-cabinet .offers .item.view .editBlock {
     display: none;
 }
 
+#tourist-cabinet .our-tour.edit .viewBlock,
 #tourist-cabinet .offers .item.edit .viewBlock {
     display: none;
 }

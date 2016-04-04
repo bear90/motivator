@@ -3,13 +3,14 @@
  */
 define([
     "structures/user/orderTour",
+    "structures/user/yourTour",
     "vendor/jquery.countdown/jquery.plugin",
     "vendor/jquery.countdown/jquery.countdown",
     "tinymce",
     "tinymce.jquery",
     'validator',
     'jqueryui',
-], function(OrderTourView){
+], function(OrderTourView, YourTourView){
 
     var Index = Backbone.View.extend({
 
@@ -113,6 +114,10 @@ define([
 
             (new OrderTourView({
                 el: '#order-tour'
+            })).render();
+
+            (new YourTourView({
+                el: '#your-tour'
             })).render();
 
             this.$("#counterDate").datepicker({
