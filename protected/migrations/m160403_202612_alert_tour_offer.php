@@ -19,6 +19,7 @@ class m160403_202612_alert_tour_offer extends CDbMigration
 	{
 		$this->dropColumn('tour_offer', 'country');
 		$this->dropColumn('tour_offer', 'city');
+		$this->dropForeignKey('FK_tour_offer_tourId', 'tour_offer');
 	}
 	
 }

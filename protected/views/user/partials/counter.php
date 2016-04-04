@@ -32,10 +32,13 @@
 </div>
 
 <div class="bottom-inner-block clearfix hidden">
-   <div class="inner-block form-group">
+    <?php echo CHtml::beginForm('/user/setTimer', 'post', ['class' => 'counterForm']); ?>
+    <?php echo CHtml::hiddenField('counterReason'); ?>
+    <div class="inner-block form-group">
         <label>конечная дата …:</label>
         <?php echo CHtml::textField("counterFinishDate"); ?>
     </div>
+    <?php echo CHtml::endForm(); ?>
 </div>
 
 <?php endif; ?>

@@ -13,6 +13,8 @@ define([
 
     var Index = Backbone.View.extend({
 
+        blinkEffectHandler: null,
+
         events: {
             "click button.reason-list": "clickReasonList",
             "click .custom-list a": "clickReasonItem"
@@ -24,7 +26,6 @@ define([
 
             var $el = this.$(e.target);
             var $title = $el.closest('.inner-block').find('h4');
-            var $button = $el.closest('.inner-block').find('button.reason-list');
             var $list = $el.closest('.inner-block').find('ul.custom-list');
             var $bottomBlock = $el.closest('.end-sell').find('.bottom-inner-block');
 
@@ -51,9 +52,10 @@ define([
                     break;
             }
             $title.removeClass('hidden');
-            $button.addClass('hidden');
             $list.addClass('hidden');
             $bottomBlock.removeClass('hidden');
+
+            this.$('form.counterForm input[name=counterReason]').val($el.data('id'));
         },
 
         clickReasonList: function(e) 
@@ -80,6 +82,16 @@ define([
             $.countdown.setDefaults($.countdown.regionalOptions['ru']);
         },
 
+        startPulseEffect: function (){
+            this.blinkEffectHandler = setInterval($.proxy(function(){
+                this.$('.end-sell .countdown-time').fadeTo('slow', 0.3).fadeTo('slow', 1.0);
+            }, this), 1700);
+        },
+
+        stopPulseEffect: function(){
+            clearInterval(this.blinkEffectHandler);
+        },
+
         render: function(){
 
             //countdown time
@@ -96,7 +108,7 @@ define([
 
             if(this.$('.end-sell .top').hasClass('pulse'))
             {
-                
+                this.startPulseEffect();
             }
 
             (new OrderTourView({
@@ -105,7 +117,13 @@ define([
 
             this.$("#counterFinishDate").datepicker({
                 changeMonth: true,
-                dateFormat: "dd.mm.yy"
+                dateFormat: "dd.mm.yy",
+                onClose: function(date) {
+                    if (date)
+                    {
+                        self.$('form.counterForm').submit();
+                    }
+                }
             });
         }
     });

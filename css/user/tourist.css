@@ -822,13 +822,12 @@ ul.custom-list {
 }
 ul.custom-list li {list-style: none; border-bottom: 2px solid #ff790b;}
 ul.custom-list li:last-child {list-style: none; border-bottom: none;}
-ul.custom-list li:first-child a {padding: 16px 12px; font-size: 16px;}
 ul.custom-list li a {
     display: block; 
     text-align: left; 
     text-transform: initial;
     text-decoration: none;
-    padding: 12px;
+    padding: 6px 12px;
     font-weight: bold;
     color: #000;
 }

@@ -702,9 +702,8 @@
     font-size: 22px;
     font-weight: 400;
     line-height: 1em;
-    margin: 0;
+    margin: 10px 0 10px 0;
     padding: 0;
-    margin-top: 10px;
 }
 
 #wrapper .bottom-block.tourists .end-sell .countdown-time .countdown-section {
