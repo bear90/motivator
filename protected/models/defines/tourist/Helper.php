@@ -62,6 +62,7 @@ class Helper {
 
     public function resetTimer(Tourist $tourist)
     {
+        $tourist->counterReason = '0';
         $tourist->counterDate = '0000-00-00 00:00:00';
         $tourist->save();
 
