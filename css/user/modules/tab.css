@@ -745,8 +745,15 @@
     width: 100%;
     clear: both;
     padding-top: 20px;
-    border-top: 1px solid #000;
     text-align: center;
+}
+
+#wrapper .bottom-block.tourists .end-sell .top {
+    border-bottom: 1px solid #000;
+}
+
+#wrapper .bottom-block.tourists .end-sell input{
+    color: #000;
 }
 
 #wrapper .bottom-block.tourists .end-sell .bottom-inner-block h4 {

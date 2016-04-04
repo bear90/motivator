@@ -809,3 +809,37 @@ footer .logo > img {
 #order-tour .form-group .glyphicon-remove, {
     display: none;
 }
+
+ul.custom-list {
+    -moz-border-radius: 7px;
+    -webkit-border-radius: 7px;
+    border-radius: 7px;
+    border: 2px solid #ff790b;
+    padding: 0;
+    background: #fff;
+    position: absolute;
+    z-index: 1;
+}
+ul.custom-list li {list-style: none; border-bottom: 2px solid #ff790b;}
+ul.custom-list li:last-child {list-style: none; border-bottom: none;}
+ul.custom-list li:first-child a {padding: 16px 12px; font-size: 16px;}
+ul.custom-list li a {
+    display: block; 
+    text-align: left; 
+    text-transform: initial;
+    text-decoration: none;
+    padding: 12px;
+    font-weight: bold;
+    color: #000;
+}
+@media (max-width: 570px) {
+    ul.custom-list {
+        width: 100%;
+        position: initial;
+        margin-left: 0;
+    }
+}
+
+.end-sell .top .inner-block {
+    position: relative;
+}

@@ -161,19 +161,15 @@
 
             <div class="bottom-block tourists">
                 <div class="sell-block">
-                    <h4>Сумма вашей скидки: <b>99 999 999 <small>бел.руб.</small></b> </h4>
+                    <h4>Сумма вашей скидки: <b>
+                    <?php echo number_format($tourist->getTotalDiscont(), 0, ',', ' '); ?>
+                     <small>бел.руб.</small></b> </h4>
                 </div>
                 <div class="end-sell">
                    <div class="bottom-container">
-                        <div class="inner-block">
-                           <h4>До окончания срока внесения предоплаты осталось:</h4>
-                       </div>
-                       <div class="inner-block">
-                           <div class="countdown-time clearfix" data-date="<?php echo $tourist->getTimer1(); ?>"></div>
-                       </div>
-                       <div class="bottom-inner-block">
-                           <h4>Конечная дата внесения предоплаты: <b><?php echo $tourist->getTimer1('d.m.Y'); ?></b></h4>
-                       </div>
+                        <?php $this->renderPartial('partials/counter', [
+                            'tourist' => $tourist
+                        ]);?>
                    </div>
                 </div>
             </div>

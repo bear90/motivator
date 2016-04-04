@@ -24,7 +24,7 @@
 
 <span class="sell">Общая скидка: 
     <span class="value money">
-        <?php echo number_format($tourist->offer->surchange, 0, ',', ' '); ?> бел.руб.
+        <?php echo number_format($tourist->getTotalDiscont(), 0, ',', ' '); ?> бел.руб.
     </span>
 </span>
 

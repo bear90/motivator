@@ -19,6 +19,8 @@ class Configuration extends DBEntity {
 
     const ORDER_TOUR_TIMER = 'ORDER_TOUR_TIMER';
     
+    const PAYMENT_TOUR_TIMER = 'PAYMENT_TOUR_TIMER';
+    
     const MIN_DISCONT = 'MIN_DISCONT';
 
     const MAX_DISCONT = 'MAX_DISCONT';

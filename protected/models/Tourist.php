@@ -44,6 +44,16 @@ class Tourist extends DBEntity {
         return $date->format($format);
     }
 
+    public function getTimer2($format = 'Y-m-d H:i:s')
+    {
+        $days = Configuration::get(Configuration::PAYMENT_TOUR_TIMER, 1);
+
+        $date = new \DateTime($this->createdAt);
+        $date->add(new \DateInterval("P{$days}D"));
+        
+        return $date->format($format);
+    }
+
     public function getFullName()
     {
         return trim("{$this->lastName} {$this->firstName} {$this->middleName}");
@@ -78,5 +88,16 @@ class Tourist extends DBEntity {
         }
 
         return null;
+    }
+
+    public function getTotalDiscont()
+    {
+        $discont = 0;
+        if($this->offer)
+        {
+            $discont += $this->offer->minDiscont;
+            $discont += $this->offer->getPartnerDiscont();
+        }
+        return $discont;
     }
 }

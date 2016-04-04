@@ -8,12 +8,59 @@ define([
     "tinymce",
     "tinymce.jquery",
     'validator',
+    'jqueryui',
 ], function(OrderTourView){
 
     var Index = Backbone.View.extend({
 
         events: {
-            //"click button.edit": "clickEditButton"
+            "click button.reason-list": "clickReasonList",
+            "click .custom-list a": "clickReasonItem"
+        },
+
+        clickReasonItem: function(e)
+        {
+            e.preventDefault();
+
+            var $el = this.$(e.target);
+            var $title = $el.closest('.inner-block').find('h4');
+            var $button = $el.closest('.inner-block').find('button.reason-list');
+            var $list = $el.closest('.inner-block').find('ul.custom-list');
+            var $bottomBlock = $el.closest('.end-sell').find('.bottom-inner-block');
+
+            switch($el.data('id'))
+            {
+                case 1:
+                    $title.text('До окончания срока внесения аванса осталось:');
+                    $bottomBlock.find('label').text('Конечная дата внесения аванса:');
+                    break;
+
+                case 2:
+                    $title.text('До окончания срока подачи документов осталось:');
+                    $bottomBlock.find('label').text('Конечная дата подачи документов:');
+                    break;
+
+                case 3:
+                    $title.text('До окончания срока оплаты тура осталось:');
+                    $bottomBlock.find('label').text('Конечная дата оплаты тура:');
+                    break;
+
+                case 4:
+                    $title.text('До окончания срока окончания тура осталось:');
+                    $bottomBlock.find('label').text('Конечная дата окончания тура:');
+                    break;
+            }
+            $title.removeClass('hidden');
+            $button.addClass('hidden');
+            $list.addClass('hidden');
+            $bottomBlock.removeClass('hidden');
+        },
+
+        clickReasonList: function(e) 
+        {
+            var $el = this.$(e.target);
+
+            $el.siblings('ul.custom-list').toggleClass('hidden');
         },
 
         initCountDown: function(){
@@ -47,9 +94,19 @@ define([
                 format: 'DHMS'
             });
 
+            if(this.$('.end-sell .top').hasClass('pulse'))
+            {
+                
+            }
+
             (new OrderTourView({
                 el: '#order-tour'
             })).render();
+
+            this.$("#counterFinishDate").datepicker({
+                changeMonth: true,
+                dateFormat: "dd.mm.yy"
+            });
         }
     });
 
