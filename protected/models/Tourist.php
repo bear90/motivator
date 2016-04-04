@@ -54,6 +54,23 @@ class Tourist extends DBEntity {
         return $date->format($format);
     }
 
+    public function getCounterDate($format = 'Y-m-d H:i:s')
+    {
+        if($this->statusId == TouristStatus::WANT_DISCONT)
+        {
+            return $this->getTimer1($format);
+        }
+
+        if($this->counterDate == '0000-00-00 00:00:00')
+        {
+            return null;
+        }
+
+        $date = new \DateTime($this->counterDate);
+        
+        return $date->format($format);
+    }
+
     public function getFullName()
     {
         return trim("{$this->lastName} {$this->firstName} {$this->middleName}");

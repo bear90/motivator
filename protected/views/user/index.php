@@ -168,7 +168,8 @@
                 <div class="end-sell">
                    <div class="bottom-container">
                         <?php $this->renderPartial('partials/counter', [
-                            'tourist' => $tourist
+                            'tourist' => $tourist,
+                            'manager' => $manager,
                         ]);?>
                    </div>
                 </div>

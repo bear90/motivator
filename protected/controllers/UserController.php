@@ -22,6 +22,7 @@ class UserController extends \CController
             'removetour' => 'application\\controllers\\user\\RemovetourAction',
             'updatetour' => 'application\\controllers\\user\\UpdatetourAction',
             'confirmoffer' => 'application\\controllers\\user\\ConfirmofferAction',
+            'settimer' => 'application\\controllers\\user\\SettimerAction',
         ];
     }
 

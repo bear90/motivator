@@ -115,7 +115,7 @@ define([
                 el: '#order-tour'
             })).render();
 
-            this.$("#counterFinishDate").datepicker({
+            this.$("#counterDate").datepicker({
                 changeMonth: true,
                 dateFormat: "dd.mm.yy",
                 onClose: function(date) {
