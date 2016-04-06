@@ -3,7 +3,7 @@
          $tourist->offer->tour->managerId == $manager->id): ?>
     <div class="top clearfix <?php echo $tourist->getCounterDate() === null ? 'pulse' : ''; ?>">
         <div class="inner-block">
-           <h4 class="<?php echo empty($tourist->getCounterDate()) ? 'hidden' : ''; ?>">
+           <h4 class="<?php echo $tourist->getCounterDate() === null ? 'hidden' : ''; ?>">
                 <?php echo Yii::t('front', 'l-conter-title-' . $tourist->counterReason); ?>
            </h4>
            <button type="button" class="btn btn-default btn-green2 reason-list">Выбрать повод пуска счётчика</button>
@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <div class="bottom-inner-block clearfix <?php echo empty($tourist->getCounterDate()) ? 'hidden' : ''; ?>">
+    <div class="bottom-inner-block clearfix <?php echo $tourist->getCounterDate() === null ? 'hidden' : ''; ?>">
         <?php echo CHtml::beginForm('/user/settimer/' . $tourist->id, 'post', ['class' => 'counterForm']); ?>
         <?php echo CHtml::hiddenField('counterReason'); ?>
         <div class="inner-block form-group">
