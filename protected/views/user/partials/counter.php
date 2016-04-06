@@ -1,7 +1,7 @@
 <?php if($tourist->statusId > \application\models\defines\TouristStatus::WANT_DISCONT &&
          $manager !== null &&
          $tourist->offer->tour->managerId == $manager->id): ?>
-    <div class="top clearfix <?php echo empty($tourist->getCounterDate()) ? 'pulse' : ''; ?>">
+    <div class="top clearfix <?php echo $tourist->getCounterDate() === null ? 'pulse' : ''; ?>">
         <div class="inner-block">
            <h4 class="<?php echo empty($tourist->getCounterDate()) ? 'hidden' : ''; ?>">
                 <?php echo Yii::t('front', 'l-conter-title-' . $tourist->counterReason); ?>

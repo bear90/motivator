@@ -1,5 +1,5 @@
 <?php
-    $readOnly = $manager->id != $tourist->offer->tour->managerId;
+    $readOnly = !$manager || $manager->id != $tourist->offer->tour->managerId;
 ?>
 <h4>Ваш тур</h4>
 
