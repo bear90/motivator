@@ -29,6 +29,8 @@ class Configuration extends DBEntity {
     
     const PREPAYMENT = 'PREPAYMENT';
 
+    const PARTNER_PERCENT = 'PARTNER_PERCENT';
+
     private static $aValues = null;
 
     /**

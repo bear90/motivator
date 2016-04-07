@@ -7,7 +7,7 @@
 пароль для входа: <?php echo $tourist->user->password?>; 
 код группы: <?php echo str_pad($tourist->id, 4, "0", STR_PAD_LEFT)?>.</p>
 
-<p>Порядок  получения скидки описан в <a href="<?php echo \application\models\Configuration::get(\application\models\Configuration::SITE_DOMAIN); ?>/user/dashboard">правилах работы</a> в вашем личном кабинете.</p>
+<p>Порядок  получения скидки описан в <a href="<?php echo \application\models\Configuration::get(\application\models\Configuration::SITE_DOMAIN); ?>/user/dashboard?tab=tab4">правилах работы</a> в вашем личном кабинете.</p>
 
 <p>Для перехода в личный кабинет нажмите – <a href="<?php echo $tourist->user->getAutoLoginLink(); ?>">перейти в личный кабинет</a></p>
 
