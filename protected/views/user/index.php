@@ -29,9 +29,7 @@
                 <span><?php echo $tourist->getFormatedPhone(); ?></span><br>
             <?php endif; ?>
             <span class="mail"><?php echo $tourist->email; ?></span>
-            <?php if($tourist->offer): ?>
-                <h1><b>Город покупки тура:</b> <span><?php echo $tourist->offer->tour->getCities(); ?></span></h1>
-            <?php endif; ?>
+
             <h1><b>Статус:</b> <span><?php echo $tourist->status->description; ?></span></h1>
 
             <a class="right-escape" href="<?php echo Yii::app()->createUrl('user/logout'); ?>">

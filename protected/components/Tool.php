@@ -3,6 +3,7 @@
     //namespace application\models;
 
     use application\models\Tour;
+    use application\models\Tourist;
     use application\models\TouragentManager;
 
     class Tool {
@@ -21,14 +22,30 @@
             }
         }
 
-        public static function sendEmailWithView($to, $subject, $view, array $data = [])
+        public static function informTourist(Tourist $tourist, $view)
+        {
+            $subject = '';
+            $subjPath = \Yii::getPathOfAlias("application.views.mail.{$view}_subj") . '.php';
+            if(file_exists($subjPath))
+            {
+                if(isset(Yii::app()->controller))
+                    $controller = Yii::app()->controller;
+                else
+                    $controller = new CController('YiiInform');
+
+                $subject = $controller->renderInternal($subjPath, [], true);
+            }
+
+            self::sendEmailWithView($tourist->email, $subject, $view, ['tourist' => $tourist]);
+        }
+
+        public static function sendEmailWithView($to, $subject = 'От системы «МОТИВАТОР»', $view, array $data = [])
         {
             Yii::import('application.extensions.yii-mail.YiiMailMessage');
 
             $message = new YiiMailMessage;
             $message->view = $view;
-             
-            //userModel is passed to the view
+            
             $message->setBody($data, 'text/html');
              
             $message->addTo($to);

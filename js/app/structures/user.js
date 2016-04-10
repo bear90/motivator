@@ -126,6 +126,7 @@ define([
                 onClose: function(date) {
                     if (date)
                     {
+                        self.$('.end-sell .top').removeClass('pulse');
                         self.$('form.counterForm').submit();
                     }
                 }

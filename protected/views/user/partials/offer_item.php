@@ -9,7 +9,7 @@
     <?php if($readOnly === false): ?>
     <div class="inner-block">
         <button type="button" class="btn btn-default btn-yellow edit">РЕДАКТИРОВАТЬ</button>
-        <button type="button" class="btn btn-default btn-green2 confirm">ПРЕДОПЛАТА ПОЛУЧЕНА ТУР ВЫБРАН</button>
+        <button type="button" class="btn btn-default btn-green2 confirm">ПРЕДОПЛАТА ПОЛУЧЕНА / ТУР ВЫБРАН</button>
     </div>
     <?php endif; ?>
 
@@ -46,11 +46,6 @@
         <div class="inner-block form-group">
             <label>Город/Регион:</label>
             <?php echo $offer->city; ?>
-        </div>
-        
-        <div class="inner-block form-group">
-            <label>Дата начала тура:</label>
-            <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->startDate); ?>
         </div>
         
         <div class="inner-block form-group">

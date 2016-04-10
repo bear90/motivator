@@ -12,6 +12,16 @@
         <h4>ОПИСАНИЕ ТУРА:</h4> 
         
         <div class="inner-block form-group">
+            <label>Страна:</label>
+            <input class="country" type="text" value="" name="TourOffer[<%= num %>][country]" data-bv-field="country">
+        </div> 
+        
+        <div class="inner-block form-group">
+            <label>Город/Регион:</label>
+            <input class="city" type="text" value="" name="TourOffer[<%= num %>][city]" data-bv-field="city">
+        </div>
+        
+        <div class="inner-block form-group">
             <label>Дата начала тура:</label>
             <input class="startDate" type="text" value="" name="TourOffer[<%= num %>][startDate]" data-bv-field="startDate">
         </div>

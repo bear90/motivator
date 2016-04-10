@@ -145,6 +145,15 @@ define([
                     }
                 }
             });
+                
+            $(window).on('beforeunload', $.proxy(this.leavePage, this));
+        },
+
+        leavePage: function(e){
+            if($('.end-sell .top').hasClass('pulse'))
+            {
+                return 'Таймер не установлен. Проверьте работу счётчика!';
+            }
         },
 
         paidOffer: function (e) {

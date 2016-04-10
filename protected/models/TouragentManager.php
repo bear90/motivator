@@ -35,21 +35,24 @@ class TouragentManager extends DBEntity {
 
     public function getWantDiscont()
     {
-        return array_filter($this->tourists, function($tourist){
+        $tourists = $this->boss ? $this->touragent->tourists : $this->tourists;
+        return array_filter($tourists, function($tourist){
             return $tourist->statusId == \application\models\defines\TouristStatus::WANT_DISCONT;
         });
     }
 
     public function getGettingDiscint()
     {
-        return array_filter($this->tourists, function($tourist){
+        $tourists = $this->boss ? $this->touragent->tourists : $this->tourists;
+        return array_filter($tourists, function($tourist){
             return $tourist->statusId == \application\models\defines\TouristStatus::GETTING_DISCONT;
         });
     }
 
     public function getHaveDiscont()
     {
-        return array_filter($this->tourists, function($tourist){
+        $tourists = $this->boss ? $this->touragent->tourists : $this->tourists;
+        return array_filter($tourists, function($tourist){
             return $tourist->statusId == \application\models\defines\TouristStatus::HAVE_DISCONT;
         });
     }

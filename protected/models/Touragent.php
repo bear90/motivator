@@ -16,8 +16,12 @@ class Touragent extends DBEntity {
     public function relations()
     {
         return [
-            'user'=>[self::BELONGS_TO, 'application\\models\\User', 'userId'],
-            'managers'=>[self::HAS_MANY, 'application\\models\\TouragentManager', 'touragentId'],
+            'user'      => [self::BELONGS_TO, 'application\\models\\User', 'userId'],
+            'managers'  => [self::HAS_MANY, 'application\\models\\TouragentManager', 'touragentId'],
+            'tours'     => [self::HAS_MANY, 'application\\models\\Tour', 'touragentId'],
+            'tourists'  => [self::HAS_MANY, 'application\\models\\Tourist', 'touristId', 
+                'through' => 'tours',
+                'order' =>  'tourists.createdAt'],
         ];
     }
  

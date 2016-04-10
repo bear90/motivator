@@ -48,6 +48,9 @@ define([
         renderNewOffer: function(e) {
             var $item = this.$(e.target).closest('.item');
             var number = this.$(e.target).closest('form.offerForm').find('> .item').size();
+
+            $item.find('button.save').addClass('hidden');
+            $item.find('a.addOffer').addClass('hidden');
             
             $newItem = $item.after(this.templateNewOffer({num: number+1})).next();
 
@@ -72,6 +75,8 @@ define([
             $form.bootstrapValidator('removeField', $item.find('input.endDate'));
             $form.bootstrapValidator('removeField', $item.find('textarea.description'));
 
+            $item.prev().find('button.save').removeClass('hidden');
+            $item.prev().find('a.addOffer').removeClass('hidden');
             $item.remove();
 
             $form.data('bootstrapValidator').validate();
