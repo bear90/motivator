@@ -40,7 +40,7 @@ class User extends \CActiveRecord{
     public function findByHash($hash)
     {
         $criteria = new \CDbCriteria();
-        $criteria->addCondition('md5(concat(password, :salt)) = :hash');
+        $criteria->addCondition('md5(concat(id, :salt)) = :hash');
         $criteria->params = [
             'salt' => $this->salt,
             'hash' => $hash
