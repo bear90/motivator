@@ -39,7 +39,7 @@ class DashboardAction extends \CAction
                 $manager = \Yii::app()->user->getState('manager');
 
                 // Restrict access for unknown agents
-                if (!$tourist->hasTouragent($touragent->id))
+                if (!$tourist || !$tourist->hasTouragent($touragent->id))
                 {
                     throw new \CHttpException(404, 'Not found');
                 }
