@@ -59,7 +59,7 @@ class CreateofferAction extends \CAction
 
         if ($hasNewOffer)
         {
-            \Tool::sendEmailWithView($tour->tourist->email, 'Получены новые предложения на сайте МОТИВАТОР', 'new_offers');
+            \Tool::informTourist($tour->tourist, 'new_offers');
         }
 
         $this->controller->redirect('/user/dashboard/' . $tour->touristId . '?tab=' . $tab);

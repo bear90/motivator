@@ -50,6 +50,7 @@
              
             $message->addTo($to);
             $message->from = Yii::app()->params['adminEmail'];
+            $message->setSubject($subject);
             
             return Yii::app()->mail->send($message);
         }
