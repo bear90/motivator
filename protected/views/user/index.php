@@ -147,7 +147,7 @@
                 <p>Система «МОТИВАТОР».</p>
 
                 <p>
-                    <a class=" btn btn-default btn-green" href="#tab1">ВЫБРАТЬ ТУР И ЗАПОЛНИТЬ ЗАЯВКУ</a>
+                    <a class=" btn btn-default btn-green" href="<?php echo Yii::app()->createUrl('user/dashboard?tab=tab1'); ?>">ВЫБРАТЬ ТУР И ЗАПОЛНИТЬ ЗАЯВКУ</a>
                 </p>
             <?php endif; ?>
             </div>
