@@ -1,7 +1,9 @@
 <div class="tabs-block-inner">
     <div class="head-inner-block view">
        
+        <?php if($canRemove):?>
         <i class="glyphicon glyphicon-trash" data-href="/user/removetour?id=<?php echo $tour->id; ?>"><!-- --></i>
+        <?php endif;?>
 
         <h3>ЗАЯВКА НА ТУР</h3>
 

@@ -9,7 +9,8 @@
     <?php foreach ($tours as $tour): ?>
         <?php $touragent === null 
             ? $this->renderPartial('partials/tour_item', [
-                'tour' => $tour
+                'tour' => $tour,
+                'canRemove' => !$tourist->offerId || $tourist->offer->tourId != $tour->id
             ])
             : $this->renderPartial('partials/tour_item_for_manager', [
                 'tour' => $tour,
