@@ -60,7 +60,7 @@ class TouragentManager extends DBEntity {
     public function getPhones($asString = true)
     {
         $phones = array_map(function($phone){
-            return $phone->phone;
+            return $phone;
         }, $this->phones);
 
         return $asString ? implode(', ', $phones) : $phones;
