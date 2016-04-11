@@ -153,7 +153,9 @@
             </div>
 
             <div class="info-block">
-                
+                <?php if($message):?>
+                    <div class="inner-block"><?php echo $message; ?></div>
+                <?php endif;?>
             </div>
             
             <a href="#" class="bottom-link hidden-xs"></a>

@@ -13,21 +13,10 @@ class DashboardAction extends \CAction
     public function run($id = null) {
 
         $tourFormSubmitted = false;
-
-        if(\Yii::app()->request->getParam('tab') !== null)
-        {
-            $this->controller->activeTab = \Yii::app()->request->getParam('tab');
-        }
-
-        if (\Yii::app()->user->hasState('tour::created'))
-        {
-            $tourFormSubmitted = true;
-            \Yii::app()->user->setState('tour::created', null);
-        }
-
         $touragent = null;
         $tourist = null;
         $manager = null;
+
         switch (true) {
             case \Yii::app()->user->isUser():
                 $tourist = \Yii::app()->user->model->tourist;
@@ -45,7 +34,24 @@ class DashboardAction extends \CAction
                 }
                 break;
         }
-        
+
+        $message = $tourist->message->text;
+
+        if($message) 
+        {
+            $this->controller->activeTab = '';
+        }
+
+        if(\Yii::app()->request->getParam('tab') !== null)
+        {
+            $this->controller->activeTab = \Yii::app()->request->getParam('tab');
+        }
+
+        if (\Yii::app()->user->hasState('tour::created'))
+        {
+            $tourFormSubmitted = true;
+            \Yii::app()->user->setState('tour::created', null);
+        }
 
         $criteria = new \CDbCriteria();
         $criteria->with = ['cities', 'touragent', 'offers'];
@@ -60,7 +66,8 @@ class DashboardAction extends \CAction
             'tourist' => $tourist,
             'manager' => $manager,
             'tourFormSubmitted' => $tourFormSubmitted,
-            'tours' => $tours
+            'tours' => $tours,
+            'message' => $message
         ]);
     }
 }

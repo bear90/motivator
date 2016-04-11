@@ -10,7 +10,7 @@ class Tourist extends DBEntity {
     public function rules(){
         return [
             ['firstName, lastName, email, userId, statusId', 'required'],
-            ['middleName, phone, groupCode, offerId, counterReason, counterDate', 'safe']
+            ['middleName, phone, groupCode, offerId, counterReason, counterDate, counterStartedAt', 'safe']
         ];
     }
 
@@ -21,6 +21,7 @@ class Tourist extends DBEntity {
             'user'=>[self::BELONGS_TO, 'application\\models\\User', 'userId'],
             'offer'=>[self::BELONGS_TO, 'application\\models\\TourOffer', 'offerId'],
             'tours'=>[self::HAS_MANY, 'application\\models\\Tour', 'touristId'],
+            'message'=>[self::HAS_ONE, 'application\\models\\Message', 'touristId', 'order' => 'message.createdAt DESC'],
         ];
     }
 

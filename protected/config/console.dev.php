@@ -10,7 +10,10 @@ return array(
             'username' => 'root',
             'password' => 'start123',
             'charset' => 'utf8',
-        )
+        ),
+        'mail' => array(
+            'dryRun' => true
+        ),
     ),
     'params' => array(
         'yiiPath'       => 'd:\www/motivator.by/framework/yii.php',

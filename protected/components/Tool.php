@@ -74,7 +74,7 @@
             }
 
             $message = new \application\models\Message;
-            $message->createdAt = strtotime($date);
+            $message->createdAt = date('Y-m-d', strtotime($date));
             $message->text = $text;
 
             if($entity instanceof Tourist)

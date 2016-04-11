@@ -5,6 +5,7 @@
 
 namespace application\controllers\api;
 
+use application\components\DbTransaction;
 use application\models\defines\tourist\Helper;
 
 class TouristCreateAction extends \CApiAction
@@ -13,21 +14,35 @@ class TouristCreateAction extends \CApiAction
     {
         $attributes = \Yii::app()->request->getRawBody();
         $attributes = json_decode($attributes, true);
+        $sended = 0;
 
-        $helper = new Helper;
-        $tourist = $helper->create($attributes);
+        DbTransaction::begin();
 
-        $s = \Tool::sendEmailWithView(
-            $tourist->email,
-            'registration', 
-            [
-                'tourist' => $tourist
-            ]
-        );
+        try {
+            $helper = new Helper;
+            $tourist = $helper->create($attributes);
+
+            $s = \Tool::sendEmailWithView(
+                $tourist->email,
+                'registration', 
+                [
+                    'tourist' => $tourist
+                ]
+            );
+            \Tool::sendMessage($tourist, 'after_registration', ['tourist' => $tourist], '+1 day');
+            $sended = 1;
+
+            DbTransaction::commit();
+
+        } catch (Exception $e)
+        {
+            DbTransaction::rollBack();
+            throw $e;
+        }
         
         return [
             'id' => $tourist->id,
-            'sended' => $s
+            'sended' => $sended
         ];
     }
 }
