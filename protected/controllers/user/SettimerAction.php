@@ -18,7 +18,7 @@ class SettimerAction extends \CAction
         
         $data = [
             'counterReason' => (int) \Yii::app()->request->getPost('counterReason'),
-            'counterStartedAt' => $currentDate->format("Y-m-d H:i:s"),
+            'counterStartedAt' => $currentDate->format("Y-m-d"),
             'counterDate' => $counterDate->format("Y-m-d H:i:s")
         ];
         $helper = new Helper();
