@@ -72,6 +72,7 @@ return array(
         ),
         'mail' => array(
             'class' => 'application.extensions.yii-mail.YiiMail',
+            'viewPath' => 'application.views.templates',
             /*'transportType' => 'smtp',
             'transportOptions' => array(
                 'host' => 'webmail.active.by',

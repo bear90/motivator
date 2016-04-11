@@ -18,8 +18,7 @@ class TouristCreateAction extends \CApiAction
         $tourist = $helper->create($attributes);
 
         $s = \Tool::sendEmailWithView(
-            $tourist->email, 
-            'Вы зарегистрированы на сайте МОТИВАТОР',
+            $tourist->email,
             'registration', 
             [
                 'tourist' => $tourist

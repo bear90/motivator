@@ -24,23 +24,23 @@
 
         public static function informTourist(Tourist $tourist, $view)
         {
-            $subject = '';
-            $subjPath = \Yii::getPathOfAlias("application.views.mail.{$view}_subj") . '.php';
-            if(file_exists($subjPath))
-            {
-                if(isset(Yii::app()->controller))
-                    $controller = Yii::app()->controller;
-                else
-                    $controller = new CController('YiiInform');
-
-                $subject = $controller->renderInternal($subjPath, [], true);
-            }
-
-            self::sendEmailWithView($tourist->email, $subject, $view, ['tourist' => $tourist]);
+            self::sendEmailWithView($tourist->email, $view, ['tourist' => $tourist]);
+            self::sendMessage($tourist, $view, ['tourist' => $tourist]);
         }
 
-        public static function sendEmailWithView($to, $subject = 'От системы «МОТИВАТОР»', $view, array $data = [])
+        public static function sendEmailWithView($to, $view, array $data = [])
         {
+            $subject = 'От системы «МОТИВАТОР»';
+            $subjPath = \Yii::getPathOfAlias("application.views.templates.{$view}_subj") . '.php';
+            if(file_exists($subjPath))
+            {
+                $controller = isset(Yii::app()->controller)
+                    ? Yii::app()->controller
+                    : new CController('YiiInform');
+
+                $subject = trim($controller->renderInternal($subjPath, $data, true));
+            }
+
             Yii::import('application.extensions.yii-mail.YiiMailMessage');
 
             $message = new YiiMailMessage;
@@ -53,6 +53,44 @@
             $message->setSubject($subject);
             
             return Yii::app()->mail->send($message);
+        }
+
+        public static function sendMessage($entity, $view, array $data = [], $date = 'now')
+        {
+            if($entity instanceof Tourist === false && $entity instanceof TouragentManager === false)
+            {
+                return false;
+            }
+
+            $text = '';
+            $path = \Yii::getPathOfAlias("application.views.templates.{$view}") . '.php';
+            if(file_exists($path))
+            {
+                $controller = isset(Yii::app()->controller)
+                    ? \Yii::app()->controller
+                    : new CController('YiiInform');
+
+                $text = $controller->renderInternal($path, $data, true);
+            }
+
+            $message = new \application\models\Message;
+            $message->createdAt = strtotime($date);
+            $message->text = $text;
+
+            if($entity instanceof Tourist)
+            {
+                $message->touristId = $entity->id;
+            } else if ($entity instanceof TouragentManager)
+            {
+                $message->managerId = $entity->id;
+            }
+            $message->save();
+
+            if($message->hasErrors()){
+                throw new \Exception(self::errorToString($message->errors));
+            }
+
+            return $message;
         }
 
         public static function getManagerContacts(Tour $tour, TouragentManager $manager = null)
