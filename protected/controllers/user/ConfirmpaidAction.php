@@ -26,6 +26,11 @@ class ConfirmpaidAction extends \CAction
 
         $touristHelper = new TouristHelper();
         $touristHelper->changeStatus($tourist, TouristStatus::HAVE_DISCONT);
+        $touristHelper->update($tourist, [
+            'tourFinishAt' => $tourist->offer->endDate
+        ]);
+
+        \Tool::informTourist($tourist, 'paid_tour');
         
         $this->controller->redirect('/user/dashboard/' . $tourist->offer->tour->touristId . '?tab=tab5');
     }

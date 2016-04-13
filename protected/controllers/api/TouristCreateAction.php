@@ -29,7 +29,6 @@ class TouristCreateAction extends \CApiAction
                     'tourist' => $tourist
                 ]
             );
-            \Tool::sendMessage($tourist, 'after_registration', ['tourist' => $tourist], '+1 day');
             $sended = 1;
 
             DbTransaction::commit();

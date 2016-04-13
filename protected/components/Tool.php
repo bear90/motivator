@@ -22,10 +22,11 @@
             }
         }
 
-        public static function informTourist(Tourist $tourist, $view)
+        public static function informTourist(Tourist $tourist, $view, array $data = [])
         {
-            self::sendEmailWithView($tourist->email, $view, ['tourist' => $tourist]);
-            self::sendMessage($tourist, $view, ['tourist' => $tourist]);
+            $data['tourist'] = $tourist;
+            self::sendEmailWithView($tourist->email, $view, $data);
+            self::sendMessage($tourist, $view, $data);
         }
 
         public static function sendEmailWithView($to, $view, array $data = [])

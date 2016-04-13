@@ -10,7 +10,7 @@ class Tourist extends DBEntity {
     public function rules(){
         return [
             ['firstName, lastName, email, userId, statusId', 'required'],
-            ['middleName, phone, groupCode, offerId, counterReason, counterDate, counterStartedAt', 'safe']
+            ['middleName, phone, groupCode, offerId, counterReason, counterDate, counterStartedAt, tourFinishAt', 'safe']
         ];
     }
 
