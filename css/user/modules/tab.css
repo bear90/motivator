@@ -623,9 +623,7 @@
 }
 
 #wrapper .tabs-block.tab5 span.value.money {
-    display: block;
-    padding-right: 66px;
-    text-align: right;
+    float: right;
 }
 
 #wrapper .tabs-block.tab5 span.sell {

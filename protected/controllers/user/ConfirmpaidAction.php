@@ -10,6 +10,7 @@ use application\models\Tourist;
 use application\models\defines\TouristStatus;
 use application\models\defines\tourist\Helper as TouristHelper;
 use application\models\defines\tour\Helper as TourHelper;
+use application\components\DbTransaction;
 
 class ConfirmpaidAction extends \CAction
 {
@@ -24,14 +25,23 @@ class ConfirmpaidAction extends \CAction
             throw new \CHttpException(404, 'Not found');
         }
 
-        $touristHelper = new TouristHelper();
-        $touristHelper->changeStatus($tourist, TouristStatus::HAVE_DISCONT);
-        $touristHelper->update($tourist, [
-            'tourFinishAt' => $tourist->offer->endDate
-        ]);
+        DbTransaction::begin();
+        try {
+            $touristHelper = new TouristHelper();
+            $touristHelper->changeStatus($tourist, TouristStatus::HAVE_DISCONT);
+            $touristHelper->update($tourist->id, [
+                'tourFinishAt' => $tourist->offer->endDate
+            ]);
 
-        \Tool::informTourist($tourist, 'paid_tour');
+            \Tool::informTourist($tourist, 'paid_tour');
+
+            DbTransaction::commit();
+            
+            $this->controller->redirect('/user/dashboard/' . $tourist->offer->tour->touristId . '?tab=tab5');
+        } catch (\Exception $e) {
+            DbTransaction::rollBack();
+            throw $e;
+        }
         
-        $this->controller->redirect('/user/dashboard/' . $tourist->offer->tour->touristId . '?tab=tab5');
     }
 }

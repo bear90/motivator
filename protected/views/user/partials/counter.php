@@ -9,7 +9,7 @@
            <button type="button" class="btn btn-default btn-green2 reason-list">Выбрать повод пуска счётчика</button>
            <ul class="custom-list hidden">
                <li><a href="#" data-id="1">Внесение аванса</a></li>
-               <li><a href="#" data-id="2">Подача документов</a></li>
+               <!-- <li><a href="#" data-id="2">Подача документов</a></li> -->
                <li><a href="#" data-id="3">Оплата тура</a></li>
                <li><a href="#" data-id="4">Окончание тура</a></li>
            </ul>

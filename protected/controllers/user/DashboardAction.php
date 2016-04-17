@@ -35,7 +35,7 @@ class DashboardAction extends \CAction
                 break;
         }
 
-        $message = $tourist->message->text;
+        $message = $tourist->message ? $tourist->message->text : '';
 
         if($message) 
         {
@@ -59,7 +59,7 @@ class DashboardAction extends \CAction
         $criteria->params = ['touristId' => $tourist->id];
         $criteria->order = 't.id desc';
 
-        $tours = Tour::model()->findAll($criteria);
+        $tours = $tourist->offerId > 0 ? [] : Tour::model()->findAll($criteria);
 
         $this->controller->render('index', [
             'touragent' => $touragent,

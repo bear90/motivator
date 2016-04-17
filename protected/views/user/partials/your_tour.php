@@ -3,7 +3,7 @@
 ?>
 <h4>Ваш тур</h4>
 
-<?php if($readOnly === false): ?>
+<?php if($readOnly === false && $tourist->statusId == \application\models\defines\TouristStatus::GETTING_DISCONT): ?>
 
     <div class="inner-block">
         <button type="button" class="btn btn-default btn-yellow edit">РЕДАКТИРОВАТЬ</button>
@@ -48,11 +48,6 @@
     <span>Абонентская скидка: 
         <span class="value money">
             <?php echo number_format($tourist->offer->minDiscont, 0, ',', ' '); ?> бел.руб.
-        </span>
-    </span>
-    <span>Сумма максимально возможной абонентской скидки: 
-        <span class="value money">
-            <?php echo number_format($tourist->offer->maxDiscont, 0, ',', ' '); ?> бел.руб.
         </span>
     </span>
     <span>Скидка за привлечение: 
