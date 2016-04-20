@@ -8,6 +8,7 @@ namespace application\controllers\user;
 
 use application\models\TourOffer;
 use application\models\Tourist;
+use application\models\Discont\Handler;
 use application\models\defines\TouristStatus;
 use application\models\defines\tourist\Helper as TouristHelper;
 use application\models\defines\tour\Helper as TourHelper;
@@ -52,6 +53,7 @@ class ConfirmofferAction extends \CAction
 
         if (!$isChangeOffer)
         {
+            $discontHandler = new Handler($tourist, $parentTourist);
             \Tool::informTourist($tourist, 'after_prepayment');
             if($parentTourist)
             {

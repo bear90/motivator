@@ -57,5 +57,9 @@ class User extends \CActiveRecord{
         }
         $this->lastLogin = new \CDbExpression('now()');
         $this->save();
+
+        if($this->hasErrors()){
+            throw new \Exception(\Tool::errorToString($this->errors));
+        }
     }
 }
