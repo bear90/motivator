@@ -49,6 +49,10 @@ class Helper {
         $tourist->offerId = $offer->id;
         $tourist->save();
 
+        if($tourist->hasErrors()){
+            throw new \Exception(\Tool::errorToString($tourist->errors));
+        }
+
         return $tourist;
     }
 

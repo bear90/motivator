@@ -8,10 +8,11 @@ namespace application\controllers\user;
 
 use application\models\TourOffer;
 use application\models\Tourist;
-use application\models\Discont\Handler;
+use application\models\Discont;
 use application\models\defines\TouristStatus;
 use application\models\defines\tourist\Helper as TouristHelper;
 use application\models\defines\tour\Helper as TourHelper;
+use application\components\DbTransaction;
 
 class ConfirmofferAction extends \CAction
 {
@@ -31,41 +32,54 @@ class ConfirmofferAction extends \CAction
         $touristHelper = new TouristHelper();
         $tourHelper = new TourHelper();
         
-        $isChangeOffer = $tourist->offerId > 0;
-        $touristHelper->confirmOffer($offer);
-        $touristHelper->changeStatus($tourist, TouristStatus::GETTING_DISCONT);
-        $touristHelper->resetTimer($tourist);
+        DbTransaction::begin();
+        try {
+            $isChangeOffer = $tourist->offerId > 0;
+            $tourist = $touristHelper->confirmOffer($offer);
+            $touristHelper->changeStatus($tourist, TouristStatus::GETTING_DISCONT);
+            $touristHelper->resetTimer($tourist);
 
-        // Delete other tours
-        foreach ($tourist->tours as $tour) 
-        {
-            if($tour->id != $offer->tour->id)
+            // Delete other tours
+            foreach ($tourist->tours as $tour) 
             {
-                $tourHelper->delete($tour->id);
+                if($tour->id != $offer->tour->id)
+                {
+                    $tourHelper->delete($tour->id);
+                }
             }
-        }
 
-        $parentTourist = null;
-        if($tourist->groupCode) {
-            $pid = (int) $tourist->groupCode;
-            $parentTourist = Tourist::model()->findByPk($pid);
-        }
+            $parentTourist = null;
+            if($tourist->groupCode) {
+                $pid = (int) $tourist->groupCode;
+                $parentTourist = Tourist::model()->findByPk($pid, ['with' => ['offer']]);
+            }
+            $discontHandler = new Discont\Handler();
 
-        if (!$isChangeOffer)
-        {
-            $discontHandler = new Handler($tourist, $parentTourist);
-            \Tool::informTourist($tourist, 'after_prepayment');
-            if($parentTourist)
+            if (!$isChangeOffer)
             {
-                \Tool::informTourist($parentTourist, 'partner_message');
+                \Tool::informTourist($tourist, 'after_prepayment');
+                if($parentTourist && $parentTourist->statusId == TouristStatus::GETTING_DISCONT)
+                {
+                    $discontHandler->increaseParentDiscont($parentTourist, $offer->price);
+                    \Tool::informTourist($parentTourist, 'partner_message');
+                } else {
+                    $discontHandler->increaseAbonentDiscont($tourist, $offer->price);
+                }
+            } else {
+                \Tool::informTourist($tourist, 'exchange_tour');
+                if($parentTourist && $parentTourist->statusId == TouristStatus::GETTING_DISCONT)
+                {
+                    \Tool::informTourist($parentTourist, 'exchange_tour_partner', ['child' => $tourist]);
+                }
             }
-        } else {
-            \Tool::informTourist($tourist, 'exchange_tour');
-            if($parentTourist)
-            {
-                \Tool::informTourist($parentTourist, 'exchange_tour_partner', ['child' => $tourist]);
-            }
+
+            DbTransaction::commit();
+
+        } catch (Exception $e) {
+            DbTransaction::rollBack();
+            throw $e;
         }
+        
         
 
         $this->controller->redirect('/user/dashboard/' . $offer->tour->touristId . '?tab=tab5');

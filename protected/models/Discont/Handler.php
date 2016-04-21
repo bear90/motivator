@@ -2,6 +2,7 @@
 
 namespace application\models\Discont;
 
+use application\models\Configuration;
 use application\models\Tourist;
 use application\models\Touragent;
 use application\models\defines\TouristStatus;
@@ -11,66 +12,52 @@ use application\models\defines\TouristStatus;
 */
 class Handler
 {
-    
-    private $tourist;
-    private $parent;
 
-    function __construct(Toursit $tourist, Tourist $parent = null)
+    private function increaseParentDiscont(Tourist $parent, $price)
     {
-        $this->tourist = $tourist;
-        $this->parent = $parent;
+        $confPrepayment = Configuration::get(Configuration::PREPAYMENT);
+        $summ = round($price * $confPrepayment / 100);
+
+        $balance = 0;
+        $discont = $parent->discont;
+        $discont += $summ;
+        if ($discont > $tourist->offer->price)
+        {
+            $balance += $tourist->offer->price - $discont;
+            $discont = $tourist->offer->price;
+        }
+        $parent->discont = $discont;
+        $parent->save();
+        $this->increaseTouragentAccount($parent, $balance);
     }
 
-    public function process()
+    public function increaseAbonentDiscont(Tourist $tourist, $price)
     {
-        if(!$this->tourist->offerId)
+        $confPrepayment = Configuration::get(Configuration::PREPAYMENT);
+        $summ = round($price * $confPrepayment / 100);
+
+        $touragentId = $tourist->offer->tour->touragentId;
+        $touragent = Touragent::model()->findByPk($touragentId);
+
+        if ($touragent->account)
         {
-            return false;
+            $summ += $touragent->account;
+            $touragent->account = 0;
+            $touragent->save();
         }
+        
 
-        $prepayment = $this->tourist->offer->prepayment;
-
-        if ($this->parent)
-        {
-            $this->increaseParentDiscont($prepayment);
-        } else {
-            $this->increasePassiveDiscont($prepayment);
-        }
-    }
-
-    private function increaseParentDiscont($summ)
-    {
-        if ($this->parent->statusId == TouristStatus::GETTING_DISCONT && $this->parent->offer)
-        {
-            $discont = $this->parent->discont;
-            $discont += $summ;
-
-            if($discont > $this->parent->offer->maxDiscont) 
-            {
-                $balance = $this->parent->offer->maxDiscont - $discont;
-                $discont = $this->parent->offer->maxDiscont;
-
-                $this->increaseTouragentAccount($this->parent, $balance);
-            }
-
-            $this->parent->discont = $discont;
-            $this->parent->save();
-        }
-    }
-
-    private function increasePassiveDiscont($summ)
-    {
-        $touragentId = $this->tourist->offer->tour->touragentId;
         $cmd = \Yii::app()->db->createCommand()
             ->select([
                 'tt.id as touristId',
                 'tt.discont',
-                'tr.price',
+                'tof.price',
             ])
-            ->from('tourists')
-            ->join('tour_offer tof', 'tof.id = tt.offerId')
-            ->join('tours tr', 'tr.id = tof.tourId')
-            ->where('tt.statusId = 3 and tr.touragentId = :touragentId', ['touragentId' => $touragentId]);
+            ->from('tourists AS tt')
+            ->join('tour_offer AS tof', 'tof.id = tt.offerId')
+            ->join('tours AS tr', 'tr.id = tof.tourId')
+            ->where('tt.statusId = 3 and tr.touragentId = :touragentId', ['touragentId' => $touragentId])
+            ->andWhere('tt.id != :touristId', ['touristId' => $tourist->id]);
         $data = $cmd->queryAll();
 
         if(count($data) > 0)
@@ -89,18 +76,18 @@ class Handler
                     $discont = $maxDiscont;
                 }
 
-                $tourist = Toursit::model()->findByPk($item['touristId']);
-                $tourist->discont = $discont;
-                $tourist->save();
+                $_tourist = Tourist::model()->findByPk($item['touristId']);
+                $_tourist->discont = $discont;
+                $_tourist->save();
             }
-            $this->increaseTouragentAccount($this->tourist, $balance);
+            $this->increaseTouragentAccount($tourist, $balance);
         } 
         else {
-            $this->increaseTouragentAccount($this->tourist, $summ);
+            $this->increaseTouragentAccount($tourist, $summ);
         }
     }
 
-    private function increaseTouragentAccount(Toursit $tourist, $summ)
+    private function increaseTouragentAccount(Tourist $tourist, $summ)
     {
         if ($summ > 0)
         {
