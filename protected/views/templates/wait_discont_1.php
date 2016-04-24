@@ -2,6 +2,8 @@
 /**
  * @author msoza@soxes.ch
  */
+
+use application\models\Configuration;
 ?>
 <p>Уважаемый соискатель скидки!</p>
 
