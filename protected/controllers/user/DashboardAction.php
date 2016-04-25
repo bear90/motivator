@@ -59,7 +59,7 @@ class DashboardAction extends \CAction
         $criteria->params = ['touristId' => $tourist->id];
         $criteria->order = 't.id desc';
 
-        $tours = $tourist->offerId > 0 ? [] : Tour::model()->findAll($criteria);
+        $tours = Tour::model()->findAll($criteria);
 
         $this->controller->render('index', [
             'touragent' => $touragent,

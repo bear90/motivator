@@ -10,7 +10,7 @@ class Tourist extends DBEntity {
     public function rules(){
         return [
             ['firstName, lastName, email, userId, statusId', 'required'],
-            ['middleName, phone, groupCode, offerId, counterReason, counterDate, counterStartedAt, tourFinishAt', 'safe']
+            ['middleName, phone, groupCode, counterReason, counterDate, counterStartedAt, tourFinishAt', 'safe']
         ];
     }
 
@@ -19,7 +19,7 @@ class Tourist extends DBEntity {
         return [
             'status'=>[self::BELONGS_TO, 'application\\models\\TouristStatus', 'statusId'],
             'user'=>[self::BELONGS_TO, 'application\\models\\User', 'userId'],
-            'offer'=>[self::BELONGS_TO, 'application\\models\\TourOffer', 'offerId'],
+            'tour'=>[self::HAS_ONE, 'application\\models\\TouristTour', 'touristId'],
             'tours'=>[self::HAS_MANY, 'application\\models\\Tour', 'touristId'],
             'message'=>[self::HAS_ONE, 'application\\models\\Message', 'touristId', 'order' => 'message.createdAt DESC'],
         ];
@@ -90,6 +90,12 @@ class Tourist extends DBEntity {
                 return true;
             }
         }
+        
+        if ($this->tour && $this->tour->touragentId == $touragentId)
+        {
+            return true;
+        }
+
         return false;
     }
 
@@ -102,7 +108,7 @@ class Tourist extends DBEntity {
     {
         if($this->hasManager())
         {
-            return $this->offer->tour->manager;
+            return $this->tour->manager;
         }
 
         return null;
@@ -110,11 +116,26 @@ class Tourist extends DBEntity {
 
     public function getTotalDiscont()
     {
+        return $this->getPartnerDiscont() + $this->getAbonentDiscont();
+    }
+
+    public function getAbonentDiscont()
+    {
         $discont = 0;
-        if($this->offer)
+        if($this->tour)
         {
-            $discont += $this->offer->minDiscont;
-            $discont += $this->offer->getPartnerDiscont();
+            $discont += $this->tour->minDiscont;
+            $discont += $this->abonentDiscont;
+        }
+        return $discont;
+    }
+
+    public function getPartnerDiscont()
+    {
+        $discont = 0;
+        if($this->tour)
+        {
+            $discont += $this->partnerDiscont;
         }
         return $discont;
     }

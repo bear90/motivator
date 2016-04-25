@@ -4,6 +4,8 @@ namespace application\models\defines\tourist;
 
 use application\models\Tourist;
 use application\models\TourOffer;
+use application\models\TouristTour;
+use application\models\Configuration;
 use application\models\defines\TouristStatus;
 use application\models\defines\UserRole;
 use application\models\defines\user\Helper as UserHelper;
@@ -45,13 +47,34 @@ class Helper {
 
     public function confirmOffer(TourOffer $offer)
     {
-        $tourist = Tourist::model()->findByPk($offer->tour->touristId);
-        $tourist->offerId = $offer->id;
-        $tourist->save();
+        $tourist = Tourist::model()->findByPk($offer->tour->touristId, ['with' => ['tour']]);
 
-        if($tourist->hasErrors()){
-            throw new \Exception(\Tool::errorToString($tourist->errors));
+        if($tourist->tour) 
+        {
+            $touristTour = TouristTour::model()->findByPk($tourist->tour->id);
+        } else {
+            $touristTour = new TouristTour;
+
+            $prepayment = Configuration::get(Configuration::PREPAYMENT);
+            $touristTour->prepayment = round($offer->price * $prepayment / 100);
         }
+        $touristTour->attributes = [
+            'country' => $offer->country,
+            'city' => $offer->city,
+            'price' => $offer->price,
+            'startDate' => $offer->startDate,
+            'endDate' => $offer->endDate,
+            'description' => $offer->description,
+            'touristId' => $tourist->id,
+            'managerId' => $offer->tour->managerId,
+            'touragentId' => $offer->tour->touragentId,
+        ];
+        $touristTour->save();
+
+        if($touristTour->hasErrors()){
+            throw new \Exception(\Tool::errorToString($touristTour->errors));
+        }
+        $tourist->refresh();
 
         return $tourist;
     }

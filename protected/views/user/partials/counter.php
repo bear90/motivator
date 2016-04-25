@@ -1,6 +1,6 @@
 <?php if($tourist->statusId > \application\models\defines\TouristStatus::WANT_DISCONT &&
          $manager !== null &&
-         $tourist->offer->tour->managerId == $manager->id): ?>
+         $tourist->tour->managerId == $manager->id): ?>
     <div class="top clearfix <?php echo $tourist->getCounterDate() === null ? 'pulse' : ''; ?>">
         <div class="inner-block">
            <h4 class="<?php echo $tourist->getCounterDate() === null ? 'hidden' : ''; ?>">

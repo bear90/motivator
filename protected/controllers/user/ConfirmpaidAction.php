@@ -17,10 +17,10 @@ class ConfirmpaidAction extends \CAction
 
     public function run($id)
     {
-        $tourist = Tourist::model()->with('offer')->findByPk($id);
+        $tourist = Tourist::model()->with('tour')->findByPk($id);
         $manager = \Yii::app()->user->getState('manager');
 
-        if(!$tourist || !$manager || $tourist->offer->tour->managerId != $manager->id)
+        if(!$tourist || !$manager || $tourist->tour->managerId != $manager->id)
         {
             throw new \CHttpException(404, 'Not found');
         }
@@ -30,14 +30,14 @@ class ConfirmpaidAction extends \CAction
             $touristHelper = new TouristHelper();
             $touristHelper->changeStatus($tourist, TouristStatus::HAVE_DISCONT);
             $touristHelper->update($tourist->id, [
-                'tourFinishAt' => $tourist->offer->endDate
+                'tourFinishAt' => $tourist->tour->endDate
             ]);
 
             \Tool::informTourist($tourist, 'paid_tour');
 
             DbTransaction::commit();
             
-            $this->controller->redirect('/user/dashboard/' . $tourist->offer->tour->touristId . '?tab=tab5');
+            $this->controller->redirect('/user/dashboard/' . $tourist->id . '?tab=tab5');
         } catch (\Exception $e) {
             DbTransaction::rollBack();
             throw $e;

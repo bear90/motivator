@@ -13,30 +13,29 @@ use application\models\defines\TouristStatus;
 class Handler
 {
 
-    private function increaseParentDiscont(Tourist $parent, $price)
+    public function increaseParentDiscont(Tourist $parent, $price)
     {
         $confPrepayment = Configuration::get(Configuration::PREPAYMENT);
         $summ = round($price * $confPrepayment / 100);
 
         $balance = 0;
-        $discont = $parent->discont;
-        $discont += $summ;
-        if ($discont > $tourist->offer->price)
+        $partnerDiscont = $parent->partnerDiscont;
+        $partnerDiscont += $summ;
+
+        $totalDiscont = $partnerDiscont + $parent->abonentDiscont;
+        if ($totalDiscont > $parent->tour->price)
         {
-            $balance += $tourist->offer->price - $discont;
-            $discont = $tourist->offer->price;
+            $balance += $parent->tour->price - $totalDiscont;
+            $partnerDiscont = $parent->tour->price;
         }
-        $parent->discont = $discont;
+        $parent->partnerDiscont = $partnerDiscont;
         $parent->save();
         $this->increaseTouragentAccount($parent, $balance);
     }
 
-    public function increaseAbonentDiscont(Tourist $tourist, $price)
+    public function increaseAbonentDiscont(Tourist $tourist, $summ)
     {
-        $confPrepayment = Configuration::get(Configuration::PREPAYMENT);
-        $summ = round($price * $confPrepayment / 100);
-
-        $touragentId = $tourist->offer->tour->touragentId;
+        $touragentId = $tourist->tour->touragentId;
         $touragent = Touragent::model()->findByPk($touragentId);
 
         if ($touragent->account)
@@ -49,15 +48,17 @@ class Handler
 
         $cmd = \Yii::app()->db->createCommand()
             ->select([
-                'tt.id as touristId',
-                'tt.discont',
-                'tof.price',
+                'tt.touristId',
+                't.abonentDiscont',
+                'tt.price',
             ])
-            ->from('tourists AS tt')
-            ->join('tour_offer AS tof', 'tof.id = tt.offerId')
-            ->join('tours AS tr', 'tr.id = tof.tourId')
-            ->where('tt.statusId = 3 and tr.touragentId = :touragentId', ['touragentId' => $touragentId])
-            ->andWhere('tt.id != :touristId', ['touristId' => $tourist->id]);
+            ->from('tourist_tour AS tt')
+            ->join('tourists AS t', 't.id = tt.touristId')
+            ->where('t.statusId = :status and tt.touragentId = :touragentId AND t.id != :touristId', [
+                'status' => TouristStatus::GETTING_DISCONT,
+                'touragentId' => $touragentId,
+                'touristId' => $tourist->id
+            ]);
         $data = $cmd->queryAll();
 
         if(count($data) > 0)
@@ -67,17 +68,17 @@ class Handler
             $partSumm = round($summ / $count);
             $confMaxDiscont = Configuration::get(Configuration::MAX_DISCONT);
             foreach ($data as $item) {
-                $maxDiscont = round($item['price'] * $confMaxDiscont / 100);
-                $discont = $item['discont'];
-                $discont += $partSumm;
-                if ($discont > $maxDiscont)
+                $maxAbonentDiscont = round($item['price'] * $confMaxDiscont / 100);
+                $abonentDiscont = $item['abonentDiscont'];
+                $abonentDiscont += $partSumm;
+                if ($abonentDiscont > $maxAbonentDiscont)
                 {
-                    $balance += $maxDiscont - $discont;
-                    $discont = $maxDiscont;
+                    $balance += $maxAbonentDiscont - $abonentDiscont;
+                    $abonentDiscont = $maxAbonentDiscont;
                 }
 
                 $_tourist = Tourist::model()->findByPk($item['touristId']);
-                $_tourist->discont = $discont;
+                $_tourist->abonentDiscont = $abonentDiscont;
                 $_tourist->save();
             }
             $this->increaseTouragentAccount($tourist, $balance);
@@ -91,7 +92,7 @@ class Handler
     {
         if ($summ > 0)
         {
-            $touragentId = $tourist->offer->tour->touragentId;
+            $touragentId = $tourist->tour->touragentId;
             
             $touragent = Touragent::model()->findByPk($touragentId);
             $touragent->account += (int) $summ;

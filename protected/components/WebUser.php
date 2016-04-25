@@ -23,6 +23,7 @@ class WebUser extends CWebUser {
     }
 
     protected function loadUser($id = '') {
+
         if ($this->model == null && $id !== null) {
             $idParts = explode('#', $id);
             $this->model = User::model()->findByPk(end($idParts));

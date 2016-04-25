@@ -9,6 +9,7 @@ namespace application\controllers\user;
 use application\models\TourOffer;
 use application\models\Tourist;
 use application\models\Discont;
+use application\models\Configuration;
 use application\models\defines\TouristStatus;
 use application\models\defines\tourist\Helper as TouristHelper;
 use application\models\defines\tour\Helper as TourHelper;
@@ -34,24 +35,24 @@ class ConfirmofferAction extends \CAction
         
         DbTransaction::begin();
         try {
-            $isChangeOffer = $tourist->offerId > 0;
+            $isChangeOffer = $tourist->statusId == TouristStatus::GETTING_DISCONT;
             $tourist = $touristHelper->confirmOffer($offer);
             $touristHelper->changeStatus($tourist, TouristStatus::GETTING_DISCONT);
             $touristHelper->resetTimer($tourist);
 
+            $confPrepayment = Configuration::get(Configuration::PREPAYMENT);
+            $prepayment = round($offer->price * $confPrepayment / 100);
+
             // Delete other tours
             foreach ($tourist->tours as $tour) 
             {
-                if($tour->id != $offer->tour->id)
-                {
-                    $tourHelper->delete($tour->id);
-                }
+                $tourHelper->delete($tour->id);
             }
 
             $parentTourist = null;
             if($tourist->groupCode) {
                 $pid = (int) $tourist->groupCode;
-                $parentTourist = Tourist::model()->findByPk($pid, ['with' => ['offer']]);
+                $parentTourist = Tourist::model()->findByPk($pid, ['with' => ['tour']]);
             }
             $discontHandler = new Discont\Handler();
 
@@ -63,7 +64,7 @@ class ConfirmofferAction extends \CAction
                     $discontHandler->increaseParentDiscont($parentTourist, $offer->price);
                     \Tool::informTourist($parentTourist, 'partner_message');
                 } else {
-                    $discontHandler->increaseAbonentDiscont($tourist, $offer->price);
+                    $discontHandler->increaseAbonentDiscont($tourist, $prepayment);
                 }
             } else {
                 \Tool::informTourist($tourist, 'exchange_tour');

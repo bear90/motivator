@@ -10,7 +10,7 @@
         <?php $touragent === null 
             ? $this->renderPartial('partials/tour_item', [
                 'tour' => $tour,
-                'canRemove' => !$tourist->offerId || $tourist->offer->tourId != $tour->id
+                'canRemove' => true
             ])
             : $this->renderPartial('partials/tour_item_for_manager', [
                 'tour' => $tour,

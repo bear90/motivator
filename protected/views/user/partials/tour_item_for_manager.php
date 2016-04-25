@@ -1,6 +1,5 @@
 <?php
     $canOffer = $touragent->id == $tour->touragentId;
-    $hasOffer = false; //count($tour->offer) > 0;
     $responsibleManager = $canOffer && $manager->id == $tour->managerId;
 ?>
 

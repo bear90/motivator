@@ -89,7 +89,7 @@
 
             <div class="tab5 tabs-block" id="your-tour">
 
-                <?php if (!$tourist->offer): ?>
+                <?php if (!$tourist->tour): ?>
 
                     <div class="inner-block our-tour">
                         <p>Тур не выбран!</p>
