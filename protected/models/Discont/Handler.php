@@ -13,24 +13,38 @@ use application\models\defines\TouristStatus;
 class Handler
 {
 
-    public function increaseParentDiscont(Tourist $parent, $price)
+    public function increaseParentDiscont(Tourist $tourist, $summ)
     {
-        $confPrepayment = Configuration::get(Configuration::PREPAYMENT);
-        $summ = round($price * $confPrepayment / 100);
-
         $balance = 0;
-        $partnerDiscont = $parent->partnerDiscont;
+        $partnerDiscont = $tourist->partnerDiscont;
         $partnerDiscont += $summ;
 
-        $totalDiscont = $partnerDiscont + $parent->abonentDiscont;
-        if ($totalDiscont > $parent->tour->price)
+        $totalDiscont = $partnerDiscont + $tourist->abonentDiscont;
+        if ($totalDiscont > $tourist->tour->price)
         {
-            $balance += $parent->tour->price - $totalDiscont;
-            $partnerDiscont = $parent->tour->price;
+            $balance += $tourist->tour->price - $totalDiscont;
+            $partnerDiscont = $tourist->tour->price;
         }
-        $parent->partnerDiscont = $partnerDiscont;
-        $parent->save();
-        $this->increaseTouragentAccount($parent, $balance);
+        $tourist->partnerDiscont = $partnerDiscont;
+        $tourist->save();
+        $this->increaseTouragentAccount($tourist, $balance);
+    }
+
+    public function increaseTouristAbonentDiscont(Tourist $tourist, $summ)
+    {
+        $balance = 0;
+        $abonentDiscont = $tourist->abonentDiscont;
+        $abonentDiscont += $summ;
+
+        $confMaxDiscont = Configuration::get(Configuration::MAX_DISCONT);
+        if ($abonentDiscont > $maxAbonentDiscont)
+        {
+            $balance += $maxAbonentDiscont - $abonentDiscont;
+            $abonentDiscont = $maxAbonentDiscont;
+        }
+        $tourist->abonentDiscont = $abonentDiscont;
+        $tourist->save();
+        $this->increaseTouragentAccount($tourist, $balance);
     }
 
     public function increaseAbonentDiscont(Tourist $tourist, $summ)

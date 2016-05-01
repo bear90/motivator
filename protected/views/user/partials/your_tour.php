@@ -76,7 +76,7 @@
     <div class="editBlock">
         <div class="inner-block form-group">
             <label>Исходная стоимость тура:</label>
-            <?php echo CHtml::textField("TourOffer[0][price]", $tourist->tour->price, ['class' => 'price']); ?>
+            <?php echo CHtml::textField("Tour[price]", $tourist->tour->price, ['class' => 'price']); ?>
         </div>
 
         <h4>ОПИСАНИЕ ТУРА:</h4> 
@@ -84,7 +84,7 @@
         <div class="inner-block form-group">
             <label>Страна:</label>
             <?php echo CHtml::textField(
-                "TourOffer[0][country]", 
+                "Tour[country]", 
                 $tourist->tour->country, 
                 ['class' => 'country']); ?>
         </div> 
@@ -92,7 +92,7 @@
         <div class="inner-block form-group">
             <label>Город/Регион:</label>
             <?php echo CHtml::textField(
-                "TourOffer[0][city]", 
+                "Tour[city]", 
                 $tourist->tour->city, 
                 ['class' => 'city']); ?>
         </div>
@@ -100,19 +100,19 @@
         <div class="inner-block form-group">
             <label>Дата начала тура:</label>
             <?php echo CHtml::textField(
-                "TourOffer[0][startDate]", 
+                "Tour[startDate]", 
                 Yii::app()->dateFormatter->format('dd.MM.yyyy', $tourist->tour->startDate), 
                 ['class' => 'startDate']); ?>
         </div>
         
         <div class="inner-block form-group">
             <label>Дата окончания тура:</label>
-            <?php echo CHtml::textField("TourOffer[0][endDate]", 
+            <?php echo CHtml::textField("Tour[endDate]", 
                 Yii::app()->dateFormatter->format('dd.MM.yyyy', $tourist->tour->endDate), 
                 ['class' => 'endDate']); ?>
         </div>
         <div class="inner-block form-group">
-            <?php echo CHtml::textArea("TourOffer[0][description]", $tourist->tour->description, ['class' => 'description']); ?>
+            <?php echo CHtml::textArea("Tour[description]", $tourist->tour->description, ['class' => 'description']); ?>
         </div>
 
         <button type="submit" class="btn btn-default btn-green2 save">Обновить</button>

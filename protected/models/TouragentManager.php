@@ -21,9 +21,13 @@ class TouragentManager extends DBEntity {
         return [
             'touragent' => [self::BELONGS_TO, 'application\\models\\Touragent', 'touragentId'],
             'tours'     => [self::HAS_MANY, 'application\\models\\Tour', 'managerId'],
+            'tourist_tour' => [self::HAS_MANY, 'application\\models\\TouristTour', 'managerId'],
             'tourists'  => [self::HAS_MANY, 'application\\models\\Tourist', 'touristId', 
                 'through' => 'tours',
                 'order' =>  'tourists.createdAt'],
+            'tourists2'  => [self::HAS_MANY, 'application\\models\\Tourist', 'touristId', 
+                'through' => 'tourist_tour',
+                'order' =>  'tourists2.createdAt'],
             'phones'    => [self::HAS_MANY, 'application\\models\\TouragentManagerPhone', 'managerId']
         ];
     }
@@ -43,7 +47,7 @@ class TouragentManager extends DBEntity {
 
     public function getGettingDiscint()
     {
-        $tourists = $this->boss ? $this->touragent->tourists : $this->tourists;
+        $tourists = $this->boss ? $this->touragent->tourists2 : $this->tourists2;
         return array_filter($tourists, function($tourist){
             return $tourist->statusId == \application\models\defines\TouristStatus::GETTING_DISCONT;
         });
@@ -51,7 +55,7 @@ class TouragentManager extends DBEntity {
 
     public function getHaveDiscont()
     {
-        $tourists = $this->boss ? $this->touragent->tourists : $this->tourists;
+        $tourists = $this->boss ? $this->touragent->tourists2 : $this->tourists2;
         return array_filter($tourists, function($tourist){
             return $tourist->statusId == \application\models\defines\TouristStatus::HAVE_DISCONT;
         });

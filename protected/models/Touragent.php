@@ -19,9 +19,13 @@ class Touragent extends DBEntity {
             'user'      => [self::BELONGS_TO, 'application\\models\\User', 'userId'],
             'managers'  => [self::HAS_MANY, 'application\\models\\TouragentManager', 'touragentId'],
             'tours'     => [self::HAS_MANY, 'application\\models\\Tour', 'touragentId'],
+            'tourist_tour' => [self::HAS_MANY, 'application\\models\\TouristTour', 'touragentId'],
             'tourists'  => [self::HAS_MANY, 'application\\models\\Tourist', 'touristId', 
                 'through' => 'tours',
                 'order' =>  'tourists.createdAt'],
+            'tourists2'  => [self::HAS_MANY, 'application\\models\\Tourist', 'touristId', 
+                'through' => 'tourist_tour',
+                'order' =>  'tourists2.createdAt'],
         ];
     }
  

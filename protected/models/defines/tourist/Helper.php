@@ -51,7 +51,7 @@ class Helper {
 
         if($tourist->tour) 
         {
-            $touristTour = TouristTour::model()->findByPk($tourist->tour->id);
+            throw new \Exception("Tour has already been confirmed! You can only change it.");
         } else {
             $touristTour = new TouristTour;
 

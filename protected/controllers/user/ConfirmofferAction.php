@@ -56,22 +56,13 @@ class ConfirmofferAction extends \CAction
             }
             $discontHandler = new Discont\Handler();
 
-            if (!$isChangeOffer)
+            \Tool::informTourist($tourist, 'after_prepayment');
+            if($parentTourist && $parentTourist->statusId == TouristStatus::GETTING_DISCONT)
             {
-                \Tool::informTourist($tourist, 'after_prepayment');
-                if($parentTourist && $parentTourist->statusId == TouristStatus::GETTING_DISCONT)
-                {
-                    $discontHandler->increaseParentDiscont($parentTourist, $offer->price);
-                    \Tool::informTourist($parentTourist, 'partner_message');
-                } else {
-                    $discontHandler->increaseAbonentDiscont($tourist, $prepayment);
-                }
+                $discontHandler->increaseParentDiscont($parentTourist, $prepayment);
+                \Tool::informTourist($parentTourist, 'partner_message');
             } else {
-                \Tool::informTourist($tourist, 'exchange_tour');
-                if($parentTourist && $parentTourist->statusId == TouristStatus::GETTING_DISCONT)
-                {
-                    \Tool::informTourist($parentTourist, 'exchange_tour_partner', ['child' => $tourist]);
-                }
+                $discontHandler->increaseAbonentDiscont($tourist, $prepayment);
             }
 
             DbTransaction::commit();
