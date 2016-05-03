@@ -73,15 +73,15 @@ return array(
         'mail' => array(
             'class' => 'application.extensions.yii-mail.YiiMail',
             'viewPath' => 'application.views.templates',
-            'transportType' => 'smtp',
+            /*'transportType' => 'smtp',
             'transportOptions' => array(
                 'host' => 'mail.motivator-travel.by',
                 'username' => 'help@motivator-travel.by',
                 'password' => 'Testtest1@',
-                'port' => '2525',
+                'port' => '25',
                 'encryption'=>'tls',
             ),
-            /*'logging' => true,
+            'logging' => true,
             'dryRun' => false*/
         ),
 
