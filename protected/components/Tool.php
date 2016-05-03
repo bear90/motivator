@@ -25,7 +25,8 @@
         public static function informTourist(Tourist $tourist, $view, array $data = [])
         {
             $data['tourist'] = $tourist;
-            self::sendEmailWithView($tourist->email, $view, $data);
+            $r = self::sendEmailWithView($tourist->email, $view, $data);
+            print $r;
             self::sendMessage($tourist, $view, $data);
         }
 
