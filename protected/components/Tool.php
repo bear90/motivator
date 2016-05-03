@@ -35,14 +35,14 @@
             $subjPath = \Yii::getPathOfAlias("application.views.templates.{$view}_subj") . '.php';
             if(file_exists($subjPath))
             {
-                $controller = isset(Yii::app()->controller)
-                    ? Yii::app()->controller
+                $controller = isset(\Yii::app()->controller)
+                    ? \Yii::app()->controller
                     : new CController('YiiInform');
 
                 $subject = trim($controller->renderInternal($subjPath, $data, true));
             }
 
-            Yii::import('application.extensions.yii-mail.YiiMailMessage');
+            \Yii::import('application.extensions.yii-mail.YiiMailMessage');
 
             $message = new YiiMailMessage;
             $message->view = $view;
@@ -50,10 +50,10 @@
             $message->setBody($data, 'text/html');
              
             $message->addTo($to);
-            $message->from = Yii::app()->params['adminEmail'];
+            $message->from = \Yii::app()->params['adminEmail'];
             $message->setSubject($subject);
             
-            return Yii::app()->mail->send($message);
+            return \Yii::app()->mail->send($message);
         }
 
         public static function sendMessage($entity, $view, array $data = [], $date = 'now')
