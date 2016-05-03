@@ -79,7 +79,7 @@ return array(
                 'username' => 'help@motivator-travel.by',
                 'password' => 'Testtest1@',
                 'port' => '2525',
-                //'encryption'=>'tls',
+                'encryption'=>'tls',
             ),
             /*'logging' => true,
             'dryRun' => false*/
