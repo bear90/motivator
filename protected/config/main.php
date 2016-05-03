@@ -78,7 +78,7 @@ return array(
                 'host' => 'mail.motivator-travel.by',
                 'username' => 'help@motivator-travel.by',
                 'password' => 'Testtest1@',
-                'port' => '25',
+                'port' => '2525',
                 //'encryption'=>'tls',
             ),
             /*'logging' => true,
