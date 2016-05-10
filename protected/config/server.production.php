@@ -1,6 +1,7 @@
 <?php
 error_reporting(E_ALL ^ E_NOTICE);
 //ini_set("display_errors", 0);
+ini_get('safe_mode', 1);
 
 return array(
     // application components
