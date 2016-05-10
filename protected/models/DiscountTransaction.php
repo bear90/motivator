@@ -16,7 +16,7 @@ class DiscountTransaction extends DBEntity
         return 'discount_transaction';
     }
 
-    public function add(Tourist $sourceTourist, $sourceTouragentId, $summ, $targetTouragentId,
+    private function add(Tourist $sourceTourist, $sourceTouragentId, $summ, $targetTouragentId,
                         Tourist $targetTourist = null, $comment = '')
     {
         $this->sourceTouristId = $sourceTourist->id;
@@ -31,5 +31,34 @@ class DiscountTransaction extends DBEntity
             $this->targetTouristId = $targetTourist->id;
             $this->targetTouristName = $targetTourist->firstName . ' ' . $targetTourist->lastName;
         }
+        $this->save();
+
+        if($this->hasErrors()){
+            throw new \Exception(\Tool::errorToString($this->errors));
+        }
+
+        return $this;
+    }
+
+    public static function addAbonentDiscont(Tourist $sourceTourist, Tourist $targetTourist, $amount)
+    {
+        $entry = new self;
+        $touragentId = $sourceTourist->tour->touragentId;
+        $entry->add($sourceTourist, $touragentId, $amount, $touragentId, $targetTourist, 'Abonent discount');
+    }
+
+    public static function addParentDiscont(Tourist $sourceTourist, Tourist $targetTourist, $amount)
+    {
+        $sourceTouragentId = $sourceTourist->tour->touragentId;
+        $targetTouragentId = $targetTourist->tour->touragentId;
+        $entry = new self;
+        $entry->add($sourceTourist, $sourceTouragentId, $amount, $targetTouragentId, $targetTourist, 'Parent discount');
+    }
+
+    public static function addTouragentAccount(Tourist $sourceTourist, $targetTouragentId, $amount)
+    {
+        $sourceTouragentId = $sourceTourist->tour->touragentId;
+        $entry = new self;
+        $entry->add($sourceTourist, $sourceTouragentId, $amount, $targetTouragentId, null, 'Touragent account');
     }
 }

@@ -43,7 +43,7 @@ class ConfirmofferAction extends \CAction
             $confPrepayment = Configuration::get(Configuration::PREPAYMENT);
             $prepayment = round($offer->price * $confPrepayment / 100);
 
-            // Delete other tours
+            // Delete whole tours
             foreach ($tourist->tours as $tour) 
             {
                 $tourHelper->delete($tour->id);
@@ -59,7 +59,7 @@ class ConfirmofferAction extends \CAction
             \Tool::informTourist($tourist, 'after_prepayment');
             if($parentTourist && $parentTourist->statusId == TouristStatus::GETTING_DISCONT)
             {
-                $discontHandler->increaseParentDiscont($parentTourist, $prepayment);
+                $discontHandler->increaseParentDiscont($tourist, $parentTourist, $prepayment);
                 \Tool::informTourist($parentTourist, 'partner_message');
             } else {
                 $discontHandler->increaseAbonentDiscont($tourist, $prepayment);

@@ -13,8 +13,8 @@
     <meta content="Motivator" name='keywords'>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="shortcut icon" href="/img/favicon.ico">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/jquery/bootstrapValidator.min.css">
     <link rel="stylesheet" href="/css/plugins/slidebars.css">
     <link rel="stylesheet" href="/css/modules/tab.css">
     <link rel="stylesheet" href="/css/tourist.css">

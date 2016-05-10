@@ -5,6 +5,7 @@ namespace application\models\Discont;
 use application\models\Configuration;
 use application\models\Tourist;
 use application\models\Touragent;
+use application\models\DiscountTransaction;
 use application\models\defines\TouristStatus;
 
 /**
@@ -13,21 +14,23 @@ use application\models\defines\TouristStatus;
 class Handler
 {
 
-    public function increaseParentDiscont(Tourist $tourist, $summ)
+    public function increaseParentDiscont(Tourist $sourceTourist, Tourist $distTourist, $summ)
     {
         $balance = 0;
-        $partnerDiscont = $tourist->partnerDiscont;
+        $partnerDiscont = $distTourist->partnerDiscont;
         $partnerDiscont += $summ;
 
-        $totalDiscont = $partnerDiscont + $tourist->abonentDiscont;
-        if ($totalDiscont > $tourist->tour->price)
+        $totalDiscont = $partnerDiscont + $distTourist->abonentDiscont;
+        if ($totalDiscont > $distTourist->tour->price)
         {
-            $balance += $tourist->tour->price - $totalDiscont;
-            $partnerDiscont = $tourist->tour->price;
+            $balance += $distTourist->tour->price - $totalDiscont;
+            $partnerDiscont = $distTourist->tour->price;
         }
-        $tourist->partnerDiscont = $partnerDiscont;
-        $tourist->save();
-        $this->increaseTouragentAccount($tourist, $balance);
+        $ammount = $partnerDiscont - $distTourist->partnerDiscont;
+        $distTourist->partnerDiscont = $partnerDiscont;
+        $distTourist->save();
+        DiscountTransaction::addParentDiscont($sourceTourist, $distTourist, $ammount);
+        $this->increaseTouragentAccount($distTourist, $balance);
     }
 
     public function increaseTouristAbonentDiscont(Tourist $tourist, $summ)
@@ -42,8 +45,10 @@ class Handler
             $balance += $maxAbonentDiscont - $abonentDiscont;
             $abonentDiscont = $maxAbonentDiscont;
         }
+        $ammount = $abonentDiscont - $distTourist->abonentDiscont;
         $tourist->abonentDiscont = $abonentDiscont;
         $tourist->save();
+        DiscountTransaction::addAbonentDiscont($tourist, $tourist, $ammount);
         $this->increaseTouragentAccount($tourist, $balance);
     }
 
@@ -91,9 +96,11 @@ class Handler
                     $abonentDiscont = $maxAbonentDiscont;
                 }
 
-                $_tourist = Tourist::model()->findByPk($item['touristId']);
+                $_tourist = Tourist::model()->findByPk($item['touristId'], ['with' => ['tour']]);
+                $ammount = $abonentDiscont - $_tourist->abonentDiscont;
                 $_tourist->abonentDiscont = $abonentDiscont;
                 $_tourist->save();
+                DiscountTransaction::addAbonentDiscont($tourist, $_tourist, $ammount);
             }
             $this->increaseTouragentAccount($tourist, $balance);
         } 
@@ -111,6 +118,8 @@ class Handler
             $touragent = Touragent::model()->findByPk($touragentId);
             $touragent->account += (int) $summ;
             $touragent->save();
+
+            DiscountTransaction::addTouragentAccount($tourist, $touragentId, $summ);
         }
     }
 }

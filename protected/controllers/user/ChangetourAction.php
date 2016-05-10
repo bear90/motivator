@@ -58,12 +58,12 @@ class ChangetourAction extends \CAction
             switch(true)
             {
                 case ($parentTourist && $parentTourist->statusId == TouristStatus::GETTING_DISCONT):
-                    $discontHandler->increaseParentDiscont($parentTourist, $prepayment);
+                    $discontHandler->increaseParentDiscont($tourist, $parentTourist, $prepayment);
                     \Tool::informTourist($parentTourist, 'exchange_tour_partner');
                     break;
                     
                 case ($parentTourist && $parentTourist->statusId == TouristStatus::HAVE_DISCONT && $prepayment > 0):
-                    $discontHandler->increaseParentDiscont($tourist, $prepayment);
+                    $discontHandler->increaseParentDiscont($tourist, $tourist, $prepayment);
                     break;
                     
                 case ($parentTourist && $parentTourist->statusId == TouristStatus::HAVE_DISCONT && $prepayment < 0):
