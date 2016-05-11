@@ -52,6 +52,7 @@
              
             $message->addTo($to);
             $message->from = \Yii::app()->params['adminEmail'];
+            $message->sender = \Yii::app()->params['senderEmail'];
             $message->setSubject($subject);
             
             return \Yii::app()->mail->send($message);

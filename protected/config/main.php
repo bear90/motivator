@@ -107,5 +107,6 @@ return array(
 
     'params' => [
         'adminEmail' => 'webmaster@example.com',
+        'senderEmail' => 'igorshablovsky@gmail.com',
     ],
 );
