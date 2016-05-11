@@ -26,7 +26,6 @@
         {
             $data['tourist'] = $tourist;
             $r = self::sendEmailWithView($tourist->email, $view, $data);
-            print $r;
             self::sendMessage($tourist, $view, $data);
         }
 
@@ -52,7 +51,6 @@
              
             $message->addTo($to);
             $message->from = \Yii::app()->params['adminEmail'];
-            var_dump(\Yii::app()->params['senderEmail']);
             $message->setSender(\Yii::app()->params['senderEmail']);
             $message->setSubject($subject);
             
