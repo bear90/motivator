@@ -1,5 +1,5 @@
 <?php
-    $canOffer = $touragent->id == $tour->touragentId;
+    $canOffer = $touragent->id == $tour->touragentId && !$manager->boss;
     $responsibleManager = $canOffer && $manager->id == $tour->managerId;
 ?>
 
@@ -31,7 +31,7 @@
                 'tour' => $tour,
                 'manager' => $manager,
                 'canChange' => $manager->id == $tour->managerId ||
-                               !$tour->managerId && $touragent->id == $tour->touragentId
+                               !$tour->managerId && !$manager->boss && $touragent->id == $tour->touragentId
             ]); ?>
             
         </span>
