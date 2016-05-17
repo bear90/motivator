@@ -73,6 +73,10 @@ class ChangetourAction extends \CAction
                 case ($parentTourist === null && $prepayment > 0):
                     $discontHandler->increaseAbonentDiscont($tourist, $prepayment);
                     break;
+
+                case ($parentTourist === null && $prepayment < 0):
+                    $discontHandler->updateTourAgentAccount($tourist, $prepayment);
+                    break;
             }
 
             DbTransaction::commit();
