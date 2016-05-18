@@ -25,20 +25,10 @@ return array(
         'kontakty' => '\application\controllers\KontaktyController',
         'user' => '\application\controllers\UserController',
     ),
-    /*'modules' => array(
-        'api' => array(
-            'login'     => 'api',
-            'password'  => 'zaq1@WSX',
-        ),
-        'cms' => array(),
-        'twilio' => array(
-            'login'     => 'test',
-            'password'  => 'test',
-        ),
-        'eth' => array(),
-        'myfox' => array(),
-        'debug' => array()
+    'modules' => array(
+        'admin' => array()
     ),
+    /*
     'behaviors'=> array(
         array('class'=>'application.components.ModuleUrlRulesBehavior')
     ),*/
@@ -60,6 +50,7 @@ return array(
                 // Others
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
+                '<module:\w+>/<controller:\w+>/<action:\w+>/<id:\d+>' => '<module>/<controller>/<action>',
                 '<controller:\w+>/<action:\w+>' => '<controller>/<action>',
             ),
         ),

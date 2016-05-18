@@ -39,7 +39,7 @@
         <footer class="container-fluid">
             <div class="row">
                 <div class="col-xs-12 col-xs-offset-0 col-sm-4 col-sm-offset-4 col-lg-3 col-lg-offset-0">
-                    <a class="logo" href="/admin">
+                    <a class="logo" href="<?php echo Yii::app()->createUrl("admin/touragent"); ?>">
                         <img src="img/logo.png" alt="Motivator">
                     </a>
                 </div>
