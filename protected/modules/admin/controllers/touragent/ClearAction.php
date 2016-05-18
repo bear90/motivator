@@ -14,11 +14,13 @@ class ClearAction extends \CAction
     {
         $touragent = Touragent::model()->findByPk($id, ['with' => 'tourists2']);
         if ($touragent) {
+            $i = 0;
             foreach ($touragent->tourists2 as $tourist) {
                 $tourist->delete();
+                $i++;
             }
 
-            \Yii::app()->user->setState('message', "Туристы турагента {$touragent->name} удалены");
+            \Yii::app()->user->setState('message', "Туристы турагента {$touragent->name} удалены: {$i}");
             
             $this->controller->redirect('/admin/touragent');
         }
