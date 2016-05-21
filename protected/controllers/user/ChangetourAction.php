@@ -20,7 +20,7 @@ class ChangetourAction extends \CAction
     {
         $tourId = \Yii::app()->request->getParam('tourId');
         $tour = TouristTour::model()->findByPk($tourId);
-        $tourist = Tourist::model()->findByPk($tour->touristId);
+        $tourist = Tourist::model()->findByPk($tour->touristId, ['with'=>['tour']]);
         $manager = \Yii::app()->user->getState('manager');
         $discontHandler = new Discont\Handler();
 
@@ -48,6 +48,7 @@ class ChangetourAction extends \CAction
                 $tour->prepayment = $newPrepayment;
             }
             $tour->save();
+            $tourist->tour->refresh();
 
             if($tour->hasErrors()){
                 throw new \Exception(\Tool::errorToString($tour->errors));
@@ -75,7 +76,7 @@ class ChangetourAction extends \CAction
                     break;
 
                 case ($parentTourist === null && $prepayment < 0):
-                    $discontHandler->updateTourAgentAccount($tourist, $prepayment);
+                    $discontHandler->decreaseAbonentDiscont($tourist, $prepayment);
                     break;
             }
 

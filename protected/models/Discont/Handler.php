@@ -138,6 +138,19 @@ class Handler
         return $prepayment;
     }
 
+    public function decreaseAbonentDiscont(Tourist $tourist, $balance)
+    {
+        $maxDiscount = $tourist->tour->maxDiscont;
+        $abonentDiscont = $tourist->abonentDiscont + $tourist->tour->minDiscont;
+        if ($abonentDiscont > $maxDiscount)
+        {
+            $balance += $abonentDiscont - $maxDiscount;
+            $tourist->abonentDiscont = $maxDiscount - $tourist->tour->minDiscont;
+            $tourist->save();
+        }
+        $this->updateTourAgentAccount($tourist, $balance);
+    }
+
     public function increaseAbonentDiscont(Tourist $tourist, $prepayment)
     {
         $prepayment = $this->processTouristFond($tourist, $prepayment);
