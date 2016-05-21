@@ -8,7 +8,6 @@ class TouristTour extends DBEntity
 {
     public $minDiscont = 0;
     public $maxDiscont = 0;
-    public $surchange = 0;
     
     public function rules(){
         return [
@@ -45,7 +44,6 @@ class TouristTour extends DBEntity
 
             $this->minDiscont = round($this->price * $minDiscont / 100);
             $this->maxDiscont = round($this->price * $maxDiscont / 100);
-            $this->surchange = $this->price - $this->maxDiscont - $this->prepayment;
         }
     }
 
@@ -56,6 +54,6 @@ class TouristTour extends DBEntity
 
     public function getCurrentSurchange()
     {
-        return $this->price - $this->minDiscont - $this->prepayment - $this->getPartnerDiscont();
+        return $this->price - $this->minDiscont - $this->prepayment - $this->tourist->abonentDiscont - $this->tourist->partnerDiscont;
     }
 }
