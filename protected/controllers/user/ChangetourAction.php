@@ -12,6 +12,7 @@ use application\models\Tourist;
 use application\models\Configuration;
 use application\models\defines\TouristStatus;
 use application\components\DbTransaction;
+use application\models\Logs;
 
 class ChangetourAction extends \CAction
 {
@@ -49,6 +50,8 @@ class ChangetourAction extends \CAction
             }
             $tour->save();
             $tourist->tour->refresh();
+
+            Logs::info("{$tourist->firstName} {$tourist->lastName} (#{$tourist->id}) changed tour to", $tour->attributes);
 
             if($tour->hasErrors()){
                 throw new \Exception(\Tool::errorToString($tour->errors));

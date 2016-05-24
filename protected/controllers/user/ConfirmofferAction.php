@@ -14,6 +14,7 @@ use application\models\defines\TouristStatus;
 use application\models\defines\tourist\Helper as TouristHelper;
 use application\models\defines\tour\Helper as TourHelper;
 use application\components\DbTransaction;
+use application\models\Logs;
 
 class ConfirmofferAction extends \CAction
 {
@@ -39,6 +40,9 @@ class ConfirmofferAction extends \CAction
             $tourist = $touristHelper->confirmOffer($offer);
             $touristHelper->changeStatus($tourist, TouristStatus::GETTING_DISCONT);
             $touristHelper->resetTimer($tourist);
+
+            Logs::info("{$tourist->firstName} {$tourist->lastName} (#{$tourist->id}) bought tour", 
+                $tourist->tour->attributes);
 
             $confPrepayment = Configuration::get(Configuration::PREPAYMENT);
             $prepayment = round($offer->price * $confPrepayment / 100);
