@@ -41,7 +41,7 @@ class ChangetourAction extends \CAction
             $data = (array) \Yii::app()->request->getParam('Tour');
             $confPrepayment = Configuration::get(Configuration::PREPAYMENT);
             $newPrepayment = round($data['price'] * $confPrepayment / 100);
-            $oldPrepayment = $tour->prepayment;
+            $oldPrepayment = round($tour->price * $confPrepayment / 100);
             
             $tour->attributes = $data;
             if($oldPrepayment < $newPrepayment)
