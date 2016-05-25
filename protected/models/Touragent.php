@@ -34,6 +34,26 @@ class Touragent extends DBEntity {
         return 'touragents';
     }
 
+    public function calculateDelta()
+    {
+        $delta = 0;
+        if (count($this->tourist_tour)==0)
+        {
+            return $delta;
+        }
+
+        $prepayment = $totalPrice = $totalSurchange = 0;
+        foreach ($this->tourist_tour as $tour) {
+            $totalPrice += $tour->price;
+            $surchange = $tour->getCurrentSurchange();
+            $prepayment += $tour->prepayment;
+            $totalSurchange += $surchange;
+        }
+        $totalSurchange += $this->account + $prepayment;
+
+        return round($totalSurchange / $totalPrice * 100, 2);
+    }
+
     public static function getOptions()
     {
         static $list;
