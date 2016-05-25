@@ -4,9 +4,9 @@
 
 <table class="table table-bordered">
     <tr>
-        <td>Название</td>
-        <td>Коэфициент</td>
-        <td>Операции</td>
+        <th>Название</th>
+        <th>Коэфициент</th>
+        <th>Операции</th>
     </tr>
 <?php foreach($touragents as $touragent): ?>
     <tr>
