@@ -21,8 +21,11 @@ class Helper {
 
         // Create Cities
         foreach ($data['city'] as $name) {
-            if(empty(trim($name)))
+            $name = trim($name);
+            if(empty($name))
+            {
                 continue;
+            }
             $city = new TourCity();
             $city->city = $name;
             $city->tourId = $tour->id;
