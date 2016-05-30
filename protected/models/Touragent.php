@@ -49,7 +49,7 @@ class Touragent extends DBEntity {
             $prepayment += $tour->prepayment;
             $totalSurchange += $surchange;
         }
-        $totalSurchange += $this->account + $prepayment;
+        $totalSurchange += -1 * $this->account + $prepayment;
 
         return round($totalSurchange / $totalPrice * 100, 2);
     }
