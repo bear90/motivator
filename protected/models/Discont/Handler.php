@@ -20,14 +20,27 @@ class Handler
         $partnerDiscont = $distTourist->partnerDiscont;
         $partnerDiscont += $summ;
 
-        $totalDiscont = $partnerDiscont + $distTourist->abonentDiscont;
-        if ($totalDiscont > $distTourist->tour->price)
+        $maxDiscont = $distTourist->tour->price; 
+        $maxDiscont -= $distTourist->abonentDiscont;
+        $maxDiscont -= $distTourist->tour->prepayment;
+        $maxDiscont -= $distTourist->tour->minDiscont;
+        if ($partnerDiscont > $maxDiscont)
         {
-            $balance += $distTourist->tour->price - $totalDiscont;
-            $partnerDiscont = $distTourist->tour->price;
+            $balance += $maxDiscont - $partnerDiscont;
+            $partnerDiscont = $maxDiscont;
         }
         $ammount = $partnerDiscont - $distTourist->partnerDiscont;
         $distTourist->partnerDiscont = $partnerDiscont;
+        $distTourist->save();
+        DiscountTransaction::addParentDiscont($sourceTourist, $distTourist, $ammount);
+        $this->updateTourAgentAccount($distTourist, $balance);
+    }
+
+    public function decreaseParentDiscont(Tourist $sourceTourist, Tourist $distTourist, $ammount)
+    {
+        $balance = $this->recalculateAbonentDiscont($sourceTourist);
+
+        $distTourist->partnerDiscont += $ammount;
         $distTourist->save();
         DiscountTransaction::addParentDiscont($sourceTourist, $distTourist, $ammount);
         $this->updateTourAgentAccount($distTourist, $balance);
@@ -138,8 +151,9 @@ class Handler
         return $prepayment;
     }
 
-    public function decreaseAbonentDiscont(Tourist $tourist, $balance)
+    private function recalculateAbonentDiscont(Tourist $tourist) 
     {
+        $balance = 0;
         $maxDiscount = $tourist->tour->maxDiscont;
         $abonentDiscont = $tourist->abonentDiscont + $tourist->tour->minDiscont;
         if ($abonentDiscont > $maxDiscount)
@@ -148,6 +162,13 @@ class Handler
             $tourist->abonentDiscont = $maxDiscount - $tourist->tour->minDiscont;
             $tourist->save();
         }
+
+        return $balance;
+    }
+
+    public function decreaseAbonentDiscont(Tourist $tourist, $balance)
+    {
+        $balance += $this->recalculateAbonentDiscont($tourist);
         $this->updateTourAgentAccount($tourist, $balance);
     }
 

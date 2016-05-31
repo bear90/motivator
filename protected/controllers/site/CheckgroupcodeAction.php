@@ -6,14 +6,16 @@
 namespace application\controllers\site;
 
 use application\models\Tourist;
+use application\models\defines\TouristStatus;
 
 
 class CheckgroupcodeAction extends \CAjaxAction
 {
     public function doRun()
     {
-        $groupCode = (int) \Yii::app()->request->getPost('groupCode');
-        $valid = Tourist::model()->exists('id = :id', ['id' => $groupCode]);
+        $pid = (int) \Yii::app()->request->getPost('groupCode');
+        $params = ['id' => $pid, 'status' => TouristStatus::HAVE_DISCONT];
+        $valid = Tourist::model()->exists('id = :id AND statusId < :status', $params);
 
         return [
             'valid' => $valid
