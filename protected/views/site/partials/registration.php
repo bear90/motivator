@@ -53,7 +53,7 @@
                             введите сообщенный им код группы<br></span>
 
                     <div class="groupCode center-block">
-                        <div class="input-fld">
+                        <div class="input-fld col-xs-12">
                             <?php echo $registerForm['groupCode']; ?>
                         </div>
                     </div>

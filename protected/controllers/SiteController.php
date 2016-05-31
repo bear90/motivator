@@ -11,6 +11,7 @@ class SiteController extends \CController {
             'captcha' => ['class'=>'CCaptchaAction', 'maxLength' => 6],
             'index' => 'application\\controllers\\site\\IndexAction',
             'checkcapture' => 'application\\controllers\\site\\CheckcaptureAction',
+            'checkgroupcode' => 'application\\controllers\\site\\CheckgroupcodeAction',
         ];
     }
 

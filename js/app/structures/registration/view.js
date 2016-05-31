@@ -93,6 +93,25 @@ define([
                     },
                 } // fields
             });
+
+            this.$('.step3 form').bootstrapValidator({
+                fields: {
+                    groupCode: {
+                        threshold: 4,
+                        validators: {
+                            regexp: {
+                                regexp: /^[0-9]{4,}$/,
+                                message: "Только цифровые символы и не менее 4 символов"
+                            },
+                            remote: {
+                                url: '/site/checkgroupcode/',
+                                type: 'POST',
+                                message: "Введите корректный код группы"
+                            }
+                        } // validators yovupin
+                    }
+                } // fields
+            });
         },
 
         renderStep2: function(){
@@ -117,10 +136,12 @@ define([
         },
 
         renderStep4: function(){
-            this.$('.step3').addClass('hidden');
-            this.$('.step4').removeClass('hidden');
-            this.tourist.set('groupCode', this.$el.find('input[name=groupCode]').val());
-            console.log(this.tourist);
+            this.$('.step3 form').on('success.form.bv', $.proxy(function(){
+                this.tourist.set('groupCode', this.$el.find('input[name=groupCode]').val());
+                this.$('.step3').addClass('hidden');
+                this.$('.step4').removeClass('hidden');
+            }, this));
+            this.$('.step3 form').data('bootstrapValidator').validate();
         },
 
         renderStep5: function(){

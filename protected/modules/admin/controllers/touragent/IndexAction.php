@@ -12,7 +12,7 @@ class IndexAction extends \CAction
 
     public function run($id = null)
     {
-        $touragents = Touragent::model()->findAll();
+        $touragents = Touragent::model()->findAll(['with' => ['tourists2']]);
         $message = '';
 
         if (\Yii::app()->user->hasState('message'))
