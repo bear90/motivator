@@ -49,7 +49,7 @@ class ChangetourAction extends \CAction
                 $tour->prepayment = $newPrepayment;
             }
             $tour->save();
-            $tourist->tour->refresh();
+            $tourist->refresh();
 
             Logs::info("{$tourist->firstName} {$tourist->lastName} (#{$tourist->id}) changed tour to", $tour->attributes);
 
