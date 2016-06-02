@@ -43,7 +43,7 @@ class Handler
         $distTourist->partnerDiscont += $ammount;
         $distTourist->save();
         DiscountTransaction::addParentDiscont($sourceTourist, $distTourist, $ammount);
-        $this->updateTourAgentAccount($distTourist, $balance);
+        $this->updateTourAgentAccount($sourceTourist, $balance);
     }
 
     public function increaseTouristAbonentDiscont(Tourist $tourist, $prepayment)
