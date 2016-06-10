@@ -38,12 +38,24 @@ class Handler
 
     public function decreaseParentDiscont(Tourist $sourceTourist, Tourist $distTourist, $ammount)
     {
-        $balance = $this->recalculateAbonentDiscont($sourceTourist);
+        $prepayment = $this->recalculateAbonentDiscont($sourceTourist);
 
         $distTourist->partnerDiscont += $ammount;
         $distTourist->save();
         DiscountTransaction::addParentDiscont($sourceTourist, $distTourist, $ammount);
-        $this->updateTourAgentAccount($sourceTourist, $balance);
+
+        while ($prepayment)
+        {
+            $rest = $this->processTouristPrepayment($sourceTourist, $prepayment);
+
+            if ($rest > 0 && $rest == $prepayment)
+            {
+                $this->updateTourAgentAccount($sourceTourist, $prepayment);
+                break;
+            }
+
+            $prepayment = $rest;
+        }
     }
 
     public function increaseTouristAbonentDiscont(Tourist $tourist, $prepayment)

@@ -7,6 +7,7 @@ class AdminModule extends CWebModule {
     
     public $controllerMap = [
         'touragent' => 'application\modules\admin\controllers\TouragentController',
+        'dashboard' => 'application\modules\admin\controllers\DashboardController',
     ];
 }
 

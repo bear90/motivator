@@ -2,7 +2,7 @@
 
 namespace application\modules\admin\controllers;
 
-class TouragentController extends \CController {
+class TouragentController extends AdminController {
 
     public function actions(){
         return [

@@ -1,0 +1,22 @@
+<?php
+/**
+ * Some description
+ *
+ * @author      Mikhail Soza <msoza@soxes.ch>
+ * @since       10.06.2016
+ * @package
+ * @copyright   Copyright (c) 2015-2016 soXes GmBh.
+ *
+ */
+
+namespace application\modules\admin\controllers;
+
+
+class DashboardController extends AdminController
+{
+    public function actions(){
+        return [
+            'login' => 'application\\modules\\admin\\controllers\\dashboard\\LoginAction',
+        ];
+    }
+}
