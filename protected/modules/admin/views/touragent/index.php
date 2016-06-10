@@ -11,11 +11,11 @@
         <th>Операции</th>
     </tr>
 <?php
-$summDelta = 0;
-$count = count($touragents);
+$count = $summDelta = 0;
 foreach((array) $touragents as $touragent):
     $delta = $touragent->calculateDelta();
     $summDelta += $delta;
+    $count += $delta ? 1 : 0;
 ?>
     <tr>
         <td><?php echo $touragent->name; ?></td>
