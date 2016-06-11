@@ -17,7 +17,7 @@
 
         <div class="inner-block form-group">
             <label>Исходная стоимость тура:</label>
-            <?php echo number_format($offer->price, 0, ',', ' '); ?> бел.руб.
+            <?php echo $offer->getNewPriceText(); ?>
         </div>
         <div class="inner-block">
             <label>Стартовая абонентская скидка:</label>
@@ -67,7 +67,7 @@
 
         <div class="inner-block form-group">
             <label>Исходная стоимость тура:</label>
-            <?php echo CHtml::textField("TourOffer[{$number}][price]", $offer->price, ['class' => 'price']); ?>
+            <?php echo CHtml::textField("TourOffer[{$number}][price]", $offer->getNewPrice(), ['class' => 'price']); ?>
         </div>
         <div class="inner-block">
             <label>Стартовая абонентская скидка:</label>

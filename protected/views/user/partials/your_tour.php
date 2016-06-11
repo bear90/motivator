@@ -29,7 +29,7 @@
     </span>
     <span>Исходная стоимость тура: 
         <span class="value money">
-            <?php echo number_format($tourist->tour->price, 0, ',', ' '); ?> бел.руб.
+            <?php echo $tourist->tour->getNewPriceText(); ?>
         </span>
     </span>
     <span>Предоплата: 
@@ -76,7 +76,7 @@
     <div class="editBlock">
         <div class="inner-block form-group">
             <label>Исходная стоимость тура:</label>
-            <?php echo CHtml::textField("Tour[price]", $tourist->tour->price, ['class' => 'price']); ?>
+            <?php echo CHtml::textField("Tour[price]", $tourist->tour->getNewPrice(), ['class' => 'price']); ?>
         </div>
 
         <h4>ОПИСАНИЕ ТУРА:</h4> 

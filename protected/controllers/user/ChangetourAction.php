@@ -39,6 +39,13 @@ class ChangetourAction extends \CAction
             }
 
             $data = (array) \Yii::app()->request->getParam('Tour');
+            $data['price'] = floatval($data['price']) * 10000;
+
+            $startDate = new \DateTime($data['startDate']);
+            $endDate = new \DateTime($data['endDate']);
+            $data['startDate'] = $startDate->format("Y-m-d H:i:s");
+            $data['endDate'] = $endDate->format("Y-m-d H:i:s");
+
             $confPrepayment = Configuration::get(Configuration::PREPAYMENT);
             $newPrepayment = round($data['price'] * $confPrepayment / 100);
             $oldPrepayment = round($tour->price * $confPrepayment / 100);
