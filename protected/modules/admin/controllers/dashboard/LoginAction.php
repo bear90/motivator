@@ -11,20 +11,32 @@
 
 namespace application\modules\admin\controllers\dashboard;
 
+use application\models\forms\AdminLogin;
+
 class LoginAction extends \CAction
 {
     public function run()
     {
+        $loginForm = new AdminLogin;
+        $loginError = null;
 
-        $message = '';
-        if (\Yii::app()->user->hasState('message'))
+        if (\Yii::app()->request->isPostRequest)
         {
-            $message = \Yii::app()->user->getState('message');
-            \Yii::app()->user->setState('message', null);
+            $password = \Yii::app()->request->getPost('password');
+            $loginForm->login = '';
+            $loginForm->password = $password;
+
+            if ($loginForm->validate() && $loginForm->login()) {
+                $loginError = false;
+                $this->controller->redirect(\Yii::app()->createUrl('admin/touragent'));
+            } else {
+                $loginError = 'Не верный логин или пароль';
+            }
         }
 
         $this->controller->render('login', [
-            'message' => $message
+            'loginForm' => new \CForm('application.modules.admin.views.forms.login', $loginForm),
+            'loginError' => $loginError
         ]);
     }
 }

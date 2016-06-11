@@ -14,13 +14,13 @@ class AdminLogin extends \CFormModel
 {
     private $identity;
 
-    public $email;
+    public $login;
     public $password;
     public $rememberMe = true;
 
     public function login() {
         if ($this->identity === null) {
-            $this->identity = new \UserIdentity($this->email, $this->password);
+            $this->identity = new \UserIdentity($this->login, $this->password);
             $this->identity->role = defines\UserRole::ADMIN;
             $this->identity->authenticate();
         }

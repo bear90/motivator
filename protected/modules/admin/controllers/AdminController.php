@@ -64,7 +64,7 @@ class AdminController extends \CController
             // Not logged in user
             case \Yii::app()->user->isGuest:
             case \Yii::app()->user->model === null:
-            case \Yii::app()->user->model->roleId !== UserRole::ADMIN:
+            case \Yii::app()->user->model->roleId != UserRole::ADMIN:
                 $this->redirectTo('/admin/dashboard/login');
                 break;
 

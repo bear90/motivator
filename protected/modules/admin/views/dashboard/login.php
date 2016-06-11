@@ -8,34 +8,23 @@
  */
 ?>
 <div class="row-fluid">
-    <div class="centering col-md-3 col-md-offset-4">
-        <form class="form-horizontal">
+    <div class="col-md-4 col-md-offset-4">
+        <?php echo $loginForm->renderBegin(); ?>
+            <?php echo $loginForm['submit']; ?>
             <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-                <div class="col-sm-10">
-                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                </div>
+                <?php echo $loginForm['password']; ?>
             </div>
+            <div class="checkbox">
+                  <label>
+                    <input type="checkbox"> Запомнить меня
+                </label>
+            </div>
+            <?php if ($loginError): ?>
+                <small class="help-block error" ><?php echo $loginError; ?></small>
+            <?php endif; ?>
             <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
-                <div class="col-sm-10">
-                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-                </div>
+                <button type="submit" class="btn btn-default">Войти</button>
             </div>
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <div class="checkbox">
-                          <label>
-                            <input type="checkbox"> Remember me
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">Sign in</button>
-                </div>
-            </div>
-        </form>
+        <?php echo $loginForm->renderEnd(); ?>
     </div>
 </div>
