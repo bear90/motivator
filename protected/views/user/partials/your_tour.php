@@ -29,35 +29,35 @@
     </span>
     <span>Исходная стоимость тура: 
         <span class="value money">
-            <?php echo $tourist->tour->getNewPriceText(); ?>
+            <?php echo Tool::getNewPriceText($tourist->tour->price); ?>
         </span>
     </span>
     <span>Предоплата: 
         <span class="value money">
-            <?php echo number_format($tourist->tour->prepayment, 0, ',', ' '); ?> бел.руб.
+            <?php echo Tool::getNewPriceText($tourist->tour->prepayment); ?>
         </span>
     </span>
 
     <span class="sell">Общая скидка: 
         <span class="value money">
-            <?php echo number_format($tourist->getTotalDiscont(), 0, ',', ' '); ?> бел.руб.
+            <?php echo Tool::getNewPriceText($tourist->getTotalDiscont()); ?>
         </span>
     </span>
 
     <span>В том числе:</span>
     <span>Абонентская скидка: 
         <span class="value money">
-            <?php echo number_format($tourist->getAbonentDiscont(), 0, ',', ' '); ?> бел.руб.
+            <?php echo Tool::getNewPriceText($tourist->getAbonentDiscont()); ?>
         </span>
     </span>
     <span>Скидка за привлечение: 
         <span class="value money">
-            <?php echo number_format($tourist->getPartnerDiscont(), 0, ',', ' '); ?> бел.руб.
+            <?php echo Tool::getNewPriceText($tourist->getPartnerDiscont()); ?>
         </span>
     </span>
     <span>Доплата при покупке тура: 
         <span class="value money">
-            <?php echo number_format($tourist->tour->getCurrentSurchange(), 0, ',', ' '); ?> бел.руб.
+            <?php echo Tool::getNewPriceText($tourist->tour->getCurrentSurchange()); ?>
         </span>
     </span>
     <span>Описание тура: 
@@ -76,7 +76,7 @@
     <div class="editBlock">
         <div class="inner-block form-group">
             <label>Исходная стоимость тура:</label>
-            <?php echo CHtml::textField("Tour[price]", $tourist->tour->getNewPrice(), ['class' => 'price']); ?>
+            <?php echo CHtml::textField("Tour[price]", $tourist->tour->price, ['class' => 'price']); ?>
         </div>
 
         <h4>ОПИСАНИЕ ТУРА:</h4> 

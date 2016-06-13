@@ -17,23 +17,23 @@
 
         <div class="inner-block form-group">
             <label>Исходная стоимость тура:</label>
-            <?php echo $offer->getNewPriceText(); ?>
+            <?php echo Tool::getNewPriceText($offer->price); ?>
         </div>
         <div class="inner-block">
             <label>Стартовая абонентская скидка:</label>
-            <?php echo number_format($offer->minDiscont, 0, ',', ' '); ?> бел.руб.
+            <?php echo Tool::getNewPriceText($offer->minDiscont); ?>
         </div>
         <div class="inner-block">
             <label>Максимальная абонентская скидка:</label>
-            <?php echo number_format($offer->maxDiscont, 0, ',', ' '); ?> бел.руб.
+            <?php echo Tool::getNewPriceText($offer->maxDiscont); ?>
         </div>
         <div class="inner-block">
             <label>Предоплата:</label>
-            <?php echo number_format($offer->prepayment, 0, ',', ' '); ?> бел.руб.
+            <?php echo Tool::getNewPriceText($offer->prepayment); ?>
         </div>
         <div class="inner-block">
             <label>Сумма к доплате при максимальной абонентской скидке:</label>
-            <?php echo number_format($offer->surchange, 0, ',', ' '); ?> бел.руб.
+            <?php echo Tool::getNewPriceText($offer->surchange); ?>
         </div>
 
         <h4>ОПИСАНИЕ ТУРА:</h4> 
@@ -67,7 +67,7 @@
 
         <div class="inner-block form-group">
             <label>Исходная стоимость тура:</label>
-            <?php echo CHtml::textField("TourOffer[{$number}][price]", $offer->getNewPrice(), ['class' => 'price']); ?>
+            <?php echo CHtml::textField("TourOffer[{$number}][price]", $offer->price, ['class' => 'price']); ?>
         </div>
         <div class="inner-block">
             <label>Стартовая абонентская скидка:</label>

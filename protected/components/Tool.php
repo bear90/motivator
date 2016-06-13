@@ -111,5 +111,26 @@
             $html .= $_manager->name . ': ' . $_manager->getPhones();
 
             return $html;
-        }   
+        }
+
+        public static function getNewPriceText($value)
+        {
+            $value = round($value, 2);
+            $rub = intval($value);
+            $kop = ($value - $rub) * 100;
+
+            $str = '';
+            if ($rub)
+            {
+                $str .= number_format($rub, 0, ',', ' ') . ' руб.';
+            }
+            $str .= " {$kop} коп.";
+
+            return $str;
+        }
+
+        public static function getNewPrice($value)
+        {
+            return $value ? round($value, 2) : $value;
+        }
     }

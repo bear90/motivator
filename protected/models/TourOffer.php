@@ -57,18 +57,4 @@ class TourOffer extends DBEntity {
     {
         return $this->price - $this->minDiscont - $this->prepayment - $this->getPartnerDiscont();
     }
-
-    public function getNewPriceText() 
-    {
-        $price = strval(round($this->price/10000, 2));
-        $tmp = explode('.', $price);
-        $rub = $tmp[0];
-        $kop = strlen($tmp[1]) == 1 ? $tmp[1] . '0' : $tmp[1] ;
-        return number_format($rub, 0, ',', ' ') . ' руб. ' . $kop . ' коп.';
-    }
-
-    public function getNewPrice()
-    {
-        return round($this->price/10000, 2);
-    }
 }
