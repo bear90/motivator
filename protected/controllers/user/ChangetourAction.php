@@ -39,7 +39,6 @@ class ChangetourAction extends \CAction
             }
 
             $data = (array) \Yii::app()->request->getParam('Tour');
-            $data['price'] = floatval($data['price']) * 10000;
 
             $startDate = new \DateTime($data['startDate']);
             $endDate = new \DateTime($data['endDate']);

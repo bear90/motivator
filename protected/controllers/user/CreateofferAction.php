@@ -36,7 +36,6 @@ class CreateofferAction extends \CAction
                 $data['tourId'] = $tourId;
                 $data['startDate'] = $startDate->format("Y-m-d H:i:s");
                 $data['endDate'] = $endDate->format("Y-m-d H:i:s");
-                $data['price'] = floatval($data['price']) * 10000;
 
                 if (!empty($offer['id']))
                 {
