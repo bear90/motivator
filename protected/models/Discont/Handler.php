@@ -96,12 +96,15 @@ class Handler
 
             return 0;
         }
+        
+        if ($tourAgent->account) 
+        {
+            $amount = 0 - $tourAgent->account;
+            $tourAgent->account = 0;
+            $tourAgent->save();
 
-        $amount = 0 - $tourAgent->account;
-        $tourAgent->account = 0;
-        $tourAgent->save();
-
-        DiscountTransaction::addTouragentAccount($tourist, $tourAgentId, $amount);
+            DiscountTransaction::addTouragentAccount($tourist, $tourAgentId, $amount);
+        }
 
         return $account;
     }
