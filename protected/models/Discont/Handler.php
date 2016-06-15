@@ -140,7 +140,7 @@ class Handler
 
         if(count($tourists) > 0)
         {
-            $part = round($prepayment / count($tourists));
+            $part = round($prepayment / count($tourists), 2);
             $prepayment = 0;
 
             foreach ($tourists as $_tourist) {

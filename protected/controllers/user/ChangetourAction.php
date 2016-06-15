@@ -46,8 +46,8 @@ class ChangetourAction extends \CAction
             $data['endDate'] = $endDate->format("Y-m-d H:i:s");
 
             $confPrepayment = Configuration::get(Configuration::PREPAYMENT);
-            $newPrepayment = round($data['price'] * $confPrepayment / 100);
-            $oldPrepayment = round($tour->price * $confPrepayment / 100);
+            $newPrepayment = round($data['price'] * $confPrepayment / 100, 2);
+            $oldPrepayment = round($tour->price * $confPrepayment / 100, 2);
             
             $tour->attributes = $data;
             if($tour->prepayment < $newPrepayment)

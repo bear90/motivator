@@ -42,8 +42,8 @@ class TouristTour extends DBEntity
             $minDiscont = Configuration::get(Configuration::MIN_DISCONT);
             $maxDiscont = Configuration::get(Configuration::MAX_DISCONT);
 
-            $this->minDiscont = round($this->price * $minDiscont / 100);
-            $this->maxDiscont = round($this->price * $maxDiscont / 100);
+            $this->minDiscont = round($this->price * $minDiscont / 100, 2);
+            $this->maxDiscont = round($this->price * $maxDiscont / 100, 2);
         }
     }
 

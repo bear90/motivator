@@ -45,7 +45,7 @@ class ConfirmofferAction extends \CAction
                 $tourist->tour->attributes);
 
             $confPrepayment = Configuration::get(Configuration::PREPAYMENT);
-            $prepayment = round($offer->price * $confPrepayment / 100);
+            $prepayment = round($offer->price * $confPrepayment / 100, 2);
 
             // Delete whole tours
             foreach ($tourist->tours as $tour) 

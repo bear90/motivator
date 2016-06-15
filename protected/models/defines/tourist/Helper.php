@@ -56,7 +56,7 @@ class Helper {
             $touristTour = new TouristTour;
 
             $prepayment = Configuration::get(Configuration::PREPAYMENT);
-            $touristTour->prepayment = round($offer->price * $prepayment / 100);
+            $touristTour->prepayment = round($offer->price * $prepayment / 100, 2);
         }
         $touristTour->attributes = [
             'country' => $offer->country,
