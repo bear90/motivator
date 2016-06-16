@@ -218,7 +218,7 @@ class Handler
             $tourAgentId = $tourist->tour->touragentId;
 
             $touragent = Touragent::model()->findByPk($tourAgentId);
-            $touragent->account += (int) $amount;
+            $touragent->account += (float) $amount;
             $touragent->save();
 
             DiscountTransaction::addTouragentAccount($tourist, $tourAgentId, $amount);

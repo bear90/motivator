@@ -23,7 +23,7 @@ class DiscountTransaction extends DBEntity
         $this->sourceTouristName = $sourceTourist->firstName . ' ' . $sourceTourist->lastName;
         $this->sourceTouragentId = $sourceTouragentId;
         $this->targetTouragentId = $targetTouragentId;
-        $this->amount = (int) $summ;
+        $this->amount = (float) $summ;
         $this->comment = $comment;
         $this->createAt = new \CDbExpression("NOW()");
         if ($targetTourist !== null)
