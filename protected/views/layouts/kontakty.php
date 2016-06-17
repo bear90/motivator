@@ -11,8 +11,8 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/plugins/slidebars.css">
     <link rel="stylesheet" href="/css/modules/tab.css">
-    <link rel="stylesheet" href="css/tourist.css">
     <link rel="stylesheet" href="css/contacts.css">
+    <link rel="stylesheet" href="css/tourist.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

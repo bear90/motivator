@@ -76,11 +76,22 @@ class Text
         {
             $this->data->attributes = $attributes;
         }
+        if($this->data->id)
+        {
+            $this->data->updatedAt = new \CDbExpression('NOW()');
+        }
 
         $this->data->save();
         if ( $this->data->hasErrors() ) {
             throw new \Exception ( \Tool::errorToString( $this->data->getErrors() )  );
         }
         return true;
+    }
+
+    public static function get($key)
+    {
+        $textEntity = TextEntity::model()->find("`key` = :key", ['key' => $key]);
+
+        return $textEntity ? $textEntity->text : '';
     }
 }

@@ -866,3 +866,7 @@ footer .logo > img {
 
 .touragentam-dashboard a{text-decoration: none; color: #000;}
 .touragentam-dashboard a:hover{text-decoration: none;}
+
+section {position: relative;}
+.fixed-socseti {position: fixed; top:50%; right: 15px; z-index: 10; margin-top: -96px;}
+.fixed-socseti a {display: block; position: relative;}

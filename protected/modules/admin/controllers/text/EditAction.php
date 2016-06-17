@@ -12,13 +12,26 @@
 namespace application\modules\admin\controllers\text;
 
 use application\modules\admin\models\Entity\TextEntity;
+use application\modules\admin\models\Text;
 
 class EditAction extends \CAction
 {
     public function run($id = null)
     {
         $page = TextEntity::model()->findByPk($id);
-        
+
+        if (\Yii::app()->request->isPostRequest)
+        {
+            $attributes = (array) \Yii::app()->request->getPost('Text');
+
+            $text = new Text($page);
+            $text->save($attributes);
+
+            \Yii::app()->user->setState('message', "Запись изменена успешно.");
+            $this->controller->redirect(\Yii::app()->createUrl('/admin/text'));
+            return;
+        }
+
         $this->controller->render('edit', [
             'page' => $page
         ]);

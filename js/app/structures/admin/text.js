@@ -10,14 +10,17 @@ define([
 
         render: function(){
             $('textarea.tiny-text').tinymce({
+                theme: 'modern',
                 content_css: '/css/bootstrap.min.css,/css/admin-tiny.css',
                 height : 400,
                 menubar: false,
-                statusbar: false,
+                //statusbar: false,
                 plugins: [
-                    'autolink link image'
+                    'advlist autolink link image lists charmap print preview fullscreen',
+                    'table contextmenu directionality template paste textcolor'
                 ],
-                toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | link image',
+                //toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | link image',
+                toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview fullscreen | forecolor backcolor',
                 setup: function(editor) {
 
                     /**/
