@@ -30,7 +30,7 @@
             </div>
             <a class="logo" href="/">
                 <img src="img/logo.png" alt="Motivator">
-                <h1 class="text-uppercase text-right text-logo">Для туроператоров - это система, позволяющая наращивать продажи туров</h1>
+                <h1 class="text-uppercase text-right text-logo">Для туроператоров - это сервис, позволяющий наращивать продажи туров</h1>
             </a>
         </header>
 

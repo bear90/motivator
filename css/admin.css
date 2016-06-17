@@ -10,3 +10,19 @@ html, body{height:100%; margin:0;padding:0}
 .row-fluid {height: 100%; display:table-cell; vertical-align: middle;}
 
 .help-block.error {color: red;}
+
+aside {
+    float: left;
+    width: 250px;
+}
+section {
+    margin-left: 280px;
+    padding-bottom: 50px;
+}
+
+table.text-table th:nth-child(1){
+
+}
+table.text-table th:nth-child(2){
+    width: 10%;
+}

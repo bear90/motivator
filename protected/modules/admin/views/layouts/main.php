@@ -10,11 +10,20 @@
 </head>
 <body>
     <div class="container-fluid">
-        <?php echo $content; ?>
+        <aside>
+            <?php $this->widget('zii.widgets.CMenu',array(
+                'items' => $this->getMenu(),
+                'htmlOptions' => ['class' => 'nav nav-pills nav-stacked'],
+                //'itemCssClass' => 'text-uppercase',
+            )); ?>
+        </aside>
+        <section data-structure="<?php echo $this->jsModule?>"><?php echo $content; ?></section>
+
     </div>
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="/js/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="/js/bootstrap.min.js"></script>
+    <script data-main="/js/app/admin.js" src="/js/app/vendor/requirejs/require.js"></script>
 </body>

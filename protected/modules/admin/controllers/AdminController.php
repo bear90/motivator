@@ -14,6 +14,8 @@ use application\models\defines\UserRole;
 
 class AdminController extends \CController
 {
+    public $jsModule = '';
+
     protected $whiteListAction = array(
         'dashboard' => array(
             'login',
@@ -72,5 +74,28 @@ class AdminController extends \CController
             default:
                 $filterChain->run();
         }
+    }
+
+    public function getMenu(){
+        $menu = array_map(function($item){
+            if ($item['key'] == $this->id)
+            {
+                $item['active'] = true;
+            }
+            return $item;
+        },[
+            [
+                'key' => 'touragent',
+                'label' => 'Турагенты',
+                'url' => '/admin/touragent',
+            ],
+            [
+                'key' => 'text',
+                'label' => 'Текстовые блоки',
+                'url' => '/admin/text',
+            ]
+        ]);
+
+        return $menu;
     }
 }

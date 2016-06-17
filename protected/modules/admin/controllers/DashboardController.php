@@ -14,6 +14,8 @@ namespace application\modules\admin\controllers;
 
 class DashboardController extends AdminController
 {
+    public $layout = 'login';
+    
     public function actions(){
         return [
             'login' => 'application\\modules\\admin\\controllers\\dashboard\\LoginAction',

@@ -56,7 +56,7 @@
 <!--Rule tab-->
   <div id="rule-tab" class="center-block">
       <div id="wrapper" class="tab1 ms_tabs" data-selected="tab1" data-collapse="0">
-          <a href="#tab1" class="tab active">Как работает система МОТИВАТОР</a>
+          <a href="#tab1" class="tab active">О СЕРВИСЕ «МОТИВАТОР»</a>
           <a href="#tab2" class="tab" id="secondTab">Правила работы</a>
           <a href="#tab3" class="tab" id="threeTab">Статьи, Аналитика</a>
 
