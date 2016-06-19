@@ -80,8 +80,7 @@ body {
 
 /*----Buttons(internal menu)---*/
 #privet-cabinet{
-    margin-bottom: 40px;
-    
+    margin-bottom: 15px;
     text-transform: uppercase;
     text-align: center;
 }
@@ -340,14 +339,14 @@ li#tourist-cabinet > a:active, li#tourist-cabinet > a.active {
 
 @media (min-width: 992px) {
     #discount-attraction {
-        margin-top: 30px;
+        margin-top: 0;
         width: 100%;
     }
 }
 
 #discount-attraction p {
-    font: 42px Arial;
-    margin-bottom: 20px;
+    font: 32px Arial;
+    margin-bottom: 5px;
     text-transform: uppercase;
     text-align: center;
     font-weight: bold;
@@ -779,7 +778,7 @@ footer .logo > img {
     position: relative;
     visibility: visible;
     opacity: 1;
-    top: 16px;
+    margin-top: 10px;
 }
 
 #privet-cabinet .block-login.open {

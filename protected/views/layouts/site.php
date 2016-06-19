@@ -33,7 +33,7 @@
         </div>
         <a class="logo" href="/">
             <img src="img/logo.png" alt="Motivator">
-            <h1 class="text-uppercase text-right text-logo">Для туристов &ndash; это система, позволяющая экономить</h1>
+            <h1 class="text-uppercase text-right text-logo">Для туристов &ndash; это сервис, позволяющий экономить</h1>
         </a>
     </header>
 

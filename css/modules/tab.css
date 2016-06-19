@@ -19,7 +19,7 @@
     height: 60px;
     float: left;
     background-color: #e8e8e8;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
 }
 #wrapper h4{
     font-weight: bold;
@@ -58,10 +58,13 @@
     display:block;
     width:100%;
 }
+#wrapper.tab-articles div.tab-articles {
+    display:block;
+    width:100%;
+}
 #wrapper a.tab.active {
     color: black;
     background-color: #ffffff;
-    cursor: default;
     font-weight: bold;
     text-decoration: none;
 }

@@ -20,7 +20,8 @@ define([
                     'table contextmenu directionality template paste textcolor'
                 ],
                 //toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | link image',
-                toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview fullscreen | forecolor backcolor',
+                toolbar: 'undo redo | styleselect fontsizeselect removeformat | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | preview fullscreen | forecolor backcolor',
+                fontsize_formats: '8px 10px 11px 12px 13px 14px 15px 16px 17px 18px 24px 36px',
                 setup: function(editor) {
 
                     /**/

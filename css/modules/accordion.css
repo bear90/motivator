@@ -35,7 +35,7 @@
 
 #accordion .panel-heading > .panel-title a {
     display: block;
-    padding: 12px 0;
+    padding: 8px 0;
 }
 
 #accordion .panel-heading.open-accordion > .panel-title {
@@ -126,13 +126,7 @@
 @media (min-width: 768px) {
     .panel-direction  {
         margin-top: 13px;
-        margin-right: 4px;
-    }
-}
-
-@media (min-width: 992px) {
-    .panel-direction  {
-        margin-top: 7px;
+        margin-right: 10px;
     }
 }
 

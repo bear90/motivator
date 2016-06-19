@@ -60,23 +60,27 @@ use application\modules\admin\models\Text;
   </div>               
 <!--Rule tab-->
   <div id="rule-tab" class="center-block">
-      <div id="wrapper" class="tab1 ms_tabs" data-selected="tab1" data-collapse="0">
-          <a href="#tab1" class="tab active">О СЕРВИСЕ «МОТИВАТОР»</a>
-          <a href="#tab2" class="tab" id="secondTab">Правила работы</a>
-          <a href="#tab3" class="tab" id="threeTab">Статьи, Аналитика</a>
+      <div id="wrapper" class="ms_tabs" data-selected="" data-collapse="1">
+          <a href="#tab1" class="tab">О СЕРВИСЕ «МОТИВАТОР»</a>
+          <a href="#tab-rules" class="tab" id="secondTab">Правила работы</a>
+          <a href="#tab-articles" class="tab" id="threeTab">Статьи, Аналитика</a>
 
           <div class="tab1 tabs-block">
               <?php echo Text::get('turagentam-about'); ?>
           </div>
-          <div class="tab2 tabs-block">
+          <div class="tab-rules tabs-block">
               <?php echo Text::get('turagentam-rules'); ?>
           </div>
-          <div class="tab3 tabs-block">
+          <div class="tab-articles tabs-block">
               <?php echo Text::get('turagentam-articles'); ?>
           </div>
       </div>​
   </div>
-  <?php echo Text::get('turagentam'); ?>
+
+  <div class="address-block">
+    <?php echo Text::get('turagentam'); ?>
+  </div>
+  
 
   <div class="fixed-socseti">
         <a href="https://vk.com/motivatortravel"><img src="/img/soc-vk.png" alt=""></a>

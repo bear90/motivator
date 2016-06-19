@@ -49,8 +49,8 @@
         <div class="step3 hidden">
             <div class="info-result">
                 <form action="">
-                    <span style="font-size: 1.5em;">В случае привлечения вас абонентом системы «МОТИВАТОР»<br>
-                            введите сообщенный им код группы<br></span>
+                    <span style="font-size: 1.5em;">В случае привлечения вас абонентом сервиса «МОТИВАТОР»<br>
+                            введите сообщенный им номер личного кабинета<br></span>
 
                     <div class="groupCode center-block">
                         <div class="input-fld col-xs-12">
@@ -83,8 +83,8 @@
 
         <div class="step-success hidden">
             <div class="info-result" style="font-size: 1.4em;">
-                На ваш адрес отправлено сообщение <br>о присвоении вам статуса абонента системы
-                «МОТИВАТОР»,<br> а также инструкция и пароль для вашего личного кабинета
+                На ваш адрес отправлено сообщение <br>о присвоении вам статуса абонента сервиса
+                «МОТИВАТОР»,<br> а также инструкция и пароль для входа в ваш личный кабинет
             </div>
         </div>
         <div class="step-fail hidden">

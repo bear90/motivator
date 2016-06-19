@@ -60,12 +60,11 @@ use application\modules\admin\models\Text;
     </div>
     <!--Discounts-->
     <div class="center-block" id="discount-attraction">
-    <p>Получите  честную  <span class="text-orange">скидку <span class="big_11">11%</span>  и более</span><br>
-на  полную  стоимость  любых  туров  от  системы  «мотиватор»
+    <p>Получите <span class="text-orange">скидку <span class="big_11">11%</span>  и более</span><br>
+на  полную  стоимость  любых  туров<br>  от  сервиса  «мотиватор»
 </p>
     </div>
     <!--Privet cabinet tourist-->
-    <div class="center-block" id="discount-attraction"></div>
     <div class="center-block" id="privet-cabinet">
         <?php if (Yii::app()->user->isUser()):?>
             <a href="<?php echo Yii::app()->createUrl('user/dashboard'); ?>" id="btn-privet-cabinet" class="btn btn-default">Личные кабинеты абонентов</a>
@@ -87,8 +86,8 @@ use application\modules\admin\models\Text;
 
     <!--Rule tab-->
     <div id="rule-tab" class="center-block">
-        <div id="wrapper" class="ms_tabs tab1" data-selected="tab1">
-            <a href="#tab1" class="tab active">О СЕРВИСЕ «МОТИВАТОР»</a>
+        <div id="wrapper" class="ms_tabs" data-selected="" data-collapse="1">
+            <a href="#tab1" class="tab">О СЕРВИСЕ «МОТИВАТОР»</a>
             <a href="#tab-rules" class="tab" id="tabRules">Правила работы</a>
             <a href="#tab-partners" class="tab" id="tabPartners">Партнёры СЕРВИСА «МОТИВАТОР»</a>
 
@@ -126,15 +125,7 @@ use application\modules\admin\models\Text;
             </div>
             <div id="collapseOne" class="panel-collapse collapse">
                 <div class="panel-body">
-                    <ol>
-                        <li>Ознакомиться  с <a href="#tabRules" class="internal">правилами работы</a> системы «МОТИВАТОР».</li>
-                        <li>Зарегистрироваться на сайте и получить доступ в свой личный кабинет.</li>
-                        <li>Выбрать тур у <a href="#tabPartners" class="internal">турагентов-партнёров системы «МОТИВАТОР»</a>.</li>
-                        <li>Внести  турагенту предоплату  в размере 2% от стоимости выбранного тура.</li>
-                        <li>Сразу же получить абонентскую скидку в размере 5% от стоимости выбранного тура.</li>
-                        <li>Отслеживать увеличение своей абоненской скидки до 11%.</li>
-                        <li>Рассказать о системе «МОТИВАТОР» своим родственникам, друзьям, соседям,коллегам и получить за каждого привлеченного получателя скидки дополнительную скидку в размере 2%  от стоимости  выбранного ими тура.</li>
-                    </ol>
+                    <?php echo Text::get('question1'); ?>
                 </div>
             </div>
         </div>
@@ -142,25 +133,36 @@ use application\modules\admin\models\Text;
             <div class="panel-heading">
                 <h4 class="panel-title text-center text-uppercase">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-                        <div class="panel-text marginTop">От чего зависит размер скидки?</div>
+                        <div class="panel-text marginTop">Что включает в себя общая скидка и от чего зависит её размер?</div>
                         <div class="panel-direction pull-right"></div>
                     </a>
                 </h4>
             </div>
             <div id="collapseTwo" class="panel-collapse collapse">
                 <div class="panel-body">
-                    <p>Общая скидка от системы «МОТИВАТОР» состоит из :
-                        <ul>
-                            <li>абонентской  скидки – в размере 5% -11%  от стоимости  выбранного  Вами тура; 
-размер абонентской скидки зависит от продолжительности Вашего  участия в работе системы «МОТИВАТОР» и общего количества получателей скидки;
-</li>
-                            <li>скидки за привлечение –  по 2% от стоимости тура каждого человека, ставшего по вашему совету получателем скидки от  системы  «МОТИВАТОР».</li>
-                        </ul>
-                    </p>
-                    <p><strong>Размер общей скидки не ограничен!</strong></p>
+                    <?php echo Text::get('question2'); ?>
                 </div>
             </div>
         </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title text-center text-uppercase">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+                        <div class="panel-text marginTop marginTopFive">Каков порядок начисления общей скидки?</div>
+                        <div class="panel-direction pull-right"></div>
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseFive" class="panel-collapse collapse" style="margin-top: 5px;">
+                <div class="panel-body container-fluid">
+                    <?php echo Text::get('question3'); ?>
+                </div>
+            </div><!--/3rd panel-body-->
+            
+            <!-- <div class="hideButton">Скрыть</div>-->
+        </div><!--/3rd panel-->
+
         <div class="panel panel-default">
             <div class="panel-heading threeHead">
                 <h4 class="panel-title text-center text-uppercase">
@@ -172,7 +174,7 @@ use application\modules\admin\models\Text;
             </div>
             <div id="collapseThree" class="panel-collapse collapse">
                 <div class="panel-body container-fluid">
-                    <p>В любой момент можете поменять ранее выбранный Вами тур  на другой без штрафных санкций!Сумма предварительной оплаты за тур составляет всего 2% от его стоимости.</p>
+                    <?php echo Text::get('question4'); ?>
                 </div>
             </div><!--/3rd panel-body-->
         </div><!--/3rd panel-->
@@ -187,7 +189,7 @@ use application\modules\admin\models\Text;
             </div>
             <div id="collapseFour" class="panel-collapse collapse" style="margin-top: 5px;">
                 <div class="panel-body container-fluid">
-                    <p>Скидка предоставляется на полную стоимость всех туров от <a href="#tabPartners" class="internal">партнёров системы «МОТИВАТОР»</a>.</p>
+                    <?php echo Text::get('question5'); ?>
                 </div>
             </div><!--/3rd panel-body-->
         </div><!--/3rd panel-->
@@ -195,16 +197,17 @@ use application\modules\admin\models\Text;
             <div class="panel-heading">
                 <h4 class="panel-title text-center text-uppercase">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
-                        <div class="panel-text marginTop marginTopFive">Партнеры  системы «мотиватор» продают туры дороже других?</div>
+                        <div class="panel-text marginTop marginTopFive">Какова исходная стоимость туров от партнёров сервиса «мотиватор»?</div>
                         <div class="panel-direction pull-right"></div>
                     </a>
                 </h4>
             </div>
             <div id="collapseFive" class="panel-collapse collapse" style="margin-top: 5px;">
                 <div class="panel-body container-fluid">
-                    <p>Исходная базовая  стоимость туров – такая же, как при продаже этих же туров одного туроператора другими турагентствами.</p>
+                    <?php echo Text::get('question6'); ?>
                 </div>
             </div><!--/3rd panel-body-->
+
             <!-- <div class="hideButton">Скрыть</div>-->
         </div><!--/3rd panel-->
 
