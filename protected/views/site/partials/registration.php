@@ -50,7 +50,7 @@
             <div class="info-result">
                 <form action="">
                     <span style="font-size: 1.5em;">В случае привлечения вас абонентом сервиса «МОТИВАТОР»<br>
-                            введите сообщенный им номер личного кабинета<br></span>
+                            введите сообщенный им номер личного кабинета:<br></span>
 
                     <div class="groupCode center-block">
                         <div class="input-fld col-xs-12">

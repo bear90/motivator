@@ -80,7 +80,8 @@ body {
 
 /*----Buttons(internal menu)---*/
 #privet-cabinet{
-    margin-bottom: 15px;
+    margin-bottom: 30px;
+    margin-top: 30px;
     text-transform: uppercase;
     text-align: center;
 }
@@ -346,7 +347,7 @@ li#tourist-cabinet > a:active, li#tourist-cabinet > a.active {
 
 #discount-attraction p {
     font: 32px Arial;
-    margin-bottom: 5px;
+    margin-bottom: 15px;
     text-transform: uppercase;
     text-align: center;
     font-weight: bold;

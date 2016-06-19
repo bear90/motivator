@@ -45,9 +45,8 @@ return [
 
         ],
         'groupCode' => [
-            'label' => 'Введите код группы:',
             'type' => 'text',
-            'layout' => '{label}{input}',
+            'layout' => '{input}',
             'attributes' => [
                 'name' => 'groupCode',
                 'placeholder' => 'Код'

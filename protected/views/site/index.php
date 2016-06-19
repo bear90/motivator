@@ -58,12 +58,6 @@ use application\modules\admin\models\Text;
             <li><img src="img/slide-6.jpg" alt="5"></li>
         </ul>
     </div>
-    <!--Discounts-->
-    <div class="center-block" id="discount-attraction">
-    <p>Получите <span class="text-orange">скидку <span class="big_11">11%</span>  и более</span><br>
-на  полную  стоимость  любых  туров<br>  от  сервиса  «мотиватор»
-</p>
-    </div>
     <!--Privet cabinet tourist-->
     <div class="center-block" id="privet-cabinet">
         <?php if (Yii::app()->user->isUser()):?>
@@ -85,7 +79,7 @@ use application\modules\admin\models\Text;
     </div>
 
     <!--Rule tab-->
-    <div id="rule-tab" class="center-block">
+    <div id="rule-tab" class="center-block clearfix">
         <div id="wrapper" class="ms_tabs" data-selected="" data-collapse="1">
             <a href="#tab1" class="tab">О СЕРВИСЕ «МОТИВАТОР»</a>
             <a href="#tab-rules" class="tab" id="tabRules">Правила работы</a>
@@ -103,14 +97,15 @@ use application\modules\admin\models\Text;
             </div>
         </div>​
     </div>
-    <!--Discount calc (hide block)-->
-    <div class="center-block discount-attraction-2" id="discount-attraction">
-        <p>Присоединяйтесь к нам:
-        <a href="https://vk.com/motivatortravel"><img src="/img/soc-vk.png" alt=""></a>
-        <a href="https://www.facebook.com/%D0%9C%D0%BE%D1%82%D0%B8%D0%B2%D0%B0%D1%82%D0%BE%D1%80-203321533372476/?__mref=message"><img src="/img/soc-fb.png" alt=""></a>
-        <a href="http://m.ok.ru/group/52925620093131"><img src="/img/soc-od.png" alt=""></a>
-        <a href="#"><img src="/img/soc-vb.png" alt=""></a></p>
+
+
+    <!--Discounts-->
+    <div class="center-block" id="discount-attraction">
+        <p>Получите <span class="text-orange">скидку <span class="big_11">11%</span>  и более</span><br>
+        на  полную  стоимость  любых  туров<br>  от  сервиса  «мотиватор»
+        </p>
     </div>
+    
     <!--Accordion-->
     <div class="panel-group" id="accordion">
         <div class="panel panel-default">
@@ -167,7 +162,7 @@ use application\modules\admin\models\Text;
             <div class="panel-heading threeHead">
                 <h4 class="panel-title text-center text-uppercase">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                        <div class="panel-text marginTop">Чем система «МОТИВАТОР» отличаеться от раннего бронирования?</div>
+                        <div class="panel-text marginTop">Чем сервис «МОТИВАТОР» отличаеться от раннего бронирования?</div>
                         <div class="panel-direction pull-right"></div>
                     </a>
                 </h4>

@@ -78,7 +78,7 @@ define([
                         threshold: 6,
                         validators: {
                             notEmpty: {
-                                message: "Вам необходимо ввести код!"
+                                message: "Вам необходимо ввести номер личного кабинета!"
                             },
                             regexp: {
                                 regexp: /^[A-Za-z\s.'-]+$/,
@@ -87,7 +87,7 @@ define([
                             remote: {
                                 url: '/site/checkcapture/',
                                 type: 'POST',
-                                message: "Введите корректный код"
+                                message: "Введите корректный номер личного кабинета"
                             }
                         } // validators yovupin
                     },
