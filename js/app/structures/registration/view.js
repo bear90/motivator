@@ -106,7 +106,7 @@ define([
                             remote: {
                                 url: '/site/checkgroupcode/',
                                 type: 'POST',
-                                message: "Введите корректный код группы"
+                                message: "Введите корректный номер личного кабинета"
                             }
                         } // validators yovupin
                     }

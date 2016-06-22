@@ -49,7 +49,7 @@ return [
             'layout' => '{input}',
             'attributes' => [
                 'name' => 'groupCode',
-                'placeholder' => 'Код'
+                'placeholder' => 'Номер'
             ]
 
         ],
