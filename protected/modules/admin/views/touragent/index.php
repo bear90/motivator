@@ -22,7 +22,10 @@ foreach((array) $touragents as $touragent):
         <td><?php echo count($touragent->tourists2); ?></td>
         <td><?php echo $delta; ?></td>
         <td><?php echo $touragent->account; ?></td>
-        <td><a href="<?php echo Yii::app()->createUrl("admin/touragent/clear/{$touragent->id}"); ?>">Удалить туристов</a></td>
+        <td>
+            <a href="<?php echo Yii::app()->createUrl("admin/touragent/clear/{$touragent->id}"); ?>">Удалить туристов</a><br>
+            <a href="<?php echo Yii::app()->createUrl("admin/touragent/{$touragent->id}"); ?>">Редактировать</a>
+        </td>
     </tr>
 <?php endforeach; ?>
     <tr>

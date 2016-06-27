@@ -10,6 +10,7 @@ html, body{height:100%; margin:0;padding:0}
 .row-fluid {height: 100%; display:table-cell; vertical-align: middle;}
 
 .help-block.error {color: red;}
+.help-block.success {color: green;}
 
 aside {
     float: left;

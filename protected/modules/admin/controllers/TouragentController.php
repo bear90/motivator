@@ -2,6 +2,8 @@
 
 namespace application\modules\admin\controllers;
 
+use application\modules\admin\models\forms;
+
 class TouragentController extends AdminController {
 
     public function actions(){
@@ -9,6 +11,27 @@ class TouragentController extends AdminController {
             'index' => 'application\\modules\\admin\\controllers\\touragent\\IndexAction',
             'clear' => 'application\\modules\\admin\\controllers\\touragent\\ClearAction',
         ];
+    }
+
+    public function getCountOfWeeks($year)
+    {
+        $date = new \DateTime;
+        $date->setISODate($year, 53);
+
+        return ($date->format("W") === "53" ? 53 : 52);
+    }
+
+    public function getTouragentParams($year)
+    {
+        $formModels = [];
+        for ($i=0; $i<$this->getCountOfWeeks($year); $i++)
+        {
+            $form = new forms\TouragentParam();
+            //$form->week = $i+1;
+
+            $formModels[] = $form;
+        }
+        return $formModels;
     }
 
 //    public function actionError() {
