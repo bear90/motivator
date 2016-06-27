@@ -117,7 +117,7 @@
         {
             $value = round($value, 2);
             $rub = intval($value);
-            $kop = ($value - $rub) * 100;
+            $kop = round(($value - $rub) * 100);
 
             $str = '';
             if ($rub)
