@@ -48,20 +48,21 @@ class IndexAction extends \CAction
                     if($touragentParamFormEntity->validate())
                     {
                         $entity = TouragentParam::model()->find([
-                            'condition' => 'week(date, 3) = :week',
-                            'params' => ['week' => $i]
+                            'condition' => 'week(date, 3) = :week AND touragentId = :id',
+                            'params' => ['week' => $i-, 'id' => $id]
                         ]);
 
                         if (is_null($entity))
                         {
                             $entity = new TouragentParam;
+                            $week = $i + 1;
+                            $timeFormat = "{$year}W" . ($week < 10 ? "0{$week}" : $week);
+                            $entity->date = date('Y-m-d 00:00:00', strtotime($timeFormat));
+                            $entity->touragentId = $id;
                         }
                     }
-                    $week = $i + 1;
+
                     $entity->attributes = $touragentParamFormEntity->attributes;
-                    $entity->touragentId = $id;
-                    $timeFormat = $year . ($week < 10 ? "0{$week}" : $week);
-                    $entity->date = date('Y-m-d 00:00:00', strtotime($timeFormat));
                     $entity->save();
                 }
 
