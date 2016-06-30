@@ -1,3 +1,4 @@
+<h2>Турагенты:</h2>
 <?php if($message): ?>
     <div><?php echo $message; ?></div><br>
 <?php endif; ?>
@@ -35,4 +36,25 @@ foreach((array) $touragents as $touragent):
         <td></td>
         <td></td>
     </tr>
+</table>
+
+<h2>Таблица учёта баланса турагентов:</h2>
+<table class="table table-bordered">
+    <?php for($i=-1; $i<count($touragents); $i++): ?>
+        <?php $a = isset($touragents[$i]) ? $touragents[$i] : null; ?>
+        <tr>
+        <?php for($j=-1; $j<count($touragents); $j++): ?>
+            <?php $b = isset($touragents[$j]) ? $touragents[$j]  : null; ?>
+            <?php if($i==-1 && $j>=0): ?>
+                <td><?php echo $b->name; ?></td>
+            <?php elseif($i>=0 && $j==-1): ?>
+                <td><?php echo $a->name; ?></td>
+            <?php elseif($i>=0 && $j>=0): ?>
+                <td><?php echo $balance[$a->id][$b->id]; ?></td>
+            <?php else: ?>
+                <td></td>
+            <?php endif; ?>
+        <?php endfor; ?>
+        </tr>
+    <?php endfor; ?>
 </table>

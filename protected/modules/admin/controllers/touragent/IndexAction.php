@@ -49,7 +49,7 @@ class IndexAction extends \CAction
                     {
                         $entity = TouragentParam::model()->find([
                             'condition' => 'week(date, 3) = :week AND touragentId = :id',
-                            'params' => ['week' => $i-, 'id' => $id]
+                            'params' => ['week' => $i, 'id' => $id]
                         ]);
 
                         if (is_null($entity))
@@ -105,7 +105,41 @@ class IndexAction extends \CAction
 
         $this->controller->render('index', [
             'touragents' => $touragents,
-            'message' => $message
+            'message' => $message,
+            'balance' => $this->getBalance($touragents)
         ]);
+    }
+
+    private function getBalance(array $touragents)
+    {
+        $cmd = \Yii::app()->db->createCommand();
+        $cmd->select(['sourceTouragentId', 'targetTouragentId', 'SUM( amount ) AS amount'])
+            ->from('discount_transaction')
+            ->where('sourceTouragentId != targetTouragentId')
+            ->group('sourceTouragentId, targetTouragentId');
+
+        $data = [];
+        foreach ($cmd->queryAll() as $row) {
+            $a = intval($row['sourceTouragentId']);
+            $b = intval($row['targetTouragentId']);
+            $data["{$a}->{$b}"] = intval($row['amount']);
+        }
+
+        $balance = [];
+        foreach ($touragents as $a) {
+            foreach ($touragents as $b) {
+                $balance[$a->id][$b->id] = 0;
+                if (isset($data["{$a->id}->{$b->id}"]))
+                {
+                    $balance[$a->id][$b->id] += $data["{$a->id}->{$b->id}"];
+                }
+                if (isset($data["{$b->id}->{$a->id}"]))
+                {
+                    $balance[$a->id][$b->id] -= $data["{$a->id}->{$b->id}"];
+                }
+            }
+        }
+
+        return $balance;
     }
 }
