@@ -135,7 +135,7 @@ class IndexAction extends \CAction
                 }
                 if (isset($data["{$b->id}->{$a->id}"]))
                 {
-                    $balance[$a->id][$b->id] -= $data["{$a->id}->{$b->id}"];
+                    $balance[$a->id][$b->id] -= $data["{$b->id}->{$a->id}"];
                 }
             }
         }
