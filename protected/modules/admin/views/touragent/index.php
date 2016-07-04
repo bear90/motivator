@@ -32,7 +32,7 @@ foreach((array) $touragents as $touragent):
     <tr>
         <td>Общее</td>
         <td></td>
-        <td><?php echo $count ? round($summDelta/$count, 2) : 0; ?></td>
+        <td><?php echo \Tool::calcCheckingDelta(); ?></td>
         <td></td>
         <td></td>
     </tr>

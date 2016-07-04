@@ -23,6 +23,8 @@ class Helper {
         $tourist->attributes = $data;
         $tourist->statusId = TouristStatus::WANT_DISCONT;
         $tourist->userId = $user->id;
+        $tourist->partnerDiscont = 0;
+        $tourist->abonentDiscont = 0;
         $tourist->save();
 
         if($tourist->hasErrors()){

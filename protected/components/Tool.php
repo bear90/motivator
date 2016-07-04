@@ -133,4 +133,34 @@
         {
             return $value ? round($value, 2) : $value;
         }
+
+        public static function calcCheckingDelta()
+        {
+            $tourists = Tourist::model()->with([
+                'tour' => [
+                    'joinType'=>'INNER JOIN',
+                    //'condition'=>'posts.published=1',
+                ]
+            ])->findAll();
+            $delta = 0;
+            if (count($tourists)==0)
+            {
+                return $delta;
+            }
+
+            $prepayment = $totalPrice = $totalSurchange = 0;
+            //dd($tourists);die();
+            foreach ($tourists as $tourist) {
+
+                $tour = $tourist->tour;
+
+                $totalPrice += $tour->price;
+                $surchange = $tour->getCurrentSurchange();
+                $prepayment += $tour->prepayment;
+                $totalSurchange += $surchange;
+            }
+            $totalSurchange += -1 * $tour->touragent->account + $prepayment;
+
+            return round($totalSurchange / $totalPrice * 100, 3);
+        }
     }

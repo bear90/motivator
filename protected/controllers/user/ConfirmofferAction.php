@@ -75,9 +75,13 @@ class ConfirmofferAction extends \CAction
             DbTransaction::rollBack();
             throw $e;
         }
-        
-        
 
+        $delta = \Tool::calcCheckingDelta();
+        if ($delta && abs($delta - 0.93) > 0.001)
+        {
+            \Tool::sendEmailWithView('konditer-print@mail.ru', 'checking_delta_fail');
+        }
+        
         $this->controller->redirect('/user/dashboard/' . $offer->tour->touristId . '?tab=tab5');
     }
 }
