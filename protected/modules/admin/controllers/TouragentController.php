@@ -2,6 +2,7 @@
 
 namespace application\modules\admin\controllers;
 
+use application\models\TouragentParam;
 use application\modules\admin\models\forms;
 
 class TouragentController extends AdminController {
@@ -21,16 +22,31 @@ class TouragentController extends AdminController {
         return ($date->format("W") === "53" ? 53 : 52);
     }
 
-    public function getTouragentParams($year)
+    public function getTouragentParams($year, $touragentId)
     {
         $formModels = [];
-        for ($i=0; $i<$this->getCountOfWeeks($year); $i++)
+        $_entities = TouragentParam::model()->findAllByAttributes([
+            'touragentId' => $touragentId,
+            'year' => $year
+        ]);
+
+        $entities = [];
+        foreach ($_entities as $object)
+        {
+            $entities[$object->week] = $object;
+        }
+
+        for ($i=1; $i<=$this->getCountOfWeeks($year); $i++)
         {
             $form = new forms\TouragentParam();
-            //$form->week = $i+1;
+            if (isset($entities[$i]))
+            {
+                $form->attributes = $entities[$i]->attributes;
+            }
 
             $formModels[] = $form;
         }
+
         return $formModels;
     }
 

@@ -6,8 +6,6 @@ use application\components\DBEntity;
 
 class TouragentParam extends DBEntity
 {
-
-    public $week = 0;
     
     public function rules(){
         return [
@@ -15,10 +13,7 @@ class TouragentParam extends DBEntity
                 'allowEmpty' => false,
                 'className' => '\\application\\models\\Touragent',
                 'attributeName' => 'id'],
-            ['date', 'date', 
-                'allowEmpty' => false,
-                'format' => 'yyyy-MM-dd HH:mm:ss'],
-            ['minDiscount, maxDiscount', 'numerical']
+            ['minDiscount, maxDiscount, week, year', 'numerical']
         ];
     }
 
@@ -32,14 +27,6 @@ class TouragentParam extends DBEntity
     public static function model($className=__CLASS__)
     {
         return parent::model($className);
-    }
-
-    public function afterFind()
-    {
-        if($this->date)
-        {
-            $this->week = date('W', strtotime($this->date));
-        }
     }
  
     public function tableName()

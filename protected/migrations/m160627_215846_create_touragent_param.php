@@ -7,7 +7,8 @@ class m160627_215846_create_touragent_param extends CDbMigration
 		$this->createTable('touragent_param', [
 			'id' => 'pk',
 			'touragentId' => 'INT',
-			'date' => 'TIMESTAMP NULL',
+			'week' => 'int',
+			'year' => 'int',
 			'maxDiscount' => 'INT',
 			'minDiscount' => 'INT'
 		]);

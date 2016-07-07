@@ -37,33 +37,34 @@ class IndexAction extends \CAction
             if (isset($year))
             {
                 $fieldName = 'application_modules_admin_models_forms_TouragentParam';
-                $touragentParams = \Yii::app()->request->getPost($fieldName);
+                $touragentParams = (array) \Yii::app()->request->getPost($fieldName);
+                $year = (int) \Yii::app()->request->getPost('year');
 
                 $valid=true;
                 foreach($touragentParams as $i=>$item)
                 {
                     $touragentParamFormEntity = new forms\TouragentParam();
                     $touragentParamFormEntity->attributes = $item;
-                    // @Todo: FUCKING SCRUTCH!!!
+
                     if($touragentParamFormEntity->validate())
                     {
-                        $entity = TouragentParam::model()->find([
-                            'condition' => 'week(date, 3) = :week AND touragentId = :id',
-                            'params' => ['week' => $i, 'id' => $id]
+                        $entity = TouragentParam::model()->findByAttributes([
+                            'week' => $i+1,
+                            'year' => $year,
+                            'touragentId' => $id,
                         ]);
 
                         if (is_null($entity))
                         {
                             $entity = new TouragentParam;
-                            $week = $i + 1;
-                            $timeFormat = "{$year}W" . ($week < 10 ? "0{$week}" : $week);
-                            $entity->date = date('Y-m-d 00:00:00', strtotime($timeFormat));
+                            $entity->week = $i + 1;
+                            $entity->year = $year;
                             $entity->touragentId = $id;
                         }
-                    }
 
-                    $entity->attributes = $touragentParamFormEntity->attributes;
-                    $entity->save();
+                        $entity->attributes = $touragentParamFormEntity->attributes;
+                        $entity->save();
+                    }
                 }
 
                 $success = $valid ?
@@ -83,7 +84,6 @@ class IndexAction extends \CAction
             }
             
         }
-        
 
         $this->controller->render('edit', [
             'touragent' => $touragent,

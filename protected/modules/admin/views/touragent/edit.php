@@ -21,12 +21,14 @@
 <div class="row">
     <div class="col-md-6">
         <?php $this->renderPartial('partials/discountEdit', [
-            'year' => date('Y')
+            'year' => date('Y'),
+            'touragentParams' => $this->getTouragentParams(date('Y'), $touragent->id)
         ]) ?>
     </div>
     <div class="col-md-6">
         <?php $this->renderPartial('partials/discountEdit', [
-            'year' => date('Y') + 1
+            'year' => date('Y') + 1,
+            'touragentParams' => $this->getTouragentParams(date('Y') + 1, $touragent->id)
         ]) ?>
     </div>
 </div>

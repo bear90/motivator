@@ -1,6 +1,3 @@
-<?php
-    $touragentParams = $this->getTouragentParams($year);
-?>
 
 <h3><?php echo $year?> Год</h3>
 
