@@ -9,6 +9,7 @@ class AdminModule extends CWebModule {
         'touragent' => 'application\modules\admin\controllers\TouragentController',
         'dashboard' => 'application\modules\admin\controllers\DashboardController',
         'text' => 'application\modules\admin\controllers\TextController',
+        'params' => 'application\modules\admin\controllers\ParamsController',
     ];
 }
 

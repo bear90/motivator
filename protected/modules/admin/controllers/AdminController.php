@@ -93,6 +93,11 @@ class AdminController extends \CController
                 'key' => 'text',
                 'label' => 'Текстовые блоки',
                 'url' => '/admin/text',
+            ],
+            [
+                'key' => 'params',
+                'label' => 'Параметры',
+                'url' => '/admin/params',
             ]
         ]);
 
