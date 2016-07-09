@@ -3,6 +3,7 @@
 namespace application\models;
 
 use application\components\DBEntity;
+use application\models\TouragentParam;
 
 class TouristTour extends DBEntity
 {
@@ -39,17 +40,28 @@ class TouristTour extends DBEntity
     {
         if($this->price)
         {
-            $minDiscont = Configuration::get(Configuration::MIN_DISCONT);
-            $maxDiscont = Configuration::get(Configuration::MAX_DISCONT);
+            $minDiscont = $this->getMinDiscont();
+            $maxDiscont = $this->getMaxDiscont();
 
             $this->minDiscont = round($this->price * $minDiscont / 100, 2);
             $this->maxDiscont = round($this->price * $maxDiscont / 100, 2);
         }
     }
 
-    public function getPartnerDiscont()
+    public function getMaxDiscont()
     {
-        return 0;
+        $startDate = new \DateTime($this->startDate);
+        $endDate = new \DateTime($this->endDate);
+
+        return TouragentParam::getMaxDiscont($startDate, $endDate, $this->touragentId);
+    }
+
+    public function getMinDiscont()
+    {
+        $startDate = new \DateTime($this->startDate);
+        $endDate = new \DateTime($this->endDate);
+
+        return TouragentParam::getMinDiscont($startDate, $endDate, $this->touragentId);
     }
 
     public function getCurrentSurchange()

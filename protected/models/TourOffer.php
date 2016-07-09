@@ -37,8 +37,8 @@ class TourOffer extends DBEntity {
     {
         if($this->price)
         {
-            $minDiscont = Configuration::get(Configuration::MIN_DISCONT);
-            $maxDiscont = Configuration::get(Configuration::MAX_DISCONT);
+            $minDiscont = $this->getMinDiscont();
+            $maxDiscont = $this->getMaxDiscont();
             $prepayment = Configuration::get(Configuration::PREPAYMENT);
 
             $this->minDiscont = round($this->price * $minDiscont / 100, 2);
@@ -46,6 +46,22 @@ class TourOffer extends DBEntity {
             $this->prepayment = round($this->price * $prepayment / 100, 2);
             $this->surchange = $this->price - $this->maxDiscont - $this->prepayment;
         }
+    }
+
+    public function getMaxDiscont()
+    {
+        $startDate = new \DateTime($this->startDate);
+        $endDate = new \DateTime($this->endDate);
+
+        return TouragentParam::getMaxDiscont($startDate, $endDate, $this->tour->touragentId);
+    }
+
+    public function getMinDiscont()
+    {
+        $startDate = new \DateTime($this->startDate);
+        $endDate = new \DateTime($this->endDate);
+
+        return TouragentParam::getMinDiscont($startDate, $endDate, $this->tour->touragentId);
     }
 
     public function getPartnerDiscont()
