@@ -11,7 +11,7 @@
         </tr>
         <?php foreach($touragentParams as $i=>$item):?>
             <tr>
-                <td><?php echo $i+1?></td>
+                <td><?php echo $i+1?> <br>(<?php echo $this->getDateLabel($year, $i+1); ?>)</td>
                 <td><?php echo CHtml::activeTextField($item, "[{$i}]minDiscount"); ?></td>
                 <td><?php echo CHtml::activeTextField($item, "[{$i}]maxDiscount"); ?></td>
             </tr>

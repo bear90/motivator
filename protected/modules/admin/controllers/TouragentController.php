@@ -50,6 +50,27 @@ class TouragentController extends AdminController {
         return $formModels;
     }
 
+    public function getDateLabel($year, $week)
+    {
+        $week = str_pad($week, 2, '0', STR_PAD_LEFT);
+
+        $date = date('Y-m-d', strtotime("{$year}W{$week}"));
+        $firstDayOfYear = new \DateTime("{$year}-01-01");
+        $lastDayOfYear = new \DateTime("{$year}-12-31");
+        $firstDay = new \DateTime($date);
+        $lastDay = new \DateTime($date);
+        $lastDay->modify('+6 day');
+
+        if ($firstDay > $firstDayOfYear && $week==1){
+            $firstDay = $firstDayOfYear;
+        }
+        if ($lastDay > $lastDayOfYear && $week>51){
+            $lastDay = $lastDayOfYear;
+        }
+
+        return $firstDay->format('d.m') . ' - ' . $lastDay->format('d.m');
+    }
+
 //    public function actionError() {
 //        $error = Yii::app()->errorHandler->error;
 //die("ERROR INDEX: ");
