@@ -41,6 +41,10 @@ class TouragentParam extends DBEntity
         $discounts = [];
         foreach ([$startDate, $endDate] as $date) {
             $week = $date->format("W");
+            if ($week > 51 && $date->format("m") == 1)
+            {
+                $week = 1;
+            }
             $year = $date->format("Y");
             $entity = self::model()->findByAttributes([
                     'touragentId' => $touragentId,
@@ -71,6 +75,11 @@ class TouragentParam extends DBEntity
         $discounts = [];
         foreach ([$startDate, $endDate] as $date) {
             $week = $date->format("W");
+            if ($week > 51 && $date->format("m") == 1)
+            {
+                $week = 1;
+            }
+
             $year = $date->format("Y");
             $entity = self::model()->findByAttributes([
                     'touragentId' => $touragentId,
