@@ -14,11 +14,11 @@
     <h2><?php echo $template->comment; ?></h2>
 
     <div class="form-group">
-        <?php echo CHtml::textField("Tempalate[comment]", $template->comment, ['class' => 'form-control']); ?>
+        <?php echo CHtml::textField("Template[comment]", $template->comment, ['class' => 'form-control']); ?>
     </div>
     
     <div class="form-group">
-        <?php echo CHtml::textArea("Tempalate[content]", $template->content, ['class' => 'tiny-text hidden']); ?>
+        <?php echo CHtml::textArea("Template[content]", $template->content, ['class' => 'tiny-text hidden']); ?>
     </div>
     
     <button class="btn btn-primary" type="submit">Сохранить</button>

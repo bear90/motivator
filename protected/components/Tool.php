@@ -2,9 +2,11 @@
 
     //namespace application\models;
 
+    use application\models\Configuration;
     use application\models\Tour;
     use application\models\Tourist;
     use application\models\TouragentManager;
+    use application\modules\admin\models\Template;
 
     class Tool {
 
@@ -45,9 +47,10 @@
             \Yii::import('application.extensions.yii-mail.YiiMailMessage');
 
             $message = new YiiMailMessage;
-            $message->view = $view;
+            //$message->view = $view;
+            $text = self::fetchTemplate($view, $data);
             
-            $message->setBody($data, 'text/html');
+            $message->setBody($text, 'text/html');
              
             $message->addTo($to);
             $message->from = \Yii::app()->params['adminEmail'];
@@ -64,8 +67,8 @@
                 return false;
             }
 
-            $text = '';
-            $path = \Yii::getPathOfAlias("application.views.templates.{$view}") . '.php';
+            $text = self::fetchTemplate($view, $data);
+            /*$path = \Yii::getPathOfAlias("application.views.templates.{$view}") . '.php';
             if(file_exists($path))
             {
                 $controller = isset(Yii::app()->controller)
@@ -73,7 +76,7 @@
                     : new CController('YiiInform');
 
                 $text = $controller->renderInternal($path, $data, true);
-            }
+            }*/
 
             $message = new \application\models\Message;
             $message->createdAt = date('Y-m-d', strtotime($date));
@@ -93,6 +96,44 @@
             }
 
             return $message;
+        }
+
+        public static function fetchTemplate($name, array $data = [])
+        {
+            $content = Template::get($name);
+
+            $placeholders = [
+                '~SITE_DOMAIN~' => Configuration::get(Configuration::SITE_DOMAIN),
+                '~MIN_DISCONT~' => Configuration::get(Configuration::MIN_DISCONT),
+                '~MAX_DISCONT~' => Configuration::get(Configuration::MAX_DISCONT),
+                '~PREPAYMENT~' => Configuration::get(Configuration::PREPAYMENT),
+                '~ORDER_TOUR_TIMER~' => Configuration::get(Configuration::ORDER_TOUR_TIMER)
+            ];
+
+            $content = str_replace(array_keys($placeholders), array_values($placeholders), $content);
+
+            switch ($name) {
+                case 'registration':
+                    $tourist = $data['tourist'];
+                    $placeholders = [
+                        '~cabinetNumber~' => str_pad($tourist->id, 4, "0", STR_PAD_LEFT),
+                        '~password~' => $tourist->user->password,
+                        '~autologinLink~' => $tourist->user->getAutoLoginLink(),
+                    ];
+                    $content = str_replace(array_keys($placeholders), array_values($placeholders), $content);
+                    break;
+                
+                case 'exchange_tour_partner':
+                    $child = $data['child'];
+                    $placeholders = [
+                        '~ChildLastName~' => $child->lastName,
+                        '~ChildFirstName~' => $child->firstName,
+                    ];
+                    $content = str_replace(array_keys($placeholders), array_values($placeholders), $content);
+                    break;
+            }
+
+            return $content;
         }
 
         public static function getManagerContacts(Tour $tour, TouragentManager $manager = null)
