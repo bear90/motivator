@@ -3,23 +3,27 @@
  * Some description
  *
  * @author      Mikhail Soza <msoza@soxes.ch>
- * @since       11.07.2016
+ * @since       17.06.2016
  * @package
  * @copyright   Copyright (c) 2015-2016 soXes GmBh.
  *
  */
 
-namespace application\models;
+namespace application\modules\admin\models\Entity;
 
-use application\components\DBEntity;
 
-class Template extends DBEntity
+class TemplateEntity extends  \CActiveRecord
 {
     public function rules(){
         return [
             ['key', 'required'],
-            ['key, content, comment', 'safe']
+            ['content, comment', 'safe']
         ];
+    }
+
+    public static function model($className=__CLASS__)
+    {
+        return parent::model($className);
     }
 
     public function tableName()

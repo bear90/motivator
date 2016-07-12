@@ -10,6 +10,7 @@ class AdminModule extends CWebModule {
         'dashboard' => 'application\modules\admin\controllers\DashboardController',
         'text' => 'application\modules\admin\controllers\TextController',
         'params' => 'application\modules\admin\controllers\ParamsController',
+        'template' => 'application\modules\admin\controllers\TemplateController',
     ];
 }
 

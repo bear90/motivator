@@ -98,6 +98,11 @@ class AdminController extends \CController
                 'key' => 'params',
                 'label' => 'Параметры',
                 'url' => '/admin/params',
+            ],
+            [
+                'key' => 'template',
+                'label' => 'Шаблоны писем',
+                'url' => '/admin/template',
             ]
         ]);
 
