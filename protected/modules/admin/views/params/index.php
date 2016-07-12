@@ -25,6 +25,10 @@
         <td>Предоплата</td>
         <td><?php echo CHtml::textField('config['.Configuration::PREPAYMENT.']', Configuration::get(Configuration::PREPAYMENT)); ?>%</td>
     </tr>
+    <tr>
+        <td>Дней на выбор тура</td>
+        <td><?php echo CHtml::textField('config['.Configuration::ORDER_TOUR_TIMER.']', Configuration::get(Configuration::ORDER_TOUR_TIMER)); ?> дней</td>
+    </tr>
 </table>
 <div class="form-group">
     <button type="submit" class="btn btn-default">Сохранить</button>
