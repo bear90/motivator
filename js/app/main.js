@@ -1,6 +1,10 @@
 /**
  * Created by m.soza on 25.02.2016.
  */
+var Session = {
+    data: null
+};
+
 require.config({
     paths: {
         "jquery": "vendor/jquery/dist/jquery.min",

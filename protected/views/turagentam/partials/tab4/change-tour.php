@@ -1,0 +1,22 @@
+<form class="form change-tour">
+    <div class="form-group">
+        <label class="control-label">Личный кабинет абонента №:</label>
+        <input type="text" class="form-control" name="touristId">
+    </div>
+    <div class="form-group">
+        <label class="control-label">Начало тура:</label>
+        <input type="text" class="form-control calendar" name="startDate">
+    </div>
+    <div class="form-group">
+        <label class="control-label">Окончание тура:</label>
+        <input type="text" class="form-control calendar" name="endDate">
+    </div>
+    <div class="form-group">
+        <label class="control-label">Исходная стоимость тура:</label>
+        <input type="text" class="form-control" name="price">
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-default">ВЫПОЛНИТЬ  РАСЧЁТ</button>
+    </div>
+</form>

@@ -1,4 +1,5 @@
-<section id="blank" class="container-fluid" data-structure="touragentam-dashboard">
+<section id="blank" class="container-fluid" data-structure="touragentam-dashboard"
+    data-manager-id="<?php echo $manager->id; ?>">
     <div class="row">
         <div class="head">
             <h1 class="touragentName"><?php echo $manager->touragent->name; ?></h1>
@@ -15,7 +16,7 @@
                 <a href="#tab1" class="tab <?php echo $this->activeTab == 'tab1' ? 'active' : ''; ?>">Клиенты</a>
                 <a href="#tab2" class="tab <?php echo $this->activeTab == 'tab2' ? 'active' : ''; ?> tab2" id="secondTab">Поиск Клиента</a>
                 <a href="#tab3" class="tab <?php echo $this->activeTab == 'tab3' ? 'active' : ''; ?>" id="threeTab">ПОМОЩЬ</a>
-                <a href="#tab4" class="tab <?php echo $this->activeTab == 'tab4' ? 'active' : ''; ?>" id="fourTab">ПРАВИЛА РАБОTЫ</a>
+                <a href="/turagentam/dashboard/<?php echo $manager->id; ?>?tab=tab4" target="_blank" class="tab <?php echo $this->activeTab == 'tab4' ? 'active' : ''; ?>" id="fourTab">РАСЧЁТ</a>
             </div>
 
             <div class="tab1 tabs-block clearfix">
@@ -110,9 +111,20 @@
                     <p>Как я уже писал Вам ранее, я предлагаю до сделать некоторые заготовки двух вкладок, планируемых к работе (кстати, Вы можете кое что взять из ранее сделанных нами вкладок.</p>
                 </div>
             </div>
-            <div class="tab4 tabs-block">
-                <div class="inner-block">
-                    <p>Как я уже писал Вам ранее, я предлагаю до сделать некоторые заготовки двух вкладок, планируемых к работе (кстати, Вы можете кое что взять из ранее сделанных нами вкладок.</p>
+            <div class="tab4 tabs-block raschet">
+                <ul class="nav nav-pills" role="tablist">
+                    <li role="presentation" class="active"><a data-toggle="pill" href="#choice-tour">ВЫБОР ТУРА</a></li>
+                    <li role="presentation"><a data-toggle="pill" href="#change-tour">ЗАМЕНА ТУРА</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="choice-tour">
+                    <?php $this->renderPartial('partials/tab4/choice-tour'); ?>
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="change-tour">
+                    <?php $this->renderPartial('partials/tab4/change-tour'); ?>
+                    </div>
                 </div>
             </div>
 

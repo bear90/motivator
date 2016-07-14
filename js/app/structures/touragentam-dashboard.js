@@ -2,9 +2,12 @@
  * Created by m.soza on 28.03.2016.
  */
 define([
-], function(RegisterView){
+    'structures/touragentam-dashboard/raschet'
+], function(raschetView){
 
     var Index = Backbone.View.extend({
+
+
 
         events: {
             'click .tourists-tabs a': 'showTourists',
@@ -36,7 +39,7 @@ define([
         },
 
         render: function(){
-
+            (new raschetView({el: '.tab4.raschet'})).render();
         }
     });
 

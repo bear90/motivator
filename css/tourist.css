@@ -870,3 +870,7 @@ footer .logo > img {
 section {position: relative;}
 .fixed-socseti {position: fixed; top:50%; right: 15px; z-index: 10; margin-top: -96px;}
 .fixed-socseti a {display: block; position: relative;}
+
+.raschet .tab-content {padding-top: 15px;}
+.raschet .form-group .control-label {}
+.raschet .form-group .form-control {display: inline-block; width: 30%; float: right;}
