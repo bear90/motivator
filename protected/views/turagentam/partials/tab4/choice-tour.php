@@ -16,3 +16,4 @@
         <button type="submit" class="btn btn-default">ВЫПОЛНИТЬ  РАСЧЁТ</button>
     </div>
 </form>
+<div id="choice-calculation"><!-- --></div>

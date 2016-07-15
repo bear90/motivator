@@ -25,11 +25,11 @@ define([
 
             // initialize views
             this.viewChoiceTour = new choiceTourView({
-                el: '',
+                el: '#choice-calculation',
                 model: this.modelChoiceTour
             });
             this.viewChangeTour = new changeTourView({
-                el: '',
+                el: '#change-calculation',
                 model: this.modelChangeTour
             });
 

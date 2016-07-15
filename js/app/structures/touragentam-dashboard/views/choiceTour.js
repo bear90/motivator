@@ -3,8 +3,9 @@
  */
 define([
     'backbone',
-    'text!structures/touragentam-dashboard/templates/choiceTour.html'
-], function (Backbone, choiceTourTmpl) {
+    'text!structures/touragentam-dashboard/templates/choiceTour.html',
+    'underscore-string'
+], function (Backbone, choiceTourTmpl, _s) {
 
     return Backbone.View.extend({
 
@@ -16,6 +17,8 @@ define([
 
             //initialize events
             this.model.on('sync', this.render, this);
+            // merge underscore-string
+            _.mixin(_s.exports());
         },
 
         render: function() {

@@ -11,6 +11,7 @@ require.config({
         "jqueryui": "vendor/jquery-ui-1.11.4/jquery-ui.min",
         "bootstrap": "vendor/bootstrap/bootstrap.min",
         "underscore": "vendor/underscore-amd/underscore-min",
+        "underscore-string" : 'vendor/underscore.string.min',
         "backbone": "vendor/backbone-amd/backbone-min",
         "validator": "vendor/bootstrap-validator/bootstrapValidator.min",
         "tinymce": "vendor/tinymce/tinymce.min",

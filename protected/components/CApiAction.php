@@ -13,6 +13,8 @@ abstract class CApiAction extends \CAction
         try {
             $data = (array) $this->doRun();
             $this->sendSuccess($data);
+        } catch (CHttpException $e){
+            throw $e;
         } catch (Exception $e){
             $this->sendError($e->getMessage());
         }
