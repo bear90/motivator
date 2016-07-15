@@ -1,11 +1,11 @@
 <form class="form choice-tour">
     <div class="form-group">
         <label class="control-label">Начало тура:</label>
-        <input type="text" class="form-control calendar" name="startDate">
+        <input type="text" class="form-control calendar" name="startDate" autocomplete="off">
     </div>
     <div class="form-group">
         <label class="control-label">Окончание тура:</label>
-        <input type="text" class="form-control calendar" name="endDate">
+        <input type="text" class="form-control calendar" name="endDate" autocomplete="off">
     </div>
     <div class="form-group">
         <label class="control-label">Исходная стоимость тура:</label>

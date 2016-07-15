@@ -7,6 +7,8 @@ class ApiController extends \CController {
     public function actions(){
         return [
             'touristCreate' => 'application\\controllers\\api\\TouristCreateAction',
+            'calculate-choice-tour' => 'application\\controllers\\api\\CalculateChoiceTourAction',
+            'calculate-change-tour' => 'application\\controllers\\api\\CalculateChangeTourAction',
         ];
     }
 }

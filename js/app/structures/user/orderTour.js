@@ -1,7 +1,8 @@
 define([
+    'backbone',
     'text!structures/user/tmpl/new_offer.html',
-    'validator',
-], function(newOfferTmpl){
+    'validator'
+], function(Backbone, newOfferTmpl){
 
     var view = Backbone.View.extend({
 
