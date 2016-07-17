@@ -15,10 +15,14 @@ define([
 
         events: {
             'submit form.choice-tour' : 'onSubmitChoiceTour',
-            'submit form.change-tour' : 'onSubmitChangeTour'
+            'submit form.change-tour' : 'onSubmitChangeTour',
+            'click a.more' : 'onClickMore'
         },
 
         initialize: function(){
+
+            var self = this;
+
             // initialize models
             this.modelChoiceTour = new choiceTourModel;
             this.modelChangeTour = new changeTourModel;
@@ -38,6 +42,18 @@ define([
                 changeMonth: true,
                 dateFormat: "dd.mm.yy"
             });
+
+            $(document).on('click', 'a.more', function(){
+                console.log(self);
+                
+            });
+        },
+
+        onClickMore: function(e){
+            var $row = $(e.target).closest('.tab-pane');
+
+            $row.find('.row.hidden-row').toggle();
+            $row.find('.row.grouped').toggleClass('bg-grey');
         },
 
         onSubmitChoiceTour: function(e){
@@ -59,7 +75,9 @@ define([
                 startDate:  $form.find('input[name=startDate]').val(),
                 endDate:    $form.find('input[name=endDate]').val(),
                 price:      $form.find('input[name=price]').val()
-            }});
+            }}).success($.proxy(function(){
+                this.$('a.more').removeClass('hidden');
+            }, this));
             return false;
         },
 

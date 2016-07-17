@@ -9,7 +9,7 @@
     </div>
     <div class="form-group">
         <label class="control-label">Исходная стоимость тура:</label>
-        <input type="text" class="form-control" name="price">
+        <input type="text" class="form-control" name="price" value=".00">
     </div>
 
     <div class="form-group">

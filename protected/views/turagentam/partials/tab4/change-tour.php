@@ -13,11 +13,12 @@
     </div>
     <div class="form-group">
         <label class="control-label">Исходная стоимость тура:</label>
-        <input type="text" class="form-control" name="price">
+        <input type="text" class="form-control" name="price" value=".00">
     </div>
 
     <div class="form-group">
         <button type="submit" class="btn btn-default">ВЫПОЛНИТЬ  РАСЧЁТ</button>
+        <a href="#" class="more hidden">подробнее</a>
     </div>
 </form>
 <div id="change-calculation"><!-- --></div>

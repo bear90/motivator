@@ -32,6 +32,20 @@ class TourCalculator {
     {
         $prepayment = Configuration::get(Configuration::PREPAYMENT);
 
-        return round($this->price * $prepayment / 100, 2);
+        $newPrepayment = round($this->price * $prepayment / 100, 2);
+
+        return $newPrepayment;
+    }
+
+    public function getAbonentDiscount($minAbonentDiscount, $maxDiscount) 
+    {
+        $abonentDiscount = $this->tourist->abonentDiscont;
+
+        if ($abonentDiscount + $minAbonentDiscount > $maxDiscount) 
+        {
+            $abonentDiscount = $maxDiscount - $minAbonentDiscount;
+        }
+
+        return $abonentDiscount;
     }
 }

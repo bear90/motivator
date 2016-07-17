@@ -14,19 +14,19 @@
     <label class="col-md-8">Исходная стоимость тура:</label>
     <div class="col-md-4"><%=price%></div>
 </div>
-<div class="row">
+<div class="row hidden-row grouped">
     <label class="col-md-8">Внесённая предоплата:</label>
     <div class="col-md-4"><%=oldPrepayment%></div>
 </div>
-<div class="row">
+<div class="row hidden-row grouped">
     <label class="col-md-8">Расчётная предоплата:</label>
     <div class="col-md-4"><%=prepayment%></div>
 </div>
-<div class="row">
+<div class="row orange grouped">
     <label class="col-md-8">Доплата предоплаты:</label>
     <div class="col-md-4"><%=surchangePrepayment%></div>
 </div>
-<div class="row">
+<div class="row hidden-row grouped">
     <label class="col-md-8">Предоплата, внесённая дополнительно к обязательной:</label>
     <div class="col-md-4"><%=overPrepayment%></div>
 </div>
@@ -34,19 +34,19 @@
     <label class="col-md-8">Стартовая абонентская скидка:</label>
     <div class="col-md-4"><%=minDiscount%></div>
 </div>
-<div class="row">
+<div class="row hidden-row grouped">
     <label class="col-md-8">Ранее начисленная текущая абонентская скидка:</label>
-    <div class="col-md-4"><%=oldMinDiscount%></div>
+    <div class="col-md-4"><%=oldAbonentDiscount%></div>
 </div>
-<div class="row">
+<div class="row hidden-row grouped">
     <label class="col-md-8">Максимальная текущая абонентская скидка:</label>
-    <div class="col-md-4"><%=maxDiscount%></div>
+    <div class="col-md-4"><%=oldMaxDiscount%></div>
 </div>
-<div class="row">
+<div class="row hidden-row grouped">
     <label class="col-md-8">Превышение текущей абонентской скидки:</label>
-    <div class="col-md-4"><%=overAbonentDiscount%></div>
+    <div class="col-md-4"><%=overMaxDiscount%></div>
 </div>
-<div class="row">
+<div class="row grouped">
     <label class="col-md-8">Расчётная текущая абонентская скидка:</label>
     <div class="col-md-4"><%=abonentDiscount%></div>
 </div>
@@ -58,11 +58,11 @@
     <label class="col-md-8">Скидка за привлечение:</label>
     <div class="col-md-4"><%=partnerDiscount%></div>
 </div>
-<div class="row">
+<div class="row red">
     <label class="col-md-8">Общая скидка:</label>
     <div class="col-md-4"><%=totalDiscount%></div>
 </div>
-<div class="row">
+<div class="row green">
     <label class="col-md-8">Доплата при покупке тура:</label>
     <div class="col-md-4"><%=surchange%></div>
 </div>
