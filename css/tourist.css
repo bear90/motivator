@@ -895,6 +895,7 @@ section {position: relative;}
     color: #000;
 }
 .raschet .row {font-size: 18px; font-weight: bold;}
+.our-tour a.more,
 .raschet a.more {color: #337ab7; text-decoration: underline;}
 
 .orange {
@@ -907,6 +908,6 @@ section {position: relative;}
     color: #00b050;
 }
 .bg-grey {
-    background-color: #89bbe5;
+    background-color: #add3f3;
 }
 .hidden-row {display: none}

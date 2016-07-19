@@ -28,7 +28,7 @@ class CalculateChangeTourAction extends \CApiAction
         'overPrepayment' => '',
         'minDiscount' => '',
         'oldAbonentDiscount' => '',
-        'oldMaxDiscount' => '',
+        'curMaxDiscount' => '',
         'overMaxDiscount' => '',
         'abonentDiscount' => '',
         'totalAbonentDiscount' => '',
@@ -51,7 +51,8 @@ class CalculateChangeTourAction extends \CApiAction
         $tourist = Tourist::model()->findByPk(intval($touristId));
 
         // Restrict access for unknown agents
-        if (!$touragent || !$manager || !$tourist)
+        if (!$touragent || !$manager || !$tourist || $tourist->tour->touragentId != $touragent->id ||
+            $tourist->tour->managerId != $manager->id && !$manager->boss)
         {
             throw new \CHttpException(404, 'Not found');
         }
@@ -73,7 +74,7 @@ class CalculateChangeTourAction extends \CApiAction
         $partnerDiscount = $tourist->partnerDiscont;
         $oldAbonentDiscount = $tourist->abonentDiscont;
         $oldPrepayment = $tourist->tour->prepayment;
-        $oldMaxDiscount = $tourist->tour->maxDiscont;
+        $curMaxDiscount = $maxDiscount - $minDiscount;
 
         $overPrepayment = $oldPrepayment - $prepayment;
         $overMaxDiscount = $oldAbonentDiscount + $minDiscount - $maxDiscount;
@@ -103,7 +104,7 @@ class CalculateChangeTourAction extends \CApiAction
             'overPrepayment' => \Tool::getNewPriceText($overPrepayment),
             'minDiscount' => \Tool::getNewPriceText($minDiscount),
             'oldAbonentDiscount' => \Tool::getNewPriceText($oldAbonentDiscount),
-            'oldMaxDiscount' => \Tool::getNewPriceText($oldMaxDiscount),
+            'curMaxDiscount' => \Tool::getNewPriceText($curMaxDiscount),
             'overMaxDiscount' => \Tool::getNewPriceText($overMaxDiscount),
             'abonentDiscount' => \Tool::getNewPriceText($abonentDiscount),
             'totalAbonentDiscount' => \Tool::getNewPriceText($abonentDiscount + $minDiscount),

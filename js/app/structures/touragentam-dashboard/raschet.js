@@ -75,8 +75,15 @@ define([
                 startDate:  $form.find('input[name=startDate]').val(),
                 endDate:    $form.find('input[name=endDate]').val(),
                 price:      $form.find('input[name=price]').val()
-            }}).success($.proxy(function(){
+            }})
+            .success($.proxy(function(){
                 this.$('a.more').removeClass('hidden');
+            }, this))
+            .error($.proxy(function(e){
+                if (e.status === 404)
+                {
+                    alert("Турист не найден");
+                }
             }, this));
             return false;
         },

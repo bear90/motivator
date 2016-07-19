@@ -15,56 +15,71 @@
 
 <div class="viewBlock">
 
-    <span>Страна: <span class="value date"><?php echo $tourist->tour->country; ?></span></span>
-    <span>Город/Регион: <span class="value date"><?php echo $tourist->tour->city; ?></span></span>
-    <span>Начало тура: 
+    <div>Страна: <span class="value date"><?php echo $tourist->tour->country; ?></span></div>
+    <div>Город/Регион: <span class="value date"><?php echo $tourist->tour->city; ?></span></div>
+    <div>Начало тура: 
         <span class="value date">
             <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $tourist->tour->startDate); ?>
         </span>
-    </span>
-    <span>Окончание тура: 
+    </div>
+    <div>Окончание тура: 
         <span class="value date">
             <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $tourist->tour->endDate); ?>
         </span>
-    </span>
-    <span>Исходная стоимость тура: 
+    </div>
+    <div>Исходная стоимость тура: 
         <span class="value money">
             <?php echo Tool::getNewPriceText($tourist->tour->price); ?>
         </span>
-    </span>
-    <span>Предоплата: 
+    </div>
+    <div>Предоплата: 
         <span class="value money">
             <?php echo Tool::getNewPriceText($tourist->tour->prepayment); ?>
         </span>
-    </span>
+    </div>
 
-    <span class="sell">Общая скидка: 
+    <div class="sell">Общая скидка: 
         <span class="value money">
             <?php echo Tool::getNewPriceText($tourist->getTotalDiscont()); ?>
         </span>
-    </span>
-
-    <span>В том числе:</span>
-    <span>Абонентская скидка: 
-        <span class="value money">
-            <?php echo Tool::getNewPriceText($tourist->getAbonentDiscont()); ?>
-        </span>
-    </span>
-    <span>Скидка за привлечение: 
-        <span class="value money">
-            <?php echo Tool::getNewPriceText($tourist->getPartnerDiscont()); ?>
-        </span>
-    </span>
-    <span>Доплата при покупке тура: 
+    </div>
+    <div>Доплата при покупке тура: 
         <span class="value money">
             <?php echo Tool::getNewPriceText($tourist->tour->getCurrentSurchange()); ?>
         </span>
-    </span>
-    <span>Описание тура: 
+    </div>
+    <div>Конечная дата оплаты тура: 
+        <span class="value money">
+            <?php echo Tool::getNewPriceText($tourist->getCounterDate('m.d.Y')); ?>
+        </span>
+    </div>
+    <a href="#" class="more">подробнее</a>
+
+    <div class="hidden-row">Стартовая абонентская скидка: 
+        <span class="value money">
+            <?php echo Tool::getNewPriceText($tourist->tour->minDiscont); ?>
+        </span>
+    </div>
+    <div class="hidden-row">Текущая абонентская скидка: 
+        <span class="value money">
+            <?php echo Tool::getNewPriceText($tourist->abonentDiscont); ?>
+        </span>
+    </div>
+    <div class="hidden-row">Скидка за привлечение: 
+        <span class="value money">
+            <?php echo Tool::getNewPriceText($tourist->getPartnerDiscont()); ?>
+        </span>
+    </div>
+    <div class="hidden-row">Максимальная абоненсткая скидка: 
+        <span class="value money">
+            <?php echo Tool::getNewPriceText($tourist->tour->maxDiscont); ?>
+        </span>
+    </div>
+    <div>Описание тура: 
         <p>
             <?php echo $tourist->tour->description; ?>
         </p>
-    </span>
+    </div>
 </div>
 
 <?php if($readOnly === false): 

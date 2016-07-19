@@ -7,6 +7,7 @@ define([
         events: {
             "click button.edit": "editOffer",
             "click button.paid": "paidOffer",
+            "click a.more": "onClickMore",
         },
 
         initialize: function() {
@@ -127,6 +128,12 @@ define([
             });
                 
             $(window).on('beforeunload', $.proxy(this.leavePage, this));
+        },
+
+        onClickMore: function(e){
+            e.preventDefault();
+            $row = $(e.target).closest('.viewBlock');
+            $row.find('.hidden-row').toggle();
         },
 
         leavePage: function(e){

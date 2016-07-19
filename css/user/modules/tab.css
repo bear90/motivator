@@ -608,8 +608,7 @@
     padding: 0;
 }
 
-#wrapper .tabs-block.tab5 span {
-    display: block;
+#wrapper .tabs-block.tab5 .viewBlock > div {
     font-size: 18px;
     font-weight: 700;
 }

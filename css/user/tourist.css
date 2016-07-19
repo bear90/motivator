@@ -844,3 +844,8 @@ ul.custom-list li a {
 .end-sell .top .inner-block {
     position: relative;
 }
+
+.our-tour a.more,
+.raschet a.more {color: #337ab7; text-decoration: underline;}
+
+.hidden-row {display: none}
