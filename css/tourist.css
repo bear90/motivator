@@ -876,20 +876,26 @@ section {position: relative;}
 .raschet .form-group .form-control {display: inline-block; width: 30%; float: right;}
 
 
-.nav-pills > li > a, 
-.nav-pills > li > a:focus, 
-.nav-pills > li > a:hover {
+.raschet .nav-pills > li > a,
+.raschet .nav-pills > li > a:focus,
+.raschet .nav-pills > li > a:hover {
+    background-color: #337ab7;
     border: 2px solid #337ab7;
     padding: 8px 13px;
-    background-color: #89bbe5;
     border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
 }
 
-.nav-pills > li.active > a, 
-.nav-pills > li.active > a:focus, 
-.nav-pills > li.active > a:hover {
-    
+.raschet .nav-pills > li.active > a,
+.raschet .nav-pills > li.active > a:focus,
+.raschet .nav-pills > li.active > a:hover {
+    background-color: #89bbe5;
+    color: #000;
 }
+.raschet .row {font-size: 18px; font-weight: bold;}
+.raschet a.more {color: #337ab7; text-decoration: underline;}
 
 .orange {
     color: #e36c0a;
@@ -901,6 +907,6 @@ section {position: relative;}
     color: #00b050;
 }
 .bg-grey {
-    background-color: #c0c0c0;
+    background-color: #89bbe5;
 }
 .hidden-row {display: none}

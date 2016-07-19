@@ -112,7 +112,7 @@
                 </div>
             </div>
             <div class="tab4 tabs-block raschet">
-                <ul class="nav nav-pills" role="tablist">
+                <ul class="nav nav-pills motiv" role="tablist">
                     <li role="presentation" class="active"><a data-toggle="pill" href="#choice-tour">ВЫБОР ТУРА</a></li>
                     <li role="presentation"><a data-toggle="pill" href="#change-tour">ЗАМЕНА ТУРА</a></li>
                 </ul>
