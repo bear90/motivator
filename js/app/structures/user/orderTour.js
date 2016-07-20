@@ -183,6 +183,15 @@ define([
                 }
             });
 
+            $context.find( ".paymentEndDate" ).datepicker({
+                changeMonth: true,
+                dateFormat: "dd.mm.yy",
+                onClose: function( selectedDate, calendar ) {
+                    var $form = calendar.input.closest('form');
+                    $form.bootstrapValidator('revalidateField', 'paymentEndDate');
+                }
+            });
+
             $context.find('textarea.description').tinymce({
                 menubar: false,
                 statusbar: false,
@@ -273,6 +282,14 @@ define([
                         validators: {
                             notEmpty: {
                                 message: "Дата окончания тура должна быть выбрана!"
+                            }
+                        }
+                    },
+                    paymentEndDate: {
+                        selector: 'input.paymentEndDate',
+                        validators: {
+                            notEmpty: {
+                                message: "Конечная дата оплаты тура должна быть выбрана!"
                             }
                         }
                     },

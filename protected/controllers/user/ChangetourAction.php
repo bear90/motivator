@@ -39,6 +39,9 @@ class ChangetourAction extends \CAction
             }
 
             $data = (array) \Yii::app()->request->getParam('Tour');
+            $paymentEndDate = \Yii::app()->request->getParam('paymentEndDate');
+            $paymentEndDate = new \DateTime($paymentEndDate);
+            $currentDate = new \DateTime();
 
             $startDate = new \DateTime($data['startDate']);
             $endDate = new \DateTime($data['endDate']);
@@ -56,6 +59,10 @@ class ChangetourAction extends \CAction
             }
             $tour->save();
             $tourist->refresh();
+
+            $tourist->counterStartedAt = $currentDate->format("Y-m-d");
+            $tourist->counterDate = $paymentEndDate->format("Y-m-d H:i:s");
+            $tourist->save();
 
             Logs::info("{$tourist->firstName} {$tourist->lastName} (#{$tourist->id}) changed tour to", $tour->attributes);
 
@@ -77,14 +84,6 @@ class ChangetourAction extends \CAction
                     $discontHandler->decreaseParentDiscont($tourist, $parentTourist, $prepayment);
                     \Tool::informTourist($parentTourist, 'exchange_tour_partner', ['child' => $tourist]);
                     break;
-                    
-                /*case ($parentTourist && $parentTourist->statusId == TouristStatus::HAVE_DISCONT && $prepayment > 0):
-                    $discontHandler->increaseParentDiscont($tourist, $tourist, $prepayment);
-                    break;
-                    
-                case ($parentTourist && $parentTourist->statusId == TouristStatus::HAVE_DISCONT && $prepayment < 0):
-                    $discontHandler->increaseTouristAbonentDiscont($tourist, $prepayment);
-                    break;*/
 
                 case ($parentTourist && $parentTourist->statusId == TouristStatus::HAVE_DISCONT && $prepayment > 0):
                 case ($parentTourist === null && $prepayment > 0):

@@ -30,6 +30,12 @@
             <label>Дата окончания тура:</label>
             <?php echo CHtml::textField("TourOffer[1][endDate]", '', ['class' => 'endDate']); ?>
         </div>
+
+        <div class="inner-block form-group">
+            <label>Конечная дата оплаты тура:</label>
+            <?php echo CHtml::textField("TourOffer[1][paymentEndDate]", '', ['class' => 'paymentEndDate']); ?>
+        </div>
+
         <div class="inner-block form-group">
             <?php echo CHtml::textArea("TourOffer[1][description]", '', ['class' => 'description']); ?>
         </div>

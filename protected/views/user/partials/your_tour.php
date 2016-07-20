@@ -126,6 +126,14 @@
                 Yii::app()->dateFormatter->format('dd.MM.yyyy', $tourist->tour->endDate), 
                 ['class' => 'endDate']); ?>
         </div>
+
+        <div class="inner-block form-group">
+            <label>Конечная дата оплаты тура:</label>
+            <?php echo CHtml::textField("paymentEndDate",
+                $tourist->getCounterDate('d.m.Y'),
+                ['class' => 'paymentEndDate']); ?>
+        </div>
+
         <div class="inner-block form-group">
             <?php echo CHtml::textArea("Tour[description]", $tourist->tour->description, ['class' => 'description']); ?>
         </div>

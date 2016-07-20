@@ -6,6 +6,7 @@
 namespace application\controllers\user;
 
 
+use application\models\defines\CounterReason;
 use application\models\TourOffer;
 use application\models\Tourist;
 use application\models\Discont;
@@ -33,13 +34,18 @@ class ConfirmofferAction extends \CAction
         $tourist = Tourist::model()->findByPk($offer->tour->touristId);
         $touristHelper = new TouristHelper();
         $tourHelper = new TourHelper();
+        $currentDate = new \DateTime();
         
         DbTransaction::begin();
         try {
             $isChangeOffer = $tourist->statusId == TouristStatus::GETTING_DISCONT;
             $tourist = $touristHelper->confirmOffer($offer);
             $touristHelper->changeStatus($tourist, TouristStatus::GETTING_DISCONT);
-            $touristHelper->resetTimer($tourist);
+            $touristHelper->update($tourist->id, [
+                'counterReason' => CounterReason::WAIT_PAYMENT,
+                'counterStartedAt' => $currentDate->format("Y-m-d"),
+                'counterDate' => $offer->paymentEndDate
+            ]);
 
             Logs::info("{$tourist->firstName} {$tourist->lastName} (#{$tourist->id}) bought tour", 
                 $tourist->tour->attributes);

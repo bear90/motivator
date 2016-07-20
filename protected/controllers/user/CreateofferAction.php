@@ -8,6 +8,7 @@ namespace application\controllers\user;
 
 use application\models\defines\tour\Helper as TourHelper;
 use application\models\defines\tour\offer\Helper;
+use application\components\DbTransaction;
 
 class CreateofferAction extends \CAction
 {
@@ -24,18 +25,20 @@ class CreateofferAction extends \CAction
 
         $manager = \Yii::app()->user->getState('manager');
 
-        \application\components\DbTransaction::begin();
+        DbTransaction::begin();
         try {
 
             foreach ($offers as $number => $offer) {
                 
                 $startDate = new \DateTime($offer['startDate']);
                 $endDate = new \DateTime($offer['endDate']);
-                
+                $paymentEndDate = new \DateTime($offer['paymentEndDate']);
+
                 $data = $offer;
                 $data['tourId'] = $tourId;
                 $data['startDate'] = $startDate->format("Y-m-d H:i:s");
                 $data['endDate'] = $endDate->format("Y-m-d H:i:s");
+                $data['paymentEndDate'] = $paymentEndDate->format("Y-m-d H:i:s");
 
                 if (!empty($offer['id']))
                 {
@@ -49,11 +52,11 @@ class CreateofferAction extends \CAction
 
             $tour = $tourHelper->setManager($tourId, $manager->id);
 
-            \application\components\DbTransaction::commit();
+            DbTransaction::commit();
 
         } catch (\Exception $e) 
         {
-            \application\components\DbTransaction::rollBack();
+            DbTransaction::rollBack();
             throw $e;
         }
 
