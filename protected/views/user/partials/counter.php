@@ -1,4 +1,4 @@
-<?php if($tourist->statusId > \application\models\defines\TouristStatus::WANT_DISCONT &&
+<?php if(0 && $tourist->statusId > \application\models\defines\TouristStatus::WANT_DISCONT &&
          $manager !== null &&
          $tourist->tour->managerId == $manager->id): ?>
     <div class="top clearfix <?php echo $tourist->getCounterDate() === null ? 'pulse' : ''; ?>">

@@ -3,7 +3,6 @@
 * This command class implement daily jobs
 */
 use application\models\defines\TouristStatus;
-use application\models\defines\CounterReason;
 use application\models\Configuration;
 use application\models\Tourist;
 

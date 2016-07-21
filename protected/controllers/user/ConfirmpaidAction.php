@@ -6,6 +6,7 @@
 namespace application\controllers\user;
 
 
+use application\models\defines\CounterReason;
 use application\models\Tourist;
 use application\models\defines\TouristStatus;
 use application\models\defines\tourist\Helper as TouristHelper;
@@ -30,6 +31,7 @@ class ConfirmpaidAction extends \CAction
             $touristHelper = new TouristHelper();
             $touristHelper->changeStatus($tourist, TouristStatus::HAVE_DISCONT);
             $touristHelper->update($tourist->id, [
+                'counterReason' => CounterReason::WAIT_END_OF_TOUR,
                 'tourFinishAt' => $tourist->tour->endDate
             ]);
 

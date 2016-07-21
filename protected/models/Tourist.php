@@ -62,6 +62,12 @@ class Tourist extends DBEntity {
             return $this->getTimer1($format);
         }
 
+        if ($this->statusId == TouristStatus::HAVE_DISCONT)
+        {
+            $date = new \DateTime($this->tourFinishAt);
+            return $date->format($format);
+        }
+
         if($this->counterDate == '0000-00-00 00:00:00')
         {
             return null;
