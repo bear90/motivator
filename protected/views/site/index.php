@@ -144,7 +144,7 @@ use application\modules\admin\models\Text;
             <div class="panel-heading">
                 <h4 class="panel-title text-center text-uppercase">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
-                        <div class="panel-text marginTop marginTopFive">Каков порядок начисления общей скидки?</div>
+                        <div class="panel-text marginTop marginTopFive">Порядок начисления общей <скидки></скидки></div>
                         <div class="panel-direction pull-right"></div>
                     </a>
                 </h4>
@@ -162,7 +162,7 @@ use application\modules\admin\models\Text;
             <div class="panel-heading threeHead">
                 <h4 class="panel-title text-center text-uppercase">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-                        <div class="panel-text marginTop">Чем сервис «МОТИВАТОР» отличаеться от раннего бронирования?</div>
+                        <div class="panel-text marginTop">Чем сервис «МОТИВАТОР» отличается от раннего бронирования?</div>
                         <div class="panel-direction pull-right"></div>
                     </a>
                 </h4>
@@ -192,7 +192,7 @@ use application\modules\admin\models\Text;
             <div class="panel-heading">
                 <h4 class="panel-title text-center text-uppercase">
                     <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
-                        <div class="panel-text marginTop marginTopFive">Какова исходная стоимость туров от партнёров сервиса «мотиватор»?</div>
+                        <div class="panel-text marginTop marginTopFive">Исходная стоимость туров от партнёров сервиса «мотиватор»</div>
                         <div class="panel-direction pull-right"></div>
                     </a>
                 </h4>
