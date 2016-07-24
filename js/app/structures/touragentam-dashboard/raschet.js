@@ -16,6 +16,8 @@ define([
         events: {
             'submit form.choice-tour' : 'onSubmitChoiceTour',
             'submit form.change-tour' : 'onSubmitChangeTour',
+            'reset form.choice-tour' : 'onResetChoiceTour',
+            'reset form.change-tour' : 'onResetChangeTour',
             'click a.more' : 'onClickMore'
         },
 
@@ -47,6 +49,14 @@ define([
                 console.log(self);
                 
             });
+        },
+
+        onResetChangeTour: function(){
+            this.viewChangeTour.clear();
+        },
+
+        onResetChoiceTour: function(){
+            this.viewChoiceTour.clear();
         },
 
         onClickMore: function(e){

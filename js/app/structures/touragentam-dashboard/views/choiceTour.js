@@ -25,7 +25,13 @@ define([
             this.$el.html(this.template(this.model.attributes));
 
             return this;
-        }
+        },
+
+        clear: function(){
+            this.$el.html('');
+
+            return this;
+        },
     });
 
 });

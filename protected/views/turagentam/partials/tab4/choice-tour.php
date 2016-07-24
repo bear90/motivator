@@ -14,6 +14,7 @@
 
     <div class="form-group">
         <button type="submit" class="btn btn-default">ВЫПОЛНИТЬ  РАСЧЁТ</button>
+        <button type="reset" class="btn btn-default fl-r">ОЧИСТИТЬ</button>
     </div>
 </form>
 <div id="choice-calculation"><!-- --></div>
