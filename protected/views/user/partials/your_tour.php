@@ -38,7 +38,7 @@
         </span>
     </div>
 
-    <div class="sell">Общая скидка: 
+    <div class="sell red">Общая скидка: 
         <span class="value money">
             <?php echo Tool::getNewPriceText($tourist->getTotalDiscont()); ?>
         </span>
@@ -70,7 +70,7 @@
             <?php echo Tool::getNewPriceText($tourist->getPartnerDiscont()); ?>
         </span>
     </div>
-    <div class="hidden-row">Максимальная абоненсткая скидка: 
+    <div class="hidden-row">Максимальная абонентcкая скидка: 
         <span class="value money">
             <?php echo Tool::getNewPriceText($tourist->tour->maxDiscont); ?>
         </span>

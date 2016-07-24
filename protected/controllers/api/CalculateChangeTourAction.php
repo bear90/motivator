@@ -79,8 +79,6 @@ class CalculateChangeTourAction extends \CApiAction
         $overPrepayment = $oldPrepayment - $prepayment;
         $overMaxDiscount = $oldAbonentDiscount + $minDiscount - $maxDiscount;
         $surchangePrepayment = 0;
-        $surchange = $price - $prepayment - $minDiscount - $partnerDiscount;
-        $surchangeOnMaxDiscount = $price - $maxDiscount;
         
         // if it's necessary to do surchange
         if ($overPrepayment < 0) 
@@ -92,6 +90,10 @@ class CalculateChangeTourAction extends \CApiAction
         {
             $overMaxDiscount = 0;
         }
+
+        $totalDiscount = $abonentDiscount + $minDiscount + $partnerDiscount;
+        $surchange = $price - $oldPrepayment - $totalDiscount - $surchangePrepayment;
+        $surchangeOnMaxDiscount = $price - $oldPrepayment - $surchangePrepayment - $maxDiscount - $partnerDiscount;
 
         $result = \CMap::mergeArray($this->default, [
             'touristId' => $touristId,
@@ -109,7 +111,7 @@ class CalculateChangeTourAction extends \CApiAction
             'abonentDiscount' => \Tool::getNewPriceText($abonentDiscount),
             'totalAbonentDiscount' => \Tool::getNewPriceText($abonentDiscount + $minDiscount),
             'partnerDiscount' => \Tool::getNewPriceText($partnerDiscount),
-            'totalDiscount' => \Tool::getNewPriceText($abonentDiscount + $minDiscount + $partnerDiscount),
+            'totalDiscount' => \Tool::getNewPriceText($totalDiscount),
             'surchange' => \Tool::getNewPriceText($surchange),
             'maxDiscount' => \Tool::getNewPriceText($maxDiscount),
             'surchangeOnMaxDiscount' => \Tool::getNewPriceText($surchangeOnMaxDiscount),

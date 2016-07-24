@@ -157,9 +157,7 @@
 
         public static function getNewPriceText($value)
         {
-            $value = round($value, 2);
-            $rub = intval($value);
-            $kop = round(($value - $rub) * 100);
+            list($rub, $kop) = self::getNewPrice($value);
 
             $str = '';
             if ($rub)
@@ -171,9 +169,27 @@
             return $str;
         }
 
+        public static function getNewPriceText2($value)
+        {
+            list($rub, $kop) = self::getNewPrice($value);
+            
+            $str = '';
+            if ($rub)
+            {
+                $str .= number_format($rub, 0, ',', ' ') . ' <small>руб.</small>';
+            }
+            $str .= " {$kop} <small>коп.</small>";
+
+            return $str;
+        }
+
         public static function getNewPrice($value)
         {
-            return $value ? round($value, 2) : $value;
+            $value = round($value, 2);
+            $rub = intval($value);
+            $kop = round(($value - $rub) * 100);
+
+            return [$rub, $kop];
         }
 
         public static function calcCheckingDelta()

@@ -849,3 +849,13 @@ ul.custom-list li a {
 .raschet a.more {color: #337ab7; text-decoration: underline;}
 
 .hidden-row {display: none}
+
+.orange {
+    color: #e36c0a;
+}
+.red {
+    color: #ff0000;
+}
+.green {
+    color: #00b050;
+}

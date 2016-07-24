@@ -163,8 +163,7 @@
             <div class="bottom-block tourists">
                 <div class="sell-block">
                     <h4>Сумма вашей скидки: <b>
-                    <?php echo number_format($tourist->getTotalDiscont(), 0, ',', ' '); ?>
-                     <small>бел.руб.</small></b> </h4>
+                    <?php echo Tool::getNewPriceText2($tourist->getTotalDiscont()); ?></b> </h4>
                 </div>
                 <div class="end-sell">
                    <div class="bottom-container">
