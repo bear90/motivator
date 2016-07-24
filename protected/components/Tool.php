@@ -2,6 +2,7 @@
 
     //namespace application\models;
 
+    use application\models\defines\TouristStatus;
     use application\models\Configuration;
     use application\models\Tour;
     use application\models\Tourist;
@@ -177,12 +178,21 @@
 
         public static function calcCheckingDelta()
         {
-            $tourists = Tourist::model()->with([
+            $criteria = new \CDbCriteria();
+            $criteria->with = [
                 'tour' => [
                     'joinType'=>'INNER JOIN',
                     //'condition'=>'posts.published=1',
                 ]
-            ])->findAll();
+            ];
+            $criteria->limit = 4;
+            $criteria->order = 't.id DESC';
+            $criteria->condition = 't.statusId = :stGettingDiscount';
+            $criteria->params = [
+                'stGettingDiscount' => TouristStatus::GETTING_DISCONT
+            ];
+
+            $tourists = Tourist::model()->findAll($criteria);
             $delta = 0;
             if (count($tourists)==0)
             {

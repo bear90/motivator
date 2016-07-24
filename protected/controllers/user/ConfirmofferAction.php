@@ -83,7 +83,7 @@ class ConfirmofferAction extends \CAction
         }
 
         $delta = \Tool::calcCheckingDelta();
-        if ($delta && abs($delta - 0.93) > 0.001)
+        if ($delta && abs($delta - 93) > 0.001)
         {
             \Tool::sendEmailWithView('konditer-print@mail.ru', 'checking_delta_fail');
         }
