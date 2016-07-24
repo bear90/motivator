@@ -50,7 +50,7 @@
     </div>
     <div>Конечная дата оплаты тура: 
         <span class="value money">
-            <?php echo Tool::getNewPriceText($tourist->getCounterDate('m.d.Y')); ?>
+            <?php echo $tourist->getCounterDate('d.m.Y'); ?>
         </span>
     </div>
     <a href="#" class="more">подробнее</a>
