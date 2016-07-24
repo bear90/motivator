@@ -6,6 +6,7 @@ define([
 
         events: {
             "click button.edit": "editOffer",
+            "click button.confirm": "onClickConfirm",
             "click button.paid": "paidOffer",
             "click a.more": "onClickMore",
         },
@@ -160,8 +161,14 @@ define([
             }
         },
 
+        onClickConfirm: function (e) {
+            $('.viewBlock.form').toggleClass('hidden');
+            $('.viewBlock.confirmation').toggleClass('hidden');
+        },
+
         paidOffer: function (e) {
-            if(confirm("Вы уверены что хотите подтвердить оплату?"))
+            var confirmed = $('#confirmation').is(':checked');
+            if(confirmed && confirm("Вы уверены что хотите подтвердить оплату?"))
             {
                 var touristId = this.$(e.target).closest('.our-tour').data('id');
                 window.location = '/user/confirmpaid/' + touristId;

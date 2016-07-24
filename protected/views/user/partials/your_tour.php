@@ -7,13 +7,13 @@
 
     <div class="inner-block">
         <button type="button" class="btn btn-default btn-yellow edit">РЕДАКТИРОВАТЬ</button>
-        <button type="button" class="btn btn-default btn-green2 paid">ТУР ОПЛАЧЕН</button>
+        <button type="button" class="btn btn-default btn-green2 confirm">ТУР ОПЛАЧЕН</button>
     </div>
 
 <?php endif; ?>
 
 
-<div class="viewBlock">
+<div class="viewBlock form">
 
     <div>Страна: <span class="value date"><?php echo $tourist->tour->country; ?></span></div>
     <div>Город/Регион: <span class="value date"><?php echo $tourist->tour->city; ?></span></div>
@@ -80,6 +80,11 @@
             <?php echo $tourist->tour->description; ?>
         </p>
     </div>
+</div>
+
+<div class="viewBlock confirmation hidden">
+    <label for="confirmation"><input type="checkbox" name="confirmation" id="confirmation"> Я подтверждаю личную ответственность за достоверность информации о получении доплаты за тур.</label>
+    <button type="button" class="btn btn-default btn-green2 paid">ДОПЛАТА ПОЛУЧЕНА / ТУР ПРОДАН </button>
 </div>
 
 <?php if($readOnly === false): 
