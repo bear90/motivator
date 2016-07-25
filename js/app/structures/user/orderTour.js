@@ -12,7 +12,8 @@ define([
             "change #site": "showSite",
             "click .glyphicon-trash": "removeTour",
             "click button.edit": "editOffer",
-            "click button.confirm": "confirmOffer",
+            "click button.confirm": "onClickConfirmOffer",
+            "click button.paid": "onClickPaidOffer",
             "click a.addOffer": "renderNewOffer",
             "click a.deleteOffer": "deleteOffer",
         },
@@ -63,12 +64,19 @@ define([
             $form.data('bootstrapValidator').validate();
         },
 
-        confirmOffer: function (e) {
+        onClickPaidOffer: function (e) {
             if(confirm("Вы уверены что хотите выбрать это предложение?"))
             {
                 var offerId = this.$(e.target).closest('.item').data('id');
                 window.location = '/user/confirmoffer/' + offerId;
             }
+        },
+
+        onClickConfirmOffer: function (e) {
+            var $row = $(e.target).closest('.item.view');
+
+            $row.find('.viewBlock.form').toggleClass('hidden');
+            $row.find('.viewBlock.confirmation').toggleClass('hidden');
         },
 
         initOrderTour: function() {

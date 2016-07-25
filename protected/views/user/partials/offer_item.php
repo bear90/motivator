@@ -9,11 +9,15 @@
     <?php if($readOnly === false): ?>
     <div class="inner-block">
         <button type="button" class="btn btn-default btn-yellow edit">РЕДАКТИРОВАТЬ</button>
-        <button type="button" class="btn btn-default btn-green2 confirm">ПРЕДОПЛАТА ПОЛУЧЕНА / ТУР ВЫБРАН</button>
+        <button type="button" class="btn btn-default btn-yellow confirm">ВЫБРАТЬ ТУР</button>
+    </div>
+
+    <div class="viewBlock confirmation hidden">
+        <button type="button" class="btn btn-default btn-green2 paid">ПРЕДОПЛАТА ПОЛУЧЕНА / ТУР ВЫБРАН</button>
     </div>
     <?php endif; ?>
 
-    <div class="viewBlock">
+    <div class="viewBlock form">
 
         <div class="inner-block form-group">
             <label>Исходная стоимость тура:</label>
@@ -69,7 +73,7 @@
     </div>
 
     <?php if($readOnly === false): ?>
-    <div class="editBlock">
+    <div class="editBlock form">
 
         <div class="inner-block form-group">
             <label>Исходная стоимость тура:</label>
@@ -136,7 +140,7 @@
             <?php echo CHtml::textArea("TourOffer[{$number}][description]", $offer->description, ['class' => 'description']); ?>
         </div>
         <p><a href="#" class="add addOffer">+ ещё одно предложение</a></p>
-        <button type="submit" class="btn btn-default btn-green2 save">РАЗМЕСТИТЬ ПРЕДЛОЖЕНИЕ</button>
+        <button type="submit" class="btn btn-default btn-green2 save">ОБНОВИТЬ</button>
     </div>
     <?php endif; ?>
 </div>

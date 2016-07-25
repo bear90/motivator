@@ -7,7 +7,7 @@
 
     <div class="inner-block">
         <button type="button" class="btn btn-default btn-yellow edit">РЕДАКТИРОВАТЬ</button>
-        <button type="button" class="btn btn-default btn-green2 confirm">ТУР ОПЛАЧЕН</button>
+        <button type="button" class="btn btn-default btn-yellow confirm">ПРОДАТЬ  ТУР</button>
     </div>
 
 <?php endif; ?>
@@ -143,7 +143,7 @@
             <?php echo CHtml::textArea("Tour[description]", $tourist->tour->description, ['class' => 'description']); ?>
         </div>
 
-        <button type="submit" class="btn btn-default btn-green2 save">Обновить</button>
+        <button type="submit" class="btn btn-default btn-green2 save">ПРЕДОПЛАТА ПОЛУЧЕНА / ТУР ВЫБРАН</button>
     </div>
 
 <?php 
