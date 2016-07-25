@@ -6,6 +6,7 @@
 namespace application\controllers\user;
 
 
+use application\models\defines\CounterReason;
 use application\models\TouristTour;
 use application\models\Discont;
 use application\models\Tourist;
@@ -62,6 +63,7 @@ class ChangetourAction extends \CAction
 
             $tourist->counterStartedAt = $currentDate->format("Y-m-d");
             $tourist->counterDate = $paymentEndDate->format("Y-m-d H:i:s");
+            $tourist->counterReason = CounterReason::WAIT_PAYMENT;
             $tourist->save();
 
             Logs::info("{$tourist->firstName} {$tourist->lastName} (#{$tourist->id}) changed tour to", $tour->attributes);
