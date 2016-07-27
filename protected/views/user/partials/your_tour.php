@@ -27,6 +27,11 @@
             <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $tourist->tour->endDate); ?>
         </span>
     </div>
+    <div>Описание тура:
+        <p>
+            <?php echo $tourist->tour->description; ?>
+        </p>
+    </div>
     <div>Исходная стоимость тура: 
         <span class="value money">
             <?php echo Tool::getNewPriceText($tourist->tour->price); ?>
@@ -38,11 +43,30 @@
         </span>
     </div>
 
-    <div class="sell red">Общая скидка: 
+    <div class="sell red">Общая скидка:
+        <a href="#" class="more">подробнее</a>
         <span class="value money">
             <?php echo Tool::getNewPriceText($tourist->getTotalDiscont()); ?>
         </span>
     </div>
+
+    <div class="row hidden-row bg-grey">
+        <label class="col-md-8">Стартовая абонентская скидка:</label>
+        <div class="col-md-4 ta-r"><?php echo Tool::getNewPriceText($tourist->tour->minDiscont); ?></div>
+    </div>
+    <div class="row hidden-row bg-grey">
+        <label class="col-md-8">Текущая абонентская скидка:</label>
+        <div class="col-md-4 ta-r"><?php echo Tool::getNewPriceText($tourist->abonentDiscont); ?></div>
+    </div>
+    <div class="row hidden-row bg-grey">
+        <label class="col-md-8">Скидка за привлечение:</label>
+        <div class="col-md-4 ta-r"><?php echo Tool::getNewPriceText($tourist->getPartnerDiscont()); ?></div>
+    </div>
+    <div class="row hidden-row bg-grey">
+        <label class="col-md-8">Максимальная абонентcкая скидка:</label>
+        <div class="col-md-4 ta-r"><?php echo Tool::getNewPriceText($tourist->tour->maxDiscont); ?></div>
+    </div>
+    
     <div>Доплата при покупке тура: 
         <span class="value money">
             <?php echo Tool::getNewPriceText($tourist->tour->getCurrentSurchange()); ?>
@@ -52,33 +76,6 @@
         <span class="value money">
             <?php echo $tourist->getCounterDate('d.m.Y'); ?>
         </span>
-    </div>
-    <a href="#" class="more">подробнее</a>
-
-    <div class="hidden-row">Стартовая абонентская скидка: 
-        <span class="value money">
-            <?php echo Tool::getNewPriceText($tourist->tour->minDiscont); ?>
-        </span>
-    </div>
-    <div class="hidden-row">Текущая абонентская скидка: 
-        <span class="value money">
-            <?php echo Tool::getNewPriceText($tourist->abonentDiscont); ?>
-        </span>
-    </div>
-    <div class="hidden-row">Скидка за привлечение: 
-        <span class="value money">
-            <?php echo Tool::getNewPriceText($tourist->getPartnerDiscont()); ?>
-        </span>
-    </div>
-    <div class="hidden-row">Максимальная абонентcкая скидка: 
-        <span class="value money">
-            <?php echo Tool::getNewPriceText($tourist->tour->maxDiscont); ?>
-        </span>
-    </div>
-    <div>Описание тура: 
-        <p>
-            <?php echo $tourist->tour->description; ?>
-        </p>
     </div>
 </div>
 

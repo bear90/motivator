@@ -846,7 +846,13 @@ ul.custom-list li a {
 }
 
 .our-tour a.more,
-.raschet a.more {color: #337ab7; text-decoration: underline;}
+.raschet a.more {
+    color: #337ab7;
+    text-decoration: underline;
+    margin-left: 80px;
+    font-size: 16px;
+    font-weight: normal;
+}
 
 .hidden-row {display: none}
 
@@ -858,4 +864,13 @@ ul.custom-list li a {
 }
 .green {
     color: #00b050;
+}
+.bg-grey {
+    background-color: #add3f3;
+}
+
+.ta-r{text-align: right;}
+
+#your-tour .row label {
+    font-weight: bold;
 }
