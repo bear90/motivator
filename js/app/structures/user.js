@@ -48,8 +48,8 @@ define([
                     break;
 
                 case 4:
-                    $title.text('До окончания срока окончания тура осталось:');
-                    $bottomBlock.find('label').text('Конечная дата окончания тура:');
+                    $title.text('До окончания тура осталось:');
+                    $bottomBlock.find('label').text('Дата окончания тура:');
                     break;
             }
             $title.removeClass('hidden');
