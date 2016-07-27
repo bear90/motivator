@@ -14,10 +14,17 @@
     <h2><?php echo $template->comment; ?></h2>
 
     <div class="form-group">
+        <label for="">Название шаблона</label>
         <?php echo CHtml::textField("Template[comment]", $template->comment, ['class' => 'form-control']); ?>
+    </div>
+
+    <div class="form-group">
+        <label for="">Тема письма</label>
+        <?php echo CHtml::textField("Template[subject]", $template->subject ?: "От системы «МОТИВАТОР»", ['class' => 'form-control']); ?>
     </div>
     
     <div class="form-group">
+        <label for="">Текст письма/сообщения</label>
         <?php echo CHtml::textArea("Template[content]", $template->content, ['class' => 'tiny-text hidden']); ?>
     </div>
     

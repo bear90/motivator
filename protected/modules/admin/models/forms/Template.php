@@ -20,13 +20,15 @@ class Template extends \CFormModel
     public function rules(){
         return array(
             array('comment, content', 'required'),
+            array('subject', 'safe'),
         );
     }
 
     public function attributeLabels(){
         return [
             'comment' => 'Название',
-            'content' => 'Шаблон'
+            'content' => 'Шаблон',
+            'subject' => 'Тема письма'
         ];
     }
 }

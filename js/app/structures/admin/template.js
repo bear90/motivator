@@ -6,7 +6,7 @@ define([
     "tinymce.jquery",
     'validator'
 ], function () {
-    var TemplateView = Backbone.View.extend({
+    return Backbone.View.extend({
 
         render: function(){
             $('textarea.tiny-text').tinymce({
@@ -51,5 +51,4 @@ define([
             });
         }
     });
-    return TemplateView;
 });

@@ -92,6 +92,6 @@ class Template
     {
         $templateEntity = TemplateEntity::model()->find("`key` = :key", ['key' => $key]);
 
-        return $templateEntity ? $templateEntity->content : '';
+        return $templateEntity;
     }
 }

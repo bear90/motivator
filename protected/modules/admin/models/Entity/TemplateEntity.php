@@ -17,7 +17,7 @@ class TemplateEntity extends  \CActiveRecord
     public function rules(){
         return [
             ['key', 'required'],
-            ['content, comment', 'safe']
+            ['content, comment, subject', 'safe']
         ];
     }
 

@@ -34,7 +34,7 @@
 
         public static function sendEmailWithView($to, $view, array $data = [])
         {
-            $subject = 'От системы «МОТИВАТОР»';
+            /*$subject = 'От системы «МОТИВАТОР»';
             $subjPath = \Yii::getPathOfAlias("application.views.templates.{$view}_subj") . '.php';
             if(file_exists($subjPath))
             {
@@ -43,20 +43,21 @@
                     : new CController('YiiInform');
 
                 $subject = trim($controller->renderInternal($subjPath, $data, true));
-            }
+            }*/
+            $template = self::fetchTemplate($view, $data);
 
             \Yii::import('application.extensions.yii-mail.YiiMailMessage');
 
             $message = new YiiMailMessage;
             //$message->view = $view;
-            $text = self::fetchTemplate($view, $data);
+            $text = $template['content'];
             
             $message->setBody($text, 'text/html');
              
             $message->addTo($to);
             $message->from = \Yii::app()->params['adminEmail'];
             $message->setSender(\Yii::app()->params['senderEmail']);
-            $message->setSubject($subject);
+            $message->setSubject($template['subject']);
             
             return \Yii::app()->mail->send($message);
         }
@@ -68,7 +69,7 @@
                 return false;
             }
 
-            $text = self::fetchTemplate($view, $data);
+            $template = self::fetchTemplate($view, $data);
             /*$path = \Yii::getPathOfAlias("application.views.templates.{$view}") . '.php';
             if(file_exists($path))
             {
@@ -81,7 +82,7 @@
 
             $message = new \application\models\Message;
             $message->createdAt = date('Y-m-d', strtotime($date));
-            $message->text = $text;
+            $message->text = $template['content'];
 
             if($entity instanceof Tourist)
             {
@@ -101,7 +102,9 @@
 
         public static function fetchTemplate($name, array $data = [])
         {
-            $content = Template::get($name);
+            $templateEntity = Template::get($name);
+            $content = $templateEntity && $templateEntity->content? $templateEntity->content : '';
+            $subject = $templateEntity && $templateEntity->subject? $templateEntity->subject : 'От системы «МОТИВАТОР»';
 
             $placeholders = [
                 '~SITE_DOMAIN~' => Configuration::get(Configuration::SITE_DOMAIN),
@@ -134,7 +137,10 @@
                     break;
             }
 
-            return $content;
+            return [
+                'content' => $content,
+                'subject' => $subject,
+            ];
         }
 
         public static function getManagerContacts(Tour $tour, TouragentManager $manager = null)
@@ -192,7 +198,7 @@
             return [$rub, $kop];
         }
 
-        public static function calcCheckingDelta()
+        public static function calcCheckingDelta($touragentId = null)
         {
             $criteria = new \CDbCriteria();
             $criteria->with = [
@@ -201,12 +207,18 @@
                     //'condition'=>'posts.published=1',
                 ]
             ];
-            $criteria->limit = 4;
+
+            if ($touragentId !== null)
+            {
+                $criteria->with['tour']['on'] = 'tour.touragentId = :touragentId';
+                $criteria->params['touragentId'] = $touragentId;
+            }
+
+            //$criteria->limit = 4;
             $criteria->order = 't.id DESC';
-            $criteria->condition = 't.statusId = :stGettingDiscount';
-            $criteria->params = [
-                'stGettingDiscount' => TouristStatus::GETTING_DISCONT
-            ];
+            /*$criteria->condition = 't.statusId IN (:stGettingDiscount, :stHaveDiscount)';
+            $criteria->params['stGettingDiscount'] = TouristStatus::GETTING_DISCONT;
+            $criteria->params['stHaveDiscount'] = TouristStatus::HAVE_DISCONT;*/
 
             $tourists = Tourist::model()->findAll($criteria);
             $delta = 0;

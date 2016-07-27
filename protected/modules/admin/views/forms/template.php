@@ -20,6 +20,15 @@ return [
                 'name' => 'Template[comment]',
             ]
         ],
+        'subject' => [
+            'label' => 'Тема письма:',
+            'type' => 'text',
+            'layout' => '{label}{input}{error}',
+            'attributes' => [
+                'class' => 'form-control',
+                'name' => 'Template[subject]',
+            ]
+        ],
         'content' => [
             'label' => 'Шаблон:',
             'type' => 'textarea',

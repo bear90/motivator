@@ -11,17 +11,11 @@
         <th>Баланс</th>
         <th>Операции</th>
     </tr>
-<?php
-$count = $summDelta = 0;
-foreach((array) $touragents as $touragent):
-    $delta = $touragent->calculateDelta();
-    $summDelta += $delta;
-    $count += $delta ? 1 : 0;
-?>
+<?php foreach((array) $touragents as $touragent): ?>
     <tr>
         <td><?php echo $touragent->name; ?></td>
         <td><?php echo count($touragent->tourists2); ?></td>
-        <td><?php echo $delta; ?></td>
+        <td><?php echo Tool::calcCheckingDelta($touragent->id); ?></td>
         <td><?php echo $touragent->account; ?></td>
         <td>
             <a href="<?php echo Yii::app()->createUrl("admin/touragent/clear/{$touragent->id}"); ?>">Удалить туристов</a><br>
