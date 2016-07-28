@@ -40,7 +40,9 @@
     <div id="rule-tab" class="center-block">
         <div id="wrapper" class="ms_tabs <?php echo $this->activeTab; ?>" data-selected="<?php echo $this->activeTab; ?>" data-collapse="1">
             <div class="tabs-link clearfix">
-                <a href="#tab1" class="tab <?php echo $this->activeTab == 'tab1' ? 'active' : ''; ?>">ВЫБОР ТУРА</a>
+                <?php if($tourist->statusId < \application\models\defines\TouristStatus::GETTING_DISCONT): ?>
+                    <a href="#tab1" class="tab <?php echo $this->activeTab == 'tab1' ? 'active' : ''; ?>">ВЫБОР ТУРА</a>
+                <?php endif; ?>
                 <a href="#tab5" class="tab <?php echo $this->activeTab == 'tab5' ? 'active' : ''; ?>" id="fiveTab">ВАШ ТУР</a>
                 <a href="#tab2" class="tab <?php echo $this->activeTab == 'tab2' ? 'active' : ''; ?> <?php echo $touragent ? 'disabled' : ''; ?>" id="secondTab">ПРИЗ</a>
                 <a href="#tab3" class="tab <?php echo $this->activeTab == 'tab3' ? 'active' : ''; ?> <?php echo $touragent ? 'disabled' : ''; ?>" id="threeTab">ИНСТРУКЦИИ</a>
@@ -48,7 +50,7 @@
                 <a href="#tab6" class="tab <?php echo $this->activeTab == 'tab6' ? 'active' : ''; ?>" id="sixTab">ВАШ МЕНЕДЖЕР</a>
             </div>
 
-            
+            <?php if($tourist->statusId < \application\models\defines\TouristStatus::GETTING_DISCONT): ?>
             <div 
                 class="tab1 tabs-block clearfix" id="order-tour" 
                 data-first-tour="<?php echo $tourist->phone ? 0 : 1; ?>">
@@ -60,6 +62,7 @@
                     'touragent' => $touragent
                 ]); ?>
             </div>
+            <?php endif; ?>
 
             <?php if($touragent === null):?>
             

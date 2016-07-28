@@ -47,7 +47,7 @@ class DashboardAction extends \CAction
     {
         $touragentId = \Yii::app()->user->model->touragent->id;
 
-        $touristId = \Yii::app()->request->getPost('touristId');
+        $touristId = (int) \Yii::app()->request->getPost('touristId');
         $touristLastName = \Yii::app()->request->getPost('touristLastName');
         $touristFirstName = \Yii::app()->request->getPost('touristFirstName');
         $touristMiddleName = \Yii::app()->request->getPost('touristMiddleName');

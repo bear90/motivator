@@ -28,7 +28,7 @@
             <?php echo Tool::getNewPriceText($offer->minDiscont); ?>
         </div>
         <div class="inner-block">
-            <label>Максимальная абонентская скидка:</label>
+            <label>Максимально возможная абонентская скидка:</label>
             <?php echo Tool::getNewPriceText($offer->maxDiscont); ?>
         </div>
         <div class="inner-block">
@@ -36,7 +36,7 @@
             <?php echo Tool::getNewPriceText($offer->prepayment); ?>
         </div>
         <div class="inner-block">
-            <label>Сумма к доплате при максимальной абонентской скидке:</label>
+            <label>Сумма к доплате при максимально возможной абонентской скидке:</label>
             <?php echo Tool::getNewPriceText($offer->surchange); ?>
         </div>
 
@@ -84,7 +84,7 @@
             
         </div>
         <div class="inner-block">
-            <label>Максимальная абонентская скидка:</label>
+            <label>Максимально возможная абонентская скидка:</label>
             
         </div>
         <div class="inner-block">
@@ -92,7 +92,7 @@
             
         </div>
         <div class="inner-block">
-            <label>Сумма к доплате при максимальной абонентской скидке:</label>
+            <label>Сумма к доплате при максимально возможной абонентской скидке:</label>
             
         </div>
 

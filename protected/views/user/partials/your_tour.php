@@ -59,12 +59,12 @@
         <div class="col-md-4 ta-r"><?php echo Tool::getNewPriceText($tourist->abonentDiscont); ?></div>
     </div>
     <div class="row hidden-row bg-grey">
-        <label class="col-md-8">Скидка за привлечение:</label>
-        <div class="col-md-4 ta-r"><?php echo Tool::getNewPriceText($tourist->getPartnerDiscont()); ?></div>
+        <label class="col-md-8">Максимально возможная абонентcкая скидка:</label>
+        <div class="col-md-4 ta-r"><?php echo Tool::getNewPriceText($tourist->tour->maxDiscont); ?></div>
     </div>
     <div class="row hidden-row bg-grey">
-        <label class="col-md-8">Максимальная абонентcкая скидка:</label>
-        <div class="col-md-4 ta-r"><?php echo Tool::getNewPriceText($tourist->tour->maxDiscont); ?></div>
+        <label class="col-md-8">Скидка за привлечение:</label>
+        <div class="col-md-4 ta-r"><?php echo Tool::getNewPriceText($tourist->getPartnerDiscont()); ?></div>
     </div>
     
     <div>Доплата при покупке тура: 

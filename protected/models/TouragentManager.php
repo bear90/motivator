@@ -6,6 +6,7 @@
 namespace application\models;
 
 use application\components\DBEntity;
+use application\models\defines\TouristStatus;
 
 class TouragentManager extends DBEntity {
 
@@ -28,6 +29,18 @@ class TouragentManager extends DBEntity {
             'tourists2'  => [self::HAS_MANY, 'application\\models\\Tourist', 'touristId', 
                 'through' => 'tourist_tour',
                 'order' =>  'tourists2.createdAt'],
+            'touristsGettingDiscount'  => [self::HAS_MANY, 'application\\models\\Tourist', 'touristId',
+                'through'   => 'tourist_tour',
+                'condition' => 'touristsGettingDiscount.statusId = :status',
+                'order'     => 'touristsGettingDiscount.counterDate',
+                'params'    => ['status' => TouristStatus::GETTING_DISCONT]
+            ],
+            'touristsHavingDiscount'  => [self::HAS_MANY, 'application\\models\\Tourist', 'touristId',
+                'through'   => 'tourist_tour',
+                'condition' => 'touristsHavingDiscount.statusId = :status',
+                'order'     => 'touristsHavingDiscount.tourFinishAt',
+                'params'    => ['status' => TouristStatus::HAVE_DISCONT]
+            ],
             'phones'    => [self::HAS_MANY, 'application\\models\\TouragentManagerPhone', 'managerId']
         ];
     }
@@ -45,20 +58,14 @@ class TouragentManager extends DBEntity {
         });
     }
 
-    public function getGettingDiscint()
+    public function getGettingDiscount()
     {
-        $tourists = $this->boss ? $this->touragent->tourists2 : $this->tourists2;
-        return array_filter($tourists, function($tourist){
-            return $tourist->statusId == \application\models\defines\TouristStatus::GETTING_DISCONT;
-        });
+        return $this->boss ? $this->touragent->touristsGettingDiscount : $this->touristsGettingDiscount;
     }
 
-    public function getHaveDiscont()
+    public function getHaveDiscount()
     {
-        $tourists = $this->boss ? $this->touragent->tourists2 : $this->tourists2;
-        return array_filter($tourists, function($tourist){
-            return $tourist->statusId == \application\models\defines\TouristStatus::HAVE_DISCONT;
-        });
+        return $this->boss ? $this->touragent->touristsHavingDiscount : $this->touristsHavingDiscount;
     }
 
     public function getPhones($asString = true)

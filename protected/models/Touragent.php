@@ -3,6 +3,7 @@
 namespace application\models;
 
 use application\components\DBEntity;
+use application\models\defines\TouristStatus;
 
 class Touragent extends DBEntity {
 
@@ -26,6 +27,18 @@ class Touragent extends DBEntity {
             'tourists2'  => [self::HAS_MANY, 'application\\models\\Tourist', 'touristId', 
                 'through' => 'tourist_tour',
                 'order' =>  'tourists2.createdAt'],
+            'touristsGettingDiscount' => [self::HAS_MANY, 'application\\models\\Tourist', 'touristId',
+                'through'   => 'tourist_tour',
+                'condition' => 'touristsGettingDiscount.statusId = :status',
+                'order'     => 'touristsGettingDiscount.counterDate',
+                'params'    => ['status' => TouristStatus::GETTING_DISCONT]
+            ],
+            'touristsHavingDiscount' => [self::HAS_MANY, 'application\\models\\Tourist', 'touristId',
+                'through'   => 'tourist_tour',
+                'condition' => 'touristsHavingDiscount.statusId = :status',
+                'order'     => 'touristsHavingDiscount.tourFinishAt',
+                'params'    => ['status' => TouristStatus::HAVE_DISCONT]
+            ],
         ];
     }
  

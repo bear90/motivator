@@ -39,7 +39,7 @@
 
                     <div class="users-block hidden getting_discont">
                         <ul>
-                            <?php foreach($manager->getGettingDiscint() as $tourist): ?>
+                            <?php foreach($manager->getGettingDiscount() as $tourist): ?>
                                 <?php $this->renderPartial('partials/tourist_item', [
                                     'tourist' => $tourist
                                 ]); ?>
@@ -49,7 +49,7 @@
 
                     <div class="users-block hidden have_discont">
                         <ul>
-                            <?php foreach($manager->getHaveDiscont() as $tourist): ?>
+                            <?php foreach($manager->getHaveDiscount() as $tourist): ?>
                                 <?php $this->renderPartial('partials/tourist_item', [
                                     'tourist' => $tourist
                                 ]); ?>
