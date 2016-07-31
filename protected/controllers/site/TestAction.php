@@ -12,6 +12,6 @@ class TestAction extends \CAction
     {
         $sent = \Tool::sendEmailWithView('soza.mihail@gmail.com', 'notice_1');
 
-        dd($sent);
+        var_dump($sent);
     }
 }
