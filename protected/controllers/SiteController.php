@@ -12,6 +12,7 @@ class SiteController extends \CController {
             'index' => 'application\\controllers\\site\\IndexAction',
             'checkcapture' => 'application\\controllers\\site\\CheckcaptureAction',
             'checkgroupcode' => 'application\\controllers\\site\\CheckgroupcodeAction',
+            'test' => 'application\\controllers\\site\\TestAction',
         ];
     }
 

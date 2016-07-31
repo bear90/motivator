@@ -55,7 +55,7 @@
             $message->setBody($text, 'text/html');
              
             $message->addTo($to);
-            $message->from = \Yii::app()->params['adminEmail'];
+            $message->setFrom(\Yii::app()->params['adminEmail'], 'МОТИВАТОР');
             $message->setSender(\Yii::app()->params['senderEmail']);
             $message->setSubject($template['subject']);
             
