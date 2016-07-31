@@ -10,7 +10,7 @@ class TestAction extends \CAction
 {
     public function run()
     {
-        $sent = \Tool::sendEmailWithView('soza.mihail@gmail.com', 'notice_1');
+        $sent = \Tool::sendEmailWithView('soza.mihail@gmail.com', 'after_prepayment');
 
         var_dump($sent);
     }
