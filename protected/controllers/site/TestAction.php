@@ -5,13 +5,19 @@
 
 namespace application\controllers\site;
 
+use application\models\Tourist;
 
 class TestAction extends \CAction
 {
     public function run()
     {
-        $sent = \Tool::sendEmailWithView('soza.mihail@gmail.com', 'after_prepayment');
+        $tourist = Tourist::model()->findByAttributes(['email' => 'soza.mihail@gmail.com']);
 
-        var_dump($sent);
+        if ($tourist)
+        {
+            $sent = \Tool::sendEmailWithLayout($tourist, 'after_prepayment');
+
+            var_dump($sent);
+        }
     }
 }

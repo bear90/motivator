@@ -25,13 +25,7 @@ class TouristCreateAction extends \CApiAction
 
             Logs::info("New tourist:",  $tourist->attributes, 'registration');
 
-            $s = \Tool::sendEmailWithView(
-                $tourist->email,
-                'registration', 
-                [
-                    'tourist' => $tourist
-                ]
-            );
+            $s = \Tool::sendEmailWithLayout($tourist, 'registration');
             $sended = 1;
 
             DbTransaction::commit();

@@ -22,7 +22,7 @@ class MinutecronCommand extends CConsoleCommand
             'days' => Configuration::get(Configuration::ORDER_TOUR_TIMER)
         ];
         foreach (Tourist::model()->findAll($criteria) as $tourist) {
-            Tool::sendEmailWithView($tourist->email, 'cabinet_deleted', ['tourist' => $tourist]);
+            Tool::sendEmailWithLayout($tourist, 'cabinet_deleted');
             $tourist->delete();
             $touristDeleted++;
         }

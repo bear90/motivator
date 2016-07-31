@@ -28,7 +28,7 @@
         public static function informTourist(Tourist $tourist, $view, array $data = [])
         {
             $data['tourist'] = $tourist;
-            $r = self::sendEmailWithView($tourist->email, $view, $data);
+            $r = self::sendEmailWithLayout($tourist, $view, $data);
             self::sendMessage($tourist, $view, $data);
         }
 
@@ -52,16 +52,16 @@
             return \Yii::app()->mail->send($message);
         }
 
-        public static function sendMessage($entity, $view, array $data = [], $date = 'now')
+        public static function sendEmailWithLayout(Tourist $tourist, $view, array $data = [])
         {
-            if($entity instanceof Tourist === false && $entity instanceof TouragentManager === false)
-            {
-                return false;
-            }
-
+            $data['tourist'] = $tourist;
             $template = self::fetchTemplate($view, $data);
+
+            \Yii::import('application.extensions.yii-mail.YiiMailMessage');
+
+            $message = new YiiMailMessage;
+            //$message->view = $view;
             $text = $template['content'];
-            
             // render layout
             $path = \Yii::getPathOfAlias("application.views.templates.main") . '.php';
             if(file_exists($path))
@@ -71,10 +71,30 @@
                     : new CController('YiiInform');
 
                 $text = $controller->renderInternal($path, [
-                    'tourist' => $data['tourist'],
+                    'tourist' => $tourist,
                     'content' => $template['content']
                 ], true);
             }
+            
+            $message->setBody($text, 'text/html');
+             
+            $message->addTo($tourist->email);
+            $message->setFrom(\Yii::app()->params['adminEmail'], 'МОТИВАТОР');
+            $message->setSender(\Yii::app()->params['senderEmail']);
+            $message->setSubject($template['subject']);
+            
+            return \Yii::app()->mail->send($message);
+        }
+
+        public static function sendMessage($entity, $view, array $data = [], $date = 'now')
+        {
+            if($entity instanceof Tourist === false && $entity instanceof TouragentManager === false)
+            {
+                return false;
+            }
+
+            $template = self::fetchTemplate($view, $data);
+            $text = $template['content'];
 
             $message = new \application\models\Message;
             $message->createdAt = date('Y-m-d', strtotime($date));
@@ -124,15 +144,22 @@
                     break;
 
                 default:
-                    $tourist = $data['tourist'];
-                    $placeholders = [
-                        '~cabinetNumber~' => str_pad($tourist->id, 4, "0", STR_PAD_LEFT),
-                        '~autologinLink~' => $tourist->user->getAutoLoginLink(),
-                    ];
-                    if ($name == 'registration')
+                    
+                    $placeholders = [];
+                    
+                    if (isset($data['tourist']))
                     {
-                        $placeholders['~password~'] = $tourist->user->password;
+                        $tourist = $data['tourist'];
+                        $placeholders = [
+                            '~cabinetNumber~' => str_pad($tourist->id, 4, "0", STR_PAD_LEFT),
+                            '~autologinLink~' => $tourist->user->getAutoLoginLink(),
+                        ];
+                        if ($name == 'registration')
+                        {
+                            $placeholders['~password~'] = $tourist->user->password;
+                        }
                     }
+                    
                     $content = str_replace(array_keys($placeholders), array_values($placeholders), $content);
             }
 
