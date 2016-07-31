@@ -874,3 +874,10 @@ ul.custom-list li a {
 #your-tour .row label {
     font-weight: bold;
 }
+
+.container-fluid .head .lk-label {
+    position: absolute;
+    right: 80px;
+    top: 50%;
+    margin-top: -10px;
+}

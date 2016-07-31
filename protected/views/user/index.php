@@ -15,7 +15,7 @@
     <div class="breadcrumbs hidden-sm hidden-xs">
         <a href="/">Туристам</a>
         <span>/</span>
-        <a href="#" class="link-now">Личный кабинет туриста</a>
+        <a href="#" class="link-now">Личный кабинет абонента</a>
     </div>
     <div class="lk-block ">
         <span>ЛИЧНЫЙ КАБИНЕТ <b>№<?php echo $tourist->id; ?></b></span>
@@ -34,6 +34,7 @@
                 <span><?php echo $tourist->getFormatedPhone(); ?></span><br>
             <?php endif; ?>
             <span class="mail"><?php echo $tourist->email; ?></span>
+            <span class="lk-label">личный кабинет  № <?php echo "0{$tourist->id}"; ?></span>
 
             <h1><b>Статус:</b> <span><?php echo $tourist->status->description; ?></span></h1>
 

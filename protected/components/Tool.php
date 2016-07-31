@@ -34,16 +34,6 @@
 
         public static function sendEmailWithView($to, $view, array $data = [])
         {
-            /*$subject = 'От системы «МОТИВАТОР»';
-            $subjPath = \Yii::getPathOfAlias("application.views.templates.{$view}_subj") . '.php';
-            if(file_exists($subjPath))
-            {
-                $controller = isset(\Yii::app()->controller)
-                    ? \Yii::app()->controller
-                    : new CController('YiiInform');
-
-                $subject = trim($controller->renderInternal($subjPath, $data, true));
-            }*/
             $template = self::fetchTemplate($view, $data);
 
             \Yii::import('application.extensions.yii-mail.YiiMailMessage');
@@ -70,19 +60,25 @@
             }
 
             $template = self::fetchTemplate($view, $data);
-            /*$path = \Yii::getPathOfAlias("application.views.templates.{$view}") . '.php';
+            $text = $template['content'];
+            
+            // render layout
+            $path = \Yii::getPathOfAlias("application.views.templates.main") . '.php';
             if(file_exists($path))
             {
                 $controller = isset(Yii::app()->controller)
                     ? \Yii::app()->controller
                     : new CController('YiiInform');
 
-                $text = $controller->renderInternal($path, $data, true);
-            }*/
+                $text = $controller->renderInternal($path, [
+                    'tourist' => $data['tourist'],
+                    'content' => $template['content']
+                ], true);
+            }
 
             $message = new \application\models\Message;
             $message->createdAt = date('Y-m-d', strtotime($date));
-            $message->text = $template['content'];
+            $message->text = $text;
 
             if($entity instanceof Tourist)
             {
@@ -117,15 +113,6 @@
             $content = str_replace(array_keys($placeholders), array_values($placeholders), $content);
 
             switch ($name) {
-                case 'registration':
-                    $tourist = $data['tourist'];
-                    $placeholders = [
-                        '~cabinetNumber~' => str_pad($tourist->id, 4, "0", STR_PAD_LEFT),
-                        '~password~' => $tourist->user->password,
-                        '~autologinLink~' => $tourist->user->getAutoLoginLink(),
-                    ];
-                    $content = str_replace(array_keys($placeholders), array_values($placeholders), $content);
-                    break;
                 
                 case 'exchange_tour_partner':
                     $child = $data['child'];
@@ -135,6 +122,18 @@
                     ];
                     $content = str_replace(array_keys($placeholders), array_values($placeholders), $content);
                     break;
+
+                default:
+                    $tourist = $data['tourist'];
+                    $placeholders = [
+                        '~cabinetNumber~' => str_pad($tourist->id, 4, "0", STR_PAD_LEFT),
+                        '~autologinLink~' => $tourist->user->getAutoLoginLink(),
+                    ];
+                    if ($name == 'registration')
+                    {
+                        $placeholders['~password~'] = $tourist->user->password;
+                    }
+                    $content = str_replace(array_keys($placeholders), array_values($placeholders), $content);
             }
 
             return [
