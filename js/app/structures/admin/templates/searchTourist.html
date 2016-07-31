@@ -1,0 +1,26 @@
+
+    <% if(_.size(tourists)) { %> 
+    <table class="table table-bordered text-table">
+        <tr>
+            <th>Имя туриста</th>
+            <th>Дата</th>
+        </tr>
+        <% _.each(tourists.models, function(obj) { %> 
+            <tr class="<%= obj.get('status').name %>">
+                <td>
+                    <% if(obj.get('statusId') == 2) { %>
+                    <a target="_blank" href="/user/dashboard/<%= obj.id %>?tab=tab1"><%= obj.get('lastName') %> <%= obj.get('firstName') %></a>
+                    <% } else { %>
+                    <a target="_blank" href="/user/dashboard/<%= obj.id %>?tab=tab5"><%= obj.get('lastName') %> <%= obj.get('firstName') %></a>
+                    <% } %>
+                </td>
+
+                <td>
+                    <%= obj.get('counterDate') %>
+                </td>
+            </tr>
+        <% }); %>
+    </table>
+    <% } else { %>
+        <p>Ничего не найдено</p>
+    <% } %> 

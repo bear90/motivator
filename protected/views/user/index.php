@@ -1,3 +1,8 @@
+<?php
+    use application\models\defines\TouristStatus;
+
+    $isUser = \Yii::app()->user->isUser();
+?>
 <header class="container-fluid">
     <div class="btn btn-default toggle-left">
         <span class="icon-bar"></span>
@@ -40,17 +45,17 @@
     <div id="rule-tab" class="center-block">
         <div id="wrapper" class="ms_tabs <?php echo $this->activeTab; ?>" data-selected="<?php echo $this->activeTab; ?>" data-collapse="1">
             <div class="tabs-link clearfix">
-                <?php if($tourist->statusId < \application\models\defines\TouristStatus::GETTING_DISCONT): ?>
+                <?php if($tourist->statusId < TouristStatus::GETTING_DISCONT): ?>
                     <a href="#tab1" class="tab <?php echo $this->activeTab == 'tab1' ? 'active' : ''; ?>">ВЫБОР ТУРА</a>
                 <?php endif; ?>
                 <a href="#tab5" class="tab <?php echo $this->activeTab == 'tab5' ? 'active' : ''; ?>" id="fiveTab">ВАШ ТУР</a>
-                <a href="#tab2" class="tab <?php echo $this->activeTab == 'tab2' ? 'active' : ''; ?> <?php echo $touragent ? 'disabled' : ''; ?>" id="secondTab">ПРИЗ</a>
-                <a href="#tab3" class="tab <?php echo $this->activeTab == 'tab3' ? 'active' : ''; ?> <?php echo $touragent ? 'disabled' : ''; ?>" id="threeTab">ИНСТРУКЦИИ</a>
-                <a href="#tab4" class="tab <?php echo $this->activeTab == 'tab4' ? 'active' : ''; ?> <?php echo $touragent ? 'disabled' : ''; ?>" id="fourTab">ПРАВИЛА РАБОTЫ</a>
+                <a href="#tab2" class="tab <?php echo $this->activeTab == 'tab2' ? 'active' : ''; ?> <?php echo !$isUser ? 'disabled' : ''; ?>" id="secondTab">ПРИЗ</a>
+                <a href="#tab3" class="tab <?php echo $this->activeTab == 'tab3' ? 'active' : ''; ?> <?php echo !$isUser ? 'disabled' : ''; ?>" id="threeTab">ИНСТРУКЦИИ</a>
+                <a href="#tab4" class="tab <?php echo $this->activeTab == 'tab4' ? 'active' : ''; ?> <?php echo !$isUser ? 'disabled' : ''; ?>" id="fourTab">ПРАВИЛА РАБОTЫ</a>
                 <a href="#tab6" class="tab <?php echo $this->activeTab == 'tab6' ? 'active' : ''; ?>" id="sixTab">ВАШ МЕНЕДЖЕР</a>
             </div>
 
-            <?php if($tourist->statusId < \application\models\defines\TouristStatus::GETTING_DISCONT): ?>
+            <?php if($tourist->statusId < TouristStatus::GETTING_DISCONT): ?>
             <div 
                 class="tab1 tabs-block clearfix" id="order-tour" 
                 data-first-tour="<?php echo $tourist->phone ? 0 : 1; ?>">
@@ -64,7 +69,7 @@
             </div>
             <?php endif; ?>
 
-            <?php if($touragent === null):?>
+            <?php if($isUser):?>
             
             <div class="tab2 tabs-block">
                 <div class="inner-block">

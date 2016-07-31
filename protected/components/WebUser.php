@@ -51,6 +51,11 @@ class WebUser extends CWebUser {
     {
         return $this->model && $this->model->roleId == UserRole::MANAGER ? true : false;
     }
+
+    public function isAdmin()
+    {
+        return $this->model && $this->model->roleId == UserRole::ADMIN ? true : false;
+    }
 }
 
 ?>

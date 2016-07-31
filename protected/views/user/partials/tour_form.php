@@ -2,12 +2,13 @@
     use application\models\forms\OrderTour;
 
     $form = new \CForm('application.views.forms.order_tour', new OrderTour());
+    $isUser = \Yii::app()->user->isUser();
 ?>
 
 <?php if (count($tours)):?>
     <div class="inner-block">
     <?php foreach ($tours as $tour): ?>
-        <?php $touragent === null 
+        <?php $isUser 
             ? $this->renderPartial('partials/tour_item', [
                 'tour' => $tour,
                 'canRemove' => true
@@ -22,7 +23,7 @@
 <?php endif;?>
 
 
-<?php if($touragent === null):?>
+<?php if($isUser):?>
 
 <div class="tabs-block-inner">
     <div class="head-inner-block">

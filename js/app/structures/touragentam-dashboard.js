@@ -2,8 +2,9 @@
  * Created by m.soza on 28.03.2016.
  */
 define([
-    'structures/touragentam-dashboard/raschet'
-], function(raschetView){
+    'structures/touragentam-dashboard/raschet',
+    'structures/touragentam-dashboard/search'
+], function(raschetView, searchView){
 
     var Index = Backbone.View.extend({
 
@@ -11,21 +12,6 @@ define([
 
         events: {
             'click .tourists-tabs a': 'showTourists',
-            'submit form.searchTourist' : 'submitSearchTourist'
-        },
-
-        submitSearchTourist: function(e) {
-
-            var isAllEmpty = true;
-
-            _.each(['touristId', 'touristLastName', 'touristFirstName', 'touristMiddleName', 'tourCity'], $.proxy(function(name){
-                isAllEmpty = isAllEmpty && this.$('input[name='+name+']').val() == '' ;
-            }, this));
-
-            if (isAllEmpty) {
-                alert("Заполните хотя бы одно поле для поиска!");
-                return false;
-            }
         },
 
         showTourists: function(e){
@@ -39,6 +25,7 @@ define([
         },
 
         render: function(){
+            (new searchView({el: '.tab2.search'})).render();
             (new raschetView({el: '.tab4.raschet'})).render();
         }
     });

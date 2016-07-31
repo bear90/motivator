@@ -33,6 +33,15 @@ class DashboardAction extends \CAction
                     throw new \CHttpException(404, 'Not found');
                 }
                 break;
+
+            case \Yii::app()->user->isAdmin():
+                $tourist = Tourist::model()->findByPk($id);
+
+                if (!$tourist)
+                {
+                    throw new \CHttpException(404, 'Not found');
+                }
+                break;
         }
 
         $message = $tourist->message ? $tourist->message->text : '';

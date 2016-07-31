@@ -6,7 +6,6 @@
 namespace application\models;
 
 use application\components\DBEntity;
-use application\models\defines\TouristStatus;
 
 class TouragentManager extends DBEntity {
 
@@ -33,13 +32,13 @@ class TouragentManager extends DBEntity {
                 'through'   => 'tourist_tour',
                 'condition' => 'touristsGettingDiscount.statusId = :status',
                 'order'     => 'touristsGettingDiscount.counterDate',
-                'params'    => ['status' => TouristStatus::GETTING_DISCONT]
+                'params'    => ['status' => defines\TouristStatus::GETTING_DISCONT]
             ],
             'touristsHavingDiscount'  => [self::HAS_MANY, 'application\\models\\Tourist', 'touristId',
                 'through'   => 'tourist_tour',
                 'condition' => 'touristsHavingDiscount.statusId = :status',
                 'order'     => 'touristsHavingDiscount.tourFinishAt',
-                'params'    => ['status' => TouristStatus::HAVE_DISCONT]
+                'params'    => ['status' => defines\TouristStatus::HAVE_DISCONT]
             ],
             'phones'    => [self::HAS_MANY, 'application\\models\\TouragentManagerPhone', 'managerId']
         ];
@@ -54,7 +53,7 @@ class TouragentManager extends DBEntity {
     {
         $tourists = $this->boss ? $this->touragent->tourists : $this->tourists;
         return array_filter($tourists, function($tourist){
-            return $tourist->statusId == \application\models\defines\TouristStatus::WANT_DISCONT;
+            return $tourist->statusId == defines\TouristStatus::WANT_DISCONT;
         });
     }
 

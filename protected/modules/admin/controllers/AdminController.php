@@ -103,6 +103,11 @@ class AdminController extends \CController
                 'key' => 'template',
                 'label' => 'Шаблоны писем',
                 'url' => '/admin/template',
+            ],
+            [
+                'key' => 'search',
+                'label' => 'Поиск туристов',
+                'url' => '/admin/search',
             ]
         ]);
 

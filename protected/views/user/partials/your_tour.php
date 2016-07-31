@@ -1,9 +1,11 @@
 <?php
+    use application\models\defines\TouristStatus;
+
     $readOnly = !$manager || $manager->id != $tourist->tour->managerId;
 ?>
 <h4>Ваш тур</h4>
 
-<?php if($readOnly === false && $tourist->statusId == \application\models\defines\TouristStatus::GETTING_DISCONT): ?>
+<?php if($readOnly === false && $tourist->statusId == TouristStatus::GETTING_DISCONT): ?>
 
     <div class="inner-block">
         <button type="button" class="btn btn-default btn-yellow edit">РЕДАКТИРОВАТЬ</button>

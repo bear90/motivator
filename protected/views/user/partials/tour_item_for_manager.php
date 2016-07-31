@@ -1,5 +1,5 @@
 <?php
-    $canOffer = $touragent->id == $tour->touragentId && !$manager->boss;
+    $canOffer = $touragent && $touragent->id == $tour->touragentId && !$manager->boss;
     $responsibleManager = $canOffer && $manager->id == $tour->managerId;
 ?>
 
@@ -30,8 +30,8 @@
             <?php $this->renderPartial('partials/offer_list', [
                 'tour' => $tour,
                 'manager' => $manager,
-                'canChange' => $manager->id == $tour->managerId ||
-                               !$tour->managerId && !$manager->boss && $touragent->id == $tour->touragentId
+                'canChange' => $manager && $manager->id == $tour->managerId ||
+                               $touragent && !$tour->managerId && !$manager->boss && $touragent->id == $tour->touragentId
             ]); ?>
             
         </span>

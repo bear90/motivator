@@ -59,7 +59,7 @@
                     
                 </div>
             </div>
-            <div class="tab2 tabs-block">
+            <div class="tab2 tabs-block search">
                 <div class="inner-block">
                     <?php echo CHtml::beginForm("/turagentam/dashboard/{$manager->id}/?tab=tab2", 'post', ['class' => 'searchTourist']); ?>
                     <?php echo CHtml::hiddenField("searchTourist"); ?>
@@ -87,19 +87,7 @@
                             <button type="submit" class="btn btn-default btn-green">НАЙТИ</button>
                         </div>
 
-                        <?php if(count($foundTourists)): ?>
-                        <div class="inner-block search-results">
-                            <div class="users-block want-discont">
-                                <ul>
-                                    <?php foreach($foundTourists as $tourist): ?>
-                                        <?php $this->renderPartial('partials/tourist_item', [
-                                            'tourist' => $tourist
-                                        ]); ?>
-                                    <?php endforeach; ?>
-                                </ul>
-                            </div>
-                        </div>
-                        <?php endif; ?>
+                        <div class="inner-block search-results hidden" id="search-results"><!-- --></div>
                         
                         <div class="cls"><!-- --></div>
                     <?php echo CHtml::endForm(); ?>

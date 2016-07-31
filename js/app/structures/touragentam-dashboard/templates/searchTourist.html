@@ -1,0 +1,21 @@
+<div class="users-block want-discont">
+    <% if(_.size(tourists)) { %> 
+    <ul>
+        <% _.each(tourists.models, function(obj) { %> 
+            <li class="clearfix <%= obj.get('status').name %>">
+                <span class="name">
+                    <% if(obj.get('statusId') == 2) { %>
+                    <a href="/user/dashboard/<%= obj.id %>?tab=tab1"><%= obj.get('lastName') %> <%= obj.get('firstName') %></a>
+                    <% } else { %>
+                    <a href="/user/dashboard/<%= obj.id %>?tab=tab5"><%= obj.get('lastName') %> <%= obj.get('firstName') %></a>
+                    <% } %>
+                </span>
+
+                <span class="date"><%= obj.get('counterDate') %></span>
+            </li>
+        <% }); %>
+    </ul>
+    <% } else { %>
+        <span>Ничего не найдено</span>
+    <% } %> 
+</div>
