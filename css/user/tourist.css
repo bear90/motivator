@@ -881,3 +881,6 @@ ul.custom-list li a {
     top: 50%;
     margin-top: -10px;
 }
+
+.fixed-socseti {position: fixed; top:50%; right: 15px; z-index: 10; margin-top: -96px;}
+.fixed-socseti a {display: block; position: relative;}

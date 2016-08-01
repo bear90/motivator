@@ -108,25 +108,25 @@ html, body {
  * Animation
  */
 
-[canvas], [off-canvas] {
+/* [canvas], [off-canvas] {
 	-webkit-transform: translate( 0px, 0px );
 	    -ms-transform: translate( 0px, 0px );
 	        transform: translate( 0px, 0px );
 	-webkit-transition: -webkit-transform 300ms;
 	        transition:         transform 300ms;
-	-webkit-backface-visibility: hidden; /* Prevents flickering but may be removed if your having problems with fixed background images in Chrome. */
-}
+	-webkit-backface-visibility: hidden; Prevents flickering but may be removed if your having problems with fixed background images in Chrome.
+} */
 
 /**
  * Print
  */
 
 @media print {
-	[canvas] {
+	/* [canvas] {
 		-webkit-transform: translate( 0px, 0px ) !important;
 		    -ms-transform: translate( 0px, 0px ) !important;
 		        transform: translate( 0px, 0px ) !important;
-	}
+	} */
 
 	[off-canvas] {
 		display: none !important;

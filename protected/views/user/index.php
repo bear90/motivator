@@ -1,5 +1,6 @@
 <?php
     use application\models\defines\TouristStatus;
+    use application\modules\admin\models\Text;
 
     $isUser = \Yii::app()->user->isUser();
 ?>
@@ -74,22 +75,19 @@
             
             <div class="tab2 tabs-block">
                 <div class="inner-block">
-                    <h4>Приз</h4>
-                    <p>Розыграш призов будет производиться <span>с 01.03.2016</span></p>
+                    <?php echo Text::get('prize'); ?>
                 </div>
 
             </div>
             <div class="tab3 tabs-block">
                 <div class="inner-block">
-                    <h4>Инструкция</h4>
-                    <p>Как я уже писал Вам ранее, я предлагаю до сделать некоторые заготовки двух вкладок, планируемых к работе (кстати, Вы можете кое что взять из ранее сделанных нами вкладок.</p>
+                    <?php echo Text::get('instruction'); ?>
                 </div>
 
             </div>
             <div class="tab4 tabs-block">
                 <div class="inner-block">
-                    <h4>Текстовый блок</h4>
-                    <p>Как я уже писал Вам ранее, я предлагаю до сделать некоторые заготовки двух вкладок, планируемых к работе (кстати, Вы можете кое что взять из ранее сделанных нами вкладок.</p>
+                    <?php echo Text::get('rules'); ?>
                 </div>
 
             </div>
@@ -119,20 +117,7 @@
 
             <div class="tab6 tabs-block">
                 <div class="inner-block">
-                    <?php if($tourist->hasManager()):?>
-                        <h4><?php echo $tourist->getManager()->name; ?></h4>
-                        <h5>тел:</h5>
-                        <p>
-                        <?php foreach($tourist->getManager()->getPhones(false) as $phone): ?>
-                            <span><?php echo $phone; ?></span>
-                        <?php endforeach;?>
-                        </p>
-                        <p>
-                            <a href="<?php echo $tourist->getManager()->touragent->getSiteLink(); ?>" class="link-to-touragent" target="_blank">перейти на сайт турагента</a>
-                        </p>
-                    <?php else: ?>
-                        <p>После выбора тура вам будет выделен персональный менеджер!</p>
-                    <?php endif;?>
+                    <?php echo Text::get('your_manager'); ?>
                 </div>
 
             </div>
@@ -184,5 +169,13 @@
                 </div>
             </div>
         </div>​
+    </div>
+    
+
+    <div class="fixed-socseti">
+        <a target="_blank" href="https://vk.com/motivatortravel"><img src="/img/soc-vk.png" alt=""></a>
+        <a target="_blank" href="https://www.facebook.com/%D0%9C%D0%BE%D1%82%D0%B8%D0%B2%D0%B0%D1%82%D0%BE%D1%80-203321533372476/?__mref=message"><img src="/img/soc-fb.png" alt=""></a>
+        <a target="_blank" href="http://m.ok.ru/group/52925620093131"><img src="/img/soc-od.png" alt=""></a>
+        <a target="_blank" href="#"><img src="/img/soc-vb.png" alt=""></a>
     </div>
 </section>
