@@ -1,3 +1,7 @@
+<?php
+    use application\modules\admin\models\Text;
+?>
+
 <section id="blank" class="container-fluid" data-structure="touragentam-dashboard"
     data-manager-id="<?php echo $manager->id; ?>">
     <div class="row">
@@ -93,12 +97,30 @@
                     <?php echo CHtml::endForm(); ?>
                 </div>
             </div>
-            <div class="tab3 tabs-block">
-                <div class="inner-block">
-                    <h4>Инструкция</h4>
-                    <p>Как я уже писал Вам ранее, я предлагаю до сделать некоторые заготовки двух вкладок, планируемых к работе (кстати, Вы можете кое что взять из ранее сделанных нами вкладок.</p>
+
+            <div class="tab3 tabs-block help">
+                <ul class="nav nav-pills motiv" role="tablist">
+                    <li role="presentation" class="active"><a data-toggle="pill" href="#instructions">Инструкции</a></li>
+                    <li role="presentation"><a data-toggle="pill" href="#ask-question">Задать вопрос</a></li>
+                    <li role="presentation"><a data-toggle="pill" href="#consult">Телефонная консультация</a></li>
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="instructions">
+                    <?php echo Text::get('touragent-instructions'); ?>
+                    </div>
+                    
+                    <div role="tabpanel" class="tab-pane" id="ask-question">
+                    <?php $this->renderPartial('partials/tab-help/ask-question'); ?>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane" id="consult">
+                    <?php echo Text::get('touragent-consult'); ?>
+                    </div>
                 </div>
             </div>
+
             <div class="tab4 tabs-block raschet">
                 <ul class="nav nav-pills motiv" role="tablist">
                     <li role="presentation" class="active"><a data-toggle="pill" href="#choice-tour">ВЫБОР ТУРА</a></li>
