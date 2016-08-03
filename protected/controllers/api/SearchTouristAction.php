@@ -47,7 +47,7 @@ class SearchTouristAction extends \CApiAction
             case \Yii::app()->user->isManager() && $manager->boss:
                 $touragentId = \Yii::app()->user->model->touragent->id;
 
-                $criteria->with = ['tours', 'tour'];
+                $criteria->with = ['tours'];
                 $criteria->addCondition('tours.touragentId = :touragentId OR tour.touragentId = :touragentId');
                 $criteria->params['touragentId'] = $touragentId;
 
@@ -55,7 +55,7 @@ class SearchTouristAction extends \CApiAction
 
             case \Yii::app()->user->isManager() && !$manager->boss:
 
-                $criteria->with = ['tours', 'tour'];
+                $criteria->with = ['tours'];
                 $criteria->addCondition('tours.managerId = :managerId OR tour.managerId = :managerId');
                 $criteria->params['managerId'] = $manager->id;
 
@@ -64,6 +64,7 @@ class SearchTouristAction extends \CApiAction
 
         $criteria->with[] = 'tours.cities';
         $criteria->with[] = 'status';
+        $criteria->with[] = 'tour';
         
 
         if(!empty($touristId))
@@ -89,7 +90,7 @@ class SearchTouristAction extends \CApiAction
 
         if(!empty($tourCity))
         {
-            $criteria->addCondition('cities.city = :city');
+            $criteria->addCondition('cities.city = :city OR tour.country=:city OR tour.city=:city');
             $criteria->params['city'] = $tourCity;
         }
 
