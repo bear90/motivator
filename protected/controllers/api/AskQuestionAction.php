@@ -49,7 +49,9 @@ class AskQuestionAction extends \CApiAction
         {
             $file = $_FILES["file"]["tmp_name"];
             $filename = $_FILES["file"]["name"];
-            $message->attach(new \Swift_Message_Attachment(new \Swift_File($file), $filename));
+            $message->attach(
+                \Swift_Attachment::fromPath($file)->setFilename($filename)
+            );
         }
 
         if (!\Yii::app()->mail->send($message))
