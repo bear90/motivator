@@ -32,8 +32,8 @@ class AskQuestionAction extends \CApiAction
 
         $message->setBody($text, 'text/html');
 
-        $message->addTo(\Yii::app()->params['adminEmail']);
-        $message->setFrom(\Yii::app()->params['adminEmail'], 'МОТИВАТОР');
+        $message->addTo(\Yii::app()->params['helpEmail']);
+        $message->setFrom(\Yii::app()->params['helpEmail'], 'МОТИВАТОР');
         $message->setSender(\Yii::app()->params['senderEmail']);
         $message->setSubject('Вопрос из рабочего кабинета');
 
