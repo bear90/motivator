@@ -18,9 +18,6 @@
         <span>/</span>
         <a href="#" class="link-now">Личный кабинет абонента</a>
     </div>
-    <div class="lk-block ">
-        <span>ЛИЧНЫЙ КАБИНЕТ <b>№<?php echo $tourist->id; ?></b></span>
-    </div>
 </header>
 
 <section id="tourist-cabinet" class="container-fluid tourist" data-structure="user">
