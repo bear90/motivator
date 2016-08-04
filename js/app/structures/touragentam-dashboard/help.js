@@ -44,6 +44,8 @@ define([
                     this.showError('Ошибка отправки письма. Попробуйте позже.')
                 } else {
                     this.showSuccess(data.message);
+                    $form.find('input[name=file]').val('');
+                    $form.find('textarea[name=text]').val('');
                 }
             },this)).fail($.proxy(function (e, data) {
                 this.showError('Ошибка отправки письма. Попробуйте позже.')
