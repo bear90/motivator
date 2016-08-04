@@ -42,7 +42,7 @@ class AskQuestionAction extends \CApiAction
         {
             $file = $attachment->getTempName();
             $filename = $attachment->getName();
-            $message->attach(new \Swift_Attachment($file, $filename));
+            $message->attach(new \Swift_Attachment(new \Swift_ByteStream_FileByteStream($file), $filename));
         }
 
         if (0 && isset($_FILES['file']) && $_FILES['file']['error'] == 0)
