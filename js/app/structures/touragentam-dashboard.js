@@ -3,10 +3,11 @@
  */
 define([
     'structures/touragentam-dashboard/raschet',
-    'structures/touragentam-dashboard/search'
-], function(raschetView, searchView){
+    'structures/touragentam-dashboard/search',
+    'structures/touragentam-dashboard/help'
+], function(raschetView, searchView, helpView){
 
-    var Index = Backbone.View.extend({
+    return Backbone.View.extend({
 
 
 
@@ -27,8 +28,7 @@ define([
         render: function(){
             (new searchView({el: '.tab2.search'})).render();
             (new raschetView({el: '.tab4.raschet'})).render();
+            (new helpView({el: '.tab3.help'})).render();
         }
     });
-
-    return Index;
 });

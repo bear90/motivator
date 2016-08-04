@@ -10,6 +10,7 @@ class ApiController extends \CController {
             'calculate-choice-tour' => 'application\\controllers\\api\\CalculateChoiceTourAction',
             'calculate-change-tour' => 'application\\controllers\\api\\CalculateChangeTourAction',
             'search-tourist' => 'application\\controllers\\api\\SearchTouristAction',
+            'ask-question' => 'application\\controllers\\api\\AskQuestionAction',
         ];
     }
 }
