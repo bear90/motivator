@@ -42,7 +42,7 @@ define([
                 dateFormat: "dd.mm.yy",
                 onClose: function( selectedDate, calendar ) {
                     var $form = calendar.input.closest('form');
-                    $form.bootstrapValidator('revalidateField', 'endDate');
+                    $form.bootstrapValidator('revalidateField', 'paymentEndDate');
                 }
             });
 
@@ -122,6 +122,25 @@ define([
                         validators: {
                             notEmpty: {
                                 message: "Конечная дата оплаты тура должна быть выбрана!"
+                            },
+                            callback: {
+                                message: 'Конечная дата оплаты тура должна быть позже даты окончания!',
+                                callback: function (value, validator, $field) {
+                                    var endDate = $field.closest('.editBlock').find('input.endDate').val();
+                                    console.log(endDate);
+                                    if (endDate)
+                                    {
+                                        var tmp1 = endDate.split('.');
+                                        var tmp2 = value.split('.');
+                                        var date1 = new Date(tmp1[2], tmp1[1]-1, tmp1[0]);
+                                        var date2 = new Date(tmp2[2], tmp2[1]-1, tmp2[0]);
+                                        if(date2>date1)
+                                        {
+                                            return true;
+                                        }
+                                    }
+                                    return false;
+                                }
                             }
                         }
                     },
