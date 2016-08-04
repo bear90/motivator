@@ -20,6 +20,36 @@
     <div class="viewBlock form">
 
         <div class="inner-block form-group">
+            <label>Страна:</label>
+            <?php echo $offer->country; ?>
+        </div>
+
+        <div class="inner-block form-group">
+            <label>Город/Регион:</label>
+            <?php echo $offer->city; ?>
+        </div>
+
+        <div class="inner-block form-group">
+            <label>Дата начала тура:</label>
+            <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->startDate); ?>
+        </div>
+
+        <div class="inner-block form-group">
+            <label>Дата окончания тура:</label>
+            <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->endDate); ?>
+        </div>
+
+        <div class="inner-block form-group">
+            <label>Конечная дата оплаты тура:</label>
+            <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->paymentEndDate); ?>
+        </div>
+
+        <div class="inner-block form-group">
+            <label>Описание тура:</label>
+            <p><?php echo $offer->description; ?></p>
+        </div>
+
+        <div class="inner-block form-group">
             <label>Исходная стоимость тура:</label>
             <?php echo Tool::getNewPriceText($offer->price); ?>
         </div>
@@ -38,37 +68,6 @@
         <div class="inner-block">
             <label>Сумма к доплате при максимально возможной абонентской скидке:</label>
             <?php echo Tool::getNewPriceText($offer->surchange); ?>
-        </div>
-
-        <h4>ОПИСАНИЕ ТУРА:</h4> 
-        
-        <div class="inner-block form-group">
-            <label>Страна:</label>
-            <?php echo $offer->country; ?>
-        </div>
-        
-        <div class="inner-block form-group">
-            <label>Город/Регион:</label>
-            <?php echo $offer->city; ?>
-        </div>
-        
-        <div class="inner-block form-group">
-            <label>Дата начала тура:</label>
-            <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->startDate); ?>
-        </div>
-        
-        <div class="inner-block form-group">
-            <label>Дата окончания тура:</label>
-            <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->endDate); ?>
-        </div>
-
-        <div class="inner-block form-group">
-            <label>Конечная дата оплаты тура:</label>
-            <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->paymentEndDate); ?>
-        </div>
-
-        <div class="inner-block form-group">
-            <?php echo $offer->description; ?>
         </div>
     </div>
 
