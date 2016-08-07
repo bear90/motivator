@@ -2,3 +2,4 @@ env
 assets
 protected/config/server.mikhail.php
 protected/config/console.mikhail.php
+upload/
