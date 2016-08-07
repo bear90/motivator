@@ -29,3 +29,7 @@ table.text-table th:nth-child(2){
 }
 
 .preview img {max-width: 200px}
+
+.actions {
+    width: 15%;
+}

@@ -7,10 +7,16 @@ use application\modules\admin\models\forms;
 
 class TouragentController extends AdminController {
 
+    public $jsModule = 'touragent';
+
     public function actions(){
         return [
             'index' => 'application\\modules\\admin\\controllers\\touragent\\IndexAction',
             'clear' => 'application\\modules\\admin\\controllers\\touragent\\ClearAction',
+            'manager' => 'application\\modules\\admin\\controllers\\touragent\\ManagerAction',
+            'add-manager' => 'application\\modules\\admin\\controllers\\touragent\\AddManagerAction',
+            'edit-manager' => 'application\\modules\\admin\\controllers\\touragent\\EditManagerAction',
+            'delete-manager' => 'application\\modules\\admin\\controllers\\touragent\\DeleteManagerAction',
         ];
     }
 
