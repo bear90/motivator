@@ -13,7 +13,7 @@
 
 <?php echo $form->renderBegin(); ?>
     
-    <h2>Создание менеджера</h2>
+    <h2>Редактирование менеджера</h2>
 
     <div class="form-group">
         <?php echo $form['name']; ?>
@@ -21,7 +21,7 @@
 
     <div class="form-group">
         <div class="checkbox">
-            <label for=""><?php echo $form['boss']; ?> Руководитель</label>
+            <label><?php echo $form['boss']; ?> Руководитель</label>
         </div>
     </div>
 

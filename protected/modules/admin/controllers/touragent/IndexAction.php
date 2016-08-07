@@ -8,6 +8,7 @@ namespace application\modules\admin\controllers\touragent;
 use application\models\Touragent;
 use application\models\User;
 use application\models\TouragentParam;
+use application\models\TouragentOperator;
 use application\modules\admin\models\forms;
 use application\components\MCForm;
 
@@ -25,7 +26,7 @@ class IndexAction extends \CAction
 
     public function editAction($id)
     {
-        $touragent = Touragent::model()->findByPk($id);
+        $touragent = Touragent::model()->with(['touroperatorLinks'])->findByPk($id);
         $success = '';
 
         $touragentFormEntity = new forms\Touragent();
@@ -124,6 +125,32 @@ class IndexAction extends \CAction
                         $touragentFormEntity->password = '';
                         $touragentFormEntity->repeate = '';
                     }
+
+                    // Save Touroperators
+                    $oldOperators = array_map(function($item){
+                        return $item->touroperatorId;
+                    }, $touragent->touroperatorLinks);
+                    $touroperators = (array) \Yii::app()->request->getPost('Touroperator');
+
+                    $_add = array_diff($touroperators, $oldOperators);
+                    $_remove = array_diff($oldOperators, $touroperators);
+
+                    foreach ($_add as $touroperatorId) {
+                        $entity = new TouragentOperator;
+                        $entity->touragentId = $touragent->id;
+                        $entity->touroperatorId = $touroperatorId;
+                        $entity->save();
+                    }
+                    foreach ($_remove as $touroperatorId) {
+                        $command = \Yii::app()->db->createCommand();
+                        $command->delete('touragent_operator',
+                            'touragentId = :touragentId AND touroperatorId = :touroperatorId', 
+                            [
+                                'touragentId' => $touragent->id,
+                                'touroperatorId' => $touroperatorId,
+                            ]);
+                    }
+                    $touragent->refresh();
 
                     $success = !$touragent->hasErrors() ?
                         'Тураген успешно обновлен' : '';

@@ -2,7 +2,11 @@
 <?php 
     use application\models\Touroperator;
 
-    CHtml::$errorCss = 'help-block'; 
+    CHtml::$errorCss = 'help-block';
+    $operatorIds = array_map(function($item){
+        return $item->touroperatorId;
+    }, $touragent->touroperatorLinks);
+    dd($operatorIds);
 ?>
 
 <?php echo $touragentForm->renderBegin(); ?>
@@ -26,9 +30,7 @@
                 <img src="<?php echo $touragent->getLogoSrc(); ?>" alt="">
             </div>
             <div class="checkbox">
-                <label>
-                    <input type="checkbox" name="deleteLogo"> Удалить логотип
-                </label>
+                <label><input type="checkbox" name="deleteLogo"> Удалить логотип</label>
             </div>
         <?php endif; ?>
     </div>
@@ -36,6 +38,17 @@
     <div class="form-group">
         <?php echo $touragentForm['password']; ?>
         <?php echo $touragentForm['repeate']; ?>
+    </div>
+    <div class="form-group">
+        <label for="">Туроператоры:</label>
+        <?php foreach(Touroperator::getList() as $id => $name): ?>
+            <div class="checkbox">
+                <label>
+                    <?php echo CHtml::checkBox('Touroperator[]', in_array($id, $operatorIds), ['value' => $id])?>
+                    <?php echo $name; ?>
+                </label>
+            </div>
+        <?php endforeach; ?>
     </div>
 
     <div class="form-group">

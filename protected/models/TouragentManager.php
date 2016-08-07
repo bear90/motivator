@@ -12,7 +12,7 @@ class TouragentManager extends DBEntity {
     public function rules(){
         return [
             ['name', 'required'],
-            ['touragentId', 'safe']
+            ['touragentId, description, boss', 'safe']
         ];
     }
 

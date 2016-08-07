@@ -40,6 +40,7 @@ class Touragent extends DBEntity {
                 'order'     => 'touristsHavingDiscount.tourFinishAt',
                 'params'    => ['status' => TouristStatus::HAVE_DISCONT]
             ],
+            'touroperatorLinks' => [self::HAS_MANY, 'application\\models\\TouragentOperator', 'touragentId']
         ];
     }
  
