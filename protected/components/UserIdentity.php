@@ -16,7 +16,10 @@ class UserIdentity extends CUserIdentity {
     }
     
     public function authenticate() {
-        $user = User::model()->findByAttributes(array('password' => $this->password));
+        $user = User::model()->findByAttributes(array(
+            'password' => $this->password,
+            'deleted' => 0
+        ));
 
         if ($user == null || $user->id == 0 || $user->roleId != $this->role) {
             $this->errorCode = self::ERROR_USERNAME_INVALID;

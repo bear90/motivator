@@ -13,6 +13,7 @@ class AdminModule extends CWebModule {
         'template' => 'application\modules\admin\controllers\TemplateController',
         'search' => 'application\modules\admin\controllers\SearchController',
         'touroperator' => 'application\modules\admin\controllers\TouroperatorController',
+        'archive' => 'application\modules\admin\controllers\ArchiveController',
     ];
 }
 

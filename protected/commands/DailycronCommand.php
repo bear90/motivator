@@ -182,7 +182,8 @@ class DailycronCommand extends CConsoleCommand
         ];
         foreach (Tourist::model()->findAll($criteria) as $tourist) {
             self::sendEmailWithView($tourist->email, 'after_tour_2');
-            $tourist->delete();
+            $tourist->deleted = 1;
+            $tourist->save();
             $afterTour2++;
         }
 

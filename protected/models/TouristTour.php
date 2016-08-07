@@ -23,6 +23,7 @@ class TouristTour extends DBEntity
             'tourist'=>[self::BELONGS_TO, 'application\\models\\Tourist', 'touristId'],
             'manager'=>[self::BELONGS_TO, 'application\\models\\TouragentManager', 'managerId'],
             'touragent'=>[self::BELONGS_TO, 'application\\models\\Touragent', 'touragentId'],
+            'operator'=>[self::BELONGS_TO, 'application\\models\\Touroperator', 'operatorId'],
         ];
     }
 
@@ -67,5 +68,12 @@ class TouristTour extends DBEntity
     public function getCurrentSurchange()
     {
         return $this->price - $this->minDiscont - $this->prepayment - $this->tourist->abonentDiscont - $this->tourist->partnerDiscont;
+    }
+
+    public function getSoldAt($format = 'Y-m-d H:i:s')
+    {
+        $date = new \DateTime($this->startDate);
+        
+        return $date->format($format);
     }
 }
