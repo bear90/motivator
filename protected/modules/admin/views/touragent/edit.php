@@ -6,7 +6,6 @@
     $operatorIds = array_map(function($item){
         return $item->touroperatorId;
     }, $touragent->touroperatorLinks);
-    dd($operatorIds);
 ?>
 
 <?php echo $touragentForm->renderBegin(); ?>
