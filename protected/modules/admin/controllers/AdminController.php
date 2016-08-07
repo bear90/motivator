@@ -108,6 +108,11 @@ class AdminController extends \CController
                 'key' => 'search',
                 'label' => 'Поиск туристов',
                 'url' => '/admin/search',
+            ],
+            [
+                'key' => 'touroperator',
+                'label' => 'Туроператоры',
+                'url' => '/admin/touroperator',
             ]
         ]);
 

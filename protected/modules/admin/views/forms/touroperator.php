@@ -12,16 +12,7 @@ return [
             'layout' => '{label}{input}{error}',
             'attributes' => [
                 'class' => 'form-control',
-                'name' => 'Touragent[name]',
-            ]
-        ],
-        'site' => [
-            'label' => 'Сайт:',
-            'type' => 'text',
-            'layout' => '{label}{input}{error}',
-            'attributes' => [
-                'class' => 'form-control',
-                'name' => 'Touragent[site]',
+                'name' => 'Touroperator[name]',
             ]
         ]
     ]
