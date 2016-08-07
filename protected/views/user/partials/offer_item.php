@@ -45,6 +45,11 @@
         </div>
 
         <div class="inner-block form-group">
+            <label>Туроператор:</label>
+            <?php echo $offer->operator ? $offer->operator->name : ''; ?>
+        </div>
+
+        <div class="inner-block form-group">
             <label>Описание тура:</label>
             <p><?php echo $offer->description; ?></p>
         </div>
@@ -133,6 +138,14 @@
             <?php echo CHtml::textField("TourOffer[{$number}][paymentEndDate]",
                 Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->paymentEndDate),
                 ['class' => 'paymentEndDate']); ?>
+        </div>
+        
+        <div class="inner-block form-group">
+            <label>Оператор:</label>
+            <?php echo CHtml::dropDownList("TourOffer[{$number}][operatorId]", 
+                $offer->operatorId,
+                $touragent->getOperatorList(),
+                ['class' => 'operator']); ?>
         </div>
 
         <div class="inner-block form-group">

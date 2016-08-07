@@ -29,6 +29,7 @@
             <?php $this->renderPartial('partials/offer_list', [
                 'tour' => $tour,
                 'manager' => null,
+                'touragent' => null,
                 'canChange' => false
             ]); ?>
         </span>

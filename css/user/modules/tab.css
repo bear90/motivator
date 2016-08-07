@@ -276,6 +276,7 @@
     text-align: left;
     margin-bottom: 0;
 }
+#wrapper .tabs-block.tab1 .request-head-block select {display: block;}
 
 #wrapper .tabs-block.tab1 .request-head-block input {
     border: 1px solid #cfcfcf;

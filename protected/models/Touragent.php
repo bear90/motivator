@@ -40,7 +40,9 @@ class Touragent extends DBEntity {
                 'order'     => 'touristsHavingDiscount.tourFinishAt',
                 'params'    => ['status' => TouristStatus::HAVE_DISCONT]
             ],
-            'touroperatorLinks' => [self::HAS_MANY, 'application\\models\\TouragentOperator', 'touragentId']
+            'touroperatorLinks' => [self::HAS_MANY, 'application\\models\\TouragentOperator', 'touragentId'],
+            'touroperators'  => [self::HAS_MANY, 'application\\models\\Touroperator', 'touroperatorId', 
+                'through' => 'touroperatorLinks'],
         ];
     }
  
@@ -147,5 +149,14 @@ class Touragent extends DBEntity {
 
     public function getLogoSrc() {
         return Configuration::get(Configuration::SITE_DOMAIN) . '/upload/' . $this->id . '/' . $this->logo;
+    }
+
+    public function getOperatorList() 
+    {
+        $list = $this->touroperators;
+        $list = \CHtml::listData($list, 'id', 'name');
+        $list = \CMap::mergeArray(['' => "Выберите оператора.."], $list);
+        
+        return $list;
     }
 }

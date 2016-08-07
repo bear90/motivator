@@ -37,6 +37,14 @@
         </div>
 
         <div class="inner-block form-group">
+            <label>Оператор:</label>
+            <?php echo CHtml::dropDownList("TourOffer[{$number}][operatorId]", 
+                null,
+                $touragent->getOperatorList(),
+                ['class' => 'operator']); ?>
+        </div>
+
+        <div class="inner-block form-group">
             <?php echo CHtml::textArea("TourOffer[1][description]", '', ['class' => 'description']); ?>
         </div>
         <p><a href="#" class="add addOffer">+ ещё одно предложение</a></p>

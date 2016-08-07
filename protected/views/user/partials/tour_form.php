@@ -11,6 +11,7 @@
         <?php $isUser 
             ? $this->renderPartial('partials/tour_item', [
                 'tour' => $tour,
+                'touragent' => $touragent,
                 'canRemove' => true
             ])
             : $this->renderPartial('partials/tour_item_for_manager', [

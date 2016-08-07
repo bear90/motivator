@@ -13,7 +13,7 @@ class TouristTour extends DBEntity
     public function rules(){
         return [
             ['price, startDate, endDate, description, country, city, prepayment', 'required'],
-            ['touristId, managerId, touragentId', 'safe']
+            ['touristId, managerId, touragentId, operatorId', 'safe']
         ];
     }
 

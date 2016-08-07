@@ -21,7 +21,8 @@
             $this->renderPartial('partials/offer_item', [
                 'number' => $num+1,
                 'offer' => $model,
-                'readOnly' => $canChange === false
+                'readOnly' => $canChange === false,
+                'touragent' => $touragent,
             ]);
         }
 
@@ -52,7 +53,8 @@
 
         $this->renderPartial('partials/offer_new', [
             'number' => 1,
-            'offer' => new \application\models\TourOffer()
+            'offer' => new \application\models\TourOffer(),
+            'touragent' => $touragent,
         ]); 
 
         echo CHtml::endForm();

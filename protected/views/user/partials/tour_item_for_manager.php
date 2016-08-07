@@ -30,6 +30,7 @@
             <?php $this->renderPartial('partials/offer_list', [
                 'tour' => $tour,
                 'manager' => $manager,
+                'touragent' => $touragent,
                 'canChange' => $manager && $manager->id == $tour->managerId ||
                                $touragent && !$tour->managerId && !$manager->boss && $touragent->id == $tour->touragentId
             ]); ?>

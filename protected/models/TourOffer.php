@@ -17,7 +17,7 @@ class TourOffer extends DBEntity {
     public function rules(){
         return [
             ['price, startDate, endDate, country, city, paymentEndDate', 'required'],
-            ['tourId, description', 'safe']
+            ['tourId, description, operatorId', 'safe']
         ];
     }
 
@@ -25,6 +25,7 @@ class TourOffer extends DBEntity {
     {
         return [
             'tour'=>[self::BELONGS_TO, 'application\\models\\Tour', 'tourId'],
+            'operator'=>[self::BELONGS_TO, 'application\\models\\Touroperator', 'operatorId'],
         ];
     }
 

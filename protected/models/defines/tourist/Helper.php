@@ -70,6 +70,7 @@ class Helper {
             'touristId' => $tourist->id,
             'managerId' => $offer->tour->managerId,
             'touragentId' => $offer->tour->touragentId,
+            'operatorId' => $offer->operatorId,
         ];
         $touristTour->save();
 
