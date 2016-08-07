@@ -33,7 +33,7 @@ class ExportAction extends \CAction
         $criteria = new \CDbCriteria;
         $criteria->with = ['tour', 'tour.touragent', 'tour.operator'];
         $criteria->condition = 't.statusId = :havingDiscount';
-        $criteria->params = ['havingDiscount' => defines\TouristStatus::GETTING_DISCONT];
+        $criteria->params = ['havingDiscount' => defines\TouristStatus::HAVE_DISCONT];
 
         $entities = Tourist::model()->findAll($criteria);
         // Instantiate a new PHPExcel object
