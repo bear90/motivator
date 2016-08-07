@@ -27,3 +27,5 @@ table.text-table th:nth-child(1){
 table.text-table th:nth-child(2){
     width: 10%;
 }
+
+.preview img {max-width: 200px}

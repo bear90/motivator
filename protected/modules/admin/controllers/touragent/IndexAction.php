@@ -6,6 +6,7 @@
 namespace application\modules\admin\controllers\touragent;
 
 use application\models\Touragent;
+use application\models\User;
 use application\models\TouragentParam;
 use application\modules\admin\models\forms;
 use application\components\MCForm;
@@ -72,11 +73,57 @@ class IndexAction extends \CAction
             }
             else 
             {
+                \CHtml::setModelNameConverter(function(){
+                    return 'Touragent';
+                });
+                $touragentFormEntity->userId = $touragent->userId;
                 $touragentFormEntity->attributes = \Yii::app()->request->getPost('Touragent');
+                $touragentFormEntity->logo = \CUploadedFile::getInstance($touragentFormEntity,'logo');
+
                 if($touragentFormEntity->validate())
                 {
+                    // Save file
+                    if ($touragentFormEntity->logo)
+                    {
+                        $storage = $touragent->getStorage();
+                        
+                        if ($touragent->logo)
+                        {
+                            unlink($storage . '/' . $touragent->logo);
+                        }
+
+                        
+                        if (!is_dir($storage))
+                        {
+                            mkdir($storage, 0777, true);
+                        }
+
+                        $path = $storage.'/logo.'.$touragentFormEntity->logo->getExtensionName();
+                        if ($touragentFormEntity->logo->saveAs($path))
+                        {
+                            $touragent->logo = 'logo.'.$touragentFormEntity->logo->getExtensionName();
+                        }
+                    }
+                    if (\Yii::app()->request->getPost('deleteLogo'))
+                    {
+                        if ($touragent->logo){
+                            unlink($touragent->getStorage() . '/' . $touragent->logo);
+                        }
+                        $touragent->logo = null;
+                    }
+                    // Save data
                     $touragent->attributes = $touragentFormEntity->attributes;
                     $touragent->save();
+
+                    if ($touragentFormEntity->password)
+                    {
+                        $userEntity = User::model()->findByPk($touragent->userId);
+                        $userEntity->password = $touragentFormEntity->password;
+                        $userEntity->save();
+
+                        $touragentFormEntity->password = '';
+                        $touragentFormEntity->repeate = '';
+                    }
 
                     $success = !$touragent->hasErrors() ?
                         'Тураген успешно обновлен' : '';

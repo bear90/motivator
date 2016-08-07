@@ -1,4 +1,9 @@
-<?php CHtml::$errorCss = 'help-block'; ?>
+
+<?php 
+    use application\models\Touroperator;
+
+    CHtml::$errorCss = 'help-block'; 
+?>
 
 <?php echo $touragentForm->renderBegin(); ?>
     <h2>Редактирование турагента: <?php echo $touragent->name ?></h2>
@@ -9,7 +14,28 @@
         <?php echo $touragentForm['name']; ?>
     </div>
     <div class="form-group">
+        <?php echo $touragentForm['address']; ?>
+    </div>
+    <div class="form-group">
         <?php echo $touragentForm['site']; ?>
+    </div>
+    <div class="form-group">
+        <?php echo $touragentForm['logo']; ?>
+        <?php if($touragent->logo): ?>
+            <div class="preview">
+                <img src="<?php echo $touragent->getLogoSrc(); ?>" alt="">
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" name="deleteLogo"> Удалить логотип
+                </label>
+            </div>
+        <?php endif; ?>
+    </div>
+
+    <div class="form-group">
+        <?php echo $touragentForm['password']; ?>
+        <?php echo $touragentForm['repeate']; ?>
     </div>
 
     <div class="form-group">

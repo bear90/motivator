@@ -22,4 +22,12 @@ class Touroperator extends DBEntity
     {
         return 'touroperator';
     }
+
+    public static function getList() 
+    {
+        $list = self::model()->options()->findAll();
+        $list = \CHtml::listData($list, 'id', 'name');
+        
+        return $list;
+    }
 }

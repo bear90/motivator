@@ -4,13 +4,14 @@ namespace application\models;
 
 use application\components\DBEntity;
 use application\models\defines\TouristStatus;
+use application\models\Configuration;
 
 class Touragent extends DBEntity {
 
     public function rules(){
         return [
             ['name', 'required'],
-            ['site', 'safe']
+            ['site, address', 'safe']
         ];
     }
 
@@ -137,5 +138,13 @@ class Touragent extends DBEntity {
         $link = rtrim($link, '/') . '/';
 
         return $link;
+    }
+
+    public function getStorage() {
+        return \Yii::getPathOfAlias('webroot') . '/upload/' . $this->id;
+    }
+
+    public function getLogoSrc() {
+        return Configuration::get(Configuration::SITE_DOMAIN) . '/upload/' . $this->id . '/' . $this->logo;
     }
 }
