@@ -40,6 +40,7 @@ return [
             'layout' => '{label}{input}',
             'attributes' => [
                 'name' => 'startDate',
+                'class' => 'startDate',
             ]
         ],
         'endDate' => [
@@ -48,6 +49,7 @@ return [
             'layout' => '{label}{input}',
             'attributes' => [
                 'name' => 'endDate',
+                'class' => 'endDate',
             ]
         ],
         // When order first tour

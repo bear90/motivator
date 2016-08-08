@@ -48,9 +48,9 @@
                     <a href="#tab1" class="tab <?php echo $this->activeTab == 'tab1' ? 'active' : ''; ?>">ВЫБОР ТУРА</a>
                 <?php endif; ?>
                 <a href="#tab5" class="tab <?php echo $this->activeTab == 'tab5' ? 'active' : ''; ?>" id="fiveTab">ВАШ ТУР</a>
-                <a href="#tab2" class="tab <?php echo $this->activeTab == 'tab2' ? 'active' : ''; ?> <?php echo !$isUser ? 'disabled' : ''; ?>" id="secondTab">ПРИЗ</a>
-                <a href="#tab3" class="tab <?php echo $this->activeTab == 'tab3' ? 'active' : ''; ?> <?php echo !$isUser ? 'disabled' : ''; ?>" id="threeTab">ИНСТРУКЦИИ</a>
-                <a href="#tab4" class="tab <?php echo $this->activeTab == 'tab4' ? 'active' : ''; ?> <?php echo !$isUser ? 'disabled' : ''; ?>" id="fourTab">ПРАВИЛА РАБОTЫ</a>
+                <a href="#tab2" class="tab <?php echo $this->activeTab == 'tab2' ? 'active' : ''; ?>" id="secondTab">ПРИЗ</a>
+                <a href="#tab3" class="tab <?php echo $this->activeTab == 'tab3' ? 'active' : ''; ?>" id="threeTab">ФОРТУНА</a>
+                <a href="#tab4" class="tab <?php echo $this->activeTab == 'tab4' ? 'active' : ''; ?>" id="fourTab">ПРАВИЛА РАБОTЫ</a>
                 <a href="#tab6" class="tab <?php echo $this->activeTab == 'tab6' ? 'active' : ''; ?>" id="sixTab">ВАШ МЕНЕДЖЕР</a>
             </div>
 
@@ -67,8 +67,6 @@
                 ]); ?>
             </div>
             <?php endif; ?>
-
-            <?php if($isUser):?>
             
             <div class="tab2 tabs-block">
                 <div class="inner-block">
@@ -88,8 +86,6 @@
                 </div>
 
             </div>
-            
-            <?php endif; ?>
 
             <div class="tab5 tabs-block" id="your-tour">
 

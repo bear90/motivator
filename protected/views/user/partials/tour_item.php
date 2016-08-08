@@ -30,7 +30,8 @@
                 'tour' => $tour,
                 'manager' => null,
                 'touragent' => null,
-                'canChange' => false
+                'canChange' => false,
+                'viewOperator' => false
             ]); ?>
         </span>
     </div>

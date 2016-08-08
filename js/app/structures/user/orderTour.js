@@ -34,7 +34,10 @@ define([
             $item.find('button.save').addClass('hidden');
             $item.find('a.addOffer').addClass('hidden');
             
-            $newItem = $item.after(this.templateNewOffer({num: number+1})).next();
+            $newItem = $item.after(this.templateNewOffer({
+                num: number+1,
+                operatorOptions: $item.find('select.operator').html()
+            })).next();
 
             this.initOfferComponents($newItem);
             
@@ -43,6 +46,8 @@ define([
             $('form.offerForm').bootstrapValidator('addField', $newItem.find('input.price'));
             $('form.offerForm').bootstrapValidator('addField', $newItem.find('input.startDate'));
             $('form.offerForm').bootstrapValidator('addField', $newItem.find('input.endDate'));
+            $('form.offerForm').bootstrapValidator('addField', $newItem.find('input.paymentEndDate'));
+            $('form.offerForm').bootstrapValidator('addField', $newItem.find('select.operator'));
             $('form.offerForm').bootstrapValidator('addField', $newItem.find('textarea.description'));
         },
 
@@ -91,8 +96,11 @@ define([
                 changeMonth: true,
                 numberOfMonths: 3,
                 dateFormat: "dd.mm.yy",
-                onClose: function( selectedDate ) {
-                    $("#endDate").datepicker("option", "minDate", selectedDate);
+                minDate: new Date,
+                onClose: function( selectedDate, calendar ) {
+                    var date = new Date(calendar.selectedYear, calendar.selectedMonth, calendar.selectedDay);
+                    date.setDate(date.getDate() + 1);
+                    $("#endDate").datepicker("option", "minDate", $.datepicker.formatDate('d.m.yy', date));
                 }
             });
             this.$( "#endDate" ).datepicker({
@@ -100,8 +108,10 @@ define([
                 changeMonth: true,
                 numberOfMonths: 3,
                 dateFormat: "dd.mm.yy",
-                onClose: function( selectedDate ) {
-                    $("#startDate").datepicker("option", "maxDate", selectedDate);
+                onClose: function( selectedDate, calendar ) {
+                    var date = new Date(calendar.selectedYear, calendar.selectedMonth, calendar.selectedDay);
+                    date.setDate(date.getDate() - 1);
+                    $("#startDate").datepicker("option", "maxDate", $.datepicker.formatDate('d.m.yy', date));
                 }
             });
 
@@ -169,11 +179,14 @@ define([
 
             $context.find( ".startDate" ).datepicker({
                 changeMonth: true,
+                minDate: new Date,
                 dateFormat: "dd.mm.yy",
                 onClose: function( selectedDate, calendar ) {
-                    /*var $item = calendar.input.closest('.item');
-                    $item.find(".endDate").datepicker("option", "minDate", selectedDate);
-*/
+                    var $item = calendar.input.closest('.item');
+                    var date = new Date(calendar.selectedYear, calendar.selectedMonth, calendar.selectedDay);
+                    date.setDate(date.getDate() + 1);
+                    $item.find(".endDate").datepicker("option", "minDate", $.datepicker.formatDate('d.m.yy', date));
+
                     var $form = calendar.input.closest('form');
                     $form.bootstrapValidator('revalidateField', 'startDate');
                 }
@@ -183,9 +196,11 @@ define([
                 changeMonth: true,
                 dateFormat: "dd.mm.yy",
                 onClose: function( selectedDate, calendar ) {
-                    /*var $item = calendar.input.closest('.item');
-                    $item.find(".startDate").datepicker("option", "maxDate", selectedDate);
-*/
+                    var $item = calendar.input.closest('.item');
+                    var date = new Date(calendar.selectedYear, calendar.selectedMonth, calendar.selectedDay);
+                    date.setDate(date.getDate() - 1);
+                    $item.find(".startDate").datepicker("option", "maxDate", $.datepicker.formatDate('d.m.yy', date));
+
                     var $form = calendar.input.closest('form');
                     $form.bootstrapValidator('revalidateField', 'endDate');
                 }

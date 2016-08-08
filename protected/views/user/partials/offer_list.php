@@ -23,6 +23,7 @@
                 'offer' => $model,
                 'readOnly' => $canChange === false,
                 'touragent' => $touragent,
+                'viewOperator' => $viewOperator,
             ]);
         }
 

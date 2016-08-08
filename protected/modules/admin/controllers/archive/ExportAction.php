@@ -47,6 +47,7 @@ class ExportAction extends \CAction
         $columns = [
             'ФИО',
             'Email',
+            'Телефон',
             'ТА',
             'ТО',
             'Дата продажи',
@@ -67,6 +68,7 @@ class ExportAction extends \CAction
             $row = [
                 $entity->fullName,
                 $entity->email,
+                $entity->phone,
                 $entity->tour->touragent->name,
                 $entity->tour->operator ? $entity->tour->operator->name : '',
                 $entity->tour->getSoldAt('d.m.Y'),

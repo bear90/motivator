@@ -44,10 +44,12 @@
             <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->paymentEndDate); ?>
         </div>
 
+        <?php if($viewOperator): ?>
         <div class="inner-block form-group">
             <label>Туроператор:</label>
             <?php echo $offer->operator ? $offer->operator->name : ''; ?>
         </div>
+        <?php endif; ?>
 
         <div class="inner-block form-group">
             <label>Описание тура:</label>

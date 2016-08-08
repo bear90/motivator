@@ -7,6 +7,7 @@
     <tr>
         <th>ФИО</th>
         <th>Email</th>
+        <th>Телефон</th>
         <th>ТА</th>
         <th>ТО</th>
         <th>Дата продажи</th>
@@ -19,6 +20,7 @@
         <tr>
             <td><?php echo $entity->fullName; ?></td>
             <td><?php echo $entity->email; ?></td>
+            <td><?php echo $entity->phone; ?></td>
             <td><?php echo $entity->tour->touragent->name; ?></td>
             <td><?php echo $entity->tour->operator ? $entity->tour->operator->name : ''; ?></td>
             <td><?php echo $entity->tour->getSoldAt('d.m.Y'); ?></td>

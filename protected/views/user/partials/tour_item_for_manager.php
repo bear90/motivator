@@ -32,7 +32,8 @@
                 'manager' => $manager,
                 'touragent' => $touragent,
                 'canChange' => $manager && $manager->id == $tour->managerId ||
-                               $touragent && !$tour->managerId && !$manager->boss && $touragent->id == $tour->touragentId
+                               $touragent && !$tour->managerId && !$manager->boss && $touragent->id == $tour->touragentId,
+                'viewOperator' => $touragent && $touragent->id == $tour->touragentId
             ]); ?>
             
         </span>

@@ -37,6 +37,11 @@
         </div>
 
         <div class="inner-block form-group">
+            <label>Туроператор:</label>
+            <select class="operator" name="TourOffer[<%= num %>][operatorId]" data-bv-field="operator"><%= operatorOptions %></select>
+        </div>
+
+        <div class="inner-block form-group">
             <textarea class="description" name="TourOffer[<%= num %>][description]" data-bv-field="description"></textarea>
         </div>
         <p><a href="#" class="add addOffer">+ ещё одно предложение</a></p>

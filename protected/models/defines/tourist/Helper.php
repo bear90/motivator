@@ -59,6 +59,7 @@ class Helper {
 
             $prepayment = Configuration::get(Configuration::PREPAYMENT);
             $touristTour->prepayment = round($offer->price * $prepayment / 100, 2);
+            $touristTour->createdAt = new \CDbExpression('now()');
         }
         $touristTour->attributes = [
             'country' => $offer->country,
