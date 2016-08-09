@@ -8,7 +8,11 @@
     $domain = Configuration::get(Configuration::SITE_DOMAIN);
 ?>
 
-<p><img src="<?php echo $domain; ?>/img/logo.png"></p>
+<style>
+    a, p {font-size: 26px}
+</style>
+
+<p><img src="<?php echo $domain; ?>/img/logo-email.png"></p>
 
 <p><b>ЛИЧНЫЙ  КАБИНЕТ № <?php echo str_pad($tourist->id, 4, "0", STR_PAD_LEFT)?></b></p>
 
