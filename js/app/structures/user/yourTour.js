@@ -161,6 +161,14 @@ define([
                             }
                         }
                     },
+                    operator: {
+                        selector: 'select.operator',
+                        validators: {
+                            notEmpty: {
+                                message: "Оператор должен быть выбран!"
+                            }
+                        }
+                    },
                     description: {
                         selector: 'textarea.description',
                         validators: {

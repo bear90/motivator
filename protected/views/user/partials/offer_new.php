@@ -5,8 +5,11 @@
     <div class="editBlock">
 
         <div class="inner-block form-group">
-            <label>Исходная стоимость тура:</label>
-            <?php echo CHtml::textField("TourOffer[1][price]", '', ['class' => 'price']); ?>
+            <label>Оператор:</label>
+            <?php echo CHtml::dropDownList("TourOffer[{$number}][operatorId]",
+                null,
+                $touragent->getOperatorList(),
+                ['class' => 'operator']); ?>
         </div>
 
         <h4>ОПИСАНИЕ ТУРА:</h4> 
@@ -37,11 +40,8 @@
         </div>
 
         <div class="inner-block form-group">
-            <label>Оператор:</label>
-            <?php echo CHtml::dropDownList("TourOffer[{$number}][operatorId]", 
-                null,
-                $touragent->getOperatorList(),
-                ['class' => 'operator']); ?>
+            <label>Исходная стоимость тура:</label>
+            <?php echo CHtml::textField("TourOffer[1][price]", '', ['class' => 'price']); ?>
         </div>
 
         <div class="inner-block form-group">

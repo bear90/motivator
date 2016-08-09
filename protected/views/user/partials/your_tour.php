@@ -17,6 +17,10 @@
 
 <div class="viewBlock form">
 
+    <?php if ($manager && $tourist->tour->touragentId == $manager->touragentId):?>
+    <div>Туроператор: <span class="value date"><?php echo $tourist->tour->operator ? $tourist->tour->operator->name : ''; ?></span></div>
+    <?php endif; ?>
+
     <div>Страна: <span class="value date"><?php echo $tourist->tour->country; ?></span></div>
     <div>Город/Регион: <span class="value date"><?php echo $tourist->tour->city; ?></span></div>
     <div>Начало тура: 
@@ -93,6 +97,13 @@
 ?>
 
     <div class="editBlock">
+        <div class="inner-block form-group">
+            <label>Туроператор:</label>
+            <?php echo CHtml::dropDownList("Tour[operatorId]", $tourist->tour->operatorId,
+                $manager->touragent->getOperatorList(),
+                ['class' => 'operator']); ?>
+        </div>
+
         <div class="inner-block form-group">
             <label>Исходная стоимость тура:</label>
             <?php echo CHtml::textField("Tour[price]", $tourist->tour->price, ['class' => 'price']); ?>

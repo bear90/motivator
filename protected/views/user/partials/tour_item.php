@@ -9,7 +9,7 @@
 
         <span class="request-head-block clearfix">
             <div class="inner-block">
-                <label for="">Турагента:</label> <?php echo $tour->touragent->name; ?>
+                <label for="">Турагент:</label> <?php echo $tour->touragent->name; ?>
             </div>
 
             <div class="inner-block">

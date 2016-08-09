@@ -23,7 +23,8 @@ class IndexAction extends \CAction
             $loginForm->password = $password;
 
             if ($loginForm->validate() && $loginForm->login(UserRole::MANAGER)) {
-                $loginError = false;
+                $this->controller->redirect(\Yii::app()->createUrl('/turagentam'));
+                return;
             } else {
                 $loginError = 'Не верный логин или пароль';
             }
