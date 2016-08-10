@@ -45,7 +45,10 @@
         </div>
 
         <div class="inner-block form-group">
-            <?php echo CHtml::textArea("TourOffer[1][description]", '', ['class' => 'description']); ?>
+            <?php echo CHtml::textArea("TourOffer[1][description]", '', [
+                'class' => 'description',
+                'id' => "description_{$tourId}_1"
+            ]); ?>
         </div>
         <p><a href="#" class="add addOffer">+ ещё одно предложение</a></p>
         <button type="submit" class="btn btn-default btn-green2 save">РАЗМЕСТИТЬ ПРЕДЛОЖЕНИЕ</button>

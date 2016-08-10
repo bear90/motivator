@@ -56,6 +56,7 @@
             'number' => 1,
             'offer' => new \application\models\TourOffer(),
             'touragent' => $touragent,
+            'tourId' => $tour->id
         ]); 
 
         echo CHtml::endForm();

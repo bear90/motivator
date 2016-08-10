@@ -34,22 +34,51 @@
 </table>
 
 <h2>Таблица учёта баланса турагентов:</h2>
-<table class="table table-bordered">
-    <?php for($i=-1; $i<count($touragents); $i++): ?>
-        <?php $a = isset($touragents[$i]) ? $touragents[$i] : null; ?>
-        <tr>
-        <?php for($j=-1; $j<count($touragents); $j++): ?>
-            <?php $b = isset($touragents[$j]) ? $touragents[$j]  : null; ?>
-            <?php if($i==-1 && $j>=0): ?>
-                <td><?php echo $b->name; ?></td>
-            <?php elseif($i>=0 && $j==-1): ?>
-                <td><?php echo $a->name; ?></td>
-            <?php elseif($i>=0 && $j>=0): ?>
-                <td><?php echo $balance[$a->id][$b->id]; ?></td>
-            <?php else: ?>
-                <td></td>
-            <?php endif; ?>
-        <?php endfor; ?>
-        </tr>
-    <?php endfor; ?>
+<table class="table table-bordered balance">
+    <?php 
+        $buf = [];
+        foreach ($touragents as $a) {
+            foreach ($touragents as $b) {
+                if ($a->id == $b->id || array_intersect(["{$a->id}-{$b->id}", "{$b->id}-{$a->id}"], $buf))
+                {
+                    continue;
+                }
+                $buf[] = "{$a->id}-{$b->id}";
+
+                print "
+                <tr>
+                    <th>{$a->name}</th>
+                    <th></th>
+                    <th>{$b->name}</th>
+                </tr>";
+                foreach ($balance as $item) {
+                    $key = $item['type'];
+                    $value = $item['amount'];
+                    switch (true) {
+                        // Right arrow
+                        case $key == "{$a->id}-{$b->id}":
+                            print "<tr>";
+                            print "<td>{$value}</td>";
+                            print '<td><span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></td>';
+                            print "<td></td>";
+                            print "</tr>";
+                            break;
+                        
+                        // Left arrow
+                        case $key == "{$b->id}-{$a->id}":
+                            print "<tr>";
+                            print "<td></td>";
+                            print '<td><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span></td>';
+                            print "<td>{$value}</td>";
+                            print "</tr>";
+                            break;
+                    }
+                }
+                print "</tr>";
+            }
+        }
+    ?>
 </table>
+
+
+    

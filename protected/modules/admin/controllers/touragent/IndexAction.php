@@ -187,32 +187,34 @@ class IndexAction extends \CAction
     private function getBalance(array $touragents)
     {
         $cmd = \Yii::app()->db->createCommand();
-        $cmd->select(['sourceTouragentId', 'targetTouragentId', 'SUM( amount ) AS amount'])
+        $cmd->select(['sourceTouragentId', 'targetTouragentId', 'amount'])
             ->from('discount_transaction')
-            ->where('sourceTouragentId != targetTouragentId')
-            ->group('sourceTouragentId, targetTouragentId');
+            ->where('sourceTouragentId != targetTouragentId');
 
-        $data = [];
+        $balance = [];
         foreach ($cmd->queryAll() as $row) {
             $a = intval($row['sourceTouragentId']);
             $b = intval($row['targetTouragentId']);
-            $data["{$a}->{$b}"] = intval($row['amount']);
-        }
+            $balance[] = [
+                'type' => "{$a}-{$b}",
+                'amount' => intval($row['amount']),
+            ];
+        }/*
 
         $balance = [];
         foreach ($touragents as $a) {
             foreach ($touragents as $b) {
-                $balance[$a->id][$b->id] = 0;
+                $balance[$a->id][$b->id] = [];
                 if (isset($data["{$a->id}->{$b->id}"]))
                 {
-                    $balance[$a->id][$b->id] += $data["{$a->id}->{$b->id}"];
+                    $balance[$a->id][$b->id][] = $data["{$a->id}->{$b->id}"];
                 }
                 if (isset($data["{$b->id}->{$a->id}"]))
                 {
-                    $balance[$a->id][$b->id] -= $data["{$b->id}->{$a->id}"];
+                    $balance[$a->id][$b->id][] = $data["{$b->id}->{$a->id}"];
                 }
             }
-        }
+        }*/
 
         return $balance;
     }

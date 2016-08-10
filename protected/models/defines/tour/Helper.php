@@ -66,6 +66,17 @@ class Helper {
 
     public function setManager($id, $managerId)
     {
-        return $this->update($id, ['managerId' => $managerId]);
+        $tour = Tour::model()->findByPk($id);
+        if ($tour && !$tour->managerId)
+        {
+            $tour->managerId = $managerId;
+            $tour->save();
+
+            if($tour->hasErrors()){
+                throw new \Exception(\Tool::errorToString($tour->errors));
+            }
+        }
+
+        return $tour;
     }
 }
