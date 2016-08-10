@@ -737,6 +737,7 @@ footer .logo > img {
 #tourist-cabinet .tabs-block p {
     margin: 0 0 10px;
     font-size: 17px;
+    word-wrap: break-word;
 }
 
 #tourist-cabinet .btn {
