@@ -16,7 +16,7 @@ class TextEntity extends  \CActiveRecord
 {
     public function rules(){
         return [
-            ['key, comment, text', 'required'],
+            ['key, comment', 'required'],
             ['text', 'safe']
         ];
     }

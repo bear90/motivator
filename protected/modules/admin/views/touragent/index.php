@@ -18,7 +18,8 @@
         <td><?php echo Tool::calcCheckingDelta($touragent->id); ?></td>
         <td><?php echo $touragent->account; ?></td>
         <td>
-            <a href="<?php echo Yii::app()->createUrl("admin/touragent/clear/{$touragent->id}"); ?>">Удалить туристов</a><br>
+            <a href="<?php echo Yii::app()->createUrl("admin/touragent/clear/{$touragent->id}"); ?>"
+            onclick="return confirm('Вы уверены что хотите удалить всех туристов?')">Удалить туристов</a><br>
             <a href="<?php echo Yii::app()->createUrl("admin/touragent/{$touragent->id}"); ?>">Редактировать</a><br>
             <a href="<?php echo Yii::app()->createUrl("admin/touragent/manager/{$touragent->id}"); ?>">Управление мененджерами</a>
         </td>
