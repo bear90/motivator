@@ -14,19 +14,19 @@
         <th>Значение</th>
     </tr>
     <tr>
-        <td>Минимальная скидка</td>
+        <td>Стартовая скидка для писем</td>
         <td><?php echo CHtml::textField('config['.Configuration::MIN_DISCONT.']', Configuration::get(Configuration::MIN_DISCONT)); ?>%</td>
     </tr>
     <tr>
-        <td>Максимальная скидка</td>
+        <td>Максимально возможная скидка для писем</td>
         <td><?php echo CHtml::textField('config['.Configuration::MAX_DISCONT.']', Configuration::get(Configuration::MAX_DISCONT)); ?>%</td>
     </tr>
     <tr>
-        <td>Предоплата</td>
+        <td>Размер предоплаты</td>
         <td><?php echo CHtml::textField('config['.Configuration::PREPAYMENT.']', Configuration::get(Configuration::PREPAYMENT)); ?>%</td>
     </tr>
     <tr>
-        <td>Дней на выбор тура</td>
+        <td>Срок для выбора тура</td>
         <td><?php echo CHtml::textField('config['.Configuration::ORDER_TOUR_TIMER.']', Configuration::get(Configuration::ORDER_TOUR_TIMER)); ?> дней</td>
     </tr>
 </table>
