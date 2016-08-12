@@ -31,6 +31,12 @@ class Configuration extends DBEntity {
 
     const PARTNER_PERCENT = 'PARTNER_PERCENT';
 
+    const LAST_REMIND = 'LAST_REMIND';
+
+    const ADAPTATION_PERIOD = 'ADAPTATION_PERIOD';
+
+    const DELETE_USER_TIMER = 'DELETE_USER_TIMER';
+
     private static $aValues = null;
 
     /**

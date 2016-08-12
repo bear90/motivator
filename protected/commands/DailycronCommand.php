@@ -74,7 +74,7 @@ class DailycronCommand extends CConsoleCommand
         $criteria->params = [
             'status' => TouristStatus::WANT_DISCONT,
             'date' => $dateTime->format('Y-m-d'),
-            'days' => Configuration::get(Configuration::ORDER_TOUR_TIMER) - 2
+            'days' => Configuration::get(Configuration::LAST_REMIND)
         ];
         foreach (Tourist::model()->findAll($criteria) as $tourist) {
             Tool::informTourist($tourist, 'wait_discont_3');
@@ -162,10 +162,11 @@ class DailycronCommand extends CConsoleCommand
         // First notice after tour is finished
         $criteria = new CDbCriteria();
         $criteria->addCondition('statusId = :status');
-        $criteria->addCondition('DATE(ADDDATE(tourFinishAt, INTERVAL 15 day)) = :date');
+        $criteria->addCondition('DATE(ADDDATE(tourFinishAt, INTERVAL :days day)) = :date');
         $criteria->params = [
             'status' => TouristStatus::HAVE_DISCONT,
             'date' => $dateTime->format('Y-m-d'),
+            'days' => Configuration::get(Configuration::ADAPTATION_PERIOD)
         ];
         foreach (Tourist::model()->findAll($criteria) as $tourist) {
             Tool::informTourist($tourist, 'after_tour_1');
@@ -175,10 +176,11 @@ class DailycronCommand extends CConsoleCommand
         // Second notice after tour is finished
         $criteria = new CDbCriteria();
         $criteria->addCondition('statusId = :status');
-        $criteria->addCondition('DATE(ADDDATE(tourFinishAt, INTERVAL 30 day)) = :date');
+        $criteria->addCondition('DATE(ADDDATE(tourFinishAt, INTERVAL :days day)) = :date');
         $criteria->params = [
             'status' => TouristStatus::HAVE_DISCONT,
             'date' => $dateTime->format('Y-m-d'),
+            'days' => Configuration::get(Configuration::DELETE_USER_TIMER)
         ];
         foreach (Tourist::model()->findAll($criteria) as $tourist) {
             self::sendEmailWithView($tourist->email, 'after_tour_2');
