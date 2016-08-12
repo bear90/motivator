@@ -11,7 +11,14 @@ define([
             "click #btn-continue-2": "renderStep3",
             "click #btn-continue-3": "renderStep4",
             "click #btn-continue-4": "renderStep5",
-            "click #btn-info-board-issue-2": "register"
+            "click #btn-info-board-issue-2": "register",
+            "click #gaide-link": "onClickGaide"
+        },
+
+        onClickGaide: function (e) {
+            e.preventDefault();
+
+            $('.gaide').toggleClass('hidden');
         },
 
         initialize: function(){

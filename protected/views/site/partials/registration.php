@@ -68,11 +68,11 @@
         <div class="step4 hidden">
             <div class="UserGaide">
                 <form action="">
-                    <input type="checkbox" name="userGaide" value="1"><label style="font-size: 1.3em; padding-left: 10px;">Я подтверждаю свое согласие с условиями <a href="#" style="text-decoration: underline;">пользовательского соглашения</a></label>
+                    <input type="checkbox" name="userGaide" value="1"><label style="font-size: 1.3em; padding-left: 10px;">Я подтверждаю свое согласие с условиями <a id="gaide-link" href="#" style="text-decoration: underline;">пользовательского соглашения</a></label>
                 </form>
             </div>
             
-            <div class="gaide"><?php echo Text::get('gaide'); ?></div>
+            <div class="gaide hidden"><?php echo Text::get('gaide'); ?></div>
 
             <div class="row center-block" id="issue-btns">
                 <a class="btn btn-default btn-continue" id="btn-continue-4">Продолжить</a>
