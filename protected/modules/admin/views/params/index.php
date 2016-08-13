@@ -41,6 +41,18 @@
         <td>Срок до удаления ЛК</td>
         <td><?php echo CHtml::textField('config['.Configuration::DELETE_USER_TIMER.']', Configuration::get(Configuration::DELETE_USER_TIMER)); ?> дней</td>
     </tr>
+    <tr>
+        <td>Интервал дублирующих отправок (ш.№10)</td>
+        <td><?php echo CHtml::textField('config['.Configuration::TEMPLATE_10_PERIOD.']', Configuration::get(Configuration::TEMPLATE_10_PERIOD)); ?> дней</td>
+    </tr>
+    <tr>
+        <td>Интервал дублирующих отправок (ш.№11)</td>
+        <td><?php echo CHtml::textField('config['.Configuration::TEMPLATE_11_PERIOD.']', Configuration::get(Configuration::TEMPLATE_11_PERIOD)); ?> дней</td>
+    </tr>
+    <tr>
+        <td>Интервал дублирующих отправок (ш.№12)</td>
+        <td><?php echo CHtml::textField('config['.Configuration::TEMPLATE_12_PERIOD.']', Configuration::get(Configuration::TEMPLATE_12_PERIOD)); ?> дней</td>
+    </tr>
 </table>
 <div class="form-group">
     <button type="submit" class="btn btn-default">Сохранить</button>

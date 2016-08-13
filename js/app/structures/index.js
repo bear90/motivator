@@ -16,6 +16,24 @@ define([
             "click #btn-info-board-issue-2": "register"
         },
 
+        initialize:function () {
+            var location = window.location;
+
+            switch (location.hash) {
+                case '#accordion':
+                    $('#accordion').find('.panel-collapse').addClass('in');
+                    break;
+
+                case '#tabRules':
+                    $('#tabRules').trigger('click');
+                    break;
+
+                case '#tabPartners':
+                    $('#tabPartners').trigger('click');
+                    break;
+            }
+        },
+
         linkClick: function(e){
             var $el = $(e.target);
 

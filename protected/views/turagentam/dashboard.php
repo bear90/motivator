@@ -108,7 +108,7 @@
                 <!-- Tab panes -->
                 <div class="tab-content">
                     <div role="tabpanel" class="tab-pane active" id="instructions">
-                    <?php echo Text::get('touragent-instructions'); ?>
+                    <?php $this->renderPartial('partials/tab-help/instructions'); ?>
                     </div>
                     
                     <div role="tabpanel" class="tab-pane" id="ask-question">

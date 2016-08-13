@@ -37,6 +37,12 @@ class Configuration extends DBEntity {
 
     const DELETE_USER_TIMER = 'DELETE_USER_TIMER';
 
+    const TEMPLATE_10_PERIOD = 'TEMPLATE_10_PERIOD';
+
+    const TEMPLATE_11_PERIOD = 'TEMPLATE_11_PERIOD';
+
+    const TEMPLATE_12_PERIOD = 'TEMPLATE_12_PERIOD';
+
     private static $aValues = null;
 
     /**

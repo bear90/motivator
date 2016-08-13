@@ -54,6 +54,14 @@
                 <a href="#tab6" class="tab <?php echo $this->activeTab == 'tab6' ? 'active' : ''; ?>" id="sixTab">ВАШ МЕНЕДЖЕР</a>
             </div>
 
+            
+
+            <div class="info-block">
+                <?php if($message):?>
+                    <div class="inner-block"><?php echo $message; ?></div>
+                <?php endif;?>
+            </div>
+
             <?php if($tourist->statusId < TouristStatus::GETTING_DISCONT): ?>
             <div 
                 class="tab1 tabs-block clearfix" id="order-tour" 
@@ -147,12 +155,6 @@
                     <a class=" btn btn-default btn-green" href="<?php echo Yii::app()->createUrl('user/dashboard?tab=tab1'); ?>">ВЫБРАТЬ ТУР И ЗАПОЛНИТЬ ЗАЯВКУ</a>
                 </p>
             <?php endif; ?>
-            </div>
-
-            <div class="info-block">
-                <?php if($message):?>
-                    <div class="inner-block"><?php echo $message; ?></div>
-                <?php endif;?>
             </div>
             
             <a href="#" class="bottom-link hidden-xs"></a>
