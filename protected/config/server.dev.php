@@ -5,7 +5,7 @@ $data =  array(
     // application components
     'components'=>array(
         'db'=>array(
-            'connectionString'  => 'mysql:host=localhost;dbname=motivator_prod',
+            'connectionString'  => 'mysql:host=localhost;dbname=motivator',
             'emulatePrepare'    => true,
             'username'          => 'root',
             'password'          => 'start123',

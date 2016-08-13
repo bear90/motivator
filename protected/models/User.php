@@ -2,6 +2,9 @@
 
 namespace application\models;
 
+use application\models\Tourist;
+use application\models\defines;
+
 class User extends \CActiveRecord{
 
     private $salt = 'SaLtaSd';
@@ -54,6 +57,11 @@ class User extends \CActiveRecord{
         if (empty($this->firstLogin))
         {
             $this->firstLogin = new \CDbExpression('now()');
+            if ($this->roleId == defines\UserRole::USER)
+            {
+                $tourist = Tourist::model()->findByAttributes(['userId' => $this->id]);
+                \Tool::informTourist($tourist, 'after_registration');
+            }
         }
         $this->lastLogin = new \CDbExpression('now()');
         $this->save();

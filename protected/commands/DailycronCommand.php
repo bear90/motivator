@@ -27,7 +27,7 @@ class DailycronCommand extends CConsoleCommand
         $afterTour2 = 0;
 
         // Get yesterday registered users
-        $criteria = new CDbCriteria();
+        /*$criteria = new CDbCriteria();
         $criteria->addCondition('statusId = :status');
         $criteria->addCondition('DATE(createdAt) = :date');
         $criteria->params = [
@@ -37,7 +37,7 @@ class DailycronCommand extends CConsoleCommand
         foreach (Tourist::model()->findAll($criteria) as $tourist) {
             Tool::informTourist($tourist, 'after_registration');
             $yesterdayRegistered++;
-        }
+        }*/
 
         // First notification (1/3 part)
         $criteria = new CDbCriteria();

@@ -16,7 +16,8 @@ abstract class CApiAction extends \CAction
         } catch (CHttpException $e){
             throw $e;
         } catch (Exception $e){
-            $this->sendError($e->getMessage());
+            throw $e;
+            //$this->sendError($e->getMessage());
         }
     }
 
