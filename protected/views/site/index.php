@@ -81,7 +81,7 @@ use application\modules\admin\models\Text;
     <!--Rule tab-->
     <div id="rule-tab" class="center-block clearfix">
         <div id="wrapper" class="ms_tabs" data-selected="" data-collapse="1">
-            <a href="#tab1" class="tab">О СЕРВИСЕ «МОТИВАТОР»</a>
+            <a href="#tab1" class="tab" id="tabAbout">О СЕРВИСЕ «МОТИВАТОР»</a>
             <a href="#tab-rules" class="tab" id="tabRules">Правила работы</a>
             <a href="#tab-partners" class="tab" id="tabPartners">Партнёры СЕРВИСА «МОТИВАТОР»</a>
 

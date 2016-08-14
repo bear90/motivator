@@ -28,6 +28,10 @@ define([
                     $('#tabRules').trigger('click');
                     break;
 
+                case '#tabAbout':
+                    $('#tabAbout').trigger('click');
+                    break;
+
                 case '#tabPartners':
                     $('#tabPartners').trigger('click');
                     break;
