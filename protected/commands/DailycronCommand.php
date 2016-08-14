@@ -84,10 +84,11 @@ class DailycronCommand extends CConsoleCommand
         // First notification (1/3 part) when timer is started by manager
         $criteria = new CDbCriteria();
         $criteria->addCondition('statusId = :status');
-        $criteria->addCondition('DATE(ADDDATE(counterStartedAt, CEIL(TIMESTAMPDIFF(DAY, counterStartedAt, counterDate)/3))) = :date');
+        $criteria->addCondition('TIMESTAMPDIFF(DAY, counterStartedAt, :date) % :days = 0 AND :days > 0');
         $criteria->params = [
             'status' => TouristStatus::GETTING_DISCONT,
             'date' => $dateTime->format('Y-m-d'),
+            'days' => Configuration::get(Configuration::TEMPLATE_10_PERIOD)
         ];
         foreach (Tourist::model()->findAll($criteria) as $tourist) {
             Tool::informTourist($tourist, 'notice_1');
@@ -95,9 +96,9 @@ class DailycronCommand extends CConsoleCommand
         }
 
         // First notification (2/3 part) when timer is started by manager
-        $criteria = new CDbCriteria();
+        /*$criteria = new CDbCriteria();
         $criteria->addCondition('statusId = :status');
-        $criteria->addCondition('DATE(ADDDATE(counterStartedAt, CEIL(TIMESTAMPDIFF(DAY, counterStartedAt, counterDate)*2/3))) = :date');
+        $criteria->addCondition('TIMESTAMPDIFF(DAY, counterStartedAt, :date) % :days = 0');
         $criteria->params = [
             'status' => TouristStatus::GETTING_DISCONT,
             'date' => $dateTime->format('Y-m-d'),
@@ -105,15 +106,16 @@ class DailycronCommand extends CConsoleCommand
         foreach (Tourist::model()->findAll($criteria) as $tourist) {
             Tool::informTourist($tourist, 'notice_1');
             $gettingDiscontReminder1++;
-        }
+        }*/
 
         // Second notification (4/9 part) when timer is started by manager
         $criteria = new CDbCriteria();
         $criteria->addCondition('statusId = :status');
-        $criteria->addCondition('DATE(ADDDATE(counterStartedAt, CEIL(TIMESTAMPDIFF(DAY, counterStartedAt, counterDate)*4/9))) = :date');
+        $criteria->addCondition('TIMESTAMPDIFF(DAY, counterStartedAt, :date) % :days = 0 AND :days > 0');
         $criteria->params = [
             'status' => TouristStatus::GETTING_DISCONT,
             'date' => $dateTime->format('Y-m-d'),
+            'days' => Configuration::get(Configuration::TEMPLATE_11_PERIOD)
         ];
         foreach (Tourist::model()->findAll($criteria) as $tourist) {
             Tool::informTourist($tourist, 'notice_2');
@@ -121,7 +123,7 @@ class DailycronCommand extends CConsoleCommand
         }
 
         // Second notification (7/9 part) when timer is started by manager
-        $criteria = new CDbCriteria();
+        /*$criteria = new CDbCriteria();
         $criteria->addCondition('statusId = :status');
         $criteria->addCondition('DATE(ADDDATE(counterStartedAt, CEIL(TIMESTAMPDIFF(DAY, counterStartedAt, counterDate)*7/9))) = :date');
         $criteria->params = [
@@ -131,15 +133,16 @@ class DailycronCommand extends CConsoleCommand
         foreach (Tourist::model()->findAll($criteria) as $tourist) {
             Tool::informTourist($tourist, 'notice_2');
             $gettingDiscontReminder2++;
-        }
+        }*/
 
         // Third notification (5/9 part) when timer is started by manager
         $criteria = new CDbCriteria();
         $criteria->addCondition('statusId = :status');
-        $criteria->addCondition('DATE(ADDDATE(counterStartedAt, CEIL(TIMESTAMPDIFF(DAY, counterStartedAt, counterDate)*5/9))) = :date');
+        $criteria->addCondition('TIMESTAMPDIFF(DAY, counterStartedAt, :date) % :days = 0 AND :days > 0');
         $criteria->params = [
             'status' => TouristStatus::GETTING_DISCONT,
             'date' => $dateTime->format('Y-m-d'),
+            'days' => Configuration::get(Configuration::TEMPLATE_12_PERIOD)
         ];
         foreach (Tourist::model()->findAll($criteria) as $tourist) {
             Tool::informTourist($tourist, 'notice_3');
@@ -147,7 +150,7 @@ class DailycronCommand extends CConsoleCommand
         }
 
         // Third notification (8/9 part) when timer is started by manager
-        $criteria = new CDbCriteria();
+        /*$criteria = new CDbCriteria();
         $criteria->addCondition('statusId = :status');
         $criteria->addCondition('DATE(ADDDATE(counterStartedAt, CEIL(TIMESTAMPDIFF(DAY, counterStartedAt, counterDate)*8/9))) = :date');
         $criteria->params = [
@@ -157,7 +160,7 @@ class DailycronCommand extends CConsoleCommand
         foreach (Tourist::model()->findAll($criteria) as $tourist) {
             Tool::informTourist($tourist, 'notice_3');
             $gettingDiscontReminder3++;
-        }
+        }*/
 
         // First notice after tour is finished
         $criteria = new CDbCriteria();
