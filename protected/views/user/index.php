@@ -56,12 +56,6 @@
 
             
 
-            <div class="info-block">
-                <?php if($message):?>
-                    <div class="inner-block"><?php echo $message; ?></div>
-                <?php endif;?>
-            </div>
-
             <?php if($tourist->statusId < TouristStatus::GETTING_DISCONT): ?>
             <div 
                 class="tab1 tabs-block clearfix" id="order-tour" 
@@ -156,7 +150,15 @@
                 </p>
             <?php endif; ?>
             </div>
-            
+
+
+
+            <div class="info-block">
+                <?php if($message):?>
+                    <div class="inner-block"><?php echo $message; ?></div>
+                <?php endif;?>
+            </div>
+                        
             <a href="#" class="bottom-link hidden-xs"></a>
 
             <div class="bottom-block tourists">

@@ -155,7 +155,7 @@ class Touragent extends DBEntity {
     {
         $list = $this->touroperators;
         $list = \CHtml::listData($list, 'id', 'name');
-        $list = \CMap::mergeArray(['' => "Выберите оператора.."], $list);
+        $list = \CMap::mergeArray(['' => "Выберите оператора"], $list);
         
         return $list;
     }

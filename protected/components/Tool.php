@@ -182,7 +182,7 @@
             $html .= $touragent->name . ' ';
             $html .= '<a href="' . $touragent->getSiteLink() . '" target="_blank">' . $touragent->getSiteName() . '</a>';
             $html .= '<br>';
-            $html .= $_manager->name . ': ' . $_manager->getPhones();
+            $html .= $_manager->name . ': ' . $_manager->description;
 
             return $html;
         }
