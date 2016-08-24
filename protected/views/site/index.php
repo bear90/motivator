@@ -111,7 +111,7 @@ use application\modules\admin\models\Text;
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title text-center text-uppercase">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                    <a data-toggle="collapse" href="#collapseOne">
                         <div class="panel-text marginTop">Что для этого нужно сделать?</div>
                         <div class="panel-direction pull-right"></div>
                     </a>
@@ -127,7 +127,7 @@ use application\modules\admin\models\Text;
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title text-center text-uppercase">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+                    <a data-toggle="collapse" href="#collapseTwo">
                         <div class="panel-text marginTop">Что включает в себя общая скидка и от чего зависит её размер?</div>
                         <div class="panel-direction pull-right"></div>
                     </a>
@@ -143,7 +143,7 @@ use application\modules\admin\models\Text;
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title text-center text-uppercase">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                    <a data-toggle="collapse" href="#collapse3">
                         <div class="panel-text marginTop marginTopFive">Порядок начисления общей скидки</div>
                         <div class="panel-direction pull-right"></div>
                     </a>
@@ -161,7 +161,7 @@ use application\modules\admin\models\Text;
         <div class="panel panel-default">
             <div class="panel-heading threeHead">
                 <h4 class="panel-title text-center text-uppercase">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+                    <a data-toggle="collapse" href="#collapseThree">
                         <div class="panel-text marginTop">Чем сервис «МОТИВАТОР» отличается от раннего бронирования?</div>
                         <div class="panel-direction pull-right"></div>
                     </a>
@@ -176,7 +176,7 @@ use application\modules\admin\models\Text;
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title text-center text-uppercase">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour">
+                    <a data-toggle="collapse" href="#collapseFour">
                         <div class="panel-text marginTop">На какие туры предоставляется скидка?  </div>
                         <div class="panel-direction pull-right"></div>
                     </a>
@@ -191,7 +191,7 @@ use application\modules\admin\models\Text;
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h4 class="panel-title text-center text-uppercase">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive">
+                    <a data-toggle="collapse" href="#collapseFive">
                         <div class="panel-text marginTop marginTopFive">Исходная стоимость туров от партнёров сервиса «мотиватор»</div>
                         <div class="panel-direction pull-right"></div>
                     </a>

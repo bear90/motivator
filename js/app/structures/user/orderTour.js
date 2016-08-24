@@ -134,7 +134,7 @@ define([
                     "city[]": {
                         validators: {
                             notEmpty: {
-                                message: "Хотя бы один город должен быть введен!"
+                                message: "Хотя бы одна страна должена быть введена!"
                             }
                         }
                     },
@@ -356,7 +356,7 @@ define([
                         selector: 'select.operator',
                         validators: {
                             notEmpty: {
-                                message: "Оператор должен быть выбран!"
+                                message: "Туроператор должен быть выбран!"
                             }
                         }
                     },

@@ -165,7 +165,7 @@ define([
                         selector: 'select.operator',
                         validators: {
                             notEmpty: {
-                                message: "Оператор должен быть выбран!"
+                                message: "Туроператор должен быть выбран!"
                             }
                         }
                     },

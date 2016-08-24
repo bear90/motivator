@@ -14,9 +14,14 @@
 
 <p><img src="<?php echo $domain; ?>/img/logo-email.png"></p>
 
+
 <p><b>ЛИЧНЫЙ  КАБИНЕТ № <?php echo str_pad($tourist->id, 4, "0", STR_PAD_LEFT)?></b></p>
 
-<p><a href="<?php echo $tourist->user->getAutoLoginLink(); ?>">Перейти в личный кабинет</a></p>
+<?php if($view != 'cabinet_deleted'): ?>
+    
+    <p><a href="<?php echo $tourist->user->getAutoLoginLink(); ?>">Перейти в личный кабинет</a></p>
+
+<?php endif; ?>
 
 <?php echo $content; ?>
 

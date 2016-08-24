@@ -5,7 +5,7 @@
     <div class="editBlock">
 
         <div class="inner-block form-group">
-            <label>Оператор:</label>
+            <label>Туроператор:</label>
             <?php echo CHtml::dropDownList("TourOffer[{$number}][operatorId]",
                 null,
                 $touragent->getOperatorList(),

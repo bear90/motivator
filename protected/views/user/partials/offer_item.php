@@ -143,7 +143,7 @@
         </div>
         
         <div class="inner-block form-group">
-            <label>Оператор:</label>
+            <label>Туроператор:</label>
             <?php echo CHtml::dropDownList("TourOffer[{$number}][operatorId]", 
                 $offer->operatorId,
                 $touragent->getOperatorList(),

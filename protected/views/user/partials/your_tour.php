@@ -61,7 +61,7 @@
         <div class="col-md-4 ta-r"><?php echo Tool::getNewPriceText($tourist->tour->minDiscont); ?></div>
     </div>
     <div class="row hidden-row bg-grey">
-        <label class="col-md-8">Текущая абонентская скидка:</label>
+        <label class="col-md-8">Добавочная абонентская скидка:</label>
         <div class="col-md-4 ta-r"><?php echo Tool::getNewPriceText($tourist->abonentDiscont); ?></div>
     </div>
     <div class="row hidden-row bg-grey">

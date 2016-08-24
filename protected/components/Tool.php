@@ -72,7 +72,8 @@
 
                 $text = $controller->renderInternal($path, [
                     'tourist' => $tourist,
-                    'content' => $template['content']
+                    'content' => $template['content'],
+                    'view' => $view
                 ], true);
             }
             

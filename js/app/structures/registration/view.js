@@ -94,7 +94,7 @@ define([
                             remote: {
                                 url: '/site/checkcapture/',
                                 type: 'POST',
-                                message: "Введите корректный номер личного кабинета"
+                                message: "Введите корректный проверочный код"
                             }
                         } // validators yovupin
                     },
