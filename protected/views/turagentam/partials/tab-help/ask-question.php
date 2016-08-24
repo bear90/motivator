@@ -14,4 +14,3 @@
         <button type="submit" class="btn btn-default">Отправить</button>
     </div>
 </form>
-<div id="change-calculation"><!-- --></div>
