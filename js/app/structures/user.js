@@ -21,6 +21,12 @@ define([
             "click .custom-list a": "clickReasonItem"
         },
 
+        initialize: function() {
+            setInterval(function(){
+                window.location.reload(false);
+            }, 5*60*1000);
+        },
+
         clickReasonItem: function(e)
         {
             e.preventDefault();
