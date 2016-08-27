@@ -62,8 +62,8 @@ use application\modules\admin\models\Text;
   <div id="rule-tab" class="center-block">
       <div id="wrapper" class="ms_tabs" data-selected="" data-collapse="1">
           <a href="#tab1" class="tab">О СЕРВИСЕ «МОТИВАТОР»</a>
-          <a href="#tab-rules" class="tab" id="secondTab">Правила работы</a>
-          <a href="#tab-articles" class="tab" id="threeTab">Статьи, Аналитика</a>
+          <a href="#tab-rules" class="tab" id="secondTab">СОТРУДНИЧЕСТВО</a>
+          <a href="#tab-articles" class="tab" id="threeTab">ПАРТНЁРЫ СЕРВИСА «МОТИВАТОР»</a>
 
           <div class="tab1 tabs-block">
               <?php echo Text::get('turagentam-about'); ?>
