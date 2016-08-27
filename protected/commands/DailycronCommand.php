@@ -186,7 +186,7 @@ class DailycronCommand extends CConsoleCommand
             'days' => Configuration::get(Configuration::DELETE_USER_TIMER)
         ];
         foreach (Tourist::model()->findAll($criteria) as $tourist) {
-            self::sendEmailWithView($tourist->email, 'after_tour_2');
+            Tool::sendEmailWithLayout($tourist, 'after_tour_2', ['tourist' => $tourist]);
             $tourist->deleted = 1;
             $tourist->save();
             $afterTour2++;

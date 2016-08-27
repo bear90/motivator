@@ -28,8 +28,10 @@
         public static function informTourist(Tourist $tourist, $view, array $data = [])
         {
             $data['tourist'] = $tourist;
-            $r = self::sendEmailWithLayout($tourist, $view, $data);
+            $sendingResult = self::sendEmailWithLayout($tourist, $view, $data);
             self::sendMessage($tourist, $view, $data);
+
+            return $sendingResult;
         }
 
         public static function sendEmailWithView($to, $view, array $data = [])
