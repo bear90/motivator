@@ -20,10 +20,24 @@
     </div>
   </div>
   <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="heading13">
+      <b class="panel-title">
+        <a role="button" data-toggle="collapse" href="#collapse13" aria-expanded="true" aria-controls="collapse13">
+          2. РЕКОМЕНДАЦИИ ПО РАБОТЕ, ТЕРМИНЫ 
+        </a>
+      </b>
+    </div>
+    <div id="collapse13" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading13">
+      <div class="panel-body">
+        <?php echo Text::get('instruction_item_13'); ?>
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="heading2">
       <b class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" href="#collapse2" aria-expanded="false" aria-controls="collapse2">
-          2. ОТПРАВКА  ПРЕДЛОЖЕНИЯ  ПО  ЗАЯВКЕ  НА  ТУР
+          3. ОТПРАВКА  ПРЕДЛОЖЕНИЯ  ПО  ЗАЯВКЕ  НА  ТУР
         </a>
       </b>
     </div>
@@ -37,7 +51,7 @@
     <div class="panel-heading" role="tab" id="heading3">
       <b class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" href="#collapse3" aria-expanded="false" aria-controls="collapse3">
-          3. РЕДАКТИРОВАНИЕ  ПРЕДЛОЖЕНИЯ  ПО  ЗАЯВКЕ  НА  ТУР
+          4. РЕДАКТИРОВАНИЕ  ПРЕДЛОЖЕНИЯ  ПО  ЗАЯВКЕ  НА  ТУР
         </a>
       </b>
     </div>
@@ -51,7 +65,7 @@
     <div class="panel-heading" role="tab" id="heading4">
       <b class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" href="#collapse4" aria-expanded="false" aria-controls="collapse4">
-          4. ВЫБОР  АБОНЕНТОМ  ТУРА
+          5. ВЫБОР  АБОНЕНТОМ  ТУРА
         </a>
       </b>
     </div>
@@ -65,7 +79,7 @@
     <div class="panel-heading" role="tab" id="heading5">
       <b class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" href="#collapse5" aria-expanded="false" aria-controls="collapse5">
-          5. СКИДКА  ЗА  ПРИВЛЕЧЕНИЕ
+          6. СКИДКА  ЗА  ПРИВЛЕЧЕНИЕ
         </a>
       </b>
     </div>
@@ -79,7 +93,7 @@
     <div class="panel-heading" role="tab" id="heading6">
       <b class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" href="#collapse6" aria-expanded="false" aria-controls="collapse6">
-          6. ЗАМЕНА  ТУРА
+          7. ЗАМЕНА  ТУРА
         </a>
       </b>
     </div>
@@ -93,7 +107,7 @@
     <div class="panel-heading" role="tab" id="heading7">
       <b class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" href="#collapse7" aria-expanded="false" aria-controls="collapse7">
-          7. ОТКАЗ  АБОНЕНТА  ОТ  ПОКУПКИ  ТУРА
+          8. ОТКАЗ  АБОНЕНТА  ОТ  ПОКУПКИ  ТУРА
         </a>
       </b>
     </div>
@@ -107,7 +121,7 @@
     <div class="panel-heading" role="tab" id="heading8">
       <b class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" href="#collapse8" aria-expanded="false" aria-controls="collapse8">
-          8. ПРОДАЖА  ТУРА
+          9. ПРОДАЖА  ТУРА
         </a>
       </b>
     </div>
@@ -121,7 +135,7 @@
     <div class="panel-heading" role="tab" id="heading9">
       <b class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" href="#collapse9" aria-expanded="false" aria-controls="collapse9">
-          9. БЫСТРЫЙ  ОТЪЕЗД  НА  ОТДЫХ
+          10. БЫСТРЫЙ  ОТЪЕЗД  НА  ОТДЫХ
         </a>
       </b>
     </div>
@@ -135,7 +149,7 @@
     <div class="panel-heading" role="tab" id="heading10">
       <b class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" href="#collapse10" aria-expanded="false" aria-controls="collapse10">
-          10. СОВЕТЫ  И  МАЛЕНЬКИЕ  ХИТРОСТИ
+          11. СОВЕТЫ  И  МАЛЕНЬКИЕ  ХИТРОСТИ
         </a>
       </b>
     </div>
@@ -149,7 +163,7 @@
     <div class="panel-heading" role="tab" id="heading11">
       <b class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" href="#collapse11" aria-expanded="false" aria-controls="collapse11">
-          11. НЕШТАТНЫЕ  СИТУАЦИИ
+          12. НЕШТАТНЫЕ  СИТУАЦИИ
         </a>
       </b>
     </div>
@@ -159,11 +173,12 @@
       </div>
     </div>
   </div>
+  <?php /* ?>
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="heading12">
       <b class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" href="#collapse12" aria-expanded="false" aria-controls="collapse12">
-          12. ПО  СЕКРЕТУ  ОТ  КЛИЕНТОВ…
+          13. ПО  СЕКРЕТУ  ОТ  КЛИЕНТОВ…
         </a>
       </b>
     </div>
@@ -173,4 +188,5 @@
       </div>
     </div>
   </div>
+  <?php */ ?>
 </div>
