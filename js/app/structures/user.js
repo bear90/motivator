@@ -18,7 +18,24 @@ define([
 
         events: {
             "click button.reason-list": "clickReasonList",
-            "click .custom-list a": "clickReasonItem"
+            "click .custom-list a": "clickReasonItem",
+            "click .message a": "clickCloseMessage"
+        },
+
+        clickCloseMessage: function (e) {
+            e.preventDefault();
+
+            var $message = $(e.currentTarget).closest('.message');
+            var id = $(e.currentTarget).data('id');
+
+            $.ajax('/api/close-message', {
+                type: 'POST',
+                data: {
+                    id: id
+                }
+            }).done(function () {
+                $message.remove();
+            })
         },
 
         initialize: function() {

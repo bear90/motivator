@@ -11,6 +11,7 @@ class ApiController extends \CController {
             'calculate-change-tour' => 'application\\controllers\\api\\CalculateChangeTourAction',
             'search-tourist' => 'application\\controllers\\api\\SearchTouristAction',
             'ask-question' => 'application\\controllers\\api\\AskQuestionAction',
+            'close-message' => 'application\\controllers\\api\\CloseMessageAction',
         ];
     }
 }

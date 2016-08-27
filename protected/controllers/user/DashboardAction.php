@@ -44,9 +44,7 @@ class DashboardAction extends \CAction
                 break;
         }
 
-        $message = $tourist->message ? $tourist->message->text : '';
-
-        if($message) 
+        if($tourist->messages) 
         {
             $this->controller->activeTab = '';
         }
@@ -76,7 +74,7 @@ class DashboardAction extends \CAction
             'manager' => $manager,
             'tourFormSubmitted' => $tourFormSubmitted,
             'tours' => $tours,
-            'message' => $message
+            'messages' => $tourist->messages
         ]);
     }
 }
