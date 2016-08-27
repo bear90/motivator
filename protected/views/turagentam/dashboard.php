@@ -3,7 +3,8 @@
 ?>
 
 <section id="blank" class="container-fluid" data-structure="touragentam-dashboard"
-    data-manager-id="<?php echo $manager->id; ?>">
+    data-manager-id="<?php echo $manager->id; ?>"
+    data-touragent-id="<?php echo $manager->touragent->id; ?>">
     <div class="row">
         <div class="head">
             <h1 class="touragentName"><?php echo $manager->touragent->name; ?></h1>
@@ -138,11 +139,7 @@
                 </div>
             </div>
 
-            <div class="info-block">
-                <!-- <div class="inner-block">
-                    <h4>Сообщение</h4>
-                    <p>Как я уже писал Вам ранее, я предлагаю до сделать некоторые заготовки двух вкладок, планируемых к работе (кстати, Вы можете кое что взять из ранее сделанных нами вкладок.</p>
-                </div> -->
+            <div class="info-block orders">
 
                 <a href="#" class="bottom-link hidden-sm hidden-md hidden-lg"></a>
 
@@ -158,6 +155,17 @@
                     </div>
                 <?php endif; ?>
             </div>
+
+            <div id="alarm-message" class="alert alert-warning" role="alert">ПОЛУЧЕНА  НОВАЯ  ЗАЯВКА  НА  ТУР!
+                <button type="button" class="close" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <audio controls id="alarm-audio">
+                <source src="/audio/new-message.ogg" type="audio/ogg">
+                <source src="/audio/new-message.mp3" type="audio/mpeg">
+            </audio>
 
             <a href="#" class="bottom-link hidden-xs"></a>
         </div>​

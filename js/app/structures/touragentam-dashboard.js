@@ -4,12 +4,11 @@
 define([
     'structures/touragentam-dashboard/raschet',
     'structures/touragentam-dashboard/search',
-    'structures/touragentam-dashboard/help'
-], function(raschetView, searchView, helpView){
+    'structures/touragentam-dashboard/help',
+    'structures/touragentam-dashboard/tourTracker'
+], function(raschetView, searchView, helpView, tourTrackerView){
 
     return Backbone.View.extend({
-
-
 
         events: {
             'click .tourists-tabs a': 'showTourists',
@@ -29,6 +28,7 @@ define([
             (new searchView({el: '.tab2.search'})).render();
             (new raschetView({el: '.tab4.raschet'})).render();
             (new helpView({el: '.tab3.help'})).render();
+            (new tourTrackerView({el: this.el})).render();
         }
     });
 });

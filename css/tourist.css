@@ -918,3 +918,13 @@ section {position: relative;}
 .gaide {
     font-size: 17px;
 }
+
+#alarm-message {
+    position: fixed; z-index: 1; right: 25px; bottom: 10px; width: 360px; font-weight: bold; display: none;
+    padding-left: 60px;
+    background-image: url('../img/robot.png');
+    background-repeat: no-repeat;
+    background-position: 5px 5px;
+}
+#alarm-message button {outline: none;}
+#alarm-audio {display: none;}

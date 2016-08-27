@@ -97,6 +97,7 @@ class DashboardAction extends \CAction
 
         $criteria = new \CDbCriteria();
         $criteria->condition = "t.touragentId = :touragentId AND managerId is null";
+        $criteria->order = "t.id";
         $criteria->params['touragentId'] = $touragentId;
 
         return Tour::model()->findAll($criteria);
