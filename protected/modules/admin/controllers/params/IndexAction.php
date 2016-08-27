@@ -20,6 +20,11 @@ class IndexAction extends \CAction
             foreach ($params as $name => $value) 
             {
                 $entity = Configuration::model()->findByAttributes(['name' => $name]);
+                if($entity === null){
+                    $entity = new Configuration;
+                    $entity->name = $name;
+                    $entity->type = 'string';
+                }
                 $entity->value = $value;
                 $entity->save();
             }
