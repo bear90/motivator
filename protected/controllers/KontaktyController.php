@@ -8,7 +8,8 @@ class KontaktyController extends \CController {
 
     public function actions(){
         return [
-            'index' => 'application\\controllers\\kontakty\\IndexAction'
+            'index' => 'application\\controllers\\kontakty\\IndexAction',
+            'question' => 'application\\controllers\\kontakty\\QuestionAction'
         ];
     }
 

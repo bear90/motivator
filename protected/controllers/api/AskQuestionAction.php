@@ -19,20 +19,24 @@ class AskQuestionAction extends \CApiAction
 {
     public function doRun()
     {
-        // Restrict access for unknown agents
-        if (!\Yii::app()->user->isManager())
-        {
-            throw new \CHttpException(404, 'Not found');
-        }
-
-
-
+        
         $message = new \YiiMailMessage;
         $text = \Yii::app()->request->getPost('text');
 
         $message->setBody($text, 'text/html');
 
-        $message->addTo(\Yii::app()->params['helpEmail']);
+        $emailTo = \Yii::app()->request->getPost('emailTo');
+
+        if (!isset($emailTo))
+        {
+            $emailTo = \Yii::app()->params['helpEmail'];
+        } 
+        elseif (!preg_match('/motivator\-travel\.by$/', $emailTo)) 
+        {
+            throw new \Exception('Ошибка отправки сообщения');
+        }
+
+        $message->addTo($emailTo);
         $message->setFrom(\Yii::app()->params['helpEmail'], 'МОТИВАТОР');
         $message->setSender(\Yii::app()->params['senderEmail']);
         $message->setSubject('Вопрос из рабочего кабинета');

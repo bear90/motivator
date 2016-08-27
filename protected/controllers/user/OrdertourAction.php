@@ -32,7 +32,7 @@ class OrdertourAction extends \CAction
             $id = \Yii::app()->user->model->tourist->id;
             $helper->update($id, $touristData);
 
-            \Tool::informTourist($tour->tourist, 'order_tour');
+            \Tool::informTourist(\Yii::app()->user->model->tourist, 'order_tour');
         }
 
         \Yii::app()->user->setState('tour::created', true);

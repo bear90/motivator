@@ -7,17 +7,17 @@
     <meta content="Motivator" name='description'>
     <meta content="Motivator" name='keywords'>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="shortcut icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/plugins/slidebars.css">
+    <link rel="stylesheet" href="/css/plugins/slidebars.css">
     <link rel="stylesheet" href="/css/modules/tab.css">
-    <link rel="stylesheet" href="css/contacts.css">
-    <link rel="stylesheet" href="css/tourist.css">
+    <link rel="stylesheet" href="/css/contacts.css">
+    <link rel="stylesheet" href="/css/tourist.css">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-    <script src="js/html5shiv.min.js"></script>
-    <script src="js/respond.min.js"></script>
+    <script src="/js/html5shiv.min.js"></script>
+    <script src="/js/respond.min.js"></script>
     <![endif]-->
 </head>
 <body>
@@ -29,7 +29,7 @@
                 <span class="icon-bar"></span>
             </div>
             <a class="logo" href="/">
-                <img src="img/logo.png" alt="Motivator">
+                <img src="/img/logo.png" alt="Motivator">
                 <h1 class="text-uppercase text-right">эстафета выгоды</h1>
             </a>
         </header>
@@ -40,7 +40,7 @@
             <div class="row">
                 <div class="col-xs-12 col-xs-offset-0 col-sm-4 col-sm-offset-4 col-lg-3 col-lg-offset-0">
                     <a class="logo" href="<?php echo Yii::app()->createUrl("admin/touragent"); ?>">
-                        <img src="img/logo.png" alt="Motivator">
+                        <img src="/img/logo.png" alt="Motivator">
                     </a>
                 </div>
                 <div class="col-md-6" id="footer-menu">
@@ -77,20 +77,20 @@
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/bootstrapValidator.min.js" type="text/javascript"></script>
     <!--SlideBars plugin-->
-    <script src="js/slidebars.js" type="text/javascript"></script>
+    <script src="/js/slidebars.js" type="text/javascript"></script>
 
     <!-- Main bxSlider -->
-    <script src="js/jquery.bxslider.min.js" type="text/javascript"></script>
+    <script src="/js/jquery.bxslider.min.js" type="text/javascript"></script>
     <!--Local settings-->
     <!-- // <script src="js/settings-contacts.js"></script> -->
 
     <!--Local settings-->
-    <script src="js/settings-contacts.js"></script>
+    <script src="/js/settings-contacts.js"></script>
 
     <!--Local settings-->
-    <script src="js/settings-tourist.js"></script>
+    <script src="/js/settings-tourist.js"></script>
 
-    <script data-main="js/app/main.js" src="js/app/vendor/requirejs/require.js"></script>
+    <script data-main="/js/app/main.js" src="/js/app/vendor/requirejs/require.js"></script>
 
 </body>
 </html>

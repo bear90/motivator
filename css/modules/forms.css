@@ -110,6 +110,13 @@ form .help-block {
     color: rgba(255, 0, 0, 0.7);
 }
 
+form.ask-question label {
+    font-size: 17px;
+}
+form.ask-question .help-block {
+    color: #6c6c6c
+}
+
 .input-fld {
     margin-bottom: 15px;
 }

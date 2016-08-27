@@ -20,7 +20,9 @@ $data =  array(
     ),
 
     'params'=>array(
-        'adminEmail'    =>'webmaster@example.com',
+        'helpEmail'    =>'help@motivator-travel.by',
+        'adminEmail'    =>'abonent@motivator-travel.by',
+        'senderEmail' => 'igorshablovsky@gmail.com',
         'yiiPath'       => 'd:\www/motivator.by/framework/yii.php'
     ),
 );
