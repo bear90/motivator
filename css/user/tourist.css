@@ -888,3 +888,5 @@ ul.custom-list li a {
 
 .message {position: relative;}
 .message a.remove {position: absolute; right: 5px; top: 5px;}
+
+select:disabled{color: graytext;}

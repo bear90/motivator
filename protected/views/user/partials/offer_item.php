@@ -147,7 +147,7 @@
             <?php echo CHtml::dropDownList("TourOffer[{$number}][operatorId]", 
                 $offer->operatorId,
                 $touragent->getOperatorList(),
-                ['class' => 'operator']); ?>
+                ['class' => 'operator', 'disabled' => true]); ?>
         </div>
 
         <div class="inner-block form-group">

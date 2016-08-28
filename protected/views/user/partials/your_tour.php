@@ -101,7 +101,7 @@
             <label>Туроператор:</label>
             <?php echo CHtml::dropDownList("Tour[operatorId]", $tourist->tour->operatorId,
                 $manager->touragent->getOperatorList(),
-                ['class' => 'operator']); ?>
+                ['class' => 'operator', 'disabled' => true]); ?>
         </div>
 
         <div class="inner-block form-group">
