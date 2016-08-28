@@ -34,6 +34,10 @@
     </tr>
 </table>
 
+<a href="<?php echo Yii::app()->createUrl("/admin/touragent/add/")?>" type="button" class="btn btn-default">
+    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> добавить
+</a>
+
 <h2>Таблица учёта баланса турагентов:</h2>
 <table class="table table-bordered balance">
     <?php 
@@ -80,6 +84,8 @@
         }
     ?>
 </table>
+
+
 
 
     

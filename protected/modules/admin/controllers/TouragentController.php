@@ -12,6 +12,7 @@ class TouragentController extends AdminController {
     public function actions(){
         return [
             'index' => 'application\\modules\\admin\\controllers\\touragent\\IndexAction',
+            'add' => 'application\\modules\\admin\\controllers\\touragent\\AddAction',
             'clear' => 'application\\modules\\admin\\controllers\\touragent\\ClearAction',
             'manager' => 'application\\modules\\admin\\controllers\\touragent\\ManagerAction',
             'add-manager' => 'application\\modules\\admin\\controllers\\touragent\\AddManagerAction',

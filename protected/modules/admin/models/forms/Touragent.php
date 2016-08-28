@@ -18,6 +18,7 @@ class Touragent extends \CFormModel
     public function rules(){
         return array(
             array('name, site', 'required'),
+            array('password', 'required', 'on' => 'create'),
             array('address, repeate', 'safe'),
             array('logo', 'file', 
                 'types' => ['jpg', 'gif', 'png'], 
