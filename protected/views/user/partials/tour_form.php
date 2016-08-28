@@ -29,7 +29,7 @@
 <div class="tabs-block-inner">
     <div class="head-inner-block">
         <div class="inner-block col-xs-12">
-            <label>Для выбора  тура и турагента ознакомьтесь с предложениями от партнёров системы «МОТИВАТОР»:</label>
+            <label>Для выбора  тура и турагента ознакомьтесь с предложениями от партнёров сервиса «МОТИВАТОР»:</label>
             <?php echo CHtml::dropDownList('site', null, \application\models\Touragent::getSiteOptions());?>
         </div>
         <h4 class="title">Заполните и отправьте заявку на тур!</h4>
