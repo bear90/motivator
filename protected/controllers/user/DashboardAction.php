@@ -44,7 +44,13 @@ class DashboardAction extends \CAction
                 break;
         }
 
-        if($tourist->messages) 
+        if (\Yii::app()->user->hasState('tour::created'))
+        {
+            $tourFormSubmitted = true;
+            \Yii::app()->user->setState('tour::created', null);
+        }
+
+        if($tourist->messages && !$tourFormSubmitted) 
         {
             $this->controller->activeTab = '';
         }
@@ -52,12 +58,6 @@ class DashboardAction extends \CAction
         if(\Yii::app()->request->getParam('tab') !== null)
         {
             $this->controller->activeTab = \Yii::app()->request->getParam('tab');
-        }
-
-        if (\Yii::app()->user->hasState('tour::created'))
-        {
-            $tourFormSubmitted = true;
-            \Yii::app()->user->setState('tour::created', null);
         }
 
         $criteria = new \CDbCriteria();
