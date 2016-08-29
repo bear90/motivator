@@ -29,7 +29,7 @@
                 <div><b>Предоплата:</b> <?php echo $entity->tour->prepayment; ?></div>
                 <div><b>Доплата за тур:</b> <?php echo $entity->tour->getCurrentSurchange(); ?></div>
                 <div><b>МВАС:</b> <?php echo $entity->tour->maxDiscont; ?></div>
-                <div><b>НАС:</b> <?php echo $entity->abonentDiscont; ?></div>
+                <div><b>ТАС:</b> <?php echo $entity->abonentDiscont; ?></div>
                 <div><b>СзП:</b> <?php echo $entity->partnerDiscont; ?></div>
                 <div><b>Период тура:</b> 
                     <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $entity->tour->startDate); ?> -
