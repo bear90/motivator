@@ -5,29 +5,37 @@
 <?php if(count($entities)): ?>
 <table class="table table-bordered text-table">
     <tr>
-        <th>ФИО</th>
-        <th>Email</th>
-        <th>Телефон</th>
+        <th>Турист</th>
         <th>ТА</th>
         <th>ТО</th>
         <th>Дата продажи</th>
-        <th>Стоимость</th>
-        <th>МВАС</th>
-        <th>НАС</th>
-        <th>СзП</th>
+        <th>Информация о туре</th>
     </tr>
     <?php foreach ($entities as $entity):?>
         <tr>
-            <td><?php echo $entity->fullName; ?></td>
-            <td><?php echo $entity->email; ?></td>
-            <td><?php echo $entity->phone; ?></td>
-            <td><?php echo $entity->tour->touragent->name; ?></td>
+            <td>
+                <div><b>ФИО:</b> <?php echo $entity->fullName; ?></div>
+                <div><b>Email:</b> <?php echo $entity->email; ?></div>
+                <div><b>Телефон:</b> <?php echo $entity->phone; ?></div>
+            </td>
+            <td>
+                <?php echo $entity->tour->touragent->name; ?>
+                <div><b>Менеджер:</b> <?php echo $entity->getManager()->name; ?></div>
+            </td>
             <td><?php echo $entity->tour->operator ? $entity->tour->operator->name : ''; ?></td>
             <td><?php echo $entity->tour->getSoldAt('d.m.Y'); ?></td>
-            <td><?php echo $entity->tour->price; ?></td>
-            <td><?php echo $entity->tour->maxDiscont; ?></td>
-            <td><?php echo $entity->abonentDiscont; ?></td>
-            <td><?php echo $entity->partnerDiscont; ?></td>
+            <td>
+                <div><b>Стоимость:</b> <?php echo $entity->tour->price; ?></div>
+                <div><b>Предоплата:</b> <?php echo $entity->tour->prepayment; ?></div>
+                <div><b>Доплата за тур:</b> <?php echo $entity->tour->getCurrentSurchange(); ?></div>
+                <div><b>МВАС:</b> <?php echo $entity->tour->maxDiscont; ?></div>
+                <div><b>НАС:</b> <?php echo $entity->abonentDiscont; ?></div>
+                <div><b>СзП:</b> <?php echo $entity->partnerDiscont; ?></div>
+                <div><b>Период тура:</b> 
+                    <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $entity->tour->startDate); ?> -
+                    <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $entity->tour->endDate); ?>
+                </div>
+            </td>
             
         </tr>
     <?php endforeach;?>

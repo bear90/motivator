@@ -115,16 +115,6 @@ class CalculateChangeTourAction extends \CApiAction
             'surchange' => \Tool::getNewPriceText($surchange),
             'maxDiscount' => \Tool::getNewPriceText($maxDiscount),
             'surchangeOnMaxDiscount' => \Tool::getNewPriceText($surchangeOnMaxDiscount),
-            /*
-            'prepayment' => \Tool::getNewPriceText($prepayment),
-            'totalDscount' => \Tool::getNewPriceText($minDiscount),
-            'surchange' => \Tool::getNewPriceText($price - $prepayment - $minDiscount),
-            'minDiscount' => \Tool::getNewPriceText($minDiscount),
-            'currentAbonentDiscount' => \Tool::getNewPriceText(0),
-            'totalAbonentDiscount' => \Tool::getNewPriceText($minDiscount),
-            'partnerDiscount' => \Tool::getNewPriceText(0),
-            'maxAbonentDiscount' => \Tool::getNewPriceText($maxDiscount),
-            'surchangeOnMaxDiscount' => \Tool::getNewPriceText($price - $prepayment - $maxDiscount),*/
         ]);
         
         return $result;

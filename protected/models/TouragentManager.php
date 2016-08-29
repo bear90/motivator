@@ -27,6 +27,7 @@ class TouragentManager extends DBEntity {
                 'order' =>  'tourists.createdAt'],
             'tourists2'  => [self::HAS_MANY, 'application\\models\\Tourist', 'touristId', 
                 'through' => 'tourist_tour',
+                'condition' => 'tourists2.deleted = 0',
                 'order' =>  'tourists2.createdAt'],
             'touristsGettingDiscount'  => [self::HAS_MANY, 'application\\models\\Tourist', 'touristId',
                 'through'   => 'tourist_tour',

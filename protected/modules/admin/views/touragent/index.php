@@ -35,7 +35,11 @@
 </table>
 
 <a href="<?php echo Yii::app()->createUrl("/admin/touragent/add/")?>" type="button" class="btn btn-default">
-    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> добавить
+    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Добавить
+</a>
+<a href="<?php echo Yii::app()->createUrl("/admin/touragent/clear")?>" type="button" class="btn btn-default"
+    onclick="return confirm('Вы уверены что хотите удалить всех туристов?')">
+    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Удалить соискателей скидки
 </a>
 
 <h2>Таблица учёта баланса турагентов:</h2>
