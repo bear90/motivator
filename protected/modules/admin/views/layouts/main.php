@@ -7,6 +7,7 @@
     <title>Мотиватор - Диспетчерская</title>
     <link rel="stylesheet" href="/css/admin.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/jquery-ui.min.css">
 </head>
 <body>
     <div class="container-fluid">

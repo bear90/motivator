@@ -16,6 +16,8 @@ return array(
         ),
     ),
     'params' => array(
+        'adminEmail'    =>'abonent@motivator-travel.by',
+        'senderEmail' => 'igorshablovsky@gmail.com',
         'yiiPath'       => 'd:\www/motivator.by/framework/yii.php',
         'yiicPath'       => 'd:\www/motivator.by/framework/yiic.php'
     )

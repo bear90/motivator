@@ -38,3 +38,7 @@ table.balance th, table.balance td {text-align: center;}
 .actions {
     width: 15%;
 }
+
+.filter ul {list-style: none; padding: 0; margin: 0; overflow-y: scroll; height: 140px;}
+.filter ul li {border-bottom: 1px #333 dashed; margin-bottom: 2px; padding-bottom:2px;}
+.filter ul li label {margin-bottom: 0;}

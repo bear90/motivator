@@ -14,7 +14,7 @@ namespace application\modules\admin\controllers;
 
 class ArchiveController extends AdminController
 {
-    //public $jsModule = 'archive';
+    public $jsModule = 'archive';
 
     public function actions(){
         return [

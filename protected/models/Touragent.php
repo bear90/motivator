@@ -160,4 +160,12 @@ class Touragent extends DBEntity {
         
         return $list;
     }
+
+    public static function getList() 
+    {
+        $list = self::model()->options()->findAll();
+        $list = \CHtml::listData($list, 'id', 'name');
+        
+        return $list;
+    }
 }
