@@ -91,13 +91,13 @@ class Akt1Action extends \CAction
             '{d1}' => $dateEnd->format('d'),
             '{m1}' => $dateEnd->format('m'),
             '{y1}' => $dateEnd->format('Y'),
-            '{operatorName}' => $operator->name,
+            '{operatorName}' => $operator->boss,
             '{operatorFio}' => $operator->name,
-            '{doc}' => 'устав',
+            '{doc}' => $operator->document,
             '{count}' => count($entities),
             '{price}' => $summPrice,
             '{deadline}' => $this->getDeadLine($dateEnd),
-            '{operatorRekvizit}' => $operator->name,
+            '{operatorRekvizit}' => $operator->requisite,
         ];
 
         $content = file_get_contents($document);

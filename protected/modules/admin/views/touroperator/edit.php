@@ -18,6 +18,18 @@
     <div class="form-group">
         <?php echo $form['name']; ?>
     </div>
+    
+    <div class="form-group">
+        <?php echo $form['boss']; ?>
+    </div>
+    
+    <div class="form-group">
+        <?php echo $form['document']; ?>
+    </div>
+    
+    <div class="form-group">
+        <?php echo $form['requisite']; ?>
+    </div>
 
     <div class="form-group">
         <button type="submit" class="btn btn-default">Сохранить</button>
