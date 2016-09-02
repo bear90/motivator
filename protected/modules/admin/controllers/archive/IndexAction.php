@@ -35,11 +35,25 @@ class IndexAction extends \CAction
         $this->applyFilter($criteria, $filter);
 
         $entities = Tourist::model()->findAll($criteria);
-        
+
         $this->controller->render('index', [
             'entities' => $entities,
             'filter' => $filter,
+            'touroperatorCount' => $this->calculateTouroperators($entities)
         ]);
+    }
+
+    private function calculateTouroperators(array $entities)
+    {
+        $buf = [];
+        foreach ($entities as $item) {
+            if (!in_array($item->tour->operatorId, $buf))
+            {
+                $buf[] = $item->tour->operatorId;
+            }
+        }
+
+        return count($buf);
     }
 
     private function applyFilter(\CDbCriteria $criteria, array $filter)

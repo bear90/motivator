@@ -63,6 +63,12 @@
         <div class="col-md-12">
             <div class="form-group">
                 <button type="submit" class="btn btn-default">Найти</button>
+
+                <a href="<?php echo Yii::app()->createUrl("admin/archive/akt1", $filter); ?>"
+                <?php if ($touroperatorCount !== 1): ?>disabled="disabled"<?php endif; ?>
+                class="btn btn-default" target="_blank">Акт между ТО и ИП</a>
+                
+                
             </div>
         </div>
     </div>
@@ -73,8 +79,8 @@
 <table class="table table-bordered text-table">
     <tr>
         <th>Турист</th>
-        <th>ТА</th>
         <th>ТО</th>
+        <th>ТА</th>
         <th>Дата продажи</th>
         <th>Информация о туре</th>
     </tr>
@@ -85,11 +91,11 @@
                 <div><b>Email:</b> <?php echo $entity->email; ?></div>
                 <div><b>Телефон:</b> <?php echo $entity->phone; ?></div>
             </td>
+            <td><?php echo $entity->tour->operator ? $entity->tour->operator->name : ''; ?></td>
             <td>
                 <?php echo $entity->tour->touragent->name; ?>
                 <div><b>Менеджер:</b> <?php echo $entity->getManager()->name; ?></div>
             </td>
-            <td><?php echo $entity->tour->operator ? $entity->tour->operator->name : ''; ?></td>
             <td><?php echo $entity->tour->getSoldAt('d.m.Y'); ?></td>
             <td>
                 <div><b>Стоимость:</b> <?php echo $entity->tour->price; ?></div>

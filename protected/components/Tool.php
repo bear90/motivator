@@ -271,4 +271,81 @@
 
             return round($totalSurchange / $totalPrice * 100, 3);
         }
+
+        public static function copyFolder($src, $dst) { 
+            $dir = opendir($src); 
+            @mkdir($dst); 
+            while(false !== ( $file = readdir($dir)) ) { 
+                if (( $file != '.' ) && ( $file != '..' )) { 
+                    if ( is_dir($src . '/' . $file) ) { 
+                        self::copyFolder($src . '/' . $file,$dst . '/' . $file); 
+                    } 
+                    else { 
+                        copy($src . '/' . $file,$dst . '/' . $file); 
+                    } 
+                } 
+            } 
+            closedir($dir); 
+        }
+
+        public static function deleteFolder($dir) {
+            if (is_dir($dir)) { 
+                $objects = scandir($dir); 
+                foreach ($objects as $object) { 
+                    if ($object != "." && $object != "..") { 
+                        if (is_dir($dir."/".$object))
+                            self::deleteFolder($dir."/".$object);
+                        else
+                            unlink($dir."/".$object); 
+                    } 
+                }
+                rmdir($dir); 
+            }
+        }
+
+        public static function zipFolder($source, $destination)
+        {
+            if (!extension_loaded('zip') || !file_exists($source)) {
+                return false;
+            }
+
+            $zip = new \ZipArchive();
+            if (!$zip->open($destination, \ZIPARCHIVE::CREATE)) {
+                return false;
+            }
+
+            $source = str_replace('\\', '/', realpath($source));
+
+            if (is_dir($source) === true)
+            {
+                $files = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($source), \RecursiveIteratorIterator::SELF_FIRST);
+
+                foreach ($files as $file)
+                {
+                    $file = str_replace('\\', '/', $file);
+
+                    // Ignore "." and ".." folders
+                    if( in_array(substr($file, strrpos($file, '/')+1), array('.', '..')) )
+                        continue;
+
+                    $file = realpath($file);
+                    $file = str_replace('\\', '/', $file);
+
+                    if (is_dir($file) === true)
+                    {
+                        $zip->addEmptyDir(str_replace($source . '/', '', $file . '/'));
+                    }
+                    else if (is_file($file) === true)
+                    {
+                        $zip->addFromString(str_replace($source . '/', '', $file), file_get_contents($file));
+                    }
+                }
+            }
+            else if (is_file($source) === true)
+            {
+                $zip->addFromString(basename($source), file_get_contents($source));
+            }
+
+            return $zip->close();
+        }
     }

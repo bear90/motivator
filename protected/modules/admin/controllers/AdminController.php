@@ -116,7 +116,7 @@ class AdminController extends \CController
             ],
             [
                 'key' => 'archive',
-                'label' => 'Архив абонентов',
+                'label' => 'Отчетность',
                 'url' => '/admin/archive',
             ]
         ]);

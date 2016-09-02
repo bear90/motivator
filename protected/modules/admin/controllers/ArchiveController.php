@@ -20,6 +20,7 @@ class ArchiveController extends AdminController
         return [
             'index' => 'application\\modules\\admin\\controllers\\archive\\IndexAction',
             'export' => 'application\\modules\\admin\\controllers\\archive\\ExportAction',
+            'akt1' => 'application\\modules\\admin\\controllers\\archive\\Akt1Action',
         ];
     }
 }
