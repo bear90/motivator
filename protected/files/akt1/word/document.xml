@@ -198,10 +198,10 @@
                 </w:rPr>
                 <w:t>{operatorFio}</w:t>
             </w:r>
-            <w:r w:rsidR="00115DF4" w:rsidRPr="00E8420F">
+            <w:r w:rsidR="00835CA7">
                 <w:rPr>
                     <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
-                    <w:color w:val="FF0000"/>
+                    <w:u w:val="single"/>
                 </w:rPr>
                 <w:t>,</w:t>
             </w:r>
@@ -221,7 +221,13 @@
                 <w:rPr>
                     <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
                 </w:rPr>
-                <w:t>___ на основании </w:t>
+                <w:t>___ на основании</w:t>
+            </w:r>
+            <w:r w:rsidR="00835CA7">
+                <w:rPr>
+                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
+                </w:rPr>
+                <w:t xml:space="preserve"> </w:t>
             </w:r>
             <w:r w:rsidR="001A63B2" w:rsidRPr="001A63B2">
                 <w:rPr>
@@ -1095,7 +1101,6 @@
         </w:p>
         <w:p w:rsidR="00F25E54" w:rsidRDefault="00115DF4" w:rsidP="00115DF4">
             <w:r w:rsidRPr="00E8420F">
-                <w:lastRenderedPageBreak/>
                 <w:t>   </w:t>
             </w:r>
             <w:r w:rsidRPr="00E8420F">
