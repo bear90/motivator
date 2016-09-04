@@ -119,9 +119,14 @@ class Akt1Action extends \CAction
             '{operatorFio}' => $operator->boss,
             '{doc}' => $operator->document,
             '{count}' => \Tool::num2str($count, false),
+            '{countInt}' => $count,
+            '{priceInt}' => $summPrice,
             '{price}' => $summPrice . ' (' . \Tool::num2str($summPrice, false) . ')',
             '{deadline}' => $this->getDeadLine($dateEnd),
-            '{operatorRekvizit}' => $operator->requisite,
+            '{operatorRekvizit}' => 
+                $this->controller->renderPartial('xml/reachtext', ['text' => $operator->requisite], true),
+            '{tableXml}' => 
+                $this->controller->renderPartial('xml/table', ['rows' => $entities, 'percent' => $percent], true),
         ];
 
         $content = file_get_contents($document);
