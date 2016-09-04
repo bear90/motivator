@@ -41,6 +41,24 @@ return [
                 'class' => 'form-control',
                 'name' => 'Touroperator[requisite]',
             ]
+        ],
+        'contractNumber' => [
+            'label' => 'Номер договора:',
+            'type' => 'text',
+            'layout' => '{label}{input}{error}',
+            'attributes' => [
+                'class' => 'form-control',
+                'name' => 'Touroperator[contractNumber]',
+            ]
+        ],
+        'percent' => [
+            'label' => 'Процент вознаграждения:',
+            'type' => 'text',
+            'layout' => '{label}{input}{error}',
+            'attributes' => [
+                'class' => 'form-control',
+                'name' => 'Touroperator[percent]',
+            ]
         ]
     ]
 ];

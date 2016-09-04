@@ -10,7 +10,7 @@ class Touroperator extends DBEntity
     public function rules(){
         return [
             ['name', 'required'],
-            ['boss, document, requisite', 'safe']
+            ['boss, document, requisite, contractNumber, percent', 'safe']
         ];
     }
 

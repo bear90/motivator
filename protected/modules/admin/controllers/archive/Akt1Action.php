@@ -17,6 +17,22 @@ use application\models\defines;
 
 class Akt1Action extends \CAction
 {
+
+    private $months = [
+        1 => 'января',
+        'февраля',
+        'марта',
+        'апреля',
+        'мая',
+        'июня',
+        'июля',
+        'августа',
+        'сентября',
+        'октября',
+        'ноября',
+        'декабря',
+    ];
+
     private $filterDefault = [
         'start' => '',
         'end' => '',
@@ -42,8 +58,10 @@ class Akt1Action extends \CAction
 
         $entities = Tourist::model()->findAll($criteria);
 
+        $filename = 'akt1_' . date('d.m.Y') . '.docx';
+
         header('Content-Type: application/msword');
-        header('Content-Disposition: attachment;filename="akt1.docx"');
+        header('Content-Disposition: attachment;filename="'.$filename.'"');
         header('Cache-Control: max-age=0');
 
         $this->export($entities, $filter);
@@ -82,20 +100,26 @@ class Akt1Action extends \CAction
         foreach ($entities as $entity) {
             $summPrice += $entity->tour->price;
         }
+        $percent = $operator->percent ?: 0;
+        $summPrice = round($summPrice*$percent/100);
+
+        $count = count($entities);
 
         $replace = [
-            '{num}' => 1,
+            '{num}' => $operator->contractNumber,
             '{d0}' => $dateStart->format('d'),
             '{m0}' => $dateStart->format('m'),
+            '{m0pr}' => $this->months[$dateStart->format('n')],
             '{y0}' => $dateStart->format('Y'),
             '{d1}' => $dateEnd->format('d'),
             '{m1}' => $dateEnd->format('m'),
+            '{m1pr}' => $this->months[$dateEnd->format('n')],
             '{y1}' => $dateEnd->format('Y'),
-            '{operatorName}' => $operator->boss,
-            '{operatorFio}' => $operator->name,
+            '{operatorName}' => $operator->name,
+            '{operatorFio}' => $operator->boss,
             '{doc}' => $operator->document,
-            '{count}' => count($entities),
-            '{price}' => $summPrice,
+            '{count}' => \Tool::num2str($count, false),
+            '{price}' => $summPrice . ' (' . \Tool::num2str($summPrice, false) . ')',
             '{deadline}' => $this->getDeadLine($dateEnd),
             '{operatorRekvizit}' => $operator->requisite,
         ];
@@ -108,22 +132,15 @@ class Akt1Action extends \CAction
 
     private function getDeadLine(\DateTime $date)
     {
-        $months = [
-            'январь',
-            'февраль',
-            'март',
-            'апрель',
-            'май',
-            'июнь',
-            'июль',
-            'август',
-            'сентябрь',
-            'октябрь',
-            'ноябрь',
-            'декабрь',
-        ];
+        
 
-        return '';
+        $month = $date->format('m') + 1;
+        if ($month > 12)
+        {
+            $month = 1;
+        }
+
+        return $this->months[$month] . ' ' . $date->format('Y');
     }
 
     private function applyFilter(\CDbCriteria $criteria, array $filter)

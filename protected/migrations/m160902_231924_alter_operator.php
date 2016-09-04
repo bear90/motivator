@@ -7,6 +7,7 @@ class m160902_231924_alter_operator extends CDbMigration
 		$this->addColumn('touroperator', 'boss', 'VARCHAR(255) DEFAULT NULL');
 		$this->addColumn('touroperator', 'document', 'VARCHAR(255) DEFAULT NULL');
 		$this->addColumn('touroperator', 'requisite', 'TEXT');
+		$this->addColumn('touroperator', 'contractNumber', 'VARCHAR(10)');
 	}
 
 	public function down()
@@ -14,6 +15,7 @@ class m160902_231924_alter_operator extends CDbMigration
 		$this->dropColumn('touroperator', 'boss');
 		$this->dropColumn('touroperator', 'document');
 		$this->dropColumn('touroperator', 'requisite');
+		$this->dropColumn('touroperator', 'contractNumber');
 	}
 
 	/*

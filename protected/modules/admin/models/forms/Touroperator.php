@@ -8,11 +8,13 @@ class Touroperator extends \CFormModel
     public $boss;
     public $document;
     public $requisite;
+    public $contractNumber;
+    public $percent;
 
     public function rules(){
         return array(
             array('name', 'required'),
-            array('boss, document, requisite', 'safe'),
+            array('boss, document, requisite, contractNumber, percent', 'safe'),
         );
     }
 
@@ -22,6 +24,8 @@ class Touroperator extends \CFormModel
             'boss' => 'Должность и ФИО руководителя',
             'document' => 'Основания  полномочий руководителя',
             'requisite' => 'Реквизиты',
+            'contractNumber' => 'Номер договора',
+            'percent' => 'Процент вознаграждения',
         ];
     }
 }

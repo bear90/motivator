@@ -6,6 +6,23 @@ define([
 ], function () {
     return Backbone.View.extend({
 
+        events: {
+            'click form.filter input[type=checkbox]': 'clickFilterCheckbox'
+        },
+
+        clickFilterCheckbox: function (e) {
+            var $el = $(e.target);
+
+            if ($el.val() != -1 && $el.is(':checked'))
+            {
+                $el.closest('ul').find('input[value=-1]:checked').attr('checked', false);
+            }
+            if ($el.val() == -1 && $el.is(':checked'))
+            {
+                $el.closest('ul').find('input[value!=-1]:checked').attr('checked', false);
+            }
+        },
+
         render: function(){
             this.$( "#startDate, #endDate" ).datepicker({
                 //defaultDate: "+1w",

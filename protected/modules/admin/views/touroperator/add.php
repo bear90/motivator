@@ -30,6 +30,14 @@
     <div class="form-group">
         <?php echo $form['requisite']; ?>
     </div>
+    
+    <div class="form-group">
+        <?php echo $form['contractNumber']; ?>
+    </div>
+    
+    <div class="form-group">
+        <?php echo $form['percent']; ?>
+    </div>
 
     <div class="form-group">
         <button type="submit" class="btn btn-default">Сохранить</button>
