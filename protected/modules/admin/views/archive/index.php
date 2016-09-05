@@ -4,6 +4,10 @@
 
     $touroperatorList = \CMap::mergeArray(['-1' => "Все"], Touroperator::getList());
     $touragentList = \CMap::mergeArray(['-1' => "Все"], Touragent::getList());
+
+    $isAktDisabled = count($entities) == 0 || $touroperatorCount !== 1 || empty($filter['start']) || empty($filter['end']);
+    $isAnalizDisabled = count($entities) == 0;
+    $isOperatorInfoDisabled = count($entities) == 0 || $touroperatorCount !== 1 || empty($filter['start']) || empty($filter['end']);
 ?>
 
 <h2>Архив абонентов:</h2>
@@ -65,9 +69,22 @@
                 <button type="submit" class="btn btn-default">Найти</button>
 
                 <a href="<?php echo Yii::app()->createUrl("admin/archive/akt1", $filter); ?>"
-                <?php if ($touroperatorCount !== 1): ?>disabled="disabled"<?php endif; ?>
-                class="btn btn-default" target="_blank">Акт между ТО и ИП</a>
+                    <?php if ($isAktDisabled): ?>disabled="disabled"<?php endif; ?>
+                    class="btn btn-default" target="_blank">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Акт между ТО и ИП
+                </a>
                 
+                <a href="<?php echo Yii::app()->createUrl("/admin/archive/export-info/", ['filter' => $filter])?>" 
+                    <?php if ($isOperatorInfoDisabled): ?>disabled="disabled"<?php endif; ?>
+                    type="button" class="btn btn-default" target="_blank">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Информация для ТО
+                </a>
+                
+                <a href="<?php echo Yii::app()->createUrl("/admin/archive/export/", ['filter' => $filter])?>" 
+                    <?php if ($isAnalizDisabled): ?>disabled="disabled"<?php endif; ?>
+                    type="button" class="btn btn-default" target="_blank">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Анализ
+                </a>
                 
             </div>
         </div>
@@ -116,8 +133,3 @@
 <?php else: ?>
     <p>Нет туристов в статусе "Обладатель скидки"</p>
 <?php endif; ?>
-
-
-<a href="<?php echo Yii::app()->createUrl("/admin/archive/export/")?>" type="button" class="btn btn-default" target="_blank">
-    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Экспорт в Excel
-</a>

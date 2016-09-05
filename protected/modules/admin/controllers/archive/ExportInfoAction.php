@@ -17,7 +17,7 @@ use application\models\defines;
 \Yii::import('application.extensions.yiiexcel.YiiExcel', true);
 \Yii::registerAutoloader(['YiiExcel', 'autoload'], true);
 
-class ExportAction extends \CAction
+class ExportInfoAction extends \CAction
 {
     private $filterDefault = [
         'start' => '',
@@ -38,32 +38,52 @@ class ExportAction extends \CAction
         $this->applyFilter($criteria, $filter);
 
         $entities = Tourist::model()->findAll($criteria);
-        
-        $filename = 'analiz_' . date('d.m.Y') . '.xls';
+
+        $filename = 'information_' . date('d.m.Y') . '.xls';
 
         header('Content-Type: application/vnd.ms-excel');
         header('Content-Disposition: attachment;filename="' . $filename . '"');
         header('Cache-Control: max-age=0');
 
-        $this->export('php://output', $entities);
+        $this->export('php://output', $entities, $filter);
     }
 
-    private function export($file, array $entities)
+    private function export($file, array $entities, $filter)
     {
+
+        $operatorName = $entities[0]->tour->operator ? $entities[0]->tour->operator->name : '';
+        $dateStart = (new \DateTime($filter['start']))->format('d.m.Y');
+        $dateEnd = (new \DateTime($filter['end']))->format('d.m.Y');
+
         // Instantiate a new PHPExcel object
         $phpExcel = new \PHPExcel();
         // Set the active Excel worksheet to sheet 0
         $phpExcel->setActiveSheetIndex(0);
+        // Insert first row
+        $phpExcel->getActiveSheet()->mergeCells('A1:D1');
+        $phpExcel->getActiveSheet()->getCell('A1')->setValue("Информация для анализа");
+        $phpExcel->getActiveSheet()->getStyle("A1")->getFont()->setBold(true);
+
+        $phpExcel->getActiveSheet()->mergeCells('A2:D2');
+        $phpExcel->getActiveSheet()->getCell('A2')->setValue("{$operatorName} период с «{$dateStart}» по «{$dateEnd}»");
+        
         // Initialise the Excel row number
-        $rowCount = 1;
-        //start of printing column names as names of MySQL fields
+        $rowCount = 3;
+        //start of printing column names as names
         $column = 'A';
         $columns = [
-            ['Турист', 'width' => 28],
-            ['ТО'],
+            ['Порядковый номер'],
+            ['ФИО туриста'],
+            ['Телефон'],
             ['ТА'],
-            ['Дата продажи'],
-            ['Информация о туре'],
+            ['Ф.И. менеджера'],
+            ['Предоплата'],
+            ['Дата предоплаты'],
+            ['Предоплата при бронировании тура'],
+            ['Дата предоплаты при бронировании'],
+            ['Стоимость тура на момент покупки тура'],
+            ['Дата окончательной оплаты тура'],
+            ['Период тура'],
         ];
         foreach ($columns as $data) {
             $phpExcel->getActiveSheet()->setCellValue($column . $rowCount, $data[0]);
@@ -76,10 +96,11 @@ class ExportAction extends \CAction
             $column++;
         }
         // Set bold
-        $phpExcel->getActiveSheet()->getStyle("A1:{$column}1")->getFont()->setBold(true);
+        $phpExcel->getActiveSheet()->getStyle("A{$rowCount}:{$column}{$rowCount}")->getFont()->setBold(true);
 
         //start while loop to get data
-        $rowCount = 2;
+        $rowCount++;
+        $num = 1;
         foreach ($entities as $entity) {
             $column = 'A';
 
@@ -87,26 +108,18 @@ class ExportAction extends \CAction
             $periodEnd = \Yii::app()->dateFormatter->format('dd.MM.yyyy', $entity->tour->endDate);
 
             $row = [
-                [
-                    'ФИО:' => $entity->fullName,
-                    'Email:' => $entity->email,
-                    'Телефон:' => $entity->phone
-                ],
-                $entity->tour->operator ? $entity->tour->operator->name : '',
-                [
-                    $entity->tour->touragent->name,
-                    'Менеджер:' => $entity->getManager()->name
-                ],
-                $entity->tour->getSoldAt('d.m.Y'),
-                [
-                    'Стоимость:' => $entity->tour->price,
-                    'Предоплата:' => $entity->tour->prepayment,
-                    'Доплата за тур:' => $entity->tour->getCurrentSurchange(),
-                    'МВАС:' => $entity->tour->maxDiscont,
-                    'ТАС:' => $entity->abonentDiscont,
-                    'СзП:' => $entity->partnerDiscont,
-                    'Период тура:' => "{$periodStart} - {$periodEnd}",
-                ]
+                $num,
+                $entity->fullName,
+                $entity->phone,
+                $entity->tour->touragent->name,
+                $entity->getManager()->name,
+                $entity->tour->prepayment,
+                '',
+                '',
+                '',
+                '',
+                '',
+                "{$periodStart} - {$periodEnd}",
             ];
             foreach ($row as $data) {
                 $value = $this->prepareValue($data);
@@ -120,6 +133,7 @@ class ExportAction extends \CAction
                 $column++;
             }
             $rowCount++;
+            $num++;
         }
 
         $writer = \PHPExcel_IOFactory::createWriter($phpExcel, 'Excel5');
