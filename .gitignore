@@ -2,4 +2,8 @@ env
 assets
 protected/config/server.mikhail.php
 protected/config/console.mikhail.php
+protected/config/server.dev.php
+protected/config/console.dev.php
+protected/config/server.production.php
+protected/config/console.production.php
 upload/
