@@ -4,7 +4,7 @@ class m160904_122222_alter_operator extends CDbMigration
 {
 	public function up()
 	{
-		$this->addColumn('touroperator', 'contractNumber', 'VARCHAR(10)');
+		$this->addColumn('touroperator', 'contractNumber', 'VARCHAR(255)');
 		$this->addColumn('touroperator', 'percent', 'DECIMAL(15,2)');
 	}
 

@@ -110,10 +110,9 @@
                 </w:rPr>
                 <w:t>"</w:t>
             </w:r>
-            <w:r w:rsidRPr="00115DF4">
+            <w:r w:rsidRPr="00FC1329">
                 <w:rPr>
                     <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
-                    <w:u w:val="single"/>
                 </w:rPr>
                 <w:t>{d1}</w:t>
             </w:r>
@@ -123,10 +122,9 @@
                 </w:rPr>
                 <w:t xml:space="preserve">" </w:t>
             </w:r>
-            <w:r w:rsidRPr="00115DF4">
+            <w:r w:rsidRPr="00FC1329">
                 <w:rPr>
                     <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
-                    <w:u w:val="single"/>
                 </w:rPr>
                 <w:t>{m1pr}</w:t>
             </w:r>
@@ -136,10 +134,9 @@
                 </w:rPr>
                 <w:t xml:space="preserve"> </w:t>
             </w:r>
-            <w:r w:rsidRPr="00115DF4">
+            <w:r w:rsidRPr="00FC1329">
                 <w:rPr>
                     <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
-                    <w:u w:val="single"/>
                 </w:rPr>
                 <w:t>{y1}</w:t>
             </w:r>
@@ -172,10 +169,10 @@
                     <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
                 </w:rPr>
             </w:pPr>
-            <w:r w:rsidRPr="001A63B2">
+            <w:proofErr w:type="gramStart"/>
+            <w:r w:rsidRPr="00FC1329">
                 <w:rPr>
                     <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
-                    <w:u w:val="single"/>
                 </w:rPr>
                 <w:t>{operatorName}</w:t>
             </w:r>
@@ -183,7 +180,7 @@
                 <w:rPr>
                     <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
                 </w:rPr>
-                <w:t>, именуемый___ в дальнейшем "Заказчик", в лице</w:t>
+                <w:t>, именуемый в дальнейшем "Заказчик", в лице</w:t>
             </w:r>
             <w:r w:rsidR="001A63B2" w:rsidRPr="001A63B2">
                 <w:rPr>
@@ -191,17 +188,15 @@
                 </w:rPr>
                 <w:t xml:space="preserve"> </w:t>
             </w:r>
-            <w:r w:rsidRPr="001A63B2">
+            <w:r w:rsidRPr="00FC1329">
                 <w:rPr>
                     <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
-                    <w:u w:val="single"/>
                 </w:rPr>
                 <w:t>{operatorFio}</w:t>
             </w:r>
-            <w:r w:rsidR="00835CA7">
+            <w:r w:rsidR="00835CA7" w:rsidRPr="00FC1329">
                 <w:rPr>
                     <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
-                    <w:u w:val="single"/>
                 </w:rPr>
                 <w:t>,</w:t>
             </w:r>
@@ -221,7 +216,7 @@
                 <w:rPr>
                     <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
                 </w:rPr>
-                <w:t>___ на основании</w:t>
+                <w:t xml:space="preserve"> на основании</w:t>
             </w:r>
             <w:r w:rsidR="00835CA7">
                 <w:rPr>
@@ -229,10 +224,9 @@
                 </w:rPr>
                 <w:t xml:space="preserve"> </w:t>
             </w:r>
-            <w:r w:rsidR="001A63B2" w:rsidRPr="001A63B2">
+            <w:r w:rsidR="001A63B2" w:rsidRPr="00FC1329">
                 <w:rPr>
                     <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
-                    <w:u w:val="single"/>
                 </w:rPr>
                 <w:t>{doc}</w:t>
             </w:r>
@@ -298,7 +292,28 @@
                 <w:rPr>
                     <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
                 </w:rPr>
-                <w:t>настоящий Акт приема передачи оказаннных Услуг о нижеследующем:</w:t>
+                <w:t>настоящий Акт приема передачи оказаннных Услуг о</w:t>
+            </w:r>
+            <w:proofErr w:type="gramEnd"/>
+            <w:r w:rsidR="00115DF4" w:rsidRPr="00E8420F">
+                <w:rPr>
+                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
+                </w:rPr>
+                <w:t xml:space="preserve"> </w:t>
+            </w:r>
+            <w:proofErr w:type="gramStart"/>
+            <w:r w:rsidR="00115DF4" w:rsidRPr="00E8420F">
+                <w:rPr>
+                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
+                </w:rPr>
+                <w:t>нижеследующем</w:t>
+            </w:r>
+            <w:proofErr w:type="gramEnd"/>
+            <w:r w:rsidR="00115DF4" w:rsidRPr="00E8420F">
+                <w:rPr>
+                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
+                </w:rPr>
+                <w:t>:</w:t>
             </w:r>
         </w:p>
         <w:p w:rsidR="00115DF4" w:rsidRPr="00E8420F" w:rsidRDefault="00115DF4" w:rsidP="00115DF4">
@@ -316,7 +331,7 @@
                 <w:t> </w:t>
             </w:r>
         </w:p>
-        <w:p w:rsidR="00115DF4" w:rsidRPr="00E8420F" w:rsidRDefault="00115DF4" w:rsidP="00115DF4">
+        <w:p w:rsidR="00115DF4" w:rsidRDefault="00115DF4" w:rsidP="00115DF4">
             <w:pPr>
                 <w:pStyle w:val="a3"/>
                 <w:jc w:val="both"/>
@@ -399,6 +414,24 @@
                 <w:t>покупательских групп из числа туристов, желающих приобрести туристические путёвки, с помощью онлайн-сервиса «Мотиватор», а Заказчик принял оказанные услуги.</w:t>
             </w:r>
         </w:p>
+        <w:p w:rsidR="00D63B23" w:rsidRDefault="00D63B23" w:rsidP="00115DF4">
+            <w:pPr>
+                <w:pStyle w:val="a3"/>
+                <w:jc w:val="both"/>
+                <w:rPr>
+                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
+                </w:rPr>
+            </w:pPr>
+        </w:p>
+        <w:p w:rsidR="00D63B23" w:rsidRPr="00E8420F" w:rsidRDefault="00D63B23" w:rsidP="00115DF4">
+            <w:pPr>
+                <w:pStyle w:val="a3"/>
+                <w:jc w:val="both"/>
+                <w:rPr>
+                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
+                </w:rPr>
+            </w:pPr>
+        </w:p>
         {tableXml}
         <w:p w:rsidR="00115DF4" w:rsidRDefault="00D65895" w:rsidP="00115DF4">
             <w:pPr>
@@ -412,7 +445,43 @@
                 <w:rPr>
                     <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
                 </w:rPr>
-                <w:t>Итого: {countInt} туристов, на сумму {priceInt} белорусских рублей.</w:t>
+                <w:t xml:space="preserve">Итого: </w:t>
+            </w:r>
+            <w:r w:rsidR="00FC1329">
+                <w:rPr>
+                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
+                </w:rPr>
+                <w:t xml:space="preserve">привлечено </w:t>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
+                </w:rPr>
+                <w:t xml:space="preserve">{countInt} туристов, </w:t>
+            </w:r>
+            <w:r w:rsidR="00FC1329">
+                <w:rPr>
+                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
+                </w:rPr>
+                <w:t xml:space="preserve">Итого: </w:t>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
+                </w:rPr>
+                <w:t>сумм</w:t>
+            </w:r>
+            <w:r w:rsidR="00FC1329">
+                <w:rPr>
+                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
+                </w:rPr>
+                <w:t>а вознаграждения Исполнителя</w:t>
+            </w:r>
+            <w:r>
+                <w:rPr>
+                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
+                </w:rPr>
+                <w:t xml:space="preserve"> {priceInt} белорусских рублей.</w:t>
             </w:r>
         </w:p>
         <w:p w:rsidR="00D65895" w:rsidRPr="00E8420F" w:rsidRDefault="00D65895" w:rsidP="00115DF4">
@@ -424,193 +493,112 @@
                 </w:rPr>
             </w:pPr>
         </w:p>
-        <w:p w:rsidR="00115DF4" w:rsidRPr="00115DF4" w:rsidRDefault="00115DF4" w:rsidP="00115DF4">
+        <w:p w:rsidR="00115DF4" w:rsidRPr="00FC1329" w:rsidRDefault="00115DF4" w:rsidP="00FC1329">
             <w:pPr>
-                <w:pStyle w:val="a3"/>
-                <w:jc w:val="both"/>
-                <w:rPr>
-                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
-                </w:rPr>
+                <w:spacing w:after="0" w:line="240" w:lineRule="auto"/>
             </w:pPr>
-            <w:r w:rsidRPr="00115DF4">
-                <w:rPr>
-                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
-                    <w:shd w:val="clear" w:color="auto" w:fill="C0C0C0"/>
-                </w:rPr>
+            <w:r w:rsidRPr="00FC1329">
                 <w:t>Претензий к качеству и объему оказанных Услуг Заказчик не имеет.</w:t>
             </w:r>
         </w:p>
-        <w:p w:rsidR="00115DF4" w:rsidRPr="00115DF4" w:rsidRDefault="00115DF4" w:rsidP="00115DF4">
+        <w:p w:rsidR="00115DF4" w:rsidRPr="00FC1329" w:rsidRDefault="00115DF4" w:rsidP="00FC1329">
             <w:pPr>
-                <w:pStyle w:val="a3"/>
-                <w:jc w:val="both"/>
-                <w:rPr>
-                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
-                </w:rPr>
+                <w:spacing w:after="0" w:line="240" w:lineRule="auto"/>
             </w:pPr>
-            <w:r w:rsidRPr="00115DF4">
-                <w:rPr>
-                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
-                    <w:shd w:val="clear" w:color="auto" w:fill="C0C0C0"/>
-                </w:rPr>
-                <w:t>Период оказания Услуг </w:t>
+            <w:r w:rsidRPr="00FC1329">
+                <w:t>Период оказания Услуг  с  {d0} {m0pr} {y0}</w:t>
             </w:r>
-            <w:r w:rsidRPr="00115DF4">
-                <w:rPr>
-                    <w:rStyle w:val="apple-converted-space"/>
-                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana" w:cs="Arial"/>
-                    <w:color w:val="000000"/>
-                    <w:shd w:val="clear" w:color="auto" w:fill="C0C0C0"/>
-                </w:rPr>
-                <w:t> </w:t>
+            <w:r w:rsidR="00FC1329" w:rsidRPr="00FC1329">
+                <w:t xml:space="preserve"> года </w:t>
             </w:r>
-            <w:r w:rsidRPr="00115DF4">
-                <w:rPr>
-                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
-                    <w:shd w:val="clear" w:color="auto" w:fill="C0C0C0"/>
-                </w:rPr>
-                <w:t>с </w:t>
+            <w:r w:rsidRPr="00FC1329">
+                <w:t>по</w:t>
             </w:r>
-            <w:r w:rsidRPr="00115DF4">
-                <w:rPr>
-                    <w:rStyle w:val="apple-converted-space"/>
-                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana" w:cs="Arial"/>
-                    <w:color w:val="000000"/>
-                    <w:shd w:val="clear" w:color="auto" w:fill="C0C0C0"/>
-                </w:rPr>
-                <w:t> </w:t>
+            <w:r w:rsidR="00FC1329" w:rsidRPr="00FC1329">
+                <w:t xml:space="preserve"> </w:t>
             </w:r>
-            <w:r w:rsidRPr="00115DF4">
-                <w:rPr>
-                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
-                    <w:shd w:val="clear" w:color="auto" w:fill="C0C0C0"/>
-                </w:rPr>
-                <w:t>«{d0} {m0pr} {y0}»   </w:t>
+            <w:r w:rsidRPr="00FC1329">
+                <w:t>{d1} {m1pr} {y1}</w:t>
             </w:r>
-            <w:r w:rsidRPr="00115DF4">
-                <w:rPr>
-                    <w:rStyle w:val="apple-converted-space"/>
-                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana" w:cs="Arial"/>
-                    <w:color w:val="000000"/>
-                    <w:shd w:val="clear" w:color="auto" w:fill="C0C0C0"/>
-                </w:rPr>
-                <w:t> </w:t>
+            <w:r w:rsidR="00FC1329" w:rsidRPr="00FC1329">
+                <w:t xml:space="preserve"> года</w:t>
             </w:r>
-            <w:r w:rsidRPr="00115DF4">
-                <w:rPr>
-                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
-                    <w:shd w:val="clear" w:color="auto" w:fill="C0C0C0"/>
-                </w:rPr>
-                <w:t>по </w:t>
+            <w:r w:rsidR="00FC1329">
+                <w:t>.</w:t>
             </w:r>
-            <w:r w:rsidRPr="00115DF4">
-                <w:rPr>
-                    <w:rStyle w:val="apple-converted-space"/>
-                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana" w:cs="Arial"/>
-                    <w:color w:val="000000"/>
-                    <w:shd w:val="clear" w:color="auto" w:fill="C0C0C0"/>
-                </w:rPr>
-                <w:t> </w:t>
+            <w:r w:rsidR="00FC1329" w:rsidRPr="00FC1329">
+                <w:t xml:space="preserve"> </w:t>
             </w:r>
-            <w:r w:rsidRPr="00115DF4">
-                <w:rPr>
-                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
-                    <w:shd w:val="clear" w:color="auto" w:fill="C0C0C0"/>
-                </w:rPr>
-                <w:t>«{d1} {m1pr} {y1}»         </w:t>
+            <w:r w:rsidRPr="00FC1329">
+                <w:t>Стоимость Услуг, оказанных Исполнителем за  период оказания Услуг</w:t>
             </w:r>
         </w:p>
-        <w:p w:rsidR="00115DF4" w:rsidRPr="00115DF4" w:rsidRDefault="00115DF4" w:rsidP="00115DF4">
+        <w:p w:rsidR="00D63B23" w:rsidRDefault="00115DF4" w:rsidP="00FC1329">
             <w:pPr>
-                <w:pStyle w:val="a3"/>
-                <w:jc w:val="both"/>
-                <w:rPr>
-                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
-                </w:rPr>
+                <w:spacing w:after="0" w:line="240" w:lineRule="auto"/>
             </w:pPr>
-            <w:r w:rsidRPr="00115DF4">
-                <w:rPr>
-                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
-                    <w:shd w:val="clear" w:color="auto" w:fill="C0C0C0"/>
-                </w:rPr>
-                <w:t>Стоимость Услуг, оказанных Исполнителем за </w:t>
-            </w:r>
-            <w:r w:rsidRPr="00115DF4">
-                <w:rPr>
-                    <w:rStyle w:val="apple-converted-space"/>
-                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana" w:cs="Arial"/>
-                    <w:color w:val="000000"/>
-                    <w:shd w:val="clear" w:color="auto" w:fill="C0C0C0"/>
-                </w:rPr>
-                <w:t> </w:t>
-            </w:r>
-            <w:r w:rsidRPr="00115DF4">
-                <w:rPr>
-                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
-                    <w:shd w:val="clear" w:color="auto" w:fill="C0C0C0"/>
-                </w:rPr>
-                <w:t>период оказания Услуг</w:t>
-            </w:r>
-        </w:p>
-        <w:p w:rsidR="00115DF4" w:rsidRPr="00E8420F" w:rsidRDefault="00115DF4" w:rsidP="00115DF4">
-            <w:r w:rsidRPr="00115DF4">
-                <w:rPr>
-                    <w:shd w:val="clear" w:color="auto" w:fill="C0C0C0"/>
-                </w:rPr>
+            <w:r w:rsidRPr="00FC1329">
                 <w:t>с </w:t>
             </w:r>
-            <w:r w:rsidRPr="00115DF4">
-                <w:rPr>
-                    <w:rStyle w:val="apple-converted-space"/>
-                    <w:rFonts w:cs="Arial"/>
-                    <w:color w:val="000000"/>
-                    <w:shd w:val="clear" w:color="auto" w:fill="C0C0C0"/>
-                </w:rPr>
-                <w:t> </w:t>
-            </w:r>
-            <w:r w:rsidRPr="00115DF4">
-                <w:rPr>
-                    <w:shd w:val="clear" w:color="auto" w:fill="C0C0C0"/>
-                </w:rPr>
-                <w:t>«</w:t>
-            </w:r>
-            <w:r w:rsidR="002147AB" w:rsidRPr="002147AB">
-                <w:rPr>
-                    <w:shd w:val="clear" w:color="auto" w:fill="C0C0C0"/>
-                </w:rPr>
+            <w:r w:rsidR="002147AB" w:rsidRPr="00FC1329">
                 <w:t>{d0} {m0pr} {y0}</w:t>
             </w:r>
-            <w:r w:rsidRPr="00115DF4">
-                <w:rPr>
-                    <w:shd w:val="clear" w:color="auto" w:fill="C0C0C0"/>
-                </w:rPr>
-                <w:t>» по «{d1} {m1pr} {y1}», составляет«</w:t>
+            <w:r w:rsidR="00FC1329" w:rsidRPr="00FC1329">
+                <w:t xml:space="preserve"> года</w:t>
             </w:r>
-            <w:r w:rsidR="001A63B2" w:rsidRPr="001A63B2">
-                <w:rPr>
-                    <w:shd w:val="clear" w:color="auto" w:fill="C0C0C0"/>
-                </w:rPr>
+            <w:r w:rsidRPr="00FC1329">
+                <w:t xml:space="preserve"> по {d1} {m1pr} {y1}</w:t>
+            </w:r>
+            <w:r w:rsidR="00FC1329" w:rsidRPr="00FC1329">
+                <w:t xml:space="preserve"> года</w:t>
+            </w:r>
+            <w:r w:rsidRPr="00FC1329">
+                <w:t>, составляет</w:t>
+            </w:r>
+            <w:r w:rsidR="00FC1329" w:rsidRPr="00FC1329">
+                <w:t xml:space="preserve"> </w:t>
+            </w:r>
+            <w:r w:rsidR="001A63B2" w:rsidRPr="00FC1329">
                 <w:t>{price}</w:t>
             </w:r>
-            <w:r w:rsidRPr="00115DF4">
-                <w:rPr>
-                    <w:shd w:val="clear" w:color="auto" w:fill="C0C0C0"/>
-                </w:rPr>
-                <w:t>» белорусских рублей.</w:t>
+            <w:r w:rsidRPr="00FC1329">
+                <w:t xml:space="preserve"> белорусских рублей.</w:t>
             </w:r>
-            <w:r>
-                <w:rPr>
-                    <w:shd w:val="clear" w:color="auto" w:fill="C0C0C0"/>
-                </w:rPr>
-                <w:t xml:space="preserve">                     </w:t>
+        </w:p>
+        <w:p w:rsidR="00115DF4" w:rsidRPr="00FC1329" w:rsidRDefault="00115DF4" w:rsidP="00FC1329">
+            <w:pPr>
+                <w:spacing w:after="0" w:line="240" w:lineRule="auto"/>
+            </w:pPr>
+            <w:r w:rsidRPr="00FC1329">
+                <w:t xml:space="preserve"> </w:t>
             </w:r>
         </w:p>
         <w:p w:rsidR="00115DF4" w:rsidRPr="00E8420F" w:rsidRDefault="00115DF4" w:rsidP="00115DF4">
             <w:r w:rsidRPr="00E8420F">
-                <w:t> Заказчик оплачивает Услуги Исполн</w:t>
+                <w:t xml:space="preserve"> Заказчик </w:t>
+            </w:r>
+            <w:proofErr w:type="gramStart"/>
+            <w:r w:rsidRPr="00E8420F">
+                <w:t xml:space="preserve">оплачивает </w:t>
+            </w:r>
+            <w:r w:rsidR="00D63B23">
+                <w:t>Стоимость Услуг</w:t>
+            </w:r>
+            <w:proofErr w:type="gramEnd"/>
+            <w:r w:rsidR="00D63B23">
+                <w:t xml:space="preserve"> </w:t>
+            </w:r>
+            <w:r w:rsidRPr="00E8420F">
+                <w:t>Исполн</w:t>
             </w:r>
             <w:r>
-                <w:t xml:space="preserve">ителя–до 15 </w:t>
+                <w:t>ителя</w:t>
+            </w:r>
+            <w:r w:rsidR="00D63B23">
+                <w:t xml:space="preserve"> в размере, указанном в предыдущем абзаце настоящего акта </w:t>
+            </w:r>
+            <w:r>
+                <w:t xml:space="preserve">до 15 </w:t>
             </w:r>
             <w:r w:rsidRPr="00E8420F">
                 <w:t> </w:t>
@@ -739,10 +727,15 @@
                 </w:rPr>
                 <w:t xml:space="preserve">Заказчик </w:t>
             </w:r>
-            <w:r w:rsidR="002147AB" w:rsidRPr="003E6066">
+            <w:r w:rsidR="00D63B23">
                 <w:rPr>
                     <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
-                    <w:u w:val="single"/>
+                </w:rPr>
+                <w:t xml:space="preserve">                                      </w:t>
+            </w:r>
+            <w:r w:rsidR="002147AB" w:rsidRPr="00D63B23">
+                <w:rPr>
+                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
                 </w:rPr>
                 <w:t>{operatorFio}</w:t>
             </w:r>
@@ -1096,7 +1089,19 @@
                 <w:rPr>
                     <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
                 </w:rPr>
-                <w:t> Исполнитель ____________________ Шабловский Игорь Борисович</w:t>
+                <w:t xml:space="preserve"> Исполнитель </w:t>
+            </w:r>
+            <w:r w:rsidR="00D63B23">
+                <w:rPr>
+                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
+                </w:rPr>
+                <w:t xml:space="preserve">                                     </w:t>
+            </w:r>
+            <w:r w:rsidRPr="00E8420F">
+                <w:rPr>
+                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
+                </w:rPr>
+                <w:t>Шабловский Игорь Борисович</w:t>
             </w:r>
         </w:p>
         <w:p w:rsidR="00F25E54" w:rsidRDefault="00115DF4" w:rsidP="00115DF4">

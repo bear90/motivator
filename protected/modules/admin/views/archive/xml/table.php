@@ -12,6 +12,105 @@
         <w:gridCol w:w="1479"/>
         <w:gridCol w:w="1460"/>
     </w:tblGrid>
+    <w:tr>
+        <w:tc>
+            <w:tcPr>
+                <w:vAlign w:val="center"/>
+            </w:tcPr>
+            <w:p>
+                <w:pPr>
+                    <w:jc w:val="center"/>
+                </w:pPr>
+                <w:r>
+                    <w:rPr>
+                        <w:b/>
+                    </w:rPr>
+                    <w:t>№</w:t>
+                </w:r>
+            </w:p>
+        </w:tc>
+        <w:tc>
+            <w:tcPr>
+                <w:vAlign w:val="center"/>
+            </w:tcPr>
+            <w:p>
+                <w:pPr>
+                    <w:jc w:val="center"/>
+                </w:pPr>
+                <w:r>
+                    <w:rPr>
+                        <w:b/>
+                    </w:rPr>
+                    <w:t>ФИО туриста</w:t>
+                </w:r>
+            </w:p>
+        </w:tc>
+        <w:tc>
+            <w:tcPr>
+                <w:vAlign w:val="center"/>
+            </w:tcPr>
+            <w:p>
+                <w:pPr>
+                    <w:jc w:val="center"/>
+                </w:pPr>
+                <w:r>
+                    <w:rPr>
+                        <w:b/>
+                    </w:rPr>
+                    <w:t>Реквизиты туриста</w:t>
+                </w:r>
+            </w:p>
+        </w:tc>
+        <w:tc>
+            <w:tcPr>
+                <w:vAlign w:val="center"/>
+            </w:tcPr>
+            <w:p>
+                <w:pPr>
+                    <w:jc w:val="center"/>
+                </w:pPr>
+                <w:r>
+                    <w:rPr>
+                        <w:b/>
+                    </w:rPr>
+                    <w:t>Оплата тура</w:t>
+                </w:r>
+            </w:p>
+        </w:tc>
+        <w:tc>
+            <w:tcPr>
+                <w:vAlign w:val="center"/>
+            </w:tcPr>
+            <w:p>
+                <w:pPr>
+                    <w:jc w:val="center"/>
+                </w:pPr>
+                <w:r>
+                    <w:rPr>
+                        <w:b/>
+                    </w:rPr>
+                    <w:t>Стоимость тура рубли</w:t>
+                </w:r>
+            </w:p>
+        </w:tc>
+        <w:tc>
+            <w:tcPr>
+                <w:vAlign w:val="center"/>
+            </w:tcPr>
+            <w:p>
+                <w:pPr>
+                    <w:jc w:val="center"/>
+                </w:pPr>
+                <w:r>
+                    <w:rPr>
+                        <w:b/>
+                    </w:rPr>
+                    <w:t>Сумма за Услуги Исполнителя рубли</w:t>
+                </w:r>
+            </w:p>
+        </w:tc>
+    </w:tr>
+
     <?php foreach($rows as $i => $entity):?>
     <w:tr>
         <w:tc>
@@ -44,6 +143,9 @@
         </w:tc>
         <w:tc>
             <w:p>
+                <w:pPr>
+                    <w:jc w:val="right"/>
+                </w:pPr>
                 <w:r>
                     <w:t><?php echo $entity->tour->price; ?></w:t>
                 </w:r>
@@ -51,6 +153,9 @@
         </w:tc>
         <w:tc>
             <w:p>
+                <w:pPr>
+                    <w:jc w:val="right"/>
+                </w:pPr>
                 <w:r>
                     <w:t><?php echo round($entity->tour->price * $percent/100, 2); ?></w:t>
                 </w:r>
