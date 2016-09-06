@@ -59,14 +59,18 @@ class ExportAction extends \CAction
         //start of printing column names as names of MySQL fields
         $column = 'A';
         $columns = [
-            ['Турист', 'width' => 28],
+            ['Турист', 'width' => 24],
             ['ТО'],
             ['ТА'],
-            ['Дата продажи'],
+            ['Дата продажи', 'width' => 10],
             ['Информация о туре'],
         ];
         foreach ($columns as $data) {
             $phpExcel->getActiveSheet()->setCellValue($column . $rowCount, $data[0]);
+            $phpExcel->getActiveSheet()->getStyle($column . $rowCount)->getAlignment()
+                ->setWrapText(true)
+                ->setVertical(\PHPExcel_Style_Alignment::VERTICAL_CENTER)
+                ->setHorizontal(\PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
             if (isset($data['width']))
             {
                 $phpExcel->getActiveSheet()->getColumnDimension($column)->setWidth($data['width']);
@@ -121,6 +125,16 @@ class ExportAction extends \CAction
             }
             $rowCount++;
         }
+
+        $rowCount--;
+        $phpExcel->getActiveSheet()->getStyle("A1:E{$rowCount}")->applyFromArray([
+            'borders' => [
+                'allborders' => [
+                    'style' => \PHPExcel_Style_Border::BORDER_MEDIUM, 
+                    //'color' => array('argb' => 'FFFF0000'),
+                ]
+            ]
+        ]);
 
         $writer = \PHPExcel_IOFactory::createWriter($phpExcel, 'Excel5');
         $writer->save($file);
