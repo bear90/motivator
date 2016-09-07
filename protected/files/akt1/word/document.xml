@@ -161,9 +161,10 @@
                 <w:t> </w:t>
             </w:r>
         </w:p>
-        <w:p w:rsidR="00115DF4" w:rsidRPr="00E8420F" w:rsidRDefault="002147AB" w:rsidP="00115DF4">
+        <w:p w:rsidR="00115DF4" w:rsidRPr="00E8420F" w:rsidRDefault="002147AB" w:rsidP="000D5146">
             <w:pPr>
                 <w:pStyle w:val="a3"/>
+                <w:ind w:firstLine="708"/>
                 <w:jc w:val="both"/>
                 <w:rPr>
                     <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
@@ -331,9 +332,10 @@
                 <w:t> </w:t>
             </w:r>
         </w:p>
-        <w:p w:rsidR="00115DF4" w:rsidRDefault="00115DF4" w:rsidP="00115DF4">
+        <w:p w:rsidR="00115DF4" w:rsidRDefault="00115DF4" w:rsidP="000D5146">
             <w:pPr>
                 <w:pStyle w:val="a3"/>
+                <w:ind w:firstLine="708"/>
                 <w:jc w:val="both"/>
                 <w:rPr>
                     <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
@@ -357,7 +359,13 @@
                 <w:rPr>
                     <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
                 </w:rPr>
-                <w:t>Заказчику услуги по привлечению «</w:t>
+                <w:t>З</w:t>
+            </w:r>
+            <w:r w:rsidR="000D5146">
+                <w:rPr>
+                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
+                </w:rPr>
+                <w:t xml:space="preserve">аказчику услуги по привлечению </w:t>
             </w:r>
             <w:r w:rsidR="001A63B2" w:rsidRPr="001A63B2">
                 <w:rPr>
@@ -369,7 +377,7 @@
                 <w:rPr>
                     <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
                 </w:rPr>
-                <w:t>» </w:t>
+                <w:t> </w:t>
             </w:r>
             <w:r w:rsidRPr="00E8420F">
                 <w:rPr>
@@ -493,17 +501,21 @@
                 </w:rPr>
             </w:pPr>
         </w:p>
-        <w:p w:rsidR="00115DF4" w:rsidRPr="00FC1329" w:rsidRDefault="00115DF4" w:rsidP="00FC1329">
+        <w:p w:rsidR="00115DF4" w:rsidRPr="00FC1329" w:rsidRDefault="00115DF4" w:rsidP="000D5146">
             <w:pPr>
                 <w:spacing w:after="0" w:line="240" w:lineRule="auto"/>
+                <w:ind w:firstLine="708"/>
+                <w:jc w:val="both"/>
             </w:pPr>
             <w:r w:rsidRPr="00FC1329">
                 <w:t>Претензий к качеству и объему оказанных Услуг Заказчик не имеет.</w:t>
             </w:r>
         </w:p>
-        <w:p w:rsidR="00115DF4" w:rsidRPr="00FC1329" w:rsidRDefault="00115DF4" w:rsidP="00FC1329">
+        <w:p w:rsidR="00115DF4" w:rsidRPr="00FC1329" w:rsidRDefault="00115DF4" w:rsidP="000D5146">
             <w:pPr>
                 <w:spacing w:after="0" w:line="240" w:lineRule="auto"/>
+                <w:ind w:firstLine="708"/>
+                <w:jc w:val="both"/>
             </w:pPr>
             <w:r w:rsidRPr="00FC1329">
                 <w:t>Период оказания Услуг  с  {d0} {m0pr} {y0}</w:t>
@@ -533,9 +545,10 @@
                 <w:t>Стоимость Услуг, оказанных Исполнителем за  период оказания Услуг</w:t>
             </w:r>
         </w:p>
-        <w:p w:rsidR="00D63B23" w:rsidRDefault="00115DF4" w:rsidP="00FC1329">
+        <w:p w:rsidR="00D63B23" w:rsidRDefault="00115DF4" w:rsidP="000D5146">
             <w:pPr>
                 <w:spacing w:after="0" w:line="240" w:lineRule="auto"/>
+                <w:jc w:val="both"/>
             </w:pPr>
             <w:r w:rsidRPr="00FC1329">
                 <w:t>с </w:t>
@@ -573,7 +586,11 @@
                 <w:t xml:space="preserve"> </w:t>
             </w:r>
         </w:p>
-        <w:p w:rsidR="00115DF4" w:rsidRPr="00E8420F" w:rsidRDefault="00115DF4" w:rsidP="00115DF4">
+        <w:p w:rsidR="00115DF4" w:rsidRPr="00E8420F" w:rsidRDefault="00115DF4" w:rsidP="000D5146">
+            <w:pPr>
+                <w:ind w:firstLine="708"/>
+                <w:jc w:val="both"/>
+            </w:pPr>
             <w:r w:rsidRPr="00E8420F">
                 <w:t xml:space="preserve"> Заказчик </w:t>
             </w:r>
@@ -605,6 +622,12 @@
             </w:r>
             <w:r w:rsidR="001A63B2" w:rsidRPr="001A63B2">
                 <w:t>{deadline}</w:t>
+            </w:r>
+            <w:r w:rsidR="000D5146" w:rsidRPr="000D5146">
+                <w:t xml:space="preserve"> </w:t>
+            </w:r>
+            <w:r w:rsidR="000D5146">
+                <w:t>года</w:t>
             </w:r>
             <w:r w:rsidRPr="00E8420F">
                 <w:t xml:space="preserve"> в безналичном порядке путем перечисления денежных средств на указанный Исполнителем расчетный счет.</w:t>
@@ -659,28 +682,32 @@
                 <w:t> </w:t>
             </w:r>
         </w:p>
-        <w:p w:rsidR="006C5A21" w:rsidRPr="00BC717B" w:rsidRDefault="00115DF4" w:rsidP="00115DF4">
+        <w:p w:rsidR="006C5A21" w:rsidRPr="000D5146" w:rsidRDefault="00115DF4" w:rsidP="00115DF4">
             <w:pPr>
                 <w:pStyle w:val="a3"/>
                 <w:rPr>
                     <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
+                    <w:b/>
                 </w:rPr>
             </w:pPr>
-            <w:r w:rsidRPr="00E8420F">
+            <w:r w:rsidRPr="000D5146">
                 <w:rPr>
                     <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
+                    <w:b/>
                 </w:rPr>
                 <w:t>Заказчик:</w:t>
             </w:r>
-            <w:r w:rsidR="001A63B2" w:rsidRPr="003E6066">
+            <w:r w:rsidR="001A63B2" w:rsidRPr="000D5146">
                 <w:rPr>
                     <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
+                    <w:b/>
                 </w:rPr>
                 <w:t xml:space="preserve"> </w:t>
             </w:r>
-            <w:r w:rsidR="006C5A21" w:rsidRPr="006C5A21">
+            <w:r w:rsidR="006C5A21" w:rsidRPr="000D5146">
                 <w:rPr>
                     <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
+                    <w:b/>
                 </w:rPr>
                 <w:t>{operatorName}</w:t>
             </w:r>
