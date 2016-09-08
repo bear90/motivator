@@ -9,7 +9,12 @@
         <div class="head">
             <h1 class="touragentName"><?php echo $manager->touragent->name; ?></h1>
             <h1>Рабочий кабинет турагента</h1>
-            <h1 class="yellow"><?php echo $manager->name; ?></h1>
+            <h1 class="yellow">
+                <?php echo $manager->name; ?>
+                <?php if(!$manager->boss): ?>
+                <span class="bonus"><?php echo $manager->bonus; ?></span>
+                <?php endif; ?>
+            </h1>
             <a class="right-escape" href="/turagentam/logout">
                 <span>Вых</span>
             </a>

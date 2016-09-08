@@ -18,7 +18,7 @@ class IndexAction extends \CAction
 {
     public function run()
     {
-        $templates = TemplateEntity::model()->findAll();
+        $templates = TemplateEntity::model()->findAll(['order' => 'position']);
         
         
         $this->controller->render('index', [

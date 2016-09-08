@@ -5,6 +5,7 @@
 
 namespace application\models;
 
+use application\models\Configuration;
 use application\components\DBEntity;
 
 class TouragentManager extends DBEntity {
@@ -76,5 +77,13 @@ class TouragentManager extends DBEntity {
         }, $this->phones);
 
         return $asString ? implode(', ', $phones) : $phones;
+    }
+
+    public function addBonusByPrice($price)
+    {
+        $price = (float) $price;
+        $percent = (float) Configuration::get(Configuration::BONUS_MANAGER);
+        $this->bonus = $percent * $price / 100;
+        $this->save();
     }
 }

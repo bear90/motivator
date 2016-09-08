@@ -34,6 +34,8 @@ class ConfirmpaidAction extends \CAction
                 'counterReason' => CounterReason::WAIT_END_OF_TOUR,
                 'tourFinishAt' => $tourist->tour->endDate
             ]);
+            
+            $manager->addBonusByPrice($tourist->tour->price);
 
             \Tool::informTourist($tourist, 'paid_tour');
 

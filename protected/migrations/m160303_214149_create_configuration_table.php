@@ -7,7 +7,7 @@ class m160303_214149_create_configuration_table extends CDbMigration
 		$this->createTable('configuration',array(
             'id' => 'pk',
             'name' => 'varchar(100) NOT NULL',
-            'type' => 'ENUM("string", "integer", "array") NOT NULL',
+            'type' => 'ENUM("string", "integer", "array", "float") NOT NULL',
             'value' => 'TEXT NULL'
         ));
 	}

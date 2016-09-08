@@ -17,6 +17,8 @@ class Configuration extends DBEntity {
 
     const TYPE_ARRAY  = 'array';
 
+    const TYPE_FLOAT  = 'float';
+
     const ORDER_TOUR_TIMER = 'ORDER_TOUR_TIMER';
     
     const PAYMENT_TOUR_TIMER = 'PAYMENT_TOUR_TIMER';
@@ -43,6 +45,8 @@ class Configuration extends DBEntity {
 
     const TEMPLATE_12_PERIOD = 'TEMPLATE_12_PERIOD';
 
+    const BONUS_MANAGER = 'BONUS_MANAGER';
+
     private static $aValues = null;
 
     /**
@@ -61,6 +65,10 @@ class Configuration extends DBEntity {
 
             case self::TYPE_INT:
                 $mValue = (int) $sValue;
+                break;
+
+            case self::TYPE_FLOAT:
+                $mValue = (float) $sValue;
                 break;
 
             case self::TYPE_ARRAY:

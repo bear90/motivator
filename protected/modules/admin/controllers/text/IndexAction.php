@@ -18,7 +18,7 @@ class IndexAction extends \CAction
 {
     public function run($id = null)
     {
-        $pages = TextEntity::model()->findAll();
+        $pages = TextEntity::model()->findAll(['order' => 'position']);
         $message = '';
 
         if (\Yii::app()->user->hasState('message'))

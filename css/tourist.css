@@ -170,6 +170,11 @@ body {
     margin-top: 17px;
 }
 
+.container-fluid .head h1 > .bonus {
+    color: #e36c0a;
+    padding-left: 20px;
+}
+
 .container-fluid .head h1.touragentName {
     float: right;
     margin-right: 85px;

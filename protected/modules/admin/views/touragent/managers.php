@@ -29,8 +29,11 @@
                 <a href="<?php echo Yii::app()->createUrl("/admin/touragent/edit-manager/{$entity->id}")?>" type="button" class="btn btn-default">
                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> редактировать
                 </a>
+                <a href="<?php echo Yii::app()->createUrl("/admin/touragent/reset-bonus/{$entity->id}")?>" type="button" class="btn btn-default" onclick="return confirm('Вы уверены что хотите обнулить бонус?');">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> обнулить бонус
+                </a>
 
-                <a href="<?php echo Yii::app()->createUrl("/admin/touragent/delete-manager/{$entity->id}")?>" type="button" class="btn btn-danger" onclick="return confirm('Вы уверены?');">
+                <a href="<?php echo Yii::app()->createUrl("/admin/touragent/delete-manager/{$entity->id}")?>" type="button" class="btn btn-danger" onclick="return confirm('Вы уверены что хотите удалить запись?');">
                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> удалить
                 </a>
             </td>

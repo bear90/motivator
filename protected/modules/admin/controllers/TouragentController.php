@@ -18,6 +18,7 @@ class TouragentController extends AdminController {
             'add-manager' => 'application\\modules\\admin\\controllers\\touragent\\AddManagerAction',
             'edit-manager' => 'application\\modules\\admin\\controllers\\touragent\\EditManagerAction',
             'delete-manager' => 'application\\modules\\admin\\controllers\\touragent\\DeleteManagerAction',
+            'reset-bonus' => 'application\\modules\\admin\\controllers\\touragent\\ResetBonusAction',
         ];
     }
 
