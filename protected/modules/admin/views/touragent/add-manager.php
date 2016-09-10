@@ -32,6 +32,10 @@
     </div>
 
     <div class="form-group">
+        <?php echo $form['bonusFactor']; ?>
+    </div>
+
+    <div class="form-group">
         <button type="submit" class="btn btn-default">Сохранить</button>
         <a class="btn btn-default" href="<?php echo Yii::app()->createUrl("/admin/touragent/manager/{$touragent->id}")?>" >Отмена</a>
     </div>

@@ -7,12 +7,14 @@ class TouragentManager extends \CFormModel
     public $name;
     public $boss;
     public $description;
+    public $bonusFactor;
 
     public function rules(){
         return array(
             array('name', 'required'),
             array('boss', 'boolean'),
             array('description', 'type', 'type' => 'string'),
+            array('bonusFactor', 'type', 'type' => 'float'),
         );
     }
 
@@ -21,6 +23,7 @@ class TouragentManager extends \CFormModel
             'name' => 'ФИО',
             'boss' => 'Руководитель',
             'description' => 'Блок данных менеджера',
+            'bonusFactor' => 'Бонус менеджера',
         ];
     }
 }

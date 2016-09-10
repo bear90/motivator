@@ -54,7 +54,7 @@
         <td><?php echo CHtml::textField('config['.Configuration::TEMPLATE_12_PERIOD.']', Configuration::get(Configuration::TEMPLATE_12_PERIOD)); ?> дней</td>
     </tr>
     <tr>
-        <td>Бонус от прадажи тура</td>
+        <td>Бонус менеджера</td>
         <td><?php echo CHtml::textField('config['.Configuration::BONUS_MANAGER.']', Configuration::get(Configuration::BONUS_MANAGER)); ?> %</td>
     </tr>
 </table>

@@ -31,6 +31,15 @@ return [
                 'class' => 'form-control tiny-text',
                 'name' => 'TouragentManager[description]',
             ]
+        ],
+        'bonusFactor' => [
+            'label' => 'Бонус менеджера (%):',
+            'type' => 'text',
+            'layout' => '{label}{input}{error}',
+            'attributes' => [
+                'class' => 'form-control',
+                'name' => 'TouragentManager[bonusFactor]',
+            ]
         ]
     ]
 ];

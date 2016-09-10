@@ -13,7 +13,8 @@ class TouragentManager extends DBEntity {
     public function rules(){
         return [
             ['name', 'required'],
-            ['touragentId, description, boss', 'safe']
+            ['touragentId, description, boss', 'safe'],
+            ['bonusFactor', 'type', 'type' => 'float'],
         ];
     }
 
@@ -83,6 +84,11 @@ class TouragentManager extends DBEntity {
     {
         $price = (float) $price;
         $percent = (float) Configuration::get(Configuration::BONUS_MANAGER);
+        if ($this->bonusFactor)
+        {
+            $percent = $this->bonusFactor;
+        }
+
         $this->bonus = $percent * $price / 100;
         $this->save();
     }
