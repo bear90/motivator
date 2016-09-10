@@ -57,9 +57,15 @@
         </div>
 
         <div class="inner-block form-group">
-            <label>Исходная стоимость тура:</label>
+            <label>Исходная стоимость тура на момент отправки предложения:</label>
             <?php echo Tool::getNewPriceText($offer->price); ?>
         </div>
+
+        <div class="inner-block form-group">
+            <label>Стоимость тура на сегодня:</label>
+            <?php echo Tool::getNewPriceText($offer->getCurrentPrice()); ?>
+        </div>
+
         <div class="inner-block">
             <label>Стартовая абонентская скидка:</label>
             <?php echo Tool::getNewPriceText($offer->minDiscont); ?>
@@ -82,9 +88,18 @@
     <div class="editBlock form">
 
         <div class="inner-block form-group">
-            <label>Исходная стоимость тура:</label>
-            <?php echo CHtml::textField("TourOffer[{$number}][price]", $offer->price, ['class' => 'price']); ?>
+            <label>Выберите валюту:</label>
+            <?php echo CHtml::dropDownList("TourOffer[{$number}][currencyUnit]",
+                $offer->currencyUnit,
+                ['usd' => 'Доллары', 'eur' => 'Евро', 'byn' => 'Белорусские рубли'],
+                ['class' => 'currencyUnit']); ?>
         </div>
+
+        <div class="inner-block form-group">
+            <label>Исходная стоимость тура на момент отправки предложения:</label>
+            <?php echo CHtml::textField("TourOffer[{$number}][currency]", $offer->currency, ['class' => 'currency']); ?>
+        </div>
+
         <div class="inner-block">
             <label>Стартовая абонентская скидка:</label>
             

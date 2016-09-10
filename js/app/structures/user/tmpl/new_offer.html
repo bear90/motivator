@@ -37,8 +37,17 @@
         </div>
 
         <div class="inner-block form-group">
-            <label>Исходная стоимость тура:</label>
-            <input class="price" type="text" value="" name="TourOffer[<%= num %>][price]" data-bv-field="price">
+            <label>Выберите валюту:</label>
+            <select class="currencyUnit" name="TourOffer[<%= num %>][currencyUnit]" data-bv-field="currencyUnit">
+                <option value="usd">Доллары</option>
+                <option value="eur">Евро</option>
+                <option value="byn">Белорусские рубли</option>
+            </select>
+        </div>
+
+        <div class="inner-block form-group">
+            <label>Исходная стоимость тура на момент отправки предложения:</label>
+            <input class="currency" type="text" value="" name="TourOffer[<%= num %>][currency]" data-bv-field="currency">
         </div>
 
         <div class="inner-block form-group">

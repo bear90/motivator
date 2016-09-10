@@ -59,6 +59,15 @@ return [
                 'class' => 'form-control',
                 'name' => 'Touragent[repeate]',
             ]
+        ],
+        'currencyFactor' => [
+            'label' => 'Коэфициент для валюты:',
+            'type' => 'text',
+            'layout' => '{label}{input}{error}',
+            'attributes' => [
+                'class' => 'form-control',
+                'name' => 'Touragent[currencyFactor]',
+            ]
         ]
     ]
 ];

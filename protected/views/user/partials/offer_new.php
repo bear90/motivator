@@ -40,8 +40,16 @@
         </div>
 
         <div class="inner-block form-group">
-            <label>Исходная стоимость тура:</label>
-            <?php echo CHtml::textField("TourOffer[1][price]", '', ['class' => 'price']); ?>
+            <label>Выберите валюту:</label>
+            <?php echo CHtml::dropDownList("TourOffer[1][currencyUnit]",
+                null,
+                ['usd' => 'Доллары', 'eur' => 'Евро', 'byn' => 'Белорусские рубли'],
+                ['class' => 'currencyUnit']); ?>
+        </div>
+
+        <div class="inner-block form-group">
+            <label>Исходная стоимость тура на момент отправки предложения:</label>
+            <?php echo CHtml::textField("TourOffer[1][currency]", '', ['class' => 'currency']); ?>
         </div>
 
         <div class="inner-block form-group">

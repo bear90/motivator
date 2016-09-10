@@ -12,6 +12,7 @@ class Touragent extends \CFormModel
     public $logo;
     public $password;
     public $repeate;
+    public $currencyFactor = 1.00;
 
     public $userId;
 
@@ -20,6 +21,7 @@ class Touragent extends \CFormModel
             array('name, site', 'required'),
             array('password', 'required', 'on' => 'create'),
             array('address, repeate', 'safe'),
+            array('currencyFactor', 'type', 'type' => 'float'),
             array('logo', 'file', 
                 'types' => ['jpg', 'gif', 'png'], 
                 'allowEmpty' => true,
@@ -56,6 +58,7 @@ class Touragent extends \CFormModel
             'address' => 'Адрес',
             'logo' => 'Логотип',
             'password' => 'Пароль',
+            'currencyFactor' => 'Коэфициент для валюты',
         ];
     }
 }

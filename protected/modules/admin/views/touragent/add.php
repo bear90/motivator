@@ -35,6 +35,10 @@
             </div>
         <?php endforeach; ?>
     </div>
+    
+    <div class="form-group">
+        <?php echo $touragentForm['currencyFactor']; ?>
+    </div>
 
     <div class="form-group">
         <button type="submit" class="btn btn-default">Сохранить</button>

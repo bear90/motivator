@@ -43,7 +43,8 @@ define([
             
             $('form.offerForm').bootstrapValidator('addField', $newItem.find('input.country'));
             $('form.offerForm').bootstrapValidator('addField', $newItem.find('input.city'));
-            $('form.offerForm').bootstrapValidator('addField', $newItem.find('input.price'));
+            $('form.offerForm').bootstrapValidator('addField', $newItem.find('input.currency'));
+            $('form.offerForm').bootstrapValidator('addField', $newItem.find('select.currencyUnit'));
             $('form.offerForm').bootstrapValidator('addField', $newItem.find('input.startDate'));
             $('form.offerForm').bootstrapValidator('addField', $newItem.find('input.endDate'));
             $('form.offerForm').bootstrapValidator('addField', $newItem.find('input.paymentEndDate'));
@@ -57,7 +58,8 @@ define([
 
             $form.bootstrapValidator('removeField', $item.find('input.country'));
             $form.bootstrapValidator('removeField', $item.find('input.city'));
-            $form.bootstrapValidator('removeField', $item.find('input.price'));
+            $form.bootstrapValidator('removeField', $item.find('input.currency'));
+            $form.bootstrapValidator('removeField', $item.find('select.currencyUnit'));
             $form.bootstrapValidator('removeField', $item.find('input.startDate'));
             $form.bootstrapValidator('removeField', $item.find('input.endDate'));
             $form.bootstrapValidator('removeField', $item.find('textarea.description'));
@@ -284,11 +286,19 @@ define([
                             }
                         }
                     },
-                    price: {
-                        selector: 'input.price',
+                    currency: {
+                        selector: 'input.currency',
                         validators: {
                             notEmpty: {
-                                message: "Исходная стоимость тура должна быть заполнена!"
+                                message: "Исходная стоимость тура на момент отправки предложения должна быть заполнена!"
+                            }
+                        }
+                    },
+                    currencyUnit: {
+                        selector: 'select.currencyUnit',
+                        validators: {
+                            notEmpty: {
+                                message: "Валюта должна быть выбрана!"
                             }
                         }
                     },

@@ -17,7 +17,8 @@ class TourOffer extends DBEntity {
     public function rules(){
         return [
             ['price, startDate, endDate, country, city, paymentEndDate', 'required'],
-            ['tourId, description, operatorId', 'safe']
+            ['tourId, description, operatorId, currencyUnit', 'safe'],
+            ['currency', 'type', 'type' => 'float']
         ];
     }
 
@@ -73,5 +74,10 @@ class TourOffer extends DBEntity {
     public function getCurrentSurchange()
     {
         return $this->price - $this->minDiscont - $this->prepayment - $this->getPartnerDiscont();
+    }
+
+    public function getCurrentPrice()
+    {
+        return $this->tour->touragent->getBynPrice($this->currency, $this->currencyUnit);
     }
 }

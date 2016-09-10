@@ -5,13 +5,15 @@ namespace application\models;
 use application\components\DBEntity;
 use application\models\defines\TouristStatus;
 use application\models\Configuration;
+use application\models\Currency;
 
 class Touragent extends DBEntity {
 
     public function rules(){
         return [
             ['name', 'required'],
-            ['site, address', 'safe']
+            ['site, address', 'safe'],
+            ['currencyFactor', 'type', 'type' => 'float']
         ];
     }
 
@@ -167,5 +169,23 @@ class Touragent extends DBEntity {
         $list = \CHtml::listData($list, 'id', 'name');
         
         return $list;
+    }
+
+    public function getBynPrice($price, $currencyUnit)
+    {
+        $price = (float) $price;
+        $currencyUnit = (string) $currencyUnit;
+
+        switch ($currencyUnit) {
+            case 'usd':
+            case 'eur':
+                $currencyEntity = Currency::get($currencyUnit);
+                $rate = $currencyEntity->value;
+
+                return $price * $this->currencyFactor * $rate;
+            
+            default:
+                return $price;
+        }
     }
 }
