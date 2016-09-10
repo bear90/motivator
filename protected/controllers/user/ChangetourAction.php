@@ -14,6 +14,7 @@ use application\models\Configuration;
 use application\models\defines\TouristStatus;
 use application\components\DbTransaction;
 use application\models\Logs;
+use application\models\Touragent;
 
 class ChangetourAction extends \CAction
 {
@@ -38,6 +39,7 @@ class ChangetourAction extends \CAction
                 $pid = (int) $tourist->groupCode;
                 $parentTourist = Tourist::model()->findByPk($pid);
             }
+            $touragent = Touragent::model()->findByPk($manager->touragentId);
 
             $data = (array) \Yii::app()->request->getParam('Tour');
             $paymentEndDate = \Yii::app()->request->getParam('paymentEndDate');
@@ -48,6 +50,7 @@ class ChangetourAction extends \CAction
             $endDate = new \DateTime($data['endDate']);
             $data['startDate'] = $startDate->format("Y-m-d H:i:s");
             $data['endDate'] = $endDate->format("Y-m-d H:i:s");
+            $data['price'] = $touragent->getBynPrice($data['currency'], $data['currencyUnit']);
 
             $confPrepayment = Configuration::get(Configuration::PREPAYMENT);
             $newPrepayment = round($data['price'] * $confPrepayment / 100, 2);
