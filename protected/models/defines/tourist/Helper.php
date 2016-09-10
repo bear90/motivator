@@ -64,7 +64,9 @@ class Helper {
         $touristTour->attributes = [
             'country' => $offer->country,
             'city' => $offer->city,
-            'price' => $offer->price,
+            'price' => $offer->getCurrentPrice(),
+            'currency' => $offer->currency,
+            'currencyUnit' => $offer->currencyUnit,
             'startDate' => $offer->startDate,
             'endDate' => $offer->endDate,
             'description' => $offer->description,

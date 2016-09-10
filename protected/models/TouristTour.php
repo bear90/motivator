@@ -13,7 +13,7 @@ class TouristTour extends DBEntity
     public function rules(){
         return [
             ['price, startDate, endDate, description, country, city, prepayment', 'required'],
-            ['touristId, managerId, touragentId, operatorId', 'safe']
+            ['touristId, managerId, touragentId, operatorId, currency, currencyUnit', 'safe']
         ];
     }
 
@@ -79,5 +79,10 @@ class TouristTour extends DBEntity
             return $date->format($format);
         }
         return null;
+    }
+
+    public function getCurrentPrice()
+    {
+        return round($this->touragent->getBynPrice($this->currency, $this->currencyUnit), 2);
     }
 }

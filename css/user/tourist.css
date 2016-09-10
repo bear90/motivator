@@ -890,3 +890,9 @@ ul.custom-list li a {
 .message a.remove {position: absolute; right: 5px; top: 5px;}
 
 select:disabled{color: graytext;}
+
+.clrfix:after {
+    clear: both;
+    content: '';
+    display: table;
+}

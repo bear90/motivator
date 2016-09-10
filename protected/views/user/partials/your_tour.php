@@ -38,9 +38,14 @@
             <?php echo $tourist->tour->description; ?>
         </p>
     </div>
-    <div>Исходная стоимость тура: 
+    <div class="clrfix">Исходная стоимость тура на момент его выбора/замены: 
         <span class="value money">
             <?php echo Tool::getNewPriceText($tourist->tour->price); ?>
+        </span>
+    </div>
+    <div>Стоимость тура на сегодня: 
+        <span class="value money">
+            <?php echo Tool::getNewPriceText($tourist->tour->getCurrentPrice()); ?>
         </span>
     </div>
     <div>Предоплата: 
@@ -106,7 +111,7 @@
 
         <div class="inner-block form-group">
             <label>Исходная стоимость тура:</label>
-            <?php echo CHtml::textField("Tour[price]", $tourist->tour->price, ['class' => 'price']); ?>
+            <?php echo CHtml::textField("Tour[price]", $tourist->tour->getCurrentPrice(), ['class' => 'price']); ?>
         </div>
 
         <h4>ОПИСАНИЕ ТУРА:</h4> 
