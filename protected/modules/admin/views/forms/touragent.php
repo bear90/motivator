@@ -60,13 +60,22 @@ return [
                 'name' => 'Touragent[repeate]',
             ]
         ],
-        'currencyFactor' => [
-            'label' => 'Коэфициент для валюты:',
+        'currencyFactorEur' => [
+            'label' => 'Коэфициент для евро:',
             'type' => 'text',
             'layout' => '{label}{input}{error}',
             'attributes' => [
                 'class' => 'form-control',
-                'name' => 'Touragent[currencyFactor]',
+                'name' => 'Touragent[currencyFactorEur]',
+            ]
+        ],
+        'currencyFactorUsd' => [
+            'label' => 'Коэфициент для доллара:',
+            'type' => 'text',
+            'layout' => '{label}{input}{error}',
+            'attributes' => [
+                'class' => 'form-control',
+                'name' => 'Touragent[currencyFactorUsd]',
             ]
         ]
     ]

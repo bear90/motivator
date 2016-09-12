@@ -83,7 +83,7 @@ class TouragentManager extends DBEntity {
     public function addBonusByPrice($price)
     {
         $price = (float) $price;
-        $percent = (float) Configuration::get(Configuration::BONUS_MANAGER);
+        $percent = 0;
         if ($this->bonusFactor)
         {
             $percent = $this->bonusFactor;

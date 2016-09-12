@@ -13,7 +13,8 @@ class Touragent extends DBEntity {
         return [
             ['name', 'required'],
             ['site, address', 'safe'],
-            ['currencyFactor', 'type', 'type' => 'float']
+            ['currencyFactor', 'type', 'type' => 'float'],
+            ['currencyFactorEur, currencyFactorUsd', 'type', 'type' => 'float']
         ];
     }
 
@@ -178,11 +179,16 @@ class Touragent extends DBEntity {
 
         switch ($currencyUnit) {
             case 'usd':
+                $currencyEntity = Currency::get($currencyUnit);
+                $rate = $currencyEntity->value;
+
+                return $price * $this->currencyFactorUsd * $rate;
+
             case 'eur':
                 $currencyEntity = Currency::get($currencyUnit);
                 $rate = $currencyEntity->value;
 
-                return $price * $this->currencyFactor * $rate;
+                return $price * $this->currencyFactorEur * $rate;
             
             default:
                 return $price;

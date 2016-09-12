@@ -51,7 +51,11 @@
     </div>
     
     <div class="form-group">
-        <?php echo $touragentForm['currencyFactor']; ?>
+        <?php echo $touragentForm['currencyFactorEur']; ?>
+    </div>
+    
+    <div class="form-group">
+        <?php echo $touragentForm['currencyFactorUsd']; ?>
     </div>
 
     <div class="form-group">
