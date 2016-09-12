@@ -35,6 +35,11 @@
         </div>
 
         <div class="inner-block form-group">
+            <label>Конечная дата внесения предоплаты при бронировании тура:</label>
+            <?php echo CHtml::textField("TourOffer[1][bookingEndDate]", '', ['class' => 'bookingEndDate']); ?>
+        </div>
+
+        <div class="inner-block form-group">
             <label>Конечная дата оплаты тура:</label>
             <?php echo CHtml::textField("TourOffer[1][paymentEndDate]", '', ['class' => 'paymentEndDate']); ?>
         </div>

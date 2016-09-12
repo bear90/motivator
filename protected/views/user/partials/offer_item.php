@@ -40,6 +40,13 @@
         </div>
 
         <div class="inner-block form-group">
+            <label>Конечная дата внесения предоплаты при бронировании тура:</label>
+            <?php echo $offer->bookingEndDate
+                ? Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->bookingEndDate)
+                : ''; ?>
+        </div>
+
+        <div class="inner-block form-group">
             <label>Конечная дата оплаты тура:</label>
             <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->paymentEndDate); ?>
         </div>
@@ -148,6 +155,13 @@
             <?php echo CHtml::textField("TourOffer[{$number}][endDate]", 
                 Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->endDate), 
                 ['class' => 'endDate']); ?>
+        </div>
+
+        <div class="inner-block form-group">
+            <label>Конечная дата внесения предоплаты при бронировании тура:</label>
+            <?php echo CHtml::textField("TourOffer[{$number}][bookingEndDate]",
+                Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->bookingEndDate),
+                ['class' => 'bookingEndDate']); ?>
         </div>
 
         <div class="inner-block form-group">

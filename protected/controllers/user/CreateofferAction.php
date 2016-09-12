@@ -33,12 +33,14 @@ class CreateofferAction extends \CAction
                 $startDate = new \DateTime($offer['startDate']);
                 $endDate = new \DateTime($offer['endDate']);
                 $paymentEndDate = new \DateTime($offer['paymentEndDate']);
+                $bookingEndDate = new \DateTime($offer['bookingEndDate']);
 
                 $data = $offer;
                 $data['tourId'] = $tourId;
                 $data['startDate'] = $startDate->format("Y-m-d H:i:s");
                 $data['endDate'] = $endDate->format("Y-m-d H:i:s");
                 $data['paymentEndDate'] = $paymentEndDate->format("Y-m-d H:i:s");
+                $data['bookingEndDate'] = $bookingEndDate->format("Y-m-d H:i:s");
                 $data['price'] = $manager->touragent->getBynPrice($data['currency'], $data['currencyUnit']);
 
                 if (!empty($offer['id']))
