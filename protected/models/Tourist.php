@@ -23,7 +23,7 @@ class Tourist extends DBEntity {
             'tours'=>[self::HAS_MANY, 'application\\models\\Tour', 'touristId'],
             'message'=>[self::HAS_ONE, 'application\\models\\Message', 'touristId', 'order' => 'message.createdAt DESC'],
             'messages'=>[self::HAS_MANY, 'application\\models\\Message', 'touristId', 
-                'order' => 'messages.createdAt DESC',
+                'order' => 'messages.id DESC',
                 'condition' => 'messages.viewed = 0'
             ],
         ];
