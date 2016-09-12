@@ -14,8 +14,8 @@
             </div>
 
             <div class="inner-block">
-                <label>Cтрана отдыха:</label>
-                <?php echo $tour->getCities(); ?>
+                <label>Пожелания к туру:</label>
+                <?php echo $tour->wishes; ?>
             </div>
             <div class="inner-block">
                 <label>Ориентировочная дата начала тура:</label>

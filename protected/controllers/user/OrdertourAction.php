@@ -20,6 +20,7 @@ class OrdertourAction extends \CAction
         $data = [
             'touragentId' => (int) \Yii::app()->request->getPost('touragentId'),
             'city' => (array) \Yii::app()->request->getPost('city'),
+            'wishes' => \Yii::app()->request->getPost('wishes'),
             'startDate' => $startDate->format("Y-m-d H:i:s"),
             'endDate' => $endDate->format("Y-m-d H:i:s"),
         ];

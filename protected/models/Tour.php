@@ -12,7 +12,7 @@ class Tour extends DBEntity {
     public function rules(){
         return [
             ['startDate, endDate', 'required'],
-            ['touristId, touragentId, offer, managerId', 'safe']
+            ['touristId, touragentId, offer, managerId,  wishes', 'safe']
         ];
     }
 

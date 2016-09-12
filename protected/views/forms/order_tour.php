@@ -34,6 +34,17 @@ return [
                 'name' => 'city[]'
             ]
         ],
+        'wishes' => [
+            'label' => 'Пожелания к туру:
+                <span class="comment">страна/несколько стран, регион/город/несколько городов, вид отдыха/наличие детей/другие пожелания к туру</span>',
+            'type' => 'textarea',
+            'layout' => '{label}{input}',
+            'attributes' => [
+                'name' => 'wishes',
+                'class' => 'form-control',
+                'rows' => 3
+            ]
+        ],
         'startDate' => [
             'label' => 'Ориентировочная дата начала тура:',
             'type' => 'text',

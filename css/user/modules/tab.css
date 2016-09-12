@@ -333,6 +333,12 @@
     text-decoration: none;
 }
 
+#wrapper .tabs-block.tab1 .request-head-block span.comment {
+    margin-left: 0;
+    font-size: 15px;
+    font-weight: normal;
+}
+
 #wrapper .tabs-block.tab1 .request-head-block span {
     display: inline-block;
     font-size: 18px;

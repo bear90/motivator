@@ -46,8 +46,7 @@
                 </div>
 
                 <div class="inner-block col-xs-12">
-                    <?php echo $form['city']; ?>
-                    <a href="#" id="add-city" class="add">+ ещё страна</a>
+                    <?php echo $form['wishes']; ?>
                 </div>
                 <div class="inner-block col-xs-12">
                     <?php echo $form['startDate']; ?>
