@@ -53,6 +53,11 @@
             <?php echo Tool::getNewPriceText($tourist->tour->prepayment); ?>
         </span>
     </div>
+    <div>Предоплата при бронировании тура: 
+        <span class="value money">
+            <?php echo Tool::getNewPriceText($tourist->tour->bookingPrepayment); ?>
+        </span>
+    </div>
 
     <div class="sell red">Общая скидка:
         <a href="#" class="more">подробнее</a>

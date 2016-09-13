@@ -41,11 +41,22 @@ class ConfirmofferAction extends \CAction
             $isChangeOffer = $tourist->statusId == TouristStatus::GETTING_DISCONT;
             $tourist = $touristHelper->confirmOffer($offer);
             $touristHelper->changeStatus($tourist, TouristStatus::GETTING_DISCONT);
-            $touristHelper->update($tourist->id, [
-                'counterReason' => CounterReason::WAIT_PAYMENT,
-                'counterStartedAt' => $currentDate->format("Y-m-d"),
-                'counterDate' => $offer->paymentEndDate
-            ]);
+
+            if ($offer->bookingEndDate)
+            {
+                $touristHelper->update($tourist->id, [
+                    'counterReason' => CounterReason::WAIT_BOOKING_PREPAYMENT,
+                    'counterStartedAt' => $currentDate->format("Y-m-d"),
+                    'counterDate' => $offer->bookingEndDate
+                ]);
+            } else {
+                $touristHelper->update($tourist->id, [
+                    'counterReason' => CounterReason::WAIT_PAYMENT,
+                    'counterStartedAt' => $currentDate->format("Y-m-d"),
+                    'counterDate' => $offer->paymentEndDate
+                ]);
+            }
+            
 
             Logs::info("{$tourist->firstName} {$tourist->lastName} (#{$tourist->id}) bought tour", 
                 $tourist->tour->attributes);

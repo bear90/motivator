@@ -40,7 +40,7 @@ class CreateofferAction extends \CAction
                 $data['startDate'] = $startDate->format("Y-m-d H:i:s");
                 $data['endDate'] = $endDate->format("Y-m-d H:i:s");
                 $data['paymentEndDate'] = $paymentEndDate->format("Y-m-d H:i:s");
-                $data['bookingEndDate'] = $bookingEndDate->format("Y-m-d H:i:s");
+                $data['bookingEndDate'] = $offer['bookingEndDate'] ? $bookingEndDate->format("Y-m-d H:i:s"): null;
                 $data['price'] = $manager->touragent->getBynPrice($data['currency'], $data['currencyUnit']);
 
                 if (!empty($offer['id']))

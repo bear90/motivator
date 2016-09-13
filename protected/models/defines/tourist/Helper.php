@@ -74,6 +74,8 @@ class Helper {
             'managerId' => $offer->tour->managerId,
             'touragentId' => $offer->tour->touragentId,
             'operatorId' => $offer->operatorId,
+            'bookingEndDate' => $offer->bookingEndDate,
+            'paymentEndDate' => $offer->paymentEndDate,
         ];
         $touristTour->save();
 

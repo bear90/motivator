@@ -39,12 +39,12 @@
             <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->endDate); ?>
         </div>
 
+        <?php if($offer->bookingEndDate): ?>
         <div class="inner-block form-group">
             <label>Конечная дата внесения предоплаты при бронировании тура:</label>
-            <?php echo $offer->bookingEndDate
-                ? Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->bookingEndDate)
-                : ''; ?>
+            <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->bookingEndDate); ?>
         </div>
+        <?php endif;?>
 
         <div class="inner-block form-group">
             <label>Конечная дата оплаты тура:</label>

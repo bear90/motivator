@@ -17,4 +17,6 @@ class CounterReason
     const WAIT_PAYMENT = 3;
 
     const WAIT_END_OF_TOUR = 4;
+
+    const WAIT_BOOKING_PREPAYMENT = 5;
 }
