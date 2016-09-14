@@ -48,7 +48,7 @@
             <label>Выберите валюту:</label>
             <?php echo CHtml::dropDownList("TourOffer[1][currencyUnit]",
                 null,
-                ['usd' => 'Доллары', 'eur' => 'Евро', 'byn' => 'Белорусские рубли'],
+                Tool::getCurrencyList(),
                 ['class' => 'currencyUnit']); ?>
         </div>
 

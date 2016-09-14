@@ -48,14 +48,20 @@
             <?php echo Tool::getNewPriceText($tourist->tour->getCurrentPrice()); ?>
         </span>
     </div>
-    <div>Предоплата: 
+    <div>Стартовая предоплата: 
         <span class="value money">
             <?php echo Tool::getNewPriceText($tourist->tour->prepayment); ?>
         </span>
     </div>
-    <div>Предоплата при бронировании тура: 
+    <div>Предоплата при бронировании тура:</div>
+    <div>к внесению: 
         <span class="value money">
             <?php echo Tool::getNewPriceText($tourist->tour->bookingPrepayment); ?>
+        </span>
+    </div>
+    <div>внесено: 
+        <span class="value money">
+            <?php echo Tool::getNewPriceText($tourist->tour->bookingPrepaymentPaid); ?>
         </span>
     </div>
 
@@ -88,9 +94,18 @@
             <?php echo Tool::getNewPriceText($tourist->tour->getCurrentSurchange()); ?>
         </span>
     </div>
+    
+    <?php if($tourist->tour->bookingEndDate): ?>
+    <div class="clrfix">Конечная дата внесения предоплаты при бронировании тура: 
+        <span class="value money">
+            <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $tourist->tour->bookingEndDate); ?>
+        </span>
+    </div>
+    <?php endif; ?>
+
     <div>Конечная дата оплаты тура: 
         <span class="value money">
-            <?php echo $tourist->getCounterDate('d.m.Y'); ?>
+            <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $tourist->tour->paymentEndDate); ?>
         </span>
     </div>
 </div>
@@ -117,13 +132,20 @@
         <div class="inner-block form-group">
             <label>Выберите валюту:</label>
             <?php echo CHtml::dropDownList("Tour[currencyUnit]", $tourist->tour->currencyUnit, 
-            ['usd' => 'Доллары', 'eur' => 'Евро', 'byn' => 'Белорусские рубли'],
+            Tool::getCurrencyList(),
             ['class' => 'currencyUnit']); ?>
         </div>
 
         <div class="inner-block form-group">
             <label>Исходная стоимость тура:</label>
             <?php echo CHtml::textField("Tour[currency]", $tourist->tour->currency, ['class' => 'currency']); ?>
+        </div>
+
+        <div class="inner-block form-group">
+            <label>Предоплата при бронировании тура:</label>
+            <?php echo CHtml::textField("Tour[bookingPrepaymentPaid]", 
+                $tourist->tour->bookingPrepaymentPaid, 
+                ['class' => 'bookingPrepaymentPaid']); ?>
         </div>
 
         <h4>ОПИСАНИЕ ТУРА:</h4> 
@@ -160,9 +182,16 @@
         </div>
 
         <div class="inner-block form-group">
+            <label>Конечная дата внесения предоплаты при бронировании тура:</label>
+            <?php echo CHtml::textField("Tour[bookingEndDate]",
+                Yii::app()->dateFormatter->format('dd.MM.yyyy', $tourist->tour->bookingEndDate),
+                ['class' => 'bookingEndDate']); ?>
+        </div>
+
+        <div class="inner-block form-group">
             <label>Конечная дата оплаты тура:</label>
-            <?php echo CHtml::textField("paymentEndDate",
-                $tourist->getCounterDate('d.m.Y'),
+            <?php echo CHtml::textField("Tour[paymentEndDate]",
+                Yii::app()->dateFormatter->format('dd.MM.yyyy', $tourist->tour->paymentEndDate),
                 ['class' => 'paymentEndDate']); ?>
         </div>
 

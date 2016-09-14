@@ -19,6 +19,13 @@
 
     <div class="viewBlock form">
 
+        <?php if($viewOperator): ?>
+        <div class="inner-block form-group">
+            <label>Туроператор:</label>
+            <?php echo $offer->operator ? $offer->operator->name : ''; ?>
+        </div>
+        <?php endif; ?>
+
         <div class="inner-block form-group">
             <label>Страна:</label>
             <?php echo $offer->country; ?>
@@ -30,33 +37,14 @@
         </div>
 
         <div class="inner-block form-group">
-            <label>Дата начала тура:</label>
+            <label>Начало тура:</label>
             <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->startDate); ?>
         </div>
 
         <div class="inner-block form-group">
-            <label>Дата окончания тура:</label>
+            <label>Окончание тура:</label>
             <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->endDate); ?>
         </div>
-
-        <?php if($offer->bookingEndDate): ?>
-        <div class="inner-block form-group">
-            <label>Конечная дата внесения предоплаты при бронировании тура:</label>
-            <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->bookingEndDate); ?>
-        </div>
-        <?php endif;?>
-
-        <div class="inner-block form-group">
-            <label>Конечная дата оплаты тура:</label>
-            <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->paymentEndDate); ?>
-        </div>
-
-        <?php if($viewOperator): ?>
-        <div class="inner-block form-group">
-            <label>Туроператор:</label>
-            <?php echo $offer->operator ? $offer->operator->name : ''; ?>
-        </div>
-        <?php endif; ?>
 
         <div class="inner-block form-group">
             <label>Описание тура:</label>
@@ -77,17 +65,37 @@
             <label>Стартовая абонентская скидка:</label>
             <?php echo Tool::getNewPriceText($offer->minDiscont); ?>
         </div>
+
         <div class="inner-block">
             <label>Максимально возможная абонентская скидка:</label>
             <?php echo Tool::getNewPriceText($offer->maxDiscont); ?>
         </div>
+
         <div class="inner-block">
-            <label>Предоплата:</label>
+            <label>Стартовая предоплата:</label>
             <?php echo Tool::getNewPriceText($offer->prepayment); ?>
         </div>
+
         <div class="inner-block">
-            <label>Сумма к доплате при максимально возможной абонентской скидке:</label>
+            <label>Предоплата при бронировании тура:</label>
+            <?php echo Tool::getNewPriceText($offer->bookingPrepayment); ?>
+        </div>
+
+        <div class="inner-block">
+            <label>Доплата при максимально возможной абонентской скидке:</label>
             <?php echo Tool::getNewPriceText($offer->surchange); ?>
+        </div>
+
+        <?php if($offer->bookingEndDate): ?>
+        <div class="inner-block form-group">
+            <label>Конечная дата внесения предоплаты при бронировании тура:</label>
+            <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->bookingEndDate); ?>
+        </div>
+        <?php endif;?>
+
+        <div class="inner-block form-group">
+            <label>Конечная дата оплаты тура:</label>
+            <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->paymentEndDate); ?>
         </div>
     </div>
 
@@ -98,7 +106,7 @@
             <label>Выберите валюту:</label>
             <?php echo CHtml::dropDownList("TourOffer[{$number}][currencyUnit]",
                 $offer->currencyUnit,
-                ['usd' => 'Доллары', 'eur' => 'Евро', 'byn' => 'Белорусские рубли'],
+                Tool::getCurrencyList(),
                 ['class' => 'currencyUnit']); ?>
         </div>
 
@@ -107,21 +115,11 @@
             <?php echo CHtml::textField("TourOffer[{$number}][currency]", $offer->currency, ['class' => 'currency']); ?>
         </div>
 
-        <div class="inner-block">
-            <label>Стартовая абонентская скидка:</label>
-            
-        </div>
-        <div class="inner-block">
-            <label>Максимально возможная абонентская скидка:</label>
-            
-        </div>
-        <div class="inner-block">
-            <label>Предоплата:</label>
-            
-        </div>
-        <div class="inner-block">
-            <label>Сумма к доплате при максимально возможной абонентской скидке:</label>
-            
+        <div class="inner-block form-group">
+            <label>Предоплата при бронировании тура:</label>
+            <?php echo CHtml::textField("TourOffer[{$number}][bookingPrepayment]", 
+                $offer->bookingPrepayment, 
+                ['class' => 'bookingPrepayment']); ?>
         </div>
 
         <h4>ОПИСАНИЕ ТУРА:</h4> 
@@ -143,7 +141,7 @@
         </div>
         
         <div class="inner-block form-group">
-            <label>Дата начала тура:</label>
+            <label>Начало тура:</label>
             <?php echo CHtml::textField(
                 "TourOffer[{$number}][startDate]", 
                 Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->startDate), 
@@ -151,7 +149,7 @@
         </div>
         
         <div class="inner-block form-group">
-            <label>Дата окончания тура:</label>
+            <label>Окончание тура:</label>
             <?php echo CHtml::textField("TourOffer[{$number}][endDate]", 
                 Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->endDate), 
                 ['class' => 'endDate']); ?>

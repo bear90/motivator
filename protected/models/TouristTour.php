@@ -13,7 +13,8 @@ class TouristTour extends DBEntity
     public function rules(){
         return [
             ['price, startDate, endDate, description, country, city, prepayment', 'required'],
-            ['touristId, managerId, touragentId, operatorId, currency, currencyUnit', 'safe']
+            ['touristId, managerId, touragentId, operatorId, currency, currencyUnit, bookingEndDate, paymentEndDate,', 'safe'],
+            ['bookingPrepayment, bookingPrepaymentPaid', 'type', 'type' => 'float']
         ];
     }
 
@@ -67,7 +68,7 @@ class TouristTour extends DBEntity
 
     public function getCurrentSurchange()
     {
-        return $this->price - $this->minDiscont - $this->prepayment - $this->tourist->abonentDiscont - $this->tourist->partnerDiscont;
+        return $this->price - $this->minDiscont - $this->prepayment - $this->tourist->abonentDiscont - $this->tourist->partnerDiscont - $this->bookingPrepaymentPaid;
     }
 
     public function getSoldAt($format = 'Y-m-d H:i:s')

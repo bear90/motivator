@@ -42,14 +42,16 @@ class ChangetourAction extends \CAction
             $touragent = Touragent::model()->findByPk($manager->touragentId);
 
             $data = (array) \Yii::app()->request->getParam('Tour');
-            $paymentEndDate = \Yii::app()->request->getParam('paymentEndDate');
-            $paymentEndDate = new \DateTime($paymentEndDate);
+            $bookingEndDate = new \DateTime($data['bookingEndDate']);
+            $paymentEndDate = new \DateTime($data['paymentEndDate']);
             $currentDate = new \DateTime();
 
             $startDate = new \DateTime($data['startDate']);
             $endDate = new \DateTime($data['endDate']);
             $data['startDate'] = $startDate->format("Y-m-d H:i:s");
             $data['endDate'] = $endDate->format("Y-m-d H:i:s");
+            $data['bookingEndDate'] = $data['bookingEndDate'] ? $bookingEndDate->format("Y-m-d H:i:s") : null;
+            $data['paymentEndDate'] = $paymentEndDate->format("Y-m-d H:i:s");
             $data['price'] = $touragent->getBynPrice($data['currency'], $data['currencyUnit']);
 
             $confPrepayment = Configuration::get(Configuration::PREPAYMENT);
@@ -64,9 +66,11 @@ class ChangetourAction extends \CAction
             $tour->save();
             $tourist->refresh();
 
-            $tourist->counterStartedAt = $currentDate->format("Y-m-d");
-            $tourist->counterDate = $paymentEndDate->format("Y-m-d H:i:s");
-            $tourist->counterReason = CounterReason::WAIT_PAYMENT;
+            $tourist->counterStartedAt = $currentDate->format("Y-m-d H:i:s");
+            $tourist->counterDate = $data['bookingEndDate'] ?: $data['paymentEndDate'];
+            $tourist->counterReason = $data['bookingEndDate'] 
+                ? CounterReason::WAIT_BOOKING_PREPAYMENT
+                : CounterReason::WAIT_PAYMENT;
             $tourist->save();
 
             Logs::info("{$tourist->firstName} {$tourist->lastName} (#{$tourist->id}) changed tour to", $tour->attributes);

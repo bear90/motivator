@@ -76,6 +76,7 @@ class Helper {
             'operatorId' => $offer->operatorId,
             'bookingEndDate' => $offer->bookingEndDate,
             'paymentEndDate' => $offer->paymentEndDate,
+            'bookingPrepayment' => $offer->bookingPrepayment,
         ];
         $touristTour->save();
 

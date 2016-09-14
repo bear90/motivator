@@ -37,12 +37,22 @@ define([
                 }
             });
 
+            this.$( ".bookingEndDate" ).datepicker({
+                changeMonth: true,
+                dateFormat: "dd.mm.yy",
+                onClose: function( selectedDate, calendar ) {
+                    var $form = calendar.input.closest('form');
+                    $form.bootstrapValidator('revalidateField', 'bookingEndDate');
+                }
+            });
+
             this.$( ".paymentEndDate" ).datepicker({
                 changeMonth: true,
                 dateFormat: "dd.mm.yy",
                 onClose: function( selectedDate, calendar ) {
                     var $form = calendar.input.closest('form');
                     $form.bootstrapValidator('revalidateField', 'paymentEndDate');
+                    $form.bootstrapValidator('revalidateField', 'bookingEndDate');
                 }
             });
 
@@ -157,6 +167,30 @@ define([
                                         }
                                     }
                                     return false;
+                                }
+                            }
+                        }
+                    },
+                    bookingEndDate: {
+                        selector: 'input.bookingEndDate',
+                        validators: {
+                            callback: {
+                                message: 'Конечная дата оплаты тура должна быть позже даты внесения предоплаты при бронировании тура!',
+                                callback: function (value, validator, $field) {
+                                    var date = $field.closest('.editBlock').find('input.paymentEndDate').val();
+                                    if (date && value)
+                                    {
+                                        var tmp1 = date.split('.');
+                                        var tmp2 = value.split('.');
+                                        var date1 = new Date(tmp1[2], tmp1[1]-1, tmp1[0]);
+                                        var date2 = new Date(tmp2[2], tmp2[1]-1, tmp2[0]);
+                                        if(date2<date1)
+                                        {
+                                            return true;
+                                        }
+                                        return false;
+                                    }
+                                    return true;
                                 }
                             }
                         }

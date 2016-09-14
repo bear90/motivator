@@ -404,4 +404,9 @@
             if ($n==1) return $f1;
             return $f5;
         }
+
+        public static function getCurrencyList()
+        {
+            return ['byn' => 'Белорусские рубли', 'usd' => 'Доллары', 'eur' => 'Евро'];
+        }
     }

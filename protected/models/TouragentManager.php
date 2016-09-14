@@ -89,7 +89,7 @@ class TouragentManager extends DBEntity {
             $percent = $this->bonusFactor;
         }
 
-        $this->bonus = $percent * $price / 100;
+        $this->bonus += $percent * $price / 100;
         $this->save();
     }
 }
