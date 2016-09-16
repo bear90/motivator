@@ -29,5 +29,4 @@
     <a target="_blank" href="https://vk.com/motivatortravel"><img src="<?php echo $domain; ?>/img/soc-vk.png" alt=""></a>
     <a target="_blank" href="https://www.facebook.com/%D0%9C%D0%BE%D1%82%D0%B8%D0%B2%D0%B0%D1%82%D0%BE%D1%80-203321533372476/?__mref=message"><img src="<?php echo $domain; ?>/img/soc-fb.png" alt=""></a>
     <a target="_blank" href="http://m.ok.ru/group/52925620093131"><img src="<?php echo $domain; ?>/img/soc-od.png" alt=""></a>
-    <a target="_blank" href="#"><img src="<?php echo $domain; ?>/img/soc-vb.png" alt=""></a>
 </p>
