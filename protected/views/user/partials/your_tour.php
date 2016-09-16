@@ -21,8 +21,6 @@
     <div>Туроператор: <span class="value date"><?php echo $tourist->tour->operator ? $tourist->tour->operator->name : ''; ?></span></div>
     <?php endif; ?>
 
-    <div>Страна: <span class="value date"><?php echo $tourist->tour->country; ?></span></div>
-    <div>Город/Регион: <span class="value date"><?php echo $tourist->tour->city; ?></span></div>
     <div>Начало тура: 
         <span class="value date">
             <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $tourist->tour->startDate); ?>
@@ -141,30 +139,23 @@
             <?php echo CHtml::textField("Tour[currency]", $tourist->tour->currency, ['class' => 'currency']); ?>
         </div>
 
+        <div>Предоплата при бронировании тура:</div>
+
         <div class="inner-block form-group">
-            <label>Предоплата при бронировании тура:</label>
+            <label>к внесению:</label>
+            <?php echo CHtml::textField("Tour[bookingPrepayment]", 
+                $tourist->tour->bookingPrepayment, 
+                ['class' => 'bookingPrepayment']); ?>
+        </div>
+
+        <div class="inner-block form-group">
+            <label>внесено:</label>
             <?php echo CHtml::textField("Tour[bookingPrepaymentPaid]", 
                 $tourist->tour->bookingPrepaymentPaid, 
                 ['class' => 'bookingPrepaymentPaid']); ?>
         </div>
 
         <h4>ОПИСАНИЕ ТУРА:</h4> 
-        
-        <div class="inner-block form-group">
-            <label>Страна:</label>
-            <?php echo CHtml::textField(
-                "Tour[country]", 
-                $tourist->tour->country, 
-                ['class' => 'country']); ?>
-        </div> 
-        
-        <div class="inner-block form-group">
-            <label>Город/Регион:</label>
-            <?php echo CHtml::textField(
-                "Tour[city]", 
-                $tourist->tour->city, 
-                ['class' => 'city']); ?>
-        </div>
         
         <div class="inner-block form-group">
             <label>Дата начала тура:</label>

@@ -27,16 +27,6 @@
         <?php endif; ?>
 
         <div class="inner-block form-group">
-            <label>Страна:</label>
-            <?php echo $offer->country; ?>
-        </div>
-
-        <div class="inner-block form-group">
-            <label>Город/Регион:</label>
-            <?php echo $offer->city; ?>
-        </div>
-
-        <div class="inner-block form-group">
             <label>Начало тура:</label>
             <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->startDate); ?>
         </div>
@@ -123,22 +113,6 @@
         </div>
 
         <h4>ОПИСАНИЕ ТУРА:</h4> 
-        
-        <div class="inner-block form-group">
-            <label>Страна:</label>
-            <?php echo CHtml::textField(
-                "TourOffer[{$number}][country]", 
-                $offer->country, 
-                ['class' => 'country']); ?>
-        </div> 
-        
-        <div class="inner-block form-group">
-            <label>Город/Регион:</label>
-            <?php echo CHtml::textField(
-                "TourOffer[{$number}][city]", 
-                $offer->city, 
-                ['class' => 'city']); ?>
-        </div>
         
         <div class="inner-block form-group">
             <label>Начало тура:</label>

@@ -15,16 +15,6 @@
         <h4>ОПИСАНИЕ ТУРА:</h4> 
         
         <div class="inner-block form-group">
-            <label>Страна:</label>
-            <?php echo CHtml::textField("TourOffer[1][country]", '', ['class' => 'country']); ?>
-        </div> 
-        
-        <div class="inner-block form-group">
-            <label>Город/Регион:</label>
-            <?php echo CHtml::textField("TourOffer[1][city]", '', ['class' => 'city']); ?>
-        </div>
-        
-        <div class="inner-block form-group">
             <label>Дата начала тура:</label>
             <?php echo CHtml::textField("TourOffer[1][startDate]", '', ['class' => 'startDate']); ?>
         </div>
@@ -32,6 +22,11 @@
         <div class="inner-block form-group">
             <label>Дата окончания тура:</label>
             <?php echo CHtml::textField("TourOffer[1][endDate]", '', ['class' => 'endDate']); ?>
+        </div>
+
+        <div class="inner-block form-group">
+            <label>Предоплата при бронировании тура:</label>
+            <?php echo CHtml::textField("TourOffer[1][bookingPrepayment]", '', ['class' => 'bookingPrepayment']); ?>
         </div>
 
         <div class="inner-block form-group">

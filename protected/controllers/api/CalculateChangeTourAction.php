@@ -74,6 +74,7 @@ class CalculateChangeTourAction extends \CApiAction
         $partnerDiscount = $tourist->partnerDiscont;
         $oldAbonentDiscount = $tourist->abonentDiscont;
         $oldPrepayment = $tourist->tour->prepayment;
+        $bookingPrepaymentPaid = $tourist->tour->bookingPrepaymentPaid;
         $curMaxDiscount = $maxDiscount - $minDiscount;
 
         $overPrepayment = $oldPrepayment - $prepayment;
@@ -92,8 +93,8 @@ class CalculateChangeTourAction extends \CApiAction
         }
 
         $totalDiscount = $abonentDiscount + $minDiscount + $partnerDiscount;
-        $surchange = $price - $oldPrepayment - $totalDiscount - $surchangePrepayment;
-        $surchangeOnMaxDiscount = $price - $oldPrepayment - $surchangePrepayment - $maxDiscount - $partnerDiscount;
+        $surchange = $price - $oldPrepayment - $totalDiscount - $surchangePrepayment - $bookingPrepaymentPaid;
+        $surchangeOnMaxDiscount = $price - $oldPrepayment - $surchangePrepayment - $maxDiscount - $partnerDiscount - $bookingPrepaymentPaid;
 
         $result = \CMap::mergeArray($this->default, [
             'touristId' => $touristId,

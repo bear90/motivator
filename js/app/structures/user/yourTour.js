@@ -87,22 +87,6 @@ define([
                     validating: 'glyphicon glyphicon-refresh'
                 },
                 fields: {
-                    country: {
-                        selector: 'input.country',
-                        validators: {
-                            notEmpty: {
-                                message: "Страна должена быть заполнена!"
-                            }
-                        }
-                    },
-                    city: {
-                        selector: 'input.city',
-                        validators: {
-                            notEmpty: {
-                                message: "Город/Регион должен быть заполнен!"
-                            }
-                        }
-                    },
                     price: {
                         selector: 'input.price',
                         validators: {

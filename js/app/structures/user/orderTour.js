@@ -41,8 +41,6 @@ define([
 
             this.initOfferComponents($newItem);
             
-            $('form.offerForm').bootstrapValidator('addField', $newItem.find('input.country'));
-            $('form.offerForm').bootstrapValidator('addField', $newItem.find('input.city'));
             $('form.offerForm').bootstrapValidator('addField', $newItem.find('input.currency'));
             $('form.offerForm').bootstrapValidator('addField', $newItem.find('select.currencyUnit'));
             $('form.offerForm').bootstrapValidator('addField', $newItem.find('input.startDate'));
@@ -57,8 +55,6 @@ define([
             var $item = this.$(e.target).closest('.item');
             var $form = $item.closest('form.offerForm');
 
-            $form.bootstrapValidator('removeField', $item.find('input.country'));
-            $form.bootstrapValidator('removeField', $item.find('input.city'));
             $form.bootstrapValidator('removeField', $item.find('input.currency'));
             $form.bootstrapValidator('removeField', $item.find('select.currencyUnit'));
             $form.bootstrapValidator('removeField', $item.find('input.startDate'));
@@ -282,22 +278,6 @@ define([
                     validating: 'glyphicon glyphicon-refresh'
                 },
                 fields: {
-                    country: {
-                        selector: 'input.country',
-                        validators: {
-                            notEmpty: {
-                                message: "Страна должена быть заполнена!"
-                            }
-                        }
-                    },
-                    city: {
-                        selector: 'input.city',
-                        validators: {
-                            notEmpty: {
-                                message: "Город/Регион должен быть заполнен!"
-                            }
-                        }
-                    },
                     currency: {
                         selector: 'input.currency',
                         validators: {

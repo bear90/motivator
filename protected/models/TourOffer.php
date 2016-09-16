@@ -16,7 +16,7 @@ class TourOffer extends DBEntity {
 
     public function rules(){
         return [
-            ['price, startDate, endDate, country, city, paymentEndDate', 'required'],
+            ['price, startDate, endDate, paymentEndDate', 'required'],
             ['tourId, description, operatorId, currencyUnit, bookingEndDate', 'safe'],
             ['currency, bookingPrepayment', 'type', 'type' => 'float']
         ];

@@ -12,16 +12,6 @@
         <h4>ОПИСАНИЕ ТУРА:</h4>
         
         <div class="inner-block form-group">
-            <label>Страна:</label>
-            <input class="country" type="text" value="" name="TourOffer[<%= num %>][country]" data-bv-field="country">
-        </div> 
-        
-        <div class="inner-block form-group">
-            <label>Город/Регион:</label>
-            <input class="city" type="text" value="" name="TourOffer[<%= num %>][city]" data-bv-field="city">
-        </div>
-        
-        <div class="inner-block form-group">
             <label>Дата начала тура:</label>
             <input class="startDate" type="text" value="" name="TourOffer[<%= num %>][startDate]" data-bv-field="startDate">
         </div>
@@ -29,6 +19,11 @@
         <div class="inner-block form-group">
             <label>Дата окончания тура:</label>
             <input class="endDate" type="text" value="" name="TourOffer[<%= num %>][endDate]" data-bv-field="endDate">
+        </div>
+
+        <div class="inner-block form-group">
+            <label>Предоплата при бронировании тура:</label>
+            <input class="bookingPrepayment" type="text" value="" name="TourOffer[<%= num %>][bookingPrepayment]" data-bv-field="bookingPrepayment">
         </div>
 
         <div class="inner-block form-group">
