@@ -6,8 +6,8 @@
         <?php echo CHtml::hiddenField('tab', 'tab1'); ?>
         <h4>Новый клиент: <?php echo $tour->tourist->getFullName(); ?></h4>
         <div class="form-block">
-            <label>Страна отдыха:</label>
-            <input type="text" value="<?php echo $tour->getCities(); ?>" readonly="true">
+            <label>Пожелания к туру:</label>
+            <input type="text" value="<?php echo $tour->wishes; ?>" readonly="true">
         </div>
         <input type="submit" value="ВОЙTИ В КАБИНЕT">
     </form>
