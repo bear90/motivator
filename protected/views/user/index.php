@@ -100,10 +100,17 @@
                 <?php else:?>
 
                     <div class="inner-block our-tour view" data-id="<?php echo $tourist->id; ?>">
-                        <?php $this->renderPartial('partials/your_tour', [
-                            'tourist' => $tourist,
-                            'manager' => $manager,
-                        ]); ?>
+                        <?php if($tourist->statusId != TouristStatus::HAVE_DISCONT): ?>
+                            <?php $this->renderPartial('partials/your_tour', [
+                                'tourist' => $tourist,
+                                'manager' => $manager,
+                            ]); ?>
+                        <?php else: ?>
+                            <?php $this->renderPartial('partials/your_tour_paid', [
+                                'tourist' => $tourist,
+                                'manager' => $manager,
+                            ]); ?>
+                        <?php endif; ?>
                     </div>
 
                 <?php endif; ?>

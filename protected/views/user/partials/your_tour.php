@@ -87,7 +87,7 @@
         <div class="col-md-4 ta-r"><?php echo Tool::getNewPriceText($tourist->getPartnerDiscont()); ?></div>
     </div>
     
-    <div>Доплата при покупке тура: 
+    <div>Доплата при покупке тура с учётом исходной стоимоститура на момент его выбора/замены: 
         <span class="value money">
             <?php echo Tool::getNewPriceText($tourist->tour->getCurrentSurchange()); ?>
         </span>
@@ -109,7 +109,7 @@
 </div>
 
 <div class="viewBlock confirmation hidden">
-    <label for="confirmation"><input type="checkbox" name="confirmation" id="confirmation"> Я подтверждаю личную ответственность за достоверность информации о получении доплаты за тур.</label>
+    <label for="confirmation"><input type="checkbox" name="confirmation" id="confirmation"> Подтверждаю получение  доплаты за тур.</label>
     <button type="button" class="btn btn-default btn-green2 paid">ДОПЛАТА ПОЛУЧЕНА / ТУР ПРОДАН </button>
 </div>
 

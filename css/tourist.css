@@ -933,3 +933,5 @@ section {position: relative;}
 }
 #alarm-message button {outline: none;}
 #alarm-audio {display: none;}
+
+.orders .item textarea {width: 100%}

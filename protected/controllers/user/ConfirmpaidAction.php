@@ -12,6 +12,10 @@ use application\models\defines\TouristStatus;
 use application\models\defines\tourist\Helper as TouristHelper;
 use application\models\defines\tour\Helper as TourHelper;
 use application\components\DbTransaction;
+use application\models\Touragent;
+use application\models\TouristTour;
+use application\models\Discont;
+use application\models\Configuration;
 
 class ConfirmpaidAction extends \CAction
 {
@@ -28,6 +32,55 @@ class ConfirmpaidAction extends \CAction
 
         DbTransaction::begin();
         try {
+            // Move Price and do calculation
+            $parentTourist = null;
+            if($tourist->groupCode) {
+                $pid = (int) $tourist->groupCode;
+                $parentTourist = Tourist::model()->findByPk($pid);
+            }
+            $touragent = Touragent::model()->findByPk($manager->touragentId);
+            $tour = TouristTour::model()->findByPk($tourist->tour->id);
+            $discontHandler = new Discont\Handler();
+
+            $newPrice = $touragent->getBynPrice($tour->currency, $tour->currencyUnit);
+            $confPrepayment = Configuration::get(Configuration::PREPAYMENT);
+            $newPrepayment = round($newPrice * $confPrepayment / 100, 2);
+            $oldPrepayment = round($tour->price * $confPrepayment / 100, 2);
+
+            $tour->price = $newPrice;
+            /*if($tour->prepayment < $newPrepayment)
+            {
+                $tour->prepayment = $newPrepayment;
+            }*/
+            $tour->save();
+            $tourist->refresh();
+
+            /*$prepayment = $newPrepayment - $oldPrepayment;
+            switch(true)
+            {
+                case ($parentTourist && $parentTourist->statusId == TouristStatus::GETTING_DISCONT && $prepayment > 0):
+                    $discontHandler->increaseParentDiscont($tourist, $parentTourist, $prepayment);
+                    //\Tool::informTourist($parentTourist, 'exchange_tour_partner', ['child' => $tourist]);
+                    break;
+
+
+                case ($parentTourist && $parentTourist->statusId == TouristStatus::GETTING_DISCONT && $prepayment < 0):
+                    $discontHandler->decreaseParentDiscont($tourist, $parentTourist, $prepayment);
+                    //\Tool::informTourist($parentTourist, 'exchange_tour_partner', ['child' => $tourist]);
+                    break;
+
+                case ($parentTourist && $parentTourist->statusId == TouristStatus::HAVE_DISCONT && $prepayment > 0):
+                case ($parentTourist === null && $prepayment > 0):
+                    $discontHandler->increaseAbonentDiscont($tourist, $prepayment);
+                    break;
+
+                case ($parentTourist && $parentTourist->statusId == TouristStatus::HAVE_DISCONT && $prepayment < 0):
+                case ($parentTourist === null && $prepayment < 0):
+                    $discontHandler->decreaseAbonentDiscont($tourist, $prepayment);
+                    break;
+            }*/
+
+            // Change Status of the tourist
             $touristHelper = new TouristHelper();
             $touristHelper->changeStatus($tourist, TouristStatus::HAVE_DISCONT);
             $touristHelper->update($tourist->id, [
