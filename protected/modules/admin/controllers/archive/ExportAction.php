@@ -107,7 +107,7 @@ class ExportAction extends \CAction
                     'Предоплата:' => $entity->tour->prepayment,
                     'Доплата за тур:' => $entity->tour->getCurrentSurchange(),
                     'МВАС:' => $entity->tour->maxDiscont,
-                    'ТАС:' => $entity->abonentDiscont,
+                    'ТАС:' => $entity->getAbonentDiscont(),
                     'СзП:' => $entity->partnerDiscont,
                     'Период тура:' => "{$periodStart} - {$periodEnd}",
                 ]

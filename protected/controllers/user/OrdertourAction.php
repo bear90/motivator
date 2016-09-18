@@ -33,7 +33,8 @@ class OrdertourAction extends \CAction
             $id = \Yii::app()->user->model->tourist->id;
             $helper->update($id, $touristData);
 
-            \Tool::informTourist(\Yii::app()->user->model->tourist, 'order_tour');
+            $tourist = \Yii::app()->user->model->tourist;
+            \Tool::sendEmailWithLayout($tourist, 'order_tour', ['tourist' => $tourist]);
         }
 
         \Yii::app()->user->setState('tour::created', true);

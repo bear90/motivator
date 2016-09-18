@@ -78,7 +78,8 @@ class AdminController extends \CController
 
     public function getMenu(){
         $menu = array_map(function($item){
-            if ($item['key'] == $this->id)
+            if (isset($this->action->menuKey) && $this->action->menuKey == $item['key'] 
+                || $item['key'] == $this->id && !isset($this->action->menuKey))
             {
                 $item['active'] = true;
             }
@@ -88,6 +89,11 @@ class AdminController extends \CController
                 'key' => 'touragent',
                 'label' => 'Турагенты',
                 'url' => '/admin/touragent',
+            ],
+            [
+                'key' => 'balance',
+                'label' => 'Баланс',
+                'url' => '/admin/touragent/balance',
             ],
             [
                 'key' => 'text',
