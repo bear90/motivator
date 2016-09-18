@@ -896,3 +896,7 @@ select:disabled{color: graytext;}
     content: '';
     display: table;
 }
+
+.viewBlock.confirmation {
+    margin-top: 20px;
+}

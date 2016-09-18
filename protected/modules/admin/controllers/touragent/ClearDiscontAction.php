@@ -15,9 +15,9 @@ class ClearDiscontAction extends \CAction
     public function run($id = null)
     {
         $command = \Yii::app()->db->createCommand();
-        $command->delete('discount_transaction', 'sourceTouristId IS NULL OR targetTouristId IS NULL');
+        $command->delete('discount_transaction', '1=1');
 
-        \Yii::app()->user->setState('message', "Таблица учёта баланса очищена от лишних записей");
+        \Yii::app()->user->setState('message', "Таблица учёта баланса очищена");
 
         $this->controller->redirect('/admin/touragent');
     }

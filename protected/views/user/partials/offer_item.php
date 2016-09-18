@@ -11,10 +11,6 @@
         <button type="button" class="btn btn-default btn-yellow edit">РЕДАКТИРОВАТЬ</button>
         <button type="button" class="btn btn-default btn-yellow confirm">ВЫБРАТЬ ТУР</button>
     </div>
-
-    <div class="viewBlock confirmation hidden">
-        <button type="button" class="btn btn-default btn-green2 paid">ПРЕДОПЛАТА ПОЛУЧЕНА / ТУР ВЫБРАН</button>
-    </div>
     <?php endif; ?>
 
     <div class="viewBlock form">
@@ -89,6 +85,12 @@
             <label>Конечная дата оплаты тура:</label>
             <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->paymentEndDate); ?>
         </div>
+
+        <?php if($readOnly === false): ?>
+        <div class="viewBlock confirmation hidden">
+            <button type="button" class="btn btn-default btn-green2 paid">ПРЕДОПЛАТА ПОЛУЧЕНА / ТУР ВЫБРАН</button>
+        </div>
+        <?php endif; ?>
     </div>
 
     <?php if($readOnly === false): ?>

@@ -108,11 +108,6 @@
     </div>
 </div>
 
-<div class="viewBlock confirmation hidden">
-    <label for="confirmation"><input type="checkbox" name="confirmation" id="confirmation"> Подтверждаю получение  доплаты за тур.</label>
-    <button type="button" class="btn btn-default btn-green2 paid">ДОПЛАТА ПОЛУЧЕНА / ТУР ПРОДАН </button>
-</div>
-
 <div class="viewBlock paid hidden">
     <?php $this->renderPartial('partials/your_tour_paid_confirm', [
         'tourist' => $tourist,

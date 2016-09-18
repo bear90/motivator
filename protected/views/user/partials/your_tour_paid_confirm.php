@@ -68,3 +68,8 @@
             <?php echo Tool::getNewPriceText($tourist->tour->getCurrentSurchange()); ?>
         </span>
     </div>
+    
+    <div class="viewBlock confirmation">
+        <label for="confirmation"><input type="checkbox" name="confirmation" id="confirmation"> Подтверждаю получение  доплаты за тур.</label>
+        <button type="button" class="btn btn-default btn-green2 paid">ДОПЛАТА ПОЛУЧЕНА / ТУР ПРОДАН </button>
+    </div>

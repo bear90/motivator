@@ -54,9 +54,11 @@ class ConfirmpaidAction extends \CAction
             }*/
             $tour->save();
             $tourist->refresh();
+            // move current prepayment to touragent fond
 
-            /*$prepayment = $newPrepayment - $oldPrepayment;
-            switch(true)
+            $amount = $newPrepayment - $oldPrepayment;
+            $discontHandler->updateTourAgentAccount($tourist, $amount);
+            /*switch(true)
             {
                 case ($parentTourist && $parentTourist->statusId == TouristStatus::GETTING_DISCONT && $prepayment > 0):
                     $discontHandler->increaseParentDiscont($tourist, $parentTourist, $prepayment);

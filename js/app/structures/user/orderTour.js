@@ -80,7 +80,6 @@ define([
         onClickConfirmOffer: function (e) {
             var $row = $(e.target).closest('.item.view');
 
-            $row.find('.viewBlock.form').toggleClass('hidden');
             $row.find('.viewBlock.confirmation').toggleClass('hidden');
         },
 
