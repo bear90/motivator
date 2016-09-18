@@ -36,7 +36,7 @@
             <?php echo $tourist->tour->description; ?>
         </p>
     </div>
-    <div class="clrfix">Исходная стоимость тура на момент его выбора/замены: 
+    <div class="clrfix">Стоимость тура на момент его выбора/замены: 
         <span class="value money">
             <?php echo Tool::getNewPriceText($tourist->tour->price); ?>
         </span>
@@ -87,7 +87,7 @@
         <div class="col-md-4 ta-r"><?php echo Tool::getNewPriceText($tourist->getPartnerDiscont()); ?></div>
     </div>
     
-    <div>Доплата при покупке тура с учётом исходной стоимоститура на момент его выбора/замены: 
+    <div>Доплата при покупке тура <span>с учётом стоимости тура на момент его выбора/замены:</span> 
         <span class="value money">
             <?php echo Tool::getNewPriceText($tourist->tour->getCurrentSurchange()); ?>
         </span>
