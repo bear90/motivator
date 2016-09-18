@@ -113,6 +113,13 @@
     <button type="button" class="btn btn-default btn-green2 paid">ДОПЛАТА ПОЛУЧЕНА / ТУР ПРОДАН </button>
 </div>
 
+<div class="viewBlock paid hidden">
+    <?php $this->renderPartial('partials/your_tour_paid_confirm', [
+        'tourist' => $tourist,
+        'manager' => $manager,
+    ]); ?>
+</div>
+
 <?php if($readOnly === false): 
     echo CHtml::beginForm('/user/changetour', 'post', ['class' => 'offerForm']); 
     echo CHtml::hiddenField('tab', 'tab5');

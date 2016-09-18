@@ -224,8 +224,22 @@ define([
         },
 
         onClickConfirm: function (e) {
-            $('.viewBlock.form').toggleClass('hidden');
-            $('.viewBlock.confirmation').toggleClass('hidden');
+            console.log($('.viewBlock.paid').is('.hidden') && $('.viewBlock.confirmation').is('.hidden'));
+            switch (true) {
+                case ($('.viewBlock.paid').is('.hidden') && $('.viewBlock.confirmation').is('.hidden')):
+                    $('.viewBlock.form').addClass('hidden');
+                    $('.viewBlock.paid').removeClass('hidden');
+                    break;
+
+                case ($('.viewBlock.confirmation').is('.hidden')):
+                    $('.viewBlock.paid').addClass('hidden');
+                    $('.viewBlock.confirmation').removeClass('hidden');
+                    break;
+
+                default:
+                    $('.viewBlock.confirmation').addClass('hidden');
+                    $('.viewBlock.form').removeClass('hidden');
+            }
         },
 
         paidOffer: function (e) {
