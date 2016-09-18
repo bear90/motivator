@@ -42,7 +42,7 @@
         </div>
 
         <div class="inner-block form-group">
-            <label>Исходная стоимость тура на момент отправки предложения:</label>
+            <label>Стоимость тура на момент отправки предложения:</label>
             <?php echo Tool::getNewPriceText($offer->price); ?>
         </div>
 
@@ -56,23 +56,25 @@
             <?php echo Tool::getNewPriceText($offer->minDiscont); ?>
         </div>
 
-        <div class="inner-block">
+        <div class="inner-block red">
             <label>Максимально возможная абонентская скидка:</label>
             <?php echo Tool::getNewPriceText($offer->maxDiscont); ?>
         </div>
 
+        <div class="inner-block"><label for="">Стартовая предоплата:</label></div>
         <div class="inner-block">
-            <label>Стартовая предоплата:</label>
+            <label>к внесению:</label>
             <?php echo Tool::getNewPriceText($offer->prepayment); ?>
         </div>
 
+        <div class="inner-block"><label for="">Предоплата при бронировании тура:</label></div>
         <div class="inner-block">
-            <label>Предоплата при бронировании тура:</label>
+            <label>к внесению:</label>
             <?php echo Tool::getNewPriceText($offer->bookingPrepayment); ?>
         </div>
 
         <div class="inner-block">
-            <label>Доплата при максимально возможной абонентской скидке:</label>
+            <label>Доплата при покупке тура</label> с учётом максимально возможной абонентской скидки и стоимости тура на момент отправки предложения:
             <?php echo Tool::getNewPriceText($offer->surchange); ?>
         </div>
 
@@ -101,7 +103,7 @@
         </div>
 
         <div class="inner-block form-group">
-            <label>Исходная стоимость тура на момент отправки предложения:</label>
+            <label>Стоимость тура на момент отправки предложения:</label>
             <?php echo CHtml::textField("TourOffer[{$number}][currency]", $offer->currency, ['class' => 'currency']); ?>
         </div>
 
