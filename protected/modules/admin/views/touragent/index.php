@@ -89,7 +89,10 @@
     ?>
 </table>
 
-
+<a href="<?php echo Yii::app()->createUrl("/admin/touragent/clear-discont")?>" type="button" class="btn btn-default"
+    onclick="return confirm('Вы уверены что хотите очистить таблицу?')">
+    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Очистить таблицу от лишних записей
+</a>
 
 
     
