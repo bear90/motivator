@@ -118,6 +118,11 @@ class AdminController extends \CController
                 'key' => 'archive',
                 'label' => 'Отчетность',
                 'url' => '/admin/archive',
+            ],
+            [
+                'key' => 'congifuration',
+                'label' => 'Настройки',
+                'url' => '/admin/configuration',
             ]
         ]);
 
