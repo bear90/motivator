@@ -79,8 +79,14 @@ define([
 
         onClickConfirmOffer: function (e) {
             var $row = $(e.target).closest('.item.view');
+            var $confirmation = $row.find('.viewBlock.confirmation');
 
-            $row.find('.viewBlock.confirmation').toggleClass('hidden');
+            $confirmation.toggleClass('hidden');
+
+            if (!$confirmation.is('.hidden'))
+            {
+                $('.content').scrollTop($confirmation.find('button').offset().top);
+            }
         },
 
         initOrderTour: function() {

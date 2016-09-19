@@ -51,10 +51,10 @@
             <?php echo Tool::getNewPriceText($tourist->tour->prepayment); ?>
         </span>
     </div>
-    <div>Предоплата при бронировании тура:</div>
+    <div>Предоплата при бронировании тура <span>на момент его выбора/замены:</span></div>
     <div>к внесению: 
         <span class="value money">
-            <?php echo Tool::getNewPriceText($tourist->tour->bookingPrepayment); ?>
+            <?php echo Tool::getNewPriceText($tourist->tour->getBookingPrepayment()); ?>
         </span>
     </div>
     <div>внесено: 

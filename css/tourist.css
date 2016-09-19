@@ -904,6 +904,8 @@ section {position: relative;}
 .our-tour a.more,
 .raschet a.more {color: #337ab7; text-decoration: underline;}
 
+.raschet label>span {font-weight: normal;}
+
 .orange {
     color: #e36c0a;
 }

@@ -11,23 +11,23 @@
     <div class="col-md-4"><%=endDate%></div>
 </div>
 <div class="row">
-    <label class="col-md-8">Исходная стоимость тура:</label>
+    <label class="col-md-8">Стоимость тура на момент его замены:</label>
     <div class="col-md-4"><%=price%></div>
 </div>
 <div class="row hidden-row grouped">
-    <label class="col-md-8">Внесённая предоплата:</label>
+    <label class="col-md-8">Внесённая стартовая предоплата:</label>
     <div class="col-md-4"><%=oldPrepayment%></div>
 </div>
 <div class="row hidden-row grouped">
-    <label class="col-md-8">Расчётная предоплата:</label>
+    <label class="col-md-8">Новая стартовая предоплата:</label>
     <div class="col-md-4"><%=prepayment%></div>
 </div>
 <div class="row orange grouped">
-    <label class="col-md-8">Доплата предоплаты:</label>
+    <label class="col-md-8">Доплата стартовой предоплаты:</label>
     <div class="col-md-4"><%=surchangePrepayment%></div>
 </div>
 <div class="row hidden-row grouped">
-    <label class="col-md-8">Предоплата, внесённая дополнительно к обязательной:</label>
+    <label class="col-md-8">Стартовая предоплата, внесённая дополнительно к обязательной:</label>
     <div class="col-md-4"><%=overPrepayment%></div>
 </div>
 <div class="row">
@@ -39,15 +39,15 @@
     <div class="col-md-4"><%=oldAbonentDiscount%></div>
 </div>
 <div class="row hidden-row grouped">
-    <label class="col-md-8">Максимальная добавочная абонентская скидка:</label>
+    <label class="col-md-8">Максимально возможная добавочная абонентская скидка:</label>
     <div class="col-md-4"><%=curMaxDiscount%></div>
 </div>
 <div class="row hidden-row grouped">
-    <label class="col-md-8">Превышение добавочной абонентской скидки:</label>
+    <label class="col-md-8">Превышение максимально возможной добавочной абонентской скидки:</label>
     <div class="col-md-4"><%=overMaxDiscount%></div>
 </div>
 <div class="row grouped">
-    <label class="col-md-8">Расчётная добавочная абонентская скидка:</label>
+    <label class="col-md-8">Учтённая добавочная абонентская скидка:</label>
     <div class="col-md-4"><%=abonentDiscount%></div>
 </div>
 <div class="row">
@@ -63,7 +63,7 @@
     <div class="col-md-4"><%=totalDiscount%></div>
 </div>
 <div class="row green">
-    <label class="col-md-8">Доплата при покупке тура:</label>
+    <label class="col-md-8">Доплата при покупке тура <span>с учётом стоимости тура на момент его замены:</span></label> 
     <div class="col-md-4"><%=surchange%></div>
 </div>
 <div class="row">
@@ -71,6 +71,6 @@
     <div class="col-md-4"><%=maxDiscount%></div>
 </div>
 <div class="row">
-    <label class="col-md-8">Доплата при максимально возможной абонентской скидке:</label>
+    <label class="col-md-8">Доплата при покупке тура <span>с учётом максимально возможной абонентской скидки и стоимости тура на момент его замены:</span></label>
     <div class="col-md-4"><%=surchangeOnMaxDiscount%></div>
 </div>

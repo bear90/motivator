@@ -86,4 +86,9 @@ class TouristTour extends DBEntity
     {
         return round($this->touragent->getBynPrice($this->currency, $this->currencyUnit), 2);
     }
+
+    public function getBookingPrepayment()
+    {
+        return round($this->touragent->getBynPrice($this->bookingPrepayment, $this->currencyUnit), 2);
+    }
 }
