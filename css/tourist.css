@@ -879,7 +879,7 @@ section {position: relative;}
 .help .tab-content,
 .raschet .tab-content {padding-top: 15px;}
 .raschet .form-group .control-label {}
-.raschet .form-group .form-control {display: inline-block; width: 30%; float: right;}
+.raschet .form-group .form-control {}
 
 
 .raschet .nav-pills > li > a,

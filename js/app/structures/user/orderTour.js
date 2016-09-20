@@ -85,7 +85,7 @@ define([
 
             if (!$confirmation.is('.hidden'))
             {
-                $('.content').scrollTop($confirmation.find('button').offset().top);
+                $('.content').scrollTop($confirmation.find('button').position().top);
             }
         },
 

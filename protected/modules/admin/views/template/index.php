@@ -10,27 +10,32 @@
  * @var array templates
  *
  */
+
+$part1 = array_filter($templates, function($item){
+    return $item->position < 90;
+});
+
+$part2 = array_filter($templates, function($item){
+    return $item->position >= 90 && $item->position < 190;
+});
+
+$part3 = array_filter($templates, function($item){
+    return $item->position >= 190;
+});
 ?>
 
 <h2>Шаблоны писем:</h2>
+
 <?php if($message): ?>
     <div><?php echo $message; ?></div><br>
 <?php endif; ?>
 
-<table class="table table-bordered text-table">
-    <tr>
-        <th>Название</th>
-        <th>Операции</th>
-    </tr>
-    <?php foreach ($templates as $template):?>
-        <tr>
-            <td><?php echo $template->comment; ?></td>
+<h3>Статус «соискатель скидки»</h3>
+<?php $this->renderPartial('partials/table' , ['templates' => $part1]); ?>
 
-            <td>
-                <a href="<?php echo Yii::app()->createUrl("/admin/template/edit/{$template->id}")?>" type="button" class="btn btn-default">
-                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> редактировать
-                </a>
-            </td>
-        </tr>
-    <?php endforeach;?>
-</table>
+<h3>Статус «получатель скидки»</h3>
+<?php $this->renderPartial('partials/table' , ['templates' => $part2]); ?>
+
+<h3>Статус «обладатель скидки»</h3>
+<?php $this->renderPartial('partials/table' , ['templates' => $part3]); ?>
+

@@ -63,10 +63,10 @@
             <?php echo Tool::getNewPriceText($offer->prepayment); ?>
         </div>
 
-        <div class="inner-block"><label for="">Предоплата при бронировании тура на сегодня:</label></div>
+        <div class="inner-block"><label for="">Предоплата при бронировании тура на момент отправки предложения:</label></div>
         <div class="inner-block">
             <label>к внесению:</label>
-            <?php echo Tool::getNewPriceText($offer->getBookingPrepayment()); ?>
+            <?php echo Tool::getNewPriceText($offer->bookingPrepaymentRub); ?>
         </div>
 
         <div class="inner-block">

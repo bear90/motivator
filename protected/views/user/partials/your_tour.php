@@ -137,7 +137,7 @@
         </div>
 
         <div class="inner-block form-group">
-            <label>Исходная стоимость тура:</label>
+            <label>Стоимость тура:</label>
             <?php echo CHtml::textField("Tour[currency]", $tourist->tour->currency, ['class' => 'currency']); ?>
         </div>
 
@@ -151,7 +151,7 @@
         </div>
 
         <div class="inner-block form-group">
-            <label>внесено:</label>
+            <label>внесено (в белорусских рублях):</label>
             <?php echo CHtml::textField("Tour[bookingPrepaymentPaid]", 
                 $tourist->tour->bookingPrepaymentPaid, 
                 ['class' => 'bookingPrepaymentPaid']); ?>

@@ -18,7 +18,7 @@ class TourOffer extends DBEntity {
         return [
             ['price, startDate, endDate, paymentEndDate', 'required'],
             ['tourId, description, operatorId, currencyUnit, bookingEndDate', 'safe'],
-            ['currency, bookingPrepayment', 'type', 'type' => 'float']
+            ['currency, bookingPrepayment, bookingPrepaymentRub', 'type', 'type' => 'float']
         ];
     }
 
