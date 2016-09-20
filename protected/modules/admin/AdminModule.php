@@ -14,6 +14,7 @@ class AdminModule extends CWebModule {
         'search' => 'application\modules\admin\controllers\SearchController',
         'touroperator' => 'application\modules\admin\controllers\TouroperatorController',
         'archive' => 'application\modules\admin\controllers\ArchiveController',
+        'post' => 'application\modules\admin\controllers\PostController',
         'configuration' => 'application\modules\admin\controllers\ConfigurationController',
     ];
 }
