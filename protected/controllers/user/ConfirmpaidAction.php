@@ -41,6 +41,7 @@ class ConfirmpaidAction extends \CAction
             $touragent = Touragent::model()->findByPk($manager->touragentId);
             $tour = TouristTour::model()->findByPk($tourist->tour->id);
             $discontHandler = new Discont\Handler();
+            $currentDate = new \DateTime();
 
             $newPrice = $touragent->getBynPrice($tour->currency, $tour->currencyUnit);
             $confPrepayment = Configuration::get(Configuration::PREPAYMENT);
@@ -48,6 +49,7 @@ class ConfirmpaidAction extends \CAction
             $oldPrepayment = round($tour->price * $confPrepayment / 100, 2);
 
             $tour->price = $newPrice;
+            $tour->paidAt = $currentDate->format("Y-m-d");
             /*if($tour->prepayment < $newPrepayment)
             {
                 $tour->prepayment = $newPrepayment;

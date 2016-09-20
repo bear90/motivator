@@ -78,9 +78,7 @@ class ExportInfoAction extends \CAction
             ['ТА'],
             ['Ф.И. менеджера'],
             ['Предоплата'],
-            ['Дата предоплаты'],
             ['Предоплата при бронировании тура'],
-            ['Дата предоплаты при бронировании'],
             ['Стоимость тура на момент покупки тура'],
             ['Дата окончательной оплаты тура'],
             ['Период тура'],
@@ -106,6 +104,7 @@ class ExportInfoAction extends \CAction
 
             $periodStart = \Yii::app()->dateFormatter->format('dd.MM.yyyy', $entity->tour->startDate);
             $periodEnd = \Yii::app()->dateFormatter->format('dd.MM.yyyy', $entity->tour->endDate);
+            $paidAt = \Yii::app()->dateFormatter->format('dd.MM.yyyy', $entity->tour->paidAt);
 
             $row = [
                 $num,
@@ -114,11 +113,9 @@ class ExportInfoAction extends \CAction
                 $entity->tour->touragent->name,
                 $entity->getManager()->name,
                 $entity->tour->prepayment,
-                '',
-                '',
-                '',
-                '',
-                '',
+                $entity->tour->bookingPrepaymentPaid,
+                $entity->tour->price,
+                $paidAt,
                 "{$periodStart} - {$periodEnd}",
             ];
             foreach ($row as $data) {
