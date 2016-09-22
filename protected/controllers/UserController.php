@@ -25,6 +25,7 @@ class UserController extends \CController
             'settimer' => 'application\\controllers\\user\\SettimerAction',
             'confirmpaid' => 'application\\controllers\\user\\ConfirmpaidAction',
             'changetour' => 'application\\controllers\\user\\ChangetourAction',
+            'edittour' => 'application\\controllers\\user\\EdittourAction',
         ];
     }
 

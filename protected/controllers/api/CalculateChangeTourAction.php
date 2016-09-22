@@ -50,6 +50,13 @@ class CalculateChangeTourAction extends \CApiAction
         $manager = \Yii::app()->user->getState('manager');
         $tourist = Tourist::model()->findByPk(intval($touristId));
 
+        if (!$price)
+        {
+            $currency = (float) \Yii::app()->request->getParam('currency');
+            $currencyUnit = \Yii::app()->request->getParam('currencyUnit');
+            $price = $touragent->getBynPrice($currency, $currencyUnit);
+        }
+
         // Restrict access for unknown agents
         if (!$touragent || !$manager || !$tourist || $tourist->tour->touragentId != $touragent->id ||
             $tourist->tour->managerId != $manager->id && !$manager->boss)

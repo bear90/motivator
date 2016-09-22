@@ -799,12 +799,19 @@ footer .logo > img {
 }
 
 #tourist-cabinet .our-tour.view .editBlock,
+#tourist-cabinet .our-tour.view .changeBlock,
 #tourist-cabinet .offers .item.view .editBlock {
     display: none;
 }
 
 #tourist-cabinet .our-tour.edit .viewBlock,
+#tourist-cabinet .our-tour.edit .changeBlock,
 #tourist-cabinet .offers .item.edit .viewBlock {
+    display: none;
+}
+
+#tourist-cabinet .our-tour.change .viewBlock,
+#tourist-cabinet .our-tour.change .editBlock {
     display: none;
 }
 

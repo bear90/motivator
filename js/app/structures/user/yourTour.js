@@ -1,17 +1,26 @@
 define([
+    'text!structures/user/tmpl/your_tour.html',
+    'structures/user/models/changeTour',
     'validator',
-], function() {
+], function(yourTourTmpl, changeTourModel) {
 
     var view = Backbone.View.extend({
 
+        templateYourTour: _.template(yourTourTmpl),
+        modelChangeTour: new changeTourModel,
+
         events: {
             "click button.edit": "editOffer",
+            "click button.change": "changeOffer",
             "click button.confirm": "onClickConfirm",
             "click button.paid": "paidOffer",
+            "click button.preview": "previewChange",
             "click a.more": "onClickMore",
         },
 
         initialize: function() {
+
+            this.modelChangeTour.on('sync', this.renderPreviewYourTour, this);
 
             this.$( ".startDate" ).datepicker({
                 changeMonth: true,
@@ -213,6 +222,10 @@ define([
         onClickMore: function(e){
             e.preventDefault();
             $row = $(e.target).closest('.viewBlock');
+            if (!$row.size())
+            {
+                $row = $(e.target).closest('.changeBlock');
+            }
             $row.find('.hidden-row').toggle();
         },
 
@@ -242,14 +255,65 @@ define([
             var $item = this.$(e.target).closest('.our-tour');
 
             switch (true) {
-                case $item.hasClass('view'):
-                    $item.removeClass('view').addClass('edit');
-                    break;
-
                 case $item.hasClass('edit'):
                     $item.removeClass('edit').addClass('view');
                     break;
+
+                default:
+                    $item.removeClass('view change').addClass('edit');
+                    break;
             }
+        },
+
+        changeOffer: function(e)
+        {
+            var $item = this.$(e.target).closest('.our-tour');
+
+            switch (true) {
+                case $item.hasClass('change'):
+                    $item.removeClass('change').addClass('view');
+                    break;
+
+                default:
+                    $item.removeClass('view edit').addClass('change');
+                    break;
+            }
+        },
+
+        previewChange: function(e)
+        {
+            var $form = this.$(e.target).closest('form');
+
+            console.log($form.data('bootstrapValidator').validate());
+
+            this.modelChangeTour.fetch({data: {
+                touristId:  Session.data.touristId,
+                startDate:  $form.find('input.startDate').val(),
+                endDate:    $form.find('input.endDate').val(),
+                currency:   $form.find('input.currency').val(),
+                currencyUnit:   $form.find('select.currencyUnit').val()
+            }})
+            .success($.proxy(function(){
+                $form.find('.body').addClass('hidden');
+            }, this));
+
+            
+        },
+
+        renderPreviewYourTour: function () {
+            var data = this.modelChangeTour.attributes;
+            var $form = this.$el.find('form.changing');
+
+            data = _.extend(data, {
+                'description': $form.find('.description').val(),
+                'bookingPrepayment': $form.find('.bookingPrepayment').val(),
+                'bookingPrepaymentPaid': $form.find('.bookingPrepaymentPaid').val(),
+                'bookingEndDate': $form.find('.bookingEndDate').val(),
+                'paymentEndDate': $form.find('.paymentEndDate').val(),
+            });
+
+            $form.find('.preview .ajax').html(this.templateYourTour(data));
+            $form.find('.preview').removeClass('hidden');
         },
 
         render:  function (){

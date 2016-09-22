@@ -20,7 +20,10 @@
     </div>
 </header>
 
-<section id="tourist-cabinet" class="container-fluid tourist" data-structure="user">
+<section id="tourist-cabinet" class="container-fluid tourist" 
+    data-structure="user"
+    data-manager-id="<?php echo $manager ? $manager->id : ''; ?>"
+    data-tourist-id="<?php echo $tourist->id; ?>">
     <div class="row">
         <div class="head <?php echo $tourist->status->name; ?>">
             <h1>

@@ -615,7 +615,8 @@
     word-wrap: break-word;
 }
 
-#wrapper .tabs-block.tab5 .viewBlock > div {
+#wrapper .tabs-block.tab5 .changeBlock div.title,
+#wrapper .tabs-block.tab5 .viewBlock div.title {
     font-size: 18px;
     font-weight: 700;
 }
