@@ -1,6 +1,7 @@
-<?php  echo CHtml::beginForm('/user/changetour', 'post', ['class' => 'offerForm changing']); ?> 
+<?php  echo CHtml::beginForm('/user/changetour', 'post', ['class' => 'changeForm']); ?> 
     <?php echo CHtml::hiddenField('tab', 'tab5'); ?>
     <?php echo CHtml::hiddenField('tourId', $tour->id); ?>
+    <?php echo CHtml::hiddenField('bookingPrepayment', $tour->getBookingPrepayment()); ?>
 
     <div class="body">
 

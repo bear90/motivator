@@ -1,12 +1,6 @@
-<?php  echo CHtml::beginForm('/user/edittour', 'post', ['class' => 'offerForm']); ?> 
+<?php  echo CHtml::beginForm('/user/edittour', 'post', ['class' => 'editForm']); ?> 
     <?php echo CHtml::hiddenField('tab', 'tab5'); ?>
     <?php echo CHtml::hiddenField('tourId', $tour->id); ?>
-
-    <div class="inner-block form-group hidden">
-        <?php echo CHtml::hiddenField('Tour[startDate]', 
-            Yii::app()->dateFormatter->format('dd.MM.yyyy', $tour->startDate),
-            ['class' => 'startDate']); ?>
-    </div>
 
     <div>Предоплата при бронировании тура на момент его выбора:</div>
 
