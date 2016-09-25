@@ -192,6 +192,8 @@ class DailycronCommand extends CConsoleCommand
             $afterTour2++;
         }
 
+        $this->doBackup();
+
         print("Count of yesterday registered tourists: {$yesterdayRegistered}\n");
         print("Count of 1st notification for wait dicont tourist: {$waitDiscontReminder1}\n");
         print("Count of 2nd notification for wait dicont tourist: {$waitDiscontReminder2}\n");
@@ -203,5 +205,38 @@ class DailycronCommand extends CConsoleCommand
         print("Count of 2nd notification when tour is finished and cabinet is deleted: {$afterTour2}\n");
         print("---------------------\n");
         print("\n");
+    }
+
+    private function doBackup()
+    {
+        $folder = \Yii::app()->basePath . '/files/backups';
+        $date = new DateTime();
+
+        if (!file_exists($folder) && !mkdir($folder)) {
+            return false;
+        }
+
+
+        $match = preg_match("/dbname=(\w+)/", \Yii::app()->db->connectionString, $row);
+        $dbname = $row[1];
+        $user = \Yii::app()->db->username;
+        $pass = \Yii::app()->db->password;
+        $path = $folder . "/{$dbname}_"  . $date->format('Ymd') . '.sql';
+
+        if (file_exists($path))
+        {
+            return true;
+        }
+
+        $date->modify('-3 day');
+        $deletePath = $folder . "/{$dbname}_"  . $date->format('Ymd') . '.sql';
+
+        if (file_exists($deletePath))
+        {
+            unlink($deletePath);
+        }
+
+        $cmd = "mysqldump -u{$user} -p\"{$pass}\" {$dbname} > {$path}";
+        exec($cmd);
     }
 }
