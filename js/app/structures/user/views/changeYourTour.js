@@ -28,6 +28,8 @@ define([
                 onClose: function( selectedDate, calendar ) {
                     var $form = calendar.input.closest('form');
                     $form.bootstrapValidator('revalidateField', 'startDate');
+                    $form.bootstrapValidator('revalidateField', 'endDate');
+                    $form.bootstrapValidator('revalidateField', 'paymentEndDate');
                     console.log('asdf');
                 }
             });
@@ -231,6 +233,7 @@ define([
             validator.validate();
 
             if (validator.isValid()) {
+                validator.disableSubmitButtons(false);
                 this.modelChangeTour.fetch({data: {
                     touristId:  Session.data.touristId,
                     startDate:  $form.find('input.startDate').val(),

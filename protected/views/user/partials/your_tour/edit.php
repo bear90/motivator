@@ -2,7 +2,7 @@
     <?php echo CHtml::hiddenField('tab', 'tab5'); ?>
     <?php echo CHtml::hiddenField('tourId', $tour->id); ?>
 
-    <div>Предоплата при бронировании тура на момент его выбора:</div>
+    <div>Предоплата при бронировании тура на момент его выбора/редактирования:</div>
 
     <div class="inner-block form-group">
         <label>к внесению:</label>

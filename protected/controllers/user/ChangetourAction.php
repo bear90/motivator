@@ -21,7 +21,6 @@ class ChangetourAction extends \CAction
 
     public function run()
     {
-        return false;
         $tourId = \Yii::app()->request->getParam('tourId');
         $tour = TouristTour::model()->findByPk($tourId);
         $tourist = Tourist::model()->findByPk($tour->touristId, ['with'=>['tour']]);

@@ -22,7 +22,7 @@
     </p>
 </div>
 
-<div class="title clrfix">Стоимость тура на момент его выбора/замены: 
+<div class="title clrfix">Стоимость тура на момент его выбора: 
     <span class="value money">
         <?php echo Tool::getNewPriceText($tour->price); ?>
     </span>
@@ -40,7 +40,7 @@
     </span>
 </div>
 
-<div class="title">Предоплата при бронировании тура <span>на момент его выбора/замены:</span></div>
+<div class="title">Предоплата при бронировании тура <span>на момент его выбора/редактирования:</span></div>
 
 <div class="title">к внесению: 
     <span class="value money">
@@ -81,7 +81,7 @@
     <div class="col-md-4 ta-r"><?php echo Tool::getNewPriceText($tourist->getPartnerDiscont()); ?></div>
 </div>
 
-<div class="title">Доплата при покупке тура <span>с учётом стоимости тура на момент его выбора/замены:</span> 
+<div class="title">Доплата при покупке тура <span>с учётом его стоимости на момент выбора:</span> 
     <span class="value money">
         <?php echo Tool::getNewPriceText($tour->getCurrentSurchange()); ?>
     </span>
