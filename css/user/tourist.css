@@ -800,18 +800,27 @@ footer .logo > img {
 
 #tourist-cabinet .our-tour.view .editBlock,
 #tourist-cabinet .our-tour.view .changeBlock,
+#tourist-cabinet .our-tour.view .changeAndPaidBlock,
 #tourist-cabinet .offers .item.view .editBlock {
     display: none;
 }
 
 #tourist-cabinet .our-tour.edit .viewBlock,
+#tourist-cabinet .our-tour.edit .changeAndPaidBlock,
 #tourist-cabinet .our-tour.edit .changeBlock,
 #tourist-cabinet .offers .item.edit .viewBlock {
     display: none;
 }
 
 #tourist-cabinet .our-tour.change .viewBlock,
+#tourist-cabinet .our-tour.change .changeAndPaidBlock,
 #tourist-cabinet .our-tour.change .editBlock {
+    display: none;
+}
+
+#tourist-cabinet .our-tour.changeAndPaid .viewBlock,
+#tourist-cabinet .our-tour.changeAndPaid .changeBlock,
+#tourist-cabinet .our-tour.changeAndPaid .editBlock {
     display: none;
 }
 
@@ -906,4 +915,10 @@ select:disabled{color: graytext;}
 
 .viewBlock.confirmation {
     margin-top: 20px;
+}
+
+#confirmationChangeAndPaid,
+#confirmationChange {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }

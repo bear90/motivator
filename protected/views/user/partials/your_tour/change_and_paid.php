@@ -1,4 +1,4 @@
-<?php  echo CHtml::beginForm('/user/changetour', 'post', ['class' => 'changeForm']); ?> 
+<?php  echo CHtml::beginForm('/user/change-and-paid-tour', 'post', ['class' => 'changeAndPaidForm']); ?> 
     <?php echo CHtml::hiddenField('tab', 'tab5'); ?>
     <?php echo CHtml::hiddenField('tourId', $tour->id); ?>
     <?php echo CHtml::hiddenField('bookingPrepayment', $tour->getBookingPrepayment()); ?>
@@ -74,7 +74,7 @@
         <div class="inner-block form-group">
             <?php echo CHtml::textArea("Tour[description]", $tour->description, [
                 'class' => 'description',
-                'id' => 'description'
+                'id' => 'descriptionChangeAndPaid'
             ]); ?>
         </div>
 
@@ -85,10 +85,10 @@
     <div class="preview hidden">
         <div class="ajax"><!-- --></div>
 
-        <label for="confirmationChange">
-            <input type="checkbox" name="confirmationChange" id="confirmationChange"> Контроль предоплаты произведён.
+        <label for="confirmationChangeAndPaid">
+            <input type="checkbox" name="confirmationChangeAndPaid" id="confirmationChangeAndPaid"> Подтверждаю получение  доплаты за тур.
         </label>
-        <button type="submit" class="btn btn-default btn-green2 save">ТУР ЗАМЕНЁН</button>
+        <button type="submit" class="btn btn-default btn-green2 save">ДОПЛАТА ПОЛУЧЕНА / ТУР ПРОДАН</button>
     </div>
 
 <?php echo CHtml::endForm(); ?>

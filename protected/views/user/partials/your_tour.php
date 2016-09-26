@@ -11,6 +11,7 @@
         <button type="button" class="btn btn-default btn-yellow edit">РЕДАКТИРОВАТЬ</button>
         <button type="button" class="btn btn-default btn-yellow change">ЗАМЕНИТЬ ТУР</button>
         <button type="button" class="btn btn-default btn-yellow confirm">ПРОДАТЬ  ТУР</button>
+        <button type="button" class="btn btn-default btn-yellow changeAndPaid">ЗАМЕНИТЬ  И  ПРОДАТЬ ТУР</button>
     </div>
 
 <?php endif; ?>
@@ -44,6 +45,13 @@
 <?php if($readOnly === false): ?>
     <div class="changeBlock">
         <?php $this->renderPartial('partials/your_tour/change', [
+            'tour' => $tourist->tour,
+            'touragent' => $manager->touragent,
+        ]); ?>
+    </div>
+
+    <div class="changeAndPaidBlock">
+        <?php $this->renderPartial('partials/your_tour/change_and_paid', [
             'tour' => $tourist->tour,
             'touragent' => $manager->touragent,
         ]); ?>

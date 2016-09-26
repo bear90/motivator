@@ -1,8 +1,9 @@
 define([
     'structures/user/views/editYourTour',
     'structures/user/views/changeYourTour',
+    'structures/user/views/changeAndPaidYourTour',
     'validator',
-], function(editYourTourView, changeYourTourView) {
+], function(editYourTourView, changeYourTourView, changeAndPaidYourTourView) {
 
     var view = Backbone.View.extend({
 
@@ -12,6 +13,7 @@ define([
         events: {
             "click button.edit": "editOffer",
             "click button.change": "changeOffer",
+            "click button.changeAndPaid": "changeAndPaidOffer",
             "click button.confirm": "onClickConfirm",
             "click button.paid": "paidOffer",
             "click a.more": "onClickMore",
@@ -25,6 +27,10 @@ define([
 
             this.viewChangeYourTour = new changeYourTourView({
                 el: '.changeBlock'
+            });
+
+            this.viewchangeAndPaidYourTour = new changeAndPaidYourTourView({
+                el: '.changeAndPaidBlock'
             });
                 
             $(window).on('beforeunload', $.proxy(this.leavePage, this));
@@ -61,7 +67,7 @@ define([
                     break;
 
                 default:
-                    $item.removeClass('view change').addClass('edit');
+                    $item.removeClass('view change changeAndPaid').addClass('edit');
                     break;
             }
         },
@@ -76,7 +82,22 @@ define([
                     break;
 
                 default:
-                    $item.removeClass('view edit').addClass('change');
+                    $item.removeClass('view edit changeAndPaid').addClass('change');
+                    break;
+            }
+        },
+
+        changeAndPaidOffer: function(e)
+        {
+            var $item = this.$(e.target).closest('.our-tour');
+
+            switch (true) {
+                case $item.hasClass('changeAndPaid'):
+                    $item.removeClass('changeAndPaid').addClass('view');
+                    break;
+
+                default:
+                    $item.removeClass('view edit change').addClass('changeAndPaid');
                     break;
             }
         },
@@ -92,6 +113,7 @@ define([
         render:  function (){
             this.viewEditYourTour.render();
             this.viewChangeYourTour.render();
+            this.viewchangeAndPaidYourTour.render();
         }
     });
 

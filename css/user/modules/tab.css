@@ -615,6 +615,7 @@
     word-wrap: break-word;
 }
 
+#wrapper .tabs-block.tab5 .changeAndPaidBlock div.title,
 #wrapper .tabs-block.tab5 .changeBlock div.title,
 #wrapper .tabs-block.tab5 .viewBlock div.title {
     font-size: 18px;

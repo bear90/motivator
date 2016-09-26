@@ -52,9 +52,12 @@ class CalculateChangeTourAction extends \CApiAction
 
         if (!$price)
         {
+            $bookingPrepayment = (float) \Yii::app()->request->getParam('bookingPrepayment');
             $currency = (float) \Yii::app()->request->getParam('currency');
             $currencyUnit = \Yii::app()->request->getParam('currencyUnit');
             $price = $touragent->getBynPrice($currency, $currencyUnit);
+            $price = $touragent->getBynPrice($currency, $currencyUnit);
+            $bookingPrepayment = $touragent->getBynPrice($bookingPrepayment, $currencyUnit);
         }
 
         // Restrict access for unknown agents
@@ -123,6 +126,7 @@ class CalculateChangeTourAction extends \CApiAction
             'surchange' => \Tool::getNewPriceText($surchange),
             'maxDiscount' => \Tool::getNewPriceText($maxDiscount),
             'surchangeOnMaxDiscount' => \Tool::getNewPriceText($surchangeOnMaxDiscount),
+            'bookingPrepayment' => \Tool::getNewPriceText($bookingPrepayment)
         ]);
         
         return $result;

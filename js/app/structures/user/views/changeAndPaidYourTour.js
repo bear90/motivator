@@ -1,5 +1,5 @@
 define([
-    'text!structures/user/tmpl/your_tour.html',
+    'text!structures/user/tmpl/change_and_paid_preview.html',
     'structures/user/models/changeTour',
 ], function(yourTourTmpl, changeTourModel){
 
@@ -90,7 +90,7 @@ define([
 
         initializeValidation: function()
         {
-            this.$('form.changeForm').bootstrapValidator({
+            this.$('form.changeAndPaidForm').bootstrapValidator({
                 excluded: [':disabled'],
                 feedbackIcons: {
                     valid: 'glyphicon glyphicon-ok',
@@ -99,7 +99,7 @@ define([
                 },
                 fields: {
                     price: {
-                        selector: 'form.changeForm input.price',
+                        selector: 'form.changeAndPaidForm input.price',
                         validators: {
                             notEmpty: {
                                 message: "Исходная стоимость тура должна быть заполнена!"
@@ -107,7 +107,7 @@ define([
                         }
                     },
                     startDate: {
-                        selector: 'form.changeForm input.startDate',
+                        selector: 'form.changeAndPaidForm input.startDate',
                         validators: {
                             notEmpty: {
                                 message: "Дата начала тура должна быть выбрана!"
@@ -115,7 +115,7 @@ define([
                         }
                     },
                     endDate: {
-                        selector: 'form.changeForm input.endDate',
+                        selector: 'form.changeAndPaidForm input.endDate',
                         validators: {
                             notEmpty: {
                                 message: "Дата окончания тура должна быть выбрана!"
@@ -123,7 +123,7 @@ define([
                             callback: {
                                 message: 'Дата окончания тура должна быть позже даты начала!',
                                 callback: function (value, validator, $field) {
-                                    var date = $field.closest('.changeBlock').find('input.startDate').val();
+                                    var date = $field.closest('.changeAndPaidBlock').find('input.startDate').val();
                                     if (date)
                                     {
                                         var tmp1 = date.split('.');
@@ -141,7 +141,7 @@ define([
                         }
                     },
                     paymentEndDate: {
-                        selector: 'form.changeForm input.paymentEndDate',
+                        selector: 'form.changeAndPaidForm input.paymentEndDate',
                         validators: {
                             notEmpty: {
                                 message: "Конечная дата оплаты тура должна быть выбрана!"
@@ -149,7 +149,7 @@ define([
                             callback: {
                                 message: 'Конечная дата оплаты тура должна быть раньше даты начала!',
                                 callback: function (value, validator, $field) {
-                                    var date = $field.closest('.changeBlock').find('input.startDate').val();
+                                    var date = $field.closest('.changeAndPaidBlock').find('input.startDate').val();
                                     if (date)
                                     {
                                         var tmp1 = date.split('.');
@@ -167,12 +167,12 @@ define([
                         }
                     },
                     bookingEndDate: {
-                        selector: 'form.changeForm input.bookingEndDate',
+                        selector: 'form.changeAndPaidForm input.bookingEndDate',
                         validators: {
                             callback: {
                                 message: 'Конечная дата оплаты тура должна быть позже даты внесения предоплаты при бронировании тура!',
                                 callback: function (value, validator, $field) {
-                                    var date = $field.closest('.changeBlock').find('input.paymentEndDate').val();
+                                    var date = $field.closest('.changeAndPaidBlock').find('input.paymentEndDate').val();
                                     if (date && value)
                                     {
                                         var tmp1 = date.split('.');
@@ -191,7 +191,7 @@ define([
                         }
                     },
                     operator: {
-                        selector: 'form.changeForm select.operator',
+                        selector: 'form.changeAndPaidForm select.operator',
                         validators: {
                             notEmpty: {
                                 message: "Туроператор должен быть выбран!"
@@ -199,7 +199,7 @@ define([
                         }
                     },
                     description: {
-                        selector: 'form.changeForm textarea.description',
+                        selector: 'form.changeAndPaidForm textarea.description',
                         validators: {
                             callback: {
                                 message: 'Введите текст преложения. Он должен быть не менее 5 символов',
@@ -221,7 +221,7 @@ define([
 
         onClickMore: function(e){
             e.preventDefault();
-
+console.log(this.$el);
             this.$el.find('.hidden-row').toggle();
         },
 
@@ -250,7 +250,7 @@ define([
 
         renderPreviewYourTour: function () {
             var data = this.modelChangeTour.attributes;
-            var $form = this.$el.find('form.changeForm');
+            var $form = this.$el.find('form.changeAndPaidForm');
 
             data = _.extend(data, {
                 'description': $form.find('.description').val(),
@@ -264,8 +264,8 @@ define([
         },
 
         submitForm: function (e) {
-            var confirmed = $('#confirmationChange').is(':checked');
-            if(!confirmed || !confirm("Вы уверены что хотите подтвердить замену?"))
+            var confirmed = $('#confirmationChangeAndPaid').is(':checked');
+            if(!confirmed || !confirm("Вы уверены что хотите подтвердить оплату?"))
             {
                 e.preventDefault();
             }
