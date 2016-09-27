@@ -41,6 +41,7 @@ class CalculateChangeTourAction extends \CApiAction
 
     public function doRun()
     {
+        $mode = \Yii::app()->request->getParam('mode', 'change');
         $touristId = \Yii::app()->request->getParam('touristId');
         $start = \Yii::app()->request->getParam('startDate');
         $end = \Yii::app()->request->getParam('endDate');
@@ -53,6 +54,7 @@ class CalculateChangeTourAction extends \CApiAction
         if (!$price)
         {
             $bookingPrepayment = (float) \Yii::app()->request->getParam('bookingPrepayment');
+            $bookingPrepaymentPaid = (float) \Yii::app()->request->getParam('bookingPrepaymentPaid');
             $currency = (float) \Yii::app()->request->getParam('currency');
             $currencyUnit = \Yii::app()->request->getParam('currencyUnit');
             $price = $touragent->getBynPrice($currency, $currencyUnit);
@@ -84,8 +86,11 @@ class CalculateChangeTourAction extends \CApiAction
         $partnerDiscount = $tourist->partnerDiscont;
         $oldAbonentDiscount = $tourist->abonentDiscont;
         $oldPrepayment = $tourist->tour->prepayment;
-        $bookingPrepaymentPaid = $tourist->tour->bookingPrepaymentPaid;
         $curMaxDiscount = $maxDiscount - $minDiscount;
+        if (!isset($bookingPrepaymentPaid))
+        {
+            $bookingPrepaymentPaid = $tourist->tour->bookingPrepaymentPaid;
+        }
 
         $overPrepayment = $oldPrepayment - $prepayment;
         $overMaxDiscount = $oldAbonentDiscount + $minDiscount - $maxDiscount;
@@ -105,6 +110,11 @@ class CalculateChangeTourAction extends \CApiAction
         $totalDiscount = $abonentDiscount + $minDiscount + $partnerDiscount;
         $surchange = $price - $oldPrepayment - $totalDiscount - $surchangePrepayment - $bookingPrepaymentPaid;
         $surchangeOnMaxDiscount = $price - $oldPrepayment - $surchangePrepayment - $maxDiscount - $partnerDiscount - $bookingPrepaymentPaid;
+
+        if ($mode == 'changeAndPaid')
+        {
+            $surchange += $surchangePrepayment;
+        }
 
         $result = \CMap::mergeArray($this->default, [
             'touristId' => $touristId,
@@ -126,7 +136,8 @@ class CalculateChangeTourAction extends \CApiAction
             'surchange' => \Tool::getNewPriceText($surchange),
             'maxDiscount' => \Tool::getNewPriceText($maxDiscount),
             'surchangeOnMaxDiscount' => \Tool::getNewPriceText($surchangeOnMaxDiscount),
-            'bookingPrepayment' => \Tool::getNewPriceText($bookingPrepayment)
+            'bookingPrepayment' => \Tool::getNewPriceText($bookingPrepayment),
+            'bookingPrepaymentPaid' => \Tool::getNewPriceText($bookingPrepaymentPaid)
         ]);
         
         return $result;

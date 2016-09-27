@@ -7,11 +7,19 @@
 
 <?php if($readOnly === false && $tourist->statusId == TouristStatus::GETTING_DISCONT): ?>
 
-    <div class="inner-block">
-        <button type="button" class="btn btn-default btn-yellow edit">РЕДАКТИРОВАТЬ</button>
-        <button type="button" class="btn btn-default btn-yellow change">ЗАМЕНИТЬ ТУР</button>
-        <button type="button" class="btn btn-default btn-yellow confirm">ПРОДАТЬ  ТУР</button>
-        <button type="button" class="btn btn-default btn-yellow changeAndPaid">ЗАМЕНИТЬ  И  ПРОДАТЬ ТУР</button>
+    <div class="inner-block text-center buttons">
+        <div class="row">
+            <div class="col-md-12">
+                <button type="button" class="btn btn-default btn-yellow edit">РЕДАКТИРОВАТЬ</button>
+                <button type="button" class="btn btn-default btn-yellow change">ЗАМЕНИТЬ ТУР</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <button type="button" class="btn btn-default btn-yellow confirm">ПРОДАТЬ  ТУР</button>
+                <button type="button" class="btn btn-default btn-yellow changeAndPaid">ЗАМЕНИТЬ  И  ПРОДАТЬ ТУР</button>
+            </div>
+        </div>
     </div>
 
 <?php endif; ?>

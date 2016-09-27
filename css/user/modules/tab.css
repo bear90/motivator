@@ -171,6 +171,14 @@
     margin: 28px auto 0;
 }
 
+#wrapper .inner-block.buttons > .row {
+    margin-bottom: 5px;
+}
+
+#wrapper .inner-block.text-center {
+    text-align: center;
+}
+
 #wrapper .inner-block {
     width: 100%;
     text-align: left;

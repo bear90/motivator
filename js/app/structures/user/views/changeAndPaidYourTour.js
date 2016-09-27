@@ -235,6 +235,7 @@ console.log(this.$el);
             if (validator.isValid()) {
                 validator.disableSubmitButtons(false);
                 this.modelChangeTour.fetch({data: {
+                    mode: 'changeAndPaid',
                     touristId:  Session.data.touristId,
                     startDate:  $form.find('input.startDate').val(),
                     endDate:    $form.find('input.endDate').val(),

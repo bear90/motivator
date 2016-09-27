@@ -30,7 +30,7 @@
 
 <div class="title">Стартовая предоплата: 
     <span class="value money">
-        <%=prepayment%>
+        <%=(parseInt(prepayment) < parseInt(oldPrepayment) ? oldPrepayment : prepayment)%>
     </span>
 </div>
 

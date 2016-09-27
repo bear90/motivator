@@ -235,12 +235,14 @@ define([
             if (validator.isValid()) {
                 validator.disableSubmitButtons(false);
                 this.modelChangeTour.fetch({data: {
+                    mode: 'change',
                     touristId:  Session.data.touristId,
                     startDate:  $form.find('input.startDate').val(),
                     endDate:    $form.find('input.endDate').val(),
                     currency:   $form.find('input.currency').val(),
                     currencyUnit:   $form.find('select.currencyUnit').val(),
-                    bookingPrepayment:  $form.find('input.bookingPrepayment').val()
+                    bookingPrepayment:  $form.find('input.bookingPrepayment').val(),
+                    bookingPrepaymentPaid:  $form.find('input.bookingPrepaymentPaid').val()
                 }})
                 .success($.proxy(function(){
                     $form.find('.body').addClass('hidden');
@@ -254,7 +256,6 @@ define([
 
             data = _.extend(data, {
                 'description': $form.find('.description').val(),
-                'bookingPrepaymentPaid': $form.find('.bookingPrepaymentPaid').val(),
                 'bookingEndDate': $form.find('.bookingEndDate').val(),
                 'paymentEndDate': $form.find('.paymentEndDate').val(),
             });
