@@ -22,15 +22,15 @@ define([
         initialize: function() {
 
             this.viewEditYourTour = new editYourTourView({
-                el: '.editBlock'
+                el: '#your-tour .editBlock'
             });
 
             this.viewChangeYourTour = new changeYourTourView({
-                el: '.changeBlock'
+                el: '#your-tour .changeBlock'
             });
 
             this.viewchangeAndPaidYourTour = new changeAndPaidYourTourView({
-                el: '.changeAndPaidBlock'
+                el: '#your-tour .changeAndPaidBlock'
             });
                 
             $(window).on('beforeunload', $.proxy(this.leavePage, this));

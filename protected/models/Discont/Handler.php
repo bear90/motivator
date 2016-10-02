@@ -6,6 +6,7 @@ use application\models\Configuration;
 use application\models\Tourist;
 use application\models\Touragent;
 use application\models\DiscountTransaction;
+use application\models\Logs;
 use application\models\defines\TouristStatus;
 
 /**
@@ -13,6 +14,12 @@ use application\models\defines\TouristStatus;
 */
 class Handler
 {
+    private $tourists = [
+        'before' => [],
+        'after' => [],
+        'beforeFond' => 0,
+        'afterFond' => 0
+    ];
 
     public function increaseParentDiscont(Tourist $sourceTourist, Tourist $distTourist, $summ)
     {
@@ -116,27 +123,7 @@ class Handler
             return 0;
         }
 
-        $cmd = \Yii::app()->db->createCommand()
-            ->select('tt.touristId')
-            ->from('tourist_tour AS tt')
-            ->join('tourists AS t', 't.id = tt.touristId')
-            ->where('t.statusId = :status and tt.touragentId = :touragentId AND t.id != :touristId', [
-                'status' => TouristStatus::GETTING_DISCONT,
-                'touragentId' => $tourist->tour->touragentId,
-                'touristId' => $tourist->id
-            ]);
-        $data = $cmd->queryColumn();
-
-        $tourists = [];
-        foreach ($data as $touristId) {
-            $_tourist = Tourist::model()->findByPk($touristId, ['with' => ['tour']]);
-            $maxDiscount = $_tourist->tour->maxDiscont;
-
-            if ($_tourist->abonentDiscont + $_tourist->tour->minDiscont < $maxDiscount)
-            {
-                $tourists[] = $_tourist;
-            }
-        }
+        $tourists = $this->getTouristsToChange($tourist->tour->touragentId, $tourist->id);
 
         if(count($tourists) > 0)
         {
@@ -144,6 +131,10 @@ class Handler
             $prepayment = 0;
 
             foreach ($tourists as $_tourist) {
+                $this
+                    ->addBeforeTourist(clone $_tourist)
+                    ->addAfterTourist($_tourist);
+
                 $maxDiscount = $_tourist->tour->maxDiscont;
                 $abonentDiscount = $_tourist->abonentDiscont + $part;
                 if ($abonentDiscount + $_tourist->tour->minDiscont > $maxDiscount)
@@ -166,6 +157,32 @@ class Handler
         return $prepayment;
     }
 
+    private function getTouristsToChange($touragentId, $touristId)
+    {
+        $cmd = \Yii::app()->db->createCommand()
+            ->select('tt.touristId')
+            ->from('tourist_tour AS tt')
+            ->join('tourists AS t', 't.id = tt.touristId')
+            ->where('t.statusId = :status and tt.touragentId = :touragentId AND t.id != :touristId', [
+                'status' => TouristStatus::GETTING_DISCONT,
+                'touragentId' => $touragentId,
+                'touristId' => $touristId
+            ]);
+
+        $tourists = [];
+        foreach ($cmd->queryColumn() as $id) {
+            $_tourist = Tourist::model()->findByPk($id, ['with' => ['tour']]);
+            $maxDiscount = $_tourist->tour->maxDiscont;
+
+            if ($_tourist->abonentDiscont + $_tourist->tour->minDiscont < $maxDiscount)
+            {
+                $tourists[] = $_tourist;
+            }
+        }
+
+        return $tourists;
+    }
+
     private function recalculateAbonentDiscont(Tourist $tourist) 
     {
         $balance = 0;
@@ -181,14 +198,10 @@ class Handler
         return $balance;
     }
 
-    public function decreaseAbonentDiscont(Tourist $tourist, $balance)
-    {
-        $balance += $this->recalculateAbonentDiscont($tourist);
-        $this->updateTourAgentAccount($tourist, $balance);
-    }
-
     public function increaseAbonentDiscont(Tourist $tourist, $prepayment)
     {
+        $this->addBeforeFond($tourist->tour->touragent->account);
+
         $prepayment = $this->processTouristFond($tourist, $prepayment);
 
         while (true)
@@ -209,6 +222,39 @@ class Handler
                 break;
             }
         }
+
+        $this->addAfterTourist($tourist);
+        $touragent = Touragent::model()->findByPk($tourist->tour->touragentId);
+        $this->addAfterFond($touragent->account);
+
+        $this->doCheck();
+    }
+
+    public function decreaseAbonentDiscont(Tourist $tourist, $balance)
+    {
+        $this->addBeforeFond($tourist->tour->touragent->account);
+
+        $balance += $this->recalculateAbonentDiscont($tourist);
+        $this->updateTourAgentAccount($tourist, $balance);
+
+        $this->addAfterTourist($tourist);
+        $touragent = Touragent::model()->findByPk($tourist->tour->touragentId);
+        $this->addAfterFond($touragent->account);
+
+        $this->doCheck();
+    }
+
+    public function changeAbonentDiscountWithoutParent(Tourist $tourist, $prepayment)
+    {
+        switch (true) {
+            case $prepayment > 0:
+                $this->increaseAbonentDiscont($tourist, $prepayment);
+                break;
+            
+            case $prepayment < 0:
+                $this->decreaseAbonentDiscont($tourist, $prepayment);
+                break;
+        }
     }
 
     public function updateTourAgentAccount(Tourist $tourist, $amount)
@@ -222,6 +268,86 @@ class Handler
             $touragent->save();
 
             DiscountTransaction::addTouragentAccount($tourist, $tourAgentId, $amount);
+        }
+    }
+
+
+    public function addBeforeTourist(Tourist $tourist)
+    {
+        if (array_key_exists($tourist->id, $this->tourists['before']) === false)
+        {
+            $this->tourists['before'][$tourist->id] = $tourist;
+        }
+        
+        return $this;
+    }
+
+    private function addAfterTourist(Tourist $tourist)
+    {
+        $this->tourists['after'][$tourist->id] = $tourist;
+
+        return $this;
+    }
+
+    private function addBeforeFond($value)
+    {
+        $this->tourists['beforeFond'] = (int) $value;
+        
+        return $this;
+    }
+
+    private function addAfterFond($value)
+    {
+        $this->tourists['afterFond'] = (int) $value;
+
+        return $this;
+    }
+
+    private function doCheck()
+    {
+        $cbPrice = function($tourist){
+            return $tourist->tour->price;
+        };
+        $cbDiscount = function($tourist){
+            return $tourist->getTotalDiscont();
+        };
+
+        $beforePrice = array_sum(array_map($cbPrice, $this->tourists['before']));
+        $beforeDiscount = array_sum(array_map($cbDiscount, $this->tourists['before']));
+        $beforeFond = $this->tourists['beforeFond'];
+
+        $afterPrice = array_sum(array_map($cbPrice, $this->tourists['after']));
+        $afterDiscount = array_sum(array_map($cbDiscount, $this->tourists['after']));
+        $afterFond = $this->tourists['afterFond'];
+
+
+        $delta = ($afterDiscount + $afterFond - $beforeDiscount - $beforeFond) / ($afterPrice - $beforePrice) * 100;
+        $delta = round($delta, 2);
+        
+        /*dd([
+            'beforePrice'       => $beforePrice,
+            'beforeDiscount'    => $beforeDiscount,
+            'beforeFond'        => $beforeFond,
+            'afterPrice'        => $afterPrice,
+            'afterDiscount'     => $afterDiscount,
+            'afterFond'         => $afterFond,
+            'delta'             => $delta,
+        ]);die();*/
+        
+        Configuration::set(Configuration::CHECKING_DELTA, $delta, Configuration::TYPE_FLOAT);
+
+        Logs::info("calculated delta: {$delta}" , [
+            'beforePrice'       => $beforePrice,
+            'beforeDiscount'    => $beforeDiscount,
+            'beforeFond'        => $beforeFond,
+            'afterPrice'        => $afterPrice,
+            'afterDiscount'     => $afterDiscount,
+            'afterFond'         => $afterFond,
+        ]);
+        
+        if ($delta != 7) 
+        {
+            throw new \DiscountException("Checking delta have been failed");
         }
     }
 }

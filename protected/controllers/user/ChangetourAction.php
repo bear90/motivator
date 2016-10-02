@@ -26,6 +26,7 @@ class ChangetourAction extends \CAction
         $tourist = Tourist::model()->findByPk($tour->touristId, ['with'=>['tour']]);
         $manager = \Yii::app()->user->getState('manager');
         $discontHandler = new Discont\Handler();
+        $discontHandler->addBeforeTourist(clone $tourist);
 
         if(!$tour || !$manager || $tour->managerId != $manager->id)
         {
@@ -94,14 +95,9 @@ class ChangetourAction extends \CAction
                     \Tool::informTourist($parentTourist, 'exchange_tour_partner', ['child' => $tourist]);
                     break;
 
-                case ($parentTourist && $parentTourist->statusId == TouristStatus::HAVE_DISCONT && $prepayment > 0):
-                case ($parentTourist === null && $prepayment > 0):
-                    $discontHandler->increaseAbonentDiscont($tourist, $prepayment);
-                    break;
-
-                case ($parentTourist && $parentTourist->statusId == TouristStatus::HAVE_DISCONT && $prepayment < 0):
-                case ($parentTourist === null && $prepayment < 0):
-                    $discontHandler->decreaseAbonentDiscont($tourist, $prepayment);
+                case ($parentTourist && $parentTourist->statusId == TouristStatus::HAVE_DISCONT):
+                case ($parentTourist === null):
+                    $discontHandler->changeAbonentDiscountWithoutParent($tourist, $prepayment);
                     break;
             }
 

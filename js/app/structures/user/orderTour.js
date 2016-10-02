@@ -403,7 +403,7 @@ define([
                                         format: 'text'
                                     });
 
-                                    return text.length >= 5;
+                                    return text.length >= 5; 
                                 }
                             }
                         }

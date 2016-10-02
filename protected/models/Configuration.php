@@ -47,6 +47,8 @@ class Configuration extends DBEntity {
 
     const BONUS_MANAGER = 'BONUS_MANAGER';
 
+    const CHECKING_DELTA = 'CHECKING_DELTA';
+
     private static $aValues = null;
 
     /**

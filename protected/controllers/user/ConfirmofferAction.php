@@ -88,15 +88,16 @@ class ConfirmofferAction extends \CAction
 
             DbTransaction::commit();
 
+        } catch (DiscountException $e){
+            DbTransaction::rollBack();
+
+            \Yii::app()->user->setFlash('message', "Произошла ошибка расчета");
+            \Tool::sendEmailWithView('konditer-print@mail.ru', 'checking_delta_fail', ['tourist' => $tourist]);
+
+            throw $e;
         } catch (Exception $e) {
             DbTransaction::rollBack();
             throw $e;
-        }
-
-        $delta = \Tool::calcCheckingDelta();
-        if ($delta && abs($delta - 93) > 0.001)
-        {
-            \Tool::sendEmailWithView('konditer-print@mail.ru', 'checking_delta_fail', ['tourist' => $tourist]);
         }
         
         $this->controller->redirect('/user/dashboard/' . $offer->tour->touristId . '?tab=tab5');

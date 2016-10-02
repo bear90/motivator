@@ -1,3 +1,6 @@
+<?php
+    use application\models\Configuration;
+?>
 <h2>Турагенты:</h2>
 <?php if($message): ?>
     <div><?php echo $message; ?></div><br>
@@ -15,7 +18,7 @@
     <tr>
         <td><?php echo $touragent->name; ?></td>
         <td><?php echo count($touragent->tourists2); ?></td>
-        <td><?php echo Tool::calcCheckingDelta($touragent->id); ?></td>
+        <td><!-- --></td>
         <td><?php echo $touragent->account; ?></td>
         <td>
             <a href="<?php echo Yii::app()->createUrl("admin/touragent/clear/{$touragent->id}"); ?>"
@@ -28,7 +31,7 @@
     <tr>
         <td>Общее</td>
         <td></td>
-        <td><?php echo \Tool::calcCheckingDelta(); ?></td>
+        <td><?php echo Configuration::get(Configuration::CHECKING_DELTA); ?></td>
         <td></td>
         <td></td>
     </tr>
