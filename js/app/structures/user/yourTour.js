@@ -16,7 +16,7 @@ define([
             "click button.changeAndPaid": "changeAndPaidOffer",
             "click button.confirm": "onClickConfirm",
             "click button.paid": "paidOffer",
-            "click a.more": "onClickMore",
+            "click .viewBlock a.more": "onClickMore",
         },
 
         initialize: function() {

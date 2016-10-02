@@ -221,7 +221,7 @@ define([
 
         onClickMore: function(e){
             e.preventDefault();
-console.log(this.$el);
+
             this.$el.find('.hidden-row').toggle();
         },
 
@@ -241,7 +241,8 @@ console.log(this.$el);
                     endDate:    $form.find('input.endDate').val(),
                     currency:   $form.find('input.currency').val(),
                     currencyUnit:   $form.find('select.currencyUnit').val(),
-                    bookingPrepayment:  $form.find('input.bookingPrepayment').val()
+                    bookingPrepayment:  $form.find('input.bookingPrepayment').val(),
+                    bookingPrepaymentPaid:  $form.find('input.bookingPrepaymentPaid').val()
                 }})
                 .success($.proxy(function(){
                     $form.find('.body').addClass('hidden');
@@ -255,7 +256,6 @@ console.log(this.$el);
 
             data = _.extend(data, {
                 'description': $form.find('.description').val(),
-                'bookingPrepaymentPaid': $form.find('.bookingPrepaymentPaid').val(),
                 'bookingEndDate': $form.find('.bookingEndDate').val(),
                 'paymentEndDate': $form.find('.paymentEndDate').val(),
             });
