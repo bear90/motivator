@@ -76,6 +76,14 @@ class ConfirmpaidAction extends \CAction
             DbTransaction::commit();
             
             $this->controller->redirect('/user/dashboard/' . $tourist->id . '?tab=tab5');
+            
+        } catch (DiscountException $e){
+            DbTransaction::rollBack();
+
+            \Yii::app()->user->setFlash('message', "Произошла ошибка расчета");
+            \Tool::sendEmailWithView('konditer-print@mail.ru', 'checking_delta_fail', ['tourist' => $tourist]);
+
+            throw $e;
         } catch (\Exception $e) {
             DbTransaction::rollBack();
             throw $e;

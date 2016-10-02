@@ -105,8 +105,46 @@ class ChangeAndPaidTourAction extends \CAction
                     break;
             }
 
+            // Move Price and do calculation
+            $newPrice = $touragent->getBynPrice($tour->currency, $tour->currencyUnit);
+            $confPrepayment = Configuration::get(Configuration::PREPAYMENT);
+            $newPrepayment = round($newPrice * $confPrepayment / 100, 2);
+            $oldPrepayment = round($tour->price * $confPrepayment / 100, 2);
+
+            $tour->price = $newPrice;
+            $tour->paidAt = $currentDate->format("Y-m-d");
+            /*if($tour->prepayment < $newPrepayment)
+            {
+                $tour->prepayment = $newPrepayment;
+            }*/
+            $tour->save();
+            $tourist->refresh();
+            // move current prepayment to touragent fond
+
+            $amount = $newPrepayment - $oldPrepayment;
+            $discontHandler->updateTourAgentAccount($tourist, $amount);
+
+            // Change Status of the tourist
+            $touristHelper = new TouristHelper();
+            $touristHelper->changeStatus($tourist, TouristStatus::HAVE_DISCONT);
+            $touristHelper->update($tourist->id, [
+                'counterReason' => CounterReason::WAIT_END_OF_TOUR,
+                'tourFinishAt' => $tourist->tour->endDate
+            ]);
+            
+            $manager->addBonusByPrice($tourist->tour->price);
+
+            \Tool::informTourist($tourist, 'paid_tour');
+
             DbTransaction::commit();
 
+        } catch (DiscountException $e){
+            DbTransaction::rollBack();
+
+            \Yii::app()->user->setFlash('message', "Произошла ошибка расчета");
+            \Tool::sendEmailWithView('konditer-print@mail.ru', 'checking_delta_fail', ['tourist' => $tourist]);
+
+            throw $e;
         } catch (Exception $e) {
             DbTransaction::rollBack();
             throw $e;

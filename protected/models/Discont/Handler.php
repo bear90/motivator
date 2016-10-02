@@ -21,50 +21,6 @@ class Handler
         'afterFond' => 0
     ];
 
-    public function increaseParentDiscont(Tourist $sourceTourist, Tourist $distTourist, $summ)
-    {
-        $balance = 0;
-        $partnerDiscont = $distTourist->partnerDiscont;
-        $partnerDiscont += $summ;
-
-        $maxDiscont = $distTourist->tour->price; 
-        $maxDiscont -= $distTourist->abonentDiscont;
-        $maxDiscont -= $distTourist->tour->prepayment;
-        $maxDiscont -= $distTourist->tour->minDiscont;
-        if ($partnerDiscont > $maxDiscont)
-        {
-            $balance += $maxDiscont - $partnerDiscont;
-            $partnerDiscont = $maxDiscont;
-        }
-        $ammount = $partnerDiscont - $distTourist->partnerDiscont;
-        $distTourist->partnerDiscont = $partnerDiscont;
-        $distTourist->save();
-        DiscountTransaction::addParentDiscont($sourceTourist, $distTourist, $ammount);
-        $this->updateTourAgentAccount($distTourist, $balance);
-    }
-
-    public function decreaseParentDiscont(Tourist $sourceTourist, Tourist $distTourist, $ammount)
-    {
-        $prepayment = $this->recalculateAbonentDiscont($sourceTourist);
-
-        $distTourist->partnerDiscont += $ammount;
-        $distTourist->save();
-        DiscountTransaction::addParentDiscont($sourceTourist, $distTourist, $ammount);
-
-        while ($prepayment)
-        {
-            $rest = $this->processTouristPrepayment($sourceTourist, $prepayment);
-
-            if ($rest > 0 && $rest == $prepayment)
-            {
-                $this->updateTourAgentAccount($sourceTourist, $prepayment);
-                break;
-            }
-
-            $prepayment = $rest;
-        }
-    }
-
     public function increaseTouristAbonentDiscont(Tourist $tourist, $prepayment)
     {
         $abonentDiscount = $tourist->abonentDiscont + $prepayment;
@@ -257,6 +213,66 @@ class Handler
         }
     }
 
+    public function increaseParentDiscont(Tourist $sourceTourist, Tourist $distTourist, $summ)
+    {
+        $this->addBeforeFond($sourceTourist->tour->touragent->account);
+
+        $balance = 0;
+        $partnerDiscont = $distTourist->partnerDiscont;
+        $partnerDiscont += $summ;
+
+        $maxDiscont = $distTourist->tour->price; 
+        $maxDiscont -= $distTourist->abonentDiscont;
+        $maxDiscont -= $distTourist->tour->prepayment;
+        $maxDiscont -= $distTourist->tour->minDiscont;
+        if ($partnerDiscont > $maxDiscont)
+        {
+            $balance += $maxDiscont - $partnerDiscont;
+            $partnerDiscont = $maxDiscont;
+        }
+        $ammount = $partnerDiscont - $distTourist->partnerDiscont;
+        $distTourist->partnerDiscont = $partnerDiscont;
+        $distTourist->save();
+        DiscountTransaction::addParentDiscont($sourceTourist, $distTourist, $ammount);
+        $this->updateTourAgentAccount($distTourist, $balance);
+
+        $this->addAfterTourist($sourceTourist);
+        $touragent = Touragent::model()->findByPk($sourceTourist->tour->touragentId);
+        $this->addAfterFond($touragent->account);
+        
+        $this->doCheck();
+    }
+
+    public function decreaseParentDiscont(Tourist $sourceTourist, Tourist $distTourist, $ammount)
+    {
+        $this->addBeforeFond($sourceTourist->tour->touragent->account);
+
+        $prepayment = $this->recalculateAbonentDiscont($sourceTourist);
+
+        $distTourist->partnerDiscont += $ammount;
+        $distTourist->save();
+        DiscountTransaction::addParentDiscont($sourceTourist, $distTourist, $ammount);
+
+        while ($prepayment)
+        {
+            $rest = $this->processTouristPrepayment($sourceTourist, $prepayment);
+
+            if ($rest > 0 && $rest == $prepayment)
+            {
+                $this->updateTourAgentAccount($sourceTourist, $prepayment);
+                break;
+            }
+
+            $prepayment = $rest;
+        }
+
+        $this->addAfterTourist($sourceTourist);
+        $touragent = Touragent::model()->findByPk($sourceTourist->tour->touragentId);
+        $this->addAfterFond($touragent->account);
+        
+        $this->doCheck();
+    }
+
     public function updateTourAgentAccount(Tourist $tourist, $amount)
     {
         if ($amount != 0)
@@ -323,8 +339,8 @@ class Handler
 
         $delta = ($afterDiscount + $afterFond - $beforeDiscount - $beforeFond) / ($afterPrice - $beforePrice) * 100;
         $delta = round($delta, 2);
-        
-        /*dd([
+        /*
+        dd([
             'beforePrice'       => $beforePrice,
             'beforeDiscount'    => $beforeDiscount,
             'beforeFond'        => $beforeFond,
