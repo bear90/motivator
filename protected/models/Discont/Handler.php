@@ -200,7 +200,7 @@ class Handler
         $this->doCheck();
     }
 
-    public function changeAbonentDiscountWithoutParent(Tourist $tourist, $prepayment)
+    public function changeAbonentDiscount(Tourist $tourist, $prepayment)
     {
         switch (true) {
             case $prepayment > 0:
@@ -213,9 +213,24 @@ class Handler
         }
     }
 
+    public function changeParentDiscount(Tourist $sourceTourist, Tourist $distTourist, $prepayment)
+    {
+        switch (true) {
+            case $prepayment > 0:
+                $this->increaseParentDiscont($sourceTourist, $distTourist, $prepayment);
+                break;
+            
+            case $prepayment < 0:
+                $this->decreaseParentDiscont($sourceTourist, $distTourist, $prepayment);
+                break;
+        }
+    }
+
     public function increaseParentDiscont(Tourist $sourceTourist, Tourist $distTourist, $summ)
     {
-        $this->addBeforeFond($sourceTourist->tour->touragent->account);
+        $this
+            ->addBeforeFond($distTourist->tour->touragent->account)
+            ->addBeforeTourist(clone $distTourist);
 
         $balance = 0;
         $partnerDiscont = $distTourist->partnerDiscont;
@@ -236,7 +251,9 @@ class Handler
         DiscountTransaction::addParentDiscont($sourceTourist, $distTourist, $ammount);
         $this->updateTourAgentAccount($distTourist, $balance);
 
-        $this->addAfterTourist($sourceTourist);
+        $this
+            ->addAfterTourist($sourceTourist)
+            ->addAfterTourist($distTourist);
         $touragent = Touragent::model()->findByPk($sourceTourist->tour->touragentId);
         $this->addAfterFond($touragent->account);
         
@@ -245,7 +262,8 @@ class Handler
 
     public function decreaseParentDiscont(Tourist $sourceTourist, Tourist $distTourist, $ammount)
     {
-        $this->addBeforeFond($sourceTourist->tour->touragent->account);
+        $this->addBeforeFond($distTourist->tour->touragent->account)
+            ->addBeforeTourist(clone $distTourist);
 
         $prepayment = $this->recalculateAbonentDiscont($sourceTourist);
 
@@ -266,9 +284,12 @@ class Handler
             $prepayment = $rest;
         }
 
-        $this->addAfterTourist($sourceTourist);
+
         $touragent = Touragent::model()->findByPk($sourceTourist->tour->touragentId);
-        $this->addAfterFond($touragent->account);
+        $this
+            ->addAfterTourist($sourceTourist)
+            ->addAfterTourist($distTourist)
+            ->addAfterFond($touragent->account);
         
         $this->doCheck();
     }
@@ -339,8 +360,8 @@ class Handler
 
         $delta = ($afterDiscount + $afterFond - $beforeDiscount - $beforeFond) / ($afterPrice - $beforePrice) * 100;
         $delta = round($delta, 2);
-        /*
-        dd([
+        
+        /*dd([
             'beforePrice'       => $beforePrice,
             'beforeDiscount'    => $beforeDiscount,
             'beforeFond'        => $beforeFond,
@@ -361,7 +382,7 @@ class Handler
             'afterFond'         => $afterFond,
         ]);
         
-        if ($delta != 7) 
+        if ($delta - 7 > 0.01) 
         {
             throw new \DiscountException("Checking delta have been failed");
         }

@@ -94,6 +94,15 @@
 
             <div class="tab5 tabs-block" id="your-tour">
 
+                <?php if($message): ?>
+                    <div class="alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <?php echo $message; ?>
+                    </div>
+                <?php endif; ?>
+
                 <?php if (!$tourist->tour): ?>
 
                     <div class="inner-block our-tour">

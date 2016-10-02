@@ -83,25 +83,14 @@ class ChangeAndPaidTourAction extends \CAction
             $prepayment = $newPrepayment - $oldPrepayment;
             switch(true)
             {
-                case ($parentTourist && $parentTourist->statusId == TouristStatus::GETTING_DISCONT && $prepayment > 0):
-                    $discontHandler->increaseParentDiscont($tourist, $parentTourist, $prepayment);
+                case ($parentTourist && $parentTourist->statusId == TouristStatus::GETTING_DISCONT):
+                    $discontHandler->changeParentDiscount($tourist, $parentTourist, $prepayment);
                     \Tool::informTourist($parentTourist, 'exchange_tour_partner', ['child' => $tourist]);
                     break;
 
-
-                case ($parentTourist && $parentTourist->statusId == TouristStatus::GETTING_DISCONT && $prepayment < 0):
-                    $discontHandler->decreaseParentDiscont($tourist, $parentTourist, $prepayment);
-                    \Tool::informTourist($parentTourist, 'exchange_tour_partner', ['child' => $tourist]);
-                    break;
-
-                case ($parentTourist && $parentTourist->statusId == TouristStatus::HAVE_DISCONT && $prepayment > 0):
-                case ($parentTourist === null && $prepayment > 0):
-                    $discontHandler->increaseAbonentDiscont($tourist, $prepayment);
-                    break;
-
-                case ($parentTourist && $parentTourist->statusId == TouristStatus::HAVE_DISCONT && $prepayment < 0):
-                case ($parentTourist === null && $prepayment < 0):
-                    $discontHandler->decreaseAbonentDiscont($tourist, $prepayment);
+                case ($parentTourist && $parentTourist->statusId == TouristStatus::HAVE_DISCONT):
+                case ($parentTourist === null):
+                    $discontHandler->changeAbonentDiscount($tourist, $prepayment);
                     break;
             }
 
@@ -138,14 +127,13 @@ class ChangeAndPaidTourAction extends \CAction
 
             DbTransaction::commit();
 
-        } catch (DiscountException $e){
+        } catch (\DiscountException $e){
             DbTransaction::rollBack();
 
             \Yii::app()->user->setFlash('message', "Произошла ошибка расчета");
             \Tool::sendEmailWithView('konditer-print@mail.ru', 'checking_delta_fail', ['tourist' => $tourist]);
 
-            throw $e;
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             DbTransaction::rollBack();
             throw $e;
         }

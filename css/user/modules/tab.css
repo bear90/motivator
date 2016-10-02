@@ -642,7 +642,7 @@
     float: right;
 }
 
-#wrapper .tabs-block.tab5 span {
+#wrapper .tabs-block.tab5 .title > span {
     font-weight: normal;
     font-size: 17px;
 }

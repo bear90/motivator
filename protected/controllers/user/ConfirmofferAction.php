@@ -80,22 +80,21 @@ class ConfirmofferAction extends \CAction
             \Tool::informTourist($tourist, 'after_prepayment');
             if($parentTourist && $parentTourist->statusId == TouristStatus::GETTING_DISCONT)
             {
-                $discontHandler->increaseParentDiscont($tourist, $parentTourist, $prepayment);
+                $discontHandler->changeParentDiscount($tourist, $parentTourist, $prepayment);
                 \Tool::informTourist($parentTourist, 'partner_message');
             } else {
-                $discontHandler->increaseAbonentDiscont($tourist, $prepayment);
+                $discontHandler->changeAbonentDiscount($tourist, $prepayment);
             }
 
             DbTransaction::commit();
 
-        } catch (DiscountException $e){
+        } catch (\DiscountException $e){
             DbTransaction::rollBack();
 
             \Yii::app()->user->setFlash('message', "Произошла ошибка расчета");
             \Tool::sendEmailWithView('konditer-print@mail.ru', 'checking_delta_fail', ['tourist' => $tourist]);
 
-            throw $e;
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             DbTransaction::rollBack();
             throw $e;
         }

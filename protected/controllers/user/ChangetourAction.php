@@ -84,33 +84,26 @@ class ChangetourAction extends \CAction
             $prepayment = $newPrepayment - $oldPrepayment;
             switch(true)
             {
-                case ($parentTourist && $parentTourist->statusId == TouristStatus::GETTING_DISCONT && $prepayment > 0):
-                    $discontHandler->increaseParentDiscont($tourist, $parentTourist, $prepayment);
-                    \Tool::informTourist($parentTourist, 'exchange_tour_partner', ['child' => $tourist]);
-                    break;
-
-
-                case ($parentTourist && $parentTourist->statusId == TouristStatus::GETTING_DISCONT && $prepayment < 0):
-                    $discontHandler->decreaseParentDiscont($tourist, $parentTourist, $prepayment);
+                case ($parentTourist && $parentTourist->statusId == TouristStatus::GETTING_DISCONT):
+                    $discontHandler->changeParentDiscount($tourist, $parentTourist, $prepayment);
                     \Tool::informTourist($parentTourist, 'exchange_tour_partner', ['child' => $tourist]);
                     break;
 
                 case ($parentTourist && $parentTourist->statusId == TouristStatus::HAVE_DISCONT):
                 case ($parentTourist === null):
-                    $discontHandler->changeAbonentDiscountWithoutParent($tourist, $prepayment);
+                    $discontHandler->changeAbonentDiscount($tourist, $prepayment);
                     break;
             }
 
             DbTransaction::commit();
 
-        } catch (DiscountException $e){
+        } catch (\DiscountException $e){
             DbTransaction::rollBack();
 
             \Yii::app()->user->setFlash('message', "Произошла ошибка расчета");
             \Tool::sendEmailWithView('konditer-print@mail.ru', 'checking_delta_fail', ['tourist' => $tourist]);
 
-            throw $e;
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             DbTransaction::rollBack();
             throw $e;
         }

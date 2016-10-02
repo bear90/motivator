@@ -74,7 +74,8 @@ class DashboardAction extends \CAction
             'manager' => $manager,
             'tourFormSubmitted' => $tourFormSubmitted,
             'tours' => $tours,
-            'messages' => $tourist->messages
+            'messages' => $tourist->messages,
+            'message' => \Yii::app()->user->getFlash('message')
         ]);
     }
 }
