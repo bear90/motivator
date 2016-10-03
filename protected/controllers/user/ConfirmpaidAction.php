@@ -49,7 +49,7 @@ class ConfirmpaidAction extends \CAction
             $oldPrepayment = round($tour->price * $confPrepayment / 100, 2);
 
             $tour->price = $newPrice;
-            $tour->paidAt = $currentDate->format("Y-m-d");
+            $tour->paidAt = $currentDate->format("Y-m-d H:i:s");
             /*if($tour->prepayment < $newPrepayment)
             {
                 $tour->prepayment = $newPrepayment;

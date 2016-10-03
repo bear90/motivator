@@ -328,14 +328,14 @@ class Handler
 
     private function addBeforeFond($value)
     {
-        $this->tourists['beforeFond'] = (int) $value;
+        $this->tourists['beforeFond'] = (float) $value;
         
         return $this;
     }
 
     private function addAfterFond($value)
     {
-        $this->tourists['afterFond'] = (int) $value;
+        $this->tourists['afterFond'] = (float) $value;
 
         return $this;
     }
@@ -382,7 +382,7 @@ class Handler
             'afterFond'         => $afterFond,
         ]);
         
-        if ($delta - 7 > 0.01) 
+        if (abs($delta - 7) > 0.01)
         {
             throw new \DiscountException("Checking delta have been failed");
         }

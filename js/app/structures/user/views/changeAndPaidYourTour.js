@@ -230,6 +230,8 @@ define([
             var $form = this.$(e.target).closest('form');
             var validator = $form.data('bootstrapValidator');
 
+            Session.view.user.stopAuroRefresh();
+
             validator.validate();
 
             if (validator.isValid()) {

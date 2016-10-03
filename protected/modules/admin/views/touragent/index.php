@@ -17,7 +17,7 @@
 <?php foreach((array) $touragents as $touragent): ?>
     <tr>
         <td><?php echo $touragent->name; ?></td>
-        <td><?php echo count($touragent->tourists2); ?></td>
+        <td><?php echo count($touragent->touristsGettingDiscount); ?></td>
         <td><!-- --></td>
         <td><?php echo $touragent->account; ?></td>
         <td>

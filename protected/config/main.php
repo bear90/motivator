@@ -81,14 +81,9 @@ return array(
             'routes'=>array(
                 array(
                     'class'=>'CFileLogRoute',
-                    'levels'=>'trace, info, error, warning',
+                    'levels'=>'error, warning',
                     'categories'=>'*',
                 ),
-                /*array(
-                    'class'=>'CEmailLogRoute',
-                    'levels'=>'trace, info, error, warning',
-                    'emails'=>'soza.mihail@gmail.com',
-                ),*/
             ),
         ),
         'fixture'=>array(

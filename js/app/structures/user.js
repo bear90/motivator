@@ -15,6 +15,7 @@ define([
     var Index = Backbone.View.extend({
 
         blinkEffectHandler: null,
+        autoRefreshInterval: null,
 
         events: {
             "click button.reason-list": "clickReasonList",
@@ -39,9 +40,13 @@ define([
         },
 
         initialize: function() {
-            setInterval(function(){
+            this.autoRefreshInterval = setInterval(function(){
                 window.location.reload(false);
             }, 5*60*1000);
+        },
+
+        stopAuroRefresh: function(){
+            clearInterval(this.autoRefreshInterval);
         },
 
         clickReasonItem: function(e)
@@ -117,6 +122,8 @@ define([
         },
 
         render: function(){
+
+            Session.view.user = this;
 
             //countdown time
             this.initCountDown();

@@ -2,11 +2,12 @@
  * Created by m.soza on 25.02.2016.
  */
 var Session = {
-    data: null
+    data: null,
+    view: {}
 };
 
 require.config({
-    urlArgs: "ver=1.0.14",
+    urlArgs: "ver=1.0.15",
     paths: {
         "jquery": "vendor/jquery/dist/jquery.min",
         "jqueryui": "vendor/jquery-ui-1.11.4/jquery-ui.min",

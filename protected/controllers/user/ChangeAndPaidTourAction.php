@@ -15,6 +15,7 @@ use application\models\defines\TouristStatus;
 use application\components\DbTransaction;
 use application\models\Logs;
 use application\models\Touragent;
+use application\models\defines\tourist\Helper as TouristHelper;
 
 class ChangeAndPaidTourAction extends \CAction
 {
@@ -73,7 +74,7 @@ class ChangeAndPaidTourAction extends \CAction
                 : CounterReason::WAIT_PAYMENT;
             $tourist->save();
 
-            Logs::info("{$tourist->firstName} {$tourist->lastName} (#{$tourist->id}) changed tour to", $tour->attributes);
+            Logs::info("{$tourist->firstName} {$tourist->lastName} (#{$tourist->id}) changed & paid tour to", $tour->attributes);
 
             if($tour->hasErrors()){
                 throw new \Exception(\Tool::errorToString($tour->errors));
@@ -101,7 +102,7 @@ class ChangeAndPaidTourAction extends \CAction
             $oldPrepayment = round($tour->price * $confPrepayment / 100, 2);
 
             $tour->price = $newPrice;
-            $tour->paidAt = $currentDate->format("Y-m-d");
+            $tour->paidAt = $currentDate->format("Y-m-d H:i:s");
             /*if($tour->prepayment < $newPrepayment)
             {
                 $tour->prepayment = $newPrepayment;
