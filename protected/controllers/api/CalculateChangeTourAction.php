@@ -45,11 +45,13 @@ class CalculateChangeTourAction extends \CApiAction
         $touristId = \Yii::app()->request->getParam('touristId');
         $start = \Yii::app()->request->getParam('startDate');
         $end = \Yii::app()->request->getParam('endDate');
+        $currencyUnit = \Yii::app()->request->getParam('currencyUnit');
         $price = (float) \Yii::app()->request->getParam('price');
 
         $touragent = \Yii::app()->user->model->touragent;
         $manager = \Yii::app()->user->getState('manager');
         $tourist = Tourist::model()->findByPk(intval($touristId));
+        $price = $touragent->getBynPrice($price, $currencyUnit);
 
         if (!$price)
         {
@@ -90,6 +92,10 @@ class CalculateChangeTourAction extends \CApiAction
         if (!isset($bookingPrepaymentPaid))
         {
             $bookingPrepaymentPaid = $tourist->tour->bookingPrepaymentPaid;
+        }
+        if (!isset($bookingPrepayment))
+        {
+            $bookingPrepayment = $tourist->tour->bookingPrepayment;
         }
 
         $overPrepayment = $oldPrepayment - $prepayment;
@@ -137,7 +143,8 @@ class CalculateChangeTourAction extends \CApiAction
             'maxDiscount' => \Tool::getNewPriceText($maxDiscount),
             'surchangeOnMaxDiscount' => \Tool::getNewPriceText($surchangeOnMaxDiscount),
             'bookingPrepayment' => \Tool::getNewPriceText($bookingPrepayment),
-            'bookingPrepaymentPaid' => \Tool::getNewPriceText($bookingPrepaymentPaid)
+            'bookingPrepaymentPaid' => \Tool::getNewPriceText($bookingPrepaymentPaid),
+            'currencyUnit' => \Tool::getCurrencyList($currencyUnit)
         ]);
         
         return $result;

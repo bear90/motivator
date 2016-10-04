@@ -11,6 +11,10 @@
     <div class="col-md-4"><%=endDate%></div>
 </div>
 <div class="row">
+    <label class="col-md-8">Валюта:</label>
+    <div class="col-md-4"><%=currencyUnit%></div>
+</div>
+<div class="row">
     <label class="col-md-8">Стоимость тура на момент расчёта:</label>
     <div class="col-md-4"><%=price%></div>
 </div>
@@ -30,7 +34,7 @@
     <label class="col-md-8">Стартовая предоплата, внесённая дополнительно к обязательной:</label>
     <div class="col-md-4"><%=overPrepayment%></div>
 </div>
-<div class="row">
+<div class="row hidden-row">
     <label class="col-md-8">Стартовая абонентская скидка:</label>
     <div class="col-md-4"><%=minDiscount%></div>
 </div>
@@ -46,15 +50,15 @@
     <label class="col-md-8">Превышение максимально возможной добавочной абонентской скидки:</label>
     <div class="col-md-4"><%=overMaxDiscount%></div>
 </div>
-<div class="row grouped">
+<div class="row hidden-row grouped">
     <label class="col-md-8">Учтённая добавочная абонентская скидка:</label>
     <div class="col-md-4"><%=abonentDiscount%></div>
 </div>
-<div class="row">
+<div class="row hidden-row">
     <label class="col-md-8">Текущая абонентская скидка:</label>
     <div class="col-md-4"><%=totalAbonentDiscount%></div>
 </div>
-<div class="row">
+<div class="row hidden-row">
     <label class="col-md-8">Скидка за привлечение:</label>
     <div class="col-md-4"><%=partnerDiscount%></div>
 </div>
@@ -66,11 +70,11 @@
     <label class="col-md-8">Доплата при покупке тура <span>с учётом стоимости тура на момент расчёта:</span></label> 
     <div class="col-md-4"><%=surchange%></div>
 </div>
-<div class="row">
+<div class="row hidden-row">
     <label class="col-md-8">Максимально возможная абонентская скидка:</label>
     <div class="col-md-4"><%=maxDiscount%></div>
 </div>
-<div class="row">
+<div class="row hidden-row">
     <label class="col-md-8">Доплата при покупке тура <span>с учётом максимально возможной абонентской скидки и стоимости тура на момент расчёта:</span></label>
     <div class="col-md-4"><%=surchangeOnMaxDiscount%></div>
 </div>

@@ -84,7 +84,8 @@ define([
                 touristId:  $form.find('input[name=touristId]').val(),
                 startDate:  $form.find('input[name=startDate]').val(),
                 endDate:    $form.find('input[name=endDate]').val(),
-                price:      $form.find('input[name=price]').val()
+                price:      $form.find('input[name=price]').val(),
+                currencyUnit:   $form.find('select[name=currencyUnit]').val()
             }})
             .success($.proxy(function(){
                 this.$('a.more').removeClass('hidden');

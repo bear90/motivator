@@ -29,7 +29,7 @@
                 <a href="<?php echo Yii::app()->createUrl("admin/post/report", ['filter' => $filter]); ?>"
                     <?php if ($isReportDisabled): ?>disabled="disabled"<?php endif; ?>
                     class="btn btn-default" target="_blank">
-                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Експортировать
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Экспортировать
                 </a>
                 
             </div>

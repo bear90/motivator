@@ -21,7 +21,16 @@
     </div>
     
     <div class="row form-group">
-        <label class="col-md-8 control-label">Стоимость тура на момент расчёта <span>(в белорусских рублях):</span></label>
+        <label class="col-md-8 control-label">Валюта:</label>
+        <div class="col-md-4">
+            <?php echo CHtml::dropDownList("currencyUnit", null, 
+            Tool::getCurrencyList(),
+            ['class' => ' form-control']); ?>
+        </div>
+    </div>
+    
+    <div class="row form-group">
+        <label class="col-md-8 control-label">Стоимость тура на момент расчёта:</label>
         <div class="col-md-4">
             <input type="text" class="form-control" name="price" value=".00">
         </div>
