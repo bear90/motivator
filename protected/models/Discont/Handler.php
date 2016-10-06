@@ -258,8 +258,7 @@ class Handler
 
     public function decreaseParentDiscont(Tourist $sourceTourist, Tourist $distTourist, $ammount)
     {
-        $this->addBeforeFond($distTourist->tour->touragent->account)
-            ->addBeforeTourist(clone $distTourist);
+        $this->addBeforeTourist(clone $distTourist);
 
         $prepayment = $this->recalculateAbonentDiscont($sourceTourist);
 
@@ -284,8 +283,7 @@ class Handler
         $touragent = Touragent::model()->findByPk($sourceTourist->tour->touragentId);
         $this
             ->addAfterTourist($sourceTourist)
-            ->addAfterTourist($distTourist)
-            ->addAfterFond($touragent->account);
+            ->addAfterTourist($distTourist);
         
         $this->doCheck();
     }
