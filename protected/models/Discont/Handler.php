@@ -228,9 +228,7 @@ class Handler
 
     public function increaseParentDiscont(Tourist $sourceTourist, Tourist $distTourist, $summ)
     {
-        $this
-            ->addBeforeFond($distTourist->tour->touragent->account)
-            ->addBeforeTourist(clone $distTourist);
+        $this->addBeforeTourist(clone $distTourist);
 
         $balance = 0;
         $partnerDiscont = $distTourist->partnerDiscont;
@@ -254,8 +252,6 @@ class Handler
         $this
             ->addAfterTourist($sourceTourist)
             ->addAfterTourist($distTourist);
-        $touragent = Touragent::model()->findByPk($sourceTourist->tour->touragentId);
-        $this->addAfterFond($touragent->account);
         
         $this->doCheck();
     }
