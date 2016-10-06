@@ -11,6 +11,10 @@ define([
         template: _.template(changeTourTmpl),
         model: null,
 
+        events: {
+            'click a.more' : 'onClickMore'
+        },
+
         initialize: function(options){
             this.model = options.model;
 
@@ -28,6 +32,18 @@ define([
             this.$el.html('');
 
             return this;
+        },
+
+        onClickMore: function(e){
+            this.$('.short').toggleClass('hidden');
+            this.$('.full').toggleClass('hidden');
+
+            if (this.$('a.more').text() == 'подробнее') {
+                this.$('a.more').text('свернуть');
+            } else {
+                this.$('a.more').text('подробнее');
+            }
+            
         },
     });
 

@@ -38,7 +38,6 @@
 
     <div class="form-group">
         <button type="submit" class="btn btn-default">ВЫПОЛНИТЬ  РАСЧЁТ</button>
-        <a href="#" class="more hidden">подробнее</a>
         <button type="reset" class="btn btn-default fl-r">ОЧИСТИТЬ</button>
     </div>
 </form>

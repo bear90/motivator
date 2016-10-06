@@ -18,7 +18,6 @@ define([
             'submit form.change-tour' : 'onSubmitChangeTour',
             'reset form.choice-tour' : 'onResetChoiceTour',
             'reset form.change-tour' : 'onResetChangeTour',
-            'click a.more' : 'onClickMore'
         },
 
         initialize: function(){
@@ -44,11 +43,6 @@ define([
                 changeMonth: true,
                 dateFormat: "dd.mm.yy"
             });
-
-            $(document).on('click', 'a.more', function(){
-                console.log(self);
-                
-            });
         },
 
         onResetChangeTour: function(){
@@ -57,13 +51,6 @@ define([
 
         onResetChoiceTour: function(){
             this.viewChoiceTour.clear();
-        },
-
-        onClickMore: function(e){
-            var $row = $(e.target).closest('.tab-pane');
-
-            $row.find('.row.hidden-row').toggle();
-            $row.find('.row.grouped').toggleClass('bg-grey');
         },
 
         onSubmitChoiceTour: function(e){

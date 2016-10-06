@@ -12,7 +12,7 @@
         </div>
     </div>
     <div class="row form-group">
-        <label class="col-md-8 control-label">Исходная стоимость тура:</label>
+        <label class="col-md-8 control-label">Стоимость тура на момент расчёта:</label>
         <div class="col-md-4">
             <input type="text" class="form-control" name="price" value=".00">
         </div>

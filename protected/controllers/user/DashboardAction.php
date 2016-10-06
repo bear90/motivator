@@ -69,6 +69,7 @@ class DashboardAction extends \CAction
         $tours = Tour::model()->findAll($criteria);
 
         $this->controller->render('index', [
+            'firstLogin' => \Yii::app()->user->getFlash('firstLogin'),
             'touragent' => $touragent,
             'tourist' => $tourist,
             'manager' => $manager,

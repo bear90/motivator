@@ -59,6 +59,7 @@ class User extends \CActiveRecord{
             $this->firstLogin = new \CDbExpression('now()');
             if ($this->roleId == defines\UserRole::USER)
             {
+                \Yii::app()->user->setFlash('firstLogin', true);
                 $tourist = Tourist::model()->findByAttributes(['userId' => $this->id]);
                 \Tool::informTourist($tourist, 'after_registration');
             }

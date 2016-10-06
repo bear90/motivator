@@ -23,6 +23,9 @@ class UpdatetourAction extends \CAction
         $helper = new Helper();
         $tour = $helper->update($id, $data);
 
+        $tourist = Tourist::model()->findByPk($tour->touristId);
+        \Tool::informTourist($tourist, 'exchange_tour');
+
         $this->controller->redirect('/user/dashboard/' . $tour->touristId);
     }
 }

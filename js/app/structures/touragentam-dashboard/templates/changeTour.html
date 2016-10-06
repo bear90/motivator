@@ -1,80 +1,111 @@
-<div class="row">
-    <label class="col-md-8">Личный кабинет абонента №:</label>
-    <div class="col-md-4"><%=touristId%></div>
+<div class="full hidden">
+    <div class="row">
+        <label class="col-md-8">Личный кабинет абонента №:</label>
+        <div class="col-md-4"><%=touristId%></div>
+    </div>
+    <div class="row">
+        <label class="col-md-8">Начало тура:</label>
+        <div class="col-md-4"><%=startDate%></div>
+    </div>
+    <div class="row">
+        <label class="col-md-8">Окончание тура:</label>
+        <div class="col-md-4"><%=endDate%></div>
+    </div>
+    <div class="row">
+        <label class="col-md-8">Стоимость тура на момент расчёта:</label>
+        <div class="col-md-4"><%=price%></div>
+    </div>
+    <div class="row bg-grey">
+        <label class="col-md-8">Внесённая стартовая предоплата:</label>
+        <div class="col-md-4"><%=oldPrepayment%></div>
+    </div>
+    <div class="row bg-grey">
+        <label class="col-md-8">Новая стартовая предоплата:</label>
+        <div class="col-md-4"><%=prepayment%></div>
+    </div>
+    <div class="row orange bg-grey">
+        <label class="col-md-8">Доплата стартовой предоплаты:</label>
+        <div class="col-md-4"><%=surchangePrepayment%></div>
+    </div>
+    <div class="row bg-grey">
+        <label class="col-md-8">Стартовая предоплата, внесённая дополнительно к обязательной:</label>
+        <div class="col-md-4"><%=overPrepayment%></div>
+    </div>
+    <div class="row">
+        <label class="col-md-8">Стартовая абонентская скидка:</label>
+        <div class="col-md-4"><%=minDiscount%></div>
+    </div>
+    <div class="row bg-grey">
+        <label class="col-md-8">Ранее начисленная добавочная абонентская скидка:</label>
+        <div class="col-md-4"><%=oldAbonentDiscount%></div>
+    </div>
+    <div class="row bg-grey">
+        <label class="col-md-8">Максимально возможная добавочная абонентская скидка:</label>
+        <div class="col-md-4"><%=curMaxDiscount%></div>
+    </div>
+    <div class="row bg-grey">
+        <label class="col-md-8">Превышение максимально возможной добавочной абонентской скидки:</label>
+        <div class="col-md-4"><%=overMaxDiscount%></div>
+    </div>
+    <div class="row bg-grey">
+        <label class="col-md-8">Учтённая добавочная абонентская скидка:</label>
+        <div class="col-md-4"><%=abonentDiscount%></div>
+    </div>
+    <div class="row">
+        <label class="col-md-8">Текущая абонентская скидка:</label>
+        <div class="col-md-4"><%=totalAbonentDiscount%></div>
+    </div>
+    <div class="row">
+        <label class="col-md-8">Скидка за привлечение:</label>
+        <div class="col-md-4"><%=partnerDiscount%></div>
+    </div>
+    <div class="row red">
+        <label class="col-md-8">Общая скидка:</label>
+        <div class="col-md-4"><%=totalDiscount%></div>
+    </div>
+    <div class="row green">
+        <label class="col-md-8">Доплата при покупке тура <span>на момент расчёта:</span></label> 
+        <div class="col-md-4"><%=surchange%></div>
+    </div>
+    <div class="row">
+        <label class="col-md-8">Максимально возможная абонентская скидка:</label>
+        <div class="col-md-4"><%=maxDiscount%></div>
+    </div>
+    <div class="row">
+        <label class="col-md-8">Доплата при покупке тура <span>на момент расчёта с учётом максимально возможной абонентской скидки:</span></label>
+        <div class="col-md-4"><%=surchangeOnMaxDiscount%></div>
+    </div>
 </div>
-<div class="row">
-    <label class="col-md-8">Начало тура:</label>
-    <div class="col-md-4"><%=startDate%></div>
+
+<div class="short">
+    <div class="row">
+        <label class="col-md-8">Личный кабинет абонента №:</label>
+        <div class="col-md-4"><%=touristId%></div>
+    </div>
+    <div class="row">
+        <label class="col-md-8">Начало тура:</label>
+        <div class="col-md-4"><%=startDate%></div>
+    </div>
+    <div class="row">
+        <label class="col-md-8">Окончание тура:</label>
+        <div class="col-md-4"><%=endDate%></div>
+    </div>
+    <div class="row">
+        <label class="col-md-8">Стоимость тура на момент расчёта:</label>
+        <div class="col-md-4"><%=price%></div>
+    </div>
+    <div class="row">
+        <label class="col-md-8">Общая скидка:</label>
+        <div class="col-md-4"><%=totalDiscount%></div>
+    </div>
+    <div class="row">
+        <label class="col-md-8">Доплата при покупке тура <span>на момент расчёта:</span></label> 
+        <div class="col-md-4"><%=surchange%></div>
+    </div>
+    <div class="row red">
+        <label class="col-md-8">Доплата стартовой предоплаты:</label>
+        <div class="col-md-4"><%=surchangePrepayment%></div>
+    </div>
 </div>
-<div class="row">
-    <label class="col-md-8">Окончание тура:</label>
-    <div class="col-md-4"><%=endDate%></div>
-</div>
-<div class="row">
-    <label class="col-md-8">Валюта:</label>
-    <div class="col-md-4"><%=currencyUnit%></div>
-</div>
-<div class="row">
-    <label class="col-md-8">Стоимость тура на момент расчёта:</label>
-    <div class="col-md-4"><%=price%></div>
-</div>
-<div class="row hidden-row grouped">
-    <label class="col-md-8">Внесённая стартовая предоплата:</label>
-    <div class="col-md-4"><%=oldPrepayment%></div>
-</div>
-<div class="row hidden-row grouped">
-    <label class="col-md-8">Новая стартовая предоплата:</label>
-    <div class="col-md-4"><%=prepayment%></div>
-</div>
-<div class="row orange grouped">
-    <label class="col-md-8">Доплата стартовой предоплаты:</label>
-    <div class="col-md-4"><%=surchangePrepayment%></div>
-</div>
-<div class="row hidden-row grouped">
-    <label class="col-md-8">Стартовая предоплата, внесённая дополнительно к обязательной:</label>
-    <div class="col-md-4"><%=overPrepayment%></div>
-</div>
-<div class="row hidden-row">
-    <label class="col-md-8">Стартовая абонентская скидка:</label>
-    <div class="col-md-4"><%=minDiscount%></div>
-</div>
-<div class="row hidden-row grouped">
-    <label class="col-md-8">Ранее начисленная добавочная абонентская скидка:</label>
-    <div class="col-md-4"><%=oldAbonentDiscount%></div>
-</div>
-<div class="row hidden-row grouped">
-    <label class="col-md-8">Максимально возможная добавочная абонентская скидка:</label>
-    <div class="col-md-4"><%=curMaxDiscount%></div>
-</div>
-<div class="row hidden-row grouped">
-    <label class="col-md-8">Превышение максимально возможной добавочной абонентской скидки:</label>
-    <div class="col-md-4"><%=overMaxDiscount%></div>
-</div>
-<div class="row hidden-row grouped">
-    <label class="col-md-8">Учтённая добавочная абонентская скидка:</label>
-    <div class="col-md-4"><%=abonentDiscount%></div>
-</div>
-<div class="row hidden-row">
-    <label class="col-md-8">Текущая абонентская скидка:</label>
-    <div class="col-md-4"><%=totalAbonentDiscount%></div>
-</div>
-<div class="row hidden-row">
-    <label class="col-md-8">Скидка за привлечение:</label>
-    <div class="col-md-4"><%=partnerDiscount%></div>
-</div>
-<div class="row red">
-    <label class="col-md-8">Общая скидка:</label>
-    <div class="col-md-4"><%=totalDiscount%></div>
-</div>
-<div class="row green">
-    <label class="col-md-8">Доплата при покупке тура <span>с учётом стоимости тура на момент расчёта:</span></label> 
-    <div class="col-md-4"><%=surchange%></div>
-</div>
-<div class="row hidden-row">
-    <label class="col-md-8">Максимально возможная абонентская скидка:</label>
-    <div class="col-md-4"><%=maxDiscount%></div>
-</div>
-<div class="row hidden-row">
-    <label class="col-md-8">Доплата при покупке тура <span>с учётом максимально возможной абонентской скидки и стоимости тура на момент расчёта:</span></label>
-    <div class="col-md-4"><%=surchangeOnMaxDiscount%></div>
-</div>
+
+<a href="#" class="more hidden">подробнее</a>

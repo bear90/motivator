@@ -146,34 +146,40 @@
 
             </div>
 
-            <div class="tab7 tabs-block">
+            
             <?php if ($tourFormSubmitted): ?>
-                <div class="send-block center">
-                    <span class="arrow-ok"></span>
-                    <h2>ОТПРАВЛЕНО</h2>
-                    <p>Уважаемый соискатель скидки!</p>
-                    <p>Ваша заявка на тур получена турагентом.</p>
-                    <p>Ожидайте предложение по ней от обслуживающего вас менеджера.</p>
-                    <p>Вы можете отправить несколько заявок на туры (в том числе – разным турагентам), однако в рамках одного личного кабинета вы можете приобрести только один тур.</p>
-                    <br>
-                    <p>Сервис «МОТИВАТОР».</p>
+                <div class="tab7 tabs-block">
+                    <div class="send-block center">
+                        <span class="arrow-ok"></span>
+                        <h2>ОТПРАВЛЕНО</h2>
+                        <p>Уважаемый соискатель скидки!</p>
+                        <p>Ваша заявка на тур получена турагентом.</p>
+                        <p>Ожидайте предложение по ней от обслуживающего вас менеджера.</p>
+                        <p>Вы можете отправить несколько заявок на туры (в том числе – разным турагентам), однако в рамках одного личного кабинета вы можете приобрести только один тур.</p>
+                        <br>
+                        <p>Сервис «МОТИВАТОР».</p>
+                    </div>
                 </div>
-                
-            <?php else: ?>
-                <h4>Уважаемый соискатель скидки!</h4>
-                <p>Приветствую вас в вашем личном кабинете!</p>
-                <p>Выберите понравившийся вам тур и заполните заявку на него.</p>
-                <p>Сервис «МОТИВАТОР».</p>
-
-                <p>
-                    <a class=" btn btn-default btn-green" href="<?php echo Yii::app()->createUrl('user/dashboard?tab=tab1'); ?>">ВЫБРАТЬ ТУР И ЗАПОЛНИТЬ ЗАЯВКУ</a>
-                </p>
             <?php endif; ?>
-            </div>
 
+            
 
+            
 
             <div class="info-block">
+                <?php if($firstLogin): ?>
+                    <div class="inner-block message text-center">
+                        <h4>Уважаемый соискатель скидки!</h4>
+                        <p>Приветствую вас в вашем личном кабинете!</p>
+                        <p>Выберите понравившийся вам тур и заполните заявку на него.</p>
+                        <p>Сервис «МОТИВАТОР».</p>
+
+                        <p>
+                            <a class=" btn btn-default btn-green" href="<?php echo Yii::app()->createUrl('user/dashboard?tab=tab1'); ?>">ВЫБРАТЬ ТУР И ЗАПОЛНИТЬ ЗАЯВКУ</a>
+                        </p>
+                    </div>
+                <?php endif; ?>
+
                 <?php foreach ($messages as $message): ?>
                     <div class="inner-block message">
                         <a href="#" class="remove" data-id="<?php echo $message->id; ?>">
