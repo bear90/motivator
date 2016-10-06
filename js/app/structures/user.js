@@ -20,7 +20,7 @@ define([
         events: {
             "click button.reason-list": "clickReasonList",
             "click .custom-list a": "clickReasonItem",
-            "click .message a": "clickCloseMessage"
+            "click .message a.remove": "clickCloseMessage"
         },
 
         clickCloseMessage: function (e) {
