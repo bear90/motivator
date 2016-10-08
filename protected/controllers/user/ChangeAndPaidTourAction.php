@@ -27,6 +27,7 @@ class ChangeAndPaidTourAction extends \CAction
         $tourist = Tourist::model()->findByPk($tour->touristId, ['with'=>['tour']]);
         $manager = \Yii::app()->user->getState('manager');
         $discontHandler = new Discont\Handler();
+        $discontHandler->addBeforeTourist(clone $tourist);
 
         if(!$tour || !$manager || $tour->managerId != $manager->id)
         {
