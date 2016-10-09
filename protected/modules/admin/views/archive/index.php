@@ -116,7 +116,8 @@
             <td><?php echo $entity->tour->getSoldAt('d.m.Y'); ?></td>
             <td>
                 <div><b>Стоимость:</b> <?php echo $entity->tour->price; ?></div>
-                <div><b>Предоплата:</b> <?php echo $entity->tour->prepayment; ?></div>
+                <div><b>СП:</b> <?php echo $entity->tour->prepayment; ?></div>
+                <div><b>ПпБ:</b> <?php echo $entity->tour->bookingPrepaymentPaid; ?></div>
                 <div><b>Доплата за тур:</b> <?php echo $entity->tour->getCurrentSurchange(); ?></div>
                 <div><b>МВАС:</b> <?php echo $entity->tour->maxDiscont; ?></div>
                 <div><b>ТАС:</b> <?php echo $entity->getAbonentDiscont(); ?></div>

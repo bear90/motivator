@@ -104,7 +104,8 @@ class ExportAction extends \CAction
                 $entity->tour->getSoldAt('d.m.Y'),
                 [
                     'Стоимость:' => $entity->tour->price,
-                    'Предоплата:' => $entity->tour->prepayment,
+                    'СП:' => $entity->tour->prepayment,
+                    'ПпБ:' => $entity->tour->bookingPrepaymentPaid,
                     'Доплата за тур:' => $entity->tour->getCurrentSurchange(),
                     'МВАС:' => $entity->tour->maxDiscont,
                     'ТАС:' => $entity->getAbonentDiscont(),

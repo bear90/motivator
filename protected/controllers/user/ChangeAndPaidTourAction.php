@@ -61,9 +61,13 @@ class ChangeAndPaidTourAction extends \CAction
             $oldPrepayment = round($tour->price * $confPrepayment / 100, 2);
             
             $tour->attributes = $data;
-            if($tour->prepayment < $newPrepayment)
+            /*if($tour->prepayment < $newPrepayment)
             {
                 $tour->prepayment = $newPrepayment;
+            }*/
+            if ($tour->bookingPrepayment && $tour->bookingPrepaymentPaid < $tour->bookingPrepayment)
+            {
+                $tour->bookingPrepaymentPaid = $tour->bookingPrepayment;
             }
             $tour->save();
             $tourist->refresh();
