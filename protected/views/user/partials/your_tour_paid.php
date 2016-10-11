@@ -8,70 +8,70 @@
 <div class="viewBlock form">
 
     <?php if ($manager && $tourist->tour->touragentId == $manager->touragentId):?>
-        <div>
+        <div class="title">
             Туроператор: 
             <span class="value date"><?php echo $tourist->tour->operator ? $tourist->tour->operator->name : ''; ?></span>
         </div>
     <?php endif; ?>
 
-    <div>Начало тура: 
+    <div class="title">Начало тура: 
         <span class="value date">
             <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $tourist->tour->startDate); ?>
         </span>
     </div>
-    <div>Окончание тура: 
+    <div class="title">Окончание тура: 
         <span class="value date">
             <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $tourist->tour->endDate); ?>
         </span>
     </div>
-    <div>Описание тура:
+    <div class="title">Описание тура:
         <p>
             <?php echo $tourist->tour->description; ?>
         </p>
     </div>
-    <div class="clrfix">Стоимость тура: 
+    <div class="clrfix title">Стоимость тура: 
         <span class="value money">
             <?php echo Tool::getNewPriceText($tourist->tour->price); ?>
         </span>
     </div>
 
-    <div>Стартовая предоплата: 
+    <div class="title">Стартовая предоплата: 
         <span class="value money">
             <?php echo Tool::getNewPriceText($tourist->tour->prepayment); ?>
         </span>
     </div>
-    <div>Предоплата при бронировании тура:</div>
-    <div>внесено: 
+    <div class="title">Предоплата при бронировании тура:</div>
+    <div class="title">внесено: 
         <span class="value money">
             <?php echo Tool::getNewPriceText($tourist->tour->bookingPrepaymentPaid); ?>
         </span>
     </div>
 
-    <div class="sell red">Общая скидка:
+    <div class="sell red title">Общая скидка:
         <a href="#" class="more">подробнее</a>
         <span class="value money">
             <?php echo Tool::getNewPriceText($tourist->getTotalDiscont()); ?>
         </span>
     </div>
 
-    <div class="row hidden-row bg-grey">
+    <div class="row hidden-row bg-grey title">
         <label class="col-md-8">Стартовая абонентская скидка:</label>
         <div class="col-md-4 ta-r"><?php echo Tool::getNewPriceText($tourist->tour->minDiscont); ?></div>
     </div>
-    <div class="row hidden-row bg-grey">
+    <div class="row hidden-row bg-grey title">
         <label class="col-md-8">Добавочная абонентская скидка:</label>
         <div class="col-md-4 ta-r"><?php echo Tool::getNewPriceText($tourist->abonentDiscont); ?></div>
     </div>
-    <div class="row hidden-row bg-grey">
+    <div class="row hidden-row bg-grey title">
         <label class="col-md-8">Максимально возможная абонентcкая скидка:</label>
         <div class="col-md-4 ta-r"><?php echo Tool::getNewPriceText($tourist->tour->maxDiscont); ?></div>
     </div>
-    <div class="row hidden-row bg-grey">
+    <div class="row hidden-row bg-grey title">
         <label class="col-md-8">Скидка за привлечение:</label>
         <div class="col-md-4 ta-r"><?php echo Tool::getNewPriceText($tourist->getPartnerDiscont()); ?></div>
     </div>
     
-    <div>Доплата при покупке тура: 
+    <div class="title">Доплата при покупке тура: 
         <span class="value money">
             <?php echo Tool::getNewPriceText($tourist->tour->getCurrentSurchange()); ?>
         </span>

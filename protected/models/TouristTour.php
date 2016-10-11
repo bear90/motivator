@@ -73,9 +73,9 @@ class TouristTour extends DBEntity
 
     public function getSoldAt($format = 'Y-m-d H:i:s')
     {
-        if ($this->createdAt)
+        if ($this->paidAt)
         {
-            $date = new \DateTime($this->createdAt);
+            $date = new \DateTime($this->paidAt);
         
             return $date->format($format);
         }
