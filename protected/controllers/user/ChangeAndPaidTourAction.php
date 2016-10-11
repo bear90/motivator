@@ -61,14 +61,6 @@ class ChangeAndPaidTourAction extends \CAction
             $oldPrepayment = round($tour->price * $confPrepayment / 100, 2);
             
             $tour->attributes = $data;
-            /*if($tour->prepayment < $newPrepayment)
-            {
-                $tour->prepayment = $newPrepayment;
-            }*/
-            if ($tour->bookingPrepayment && $tour->bookingPrepaymentPaid < $tour->bookingPrepayment)
-            {
-                $tour->bookingPrepaymentPaid = $tour->bookingPrepayment;
-            }
             $tour->save();
             $tourist->refresh();
 
@@ -90,6 +82,7 @@ class ChangeAndPaidTourAction extends \CAction
             {
                 case ($parentTourist && $parentTourist->statusId == TouristStatus::GETTING_DISCONT):
                     $discontHandler->changeParentDiscount($tourist, $parentTourist, $prepayment);
+                    \Tool::informTourist($parentTourist, 'exchange_tour_partner', ['child' => $tourist]);
                     break;
 
                 case ($parentTourist && $parentTourist->statusId == TouristStatus::HAVE_DISCONT):

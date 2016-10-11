@@ -50,14 +50,6 @@ class ConfirmpaidAction extends \CAction
 
             $tour->price = $newPrice;
             $tour->paidAt = $currentDate->format("Y-m-d H:i:s");
-            /*if($tour->prepayment < $newPrepayment)
-            {
-                $tour->prepayment = $newPrepayment;
-            }*/
-            if ($tour->bookingPrepayment && $tour->bookingPrepaymentPaid < $tour->bookingPrepayment)
-            {
-                $tour->bookingPrepaymentPaid = $tour->bookingPrepayment;
-            }
             $tour->save();
             $tourist->refresh();
             // move current prepayment to touragent fond
