@@ -17,7 +17,7 @@
 
 <p><b>ЛИЧНЫЙ  КАБИНЕТ № <?php echo str_pad($tourist->id, 4, "0", STR_PAD_LEFT)?></b></p>
 
-<?php if($view != 'cabinet_deleted'): ?>
+<?php if(!in_array($view, array('after_tour_2', 'cabinet_deleted'))): ?>
     
     <p><a href="<?php echo $tourist->user->getAutoLoginLink(); ?>">Перейти в личный кабинет</a></p>
 
