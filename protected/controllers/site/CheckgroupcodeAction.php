@@ -14,8 +14,8 @@ class CheckgroupcodeAction extends \CAjaxAction
     public function doRun()
     {
         $pid = (int) \Yii::app()->request->getPost('groupCode');
-        $params = ['id' => $pid, 'status' => TouristStatus::HAVE_DISCONT];
-        $valid = Tourist::model()->exists('id = :id AND statusId < :status', $params);
+        $params = ['id' => $pid, 'status' => TouristStatus::GETTING_DISCONT];
+        $valid = Tourist::model()->exists('id = :id AND statusId = :status', $params);
 
         return [
             'valid' => $valid

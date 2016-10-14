@@ -34,6 +34,7 @@ class CreateofferAction extends \CAction
                 $endDate = new \DateTime($offer['endDate']);
                 $paymentEndDate = new \DateTime($offer['paymentEndDate']);
                 $bookingEndDate = new \DateTime($offer['bookingEndDate']);
+                $newOffer = null;
 
                 $data = $offer;
                 $data['tourId'] = $tourId;
@@ -49,7 +50,7 @@ class CreateofferAction extends \CAction
                     $offerHelper->update($offer['id'], $data);
                 } else {
                     $hasNewOffer = true;
-                    $offerHelper->create($data);
+                    $newOffer = $offerHelper->create($data);
                 }
                 
             }
@@ -66,7 +67,7 @@ class CreateofferAction extends \CAction
 
         if ($hasNewOffer)
         {
-            \Tool::informTourist($tour->tourist, 'new_offers');
+            \Tool::informTourist($tour->tourist, 'new_offers', ['offer' => $newOffer]);
         }
 
         $this->controller->redirect('/user/dashboard/' . $tour->touristId . '?tab=' . $tab);

@@ -161,6 +161,10 @@
                         {
                             $placeholders['~password~'] = $tourist->user->password;
                         }
+                        if ($name == 'new_offers')
+                        {
+                            $placeholders['~offerId~'] = $data['offer']->id;
+                        }
                     }
                     
                     $content = str_replace(array_keys($placeholders), array_values($placeholders), $content);
