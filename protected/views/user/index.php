@@ -180,6 +180,21 @@
                     </div>
                 <?php endif; ?>
 
+                <?php foreach ($frashMessages as $message): ?>
+                    <div class="inner-block message">
+                        <a href="#" class="remove" data-id="<?php echo $message->id; ?>">
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </a>
+                        <?php echo $message->text; ?>
+                    </div>
+                <?php endforeach; ?>
+
+                <?php if($tourist->statusId < TouristStatus::GETTING_DISCONT): ?>
+                    
+                <?php else: ?>
+                    
+                <?php endif; ?>
+
                 <?php foreach ($messages as $message): ?>
                     <div class="inner-block message">
                         <a href="#" class="remove" data-id="<?php echo $message->id; ?>">
