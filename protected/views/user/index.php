@@ -167,7 +167,7 @@
             
 
             <div class="info-block">
-                <?php if($firstLogin): ?>
+                <?php if(count($tours)==0): ?>
                     <div class="inner-block message text-center">
                         <h4>Уважаемый соискатель скидки!</h4>
                         <p>Приветствую вас в вашем личном кабинете!</p>

@@ -24,7 +24,11 @@ class Tourist extends DBEntity {
             'message'=>[self::HAS_ONE, 'application\\models\\Message', 'touristId', 'order' => 'message.createdAt DESC'],
             'messages'=>[self::HAS_MANY, 'application\\models\\Message', 'touristId', 
                 'order' => 'messages.id DESC',
-                'condition' => 'messages.viewed = 0'
+                'condition' => 'messages.deleted = 0 AND messages.viewed = 1'
+            ],
+            'frashMessages'=>[self::HAS_MANY, 'application\\models\\Message', 'touristId', 
+                'order' => 'frashMessages.id DESC',
+                'condition' => 'frashMessages.deleted = 0 AND frashMessages.viewed = 0'
             ],
         ];
     }

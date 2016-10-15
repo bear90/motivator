@@ -42,7 +42,14 @@ class UserIdentity extends CUserIdentity {
     {
         $user = User::model()->findByHash($this->password);
 
-        if ($user == null || $user->id == 0 || $user->roleId != $this->role) {
+        $deleted = false;
+        if ($this->role == defines\UserRole::USER && $user !== null)
+        {
+            $tourist = Tourist::model()->findByAttributes(['userId' => $user->id]);
+            $deleted = $tourist && $tourist->deleted == false ? false : true;
+        }
+
+        if ($user == null || $user->id == 0 || $user->roleId != $this->role || $deleted) {
             $this->errorCode = self::ERROR_USERNAME_INVALID;
         } else {
             $this->errorCode = self::ERROR_NONE;

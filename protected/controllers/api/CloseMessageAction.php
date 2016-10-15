@@ -30,7 +30,7 @@ class CloseMessageAction extends \CApiAction
             throw new \CHttpException(404, 'Not found');
         }
 
-        $message->viewed = 1;
+        $message->deleted = 1;
         $message->save();
 
         return [
