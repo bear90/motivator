@@ -105,4 +105,10 @@ class Helper {
 
         return $tourist;
     }
+
+    public function markMessagesAsViewed(Tourist $tourist)
+    {
+        $cmd = \Yii::app()->db->createCommand();
+        $cmd->update('message', ['viewed' => 1], 'touristId = :touristId', ['touristId' => $tourist->id]);
+    }
 }

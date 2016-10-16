@@ -167,7 +167,7 @@
             
 
             <div class="info-block">
-                <?php if(count($tours)==0): ?>
+                <?php if($showWelcomeForm): ?>
                     <div class="inner-block message text-center">
                         <h4>Уважаемый соискатель скидки!</h4>
                         <p>Приветствую вас в вашем личном кабинете!</p>
@@ -188,12 +188,38 @@
                         <?php echo $message->text; ?>
                     </div>
                 <?php endforeach; ?>
-
+                
+                <div class="main-content">
                 <?php if($tourist->statusId < TouristStatus::GETTING_DISCONT): ?>
-                    
+                    <?php foreach ($tours as $tour): ?>
+                        <?php $isUser 
+                            ? $this->renderPartial('partials/tour_item', [
+                                'tour' => $tour,
+                                'touragent' => $touragent,
+                                'canRemove' => true
+                            ])
+                            : $this->renderPartial('partials/tour_item_for_manager', [
+                                'tour' => $tour,
+                                'touragent' => $touragent,
+                                'manager' => $manager
+                            ]); ?>
+                    <?php endforeach; ?>
                 <?php else: ?>
-                    
+                    <div class="inner-block our-tour view" data-id="<?php echo $tourist->id; ?>">
+                        <?php if($tourist->statusId != TouristStatus::HAVE_DISCONT): ?>
+                            <?php $this->renderPartial('partials/your_tour', [
+                                'tourist' => $tourist,
+                                'manager' => $manager,
+                            ]); ?>
+                        <?php else: ?>
+                            <?php $this->renderPartial('partials/your_tour_paid', [
+                                'tourist' => $tourist,
+                                'manager' => $manager,
+                            ]); ?>
+                        <?php endif; ?>
+                    </div>
                 <?php endif; ?>
+                </div>
 
                 <?php foreach ($messages as $message): ?>
                     <div class="inner-block message">

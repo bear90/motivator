@@ -9,6 +9,10 @@
 #wrapper .tabs-block {
     display:none;
 }
+#wrapper.tab5 .main-content,
+#wrapper.tab1 .main-content{
+    display:none;
+}
 #wrapper h4{
     font-weight: bold;
     margin-left: 40px;
@@ -71,7 +75,7 @@
     margin: 0 auto;
 }
 
-#wrapper .info-block .inner-block {
+#wrapper .info-block > .inner-block {
     border: 2px solid #fb7b00;
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
@@ -160,6 +164,7 @@
     margin: 0 auto;
 }
 
+#wrapper .main-content .our-tour,
 #wrapper .tabs-block {
     position: relative;
     border: 2px solid #fb7b00;
@@ -602,10 +607,12 @@
     padding: 0;
 }
 
+#wrapper .main-content .our-tour,
 #wrapper .tabs-block.tab5 {
     width: 600px
 }
 
+#wrapper .main-content .our-tour h4,
 #wrapper .tabs-block.tab5 h4 {
     font-size: 22px;
     text-transform: uppercase;
@@ -616,6 +623,7 @@
     text-align: center;
 }
 
+#wrapper .main-content .our-tour p,
 #wrapper .tabs-block.tab5 p {
     color: #6c6c6c;
     margin: 0;
@@ -623,6 +631,9 @@
     word-wrap: break-word;
 }
 
+#wrapper .main-content .our-tour .changeAndPaidBlock div.title,
+#wrapper .main-content .our-tour .changeBlock div.title,
+#wrapper .main-content .our-tour .viewBlock div.title,
 #wrapper .tabs-block.tab5 .changeAndPaidBlock div.title,
 #wrapper .tabs-block.tab5 .changeBlock div.title,
 #wrapper .tabs-block.tab5 .viewBlock div.title {
@@ -630,23 +641,28 @@
     font-weight: 700;
 }
 
+#wrapper .main-content .our-tour span.value,
 #wrapper .tabs-block.tab5 span.value {
     display: inline-block;
 }
 
+#wrapper .main-content .our-tour span.value.date,
 #wrapper .tabs-block.tab5 span.value.date {
     float: right;
 }
 
+#wrapper .main-content .our-tour span.value.money,
 #wrapper .tabs-block.tab5 span.value.money {
     float: right;
 }
 
+#wrapper .main-content .our-tour .title > span,
 #wrapper .tabs-block.tab5 .title > span {
     font-weight: normal;
     font-size: 17px;
 }
 
+#wrapper .main-content .our-tour span.sell,
 #wrapper .tabs-block.tab5 span.sell {
     color: #F90000;
 }
@@ -1072,15 +1088,18 @@
         display: block;
     }
 
+    #wrapper .main-content .our-tour,
     #wrapper .tabs-block.tab5 {
         width: 100%;
         max-width: 242px;
     }
 
+    #wrapper .main-content .our-tour span,
     #wrapper .tabs-block.tab5 span {
         font-size: 15px;
     }
 
+    #wrapper .main-content .our-tour span.value.money,
     #wrapper .tabs-block.tab5 span.value.money {
         padding-right: 30px;
     }

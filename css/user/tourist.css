@@ -734,6 +734,11 @@ footer .logo > img {
     text-align: center;
 }
 
+
+#tourist-cabinet .main-content .our-tour p {
+    font-size: 17px;
+}
+
 #tourist-cabinet .tabs-block p {
     margin: 0 0 10px;
     font-size: 17px;

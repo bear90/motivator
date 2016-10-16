@@ -7,6 +7,9 @@ namespace application\controllers\user;
 
 use application\models\Tour;
 use application\models\Tourist;
+use application\models\Defines\Tourist\Helper;
+use application\models\defines\TouristStatus;
+
 
 class DashboardAction extends \CAction
 {
@@ -16,6 +19,8 @@ class DashboardAction extends \CAction
         $touragent = null;
         $tourist = null;
         $manager = null;
+
+        $touristHelper = new Helper();
 
         switch (true) {
             case \Yii::app()->user->isUser():
@@ -68,6 +73,10 @@ class DashboardAction extends \CAction
 
         $tours = Tour::model()->findAll($criteria);
 
+        $viewedMessages = $tourist->messages;
+        $frashMessages = $tourist->frashMessages;
+        $touristHelper->markMessagesAsViewed($tourist);
+
         $this->controller->render('index', [
             'firstLogin' => \Yii::app()->user->getFlash('firstLogin'),
             'touragent' => $touragent,
@@ -75,9 +84,10 @@ class DashboardAction extends \CAction
             'manager' => $manager,
             'tourFormSubmitted' => $tourFormSubmitted,
             'tours' => $tours,
-            'messages' => $tourist->messages,
-            'frashMessages' => $tourist->frashMessages,
-            'message' => \Yii::app()->user->getFlash('message')
+            'messages' => $viewedMessages,
+            'frashMessages' => $frashMessages,
+            'message' => \Yii::app()->user->getFlash('message'),
+            'showWelcomeForm' => !count($tours) && $tourist->statusId == TouristStatus::WANT_DISCONT
         ]);
     }
 }
