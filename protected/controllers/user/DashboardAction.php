@@ -7,7 +7,7 @@ namespace application\controllers\user;
 
 use application\models\Tour;
 use application\models\Tourist;
-use application\models\Defines\Tourist\Helper;
+use application\models\defines\tourist\Helper;
 use application\models\defines\TouristStatus;
 
 
