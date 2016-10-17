@@ -1,4 +1,4 @@
-<div class="tabs-block-inner">
+<div class="tabs-block-inner tour">
     <div class="head-inner-block view">
        
         <?php if($canRemove):?>

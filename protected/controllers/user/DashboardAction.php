@@ -75,7 +75,10 @@ class DashboardAction extends \CAction
 
         $viewedMessages = $tourist->messages;
         $frashMessages = $tourist->frashMessages;
-        $touristHelper->markMessagesAsViewed($tourist);
+
+        if (\Yii::app()->user->isUser()) {
+            $touristHelper->markMessagesAsViewed($tourist);
+        }
 
         $this->controller->render('index', [
             'firstLogin' => \Yii::app()->user->getFlash('firstLogin'),
