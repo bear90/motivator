@@ -1,7 +1,8 @@
 <?php
     use application\models\defines\TouristStatus;
 
-    $readOnly = !$manager || $manager->id != $tourist->tour->managerId;
+    $noForm = isset($noForm) ? $noForm : false;
+    $readOnly = !$manager || $manager->id != $tourist->tour->managerId || $noForm;
 ?>
 <h4>Ваш тур</h4>
 
@@ -33,36 +34,39 @@
     ]); ?>
 </div>
 
-<div class="viewBlock paid hidden">
-    <?php $this->renderPartial('partials/your_tour/confirm_paid', [
-        'tourist' => $tourist,
-        'tour' => $tourist->tour,
-        'isCurrentTouragent' => $manager && $tourist->tour->touragentId == $manager->touragentId,
-    ]); ?>
-</div>
-
-<?php if($readOnly === false): ?>
-    <div class="editBlock">
-        <?php $this->renderPartial('partials/your_tour/edit', [
+<?php if ($noForm === false): ?>
+    <div class="viewBlock paid hidden">
+        <?php $this->renderPartial('partials/your_tour/confirm_paid', [
+            'tourist' => $tourist,
             'tour' => $tourist->tour,
-            'touragent' => $manager->touragent,
+            'isCurrentTouragent' => $manager && $tourist->tour->touragentId == $manager->touragentId,
         ]); ?>
     </div>
+
+    <?php if($readOnly === false): ?>
+        <div class="editBlock">
+            <?php $this->renderPartial('partials/your_tour/edit', [
+                'tour' => $tourist->tour,
+                'touragent' => $manager->touragent,
+            ]); ?>
+        </div>
+    <?php endif; ?>
+
+    <?php if($readOnly === false): ?>
+        <div class="changeBlock">
+            <?php $this->renderPartial('partials/your_tour/change', [
+                'tour' => $tourist->tour,
+                'touragent' => $manager->touragent,
+            ]); ?>
+        </div>
+
+        <div class="changeAndPaidBlock">
+            <?php $this->renderPartial('partials/your_tour/change_and_paid', [
+                'tour' => $tourist->tour,
+                'touragent' => $manager->touragent,
+            ]); ?>
+        </div>
+    <?php endif; ?>
 <?php endif; ?>
 
-<?php if($readOnly === false): ?>
-    <div class="changeBlock">
-        <?php $this->renderPartial('partials/your_tour/change', [
-            'tour' => $tourist->tour,
-            'touragent' => $manager->touragent,
-        ]); ?>
-    </div>
-
-    <div class="changeAndPaidBlock">
-        <?php $this->renderPartial('partials/your_tour/change_and_paid', [
-            'tour' => $tourist->tour,
-            'touragent' => $manager->touragent,
-        ]); ?>
-    </div>
-<?php endif; ?>
 

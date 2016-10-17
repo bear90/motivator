@@ -192,16 +192,10 @@
                 <div class="main-content">
                 <?php if($tourist->statusId < TouristStatus::GETTING_DISCONT): ?>
                     <?php foreach ($tours as $tour): ?>
-                        <?php $isUser 
-                            ? $this->renderPartial('partials/tour_item', [
+                        <?php $this->renderPartial('partials/tour_item', [
                                 'tour' => $tour,
                                 'touragent' => $touragent,
-                                'canRemove' => true
-                            ])
-                            : $this->renderPartial('partials/tour_item_for_manager', [
-                                'tour' => $tour,
-                                'touragent' => $touragent,
-                                'manager' => $manager
+                                'canRemove' => $isUser ? true : false,
                             ]); ?>
                     <?php endforeach; ?>
                 <?php else: ?>
@@ -210,11 +204,12 @@
                             <?php $this->renderPartial('partials/your_tour', [
                                 'tourist' => $tourist,
                                 'manager' => $manager,
+                                'noForm' => true
                             ]); ?>
                         <?php else: ?>
                             <?php $this->renderPartial('partials/your_tour_paid', [
                                 'tourist' => $tourist,
-                                'manager' => $manager,
+                                'manager' => $manager
                             ]); ?>
                         <?php endif; ?>
                     </div>
