@@ -13,6 +13,7 @@ define([
             "click a.more": "onClickMore",
             "click button.preview": "previewChange",
             "click button.save": "submitForm",
+            "change select.currencyUnit": "changeCurrencyUnit"
         },
 
         initialize: function() {
@@ -272,6 +273,17 @@ define([
             {
                 e.preventDefault();
             }
+        },
+
+        changeCurrencyUnit: function(e){
+            var currency = this.$(e.target).val();
+            var label = {
+                byn: '(в белорусских рублях)',
+                usd: '(в долларах)',
+                eur: '(в евро)'
+            }
+
+            this.$('span.cur').text(label[currency]);
         }
     });
 });

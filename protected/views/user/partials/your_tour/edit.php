@@ -5,7 +5,7 @@
     <div>Предоплата при бронировании тура на момент его выбора/редактирования:</div>
 
     <div class="inner-block form-group">
-        <label>к внесению:</label>
+        <label>к внесению <span class="cur">(<?php echo Tool::getCurrencyList($tour->currencyUnit, 'comment')?>)</span>:</label>
         <?php echo CHtml::textField("Tour[bookingPrepayment]", 
             $tour->bookingPrepayment, 
             ['class' => 'bookingPrepayment']); ?>

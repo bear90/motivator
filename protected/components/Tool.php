@@ -409,10 +409,13 @@
             return $f5;
         }
 
-        public static function getCurrencyList($key = null)
+        public static function getCurrencyList($key = null, $type = 'general')
         {
-            $data = ['byn' => 'Белорусские рубли', 'usd' => 'Доллары', 'eur' => 'Евро'];
+            $data = [
+                'general' => ['byn' => 'Белорусские рубли', 'usd' => 'Доллары', 'eur' => 'Евро'],
+                'comment' => ['byn' => 'в белорусских рублях', 'usd' => 'в долларах', 'eur' => 'в евро']
+            ];
 
-            return $key ? $data[$key] : $data;
+            return $key ? $data[$type][$key] : $data[$type];
         }
     }
