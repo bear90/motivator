@@ -189,6 +189,7 @@
     text-align: left;
     margin-bottom: 12px;
     font-size: 17px;
+    word-wrap: break-word;
 }
 
 #wrapper .tabs-block.tab1 {
