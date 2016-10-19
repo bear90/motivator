@@ -10,7 +10,6 @@ define([
             "click form.addForm button[type=button]": "submitTour",
             "click #add-city": "addCity",
             "change #site": "showSite",
-            "click .glyphicon-trash": "removeTour",
             "click button.edit": "editOffer",
             "click button.confirm": "onClickConfirmOffer",
             "click button.paid": "onClickPaidOffer",
@@ -448,14 +447,6 @@ define([
 
             var win = window.open($el.val(), '_blank');
             win.focus();
-        },
-
-        removeTour: function(e)
-        {
-            if(confirm('Вы уверены что хотите удилить тур?'))
-            {
-                window.location = this.$(e.target).data('href');
-            }
         },
 
         submitTour: function(e){

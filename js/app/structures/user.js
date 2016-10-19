@@ -20,7 +20,8 @@ define([
         events: {
             "click button.reason-list": "clickReasonList",
             "click .custom-list a": "clickReasonItem",
-            "click .message a.remove": "clickCloseMessage"
+            "click .message a.remove": "clickCloseMessage",
+            "click .glyphicon-trash": "removeTour",
         },
 
         clickCloseMessage: function (e) {
@@ -161,7 +162,15 @@ define([
                     }
                 }
             });
-        }
+        },
+
+        removeTour: function(e)
+        {
+            if(confirm('Вы уверены что хотите удилить тур?'))
+            {
+                window.location = this.$(e.target).data('href');
+            }
+        },
     });
 
     return Index;
