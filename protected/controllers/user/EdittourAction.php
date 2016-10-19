@@ -59,7 +59,7 @@ class EdittourAction extends \CAction
                 : CounterReason::WAIT_PAYMENT;
             $tourist->save();
 
-            \Tool::informTourist($tourist, 'exchange_tour');
+            \Tool::informTourist($tourist, 'booking_2');
 
             DbTransaction::commit();
 

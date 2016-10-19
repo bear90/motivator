@@ -5,24 +5,6 @@
     $isUser = \Yii::app()->user->isUser();
 ?>
 
-<?php if (count($tours)):?>
-    <div class="inner-block">
-    <?php foreach ($tours as $tour): ?>
-        <?php $isUser 
-            ? $this->renderPartial('partials/tour_item', [
-                'tour' => $tour,
-                'touragent' => $touragent,
-                'canRemove' => true
-            ])
-            : $this->renderPartial('partials/tour_item_for_manager', [
-                'tour' => $tour,
-                'touragent' => $touragent,
-                'manager' => $manager
-            ]); ?>
-    <?php endforeach; ?>
-    </div>
-<?php endif;?>
-
 
 <?php if($isUser):?>
 
@@ -79,4 +61,22 @@
     </div>
 </div>
 
+<?php endif;?>
+
+<?php if (count($tours)):?>
+    <div class="inner-block">
+    <?php foreach ($tours as $tour): ?>
+        <?php $isUser 
+            ? $this->renderPartial('partials/tour_item', [
+                'tour' => $tour,
+                'touragent' => $touragent,
+                'canRemove' => true
+            ])
+            : $this->renderPartial('partials/tour_item_for_manager', [
+                'tour' => $tour,
+                'touragent' => $touragent,
+                'manager' => $manager
+            ]); ?>
+    <?php endforeach; ?>
+    </div>
 <?php endif;?>

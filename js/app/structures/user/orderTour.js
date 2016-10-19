@@ -28,6 +28,8 @@ define([
         },
 
         renderNewOffer: function(e) {
+            e.preventDefault();
+
             var $item = this.$(e.target).closest('.item');
             var number = this.$(e.target).closest('form.offerForm').find('> .item').size();
 
@@ -52,6 +54,8 @@ define([
         },
 
         deleteOffer: function(e) {
+            e.preventDefault();
+            
             var $item = this.$(e.target).closest('.item');
             var $form = $item.closest('form.offerForm');
 
