@@ -56,16 +56,16 @@ class CalculateChoiceTourAction extends \CApiAction
         return \CMap::mergeArray($this->default, [
             'startDate' => $start,
             'endDate' => $end,
-            'price' => \Tool::getNewPriceText($price),
-            'prepayment' => \Tool::getNewPriceText($prepayment),
-            'totalDiscount' => \Tool::getNewPriceText($minDiscount),
-            'surchange' => \Tool::getNewPriceText($price - $prepayment - $minDiscount),
-            'minDiscount' => \Tool::getNewPriceText($minDiscount),
-            'currentAbonentDiscount' => \Tool::getNewPriceText(0),
-            'totalAbonentDiscount' => \Tool::getNewPriceText($minDiscount),
-            'partnerDiscount' => \Tool::getNewPriceText(0),
-            'maxAbonentDiscount' => \Tool::getNewPriceText($maxDiscount),
-            'surchangeOnMaxAbonentDiscount' => \Tool::getNewPriceText($price - $prepayment - $maxDiscount),
+            'price' => number_format($price, 2, '.', ' '),
+            'prepayment' => number_format($prepayment, 2, '.', ' '),
+            'totalDiscount' => number_format($minDiscount, 2, '.', ' '),
+            'surchange' => number_format($price - $prepayment - $minDiscount, 2, '.', ' '),
+            'minDiscount' => number_format($minDiscount, 2, '.', ' '),
+            'currentAbonentDiscount' => number_format(0, 2, '.', ' '),
+            'totalAbonentDiscount' => number_format($minDiscount, 2, '.', ' '),
+            'partnerDiscount' => number_format(0, 2, '.', ' '),
+            'maxAbonentDiscount' => number_format($maxDiscount, 2, '.', ' '),
+            'surchangeOnMaxAbonentDiscount' => number_format($price - $prepayment - $maxDiscount, 2, '.', ' '),
         ]);
 
     }
