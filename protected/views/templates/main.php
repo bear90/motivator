@@ -15,7 +15,7 @@
 <p><img src="<?php echo $domain; ?>/img/logo-email.png"></p>
 
 
-<p><b>ЛИЧНЫЙ  КАБИНЕТ № <?php echo str_pad($tourist->id, 4, "0", STR_PAD_LEFT)?></b></p>
+<p><b>ЛИЧНЫЙ  КАБИНЕТ № <?php echo $tourist->id?></b></p>
 
 <?php if(!in_array($view, array('after_tour_2', 'cabinet_deleted'))): ?>
     

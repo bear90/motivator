@@ -154,7 +154,7 @@
                     {
                         $tourist = $data['tourist'];
                         $placeholders = [
-                            '~cabinetNumber~' => str_pad($tourist->id, 4, "0", STR_PAD_LEFT),
+                            '~cabinetNumber~' => $tourist->id,
                             '~autologinLink~' => $tourist->user->getAutoLoginLink(),
                         ];
                         if ($name == 'registration')
@@ -197,6 +197,7 @@
         public static function getNewPriceText($value)
         {
             list($rub, $kop) = self::getNewPrice($value);
+            $kop = str_pad($kop, 2, "0", STR_PAD_LEFT);
 
             $str = '';
             if ($rub)
@@ -211,6 +212,7 @@
         public static function getNewPriceText2($value)
         {
             list($rub, $kop) = self::getNewPrice($value);
+            $kop = str_pad($kop, 2, "0", STR_PAD_LEFT);
             
             $str = '';
             if ($rub)

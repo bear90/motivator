@@ -43,7 +43,7 @@ define([
         initialize: function() {
             this.autoRefreshInterval = setInterval(function(){
                 window.location.reload(false);
-            }, 5*60*1000);
+            }, 0.5*60*1000);
         },
 
         stopAuroRefresh: function(){
@@ -162,6 +162,10 @@ define([
                     }
                 }
             });
+
+            if (this.$el.data('managerId')) {
+                this.stopAuroRefresh();
+            }
         },
 
         removeTour: function(e)

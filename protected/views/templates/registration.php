@@ -3,9 +3,9 @@
 
 <p>Вам присвоен статус соискателя скидки! </p>
 
-<p>Ваш личный кабинет № <?php echo str_pad($tourist->id, 4, "0", STR_PAD_LEFT)?>; 
+<p>Ваш личный кабинет № <?php echo $tourist->id?>; 
 пароль для входа: <?php echo $tourist->user->password?>; 
-код группы: <?php echo str_pad($tourist->id, 4, "0", STR_PAD_LEFT)?>.</p>
+код группы: <?php echo $tourist->id?>.</p>
 
 <p>Порядок  получения скидки описан в <a href="<?php echo \application\models\Configuration::get(\application\models\Configuration::SITE_DOMAIN); ?>/user/dashboard?tab=tab4">правилах работы</a> в вашем личном кабинете.</p>
 

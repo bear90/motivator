@@ -35,7 +35,7 @@
                 <span><?php echo $tourist->getFormatedPhone(); ?></span><br>
             <?php endif; ?>
             <span class="mail"><?php echo $tourist->email; ?></span>
-            <span class="lk-label">личный кабинет  № <?php echo "0{$tourist->id}"; ?></span>
+            <span class="lk-label">личный кабинет  № <?php echo "{$tourist->id}"; ?></span>
 
             <h1><b>Статус:</b> <span><?php echo $tourist->status->description; ?></span></h1>
 
