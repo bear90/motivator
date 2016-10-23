@@ -43,7 +43,7 @@ define([
         initialize: function() {
             this.autoRefreshInterval = setInterval(function(){
                 window.location.reload(false);
-            }, 0.5*60*1000);
+            }, 5*60*1000);
         },
 
         stopAuroRefresh: function(){
