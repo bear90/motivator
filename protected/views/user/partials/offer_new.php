@@ -12,7 +12,7 @@
                 ['class' => 'operator']); ?>
         </div>
 
-        <h4>ОПИСАНИЕ ТУРА:</h4> 
+        <h4>ОПИСАНИЕ ТУРА, УСЛОВИЯ ОБСЛУЖИВАНИЯ:</h4> 
         
         <div class="inner-block form-group">
             <label>Начало тура:</label>
@@ -25,7 +25,7 @@
         </div>
 
         <div class="inner-block form-group">
-            <label>Описание тура:</label>
+            <label>Описание тура, условия обслуживания:</label>
             <?php echo CHtml::textArea("TourOffer[1][description]", '', [
                 'class' => 'description',
                 'id' => "description_{$tourId}_1"

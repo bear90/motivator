@@ -17,6 +17,7 @@ define([
             "click button.confirm": "onClickConfirm",
             "click button.paid": "paidOffer",
             "click .viewBlock a.more": "onClickMore",
+            "click a.show-invited": "onClickShowInvited",
         },
 
         initialize: function() {
@@ -108,6 +109,11 @@ define([
             var $row = $(e.target).closest('.viewBlock');
 
             this.$el.find('.hidden-row').toggle();
+        },
+
+        onClickShowInvited: function(e) {
+            e.preventDefault();
+            $(e.target).closest('.row').siblings('.invited').toggleClass('hidden');
         },
 
         render:  function (){

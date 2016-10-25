@@ -938,3 +938,18 @@ select:disabled{color: graytext;}
 #wrapper .tabs-link a.green.active {
     background-color: #18AB00;
 }
+
+
+a.show-invited,
+a.show-invited:hover,
+a.show-invited:visited,
+a.show-invited:active{
+    color: #333;
+}
+
+a.show-invited {
+    text-decoration: none;
+    border-bottom: 2px dashed;
+}
+
+.invited {padding-left: 20px;}

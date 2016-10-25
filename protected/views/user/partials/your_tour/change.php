@@ -46,7 +46,7 @@
                 ['class' => 'bookingPrepaymentPaid']); ?>
         </div>
 
-        <h4>ОПИСАНИЕ ТУРА:</h4> 
+        <h4>ОПИСАНИЕ ТУРА, УСЛОВИЯ ОБСЛУЖИВАНИЯ:</h4> 
         
         <div class="inner-block form-group">
             <label>Дата начала тура:</label>

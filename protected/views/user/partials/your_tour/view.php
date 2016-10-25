@@ -16,7 +16,7 @@
     </span>
 </div>
 
-<div class="title">Описание тура:
+<div class="title">Описание тура, условия обслуживания:
     <p>
         <?php echo $tour->description; ?>
     </p>
@@ -77,8 +77,16 @@
 </div>
 
 <div class="title row hidden-row bg-grey">
-    <label class="col-md-8">Скидка за привлечение:</label>
+    <label class="col-md-8"><a href="#" class="show-invited">Скидка за привлечение:</a></label>
     <div class="col-md-4 ta-r"><?php echo Tool::getNewPriceText($tourist->getPartnerDiscont()); ?></div>
+</div>
+<div class="row hidden-row bg-grey invited hidden">
+    <?php foreach ($tourist->invited as $item): ?>
+    <div class="title">
+        <label class="col-md-8"><?php echo $item->sourceTouristName ?>:</label>
+        <div class="col-md-4 ta-r"><?php echo Tool::getNewPriceText($item->amount); ?></div>
+    </div>
+    <?php endforeach; ?>
 </div>
 
 <div class="title">Доплата при покупке тура <span>с учётом его стоимости на момент выбора:</span> 

@@ -122,6 +122,9 @@
                 <div><b>МВАС:</b> <?php echo $entity->tour->maxDiscont; ?></div>
                 <div><b>ТАС:</b> <?php echo $entity->getAbonentDiscont(); ?></div>
                 <div><b>СзП:</b> <?php echo $entity->partnerDiscont; ?></div>
+                <?php foreach ($entity->invited as $item):?>
+                    <div><?php echo $item->sourceTouristName ?>: <?php echo $item->amount; ?></div>
+                <?php endforeach;?>
                 <div><b>Период тура:</b> 
                     <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $entity->tour->startDate); ?> -
                     <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $entity->tour->endDate); ?>

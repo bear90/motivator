@@ -16,6 +16,13 @@ class DiscountTransaction extends DBEntity
         return 'discount_transaction';
     }
 
+    public function relations()
+    {
+        return [
+            'sourceTourist'=>[self::BELONGS_TO, 'application\\models\\Tourist', 'sourceTouristId']
+        ];
+    }
+
     private function add(Tourist $sourceTourist, $sourceTouragentId, $summ, $targetTouragentId,
                         Tourist $targetTourist = null, $comment = '')
     {

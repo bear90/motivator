@@ -30,6 +30,9 @@ class Tourist extends DBEntity {
                 'order' => 'frashMessages.id DESC',
                 'condition' => 'frashMessages.deleted = 0 AND frashMessages.viewed = 0'
             ],
+            'invited' => [self::HAS_MANY, 'application\\models\\DiscountTransaction', 'targetTouristId',
+                'condition' => 'invited.comment = "Parent discount"'
+            ]
         ];
     }
 
