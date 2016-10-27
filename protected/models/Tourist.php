@@ -36,6 +36,23 @@ class Tourist extends DBEntity {
         ];
     }
 
+    public function getInvited()
+    {
+        $tourists = [];
+        foreach ($this->invited as $item) {
+            if (isset($tourists[$item->sourceTouristId])) {
+                $tourists[$item->sourceTouristId]['amount'] += $item->amount;
+            } else {
+                $tourists[$item->sourceTouristId] = [
+                    'name' => $item->sourceTouristName,
+                    'amount' => $item->amount
+                ];
+            }
+        }
+
+        return $tourists;
+    }
+
     public static function model($className=__CLASS__)
     {
         return parent::model($className);
