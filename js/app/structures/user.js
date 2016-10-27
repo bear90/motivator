@@ -22,6 +22,21 @@ define([
             "click .custom-list a": "clickReasonItem",
             "click .message a.remove": "clickCloseMessage",
             "click .glyphicon-trash": "removeTour",
+            'click .main-content a.more' : 'onClickMore',
+            "click .main-content a.show-invited": "onClickShowInvited"
+        },
+
+        onClickMore: function(e){
+            e.preventDefault();
+            
+            var $row = $(e.target).closest('.viewBlock');
+
+            this.$el.find('.hidden-row').toggle();
+        },
+
+        onClickShowInvited: function(e) {
+            e.preventDefault();
+            $(e.target).closest('.row').siblings('.invited').toggleClass('hidden');
         },
 
         clickCloseMessage: function (e) {
