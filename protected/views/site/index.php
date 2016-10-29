@@ -205,6 +205,23 @@ use application\modules\admin\models\Text;
 
             <!-- <div class="hideButton">Скрыть</div>-->
         </div><!--/3rd panel-->
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title text-center text-uppercase">
+                    <a data-toggle="collapse" href="#collapseSeven">
+                        <div class="panel-text marginTop marginTopSeven">Не  является  ли  данная  программа  привлечения  финансовой  пирамидой?</div>
+                        <div class="panel-direction pull-right"></div>
+                    </a>
+                </h4>
+            </div>
+            <div id="collapseSeven" class="panel-collapse collapse" style="margin-top: 5px;">
+                <div class="panel-body container-fluid">
+                    <?php echo Text::get('question7'); ?>
+                </div>
+            </div><!--/3rd panel-body-->
+
+            <!-- <div class="hideButton">Скрыть</div>-->
+        </div><!--/3rd panel-->
 
     </div><!--/accordion -->
     
