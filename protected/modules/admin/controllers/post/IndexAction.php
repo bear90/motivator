@@ -28,7 +28,7 @@ class IndexAction extends \CAction
         $criteria = new \CDbCriteria;
         $criteria->with = ['tour', 'tour.touragent', 'tour.operator', 'status'];
         //$criteria->condition = 't.statusId = :havingDiscount';
-        $criteria->params = ['havingDiscount' => defines\TouristStatus::HAVE_DISCONT];
+        //$criteria->params = ['havingDiscount' => defines\TouristStatus::HAVE_DISCONT];
 
         $this->applyFilter($criteria, $filter);
 

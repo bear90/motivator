@@ -17,6 +17,7 @@ class ClearAction extends \CAction
         if ($id == null) 
         {
             $num = $this->clearTouristsWithoutTouragents();
+            \Yii::app()->db->createCommand()->truncateTable('tourists');
 
             \Yii::app()->user->setState('message', "Туристы удалены: {$num}");
         } 
