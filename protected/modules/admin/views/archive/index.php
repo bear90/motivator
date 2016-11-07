@@ -38,7 +38,7 @@
                         <label>
                             <?php echo CHtml::checkBox(
                                 'filter[touroperator][]', 
-                                in_array($id, $filter['touroperator']), 
+                                in_array($id, (array) $filter['touroperator']), 
                                 ['value' => $id])?>
                             <?php echo $name; ?>
                         </label>
