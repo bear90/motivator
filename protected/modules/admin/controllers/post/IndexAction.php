@@ -26,9 +26,9 @@ class IndexAction extends \CAction
         $filter = \Yii::app()->request->getParam('filter', $this->filterDefault);
 
         $criteria = new \CDbCriteria;
-        $criteria->with = ['tour', 'tour.touragent', 'tour.operator'];
-        $criteria->condition = 't.statusId = :havingDiscount';
-        $criteria->params = ['havingDiscount' => defines\TouristStatus::HAVE_DISCONT];
+        $criteria->with = ['tour', 'tour.touragent', 'tour.operator', 'status'];
+        //$criteria->condition = 't.statusId = :havingDiscount';
+        //$criteria->params = ['havingDiscount' => defines\TouristStatus::HAVE_DISCONT];
 
         $this->applyFilter($criteria, $filter);
 

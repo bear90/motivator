@@ -104,11 +104,11 @@ define([
             this.$('.step3 form').bootstrapValidator({
                 fields: {
                     groupCode: {
-                        threshold: 4,
+                        //threshold: 1,
                         validators: {
                             regexp: {
-                                regexp: /^[0-9]{4,}$/,
-                                message: "Только цифровые символы и не менее 4 символов"
+                                regexp: /^[0-9]*$/,
+                                message: "Только цифровые символы"
                             },
                             remote: {
                                 url: '/site/checkgroupcode/',

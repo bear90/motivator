@@ -332,7 +332,7 @@
                 <w:t> </w:t>
             </w:r>
         </w:p>
-        <w:p w:rsidR="00115DF4" w:rsidRDefault="00115DF4" w:rsidP="000D5146">
+        <w:p w:rsidR="00115DF4" w:rsidRPr="00C86F7F" w:rsidRDefault="00115DF4" w:rsidP="000D5146">
             <w:pPr>
                 <w:pStyle w:val="a3"/>
                 <w:ind w:firstLine="708"/>
@@ -401,25 +401,29 @@
                 </w:rPr>
                 <w:t> </w:t>
             </w:r>
-            <w:r w:rsidRPr="00E8420F">
+            <w:r w:rsidR="00C86F7F" w:rsidRPr="00C86F7F">
                 <w:rPr>
                     <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
                 </w:rPr>
-                <w:t>путем формирования </w:t>
-            </w:r>
-            <w:r w:rsidRPr="00E8420F">
-                <w:rPr>
-                    <w:rStyle w:val="apple-converted-space"/>
-                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana" w:cs="Arial"/>
-                    <w:color w:val="000000"/>
-                </w:rPr>
-                <w:t> </w:t>
+                <w:t>путем управления программой привлечения клиентов</w:t>
             </w:r>
             <w:r w:rsidRPr="00E8420F">
                 <w:rPr>
                     <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
                 </w:rPr>
-                <w:t>покупательских групп из числа туристов, желающих приобрести туристические путёвки, с помощью онлайн-сервиса «Мотиватор», а Заказчик принял оказанные услуги.</w:t>
+                <w:t>, а З</w:t>
+            </w:r>
+            <w:r w:rsidR="00C86F7F">
+                <w:rPr>
+                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
+                </w:rPr>
+                <w:t>аказчик принял оказанные услуги</w:t>
+            </w:r>
+            <w:r w:rsidR="00C86F7F" w:rsidRPr="00C86F7F">
+                <w:rPr>
+                    <w:rFonts w:ascii="Verdana" w:hAnsi="Verdana"/>
+                </w:rPr>
+                <w:t>:</w:t>
             </w:r>
         </w:p>
         <w:p w:rsidR="00D63B23" w:rsidRDefault="00D63B23" w:rsidP="00115DF4">

@@ -45,6 +45,7 @@
         <th>ФИО</th>
         <th>Телефон</th>
         <th>Email</th>
+        <th>Статус</th>
     </tr>
     <?php foreach ($entities as $i => $entity):?>
         <tr>
@@ -52,6 +53,7 @@
             <td><?php echo $entity->fullName; ?></td>
             <td><?php echo $entity->phone; ?></td>
             <td><?php echo $entity->email; ?></td>
+            <td><?php echo $entity->status->description; ?></td>
         </tr>
     <?php endforeach;?>
 </table>

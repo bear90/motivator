@@ -63,10 +63,10 @@
         <div class="col-md-4 ta-r"><?php echo Tool::getNewPriceText($tourist->getPartnerDiscont()); ?></div>
     </div>
     <div class="row hidden-row bg-grey invited hidden">
-        <?php foreach ($tourist->invited as $item): ?>
+        <?php foreach ($tourist->getInvited() as $item): ?>
         <div class="title">
-            <label class="col-md-8"><?php echo $item->sourceTouristName ?>:</label>
-            <div class="col-md-4 ta-r"><?php echo Tool::getNewPriceText($item->amount); ?></div>
+            <label class="col-md-8"><?php echo $item['name'] ?>:</label>
+            <div class="col-md-4 ta-r"><?php echo Tool::getNewPriceText($item['amount']); ?></div>
         </div>
         <?php endforeach; ?>
     </div>

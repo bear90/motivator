@@ -32,7 +32,7 @@
             ['class' => 'paymentEndDate']); ?>
     </div>
 
-    <h4>ОПИСАНИЕ ТУРА, УСЛОВИЯ ОБСЛУЖИВАНИЯ:</h4> 
+    <h4>ОПИСАНИЕ ТУРА:</h4> 
 
     <div class="inner-block form-group">
         <?php echo CHtml::textArea("Tour[description]", $tour->description, ['class' => 'description']); ?>
