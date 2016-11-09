@@ -24,6 +24,7 @@ return array(
         'turoperatoram' => '\application\controllers\TuroperatoramController',
         'kontakty' => '\application\controllers\KontaktyController',
         'user' => '\application\controllers\UserController',
+        'screen' => '\application\controllers\ScreenController',
     ),
     'modules' => array(
         'admin' => array()
