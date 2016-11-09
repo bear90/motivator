@@ -134,6 +134,11 @@ class AdminController extends \CController
                 'key' => 'congifuration',
                 'label' => 'Настройки',
                 'url' => '/admin/configuration',
+            ],
+            [
+                'key' => 'banner',
+                'label' => 'Рекламный блок',
+                'url' => '/admin/banner',
             ]
         ]);
 
