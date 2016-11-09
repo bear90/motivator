@@ -7,3 +7,4 @@ protected/config/console.dev.php
 protected/config/server.production.php
 protected/config/console.production.php
 upload/
+.idea/
