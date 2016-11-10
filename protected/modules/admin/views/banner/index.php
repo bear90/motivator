@@ -1,3 +1,8 @@
+<?php
+/**
+ * @var CForm $form
+ */
+?>
 <h3>Рекламный блок</h3>
 
 <?php if($message): ?>
@@ -5,15 +10,19 @@
 <?php endif; ?>
 
 
-<?php echo CHtml::form(); ?>
+
 <table class="table table-bordered">
     <tr>
-        <th>Название</th>
-        <th>Значение</th>
+        <th>Название блока</th>
+        <th>Действия</th>
     </tr>
 </table>
 
+<?php echo $form->renderBegin(); ?>
+    <div class="form-group">
+        <?php echo $form['name']; ?>
+    </div>
 <div class="form-group">
-    <button type="submit" class="btn btn-default">Сохранить</button>
+    <button type="submit" class="btn btn-default">Добавить</button>
 </div>
-<?php echo CHtml::endForm(); ?>
+<?php echo $form->renderEnd(); ?>
