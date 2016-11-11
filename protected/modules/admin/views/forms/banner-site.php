@@ -4,7 +4,7 @@
  */
 
 return [
-    'action' => Yii::app()->createUrl('/admin/banner/add'),
+    'action' => Yii::app()->createUrl('/admin/banner/'),
     'elements' => [
         'name' => [
             'label' => 'Название:',

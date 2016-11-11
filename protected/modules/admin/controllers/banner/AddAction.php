@@ -3,7 +3,7 @@
  * Some description
  *
  * @author      Mikhail Soza <msoza@soxes.ch>
- * @since       17.06.2016
+ * @since       11.11.2016
  * @package
  * @copyright   Copyright (c) 2015-2016 soXes GmBh.
  *
@@ -11,13 +11,13 @@
 
 namespace application\modules\admin\controllers\banner;
 
-
 use application\models\BannerSite;
 use application\modules\admin\models\forms;
 
-class IndexAction extends \CAction
+
+class AddAction extends \CAction
 {
-    public function run($id = null)
+    public function run()
     {
         $formEntity = new forms\BannerSite();
 
@@ -36,11 +36,10 @@ class IndexAction extends \CAction
                 return;
             }
         }
-        
-        $this->controller->render('index', [
-            'entities' => BannerSite::model()->findAll(),
-            'message' => \Yii::app()->user->getFlash('message', ''),
-            'form' => new \CForm('application.modules.admin.views.forms.banner-site', $formEntity)
+
+        $this->controller->render('add-manager', [
+            'touragent' => $touragent,
+            'form' => new \CForm('application.modules.admin.views.forms.touragent-manager', $formEntity)
         ]);
     }
 }

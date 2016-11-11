@@ -21,6 +21,11 @@ class BannerSite extends \CFormModel
     public function rules(){
         return [
             ['name, width, height', 'required'],
+            ['name', 'unique',
+                'attributeName' => 'name',
+                'className' => 'application\models\BannerSite',
+                'message' => '{attribute} "{value}" уже занято.'
+            ],
             ['width', 'numerical',
                 'min' => 10,
                 'max' => 1024,
@@ -37,6 +42,8 @@ class BannerSite extends \CFormModel
     public function attributeLabels(){
         return [
             'name' => 'Название',
+            'width' => 'Ширина блока',
+            'height' => 'Высота блока',
         ];
     }
 }

@@ -14,6 +14,13 @@ namespace application\models;
 
 use application\components\DBEntity;
 
+/**
+ * Class BannerSite
+ * @package application\models
+ * @property string $name
+ * @property integer $width
+ * @property integer $height
+ */
 class BannerSite extends DBEntity
 {
     public function rules(){
