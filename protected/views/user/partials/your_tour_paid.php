@@ -29,7 +29,7 @@
             <?php echo $tourist->tour->description; ?>
         </p>
     </div>
-    <div class="clrfix title">Стоимость тура: 
+    <div class="clrfix title">Стоимость тура на момент его продажи: 
         <span class="value money">
             <?php echo Tool::getNewPriceText($tourist->tour->price); ?>
         </span>
