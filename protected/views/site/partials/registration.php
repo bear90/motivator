@@ -68,7 +68,7 @@
         <div class="step4 hidden">
             <div class="UserGaide">
                 <form action="">
-                    <input type="checkbox" name="userGaide" value="1"><label style="font-size: 1.3em; padding-left: 10px;">Я подтверждаю свое согласие с условиями <a id="gaide-link" href="#" style="text-decoration: underline;">пользовательского соглашения</a></label>
+                    <input type="checkbox" name="userGaide" value="1"><label style="font-size: 1.3em; padding-left: 10px;">С правилами работы сервиса «МОТИВАТОР» и <a id="gaide-link" href="#" style="text-decoration: underline;">пользовательским соглашением</a> ознакомлен</label>
                 </form>
             </div>
             

@@ -144,7 +144,8 @@ class CalculateChangeTourAction extends \CApiAction
             'surchangeOnMaxDiscount' => \Tool::getNewPriceText($surchangeOnMaxDiscount),
             'bookingPrepayment' => \Tool::getNewPriceText($bookingPrepayment),
             'bookingPrepaymentPaid' => \Tool::getNewPriceText($bookingPrepaymentPaid),
-            'currencyUnit' => \Tool::getCurrencyList($currencyUnit)
+            'currencyUnit' => \Tool::getCurrencyList($currencyUnit),
+            'priceWithDiscount' => \Tool::getNewPriceText($price - $totalDiscount)
         ]);
         
         return $result;
