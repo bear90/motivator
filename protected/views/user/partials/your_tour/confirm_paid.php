@@ -21,7 +21,7 @@
             <?php echo $tour->description; ?>
         </p>
     </div>
-    <div class="title clrfix">Стоимость тура: 
+    <div class="title clrfix paidConfirm">Стоимость тура на момент его выбора: 
         <span class="value money">
             <?php echo Tool::getNewPriceText($tour->getCurrentPrice()); ?>
         </span>
@@ -78,6 +78,12 @@
     <div class="title">Доплата при покупке тура: 
         <span class="value money">
             <?php echo Tool::getNewPriceText($tour->getCurrentSurchange()); ?>
+        </span>
+    </div>
+    
+    <div class="title red">Стоимость тура с учётом общей скидки: 
+        <span class="value money">
+            <?php echo Tool::getNewPriceText($tour->getCurrentPrice() - $tourist->getTotalDiscont()); ?>
         </span>
     </div>
     
