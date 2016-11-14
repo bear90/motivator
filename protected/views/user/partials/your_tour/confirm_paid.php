@@ -21,7 +21,7 @@
             <?php echo $tour->description; ?>
         </p>
     </div>
-    <div class="title clrfix paidConfirm">Стоимость тура на момент его выбора: 
+    <div class="title clrfix paidConfirm">Стоимость тура на момент его продажи: 
         <span class="value money">
             <?php echo Tool::getNewPriceText($tour->getCurrentPrice()); ?>
         </span>
