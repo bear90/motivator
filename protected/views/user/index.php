@@ -225,7 +225,7 @@
                 <?php endforeach; ?>
             </div>
                         
-            <a href="#" class="bottom-link hidden-xs"></a>
+            <a href="#" class="bottom-link hidden-xs hidden"></a>
 
             <div class="bottom-block tourists">
                 <div class="sell-block">

@@ -146,7 +146,7 @@
 
             <div class="info-block orders">
 
-                <a href="#" class="bottom-link hidden-sm hidden-md hidden-lg"></a>
+                <a href="#" class="bottom-link hidden-sm hidden-md hidden-lg hidden"></a>
 
                 <?php if(count($newTours)): ?>
                     <?php foreach($newTours as $tour): ?>
@@ -172,7 +172,7 @@
                 <source src="/audio/new-message.mp3" type="audio/mpeg">
             </audio>
 
-            <a href="#" class="bottom-link hidden-xs"></a>
+            <a href="#" class="bottom-link hidden-xs hidden"></a>
         </div>​
     </div>
 </section>
