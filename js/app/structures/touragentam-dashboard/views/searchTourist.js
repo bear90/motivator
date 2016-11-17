@@ -25,8 +25,6 @@ define([
         },
 
         render: function() {
-            
-            console.log(this.collection);
 
             this.$el.html(this.template({
                 'tourists': this.collection

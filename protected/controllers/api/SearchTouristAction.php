@@ -98,6 +98,7 @@ class SearchTouristAction extends \CApiAction
 
             $buf = $item->attributes;
             $buf['status']['name'] = $item->status->name;
+            $buf['counterReason'] = str_replace(':', '', \Yii::t('front', 'l-conter-date-' . $item->counterReason));
 
             switch ($item->statusId) {
                 case TouristStatus::WANT_DISCONT:

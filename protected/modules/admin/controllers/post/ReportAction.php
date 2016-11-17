@@ -63,6 +63,7 @@ class ReportAction extends \CAction
             ['ФИО'],
             ['Телефон'],
             ['Email'],
+            ['Статус'],
         ];
         foreach ($columns as $data) {
             $phpExcel->getActiveSheet()->setCellValue($column . $rowCount, $data[0]);
@@ -90,7 +91,8 @@ class ReportAction extends \CAction
                 $i + 1,
                 $entity->fullName,
                 $entity->phone,
-                $entity->email
+                $entity->email,
+                $entity->status->description
             ];
             foreach ($row as $data) {
                 $value = $this->prepareValue($data);
@@ -107,7 +109,7 @@ class ReportAction extends \CAction
         }
 
         $rowCount--;
-        $phpExcel->getActiveSheet()->getStyle("A1:D{$rowCount}")->applyFromArray([
+        $phpExcel->getActiveSheet()->getStyle("A1:E{$rowCount}")->applyFromArray([
             'borders' => [
                 'allborders' => [
                     'style' => \PHPExcel_Style_Border::BORDER_MEDIUM, 
