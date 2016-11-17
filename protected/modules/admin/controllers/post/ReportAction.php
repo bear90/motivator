@@ -32,8 +32,8 @@ class ReportAction extends \CAction
 
         $criteria = new \CDbCriteria;
         $criteria->with = ['tour', 'tour.touragent', 'tour.operator'];
-        $criteria->condition = 't.statusId = :havingDiscount';
-        $criteria->params = ['havingDiscount' => defines\TouristStatus::HAVE_DISCONT];
+        //$criteria->condition = 't.statusId = :havingDiscount';
+        //$criteria->params = ['havingDiscount' => defines\TouristStatus::HAVE_DISCONT];
 
         $this->applyFilter($criteria, $filter);
 
