@@ -24,6 +24,10 @@
 </head>
 <body>
 
+<?php if (!empty(\Yii::app()->params['testSite'])): ?>
+<h1>Тестовый сайт</h1>
+<?php endif; ?>
+
 <div class="content" canvas="container" class="close-any" style="background-color: #E6EBF1;">
     <header class="container-fluid">
         <div class="btn btn-default toggle-left">

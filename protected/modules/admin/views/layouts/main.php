@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="/css/jquery-ui.min.css">
 </head>
 <body>
+
+<?php if (!empty(\Yii::app()->params['testSite'])): ?>
+<h1>Тестовый сайт</h1>
+<?php endif; ?>
+
     <div class="container-fluid">
         <aside>
             <?php $this->widget('zii.widgets.CMenu',array(

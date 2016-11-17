@@ -21,11 +21,6 @@ body {
   clear: both;
 }
 
-[canvas=container] {
-    overflow: hidden;
-    overflow-y: scroll;
-}
-
 /*---logo---*/
 @media (min-width: 992px) {
     .logo {

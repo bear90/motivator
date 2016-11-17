@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 </head>
 <body>
+
+<?php if (!empty(\Yii::app()->params['testSite'])): ?>
+<h1>Тестовый сайт</h1>
+<?php endif; ?>
+
 <div class="container-fluid">
     <?php echo $content; ?>
 </div>

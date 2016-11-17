@@ -22,6 +22,11 @@
     <![endif]-->
 </head>
 <body class="touragentam-dashboard">
+    
+<?php if (!empty(\Yii::app()->params['testSite'])): ?>
+<h1>Тестовый сайт</h1>
+<?php endif; ?>
+    
     <div class="content" canvas="container" class="close-any">
         <header class="container-fluid">
             <div class="btn btn-default toggle-left">
