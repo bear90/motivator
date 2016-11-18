@@ -87,6 +87,12 @@
         </div>
 
         <?php if($readOnly === false): ?>
+
+        <div class="inner-block form-group confirmation hidden red">
+            <label>Стоимость тура на момент его выбора с учётом стартовой абонентской скидки:</label>
+            <?php echo Tool::getNewPriceText($offer->getCurrentPrice() - $offer->minDiscont); ?>
+        </div>
+
         <div class="viewBlock confirmation hidden">
             <button type="button" class="btn btn-default btn-green2 paid">ПРЕДОПЛАТА ПОЛУЧЕНА / ТУР ВЫБРАН</button>
         </div>

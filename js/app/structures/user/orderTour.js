@@ -84,7 +84,7 @@ define([
             var $row = $(e.target).closest('.item.view');
             var $confirmation = $row.find('.viewBlock.confirmation');
 
-            $confirmation.toggleClass('hidden');
+            $row.find('.confirmation').toggleClass('hidden');
 
             if (!$confirmation.is('.hidden'))
             {
