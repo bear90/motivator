@@ -108,9 +108,3 @@
         <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $tour->paymentEndDate); ?>
     </span>
 </div>
-
-<div class="title red">Стоимость тура на момент его выбора с учётом стартовой абонентской скидки: 
-    <span class="value money">
-        <?php echo Tool::getNewPriceText($tour->getCurrentPrice() - $tour->minDiscont); ?>
-    </span>
-</div>
