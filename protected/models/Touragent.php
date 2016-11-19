@@ -81,7 +81,7 @@ class Touragent extends DBEntity {
 
         if (!isset($list))
         {
-            $list = self::model()->findAll();
+            $list = self::model()->findAll(['condition' => 'status = 1']);
             $list = \CHtml::listData($list, 'id', 'name');
             $list = \CMap::mergeArray(['' => 'Выберите турагента'], $list);
         }
@@ -95,7 +95,7 @@ class Touragent extends DBEntity {
 
         if (!isset($list))
         {
-            $list = self::model()->findAll();
+            $list = self::model()->findAll(['condition' => 'status = 1']);
             $list = \CHtml::listData($list, 'site', 'name');
             $list = \CMap::mergeArray(['' => 'Выберите турагента'], $list);
         }

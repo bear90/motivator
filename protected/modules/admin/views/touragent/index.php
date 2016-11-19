@@ -24,7 +24,10 @@
             <a href="<?php echo Yii::app()->createUrl("admin/touragent/clear/{$touragent->id}"); ?>"
             onclick="return confirm('Вы уверены что хотите удалить всех туристов?')">Удалить туристов</a><br>
             <a href="<?php echo Yii::app()->createUrl("admin/touragent/{$touragent->id}"); ?>">Редактировать</a><br>
-            <a href="<?php echo Yii::app()->createUrl("admin/touragent/manager/{$touragent->id}"); ?>">Управление мененджерами</a>
+            <a href="<?php echo Yii::app()->createUrl("admin/touragent/manager/{$touragent->id}"); ?>">Управление мененджерами</a><br>
+            <a href="<?php echo Yii::app()->createUrl("admin/touragent/edit/{$touragent->id}"); ?>?action=<?php echo $touragent->status ? 'deactivate' : 'activate'?>">
+                    <?php echo $touragent->status ? 'Заблокировать' : 'Разблокировать'; ?>
+                </a>
         </td>
     </tr>
 <?php endforeach; ?>

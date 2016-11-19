@@ -121,7 +121,9 @@ define([
             });
         },
 
-        renderStep2: function(){
+        renderStep2: function(e){
+            e.preventDefault();
+
             this.$('.step1 form').on('success.form.bv', $.proxy(function(){
                 this.tourist.set('lastName', this.$el.find('input[name=last_name]').val());
                 this.tourist.set('firstName', this.$el.find('input[name=first_name]').val());
@@ -133,7 +135,8 @@ define([
             this.$('.step1 form').data('bootstrapValidator').validate();
         },
 
-        renderStep3: function(){
+        renderStep3: function(e){
+            e.preventDefault();
             
             this.$('.step2 form').on('success.form.bv', $.proxy(function(){
                 this.$('.step2').addClass('hidden');
@@ -142,7 +145,9 @@ define([
             this.$('.step2 form').data('bootstrapValidator').validate();
         },
 
-        renderStep4: function(){
+        renderStep4: function(e){
+            e.preventDefault();
+
             this.$('.step3 form').on('success.form.bv', $.proxy(function(){
                 this.tourist.set('groupCode', this.$el.find('input[name=groupCode]').val());
                 this.$('.step3').addClass('hidden');
@@ -151,7 +156,9 @@ define([
             this.$('.step3 form').data('bootstrapValidator').validate();
         },
 
-        renderStep5: function(){
+        renderStep5: function(e){
+            e.preventDefault();
+
             if (this.$('.step4 form input[name=userGaide]').is(':checked')){
                 this.$('.step4').addClass('hidden');
                 this.$('.step5').removeClass('hidden');
