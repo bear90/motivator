@@ -82,6 +82,10 @@
 <script data-main="js/app/main.js" src="js/app/vendor/requirejs/require.js"></script>
 
 <!--Local settings-->
+
+
+<?php include_once('partials/ga.php'); ?>
+
 </body>
 </html>
 

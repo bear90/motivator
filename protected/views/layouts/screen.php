@@ -19,6 +19,8 @@
 
     <?php echo $content; ?>
 
+<?php include_once('partials/ga.php'); ?>
+
 </body>
 </html>
 

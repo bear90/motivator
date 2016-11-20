@@ -82,5 +82,7 @@
     <!--Local settings-->
     <script src="/js/settings-tourist.js"></script>
 
+    <?php include_once('partials/ga.php'); ?>
+
 </body>
 </html>
