@@ -77,7 +77,7 @@
     
     <div class="title">Доплата при покупке тура: 
         <span class="value money">
-            <?php echo Tool::getNewPriceText($tour->getCurrentSurchange()); ?>
+            <?php echo Tool::getNewPriceText($tour->getCurrentPrice() - $tourist->getTotalDiscont() - $tour->prepayment); ?>
         </span>
     </div>
     
