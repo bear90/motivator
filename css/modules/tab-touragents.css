@@ -498,11 +498,6 @@
         width: 100%;
         border: solid 1px #e8e8e8;
     }
-    #wrapper a{
-        float: left;
-        width: 100%;
-        margin-bottom: 0px;
-    }
     #wrapper.tab1 div.tab1,
     #wrapper.tab2 div.tab2,
     #wrapper.tab3 div.tab3{

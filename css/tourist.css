@@ -750,9 +750,6 @@ li#tourist-cabinet > a:active, li#tourist-cabinet > a.active {
 }
 
 /*-----Footer logo----*/
-footer .logo > img {
-    width: 145px;
-}
 
 @media (min-width: 768px) {
     footer .logo > img {
@@ -932,3 +929,23 @@ section {position: relative;}
 #alarm-audio {display: none;}
 
 .orders .item textarea {width: 100%}
+
+
+@media (max-width: 360px) {
+    .container-fluid .head h1 > .bonus {
+        padding-left: 10px;
+    }
+
+    h1.yellow {
+        width: 100%;
+    }
+
+    #issue-btns {
+        width: auto;
+    }
+
+    .container-fluid .head .lk-label {
+        position: static;
+        margin-top: 20px;
+    }
+}

@@ -953,3 +953,11 @@ a.show-invited {
 }
 
 .invited {padding-left: 20px;}
+
+@media (max-width: 360px) {
+ 
+    .container-fluid .head .lk-label {
+        position: static;
+        margin-top: 20px;
+    }
+}
