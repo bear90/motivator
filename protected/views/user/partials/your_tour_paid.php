@@ -87,7 +87,7 @@
     
     <div class="title red">Стоимость тура с учётом общей скидки: 
         <span class="value money">
-            <?php echo Tool::getNewPriceText($tourist->tour->price - $tourist->getTotalDiscont() - $tourist->tour->prepayment); ?>
+            <?php echo Tool::getNewPriceText($tourist->tour->price - $tourist->getTotalDiscont()); ?>
         </span>
     </div>
 </div>
