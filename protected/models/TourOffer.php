@@ -46,7 +46,7 @@ class TourOffer extends DBEntity {
             $this->minDiscont = round($this->price * $minDiscont / 100, 2);
             $this->maxDiscont = round($this->price * $maxDiscont / 100, 2);
             $this->prepayment = round($this->price * $prepayment / 100, 2);
-            $this->surchange = $this->price - $this->maxDiscont - $this->prepayment - $this->getBookingPrepayment();
+            $this->surchange = $this->price - $this->maxDiscont - $this->prepayment - $this->bookingPrepaymentRub;//$this->getBookingPrepayment();
         }
     }
 
