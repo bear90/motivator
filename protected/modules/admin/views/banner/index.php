@@ -20,7 +20,11 @@
         <?php foreach ($entities as $entity): ?>
         <tr>
             <td><?php echo $entity->name; ?> (<?php echo $entity->width; ?>x<?php echo $entity->height; ?>)</td>
-            <td></td>
+            <td>
+                <a href="<?php echo Yii::app()->createUrl("admin/banner/delete/{$entity->id}"); ?>"
+                   onclick="return confirm('Вы уверены что хотите удалить блок?')">Удалить</a><br>
+                <a href="<?php echo Yii::app()->createUrl("admin/banner/update/{$entity->id}"); ?>">Изменить</a><br>
+            </td>
         </tr>
         <?php endforeach; ?>
     </table>

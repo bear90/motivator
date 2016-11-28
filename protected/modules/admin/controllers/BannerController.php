@@ -20,6 +20,8 @@ class BannerController extends AdminController
         return [
             'index' => 'application\\modules\\admin\\controllers\\banner\\IndexAction',
             'add' => 'application\\modules\\admin\\controllers\\banner\\AddAction',
+            'update' => 'application\\modules\\admin\\controllers\\banner\\UpdateAction',
+            'delete' => 'application\\modules\\admin\\controllers\\banner\\DeleteAction',
         ];
     }
 }
