@@ -105,6 +105,10 @@ use application\modules\admin\models\Text;
         на  полную  стоимость  любых  туров<br>  от  сервиса  «мотиватор»
         </p>
     </div>
+
+    <div class="turistam-description">
+        <?php echo Text::get('turistam-description'); ?>
+    </div>
     
     <!--Accordion-->
     <div class="panel-group" id="accordion">
@@ -112,7 +116,7 @@ use application\modules\admin\models\Text;
             <div class="panel-heading">
                 <h4 class="panel-title text-center text-uppercase">
                     <a data-toggle="collapse" href="#collapseOne">
-                        <div class="panel-text marginTop">Что для этого нужно сделать?</div>
+                        <div class="panel-text marginTop">КАК ПОЛУЧИТЬ СКИДКУ 5%-11% И БОЛЕЕ?</div>
                         <div class="panel-direction pull-right"></div>
                     </a>
                 </h4>

@@ -5,6 +5,13 @@
     margin: 0 auto 25px;
 }
 
+.turistam-description {
+    max-width: 1000px;
+    margin: 0 auto 25px;
+    text-align: center;
+    color: #000000;
+}
+
 #accordion .panel-default  {
     border: none;
     border-radius: 8px;
@@ -156,6 +163,7 @@
 }
 
 #accordion .panel-body > ul li,
+.turistam-description,
 #accordion .panel-body > p {
     font: 0.8em Arial;
     margin-bottom: 8px;
@@ -167,6 +175,7 @@
 
 @media (min-width: 768px) {
     #accordion .panel-body > ul li,
+    .turistam-description,
     #accordion .panel-body > p {
         font-size: 1.1em;
         margin-bottom: 10px;
@@ -174,6 +183,7 @@
 }
 
 @media (min-width: 992px) {
+    .turistam-description,
     #accordion .panel-body > ol li,
     #accordion .panel-body > ul li,
     #accordion .panel-body > p {
