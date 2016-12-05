@@ -187,9 +187,13 @@
     #accordion .panel-body > ol li,
     #accordion .panel-body > ul li,
     #accordion .panel-body > p {
-        font-size: 20px;
+        font-size: 1.2em;
         line-height: 1.3em;
         margin-bottom: 20px;
+    }
+
+    .turistam-description {
+        font-size: 20px;
         font-weight: bold;
     }
 }
