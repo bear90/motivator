@@ -102,7 +102,7 @@ use application\modules\admin\models\Text;
     <!--Discounts-->
     <div class="center-block" id="discount-attraction">
         <p>Получите честную скидку <span class="text-orange"><span class="big_11">5%-11%</span>  и более</span><br>
-        на  полную  стоимость  любых  туров<br>  от  сервиса  «мотиватор»
+        на  полную  стоимость  туров<br>  от партнёров сервиса  «мотиватор»
         </p>
     </div>
 

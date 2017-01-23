@@ -1,6 +1,8 @@
 <?php
 /**
  * @var CForm $form
+ * @var CForm $formBanner
+ * @var string $error
  * @var \application\models\BannerSite[] $entities
  */
     CHtml::$errorCss = 'help-block';
@@ -9,6 +11,9 @@
 
 <?php if($message): ?>
     <div class="alert alert-success" role="alert"><?php echo $message; ?></div>
+<?php endif; ?>
+<?php if($error): ?>
+    <div class="alert alert-danger" role="alert"><?php echo $error; ?></div>
 <?php endif; ?>
 
 <?php if (count($entities)):?>
@@ -24,6 +29,8 @@
                 <a href="<?php echo Yii::app()->createUrl("admin/banner/delete/{$entity->id}"); ?>"
                    onclick="return confirm('Вы уверены что хотите удалить блок?')">Удалить</a><br>
                 <a href="<?php echo Yii::app()->createUrl("admin/banner/update/{$entity->id}"); ?>">Изменить</a><br>
+                <a href="<?php echo Yii::app()->createUrl("admin/banner/upload/{$entity->id}"); ?>"
+                   class="upload-image">Добавить изображение</a><br>
             </td>
         </tr>
         <?php endforeach; ?>
@@ -48,3 +55,8 @@
     <button type="submit" class="btn btn-default">Добавить</button>
 </div>
 <?php echo $form->renderEnd(); ?>
+
+
+<?php echo $formBanner->renderBegin(); ?>
+<?php echo $formBanner['banner']; ?>
+<?php echo $formBanner->renderEnd(); ?>

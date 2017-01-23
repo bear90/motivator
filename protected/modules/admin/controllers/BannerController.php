@@ -14,7 +14,7 @@ namespace application\modules\admin\controllers;
 
 class BannerController extends AdminController
 {
-    //public $jsModule = 'banner';
+    public $jsModule = 'banner';
 
     public function actions(){
         return [
@@ -22,6 +22,7 @@ class BannerController extends AdminController
             'add' => 'application\\modules\\admin\\controllers\\banner\\AddAction',
             'update' => 'application\\modules\\admin\\controllers\\banner\\UpdateAction',
             'delete' => 'application\\modules\\admin\\controllers\\banner\\DeleteAction',
+            'upload' => 'application\\modules\\admin\\controllers\\banner\\UploadAction',
         ];
     }
 }

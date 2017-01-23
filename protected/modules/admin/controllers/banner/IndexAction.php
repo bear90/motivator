@@ -20,6 +20,7 @@ class IndexAction extends \CAction
     public function run($id = null)
     {
         $formEntity = new forms\BannerSite();
+        $formBanner = new forms\Banner();
 
         if (\Yii::app()->request->isPostRequest)
         {
@@ -40,7 +41,9 @@ class IndexAction extends \CAction
         $this->controller->render('index', [
             'entities' => BannerSite::model()->findAll(),
             'message' => \Yii::app()->user->getFlash('message', ''),
-            'form' => new \CForm('application.modules.admin.views.forms.banner-site', $formEntity)
+            'error' => \Yii::app()->user->getFlash('error', ''),
+            'form' => new \CForm('application.modules.admin.views.forms.banner-site', $formEntity),
+            'formBanner' => new \CForm('application.modules.admin.views.forms.banner', $formBanner)
         ]);
     }
 }
