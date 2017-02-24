@@ -53,6 +53,12 @@
         <td>Интервал дублирующих отправок (ш.№12)</td>
         <td><?php echo CHtml::textField('config['.Configuration::TEMPLATE_12_PERIOD.']', Configuration::get(Configuration::TEMPLATE_12_PERIOD)); ?> дней</td>
     </tr>
+    <tr>
+        <td>Проверочный коэфициент</td>
+        <td>
+            <?php echo CHtml::textField('config['.Configuration::DELTA.']', Configuration::get(Configuration::DELTA)); ?>
+        </td>
+    </tr>
 </table>
 <div class="form-group">
     <button type="submit" class="btn btn-default">Сохранить</button>
