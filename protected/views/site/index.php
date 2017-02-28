@@ -101,7 +101,7 @@ use application\modules\admin\models\Text;
 
     <!--Discounts-->
     <div class="center-block" id="discount-attraction">
-        <p>Получите честную скидку <span class="text-orange"><span class="big_11">5%-11%</span>  и более</span><br>
+        <p>Получите честную скидку <span class="text-orange"><span class="big_11">8%-14%</span>  и более</span><br>
         на  полную  стоимость  туров<br>  от партнёров сервиса  «мотиватор»
         </p>
     </div>
@@ -116,7 +116,7 @@ use application\modules\admin\models\Text;
             <div class="panel-heading">
                 <h4 class="panel-title text-center text-uppercase">
                     <a data-toggle="collapse" href="#collapseOne">
-                        <div class="panel-text marginTop">КАК ПОЛУЧИТЬ СКИДКУ 5%-11% И БОЛЕЕ?</div>
+                        <div class="panel-text marginTop">КАК ПОЛУЧИТЬ СКИДКУ 8%-14% И БОЛЕЕ?</div>
                         <div class="panel-direction pull-right"></div>
                     </a>
                 </h4>
