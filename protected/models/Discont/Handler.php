@@ -366,6 +366,7 @@ class Handler
         ]);die();*/
         
         Configuration::set(Configuration::CHECKING_DELTA, $delta, Configuration::TYPE_FLOAT);
+        $koef = Configuration::get(Configuration::DELTA, 7);
 
         Logs::info("calculated delta: {$delta}" , [
             'beforePrice'       => $beforePrice,
@@ -376,7 +377,7 @@ class Handler
             'afterFond'         => $afterFond,
         ]);
         
-        if (abs($delta - 7) > 0.01)
+        if (abs($delta - $koef) > 0.01)
         {
             throw new \DiscountException("Checking delta have been failed");
         }
