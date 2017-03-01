@@ -7,6 +7,10 @@
  */
 
 use application\modules\admin\models\Text;
+use application\models\Configuration;
+
+    $domain = Configuration::get(Configuration::SITE_DOMAIN);
+?>
 
 ?>
 <section id="blank" class="container-fluid" data-structure="index">
@@ -94,6 +98,19 @@ use application\modules\admin\models\Text;
 
             <div class="tab-partners tabs-block">
                 <?php echo Text::get('turistam-partners'); ?>
+
+                <div class="row">
+                    <div class="col-md-6 text-center">
+                        <a href="http://www.sltour.by/" target="_blank">
+                            <img class="sltour" src="<?php echo $domain ?>/img/logo/sltour.png" alt="">
+                        </a>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <a href="http://gelena.by/" target="_blank">
+                            <img class="gelena" src="<?php echo $domain ?>/img/logo/gelena.png" alt="">
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>​
     </div>
@@ -181,7 +198,7 @@ use application\modules\admin\models\Text;
             <div class="panel-heading">
                 <h4 class="panel-title text-center text-uppercase">
                     <a data-toggle="collapse" href="#collapseFour">
-                        <div class="panel-text marginTop">На какие туры предоставляется скидка?  </div>
+                        <div class="panel-text marginTop">ИСХОДНАЯ СТОИМОСТЬ ТУРОВ И ИХ АССОРТИМЕНТ</div>
                         <div class="panel-direction pull-right"></div>
                     </a>
                 </h4>
@@ -196,7 +213,7 @@ use application\modules\admin\models\Text;
             <div class="panel-heading">
                 <h4 class="panel-title text-center text-uppercase">
                     <a data-toggle="collapse" href="#collapseFive">
-                        <div class="panel-text marginTop marginTopFive">Исходная стоимость туров от партнёров сервиса «мотиватор»</div>
+                        <div class="panel-text marginTop marginTopFive">Акции</div>
                         <div class="panel-direction pull-right"></div>
                     </a>
                 </h4>

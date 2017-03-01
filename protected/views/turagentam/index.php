@@ -73,6 +73,19 @@ use application\modules\admin\models\Text;
           </div>
           <div class="tab-articles tabs-block">
               <?php echo Text::get('turagentam-articles'); ?>
+
+              <div class="row">
+                  <div class="col-md-6 text-center">
+                      <a href="http://www.sltour.by/" target="_blank">
+                          <img class="sltour" src="<?php echo $domain ?>/img/logo/sltour.png" alt="">
+                      </a>
+                  </div>
+                  <div class="col-md-6 text-center">
+                      <a href="http://gelena.by/" target="_blank">
+                          <img class="gelena" src="<?php echo $domain ?>/img/logo/gelena.png" alt="">
+                      </a>
+                  </div>
+              </div>
           </div>
       </div>​
   </div>

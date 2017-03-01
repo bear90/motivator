@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="/css/jquery/bootstrapValidator.min.css">
     <link rel="stylesheet" href="/css/plugins/slidebars.css">
     <link rel="stylesheet" href="/css/modules/tab.css">
-    <link rel="stylesheet" href="/css/tourist.css">
+    <link rel="stylesheet" href="/css/tourist.css?ver=1.0.1">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
