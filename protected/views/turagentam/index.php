@@ -76,11 +76,13 @@ use application\modules\admin\models\Text;
 
               <div class="row">
                   <div class="col-md-6 text-center">
+                      <h4>Туристическая компания «СтарЛюксТур»</h4>
                       <a href="http://www.sltour.by/" target="_blank">
                           <img class="sltour" src="<?php echo $domain ?>/img/logo/sltour.png" alt="">
                       </a>
                   </div>
                   <div class="col-md-6 text-center">
+                      <h4>Туристский центр «ГЕЛЕНА»</h4>
                       <a href="http://gelena.by/" target="_blank">
                           <img class="gelena" src="<?php echo $domain ?>/img/logo/gelena.png" alt="">
                       </a>

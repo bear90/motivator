@@ -101,11 +101,13 @@ use application\models\Configuration;
 
                 <div class="row">
                     <div class="col-md-6 text-center">
+                        <h4>Туристическая компания «СтарЛюксТур»</h4>
                         <a href="http://www.sltour.by/" target="_blank">
                             <img class="sltour" src="<?php echo $domain ?>/img/logo/sltour.png" alt="">
                         </a>
                     </div>
                     <div class="col-md-6 text-center">
+                        <h4>Туристский центр «ГЕЛЕНА»</h4>
                         <a href="http://gelena.by/" target="_blank">
                             <img class="gelena" src="<?php echo $domain ?>/img/logo/gelena.png" alt="">
                         </a>
@@ -213,7 +215,7 @@ use application\models\Configuration;
             <div class="panel-heading">
                 <h4 class="panel-title text-center text-uppercase">
                     <a data-toggle="collapse" href="#collapseFive">
-                        <div class="panel-text marginTop marginTopFive">Акции</div>
+                        <div class="panel-text marginTop marginTopFive">Акция</div>
                         <div class="panel-direction pull-right"></div>
                     </a>
                 </h4>
