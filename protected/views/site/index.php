@@ -11,8 +11,6 @@ use application\models\Configuration;
 
     $domain = Configuration::get(Configuration::SITE_DOMAIN);
 ?>
-
-?>
 <section id="blank" class="container-fluid" data-structure="index">
     <!--Menu-->
     <div class="row" id="main-menu">
