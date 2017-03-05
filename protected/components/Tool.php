@@ -414,18 +414,8 @@
         public static function getCurrencyList($key = null, $type = 'general')
         {
             $data = [
-                'general' => [
-                    'byn' => 'Белорусские рубли', 
-                    'usd' => 'Доллары', 
-                    'eur' => 'Евро',
-                    'ye' => 'у.е.',
-                ],
-                'comment' => [
-                    'byn' => 'в белорусских рублях', 
-                    'usd' => 'в долларах', 
-                    'eur' => 'в евро',
-                    'ye' => 'в у.е.'
-                ]
+                'general' => ['byn' => 'Белорусские рубли', 'usd' => 'Доллары', 'eur' => 'Евро'],
+                'comment' => ['byn' => 'в белорусских рублях', 'usd' => 'в долларах', 'eur' => 'в евро']
             ];
 
             return $key ? $data[$type][$key] : $data[$type];
