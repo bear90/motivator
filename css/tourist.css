@@ -585,6 +585,7 @@ li#tourist-cabinet > a:active, li#tourist-cabinet > a.active {
 
 .passive > a,
 .personal > a,
+.reg-button,
 #btn-info-board-issue {
     font: bold 1.4em/31px Arial;
     color: #FFF;
@@ -605,6 +606,7 @@ li#tourist-cabinet > a:active, li#tourist-cabinet > a.active {
 @media (min-width: 768px) {
     .passive > a,
     .personal > a,
+    .reg-button,
     #btn-info-board-issue {
         margin-top: 5px;
         font-size: 1.4em;
@@ -615,6 +617,7 @@ li#tourist-cabinet > a:active, li#tourist-cabinet > a.active {
 
 .passive > a:hover,
 .personal > a:hover,
+.reg-button:hover,
 #btn-info-board-issue:hover {
     background: rgba(68,187,50,1);
     background: -moz-linear-gradient(top, rgba(68,187,50,1) 0%, rgba(18,135,0,1) 100%);
@@ -630,6 +633,7 @@ li#tourist-cabinet > a:active, li#tourist-cabinet > a.active {
 @media (min-width: 768px) {
     .passive > a:hover,
     .personal > a:hover,
+    .reg-button:hover,
     #btn-info-board-issue:hover {
         color: #fff;
     }
@@ -640,7 +644,9 @@ li#tourist-cabinet > a:active, li#tourist-cabinet > a.active {
 .passive > a.btn:focus, .personal > a.btn:focus,
 .passive > a.btn.focus, .personal > a.btn.focus,
 #btn-info-board-issue:active, #btn-info-board-issue.active,
-#btn-info-board-issue:focus, #btn-info-board-issue.focus {
+#btn-info-board-issue:focus, #btn-info-board-issue.focus,
+.reg-button:active, .reg-button.active,
+.reg-button:focus, .reg-button.focus {
     background:#18AB00;
     color: #fff;
 }
@@ -674,9 +680,10 @@ li#tourist-cabinet > a:active, li#tourist-cabinet > a.active {
 
 
 /*Button info-board*/
-#btn-info-board-issue {
-    /*margin-bottom: 15px;*/
+.reg-button {
+    margin-bottom: 30px;
 }
+
 
 #info-board-issue {
     margin: 0 auto 10px;
@@ -726,6 +733,7 @@ li#tourist-cabinet > a:active, li#tourist-cabinet > a.active {
 @media (max-width: 768px) {
     .passive > a,
     .personal > a,
+    .reg-button,
     #btn-info-board-issue {
         font-size: 14px;
         width: 100%;

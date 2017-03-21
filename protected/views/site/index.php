@@ -62,6 +62,10 @@ use application\models\Configuration;
     </div>
     <!--Privet cabinet tourist-->
     <div class="center-block" id="privet-cabinet">
+        <div>
+            <a href="#btn-info-board-issue" class="btn btn-default text-uppercase text-center reg-button">Зарегистрироваться</a>
+        </div>
+
         <?php if (Yii::app()->user->isUser()):?>
             <a href="<?php echo Yii::app()->createUrl('user/dashboard'); ?>" id="btn-privet-cabinet" class="btn btn-default">Личные кабинеты абонентов</a>
         <?php else: ?>
