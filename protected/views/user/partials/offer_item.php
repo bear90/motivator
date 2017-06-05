@@ -32,7 +32,7 @@
             <?php echo Yii::app()->dateFormatter->format('dd.MM.yyyy', $offer->endDate); ?>
         </div>
 
-        <div class="inner-block form-group">
+        <div class="inner-block form-group clrfix">
             <label>Описание тура, условия обслуживания:</label>
             <p><?php echo $offer->description; ?></p>
         </div>

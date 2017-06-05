@@ -13,7 +13,12 @@ define([
             "click #btn-continue-2": "renderStep3",
             "click #btn-continue-3": "renderStep4",
             "click #btn-continue-4": "renderStep5",
+            "click .reg-button": "showRegform",
             "click #btn-info-board-issue-2": "register"
+        },
+
+        showRegform: function(e) {
+            $('#btn-info-board-issue').trigger('click');
         },
 
         initialize:function () {
