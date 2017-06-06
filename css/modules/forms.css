@@ -106,10 +106,6 @@
     color: #fff;
 }
 
-form .help-block {
-    color: rgba(255, 0, 0, 0.7);
-}
-
 form.ask-question label {
     font-size: 17px;
 }

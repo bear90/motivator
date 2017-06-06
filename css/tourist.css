@@ -75,10 +75,7 @@ body {
 
 /*----Buttons(internal menu)---*/
 #privet-cabinet{
-    margin-bottom: 30px;
     margin-top: 30px;
-    text-transform: uppercase;
-    text-align: center;
 }
 #privet-cabinet ul {
     -moz-border-radius: 7px;
@@ -960,3 +957,6 @@ section {position: relative;}
 
 img.gelena {width: 227px; margin-top: 28px;}
 img.sltour {height: 148px;}
+
+.main-table .glyphicon-fire {color: red;}
+.main-table .glyphicon-asterisk {color: deepskyblue;}

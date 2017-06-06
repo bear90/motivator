@@ -5,6 +5,7 @@
 
 namespace application\controllers\site;
 
+use application\models\forms;
 use application\models\forms\UserLogin;
 use application\models\defines\UserRole;
 
@@ -15,6 +16,7 @@ class IndexAction extends \CAction
     {
         $userModel = \Yii::app()->user->getModel();
         $loginForm = new UserLogin;
+        $taskForm = new forms\TaskForm();
 
         $loginError = null;
         if (\Yii::app()->request->isPostRequest)
@@ -32,6 +34,7 @@ class IndexAction extends \CAction
 
         $this->controller->render('index', [
             'loginForm' => new \CForm('application.views.forms.login', $loginForm),
+            'taskForm' => new \CForm('application.views.forms.task-form', $taskForm),
             'loginError' => $loginError
         ]);
     }

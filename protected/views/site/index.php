@@ -1,6 +1,7 @@
 <?php
 /**
  * @var \CForm $loginForm
+ * @var \CForm $taskForm
  * @var \CForm $registerForm
  * @var string $loginError
  * @author soza.mihail@gmail.com
@@ -62,195 +63,77 @@ use application\models\Configuration;
     </div>
     <!--Privet cabinet tourist-->
     <div class="center-block" id="privet-cabinet">
-        <div>
-            <a href="#btn-info-board-issue" class="btn btn-default text-uppercase text-center reg-button">Зарегистрироваться</a>
+        <div class="row">
+            <div class="col-md-6">
+                <a href="#login-form" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default">РАЗМЕСТИТЬ  ЗАЯВКУ  НА  ТУР</a>
+            </div>
+            <div class="col-md-6">
+                <a href="#login-form" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default">ОЗНАКОМИТЬСЯ   С   ПРЕДЛОЖЕНИЯМИ</a>
+            </div>
         </div>
 
-        <?php if (Yii::app()->user->isUser()):?>
-            <a href="<?php echo Yii::app()->createUrl('user/dashboard'); ?>" id="btn-privet-cabinet" class="btn btn-default">Личные кабинеты абонентов</a>
-        <?php else: ?>
-            <a href="#login-form" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default">Личные кабинеты абонентов</a>
-            <div class="block-login collapse<?php if ($loginError): ?> in<?php endif; ?>" id="login-form">
-                <?php echo $loginForm->renderBegin(); ?>
-                <?php echo $loginForm['submit']; ?>
-                <?php echo $loginForm['password']; ?>
-                <?php if ($loginError): ?>
-                    <small class="help-block" ><?php echo $loginError; ?></small>
-                <?php endif; ?>
 
-                <?php echo $loginForm->renderButtons(); ?>
-                <?php echo $loginForm->renderEnd(); ?>
-            </div>
-        <?php endif; ?>
-    </div>
+            <div class="task-form">
+                <?php echo $taskForm->renderBegin(); ?>
 
-    <!--Rule tab-->
-    <div id="rule-tab" class="center-block clearfix">
-        <div id="wrapper" class="ms_tabs" data-selected="" data-collapse="1">
-            <a href="#tab1" class="tab" id="tabAbout">О СЕРВИСЕ «МОТИВАТОР»</a>
-            <a href="#tab-rules" class="tab" id="tabRules">Правила работы</a>
-            <a href="#tab-partners" class="tab" id="tabPartners">Партнёры СЕРВИСА «МОТИВАТОР»</a>
+                <div class="form-group">
+                    <?php echo $taskForm['name']; ?>
+                    <span class="help-block">В случае отсутствия вашего имени в списке, выберите из него имя, наиболее близкое по звучанию к вашему</span>
+                </div>
 
-            <div class="tab1 tabs-block">
-                <?php echo Text::get('turistam-about'); ?>
-            </div>
-            <div class="tab-rules tabs-block">
-                <?php echo Text::get('turistam-rules'); ?>
-            </div>
+                <div class="form-group">
+                    <?php echo $taskForm['country']; ?>
+                </div>
 
-            <div class="tab-partners tabs-block">
-                <?php echo Text::get('turistam-partners'); ?>
+                <div class="form-group">
+                    <?php echo $taskForm['tourType']; ?>
+                </div>
 
-                <div class="row">
-                    <div class="col-md-6 text-center">
-                        <h4>Туристическая компания «СтарЛюксТур»</h4>
-                        <a href="http://www.sltour.by/" target="_blank">
-                            <img class="sltour" src="<?php echo $domain ?>/img/logo/sltour.png" alt="">
-                        </a>
-                    </div>
-                    <div class="col-md-6 text-center">
-                        <h4>Туристский центр «ГЕЛЕНА»</h4>
-                        <a href="http://gelena.by/" target="_blank">
-                            <img class="gelena" src="<?php echo $domain ?>/img/logo/gelena.png" alt="">
-                        </a>
+                <div class="form-group">
+                    <?php echo $taskForm['adultCount']; ?>
+                </div>
+
+                <div class="form-group">
+                    <?php echo $taskForm['childCount']; ?>
+                </div>
+
+                <div class="form-group">
+                    <?php echo $taskForm['days']; ?>
+                </div>
+
+                <div class="form-group">
+                    <?php echo $taskForm['startedAt']; ?>
+                </div>
+
+                <div class="form-group">
+                    <?php echo $taskForm['email']; ?>
+                    <span class="help-block">Ваш e-mail будет скрыт от посетителей сайта и недоступен для просмотра менеджерами турагентств. Он будет использован для отправки вам информационных писем администратором сайта в связи с обслуживанием вашей заявки</span>
+                </div>
+
+                <div class="form-group">
+                    <?php $this->widget('CCaptcha') ?>
+                    <div class="input-fld col-xs-12">
+                        <?php echo $taskForm['verifyCode']; ?>
                     </div>
                 </div>
-            </div>
-        </div>​
-    </div>
 
+                <?php echo $taskForm->renderEnd(); ?>
+            </div>
+    </div>
 
     <!--Discounts-->
     <div class="center-block" id="discount-attraction">
-        <p>Получите честную скидку <span class="text-orange"><span class="big_11">8%-14%</span>  и более</span><br>
-        на  полную  стоимость  туров<br>  от партнёров сервиса  «мотиватор»
+        <p>Проведите свой личный тендер!<br>
+            Снимите <span class="text-orange">пенки</span><br>
+            с бонусных программ продавцов туров!
         </p>
     </div>
 
     <div class="turistam-description">
         <?php echo Text::get('turistam-description'); ?>
     </div>
-    
-    <!--Accordion-->
-    <div class="panel-group" id="accordion">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title text-center text-uppercase">
-                    <a data-toggle="collapse" href="#collapseOne">
-                        <div class="panel-text marginTop">КАК ПОЛУЧИТЬ СКИДКУ 8%-14% И БОЛЕЕ?</div>
-                        <div class="panel-direction pull-right"></div>
-                    </a>
-                </h4>
 
-            </div>
-            <div id="collapseOne" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <?php echo Text::get('question1'); ?>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title text-center text-uppercase">
-                    <a data-toggle="collapse" href="#collapseTwo">
-                        <div class="panel-text marginTop">Что включает в себя общая скидка и от чего зависит её размер?</div>
-                        <div class="panel-direction pull-right"></div>
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseTwo" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <?php echo Text::get('question2'); ?>
-                </div>
-            </div>
-        </div>
-
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title text-center text-uppercase">
-                    <a data-toggle="collapse" href="#collapse3">
-                        <div class="panel-text marginTop marginTopFive">Порядок начисления общей скидки</div>
-                        <div class="panel-direction pull-right"></div>
-                    </a>
-                </h4>
-            </div>
-            <div id="collapse3" class="panel-collapse collapse" style="margin-top: 5px;">
-                <div class="panel-body container-fluid">
-                    <?php echo Text::get('question3'); ?>
-                </div>
-            </div><!--/3rd panel-body-->
-            
-            <!-- <div class="hideButton">Скрыть</div>-->
-        </div><!--/3rd panel-->
-
-        <div class="panel panel-default">
-            <div class="panel-heading threeHead">
-                <h4 class="panel-title text-center text-uppercase">
-                    <a data-toggle="collapse" href="#collapseThree">
-                        <div class="panel-text marginTop">Чем сервис «МОТИВАТОР» отличается от раннего бронирования?</div>
-                        <div class="panel-direction pull-right"></div>
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseThree" class="panel-collapse collapse">
-                <div class="panel-body container-fluid">
-                    <?php echo Text::get('question4'); ?>
-                </div>
-            </div><!--/3rd panel-body-->
-        </div><!--/3rd panel-->
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title text-center text-uppercase">
-                    <a data-toggle="collapse" href="#collapseFour">
-                        <div class="panel-text marginTop">ИСХОДНАЯ СТОИМОСТЬ ТУРОВ И ИХ АССОРТИМЕНТ</div>
-                        <div class="panel-direction pull-right"></div>
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseFour" class="panel-collapse collapse" style="margin-top: 5px;">
-                <div class="panel-body container-fluid">
-                    <?php echo Text::get('question5'); ?>
-                </div>
-            </div><!--/3rd panel-body-->
-        </div><!--/3rd panel-->
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title text-center text-uppercase">
-                    <a data-toggle="collapse" href="#collapseFive">
-                        <div class="panel-text marginTop marginTopFive">Акция</div>
-                        <div class="panel-direction pull-right"></div>
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseFive" class="panel-collapse collapse" style="margin-top: 5px;">
-                <div class="panel-body container-fluid">
-                    <?php echo Text::get('question6'); ?>
-                </div>
-            </div><!--/3rd panel-body-->
-
-            <!-- <div class="hideButton">Скрыть</div>-->
-        </div><!--/3rd panel-->
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h4 class="panel-title text-center text-uppercase">
-                    <a data-toggle="collapse" href="#collapseSeven">
-                        <div class="panel-text marginTop marginTopSeven">Не  является  ли  данная  программа  привлечения  финансовой  пирамидой?</div>
-                        <div class="panel-direction pull-right"></div>
-                    </a>
-                </h4>
-            </div>
-            <div id="collapseSeven" class="panel-collapse collapse" style="margin-top: 5px;">
-                <div class="panel-body container-fluid">
-                    <?php echo Text::get('question7'); ?>
-                </div>
-            </div><!--/3rd panel-body-->
-
-            <!-- <div class="hideButton">Скрыть</div>-->
-        </div><!--/3rd panel-->
-
-    </div><!--/accordion -->
-    
-    <?php $this->renderPartial('partials/registration')?>
+    <?php $this->renderPartial('partials/main-table')?>
 
     <div class="fixed-socseti">
         <a target="_blank" href="https://vk.com/motivatortravel"><img src="/img/soc-vk.png" alt=""></a>
