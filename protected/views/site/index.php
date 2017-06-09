@@ -116,6 +116,7 @@ use application\models\Configuration;
                         <?php echo $taskForm['verifyCode']; ?>
                     </div>
                 </div>
+                <input type="submit" class="type">
 
                 <?php echo $taskForm->renderEnd(); ?>
             </div>

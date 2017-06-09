@@ -17,6 +17,7 @@ return array(
         'application.components.*',
     ),
     'controllerMap' => array(
+        'task' => '\application\controllers\TaskController',
         'site' => '\application\controllers\SiteController',
         'api' => '\application\controllers\ApiController',
         'debug' => '\application\controllers\DebugController',
