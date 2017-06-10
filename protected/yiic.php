@@ -22,7 +22,7 @@ if (file_exists($serverConfigPath)) {
     $configServer = require_once($serverConfigPath);
 }
 
-require('../vendor/autoload.php');
+require(dirname(__FILE__) . '/../vendor/autoload.php');
 
 if (is_array($configServer)) {
     $config = CMap::mergeArray($configMain, $configServer);
