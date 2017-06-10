@@ -8,13 +8,23 @@ return [
         'class' => 'add-task-form',
     ],
     'elements' => [
-        'name' => [
+        'name1' => [
             'label' => 'Укажите своё имя:',
             'type' => 'dropdownlist',
             'layout' => '{label}{input}',
-            'items' => application\models\Entity\User\Name::getOptions(),
+            'items' => application\models\Entity\User\Name::getOptions1(),
             'attributes' => [
-                'name' => 'name',
+                'name' => 'name1',
+                'class' => 'form-control'
+            ]
+        ],
+        'name2' => [
+            'label' => '&nbsp;',
+            'type' => 'dropdownlist',
+            'layout' => '{label}{input}',
+            'items' => application\models\Entity\User\Name::getOptions2(),
+            'attributes' => [
+                'name' => 'name2',
                 'class' => 'form-control'
             ]
         ],
@@ -24,8 +34,9 @@ return [
             'layout' => '{label}{input}',
             'items' => application\models\Entity\Country::getOptions(),
             'attributes' => [
-                'name' => 'country',
-                'class' => 'form-control'
+                'id' => '',
+                'name' => 'country[]',
+                'class' => 'form-control country'
             ]
         ],
         'tourType' => [
@@ -37,7 +48,6 @@ return [
                 'name' => 'tourType',
                 'class' => 'form-control'
             ]
-
         ],
         'adultCount' => [
             'label' => 'Укажите количество взрослых туристов:',
@@ -48,7 +58,6 @@ return [
                 'name' => 'adultCount',
                 'class' => 'form-control'
             ]
-
         ],
         'childCount' => [
             'label' => 'Укажите количество детей:',
@@ -59,7 +68,17 @@ return [
                 'class' => 'form-control',
                 'name' => 'childCount',
             ]
-
+        ],
+        'childAge' => [
+            'label' => 'Укажите возраст ребёнка:',
+            'type' => 'dropdownlist',
+            'layout' => '{label}{input}',
+            'items' => ['1 год', '2 года', '3 года', '4 года', '5 лет', '6 лет', '7 лет', '8 лет', '9 лет',
+                        '10 лет', '11 лет', '12 лет', '13 лет', '14 лет', '15 лет', '16 лет'],
+            'attributes' => [
+                'class' => 'form-control',
+                'name' => 'childAge[]',
+            ]
         ],
         'days' => [
             'label' => 'Укажите продолжительность тура (дней):',
@@ -79,7 +98,7 @@ return [
             'layout' => '{label}{input}',
             'attributes' => [
                 'name' => 'startedAt',
-                'class' => 'form-control'
+                'class' => 'form-control datepicker'
             ]
 
         ],
@@ -94,8 +113,9 @@ return [
 
         ],
         'verifyCode' => [
+            'label' => 'Введите текс с картинки:',
             'type' => 'text',
-            'layout' => '{input}',
+            'layout' => '{label}{input}',
             'attributes' => [
                 'name' => 'verifyCode',
                 'class' => 'form-control'

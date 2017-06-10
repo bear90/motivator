@@ -10,8 +10,7 @@ if (file_exists($sEnvFile)) {
     $environment = trim(file_get_contents($sEnvFile));
 }
 
-$yii=dirname(__FILE__).'/../../../frameworks/yii/framework/yii.php';
-$yiic = dirname(__FILE__).'/../../../frameworks/yii/framework/yiic.php';
+$yiic = '../vendor/yiisoft/yii/framework/yiic.php';
 
 // Include config files
 $configMain = require_once(dirname( __FILE__ ) . '/config/console.php');
@@ -21,17 +20,9 @@ $configServer       = null;
 $serverConfigPath   = dirname( __FILE__ ) . '/config/console.' . $environment . '.php';
 if (file_exists($serverConfigPath)) {
     $configServer = require_once($serverConfigPath);
-    
-    if (!empty($configServer['params']['yiiPath'])) {
-        $yii    = $configServer['params']['yiiPath'];
-        $yiic   = $configServer['params']['yiicPath'];
-
-        unset($configServer['params']['yiiPath']);
-        unset($configServer['params']['yiicPath']);
-    }
 }
 
-require_once($yii);
+require('../vendor/autoload.php');
 
 if (is_array($configServer)) {
     $config = CMap::mergeArray($configMain, $configServer);

@@ -63,26 +63,34 @@ use application\models\Configuration;
     </div>
     <!--Privet cabinet tourist-->
     <div class="center-block" id="privet-cabinet">
-        <div class="row">
+        <div class="row" id="main-add-buttons">
             <div class="col-md-6">
-                <a href="#login-form" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default">РАЗМЕСТИТЬ  ЗАЯВКУ  НА  ТУР</a>
+                <a href="#add-task" data-toggle="collapse"  id="btn-add-task" class="btn btn-default">РАЗМЕСТИТЬ  ЗАЯВКУ  НА  ТУР</a>
             </div>
             <div class="col-md-6">
                 <a href="#login-form" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default">ОЗНАКОМИТЬСЯ   С   ПРЕДЛОЖЕНИЯМИ</a>
             </div>
         </div>
-
-
-            <div class="task-form">
+        <div class="row hidden" id="add-task">
+            <div class="col-md-6">
                 <?php echo $taskForm->renderBegin(); ?>
 
                 <div class="form-group">
-                    <?php echo $taskForm['name']; ?>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <?php echo $taskForm['name1']; ?>
+                        </div>
+                        <div class="col-md-6">
+                            <?php echo $taskForm['name2']; ?>
+                        </div>
+                    </div>
+                    
                     <span class="help-block">В случае отсутствия вашего имени в списке, выберите из него имя, наиболее близкое по звучанию к вашему</span>
                 </div>
 
                 <div class="form-group">
                     <?php echo $taskForm['country']; ?>
+                    <a href="#" id="task-add-country">+ Добавить страну</a>
                 </div>
 
                 <div class="form-group">
@@ -95,6 +103,10 @@ use application\models\Configuration;
 
                 <div class="form-group">
                     <?php echo $taskForm['childCount']; ?>
+                </div>
+
+                <div class="form-group hidden">
+                    <?php echo $taskForm['childAge']; ?>
                 </div>
 
                 <div class="form-group">
@@ -111,15 +123,18 @@ use application\models\Configuration;
                 </div>
 
                 <div class="form-group">
+                    <?php echo $taskForm['verifyCode']; ?>
+
                     <?php $this->widget('CCaptcha') ?>
-                    <div class="input-fld col-xs-12">
-                        <?php echo $taskForm['verifyCode']; ?>
-                    </div>
                 </div>
-                <input type="submit" class="type">
+
+                <div class="form-block button">
+                    <button type="submit" class="btn btn-default btn-green">РАЗМЕСТИТЬ ЗАЯВКУ НА ТУР</button>
+                </div>
 
                 <?php echo $taskForm->renderEnd(); ?>
             </div>
+        </div>
     </div>
 
     <!--Discounts-->

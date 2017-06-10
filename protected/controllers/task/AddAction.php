@@ -10,6 +10,6 @@ class AddAction extends \CAction
 {
     public function run()
     {
-        $r = 1;
+        var_dump($_POST);
     }
 }

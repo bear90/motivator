@@ -2,23 +2,15 @@
  * Created by m.soza on 25.02.2016.
  */
 define([
-    'structures/registration/view',
+    'structures/site/views/view-add-task',
     'bootstrap'
-], function(RegisterView){
+], function(AddTaskView){
 
     var Index = Backbone.View.extend({
 
         events: {
             "click a.internal": "linkClick",
-            "click #btn-continue-2": "renderStep3",
-            "click #btn-continue-3": "renderStep4",
-            "click #btn-continue-4": "renderStep5",
-            "click .reg-button": "showRegform",
-            "click #btn-info-board-issue-2": "register"
-        },
-
-        showRegform: function(e) {
-            $('#btn-info-board-issue').trigger('click');
+            "click a#btn-add-task": "clickAddTask",
         },
 
         initialize:function () {
@@ -57,8 +49,8 @@ define([
 
         render: function(){
             
-            (new RegisterView({
-                el: '#register-block'
+            (new AddTaskView({
+                el: '#add-task'
             })).render();
 
             //Accordion
@@ -75,6 +67,17 @@ define([
                 $(e.target).addClass('hidden');
             });
 
+        },
+
+        clickAddTask: function(e) {
+            //e.preventDefault()
+            var $el = this.$(e.target);
+            var $addTaskSection = this.$('#add-task');
+
+            if ($addTaskSection.hasClass('hidden')) {
+                $addTaskSection.removeClass('hidden');
+                $el.addClass('hidden');
+            }
         }
     });
 
