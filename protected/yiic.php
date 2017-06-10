@@ -25,7 +25,7 @@ if (file_exists($serverConfigPath)) {
 require(dirname(__FILE__) . '/../vendor/autoload.php');
 
 if (is_array($configServer)) {
-    $config = CMap::mergeArray($configMain, $configServer);
+    $config = array_replace_recursive($configMain, $configServer);
 }
 
 //Run application
