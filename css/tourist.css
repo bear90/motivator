@@ -968,3 +968,6 @@ img.sltour {height: 148px;}
 
 #main-add-buttons {text-align: center}
 #main-add-buttons a.btn {width: 300px}
+
+.main-table th {text-align: center;}
+.main-table {text-align: center;}
