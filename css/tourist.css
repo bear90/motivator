@@ -965,3 +965,6 @@ img.sltour {height: 148px;}
 
 #main-add-buttons {margin-bottom: 10px} 
 #add-task {margin-bottom: 10px} 
+
+#main-add-buttons {text-align: center}
+#main-add-buttons a.btn {width: 300px}

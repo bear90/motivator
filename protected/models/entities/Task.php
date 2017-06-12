@@ -16,7 +16,7 @@ class Task extends BaseEntity
 {
     public function rules(){
         return [
-            ['name', 'required']
+            ['name, email, tourType, adultCount, childCount, days, startedAt', 'required']
         ];
     }
 

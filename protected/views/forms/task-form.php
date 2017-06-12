@@ -14,7 +14,7 @@ return [
             'layout' => '{label}{input}',
             'items' => application\models\Entity\User\Name::getOptions1(),
             'attributes' => [
-                'name' => 'name1',
+                'name' => 'task[name1]',
                 'class' => 'form-control'
             ]
         ],
@@ -24,7 +24,7 @@ return [
             'layout' => '{label}{input}',
             'items' => application\models\Entity\User\Name::getOptions2(),
             'attributes' => [
-                'name' => 'name2',
+                'name' => 'task[name2]',
                 'class' => 'form-control'
             ]
         ],
@@ -35,7 +35,7 @@ return [
             'items' => application\models\Entity\Country::getOptions(),
             'attributes' => [
                 'id' => '',
-                'name' => 'country[]',
+                'name' => 'task[country][]',
                 'class' => 'form-control country'
             ]
         ],
@@ -45,7 +45,7 @@ return [
             'layout' => '{label}{input}',
             'items' => application\models\Entity\Tour\Type::getOptions(),
             'attributes' => [
-                'name' => 'tourType',
+                'name' => 'task[tourType]',
                 'class' => 'form-control'
             ]
         ],
@@ -55,7 +55,7 @@ return [
             'layout' => '{label}{input}',
             'items' => [1 => 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
             'attributes' => [
-                'name' => 'adultCount',
+                'name' => 'task[adultCount]',
                 'class' => 'form-control'
             ]
         ],
@@ -66,7 +66,7 @@ return [
             'items' => ['Нет', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
             'attributes' => [
                 'class' => 'form-control',
-                'name' => 'childCount',
+                'name' => 'task[childCount]',
             ]
         ],
         'childAge' => [
@@ -77,7 +77,7 @@ return [
                         '10 лет', '11 лет', '12 лет', '13 лет', '14 лет', '15 лет', '16 лет'],
             'attributes' => [
                 'class' => 'form-control',
-                'name' => 'childAge[]',
+                'name' => 'task[childAge][]',
             ]
         ],
         'days' => [
@@ -87,7 +87,7 @@ return [
             'items' => [1=>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
             18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
             'attributes' => [
-                'name' => 'days',
+                'name' => 'task[days]',
                 'class' => 'form-control'
             ]
 
@@ -97,7 +97,7 @@ return [
             'type' => 'text',
             'layout' => '{label}{input}',
             'attributes' => [
-                'name' => 'startedAt',
+                'name' => 'task[startedAt]',
                 'class' => 'form-control datepicker'
             ]
 
@@ -107,7 +107,7 @@ return [
             'type' => 'text',
             'layout' => '{label}{input}',
             'attributes' => [
-                'name' => 'email',
+                'name' => 'task[email]',
                 'class' => 'form-control'
             ]
 

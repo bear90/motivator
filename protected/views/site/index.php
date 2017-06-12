@@ -68,7 +68,7 @@ use application\models\Configuration;
                 <a href="#add-task" data-toggle="collapse"  id="btn-add-task" class="btn btn-default">РАЗМЕСТИТЬ  ЗАЯВКУ  НА  ТУР</a>
             </div>
             <div class="col-md-6">
-                <a href="#login-form" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default">ОЗНАКОМИТЬСЯ   С   ПРЕДЛОЖЕНИЯМИ</a>
+                <a href="#login-form" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default">ПОКАЗАТЬ ПРЕДЛОЖЕНИЯМИ</a>
             </div>
         </div>
         <div class="row hidden" id="add-task">

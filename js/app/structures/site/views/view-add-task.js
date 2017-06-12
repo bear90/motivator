@@ -5,8 +5,7 @@ define([
         
         events: {
             'click a#task-add-country': "clickAddCountry",
-            'change select#childCount': "selectChildCount",
-//            'click button': "clickSubmitButton"
+            'change select#task_childCount': "selectChildCount"
         },
 
         initialize: function(){
@@ -18,14 +17,14 @@ define([
                     validating: 'glyphicon glyphicon-refresh'
                 },
                 fields: {
-                    startedAt: {
+                    'task[startedAt]': {
                         validators: {
                             notEmpty: {
                                 message: "Вам необходимо ввести предполагаемую дату начала тура!"
                             },
                         }
                     },
-                    email: {
+                    'task[email]': {
                         validators: {
                             notEmpty: {
                                 message: "Необходимо ввести e-mail адрес."
@@ -35,7 +34,7 @@ define([
                             } // emailAddress
                         } // validators
                     },
-                    verifyCode: {
+                    'verifyCode': {
                         threshold: 6,
                         validators: {
                             notEmpty: {
@@ -56,15 +55,13 @@ define([
             });
 
             // Set datapicker
-            var self = this;
-            
             this.$(".datepicker").datepicker({
                 changeMonth: true,
                 dateFormat: "dd.mm.yy",
                 minDate: new Date,
-                onClose: function( selectedDate, calendar, e ) {
-                    self.$('form').data('bootstrapValidator').validateField('startedAt');
-                }
+                onClose: $.proxy(function( selectedDate, calendar, e ) {
+                    this.$('form').data('bootstrapValidator').validateField('task[startedAt]');
+                }, this)
             });
         },
 
