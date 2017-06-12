@@ -345,7 +345,6 @@ li#tourist-cabinet > a:active, li#tourist-cabinet > a.active {
 #discount-attraction p {
     font: 32px Arial;
     margin-bottom: 15px;
-    text-transform: uppercase;
     text-align: center;
     font-weight: bold;
 }
