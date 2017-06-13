@@ -37,8 +37,7 @@
             <span class="icon-bar"></span>
         </div>
         <a class="logo" href="/">
-            <img src="img/logo.png" alt="Motivator">
-            <h1 class="text-uppercase text-right text-logo">Для туристов &ndash; это сервис, приносящий выгоду</h1>
+            <h1 class="text-right text-logo"><span>П<span>ортал</span> <i>penky.by</i></span> &ndash; место выгодных встреч покупателя с продавцами</h1>
         </a>
     </header>
 

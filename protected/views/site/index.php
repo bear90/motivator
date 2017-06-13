@@ -114,7 +114,12 @@ use application\models\Configuration;
                 </div>
 
                 <div class="form-group">
-                    <?php echo $taskForm['startedAt']; ?>
+                    <label class="sr-only" for="task_startedAt">Укажите предполагаемую дату начала тура:</label>
+                    <div class="input-group">
+                        <div class="input-group-addon calendar"><span class="glyphicon glyphicon-calendar"></span>
+                        </div>
+                        <?php echo $taskForm['startedAt']; ?>
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -126,6 +131,17 @@ use application\models\Configuration;
                     <?php echo $taskForm['verifyCode']; ?>
 
                     <?php $this->widget('CCaptcha') ?>
+                </div>
+
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <?php echo $taskForm['checkbox']; ?>
+                            С правилами работы сервиса и <a id="gaide-link" href="#">пользовательским соглашением</a> ознакомлен
+                        </label>
+                    </div>
+
+                    <div class="gaide hidden"><?php echo Text::get('gaide'); ?></div>
                 </div>
 
                 <div class="form-block button">

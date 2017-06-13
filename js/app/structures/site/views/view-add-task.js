@@ -5,7 +5,10 @@ define([
         
         events: {
             'click a#task-add-country': "clickAddCountry",
-            'change select#task_childCount': "selectChildCount"
+            'change select#task_childCount': "selectChildCount",
+            'change input#task_checkbox': "changeCheckbox",
+            "click a#gaide-link": "clickGaideLink",
+            "click .input-group-addon.calendar": "clickCalendarIcon"
         },
 
         initialize: function(){
@@ -21,6 +24,13 @@ define([
                         validators: {
                             notEmpty: {
                                 message: "Вам необходимо ввести предполагаемую дату начала тура!"
+                            },
+                        }
+                    },
+                    'task[checkbox]': {
+                        validators: {
+                            notEmpty: {
+                                message: "Вам необходимо ознакомиться с правилами сервиса!"
                             },
                         }
                     },
@@ -61,7 +71,7 @@ define([
                 minDate: new Date,
                 onClose: $.proxy(function( selectedDate, calendar, e ) {
                     this.$('form').data('bootstrapValidator').validateField('task[startedAt]');
-                }, this)
+                }, this),
             });
         },
 
@@ -102,12 +112,18 @@ define([
             }
         },
 
-        clickSubmitButton: function(e) {
-            /*this.$('form').on('success.form.bv', $.proxy(function(){
-                //this.$('form').submit();
-                console.log();
-            }, this));
-            this.$('form').data('bootstrapValidator').validate();*/
+        changeCheckbox:  function (e){
+            this.$('form').data('bootstrapValidator').validateField('task[checkbox]');
+        },
+
+        clickGaideLink: function(e) {
+            e.preventDefault();
+            this.$('.gaide').toggleClass('hidden');
+        },
+
+        clickCalendarIcon: function(e) {
+            var $el = this.$(e.target);
+            $el.siblings('.datepicker').datepicker("show");
         }
     });
 });

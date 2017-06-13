@@ -93,9 +93,8 @@ return [
 
         ],
         'startedAt' => [
-            'label' => 'Укажите предполагаемую дату начала тура:',
             'type' => 'text',
-            'layout' => '{label}{input}',
+            'layout' => '{input}',
             'attributes' => [
                 'name' => 'task[startedAt]',
                 'class' => 'form-control datepicker'
@@ -119,6 +118,15 @@ return [
             'attributes' => [
                 'name' => 'verifyCode',
                 'class' => 'form-control'
+            ]
+
+        ],
+        'checkbox' => [
+            'label' => 'Введите текс с картинки:',
+            'type' => 'checkbox',
+            'layout' => '{input}',
+            'attributes' => [
+                'name' => 'task[checkbox]',
             ]
 
         ],

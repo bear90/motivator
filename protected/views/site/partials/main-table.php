@@ -1,5 +1,5 @@
 <?php
-
+    use application\models\Entity;
 ?>
 
 <table class="table table-bordered main-table">
@@ -53,4 +53,20 @@
             <div class="block"><span class="glyphicon glyphicon-asterisk"></span>490€</div>
         </td>
     </tr>
+    <?php foreach(Entity\Task\Repository::getAll() as $entity):
+    $model = new Entity\Task($entity);
+    ?>
+    <tr>
+        <td><?php echo $model->createdAt(); ?><br>
+            <?php echo $model->data()->relName->name; ?><br>
+            № <?php echo $model->data()->id; ?></td>
+        <td><?php echo implode('-', $model->getCountryOptions()); ?>/<br>
+            <?php echo $model->data()->relTourType->name; ?></td>
+        <td>Взрослых: <?php echo $model->data()->adultCount; ?> чел.</td>
+        <td><?php echo $model->data()->days; ?> дней/<br> <?php echo $model->startedAt(); ?></td>
+        <td>
+            <div class="block"><span class="glyphicon glyphicon-asterisk"></span>490€</div>
+        </td>
+    </tr>
+    <?php endforeach;?>
 </table>

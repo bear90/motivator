@@ -80,4 +80,24 @@ class Task
 
         return true;
     }
+
+    public function createdAt($format='d.m.Y')
+    {
+        $createdAt = new \DateTime($this->data->createdAt);
+        return $createdAt->format($format);
+    }
+
+    public function startedAt($format='d.m.Y')
+    {
+        $startedAt = new \DateTime($this->data->startedAt);
+        return $startedAt->format($format);
+    }
+
+    public function getCountryOptions()
+    {
+        $list = $this->data->countries;
+        $list = \CHtml::listData($list, 'id', 'name');
+
+        return $list;
+    }
 }

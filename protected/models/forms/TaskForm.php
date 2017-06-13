@@ -18,6 +18,7 @@ class TaskForm extends \CFormModel
     public $startedAt;
     public $email;
     public $verifyCode;
+    public $checkbox;
 
     public function rules(){
         return [

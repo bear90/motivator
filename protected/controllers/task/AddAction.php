@@ -15,6 +15,8 @@ class AddAction extends \CAction
         $attributes = \Yii::app()->request->getPost('task');
         $veryfyCode = \Yii::app()->request->getPost('veryfyCode');
 
+        $startedAt = new \DateTime($attributes['startedAt']);
+        $attributes['startedAt'] = $startedAt->format("Y-m-d H:i:s");
         $attributes['name'] = !empty($attributes['name1']) ? $attributes['name1'] : $attributes['name2'];
         
         $task = new Entity\Task();

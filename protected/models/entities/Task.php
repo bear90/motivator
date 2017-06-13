@@ -20,6 +20,17 @@ class Task extends BaseEntity
         ];
     }
 
+    public function relations()
+    {
+        return [
+            'countriesLinks'=>[self::HAS_MANY, 'application\\models\\entities\\TaskCountry', 'taskId'],
+            'countries'=>[self::HAS_MANY, 'application\\models\\entities\\Country', 'countryId', 'through' => 'countriesLinks'],
+            'childAges'=>[self::HAS_MANY, 'application\\models\\entities\\TaskChildAge', 'taskId'],
+            'relTourType'=>[self::BELONGS_TO, 'application\\models\\entities\\TourType', 'tourType'],
+            'relName'=>[self::BELONGS_TO, 'application\\models\\entities\\UserName', 'name'],
+        ];
+    }
+
     public function tableName()
     {
         return 'tbl_task';
