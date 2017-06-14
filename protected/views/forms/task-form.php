@@ -112,7 +112,7 @@ return [
 
         ],
         'verifyCode' => [
-            'label' => 'Введите текс с картинки:',
+            'label' => 'Введите текст с картинки:',
             'type' => 'text',
             'layout' => '{label}{input}',
             'attributes' => [

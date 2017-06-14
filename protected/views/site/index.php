@@ -114,7 +114,7 @@ use application\models\Configuration;
                 </div>
 
                 <div class="form-group">
-                    <label class="sr-only" for="task_startedAt">Укажите предполагаемую дату начала тура:</label>
+                    <label for="task_startedAt">Укажите предполагаемую дату начала тура:</label>
                     <div class="input-group">
                         <div class="input-group-addon calendar"><span class="glyphicon glyphicon-calendar"></span>
                         </div>
@@ -165,6 +165,10 @@ use application\models\Configuration;
         <?php echo Text::get('turistam-description'); ?>
     </div>
 
-    <?php $this->renderPartial('partials/main-table')?>
+    <div class="row" id="block-main-table">
+        <div class="col-md-12">
+            <?php $this->renderPartial('partials/main-table')?>
+        </div>
+    </div>
 
 </section>

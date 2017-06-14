@@ -141,7 +141,8 @@ header .breadcrumbs a.link-now {
     }
 }
 
-.logo h1 {
+.logo h1,
+.logo h2 {
     color: #fd8625;
     font: 1.01em Arial;
     font-weight: bold;
@@ -150,7 +151,8 @@ header .breadcrumbs a.link-now {
 }
 
 @media (min-width: 768px) {
-    .logo h1 {
+    .logo h1,
+    .logo h2 {
         font-size: 1.7em;
         display: inline-block;
         padding-left: 25px;
@@ -161,6 +163,7 @@ header .breadcrumbs a.link-now {
     }
 }
 
+h2.text-logo,
 h1.text-logo {
     color: #000;
     font-size: 1em;
@@ -168,6 +171,7 @@ h1.text-logo {
 }
 
 @media (min-width: 768px) {
+    .logo h2.text-logo,
     .logo h1.text-logo{
         width: 40%;
         height: 35px;
@@ -179,6 +183,7 @@ h1.text-logo {
 }
 
 @media (min-width: 992px) {
+    .logo h2.text-logo,
     .logo h1.text-logo{
         width: 50%;
         height: auto;
@@ -202,6 +207,7 @@ h1.text-logo {
         width: 800px;
         bottom: 0;
     }
+    .logo h2.text-logo,
     .logo h1.text-logo{
         width: auto;
         text-align: center;
