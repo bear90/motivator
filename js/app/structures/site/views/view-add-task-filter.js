@@ -90,6 +90,9 @@ define([
             var $el = this.$(e.target);
             var id = $el.attr('href');
 
+            $el.siblings().removeClass('bold');
+            $el.addClass('bold');
+
             this.$('.block').addClass('hidden');
             this.$(id).removeClass('hidden');
         }
