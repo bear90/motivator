@@ -51,7 +51,7 @@
         <td>5 дней/<br> 25.05.2017</td>
         <td>
             <div class="block"><span class="glyphicon glyphicon-fire"></span>515€</div>
-            <div class="block"><span class="glyphicon glyphicon-asterisk"></span>420€</div>
+            <div class="block"><i class="fa fa-snowflake-o" aria-hidden="true"></i>420€</div>
         </td>
     </tr>
     <tr>
@@ -63,7 +63,7 @@
         <td>Взрослых: 2 чел.</td>
         <td>14 дней/<br> 01.08.2017</td>
         <td>
-            <div class="block"><span class="glyphicon glyphicon-asterisk"></span>490€</div>
+            <div class="block"><i class="fa fa-snowflake-o" aria-hidden="true"></i>490€</div>
         </td>
     </tr>
     <?php foreach(Entity\Task\Repository::getAll() as $entity):
@@ -78,7 +78,7 @@
         <td>Взрослых: <?php echo $model->data()->adultCount; ?> чел.</td>
         <td><?php echo $model->data()->days; ?> дней/<br> <?php echo $model->startedAt(); ?></td>
         <td>
-            <div class="block"><span class="glyphicon glyphicon-asterisk"></span>490€</div>
+            <div class="block"><i class="fa fa-snowflake-o" aria-hidden="true"></i>490€</div>
         </td>
     </tr>
     <?php endforeach;?>
