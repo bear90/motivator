@@ -49,7 +49,7 @@ return [
         'adultCount' => [
             'type' => 'dropdownlist',
             'layout' => '{input}',
-            'items' => [1 => 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100 => 'Более 10-ти'],
+            'items' => ['Любое количество', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100 => 'Более 10-ти'],
             'attributes' => [
                 'name' => 'filter[adultCount]',
                 'class' => 'form-control'
