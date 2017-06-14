@@ -3,8 +3,9 @@
  */
 define([
     'structures/site/views/view-add-task',
+    'structures/site/views/view-add-task-filter',
     'bootstrap'
-], function(AddTaskView){
+], function(AddTaskView, AddTaskFilterView){
 
     var Index = Backbone.View.extend({
 
@@ -51,6 +52,10 @@ define([
             
             (new AddTaskView({
                 el: '#add-task'
+            })).render();
+
+            (new AddTaskFilterView({
+                el: '#add-task-filter'
             })).render();
 
             //Accordion
