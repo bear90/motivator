@@ -29,7 +29,7 @@ return [
         'startedAtFrom' => [
             'label' => 'От',
             'type' => 'text',
-            'layout' => '{label}{input}',
+            'layout' => '{input}',
             'attributes' => [
                 'name' => 'filter[startedAtFrom]',
                 'class' => 'form-control datepicker'
@@ -39,7 +39,7 @@ return [
         'startedAtTo' => [
             'label' => 'До',
             'type' => 'text',
-            'layout' => '{label}{input}',
+            'layout' => '{input}',
             'attributes' => [
                 'name' => 'filter[startedAtTo]',
                 'class' => 'form-control datepicker'

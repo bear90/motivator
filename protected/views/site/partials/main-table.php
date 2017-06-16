@@ -30,20 +30,21 @@
 
         <div id="add-task-filter-startedat" class="block hidden">
             <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <?php echo $filterForm['startedAtAny']; ?>
-                        Без ограничений
-                    </label>
+                <label for="task_startedAt">От:</label>
+                <div class="input-group">
+                    <div class="input-group-addon calendar"><span class="glyphicon glyphicon-calendar"></span>
+                    </div>
+                    <?php echo $filterForm['startedAtFrom']; ?>
                 </div>
             </div>
 
             <div class="form-group">
-                <?php echo $filterForm['startedAtFrom']; ?>
-            </div>
-
-            <div class="form-group">
-                <?php echo $filterForm['startedAtTo']; ?>
+                <label for="task_startedAt">До:</label>
+                <div class="input-group">
+                    <div class="input-group-addon calendar"><span class="glyphicon glyphicon-calendar"></span>
+                    </div>
+                    <?php echo $filterForm['startedAtTo']; ?>
+                </div>
             </div>
 
             <button type="submit" class="btn btn-default">Найти</button>
