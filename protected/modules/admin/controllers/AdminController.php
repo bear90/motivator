@@ -86,21 +86,21 @@ class AdminController extends \CController
             return $item;
         },[
             [
-                'key' => 'touragent',
-                'label' => 'Турагенты',
-                'url' => '/admin/touragent',
-            ],
-            [
-                'key' => 'balance',
-                'label' => 'Баланс',
-                'url' => '/admin/touragent/balance',
-            ],
-            [
                 'key' => 'text',
                 'label' => 'Текстовые блоки',
                 'url' => '/admin/text',
             ],
             [
+                'key' => 'name',
+                'label' => 'Имена',
+                'url' => '/admin/name',
+            ],
+            [
+                'key' => 'country',
+                'label' => 'Стараны',
+                'url' => '/admin/country',
+            ],
+            /*[
                 'key' => 'params',
                 'label' => 'Параметры',
                 'url' => '/admin/params',
@@ -139,7 +139,7 @@ class AdminController extends \CController
                 'key' => 'banner',
                 'label' => 'Рекламный блок',
                 'url' => '/admin/banner',
-            ]
+            ]*/
         ]);
 
         return $menu;

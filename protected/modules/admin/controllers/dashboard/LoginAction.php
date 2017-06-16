@@ -28,7 +28,7 @@ class LoginAction extends \CAction
 
             if ($loginForm->validate() && $loginForm->login()) {
                 $loginError = false;
-                $this->controller->redirect(\Yii::app()->createUrl('admin/touragent'));
+                $this->controller->redirect(\Yii::app()->createUrl('admin/text'));
             } else {
                 $loginError = 'Не верный логин или пароль';
             }
