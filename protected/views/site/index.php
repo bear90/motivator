@@ -155,10 +155,7 @@ use application\models\Configuration;
 
     <!--Discounts-->
     <div class="center-block" id="discount-attraction">
-        <p>Проведите свой личный тендер!<br>
-            Снимите <span class="text-orange">пенки</span><br>
-            с бонусных программ продавцов туров!
-        </p>
+        <?php echo Text::get('turistam-slogan'); ?>
     </div>
 
     <div class="turistam-description">
