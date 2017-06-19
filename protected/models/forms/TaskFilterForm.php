@@ -17,4 +17,10 @@ class TaskFilterForm extends \CFormModel
         return [
         ];
     }
+
+    public function filtered()
+    {
+        return !empty($this->country) || !empty($this->startedAtAny) || 
+               !empty($this->startedAtFrom) || !empty($this->adultCount);
+    }
 }

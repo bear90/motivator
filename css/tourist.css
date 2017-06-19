@@ -971,6 +971,7 @@ img.sltour {height: 148px;}
 
 .main-table th {text-align: center; background-color: #fbd4b4}
 .main-table {text-align: center; background: url('images/background2.png') #fde9d9 10px 80px;}
+.main-table.filtered {text-align: center; background-image: none;}
 
 .logo {}
 .logo h1 > span {font-size: 28px; font-family: impact, arial; color: #e36c0a}
@@ -984,3 +985,13 @@ img.sltour {height: 148px;}
 #add-task-filter {margin-bottom: 20px;}
 
 .bold {font-weight: bold;}
+
+.btn.btn-yellow {
+    background: #fb7b00;
+    color: #000000;
+}
+
+.btn.btn-yellow:hover {
+    background: #fb7b00;
+    opacity: 0.9;
+}

@@ -16,10 +16,14 @@ use application\models\entities;
 class Repository
 {
 
-    public static function getAll()
+    public static function getAll(\CDbCriteria $criteria = null)
     {
+        if (is_null($criteria)) {
+            $criteria = new \CDbCriteria();
+        }
         $with = ['countries', 'childAges'];
-        $list = entities\Task::model()->findAll(['with' => $with]);
+        $criteria->with = array_unique(array_merge((array)$criteria->with, $with));
+        $list = entities\Task::model()->findAll($criteria);
 
         return $list;
     }

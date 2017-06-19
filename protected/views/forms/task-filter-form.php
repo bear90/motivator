@@ -3,9 +3,10 @@
  * @author soza.mihail@gmail.com
  */
 return [
-    'action' => Yii::app()->createUrl('task/add'),
+    'action' => Yii::app()->createUrl('/#block-main-table'),
+    'method' => 'GET',
     'attributes' => [
-        'class' => 'add-task-form',
+        'class' => 'filter-task-form',
     ],
     'elements' => [
         'country' => [
@@ -14,7 +15,7 @@ return [
             'items' => ['Все страны'] + application\models\Entity\Country::getOptions(),
             'attributes' => [
                 'id' => '',
-                'name' => 'filter[country]',
+                'name' => 'country',
                 'class' => 'form-control'
             ]
         ],
@@ -22,7 +23,7 @@ return [
             'type' => 'checkbox',
             'layout' => '{input}',
             'attributes' => [
-                'name' => 'filter[startedAtAny]',
+                'name' => 'startedAtAny',
             ]
 
         ],
@@ -31,7 +32,7 @@ return [
             'type' => 'text',
             'layout' => '{input}',
             'attributes' => [
-                'name' => 'filter[startedAtFrom]',
+                'name' => 'startedAtFrom',
                 'class' => 'form-control datepicker'
             ]
 
@@ -41,7 +42,7 @@ return [
             'type' => 'text',
             'layout' => '{input}',
             'attributes' => [
-                'name' => 'filter[startedAtTo]',
+                'name' => 'startedAtTo',
                 'class' => 'form-control datepicker'
             ]
 
@@ -51,7 +52,7 @@ return [
             'layout' => '{input}',
             'items' => ['Любое количество', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100 => 'Более 10-ти'],
             'attributes' => [
-                'name' => 'filter[adultCount]',
+                'name' => 'adults',
                 'class' => 'form-control'
             ]
         ],

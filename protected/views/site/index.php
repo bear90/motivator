@@ -162,10 +162,11 @@ use application\models\Configuration;
         <?php echo Text::get('turistam-description'); ?>
     </div>
 
-    <div class="row" id="block-main-table">
-        <div class="col-md-12">
-            <?php $this->renderPartial('partials/main-table')?>
-        </div>
-    </div>
+    
+    <?php $this->renderPartial('partials/main-table', [
+        'entities' => $entities,
+        'filterForm' => $filterForm
+    ])?>
+        
 
 </section>

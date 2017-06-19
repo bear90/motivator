@@ -4,7 +4,8 @@ define([
     return Backbone.View.extend({
         
         events: {
-            'click .filter a': 'clickFilter'
+            'click .filter a': 'clickFilter',
+            'click button.skip': 'clickSkipFilter'
             /*'click a#task-add-country': "clickAddCountry",
             'change select#task_childCount': "selectChildCount",
             'change input#task_checkbox': "changeCheckbox",
@@ -95,6 +96,11 @@ define([
 
             this.$('.block').addClass('hidden');
             this.$(id).removeClass('hidden');
+        },
+
+        clickSkipFilter: function(e) {
+            e.preventDefault();
+            window.location = '/#block-main-table';
         }
     });
 });
