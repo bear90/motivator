@@ -15,7 +15,7 @@ class UserName extends BaseEntity
 {
     public function rules(){
         return [
-            ['name', 'required']
+            ['name, type', 'required']
         ];
     }
 

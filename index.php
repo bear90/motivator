@@ -11,7 +11,7 @@ if (file_exists($sEnvFile)) {
     $environment = trim(file_get_contents($sEnvFile));
 }
 
-if ( !in_array($environment, ['production']) )
+if ( !in_array($environment, ['production1']) )
 {
     defined('YII_DEBUG') or define('YII_DEBUG', true);
     defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL', 3);
