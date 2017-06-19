@@ -12,7 +12,7 @@ return [
         'country' => [
             'type' => 'dropdownlist',
             'layout' => '{input}',
-            'items' => ['Все страны'] + application\models\Entity\Country::getOptions(),
+            'items' => [''] + application\models\Entity\Country::getOptions(),
             'attributes' => [
                 'id' => '',
                 'name' => 'country',
@@ -50,7 +50,7 @@ return [
         'adultCount' => [
             'type' => 'dropdownlist',
             'layout' => '{input}',
-            'items' => ['Любое количество', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100 => 'Более 10-ти'],
+            'items' => ['', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100 => 'Более 10-ти'],
             'attributes' => [
                 'name' => 'adults',
                 'class' => 'form-control'

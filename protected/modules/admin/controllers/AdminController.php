@@ -97,7 +97,7 @@ class AdminController extends \CController
             ],
             [
                 'key' => 'country',
-                'label' => 'Стараны',
+                'label' => 'Страны',
                 'url' => '/admin/country',
             ],
             /*[
