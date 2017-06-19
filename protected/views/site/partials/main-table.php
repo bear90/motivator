@@ -127,7 +127,15 @@
                     № <?php echo $model->data()->id; ?></td>
                 <td><?php echo implode('-', $model->getCountryOptions()); ?>/<br>
                     <?php echo $model->data()->relTourType->name; ?></td>
-                <td>Взрослых: <?php echo $model->data()->adultCount; ?> чел.</td>
+                <td>
+                    Взрослых: <?php echo $model->data()->adultCount; ?> чел. <br>
+                    <?php if(count($model->data()->childCount)): ?>
+                        Детей:
+                        <?php foreach($model->data()->childAges as $child):?>
+                            1 (<?php echo $child->age ?> лет), <br>
+                        <?php endforeach; ?>
+                    <?php endif; ?>
+                </td>
                 <td><?php echo $model->data()->days; ?> дней/<br> <?php echo $model->startedAt(); ?></td>
                 <td>
                     <div class="block"><i class="fa fa-snowflake-o" aria-hidden="true"></i>490€</div>
