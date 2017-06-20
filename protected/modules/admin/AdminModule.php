@@ -18,6 +18,7 @@ class AdminModule extends CWebModule {
         'configuration' => 'application\modules\admin\controllers\ConfigurationController',
         'banner' => 'application\modules\admin\controllers\BannerController',
         'name' => 'application\modules\admin\controllers\NameController',
+        'country' => 'application\modules\admin\controllers\CountryController',
     ];
 }
 

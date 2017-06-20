@@ -12,7 +12,7 @@ return [
             'label' => 'Укажите своё имя:',
             'type' => 'dropdownlist',
             'layout' => '{label}{input}',
-            'items' => ['Мужское'] + application\models\Entity\User\Name::getOptions1(),
+            'items' => [''] + application\models\Entity\User\Name::getOptions1(),
             'attributes' => [
                 'name' => 'task[name1]',
                 'class' => 'form-control'
@@ -22,7 +22,7 @@ return [
             'label' => '&nbsp;',
             'type' => 'dropdownlist',
             'layout' => '{label}{input}',
-            'items' => ['Женское'] + application\models\Entity\User\Name::getOptions2(),
+            'items' => [''] + application\models\Entity\User\Name::getOptions2(),
             'attributes' => [
                 'name' => 'task[name2]',
                 'class' => 'form-control'
@@ -32,7 +32,7 @@ return [
             'label' => 'Укажите страну/страны тура:',
             'type' => 'dropdownlist',
             'layout' => '{label}{input}',
-            'items' => application\models\Entity\Country::getOptions(),
+            'items' => ['' => ''] + application\models\Entity\Country::getOptions(),
             'attributes' => [
                 'id' => '',
                 'name' => 'task[country][]',
@@ -43,7 +43,7 @@ return [
             'label' => 'Укажите вид тура:',
             'type' => 'dropdownlist',
             'layout' => '{label}{input}',
-            'items' => application\models\Entity\Tour\Type::getOptions(),
+            'items' => ['' => ''] + application\models\Entity\Tour\Type::getOptions(),
             'attributes' => [
                 'name' => 'task[tourType]',
                 'class' => 'form-control'
@@ -53,7 +53,7 @@ return [
             'label' => 'Укажите количество взрослых туристов:',
             'type' => 'dropdownlist',
             'layout' => '{label}{input}',
-            'items' => [1 => 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100 => 'Более 10-ти'],
+            'items' => [''=>'', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100 => 'Более 10-ти'],
             'attributes' => [
                 'name' => 'task[adultCount]',
                 'class' => 'form-control'
@@ -63,7 +63,7 @@ return [
             'label' => 'Укажите количество детей:',
             'type' => 'dropdownlist',
             'layout' => '{label}{input}',
-            'items' => ['Нет', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+            'items' => [''=>'', 'Нет', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
             'attributes' => [
                 'class' => 'form-control',
                 'name' => 'task[childCount]',
@@ -84,7 +84,7 @@ return [
             'label' => 'Укажите продолжительность тура (дней):',
             'type' => 'dropdownlist',
             'layout' => '{label}{input}',
-            'items' => [1=>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
+            'items' => [''=>'', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17,
             18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
             'attributes' => [
                 'name' => 'task[days]',

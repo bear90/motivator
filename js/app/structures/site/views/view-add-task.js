@@ -53,6 +53,41 @@ define([
                             },
                         }
                     },
+                    'task[country][]': {
+                        validators: {
+                            notEmpty: {
+                                message: "Вам необходимо выбрать страну тура!"
+                            },
+                        }
+                    },
+                    'task[tourType]': {
+                        validators: {
+                            notEmpty: {
+                                message: "Вам необходимо выбрать вид тура!"
+                            },
+                        }
+                    },
+                    'task[adultCount]': {
+                        validators: {
+                            notEmpty: {
+                                message: "Вам необходимо выбрать количество взрослых туристов!"
+                            },
+                        }
+                    },
+                    'task[childCount]': {
+                        validators: {
+                            notEmpty: {
+                                message: "Вам необходимо выбрать количество детей!"
+                            },
+                        }
+                    },
+                    'task[days]': {
+                        validators: {
+                            notEmpty: {
+                                message: "Вам необходимо выбрать продолжительность тура!"
+                            },
+                        }
+                    },
                     'task[checkbox]': {
                         validators: {
                             notEmpty: {

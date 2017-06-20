@@ -52,8 +52,8 @@ class IndexAction extends \CAction
         // Filter by country
         $filterForm->country = \Yii::app()->request->getParam('country');
         if (!empty($filterForm->country)) {
-            $criteria->with = ['countriesLinks'];
-            $criteria->addCondition('countriesLinks.countryId = :country');
+            $criteria->with['countries'] = ['select' => false];
+            $criteria->addCondition('countries.id = :country');
             $criteria->params['country'] = $filterForm->country;
         }
         // Filter by date

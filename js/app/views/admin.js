@@ -3,7 +3,7 @@
  */
 define(['backbone', 'jqueryui'], function(Backbone){
 
-    var App = Backbone.View.extend({
+    return Backbone.View.extend({
 
         initialize: function () {
             $.datepicker.setDefaults({
@@ -47,6 +47,4 @@ define(['backbone', 'jqueryui'], function(Backbone){
             }
         }
     });
-
-    return App;
 });
