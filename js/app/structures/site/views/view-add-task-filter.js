@@ -5,12 +5,12 @@ define([
         
         events: {
             'click .filter a': 'clickFilter',
-            'click button.skip': 'clickSkipFilter'
+            'click button.skip': 'clickSkipFilter',
+            "click .input-group-addon.calendar": "clickCalendarIcon"
             /*'click a#task-add-country': "clickAddCountry",
             'change select#task_childCount': "selectChildCount",
             'change input#task_checkbox': "changeCheckbox",
-            "click a#gaide-link": "clickGaideLink",
-            "click .input-group-addon.calendar": "clickCalendarIcon"*/
+            "click a#gaide-link": "clickGaideLink",*/
         },
 
         initialize: function(){
@@ -101,6 +101,11 @@ define([
         clickSkipFilter: function(e) {
             e.preventDefault();
             window.location = '/#block-main-table';
+        },
+
+        clickCalendarIcon: function(e) {
+            var $el = this.$(e.target);
+            $el.siblings('input').trigger("focus");
         }
     });
 });

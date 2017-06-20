@@ -123,7 +123,7 @@ define([
 
         clickCalendarIcon: function(e) {
             var $el = this.$(e.target);
-            $el.siblings('.datepicker').datepicker("show");
+            $el.siblings('input').trigger("focus");
         }
     });
 });

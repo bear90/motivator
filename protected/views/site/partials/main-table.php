@@ -16,12 +16,12 @@
                 <a href="#add-task-filter-startedat">дата начала тура</a><br>
                 <a href="#add-task-filter-adultcount">количество взрослых туристов</a>
             </div>
-            <div class="col-md-3">
+            <div class="col-md-6">
                 <?php if($filterForm->getModel(false)->filtered()) : ?>
                     <button type="button" class="btn btn-default btn-yellow skip">ВЕРНУТЬСЯ К ПОЛНОМУ СПИСКУ ЗАЯВОК НА ТУРЫ</button>
                 <?php endif; ?>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <?php echo $filterForm->renderBegin(); ?>
                 
                 <div id="add-task-filter-country" class="block hidden">
