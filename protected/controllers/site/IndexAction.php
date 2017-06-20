@@ -75,6 +75,7 @@ class IndexAction extends \CAction
             $criteria->addCondition('t.adultCount = :adults');
             $criteria->params['adults'] = $filterForm->adultCount;
         }
+        $criteria->order = 'createdAt DESC';
 
         return $criteria;
     }
