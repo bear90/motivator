@@ -129,7 +129,7 @@
                     <?php echo $model->data()->relTourType->name; ?></td>
                 <td>
                     Взрослых: <?php echo $model->data()->adultCount; ?> чел. <br>
-                    <?php if(count($model->data()->childCount)): ?>
+                    <?php if($model->data()->childCount): ?>
                         Детей:
                         <?php foreach($model->data()->childAges as $child):?>
                             1 (<?php echo $child->age ?> лет), <br>

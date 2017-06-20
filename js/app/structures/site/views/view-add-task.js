@@ -6,12 +6,16 @@ define([
         events: {
             'click a#task-add-country': "clickAddCountry",
             'change select#task_childCount': "selectChildCount",
+            'change select#task_name1': "selectName",
+            'change select#task_name2': "selectName",
             'change input#task_checkbox': "changeCheckbox",
             "click a#gaide-link": "clickGaideLink",
             "click .input-group-addon.calendar": "clickCalendarIcon"
         },
 
         initialize: function(){
+            var self = this;
+
             this.$('form').bootstrapValidator({
                 message: 'Данные введены неверно',
                 feedbackIcons: {
@@ -20,6 +24,28 @@ define([
                     validating: 'glyphicon glyphicon-refresh'
                 },
                 fields: {
+                    'task[name1]': {
+                        validators: {
+                            callback: {
+                                message: "Вам необходимо выбрать имя!",
+                                callback: function (value, validator, $field) {
+                                    var $el = self.$('select[name="task[name2]"]');
+                                    return $el.val() != '0' || value != '0';
+                                }
+                            },
+                        }
+                    },
+                    'task[name2]': {
+                        validators: {
+                            callback: {
+                                message: "Вам необходимо выбрать имя!",
+                                callback: function (value, validator, $field) {
+                                    var $el = self.$('select[name="task[name1]"]');
+                                    return $el.val() != '0' || value != '0';
+                                }
+                            },
+                        }
+                    },
                     'task[startedAt]': {
                         validators: {
                             notEmpty: {
@@ -70,7 +96,7 @@ define([
                 dateFormat: "dd.mm.yy",
                 minDate: new Date,
                 onClose: $.proxy(function( selectedDate, calendar, e ) {
-                    this.$('form').data('bootstrapValidator').validateField('task[startedAt]');
+                    this.$('form').bootstrapValidator('revalidateField', 'task[startedAt]');
                 }, this),
             });
         },
@@ -84,6 +110,11 @@ define([
             var $el = this.$(e.target);
 
             $el.siblings('select:first').clone().insertBefore($el);
+        },
+
+        selectName:  function (e){
+            this.$('form').bootstrapValidator('revalidateField', 'task[name1]');
+            this.$('form').bootstrapValidator('revalidateField', 'task[name2]');
         },
 
         selectChildCount:  function (e){
@@ -113,7 +144,7 @@ define([
         },
 
         changeCheckbox:  function (e){
-            this.$('form').data('bootstrapValidator').validateField('task[checkbox]');
+            this.$('form').bootstrapValidator('revalidateField', 'task[checkbox]');
         },
 
         clickGaideLink: function(e) {
@@ -122,7 +153,7 @@ define([
         },
 
         clickCalendarIcon: function(e) {
-            var $el = this.$(e.target);
+            var $el = this.$(e.currentTarget);
             $el.siblings('input').trigger("focus");
         }
     });

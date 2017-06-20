@@ -75,17 +75,25 @@ use application\models\Configuration;
             <div class="col-md-6">
                 <?php echo $taskForm->renderBegin(); ?>
 
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-md-6">
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
                             <?php echo $taskForm['name1']; ?>
                         </div>
-                        <div class="col-md-6">
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
                             <?php echo $taskForm['name2']; ?>
                         </div>
                     </div>
-                    
-                    <span class="help-block">В случае отсутствия вашего имени в списке, выберите из него имя, наиболее близкое по звучанию к вашему</span>
+                </div>
+                <span class="help-block">В случае отсутствия вашего имени в списке, выберите из него имя, наиболее близкое по звучанию к вашему</span>
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        
+                    </div>
                 </div>
 
                 <div class="form-group">
@@ -114,7 +122,7 @@ use application\models\Configuration;
                 </div>
 
                 <div class="form-group">
-                    <label for="task_startedAt">Укажите предполагаемую дату начала тура:</label>
+                    <label class="control-label" for="task_startedAt">Укажите предполагаемую дату начала тура:</label>
                     <div class="input-group">
                         <div class="input-group-addon calendar"><span class="glyphicon glyphicon-calendar"></span>
                         </div>

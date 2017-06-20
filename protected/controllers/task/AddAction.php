@@ -22,8 +22,10 @@ class AddAction extends \CAction
         $task = new Entity\Task();
         $task->save($attributes);
         $task->attachCountries($attributes['country']);
-        $task->attachCildAgies($attributes['childAge']);
-
+        if ($task->data()->childCount) {
+            $task->attachCildAgies($attributes['childAge']);
+        }
+        
         $this->controller->redirect('/');
     }
 }

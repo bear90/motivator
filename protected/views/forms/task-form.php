@@ -12,7 +12,7 @@ return [
             'label' => 'Укажите своё имя:',
             'type' => 'dropdownlist',
             'layout' => '{label}{input}',
-            'items' => application\models\Entity\User\Name::getOptions1(),
+            'items' => ['Мужское'] + application\models\Entity\User\Name::getOptions1(),
             'attributes' => [
                 'name' => 'task[name1]',
                 'class' => 'form-control'
@@ -22,7 +22,7 @@ return [
             'label' => '&nbsp;',
             'type' => 'dropdownlist',
             'layout' => '{label}{input}',
-            'items' => application\models\Entity\User\Name::getOptions2(),
+            'items' => ['Женское'] + application\models\Entity\User\Name::getOptions2(),
             'attributes' => [
                 'name' => 'task[name2]',
                 'class' => 'form-control'

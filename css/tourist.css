@@ -962,6 +962,7 @@ img.sltour {height: 148px;}
 #block-main-table .fa-snowflake-o {color: deepskyblue;}
 
 #add-task select.form-control {margin-bottom: 5px;}
+#add-task .add-task-form > .help-block {margin-bottom: 15px; margin-top: -10px; display: inline-block;}
 
 #main-add-buttons {margin-bottom: 10px} 
 #add-task {margin-bottom: 10px} 
