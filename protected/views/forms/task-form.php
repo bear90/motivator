@@ -9,7 +9,7 @@ return [
     ],
     'elements' => [
         'name1' => [
-            'label' => 'Укажите своё имя:',
+            'label' => 'Укажите своё мужское имя:',
             'type' => 'dropdownlist',
             'layout' => '{label}{input}',
             'items' => [''] + application\models\Entity\User\Name::getOptions1(),
@@ -19,7 +19,7 @@ return [
             ]
         ],
         'name2' => [
-            'label' => '&nbsp;',
+            'label' => 'или женское',
             'type' => 'dropdownlist',
             'layout' => '{label}{input}',
             'items' => [''] + application\models\Entity\User\Name::getOptions2(),
