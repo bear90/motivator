@@ -19,7 +19,7 @@ return [
             ]
         ],
         'name2' => [
-            'label' => 'или женское',
+            'label' => 'женское:',
             'type' => 'dropdownlist',
             'layout' => '{label}{input}',
             'items' => [''] + application\models\Entity\User\Name::getOptions2(),
