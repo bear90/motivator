@@ -77,6 +77,12 @@ use application\models\Configuration;
 
                 
                 <div class="row">
+                <div class="col-md-12">
+                    <b>Укажите свое имя:</b>
+                </div>
+                
+                </div>
+                <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <?php echo $taskForm['name1']; ?>
