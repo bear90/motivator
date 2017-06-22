@@ -132,11 +132,17 @@
                     <?php if($model->data()->childCount): ?>
                         Детей:
                         <?php foreach($model->data()->childAges as $child):?>
-                            1 (<?php echo $child->age ?> лет), <br>
+                            1 (<?php echo $child->age ?> 
+                            <?php echo Yii::t('front', 'n==1#год|n<5#года|n>4#лет', $child->age) ?>
+                            ), <br>
                         <?php endforeach; ?>
                     <?php endif; ?>
                 </td>
-                <td><?php echo $model->data()->days; ?> дней/<br> <?php echo $model->startedAt(); ?></td>
+                <td>
+                    <?php echo $model->data()->days; ?> 
+                    <?php echo Yii::t('front', 'n==1#день|n<5#дня|n>4#дней', $model->data()->days) ?> /<br> 
+                    <?php echo $model->startedAt(); ?>
+                </td>
                 <td>
                     <div class="block"><i class="fa fa-snowflake-o" aria-hidden="true"></i>490€</div>
                 </td>
