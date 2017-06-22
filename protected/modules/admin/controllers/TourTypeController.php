@@ -12,15 +12,15 @@
 namespace application\modules\admin\controllers;
 
 
-class CountryController extends AdminController
+class TourTypeController extends AdminController
 {
     //public $jsModule = 'country';
 
     public function actions(){
         return [
-            'index' => 'application\\modules\\admin\\controllers\\country\\IndexAction',
-            'edit' => 'application\\modules\\admin\\controllers\\country\\EditAction',
-            'delete' => 'application\\modules\\admin\\controllers\\country\\DeleteAction',
+            'index' => 'application\\modules\\admin\\controllers\\tourtype\\IndexAction',
+            'edit' => 'application\\modules\\admin\\controllers\\tourtype\\EditAction',
+            'delete' => 'application\\modules\\admin\\controllers\\tourtype\\DeleteAction',
         ];
     }
 }

@@ -42,7 +42,7 @@ class EditAction extends \CAction
 
         $this->controller->render('edit', [
             'entity' => $entity,
-            'form' => $form
+            'form' => new \CForm('application.modules.admin.views.forms.name-form', $formEntity)
         ]);
     }
 }

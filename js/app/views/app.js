@@ -13,7 +13,6 @@ define([
         },
 
         clickCalendarIcon: function(e) {
-            console.log(e);
             var $el = this.$(e.currentTarget);
             $el.siblings('input').trigger("focus");
         },

@@ -17,5 +17,5 @@ require.config({
 });
 
 require(['views/admin'], function(AdminView){
-    (new AdminView).start();
+    (new AdminView({el: 'body'})).start();
 });

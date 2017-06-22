@@ -9,7 +9,7 @@
  *
  */
 
-namespace application\modules\admin\controllers\country;
+namespace application\modules\admin\controllers\tourtype;
 
 
 use application\models\Entity;
@@ -20,29 +20,29 @@ class EditAction extends \CAction
 {
     public function run($id)
     {
-        $entity = entities\Country::model()->findByPk($id);
+        $entity = entities\TourType::model()->findByPk($id);
 
-        $formEntity = new forms\CountryForm();
+        $formEntity = new forms\TourTypeForm();
         $formEntity->attributes = $entity->attributes;
 
         if (\Yii::app()->request->isPostRequest)
         {
-            $formEntity->attributes = (array) \Yii::app()->request->getPost('country');
+            $formEntity->attributes = (array) \Yii::app()->request->getPost('tourtype');
 
             if($formEntity->validate())
             {
-                $model = new Entity\Country($entity);
+                $model = new Entity\Tour\Type($entity);
                 $model->save($formEntity->attributes);
 
                 \Yii::app()->user->setFlash('message', "Запись изменена успешно.");
-                $this->controller->redirect(\Yii::app()->createUrl('/admin/country'));
+                $this->controller->redirect(\Yii::app()->createUrl('/admin/tourtype'));
                 return;
             }
         }
 
         $this->controller->render('edit', [
             'entity' => $entity,
-            'form' => new \CForm('application.modules.admin.views.forms.country-form', $formEntity)
+            'form' => new \CForm('application.modules.admin.views.forms.tourtype-form', $formEntity)
         ]);
     }
 }

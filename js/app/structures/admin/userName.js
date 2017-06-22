@@ -5,14 +5,6 @@
     'backbone',
 ], function(Backbone) {
     return Backbone.View.extend({
-
-        events: {
-            'click .btn-danger' : 'clickBtnDanger'
-        },
-
-        clickBtnDanger: function(e){
-            return confirm('Вы уверены?')
-        }
         
     });
 });

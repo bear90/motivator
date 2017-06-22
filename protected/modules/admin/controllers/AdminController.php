@@ -100,6 +100,11 @@ class AdminController extends \CController
                 'label' => 'Страны',
                 'url' => '/admin/country',
             ],
+            [
+                'key' => 'tourtype',
+                'label' => 'Виды туров',
+                'url' => '/admin/tourtype',
+            ],
             /*[
                 'key' => 'params',
                 'label' => 'Параметры',
