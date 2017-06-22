@@ -21,8 +21,8 @@ class Repository
         if (is_null($criteria)) {
             $criteria = new \CDbCriteria();
         }
-        $with = ['countries', 'childAges'];
-        $criteria->with = array_unique(array_merge((array)$criteria->with, $with));
+        $with = ['childAges'];
+        $criteria->with = array_merge((array)$criteria->with, $with);
         $list = entities\Task::model()->findAll($criteria);
 
         return $list;

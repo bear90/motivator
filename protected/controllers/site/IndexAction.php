@@ -49,10 +49,10 @@ class IndexAction extends \CAction
     private function getCriteria(forms\TaskFilterForm $filterForm)
     {
         $criteria = new \CDbCriteria();
+        $criteria->with['countries'] = ['select' => false];
         // Filter by country
         $filterForm->country = \Yii::app()->request->getParam('country');
         if (!empty($filterForm->country)) {
-            $criteria->with['countries'] = ['select' => false];
             $criteria->addCondition('countries.id = :country');
             $criteria->params['country'] = $filterForm->country;
         }

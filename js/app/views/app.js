@@ -8,6 +8,15 @@ define([
 
     var App = Backbone.View.extend({
 
+        events: {
+            "click .input-group-addon.calendar": "clickCalendarIcon"
+        },
+
+        clickCalendarIcon: function(e) {
+            var $el = this.$(e.currentTarget);
+            $el.siblings('input').trigger("focus");
+        },
+
         initialize: function () {
             $.datepicker.setDefaults({
                 closeText: "Закрыть",
