@@ -14,11 +14,19 @@ return [
             'layout' => '{input}',
         ],
         'password' => [
-            'label' => 'Введите пароль:',
+            'label' => 'Введите пароль вашего турагентства:',
             'type' => 'password',
             'layout' => '{label}{input}',
             'attributes' => [
                 'name' => 'password',
+            ]
+        ],
+        'code' => [
+            'label' => 'Введите код доступа:',
+            'type' => 'password',
+            'layout' => '{label}{input}',
+            'attributes' => [
+                'name' => 'code',
             ]
         ]
     ],

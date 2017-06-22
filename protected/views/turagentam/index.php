@@ -46,11 +46,12 @@ use application\models\Configuration;
               <?php endforeach;?>
             </ul>
         <?php else: ?>
-            <a href="#login-form" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default">Рабочие кабинеты турагентов</a>
+            <a href="#login-form" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default">ОЗНАКОМИТЬСЯ СО ВСЕМИ ПРЕДЛОЖЕНИЯМИ / РАЗМЕСТИТЬ ПРЕДЛОЖЕНИЕ</a>
             <div class="block-login collapse<?php if ($loginError): ?> in<?php endif; ?>" id="login-form">
                 <?php echo $loginForm->renderBegin(); ?>
                 <?php echo $loginForm['submit']; ?>
                 <?php echo $loginForm['password']; ?>
+                <?php echo $loginForm['code']; ?>
                 <?php if ($loginError): ?>
                     <small class="help-block" ><?php echo $loginError; ?></small>
                 <?php endif; ?>

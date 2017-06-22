@@ -11,6 +11,7 @@ class UserLogin extends \CFormModel
 
     public $submit;
     public $password;
+    public $code;
     public $rememberMe = true;
     public $hash;
 
