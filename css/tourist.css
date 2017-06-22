@@ -1001,3 +1001,11 @@ img.sltour {height: 148px;}
     background: #fb7b00;
     opacity: 0.9;
 }
+
+#manager-login-form .button {
+    text-align: center;
+}
+
+.turagentam #slider {
+    margin-bottom: 30px;
+}

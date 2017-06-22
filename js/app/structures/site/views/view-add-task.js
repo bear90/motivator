@@ -80,6 +80,13 @@ define([
                             },
                         }
                     },
+                    'task[childAge][]': {
+                        validators: {
+                            notEmpty: {
+                                message: "Вам необходимо выбрать возраст ребёнка!"
+                            },
+                        }
+                    },
                     'task[days]': {
                         validators: {
                             notEmpty: {

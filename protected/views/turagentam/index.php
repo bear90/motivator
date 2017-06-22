@@ -35,32 +35,38 @@ use application\models\Configuration;
       </ul>
   </div>
 
-  <!--Privet cabinet tourist-->
-<div class="center-block" id="discount-attraction"></div>
-  <div class="center-block" id="privet-cabinet">
-      <?php if (Yii::app()->user->isManager()):?>
-            <a href="#" id="btn-privet-cabinet" class="btn btn-default show-list">Рабочие кабинеты турагентов</a>
-            <ul>
-              <?php foreach($managers as $manager):?>
-                <li><a href="<?php echo Yii::app()->createUrl("turagentam/dashboard/{$manager->id}"); ?>"><?php echo $manager->name; ?></a></li>
-              <?php endforeach;?>
-            </ul>
-        <?php else: ?>
+    <div class="row" id="manager-login-form">
+        <div class="col-md-12 button">
             <a href="#login-form" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default">ОЗНАКОМИТЬСЯ СО ВСЕМИ ПРЕДЛОЖЕНИЯМИ / РАЗМЕСТИТЬ ПРЕДЛОЖЕНИЕ</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
             <div class="block-login collapse<?php if ($loginError): ?> in<?php endif; ?>" id="login-form">
                 <?php echo $loginForm->renderBegin(); ?>
-                <?php echo $loginForm['submit']; ?>
-                <?php echo $loginForm['password']; ?>
-                <?php echo $loginForm['code']; ?>
-                <?php if ($loginError): ?>
-                    <small class="help-block" ><?php echo $loginError; ?></small>
-                <?php endif; ?>
+                    <div class="form-group">
+                        <?php echo $loginForm['submit']; ?>
+                    </div>
 
-                <?php echo $loginForm->renderButtons(); ?>
+                    <div class="form-group">
+                        <?php echo $loginForm['password']; ?>
+                    </div>
+
+                    <div class="form-group">
+                        <?php echo $loginForm['code']; ?>
+                    </div>
+                    <?php if ($loginError): ?>
+                        <small class="help-block" ><?php echo $loginError; ?></small>
+                    <?php endif; ?>
+
+                    <div class="form-block button">
+                        <button type="submit" class="btn btn-default btn-green">Войти</button>
+                    </div>
                 <?php echo $loginForm->renderEnd(); ?>
             </div>
-        <?php endif; ?>
-  </div>               
+        </div>
+    </div>
 
   <div class="address-block">
     <?php echo Text::get('turagentam'); ?>

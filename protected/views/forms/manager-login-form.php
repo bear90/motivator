@@ -19,6 +19,7 @@ return [
             'layout' => '{label}{input}',
             'attributes' => [
                 'name' => 'password',
+                'class' => 'form-control'
             ]
         ],
         'code' => [
@@ -27,6 +28,7 @@ return [
             'layout' => '{label}{input}',
             'attributes' => [
                 'name' => 'code',
+                'class' => 'form-control'
             ]
         ]
     ],

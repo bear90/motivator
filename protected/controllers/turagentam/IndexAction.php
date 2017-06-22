@@ -5,6 +5,7 @@
 
 namespace application\controllers\turagentam;
 
+use application\models\forms\ManagerLoginForm;
 use application\models\forms\UserLogin;
 use application\models\defines\UserRole;
 
@@ -14,7 +15,7 @@ class IndexAction extends \CAction
     public function run()
     {
         $userModel = \Yii::app()->user->getModel();
-        $loginForm = new UserLogin;
+        $loginForm = new ManagerLoginForm();
 
         $loginError = null;
         if (\Yii::app()->request->isPostRequest)
@@ -30,17 +31,9 @@ class IndexAction extends \CAction
             }
         }
 
-        // Get manager list
-        $managers = [];
-        if(\Yii::app()->user->isManager())
-        {
-            $managers = \Yii::app()->user->model->touragent->managers;
-        }
-
         $this->controller->render('index', [
-            'loginForm' => new \CForm('application.views.forms.login', $loginForm),
+            'loginForm' => new \CForm('application.views.forms.manager-login-form', $loginForm),
             'loginError' => $loginError,
-            'managers' => $managers
         ]);
     }
 }

@@ -5,7 +5,7 @@
  */
 namespace application\models\forms;
 
-class UserLogin extends \CFormModel
+class ManagerLoginForm extends \CFormModel
 {
     private $identity;
 
