@@ -6,8 +6,8 @@ define([
         events: {
             'click .filter a': 'clickFilter',
             'click button.skip': 'clickSkipFilter',
-            "click .input-group-addon.calendar": "clickCalendarIcon"
-            /*'click a#task-add-country': "clickAddCountry",
+            /*
+            'click a#task-add-country': "clickAddCountry",
             'change select#task_childCount': "selectChildCount",
             'change input#task_checkbox': "changeCheckbox",
             "click a#gaide-link": "clickGaideLink",*/
@@ -81,11 +81,6 @@ define([
 
         },
 
-        clickCalendarIcon: function(e) {
-            var $el = this.$(e.target);
-            $el.siblings('.datepicker').datepicker("show");
-        },
-
         clickFilter: function (e) {
             e.preventDefault();
             var $el = this.$(e.target);
@@ -102,10 +97,5 @@ define([
             e.preventDefault();
             window.location = '/#block-main-table';
         },
-
-        clickCalendarIcon: function(e) {
-            var $el = this.$(e.target);
-            $el.siblings('input').trigger("focus");
-        }
     });
 });

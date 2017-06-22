@@ -185,10 +185,5 @@ define([
             e.preventDefault();
             this.$('.gaide').toggleClass('hidden');
         },
-
-        clickCalendarIcon: function(e) {
-            var $el = this.$(e.currentTarget);
-            $el.siblings('input').trigger("focus");
-        }
     });
 });

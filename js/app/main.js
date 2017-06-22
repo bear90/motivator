@@ -23,5 +23,5 @@ require.config({
 });
 
 require(['views/app'], function(AppView){
-    (new AppView).start();
+    (new AppView({el: 'body'})).start();
 });
