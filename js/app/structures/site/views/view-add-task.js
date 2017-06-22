@@ -10,7 +10,6 @@ define([
             'change select#task_name2': "selectName",
             'change input#task_checkbox': "changeCheckbox",
             "click a#gaide-link": "clickGaideLink",
-            "click .input-group-addon.calendar": "clickCalendarIcon"
         },
 
         initialize: function(){
