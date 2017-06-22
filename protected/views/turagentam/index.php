@@ -60,49 +60,11 @@ use application\models\Configuration;
             </div>
         <?php endif; ?>
   </div>               
-<!--Rule tab-->
-  <div id="rule-tab" class="center-block">
-      <div id="wrapper" class="ms_tabs" data-selected="" data-collapse="1">
-          <a href="#tab1" class="tab">О СЕРВИСЕ «МОТИВАТОР»</a>
-          <a href="#tab-rules" class="tab" id="secondTab">СОТРУДНИЧЕСТВО</a>
-          <a href="#tab-articles" class="tab" id="threeTab">ПАРТНЁРЫ СЕРВИСА «МОТИВАТОР»</a>
-
-          <div class="tab1 tabs-block">
-              <?php echo Text::get('turagentam-about'); ?>
-          </div>
-          <div class="tab-rules tabs-block">
-              <?php echo Text::get('turagentam-rules'); ?>
-          </div>
-          <div class="tab-articles tabs-block">
-              <?php echo Text::get('turagentam-articles'); ?>
-
-              <div class="row">
-                  <div class="col-md-6 text-center">
-                      <h4>Туристическая компания «СтарЛюксТур»</h4>
-                      <a href="http://www.sltour.by/" target="_blank">
-                          <img class="sltour" src="<?php echo $domain ?>/img/logo/sltour.png" alt="">
-                      </a>
-                  </div>
-                  <div class="col-md-6 text-center">
-                      <h4>Туристский центр «ГЕЛЕНА»</h4>
-                      <a href="http://gelena.by/" target="_blank">
-                          <img class="gelena" src="<?php echo $domain ?>/img/logo/gelena.png" alt="">
-                      </a>
-                  </div>
-              </div>
-          </div>
-      </div>​
-  </div>
 
   <div class="address-block">
     <?php echo Text::get('turagentam'); ?>
   </div>
   
 
-  <div class="fixed-socseti">
-        <a target="_blank" href="https://vk.com/motivatortravel"><img src="/img/soc-vk.png" alt=""></a>
-        <a target="_blank" href="https://www.facebook.com/%D0%9C%D0%BE%D1%82%D0%B8%D0%B2%D0%B0%D1%82%D0%BE%D1%80-203321533372476/?__mref=message"><img src="/img/soc-fb.png" alt=""></a>
-        <a target="_blank" href="http://m.ok.ru/group/52925620093131"><img src="/img/soc-od.png" alt=""></a>
-        <a target="_blank" href="http://instagram.com/motivatortour"><img src="/img/soc-ig.png" alt=""></a>
-    </div>
+  
 </section>
