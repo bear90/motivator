@@ -16,11 +16,11 @@ class IndexAction extends \CAction
     public function run()
     {
         $userModel = \Yii::app()->user->getModel();
-        $loginForm = new UserLogin;
+        //$loginForm = new UserLogin;
         $filterForm = new forms\TaskFilterForm();
         $taskForm = new forms\TaskForm();
 
-        $loginError = null;
+        /*$loginError = null;
         if (\Yii::app()->request->isPostRequest)
         {
             $password = \Yii::app()->request->getPost('password');
@@ -32,16 +32,15 @@ class IndexAction extends \CAction
             } else {
                 $loginError = 'Не верный логин или пароль';
             }
-        }
+        }*/
 
         $criteria = $this->getCriteria($filterForm);
         $entities = Entity\Task\Repository::getAll($criteria);
 
         $this->controller->render('index', [
-            'loginForm' => new \CForm('application.views.forms.login', $loginForm),
             'taskForm' => new \CForm('application.views.forms.task-form', $taskForm),
             'filterForm' => new \CForm('application.views.forms.task-filter-form', $filterForm),
-            'loginError' => $loginError,
+            //'loginError' => $loginError,
             'entities' => $entities
         ]);
     }
