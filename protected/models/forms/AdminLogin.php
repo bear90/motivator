@@ -8,6 +8,7 @@
  */
 namespace application\models\forms;
 
+use application\models\Entity;
 use application\models\defines;
 
 class AdminLogin extends \CFormModel
@@ -28,7 +29,8 @@ class AdminLogin extends \CFormModel
         if ($this->identity->errorCode === \UserIdentity::ERROR_NONE) {
             $duration = $this->rememberMe ? 3600 * 24 * 30 : 0; // 30 days
             \Yii::app()->user->login($this->identity, $duration);
-            \Yii::app()->user->model->markLoginTime();
+            $user = new Entity\User(\Yii::app()->user->model);
+            $user->markLoginTime();
 
             return true;
         } else {

@@ -987,6 +987,13 @@ img.sltour {height: 148px;}
 #block-main-table table th.col3 {min-width: 255px;}
 #block-main-table table th.col4 {min-width: 210px;}
 #block-main-table table th.col5 {}
+#block-main-table .more {text-decoration: underline;}
+#block-main-table .btn {
+    font-size: 14px;
+    padding: 5px 20px;
+    margin: 5px 0;
+    display: inline-block;
+}
 
 #add-task-filter {margin-bottom: 20px;}
 

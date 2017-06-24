@@ -17,23 +17,22 @@ class IndexAction extends \CAction
         $userModel = \Yii::app()->user->getModel();
         $loginForm = new ManagerLoginForm();
 
-        $loginError = null;
         if (\Yii::app()->request->isPostRequest)
         {
-            $password = \Yii::app()->request->getPost('password');
-            $loginForm->password = $password;
-
-            if ($loginForm->validate() && $loginForm->login(UserRole::MANAGER)) {
-                $this->controller->redirect(\Yii::app()->createUrl('/turagentam'));
+            $loginForm->password = \Yii::app()->request->getPost('password');
+            $loginForm->code = \Yii::app()->request->getPost('code');
+            
+            if ($loginForm->validate() && $loginForm->loginWithCode()) {
+                $this->controller->redirect(\Yii::app()->createUrl('/#block-main-table'));
                 return;
             } else {
-                $loginError = 'Не верный логин или пароль';
+                \Yii::app()->user->setFlash('error', "Не верный логин или пароль");
             }
         }
 
         $this->controller->render('index', [
             'loginForm' => new \CForm('application.views.forms.manager-login-form', $loginForm),
-            'loginError' => $loginError,
+            'error' => \Yii::app()->user->getFlash('error'),
         ]);
     }
 }

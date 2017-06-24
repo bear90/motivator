@@ -1,9 +1,6 @@
 <?php
 
 use application\modules\admin\models\Text;
-use application\models\Configuration;
-
-    $domain = Configuration::get(Configuration::SITE_DOMAIN);
 ?>
 <section id="blank" class="container-fluid" data-structure="turagentam">
   <!--Menu-->
@@ -37,14 +34,20 @@ use application\models\Configuration;
 
     <div class="row" id="manager-login-form">
         <div class="col-md-12 button">
+        <?php if (!\Yii::app()->user->isManager()): ?>
             <a href="#login-form" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default">ОЗНАКОМИТЬСЯ СО ВСЕМИ ПРЕДЛОЖЕНИЯМИ / РАЗМЕСТИТЬ ПРЕДЛОЖЕНИЕ</a>
+        <?php else: ?>
+            <a href="/#block-main-table" id="btn-privet-cabinet" class="btn btn-default">ОЗНАКОМИТЬСЯ СО ВСЕМИ ПРЕДЛОЖЕНИЯМИ / РАЗМЕСТИТЬ ПРЕДЛОЖЕНИЕ</a>
+        <?php endif; ?>
         </div>
     </div>
 
+    <?php if (!\Yii::app()->user->isManager()): ?>
     <div class="row">
         <div class="col-md-4 col-md-offset-4">
-            <div class="block-login collapse<?php if ($loginError): ?> in<?php endif; ?>" id="login-form">
+            <div class="block-login collapse<?php if ($error): ?> in<?php endif; ?>" id="login-form">
                 <?php echo $loginForm->renderBegin(); ?>
+
                     <div class="form-group">
                         <?php echo $loginForm['submit']; ?>
                     </div>
@@ -56,8 +59,9 @@ use application\models\Configuration;
                     <div class="form-group">
                         <?php echo $loginForm['code']; ?>
                     </div>
-                    <?php if ($loginError): ?>
-                        <small class="help-block" ><?php echo $loginError; ?></small>
+
+                    <?php if ($error): ?>
+                      <div class="alert alert-danger" role="alert"><?php echo $error; ?></div>
                     <?php endif; ?>
 
                     <div class="form-block button">
@@ -67,6 +71,7 @@ use application\models\Configuration;
             </div>
         </div>
     </div>
+    <?php endif; ?>
 
   <div class="address-block">
     <?php echo Text::get('turagentam'); ?>

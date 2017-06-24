@@ -1,6 +1,6 @@
 <?php
 
-use application\models\User;
+use application\models\entities\User;
 use application\models\defines\UserRole;
 
 /**

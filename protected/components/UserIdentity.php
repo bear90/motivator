@@ -5,16 +5,21 @@
  * It contains the authentication method that checks if the provided
  * data can identity the user.
  */
-use application\models\User;
-use application\models\Tourist;
+use application\models\entities\User;
+use application\models\Entity;
 use application\models\defines;
 
 class UserIdentity extends CUserIdentity {
 
     private $role;
+    private $code;
 
     public function setRole($role) {
         $this->role = $role;
+    }
+
+    public function setCode($code) {
+        $this->code = $code;
     }
     
     public function authenticate() {
@@ -22,14 +27,22 @@ class UserIdentity extends CUserIdentity {
             'password' => $this->password
         ));
 
-        $deleted = false;
-        if ($this->role == defines\UserRole::USER && $user !== null)
-        {
-            $tourist = Tourist::model()->findByAttributes(['userId' => $user->id]);
-            $deleted = $tourist && $tourist->deleted == false ? false : true;
+        if ($user == null || $user->id == 0 || $user->roleId != $this->role) {
+            $this->errorCode = self::ERROR_USERNAME_INVALID;
+        } else {
+            $this->errorCode = self::ERROR_NONE;
         }
 
-        if ($user == null || $user->id == 0 || $user->roleId != $this->role || $deleted) {
+        return !$this->errorCode;
+    }
+    
+    public function authenticateByCode() {
+        $user = User::model()->findByAttributes(array(
+            'password' => $this->password,
+            'code' => $this->code
+        ));
+
+        if ($user == null || $user->id == 0 || $user->roleId != $this->role) {
             $this->errorCode = self::ERROR_USERNAME_INVALID;
         } else {
             $this->errorCode = self::ERROR_NONE;
@@ -42,14 +55,7 @@ class UserIdentity extends CUserIdentity {
     {
         $user = User::model()->findByHash($this->password);
 
-        $deleted = false;
-        if ($this->role == defines\UserRole::USER && $user !== null)
-        {
-            $tourist = Tourist::model()->findByAttributes(['userId' => $user->id]);
-            $deleted = $tourist && $tourist->deleted == false ? false : true;
-        }
-
-        if ($user == null || $user->id == 0 || $user->roleId != $this->role || $deleted) {
+        if ($user == null || $user->id == 0 || $user->roleId != $this->role) {
             $this->errorCode = self::ERROR_USERNAME_INVALID;
         } else {
             $this->errorCode = self::ERROR_NONE;
