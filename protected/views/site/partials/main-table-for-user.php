@@ -70,7 +70,7 @@
                 <?php foreach($model->data()->childAges as $child):?>
                     1 (<?php echo $child->age ?> 
                     <?php echo Yii::t('front', 'n==1#год|n<5#года|n>4#лет', $child->age) ?>
-                    ), <br>
+                    ) <br>
                 <?php endforeach; ?>
             <?php endif; ?>
         </td>
