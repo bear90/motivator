@@ -64,7 +64,7 @@
         <td><?php echo implode('-', $model->getCountryOptions()); ?>/<br>
             <?php echo $model->data()->relTourType->name; ?></td>
         <td>
-            Взрослых: <?php echo $model->data()->adultCount; ?> чел. <br>
+            Взрослых: <?php echo $model->data()->adultCount; ?> <br>
             <?php if($model->data()->childCount): ?>
                 Детей:
                 <?php foreach($model->data()->childAges as $child):?>
