@@ -24,10 +24,11 @@
             <?php echo $model->data()->relName->name; ?><br>
             № <?php echo $model->data()->id; ?><br>
             <a href="#" class="offers-link">подробнее</a><br>
-            <button type="button" class="btn btn-default btn-green add-offer">Разместить предложение</button>
+            <button type="button" data-id="<?php echo $model->data()->id; ?>" class="btn btn-default btn-green add-offer">Разместить предложение</button>
         </td>
         
-        <td><?php echo implode('-', $model->getCountryOptions()); ?>/<br>
+        <td>
+            <?php echo implode('-', $model->getCountryOptions()); ?>/<br>
             <?php echo $model->data()->relTourType->name; ?>
         </td>
         
@@ -72,7 +73,8 @@
     <tr class="offers-row <?php echo $offerForTask == $model->data()->id ? '' : 'hidden'?>">
         <td colspan="5">
             <?php $this->renderPartial('partials/offer-list', [
-                'offers' => $entity->offers
+                'offers' => $entity->offers,
+                'taskId' => $model->data()->id
             ])?>
         </td>
     </tr>

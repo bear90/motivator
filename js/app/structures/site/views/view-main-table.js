@@ -7,6 +7,7 @@ define([
         
         events: {
             'click button.add-offer': "clickAddOffer",
+            'click button.add-offer2': "clickAddOffer2",
             'click a.offers-link': "clickOffersLink",
             'click button.cancel-offer': "clickCancelOffer",
         },
@@ -27,10 +28,11 @@ define([
             $offersRow.toggleClass('hidden');
         },
 
-        clickAddOffer:  function (e){
+        clickAddOffer2:  function (e){
             var $el = this.$(e.target);
-            var $addOfferRow = $el.closest('tr').next().next('tr.add-offer-row');
+            var $addOfferRow = $el.closest('tr').next('tr.add-offer-row');
             var $form = $addOfferRow.find('form');
+            var id = "offer_form_" + $el.data('id');
 
             $addOfferRow.toggleClass('hidden');
 
@@ -38,6 +40,30 @@ define([
                 $form.data('initialized', 1);
                 this.initOffer($addOfferRow);
             }
+
+            this.scrollTo(id);
+        },
+
+        clickAddOffer:  function (e){
+            var $el = this.$(e.target);
+            var $addOfferRow = $el.closest('tr').next().next('tr.add-offer-row');
+            var $form = $addOfferRow.find('form');
+            var id = "offer_form_" + $el.data('id');
+
+            $addOfferRow.toggleClass('hidden');
+
+            if (!!$form.data('initialized') === false) {
+                $form.data('initialized', 1);
+                this.initOffer($addOfferRow);
+            }
+
+            this.scrollTo(id);
+        },
+
+        scrollTo: function(id) {
+            $('html, body').animate({
+                scrollTop: $("#" + id).offset().top
+            }, 1000);
         },
 
         clickCancelOffer:  function (e){
