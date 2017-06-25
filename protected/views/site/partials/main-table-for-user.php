@@ -80,7 +80,23 @@
             <?php echo $model->startedAt(); ?>
         </td>
         <td>
-            <div class="block"><i class="fa fa-snowflake-o" aria-hidden="true"></i>490€</div>
+            <?php if($model->data()->generalPrice) : ?>
+                <div class="block"><?php echo $model->data()->generalPrice; ?></div>
+            <?php endif; ?>
+            
+            <?php if($model->data()->earlyPrice) : ?>
+                <div class="block">
+                    <i class="fa fa-snowflake-o" aria-hidden="true"></i>
+                    <?php echo $model->data()->earlyPrice; ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if($model->data()->lastMinPrice) : ?>
+                <div class="block">
+                    <span class="glyphicon glyphicon-fire"></span>
+                    <?php echo $model->data()->lastMinPrice; ?>
+                </div>
+            <?php endif; ?>
         </td>
     </tr>
     <?php endforeach;?>

@@ -12,6 +12,7 @@
 namespace application\models\Entity;
 use application\models\Tools;
 use application\models\entities;
+use application\models\defines;
 
 class Task
 {
@@ -99,5 +100,32 @@ class Task
         $list = \CHtml::listData($list, 'id', 'name');
 
         return $list;
+    }
+
+    public function setPrice($type, $price)
+    {
+        $price = floatval($price);
+        switch ($type) {
+            case defines\Offer\PriceType::GENERAL:
+                if (is_null($this->data->generalPrice) || floatval($this->data->generalPrice) > $price) {
+                    $this->data->generalPrice = $price;
+                    $this->save();
+                }
+                break;
+            
+            case defines\Offer\PriceType::EARLY_BOOKING:
+                if (is_null($this->data->earlyPrice) || floatval($this->data->earlyPrice) > $price) {
+                    $this->data->earlyPrice = $price;
+                    $this->save();
+                }
+                break;
+            
+            case defines\Offer\PriceType::LASTMINUTE_TOUR:
+                if (is_null($this->data->lastMinPrice) || floatval($this->data->lastMinPrice) > $price) {
+                    $this->data->lastMinPrice = $price;
+                    $this->save();
+                }
+                break;
+        }
     }
 }

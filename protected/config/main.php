@@ -17,6 +17,7 @@ return array(
         'application.components.*',
     ),
     'controllerMap' => array(
+        'offer' => '\application\controllers\OfferController',
         'task' => '\application\controllers\TaskController',
         'site' => '\application\controllers\SiteController',
         'api' => '\application\controllers\ApiController',

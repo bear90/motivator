@@ -987,6 +987,10 @@ img.sltour {height: 148px;}
 #block-main-table table th.col3 {min-width: 255px;}
 #block-main-table table th.col4 {min-width: 210px;}
 #block-main-table table th.col5 {}
+#block-main-table table .offers-row,
+#block-main-table table .add-offer-row {
+    text-align: left;
+}
 #block-main-table .more {text-decoration: underline;}
 #block-main-table .btn {
     font-size: 12px;

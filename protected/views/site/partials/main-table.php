@@ -69,6 +69,7 @@
         <?php if(\Yii::app()->user->isManager()): ?>
             <?php $this->renderPartial('partials/main-table-for-manager', [
                 'entities' => $entities,
+                'offerForm' => $offerForm
             ])?>
         <?php else: ?>
             <?php $this->renderPartial('partials/main-table-for-user', [

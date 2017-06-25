@@ -19,15 +19,18 @@
     <?php foreach($entities as $entity):
         $model = new Entity\Task($entity);
     ?>
-    <tr>
+    <tr class="task-row">
         <td><?php echo $model->createdAt(); ?><br>
             <?php echo $model->data()->relName->name; ?><br>
             № <?php echo $model->data()->id; ?><br>
-            <a href="#" class="more">подробнее</a><br>
-            <button type="button" class="btn btn-default btn-green">Разместить предложение</button>
+            <a href="#" class="offers-link">подробнее</a><br>
+            <button type="button" class="btn btn-default btn-green add-offer">Разместить предложение</button>
         </td>
+        
         <td><?php echo implode('-', $model->getCountryOptions()); ?>/<br>
-            <?php echo $model->data()->relTourType->name; ?></td>
+            <?php echo $model->data()->relTourType->name; ?>
+        </td>
+        
         <td>
             Взрослых: <?php echo $model->data()->adultCount; ?> <br>
             <?php if($model->data()->childCount): ?>
@@ -39,13 +42,46 @@
                 <?php endforeach; ?>
             <?php endif; ?>
         </td>
+        
         <td>
             <?php echo $model->data()->days; ?> 
             <?php echo Yii::t('front', 'n==1#день|n<5#дня|n>4#дней', $model->data()->days) ?> /<br> 
             <?php echo $model->startedAt(); ?>
         </td>
+        
         <td>
-            <div class="block"><i class="fa fa-snowflake-o" aria-hidden="true"></i>490€</div>
+            <?php if($model->data()->generalPrice) : ?>
+                <div class="block"><?php echo $model->data()->generalPrice; ?></div>
+            <?php endif; ?>
+            
+            <?php if($model->data()->earlyPrice) : ?>
+                <div class="block">
+                    <i class="fa fa-snowflake-o" aria-hidden="true"></i>
+                    <?php echo $model->data()->earlyPrice; ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if($model->data()->lastMinPrice) : ?>
+                <div class="block">
+                    <span class="glyphicon glyphicon-fire"></span>
+                    <?php echo $model->data()->lastMinPrice; ?>
+                </div>
+            <?php endif; ?>
+        </td>
+    </tr>
+    <tr class="offers-row hidden">
+        <td colspan="5">
+            <?php $this->renderPartial('partials/offer-list', [
+                'offers' => $entity->offers
+            ])?>
+        </td>
+    </tr>
+    <tr class="add-offer-row hidden" id="task_<?php echo $model->data()->id; ?>">
+        <td colspan="5">
+            <?php $this->renderPartial('partials/add-offer', [
+                'taskId' => $entity->id,
+                'offerForm' => $offerForm
+            ])?>
         </td>
     </tr>
     <?php endforeach;?>

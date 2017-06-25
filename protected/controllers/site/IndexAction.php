@@ -19,6 +19,7 @@ class IndexAction extends \CAction
         //$loginForm = new UserLogin;
         $filterForm = new forms\TaskFilterForm();
         $taskForm = new forms\TaskForm();
+        $offerForm = new forms\OfferForm();
 
         /*$loginError = null;
         if (\Yii::app()->request->isPostRequest)
@@ -35,10 +36,12 @@ class IndexAction extends \CAction
         }*/
 
         $criteria = $this->getCriteria($filterForm);
+        $criteria->with['offers'] = ['order' => 'offers.id DESC'];
         $entities = Entity\Task\Repository::getAll($criteria);
 
         $this->controller->render('index', [
             'taskForm' => new \CForm('application.views.forms.task-form', $taskForm),
+            'offerForm' => new \CForm('application.views.forms.offer-form', $offerForm),
             'filterForm' => new \CForm('application.views.forms.task-filter-form', $filterForm),
             //'loginError' => $loginError,
             'entities' => $entities
