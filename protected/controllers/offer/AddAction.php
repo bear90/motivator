@@ -21,7 +21,9 @@ class AddAction extends \CAction
         $task = entities\Task::model()->findByPk($attributes['taskId']);
         $model = new Entity\Task($task);
         $model->setPrice($offer->data()->priceType, $offer->data()->price);
+
+        \Yii::app()->user->setFlash('offerForTask', $attributes['taskId']);
         
-        $this->controller->redirect('/');
+        $this->controller->redirect('/#offer_' . $offer->data()->id);
     }
 }

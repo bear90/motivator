@@ -176,6 +176,7 @@ use application\modules\admin\models\Text;
 
     
     <?php $this->renderPartial('partials/main-table', [
+        'offerForTask' => $offerForTask,
         'entities' => $entities,
         'filterForm' => $filterForm,
         'offerForm' => $offerForm

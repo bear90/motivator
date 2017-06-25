@@ -69,7 +69,7 @@
             <?php endif; ?>
         </td>
     </tr>
-    <tr class="offers-row hidden">
+    <tr class="offers-row <?php echo $offerForTask == $model->data()->id ? '' : 'hidden'?>">
         <td colspan="5">
             <?php $this->renderPartial('partials/offer-list', [
                 'offers' => $entity->offers
