@@ -81,20 +81,20 @@
         </td>
         <td>
             <?php if($model->data()->generalPrice) : ?>
-                <div class="block"><?php echo $model->data()->generalPrice; ?></div>
+                <div class="block"><?php echo ceil($model->data()->generalPrice); ?>€</div>
             <?php endif; ?>
             
             <?php if($model->data()->earlyPrice) : ?>
                 <div class="block">
                     <i class="fa fa-snowflake-o" aria-hidden="true"></i>
-                    <?php echo $model->data()->earlyPrice; ?>
+                    <?php echo ceil($model->data()->earlyPrice); ?>€
                 </div>
             <?php endif; ?>
 
             <?php if($model->data()->lastMinPrice) : ?>
                 <div class="block">
                     <span class="glyphicon glyphicon-fire"></span>
-                    <?php echo $model->data()->lastMinPrice; ?>
+                    <?php echo ceil($model->data()->lastMinPrice); ?>€
                 </div>
             <?php endif; ?>
         </td>
