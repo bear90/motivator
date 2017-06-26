@@ -74,7 +74,8 @@
         <td colspan="5">
             <?php $this->renderPartial('partials/offer-list', [
                 'offers' => $entity->offers,
-                'taskId' => $model->data()->id
+                'taskId' => $model->data()->id,
+                'showContactForFirtsOne' => $offerForTask == $model->data()->id
             ])?>
         </td>
     </tr>

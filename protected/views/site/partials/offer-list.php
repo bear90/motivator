@@ -7,7 +7,12 @@
     <div class="row" id="offer_<?php echo $offer->id; ?>">
         <div class="col-md-12">
             <h3>Предложение №<?php echo $num+1; ?></h3>
-            <?php echo $offer->description; ?>
+
+            <?php if($showContactForFirtsOne && $num==0): ?>
+            <div><?php echo $offer->contact; ?></div>
+            <?php endif; ?>
+
+            <div><?php echo $offer->description; ?></div>
 
             <?php if($offer->priceType == PriceType::GENERAL) : ?>
                 <div>

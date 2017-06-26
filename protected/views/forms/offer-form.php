@@ -31,19 +31,19 @@ return [
         'priceType' => [
             'label' => 'Выберите режим продажи тура:',
             'type' => 'dropdownlist',
-            'layout' => '{label}{input}',
+            'layout' => '{input}',
             'items' => ['' => ''] + application\models\defines\Offer\PriceType::getOptions(),
             'attributes' => [
-                'name' => 'offer[priceType]',
+                'name' => 'offer[priceType][]',
                 'class' => 'form-control'
             ]
         ],
         'price' => [
             'label' => 'Укажите стоимость тура в €:',
             'type' => 'text',
-            'layout' => '{label}{input}',
+            'layout' => '{input}',
             'attributes' => [
-                'name' => 'offer[price]',
+                'name' => 'offer[price][]',
                 'class' => 'form-control'
             ]
         ],

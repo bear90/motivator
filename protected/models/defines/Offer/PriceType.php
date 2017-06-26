@@ -18,7 +18,7 @@ class PriceType
     {
         return [
             self::GENERAL => 'Штатная продажа',
-            self::EARLY_BOOKING => '<i class="fa fa-snowflake-o" aria-hidden="true"></i> Раннее бронирование',
+            self::EARLY_BOOKING => 'Раннее бронирование',
             self::LASTMINUTE_TOUR => 'Горящий тур',
         ];
     }

@@ -988,9 +988,10 @@ img.sltour {height: 148px;}
 #block-main-table table th.col4 {min-width: 210px;}
 #block-main-table table th.col5 {}
 #block-main-table table .offers-row,
-#block-main-table table .add-offer-row {
-    text-align: left;
-}
+#block-main-table table .add-offer-row {text-align: left;}
+#block-main-table table .add-offer-row .price table {width: 100%;}
+#block-main-table table .add-offer-row .price .form-group {margin-bottom: 5px;}
+#block-main-table table .add-offer-row .price .checkbox {margin-top: 5px}
 #block-main-table .more {text-decoration: underline;}
 #block-main-table .btn {
     font-size: 12px;
@@ -1020,3 +1021,4 @@ img.sltour {height: 148px;}
 .turagentam #slider {
     margin-bottom: 30px;
 }
+

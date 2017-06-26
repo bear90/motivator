@@ -100,7 +100,6 @@ define([
                                         format: 'text'
                                     });
 
-                                    console.log(text);
                                     return text.length >= 5;
                                 }
                             },
@@ -117,23 +116,43 @@ define([
                                         format: 'text'
                                     });
 
-                                    console.log(text);
                                     return text.length >= 5;
                                 }
                             },
                         }
                     },
-                    'offer[priceType]': {
+                    'offer[priceType][]': {
                         validators: {
-                            notEmpty: {
-                                message: "Вам необходимо выбрать режим продажи тура!"
+                            callback: {
+                                message: "Вам необходимо выбрать режим продажи тура!",
+                                callback: function(value, validator, $field) {
+                                    var $table = $field.closest('table');
+
+                                    var selected = false;
+                                    $.each($table.find('input[type=checkbox]'), function($el) {
+                                        if ($el.is('checkedk')) {
+                                            selected = true;
+                                        }
+                                    });
+
+                                    return  selected;
+                                }
                             },
                         }
                     },
-                    'offer[price]': {
+                    'offer[price][]': {
                         validators: {
-                            notEmpty: {
-                                message: "Вам необходимо ввести стоимость тура!"
+                            callback: {
+                                message: "Вам необходимо ввести стоимость тура!",
+                                callback: function(value, validator, $field) {
+                                    var $row = $field.closest('tr');
+                                    var $checkbox = $row.find('input[type=checkbox]');
+
+                                    if ($checkbox.is(':checked')) {
+                                        return value.length > 0;
+                                    }
+                                    return  true;
+                                }
                             },
                         }
                     },

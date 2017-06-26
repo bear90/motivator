@@ -1,4 +1,6 @@
 <?php
+    use application\models\defines\Offer\PriceType;
+
     $offerForm->getModel()->taskId = $taskId;
 ?>
 
@@ -14,12 +16,59 @@
         <?php echo $offerForm['description']; ?>
     </div>
 
-    <div class="form-group">
-        <?php echo $offerForm['priceType']; ?>
-    </div>
-
-    <div class="form-group">
-        <?php echo $offerForm['price']; ?>
+    <div class="row price">
+        <div class="col-md-6">
+            <table>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <label for="">Выберите режим продажи тура:</label>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <label for="">Укажите стоимость тура в €:</label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <?php echo $offerForm['priceType']; ?>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <?php echo $offerForm['price']; ?>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <?php echo $offerForm['priceType']; ?>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <?php echo $offerForm['price']; ?>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div class="form-group">
+                            <?php echo $offerForm['priceType']; ?>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <?php echo $offerForm['price']; ?>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
 
     <div class="form-block button">
