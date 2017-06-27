@@ -83,10 +83,12 @@ define([
 
         clickAddOffer:  function (e){
             var $el = this.$(e.target);
-            var $addOfferRow = $el.closest('tr').next().next('tr.add-offer-row');
+            var $offersRow = $el.closest('tr').next('tr.offers-row');
+            var $addOfferRow = $offersRow.next('tr.add-offer-row');
             var $form = $addOfferRow.find('form');
             var id = "offer_form_" + $el.data('id');
 
+            $offersRow.removeClass('hidden');
             $addOfferRow.toggleClass('hidden');
 
             if (!!$form.data('initialized') === false) {
@@ -98,9 +100,11 @@ define([
         },
 
         scrollTo: function(id) {
+            console.log($("#" + id).offset().top);
+            var position = parseInt($("#" + id).offset().top) - 150;
             $('html, body').animate({
-                scrollTop: $("#" + id).offset().top
-            }, 1000);
+                scrollTop: position
+            }, 2000);
         },
 
         clickCancelOffer:  function (e){
