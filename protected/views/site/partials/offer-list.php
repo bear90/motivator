@@ -9,7 +9,8 @@
             <h3>Предложение №<?php echo $i; ?></h3>
 
             <?php if($showContactForFirtsOne && $i==count($offers)): ?>
-            <div><?php echo $offers[$i-1]->contact; ?></div>
+                <div class="success">На ваш e-mail отправлено письмо с указанием пароля</div>
+                <div><?php echo $offers[$i-1]->contact; ?></div>
             <?php endif; ?>
 
             <div><?php echo $offers[$i-1]->description; ?></div>
