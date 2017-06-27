@@ -16,60 +16,32 @@
         <?php echo $offerForm['description']; ?>
     </div>
 
-    <div class="row price">
-        <div class="col-md-6">
-            <table>
-                <tr>
-                    <td>
-                        <div class="form-group">
-                            <label for="">Выберите режим продажи тура:</label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-group">
-                            <label for="">Укажите стоимость тура в €:</label>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="form-group">
-                            <?php echo $offerForm['priceType']; ?>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-group">
-                            <?php echo $offerForm['price']; ?>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="form-group">
-                            <?php echo $offerForm['priceType']; ?>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-group">
-                            <?php echo $offerForm['price']; ?>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="form-group">
-                            <?php echo $offerForm['priceType']; ?>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="form-group">
-                            <?php echo $offerForm['price']; ?>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="">Выберите режим продажи тура:</label>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <label for="">Укажите стоимость тура в €:</label>
+            </div>
         </div>
     </div>
+
+    <div class="row price">
+        <div class="col-md-3">
+            <div class="form-group">
+                <?php echo $offerForm['priceType']; ?>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="form-group">
+                <?php echo $offerForm['price']; ?>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="offer-add-price">+ Добавить режим продажи тура</a>
 
     <div class="form-block button">
         <button type="submit" class="btn btn-default btn-green">Разместить предложение</button>

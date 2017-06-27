@@ -14,23 +14,23 @@
 
             <div><?php echo $offer->description; ?></div>
 
-            <?php if($offer->priceType == PriceType::GENERAL) : ?>
+            <?php if(!is_null($offer->price)) : ?>
                 <div>
                     Штатная продажа: <?php echo ceil($offer->price); ?>
                 </div>
             <?php endif; ?>
 
-            <?php if($offer->priceType == PriceType::EARLY_BOOKING) : ?>
+            <?php if(!is_null($offer->earlyPrice)) : ?>
                 <div>
                     Ранее бронирование: 
-                    <i class="fa fa-snowflake-o" aria-hidden="true"></i> <?php echo ceil($offer->price); ?>
+                    <i class="fa fa-snowflake-o" aria-hidden="true"></i> <?php echo ceil($offer->earlyPrice); ?>
                 </div>
             <?php endif; ?>
 
-            <?php if($offer->priceType == PriceType::LASTMINUTE_TOUR) : ?>
+            <?php if(!is_null($offer->lastMinPrice)) : ?>
                 <div>
                     Горящий тур:
-                    <span class="glyphicon glyphicon-fire"></span> <?php echo ceil($offer->price); ?>
+                    <span class="glyphicon glyphicon-fire"></span> <?php echo ceil($offer->lastMinPrice); ?>
                 </div>
             <?php endif; ?>
         </div>

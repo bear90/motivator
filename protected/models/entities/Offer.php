@@ -16,7 +16,7 @@ class Offer extends BaseEntity
 {
     public function rules(){
         return [
-            ['contact, description, priceType, taskId', 'required'],
+            ['contact, description, taskId', 'required'],
             ['price, earlyPrice, lastMinPrice', 'type', 'type' => 'integer'],
             ['createdBy', 'safe']
         ];

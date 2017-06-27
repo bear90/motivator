@@ -1,8 +1,9 @@
 define([
+    'text!structures/site/tmpl/offer_price.html',
     'validator',
     'tinymce',
     'tinymce.jquery'
-], function(){
+], function(OfferPriceTmpl){
     return Backbone.View.extend({
         
         events: {
@@ -10,7 +11,11 @@ define([
             'click button.add-offer2': "clickAddOffer2",
             'click a.offers-link': "clickOffersLink",
             'click button.cancel-offer': "clickCancelOffer",
+            'click a.offer-add-price': "clickOfferAddPrice",
+            'keypress input[name="offer[price][]"]': "keypressPrice",
         },
+
+        templateOfferPrice: _.template(OfferPriceTmpl),
 
         initialize: function(){
             
@@ -18,6 +23,38 @@ define([
 
         render:  function (){
 
+        },
+
+        keypressPrice:  function (e){
+            // Allow: backspace, delete, tab, escape, enter
+           if ($.inArray(e.keyCode, [8, 9, 27, 13, 110, 190]) !== -1 ||
+                // Allow: Ctrl/cmd+A
+               (e.keyCode == 65 && (e.ctrlKey === true || e.metaKey === true)) ||
+                // Allow: Ctrl/cmd+C
+               (e.keyCode == 67 && (e.ctrlKey === true || e.metaKey === true)) ||
+                // Allow: Ctrl/cmd+X
+               (e.keyCode == 88 && (e.ctrlKey === true || e.metaKey === true)) ||
+                // Allow: home, end, left, right
+               (e.keyCode >= 35 && e.keyCode <= 39)) {
+                    // let it happen, don't do anything
+                    return;
+           }
+           // Ensure that it is a number and stop the keypress
+           if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+               e.preventDefault();
+           }
+        },
+
+        clickOfferAddPrice: function(e) {
+            e.preventDefault();
+            var $el = this.$(e.target);
+            var n = $el.closest('form').find('.row.price').size();
+            if (n<3) {
+                $el.before(this.templateOfferPrice());
+                if (n==2) {
+                    $el.addClass('hidden');
+                }
+            }
         },
 
         clickOffersLink:  function (e){
@@ -123,36 +160,15 @@ define([
                     },
                     'offer[priceType][]': {
                         validators: {
-                            callback: {
-                                message: "Вам необходимо выбрать режим продажи тура!",
-                                callback: function(value, validator, $field) {
-                                    var $table = $field.closest('table');
-
-                                    var selected = false;
-                                    $.each($table.find('input[type=checkbox]'), function($el) {
-                                        if ($el.is('checkedk')) {
-                                            selected = true;
-                                        }
-                                    });
-
-                                    return  selected;
-                                }
+                            notEmpty: {
+                                message: "Вам необходимо выбрать режим продажи тура!"
                             },
                         }
                     },
                     'offer[price][]': {
                         validators: {
-                            callback: {
+                            notEmpty: {
                                 message: "Вам необходимо ввести стоимость тура!",
-                                callback: function(value, validator, $field) {
-                                    var $row = $field.closest('tr');
-                                    var $checkbox = $row.find('input[type=checkbox]');
-
-                                    if ($checkbox.is(':checked')) {
-                                        return value.length > 0;
-                                    }
-                                    return  true;
-                                }
                             },
                         }
                     },
