@@ -12,7 +12,7 @@ define([
             'click a.offers-link': "clickOffersLink",
             'click button.cancel-offer': "clickCancelOffer",
             'click a.offer-add-price': "clickOfferAddPrice",
-            'keypress input[name="offer[price][]"]': "keypressPrice",
+            'keydown input.price': "keydownPrice",
         },
 
         templateOfferPrice: _.template(OfferPriceTmpl),
@@ -25,9 +25,9 @@ define([
 
         },
 
-        keypressPrice:  function (e){
+        keydownPrice:  function (e){console.log(e.keyCode);
             // Allow: backspace, delete, tab, escape, enter
-           if ($.inArray(e.keyCode, [8, 9, 27, 13, 110, 190]) !== -1 ||
+           if ($.inArray(e.keyCode, [8, 9, 27, 13, 110]) !== -1 ||
                 // Allow: Ctrl/cmd+A
                (e.keyCode == 65 && (e.ctrlKey === true || e.metaKey === true)) ||
                 // Allow: Ctrl/cmd+C

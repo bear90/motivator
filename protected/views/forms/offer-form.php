@@ -44,7 +44,7 @@ return [
             'layout' => '{input}',
             'attributes' => [
                 'name' => 'offer[price][]',
-                'class' => 'form-control',
+                'class' => 'form-control price',
             ]
         ],
         'taskId' => [
