@@ -2,7 +2,7 @@
     use application\models\Entity;
 ?>
 
-<table class="table table-bordered main-table filtered">
+<table class="table table-bordered main-table filtered" id="all-tasks">
     <tr>
         <th class="col1">Дата размещения заявки на тур/<br>
          имя автора заявки/ <br>

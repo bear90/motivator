@@ -28,7 +28,7 @@ class AddAction extends \CAction
 
         \Yii::app()->user->setFlash('createdTaskId', $task->data()->id);
         
-        $this->controller->redirect('/#task_' . $task->data()->id);
+        $this->controller->redirect('/#all-tasks');
         
         \Tool::sendEmailWithView($task->data()->email, 'add-task');
     }

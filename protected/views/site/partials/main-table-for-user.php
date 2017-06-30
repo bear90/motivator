@@ -3,7 +3,7 @@
     use application\models\entities\Configuration;
 ?>
 
-<table class="table table-bordered main-table 
+<table id="all-tasks" class="table table-bordered main-table 
     <?php echo $filtered ? 'filtered' : '' ?>">
     <tr>
         <th class="col1">Дата размещения заявки на тур/<br>
