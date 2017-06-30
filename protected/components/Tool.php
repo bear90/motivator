@@ -7,7 +7,7 @@
     use application\models\Tour;
     use application\models\Tourist;
     use application\models\TouragentManager;
-    use application\modules\admin\models\Template;
+    use application\models\Entity\Template;
 
     class Tool {
 
