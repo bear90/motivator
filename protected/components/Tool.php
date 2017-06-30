@@ -3,7 +3,7 @@
     //namespace application\models;
 
     use application\models\defines\TouristStatus;
-    use application\models\Configuration;
+    use application\models\entities\Configuration;
     use application\models\Tour;
     use application\models\Tourist;
     use application\models\TouragentManager;
@@ -127,10 +127,6 @@
 
             $placeholders = [
                 '~SITE_DOMAIN~' => Configuration::get(Configuration::SITE_DOMAIN),
-                '~MIN_DISCONT~' => Configuration::get(Configuration::MIN_DISCONT),
-                '~MAX_DISCONT~' => Configuration::get(Configuration::MAX_DISCONT),
-                '~PREPAYMENT~' => Configuration::get(Configuration::PREPAYMENT),
-                '~ORDER_TOUR_TIMER~' => Configuration::get(Configuration::ORDER_TOUR_TIMER)
             ];
 
             $content = str_replace(array_keys($placeholders), array_values($placeholders), $content);

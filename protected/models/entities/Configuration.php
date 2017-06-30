@@ -17,7 +17,9 @@ class Configuration extends BaseEntity {
 
     const TYPE_FLOAT  = 'float';
 
-    const PARAM_SENT_EMAIL_MESSAGE  = 'sent_email_message';
+    const SITE_DOMAIN = 'SITE_DOMAIN';
+    
+    const PARAM_SENT_EMAIL_MESSAGE  = 'PARAM_SENT_EMAIL_MESSAGE';
 
     private static $aValues = null;
 
