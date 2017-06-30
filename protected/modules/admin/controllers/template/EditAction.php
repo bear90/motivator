@@ -11,20 +11,20 @@
 
 namespace application\modules\admin\controllers\template;
 
-use application\modules\admin\models\Entity\TemplateEntity;
-use application\modules\admin\models\Template;
+use application\models\Entity;
+use application\models\entities;
 
 class EditAction extends \CAction
 {
     public function run($id = null)
     {
-        $template = TemplateEntity::model()->findByPk($id);
+        $template = entities\Template::model()->findByPk($id);
 
         if (\Yii::app()->request->isPostRequest)
         {
             $attributes = (array) \Yii::app()->request->getPost('Template');
 
-            $template = new Template($template);
+            $template = new Entity\Template($template);
             $template->save($attributes);
 
             \Yii::app()->user->setFlash('message', "Запись изменена успешно.");

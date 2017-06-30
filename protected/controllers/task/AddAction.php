@@ -25,7 +25,11 @@ class AddAction extends \CAction
         if ($task->data()->childCount) {
             $task->attachCildAgies($attributes['childAge']);
         }
+
+        \Yii::app()->user->setFlash('createdTaskId', $task->data()->id);
         
         $this->controller->redirect('/#task_' . $task->data()->id);
+        
+        \Tool::sendEmailWithLayout($tourist, 'add-task');
     }
 }

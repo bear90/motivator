@@ -17,37 +17,7 @@ class Configuration extends BaseEntity {
 
     const TYPE_FLOAT  = 'float';
 
-    const ORDER_TOUR_TIMER = 'ORDER_TOUR_TIMER';
-    
-    const PAYMENT_TOUR_TIMER = 'PAYMENT_TOUR_TIMER';
-    
-    const MIN_DISCONT = 'MIN_DISCONT';
-
-    const MAX_DISCONT = 'MAX_DISCONT';
-    
-    const SITE_DOMAIN = 'SITE_DOMAIN';
-    
-    const PREPAYMENT = 'PREPAYMENT';
-
-    const PARTNER_PERCENT = 'PARTNER_PERCENT';
-
-    const LAST_REMIND = 'LAST_REMIND';
-
-    const ADAPTATION_PERIOD = 'ADAPTATION_PERIOD';
-
-    const DELETE_USER_TIMER = 'DELETE_USER_TIMER';
-
-    const TEMPLATE_10_PERIOD = 'TEMPLATE_10_PERIOD';
-
-    const TEMPLATE_11_PERIOD = 'TEMPLATE_11_PERIOD';
-
-    const TEMPLATE_12_PERIOD = 'TEMPLATE_12_PERIOD';
-
-    const BONUS_MANAGER = 'BONUS_MANAGER';
-
-    const CHECKING_DELTA = 'CHECKING_DELTA';
-    
-    const DELTA = 'DELTA';
+    const PARAM_SENT_EMAIL_MESSAGE  = 'sent_email_message';
 
     private static $aValues = null;
 

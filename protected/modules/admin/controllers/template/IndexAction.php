@@ -12,13 +12,13 @@
 namespace application\modules\admin\controllers\template;
 
 
-use application\modules\admin\models\Entity\TemplateEntity;
+use application\models\entities;
 
 class IndexAction extends \CAction
 {
     public function run()
     {
-        $templates = TemplateEntity::model()->findAll(['order' => 'position']);
+        $templates = entities\Template::model()->findAll(['order' => 'position']);
         
         
         $this->controller->render('index', [

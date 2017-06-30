@@ -1,5 +1,6 @@
 <?php
     use application\models\Entity;
+    use application\models\entities\Configuration;
 ?>
 
 <table class="table table-bordered main-table 
@@ -23,11 +24,17 @@
         $model = new Entity\Task($entity);
         ?>
     <tr id="task_<?php echo $model->data()->id; ?>">
-            <td><?php echo $model->createdAt(); ?><br>
+            <td>
+                <?php echo $model->createdAt(); ?><br>
                 <?php echo $model->data()->relName->name; ?><br>
-                № <?php echo $model->data()->id; ?></td>
-            <td><?php echo implode('-', $model->getCountryOptions()); ?>/<br>
-                <?php echo $model->data()->relTourType->name; ?></td>
+                № <?php echo $model->data()->id; ?><br>
+            </td>
+
+            <td>
+                <?php echo implode('-', $model->getCountryOptions()); ?>/<br>
+                <?php echo $model->data()->relTourType->name; ?>
+            </td>
+            
             <td>
                 Взрослых: <?php echo $model->data()->adultCount; ?> <br>
                 <?php if($model->data()->childCount): ?>
@@ -39,11 +46,13 @@
                     <?php endforeach; ?>
                 <?php endif; ?>
             </td>
+            
             <td>
                 <?php echo $model->data()->days; ?>
                 <?php echo Yii::t('front', 'n==1#день|n<5#дня|n>4#дней', $model->data()->days) ?> /<br>
                 <?php echo $model->startedAt(); ?>
             </td>
+            
             <td>
                 <?php if($model->data()->generalPrice) : ?>
                     <div class="block"><?php echo ceil($model->data()->generalPrice); ?>€</div>
@@ -64,6 +73,15 @@
                 <?php endif; ?>
             </td>
         </tr>
+
+        <?php if ($model->data()->id == \Yii::app()->user->getFlash('createdTaskId', null)): ?>
+        <tr>
+            <td colspan="5">
+                <b><?php echo Configuration::get(Configuration::PARAM_SENT_EMAIL_MESSAGE); ?></b>
+            </td>
+        </tr>
+        <?php endif;?>
+        
         <?php endforeach;?>
     <?php else:?>
         <tr>

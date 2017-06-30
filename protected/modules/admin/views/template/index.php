@@ -30,12 +30,5 @@ $part3 = array_filter($templates, function($item){
     <div><?php echo $message; ?></div><br>
 <?php endif; ?>
 
-<h3>Статус «соискатель скидки»</h3>
-<?php $this->renderPartial('partials/table' , ['templates' => $part1]); ?>
-
-<h3>Статус «получатель скидки»</h3>
-<?php $this->renderPartial('partials/table' , ['templates' => $part2]); ?>
-
-<h3>Статус «обладатель скидки»</h3>
-<?php $this->renderPartial('partials/table' , ['templates' => $part3]); ?>
+<?php $this->renderPartial('partials/table' , ['templates' => $templates]); ?>
 

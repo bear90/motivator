@@ -105,7 +105,7 @@ class AdminController extends \CController
                 'label' => 'Виды туров',
                 'url' => '/admin/tourtype',
             ],
-            /*[
+            [
                 'key' => 'params',
                 'label' => 'Параметры',
                 'url' => '/admin/params',
@@ -115,7 +115,7 @@ class AdminController extends \CController
                 'label' => 'Шаблоны писем',
                 'url' => '/admin/template',
             ],
-            [
+            /*[
                 'key' => 'search',
                 'label' => 'Поиск туристов',
                 'url' => '/admin/search',

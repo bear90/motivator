@@ -5,7 +5,7 @@
 
 namespace application\modules\admin\controllers\params;
 
-use application\models\Configuration;
+use application\models\entities\Configuration;
 
 class IndexAction extends \CAction
 {
