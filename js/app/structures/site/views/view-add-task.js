@@ -154,6 +154,23 @@ define([
         },
 
         selectName:  function (e){
+            var $el = $(e.target);
+            var $row = $el.closest('.row');
+            
+            switch($el.attr('name')) {
+                case "task[name1]":
+                    if ($el.val()) {
+                        $row.find('#task_name2').val(0);
+                    }
+                    break;
+
+                case "task[name2]":
+                    if ($el.val()) {
+                        $row.find('#task_name1').val(0);
+                    }
+                    break;
+            }
+
             this.$('form').bootstrapValidator('revalidateField', 'task[name1]');
             this.$('form').bootstrapValidator('revalidateField', 'task[name2]');
         },
