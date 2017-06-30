@@ -47,7 +47,7 @@
             $message->setBody($text, 'text/html');
              
             $message->addTo($to);
-            $message->setFrom(\Yii::app()->params['adminEmail'], 'Сервис «МОТИВАТОР»');
+            $message->setFrom(\Yii::app()->params['adminEmail'], 'Сервис «Penki.by»');
             $message->setSender(\Yii::app()->params['senderEmail']);
             $message->setSubject($template['subject']);
             

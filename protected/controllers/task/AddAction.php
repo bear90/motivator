@@ -30,6 +30,6 @@ class AddAction extends \CAction
         
         $this->controller->redirect('/#task_' . $task->data()->id);
         
-        \Tool::sendEmailWithLayout($tourist, 'add-task');
+        \Tool::sendEmailWithView($task->data()->email, 'add-task');
     }
 }
