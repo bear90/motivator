@@ -22,7 +22,7 @@
         <?php foreach($entities as $entity):
         $model = new Entity\Task($entity);
         ?>
-        <tr>
+    <tr id="task_<?php echo $model->data()->id; ?>">
             <td><?php echo $model->createdAt(); ?><br>
                 <?php echo $model->data()->relName->name; ?><br>
                 № <?php echo $model->data()->id; ?></td>

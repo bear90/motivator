@@ -26,6 +26,6 @@ class AddAction extends \CAction
             $task->attachCildAgies($attributes['childAge']);
         }
         
-        $this->controller->redirect('/');
+        $this->controller->redirect('/#task_' . $task->data()->id);
     }
 }
