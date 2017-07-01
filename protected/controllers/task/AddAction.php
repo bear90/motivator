@@ -14,6 +14,8 @@ class AddAction extends \CAction
         $attributes = \Yii::app()->request->getPost('task');
         $veryfyCode = \Yii::app()->request->getPost('veryfyCode');
 
+        \Tool::sendEmailWithView($task->data()->email, 'add-task');
+
         $startedAt = new \DateTime($attributes['startedAt']);
         $attributes['startedAt'] = $startedAt->format("Y-m-d H:i:s");
         $attributes['name'] = !empty($attributes['name1']) ? $attributes['name1'] : $attributes['name2'];
@@ -27,8 +29,8 @@ class AddAction extends \CAction
 
         \Yii::app()->user->setFlash('createdTaskId', $task->data()->id);
         
-        $this->controller->redirect('/#all-tasks');
-        
         \Tool::sendEmailWithView($task->data()->email, 'add-task');
+        
+        $this->controller->redirect('/#all-tasks');
     }
 }
