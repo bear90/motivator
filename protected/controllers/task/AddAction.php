@@ -6,7 +6,6 @@
 namespace application\controllers\task;
 use application\models\Entity;
 use application\models\forms;
-use application\models\Tools;
 
 class AddAction extends \CAction
 {
