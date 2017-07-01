@@ -14,8 +14,8 @@
         <th>Значение</th>
     </tr>
     <tr>
-        <td>Уведомление при размещении заявки</td>
-        <td><?php echo CHtml::textField('config['.Configuration::PARAM_SENT_EMAIL_MESSAGE.']', Configuration::get(Configuration::PARAM_SENT_EMAIL_MESSAGE), ['class' => 'form-control']); ?></td>
+        <td>Cрок до первого предупреждения</td>
+        <td><?php echo CHtml::textField('config['.Configuration::FIRST_NOTICE_TERM.']', Configuration::get(Configuration::FIRST_NOTICE_TERM), ['class' => 'form-control']); ?></td>
     </tr>
 </table>
 <div class="form-group">

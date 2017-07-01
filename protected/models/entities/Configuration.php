@@ -19,7 +19,7 @@ class Configuration extends BaseEntity {
 
     const SITE_DOMAIN = 'SITE_DOMAIN';
     
-    const PARAM_SENT_EMAIL_MESSAGE  = 'PARAM_SENT_EMAIL_MESSAGE';
+    const FIRST_NOTICE_TERM  = 'FIRST_NOTICE_TERM';
 
     private static $aValues = null;
 
