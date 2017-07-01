@@ -1,5 +1,6 @@
 <?php
     use application\models\Entity;
+    use application\modules\admin\models\Text;
 ?>
 
 <table class="table table-bordered main-table filtered" id="all-tasks">
@@ -88,6 +89,15 @@
                 ])?>
             </td>
         </tr>
+
+        <?php if ($model->data()->id == \Yii::app()->user->getFlash('createdTaskId', null)): ?>
+        <tr>
+            <td colspan="5">
+                <b><?php echo Text::get('sent-email-message'); ?></b>
+            </td>
+        </tr>
+        <?php endif;?>
+
         <?php endforeach;?>
     <?php else:?>
         <tr>

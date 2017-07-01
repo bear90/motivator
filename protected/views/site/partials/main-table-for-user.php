@@ -1,6 +1,6 @@
 <?php
     use application\models\Entity;
-    use application\models\entities\Configuration;
+    use application\modules\admin\models\Text;
 ?>
 
 <table id="all-tasks" class="table table-bordered main-table 
@@ -77,7 +77,7 @@
         <?php if ($model->data()->id == \Yii::app()->user->getFlash('createdTaskId', null)): ?>
         <tr>
             <td colspan="5">
-                <b><?php echo Configuration::get(Configuration::PARAM_SENT_EMAIL_MESSAGE); ?></b>
+                <b><?php echo Text::get('sent-email-message'); ?></b>
             </td>
         </tr>
         <?php endif;?>
