@@ -16,24 +16,23 @@ class IndexAction extends \CAction
     public function run()
     {
         $userModel = \Yii::app()->user->getModel();
-        //$loginForm = new UserLogin;
+        $loginForm = new forms\UserLoginForm;
         $filterForm = new forms\TaskFilterForm();
         $taskForm = new forms\TaskForm();
         $offerForm = new forms\OfferForm();
 
-        /*$loginError = null;
         if (\Yii::app()->request->isPostRequest)
         {
             $password = \Yii::app()->request->getPost('password');
             $loginForm->password = $password;
 
             if ($loginForm->validate() && $loginForm->login(UserRole::USER)) {
-                $this->controller->redirect(\Yii::app()->createUrl('user/dashboard'));
+                $this->controller->redirect(\Yii::app()->createUrl('/#block-main-table'));
                 return;
             } else {
-                $loginError = 'Не верный логин или пароль';
+                \Yii::app()->user->setFlash('loginMessage', 'Не верный логин или пароль');
             }
-        }*/
+        }
 
         $criteria = $this->getCriteria($filterForm);
         $criteria->with['offers'] = ['order' => 'offers.id ASC'];
@@ -43,7 +42,8 @@ class IndexAction extends \CAction
             'taskForm' => new \CForm('application.views.forms.task-form', $taskForm),
             'offerForm' => new \CForm('application.views.forms.offer-form', $offerForm),
             'filterForm' => new \CForm('application.views.forms.task-filter-form', $filterForm),
-            //'loginError' => $loginError,
+            'loginForm' => new \CForm('application.views.forms.user-login-form', $loginForm),
+            'loginMessage' => \Yii::app()->user->getFlash('loginMessage', null),
             'entities' => $entities,
             'offerForTask' => \Yii::app()->user->getFlash('offerForTask', null),
         ]);

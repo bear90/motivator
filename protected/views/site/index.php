@@ -3,7 +3,7 @@
  * @var \CForm $loginForm
  * @var \CForm $taskForm
  * @var \CForm $registerForm
- * @var string $loginError
+ * @var string $loginMessage
  * @author soza.mihail@gmail.com
  */
 
@@ -65,10 +65,36 @@ use application\modules\admin\models\Text;
             <div class="col-md-6">
                 <a href="#add-task" data-toggle="collapse"  id="btn-add-task" class="btn btn-default">РАЗМЕСТИТЬ  ЗАЯВКУ  НА  ТУР</a>
             </div>
+
             <div class="col-md-6">
-                <a href="#login-form" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default">ПОКАЗАТЬ ПРЕДЛОЖЕНИЯ</a>
+                <?php if (!\Yii::app()->user->isUser()): ?>
+                    <a href="#login-user" id="btn-user-login" class="btn btn-default">ПОКАЗАТЬ ПРЕДЛОЖЕНИЯ</a>
+                <?php else: ?>
+                    <a href="/#block-main-table" class="btn btn-default">ПОКАЗАТЬ ПРЕДЛОЖЕНИЯ</a>
+                <?php endif; ?>
             </div>
         </div>
+        
+        <div class="row <?php echo $loginMessage ? '' : 'hidden'; ?>" id="login-user">
+            <div class="col-md-4 col-md-offset-7">
+                <?php echo $loginForm->renderBegin(); ?>
+                
+                <div class="form-group">
+                    <?php echo $loginForm['password']; ?>
+                </div>
+
+                <?php if ($loginMessage): ?>
+                    <div class="alert alert-danger" role="alert"><?php echo $loginMessage; ?></div>
+                <?php endif; ?>
+
+                <div class="form-block button">
+                    <button type="submit" class="btn btn-default btn-green">Войти</button>
+                </div>
+
+                <?php echo $loginForm->renderEnd(); ?>
+            </div>
+        </div>
+
         <div class="row hidden" id="add-task">
             <div class="col-md-6">
                 <?php echo $taskForm->renderBegin(); ?>

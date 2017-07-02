@@ -13,6 +13,7 @@ define([
         events: {
             "click a.internal": "linkClick",
             "click a#btn-add-task": "clickAddTask",
+            "click a#btn-user-login": "clickUserLogin",
         },
 
         initialize:function () {
@@ -88,6 +89,14 @@ define([
                 $addTaskSection.removeClass('hidden');
                 $el.addClass('hidden');
             }
+        },
+
+        clickUserLogin: function(e) {
+            e.preventDefault()
+            var $el = this.$(e.target);
+            var $section = this.$('#login-user');
+//debugger;
+            $section.toggleClass('hidden');
         }
     });
 
