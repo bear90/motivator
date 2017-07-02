@@ -14,29 +14,9 @@ use application\modules\admin\models\Text;
     <!--Menu-->
     <div class="row" id="main-menu">
         <div class="col-md-12 col-lg-11 col-lg-offset-1">
-            <?php $this->widget('zii.widgets.CMenu',array(
-                'items' => [
-                    [
-                        'label' => 'Туристам',
-                        'url' => ['/'],
-                        'active' => true
-                    ],
-                    [
-                        'label' => 'Турагентам',
-                        'url' => ['/turagentam'],
-                    ],
-                    [
-                        'label' => 'Проекты портала',
-                        'url' => ['/turoperatoram'],
-                    ],
-                    [
-                        'label' => 'Контакты',
-                        'url' => ['/kontakty'],
-                    ]
-                ],
-                'htmlOptions' => ['class' => 'nav navbar-nav'],
-                'itemCssClass' => 'text-uppercase'
-            )); ?>
+            <?php $this->widget('application\\components\\widgets\\MenuWidget', [
+              'active' => 'turistam'
+            ]); ?>
         </div>
     </div>
     <!--Gallery-->

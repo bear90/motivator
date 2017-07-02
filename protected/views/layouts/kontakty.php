@@ -3,7 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Мотиватор - контакты</title>
+    <title>Портал penki.by – Контакты</title>
     <meta content="Motivator" name='description'>
     <meta content="Motivator" name='keywords'>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -34,8 +34,7 @@
                 <span class="icon-bar"></span>
             </div>
             <a class="logo" href="/">
-                <img src="/img/logo.png" alt="Motivator">
-                <h1 class="text-uppercase text-right">эстафета выгоды</h1>
+                <h1 class="text-right text-logo"><span>П<span>ортал</span> <i>penki.by</i></span> &ndash; место выгодных встреч покупателей с продавцами</h1>
             </a>
         </header>
 
@@ -44,9 +43,11 @@
         <footer class="container-fluid">
             <div class="row">
                 <div class="col-xs-12 col-xs-offset-0 col-sm-4 col-sm-offset-4 col-lg-3 col-lg-offset-0">
-                    <a class="logo" href="<?php echo Yii::app()->createUrl("admin/touragent"); ?>">
-                        <img src="/img/logo.png" alt="Motivator">
+
+                    <a class="logo" href="<?php echo Yii::app()->createUrl("admin/dashboard/login"); ?>">
+                        <h2 class="text-right text-logo"><span>П<span>ортал</span> <i>penki.by</i></span></h2>
                     </a>
+                    
                 </div>
                 <div class="col-md-6" id="footer-menu">
                     <?php $this->widget('application\\components\\widgets\\MenuWidget', [

@@ -8,7 +8,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Мотиватор - туристам</title>
+    <title>Портал penki.by - Туристам</title>
     <meta content="Motivator" name='description'>
     <meta content="Motivator" name='keywords'>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -49,7 +49,6 @@
             <div class="col-xs-12 col-xs-offset-0 col-sm-4 col-sm-offset-4 col-lg-3 col-lg-offset-0">
                 <a class="logo" href="/">
                     <h2 class="text-right text-logo"><span>П<span>ортал</span> <i>penki.by</i></span></h2>
-                    
                 </a>
             </div>
             <div class="col-md-6" id="footer-menu">

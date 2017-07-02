@@ -93,7 +93,7 @@
         <?php if ($model->data()->id == \Yii::app()->user->getFlash('createdTaskId', null)): ?>
         <tr>
             <td colspan="5">
-                <b><?php echo Text::get('sent-email-message'); ?></b>
+                <b class="green"><?php echo Text::get('sent-email-message'); ?></b>
             </td>
         </tr>
         <?php endif;?>

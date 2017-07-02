@@ -25,8 +25,8 @@ class MenuWidget extends \CWidget
         ],
         [
             'key' => 'turoperatoram',
-            'label' => 'ПРОЕКТЫ ПОРТАЛА',
-            'url' => ['/projects'],
+            'label' => 'О ПОРТАЛЕ',
+            'url' => ['/turoperatoram'],
         ],
         [
             'key' => 'contacts',
