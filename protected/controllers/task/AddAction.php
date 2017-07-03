@@ -6,6 +6,7 @@
 namespace application\controllers\task;
 use application\models\Entity;
 use application\models\forms;
+use application\models\defines;
 
 class AddAction extends \CAction
 {
@@ -13,6 +14,12 @@ class AddAction extends \CAction
     {
         $attributes = \Yii::app()->request->getPost('task');
         $veryfyCode = \Yii::app()->request->getPost('veryfyCode');
+
+        // 1. Crate a user
+        $password = Entity\User::generatePassword();
+        $model = new Entity\User();
+        $model->create($password, defines\UserRole::USER);
+        $attributes['userId'] = $model->data()->id;
 
         $startedAt = new \DateTime($attributes['startedAt']);
         $attributes['startedAt'] = $startedAt->format("Y-m-d H:i:s");
@@ -27,7 +34,7 @@ class AddAction extends \CAction
 
         \Yii::app()->user->setFlash('createdTaskId', $task->data()->id);
         
-        \Tool::sendEmailWithView($task->data()->email, 'add-task');
+        \Tool::sendEmailWithView($task->data()->email, 'add-task', ['task' => $task->data()]);
         
         $this->controller->redirect('/#all-tasks');
     }

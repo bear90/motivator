@@ -38,10 +38,4 @@ use application\modules\admin\models\Text;
         <?php echo Text::get('turoperatoram'); ?>
     </div>
 
-    <div class="fixed-socseti">
-        <a target="_blank" href="https://vk.com/motivatortravel"><img src="/img/soc-vk.png" alt=""></a>
-        <a target="_blank" href="https://www.facebook.com/%D0%9C%D0%BE%D1%82%D0%B8%D0%B2%D0%B0%D1%82%D0%BE%D1%80-203321533372476/?__mref=message"><img src="/img/soc-fb.png" alt=""></a>
-        <a target="_blank" href="http://m.ok.ru/group/52925620093131"><img src="/img/soc-od.png" alt=""></a>
-        <a target="_blank" href="http://instagram.com/motivatortour"><img src="/img/soc-ig.png" alt=""></a>
-    </div>
 </section>

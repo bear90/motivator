@@ -13,6 +13,7 @@ namespace application\models\Entity;
 use application\models\Tools;
 use application\models\entities;
 use application\models\defines;
+use application\models\entities\Configuration;
 
 class User
 {
@@ -65,5 +66,34 @@ class User
         $this->data->lastLogin = new \CDbExpression('now()');
         $this->save();
     }
-    
+
+    public static function generatePassword($length = 6)
+    {
+        $generate = function($length){
+            $password = '';
+            for ($i=0; $i<$length; $i++){
+                $password .= rand(0, 9);
+            }
+            return $password;
+        };
+
+        // get unical password
+        do {
+            $password = $generate($length);
+        } while (entities\User::model()->exists('password = :pass', ['pass' => $password]));
+        
+
+        return $password;
+    }
+
+    public function create($password, $role) {
+
+        if (in_array($role, defines\UserRole::getList()) === false){
+            throw new Exception("Incorrect User Role");
+        }
+
+        $this->save(['password' => $password, 'roleId' => $role]);
+
+        return $this;
+    }
 }

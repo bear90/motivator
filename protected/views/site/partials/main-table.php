@@ -7,9 +7,13 @@
         <h2>Список заявок на туры/самых выгодных предложений* по ним.</h2>
 
         <p>*В столбце «Самое выгодное предложение» стоимость горящих туров помечена символом <span class="glyphicon glyphicon-fire"></span>, стоимость туров при раннем бронировании помечена символом <i class="fa fa-snowflake-o" aria-hidden="true"></i>.</p>
+
+        <?php if(!\Yii::app()->user->isUser()): ?>
+
         <div class="row">
             <div class="col-md-12">Вы можете выбрать интересующие вас заявки, задав параметры выбора:</div>
         </div>
+
         <div class="row" id="add-task-filter">
             <div class="col-md-3 filter" >
                 <a href="#add-task-filter-country">страна тура</a><br>
@@ -65,6 +69,8 @@
                 <?php echo $filterForm->renderEnd(); ?>
             </div>
         </div>
+        
+        <?php endif; ?>
 
         <?php if(\Yii::app()->user->isManager()): ?>
             <?php $this->renderPartial('partials/main-table-for-manager', [
@@ -72,8 +78,12 @@
                 'offerForm' => $offerForm,
                 'offerForTask' => $offerForTask
             ])?>
-        <?php else: ?>
+        <?php elseif(\Yii::app()->user->isUser()): ?>
             <?php $this->renderPartial('partials/main-table-for-user', [
+                'entities' => $entities
+            ])?>
+        <?php else: ?>
+            <?php $this->renderPartial('partials/main-table-for-other', [
                 'entities' => $entities,
                 'filtered' => $filterForm->getModel(false)->filtered()
             ])?>

@@ -17,7 +17,7 @@ class Task extends BaseEntity
     public function rules(){
         return [
             ['name, email, tourType, adultCount, childCount, days, startedAt', 'required'],
-            ['generalPrice, earlyPrice, lastMinPrice', 'safe']
+            ['generalPrice, earlyPrice, lastMinPrice, userId', 'safe']
         ];
     }
 
@@ -30,6 +30,7 @@ class Task extends BaseEntity
             'relTourType'=>[self::BELONGS_TO, 'application\\models\\entities\\TourType', 'tourType'],
             'relName'=>[self::BELONGS_TO, 'application\\models\\entities\\UserName', 'name'],
             'offers'=>[self::HAS_MANY, 'application\\models\\entities\\Offer', 'taskId'],
+            'user'=>[self::BELONGS_TO, 'application\\models\\entities\\User', 'userId'],
         ];
     }
 

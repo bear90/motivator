@@ -78,6 +78,14 @@ class IndexAction extends \CAction
             $criteria->addCondition('t.adultCount = :adults');
             $criteria->params['adults'] = $filterForm->adultCount;
         }
+
+        // Filter by User
+        if (\Yii::app()->user->isUser()) {
+            $userId = \Yii::app()->user->model->id;
+            $criteria->addCondition('t.userId = :userId');
+            $criteria->params['userId'] = $userId;
+        }
+
         $criteria->order = 'createdAt DESC';
 
         return $criteria;

@@ -9,8 +9,22 @@ return array(
             'connectionString'  => 'mysql:host=localhost;dbname=motivator',
             'emulatePrepare'    => true,
             'username'          => 'root',
-            'password'          => 'root',
+            'password'          => 'start123',
             'charset'           => 'utf8',
+        ),
+        'mail' => array(
+            'class' => 'application.extensions.yii-mail.YiiMail',
+            'viewPath' => 'application.views.templates',
+            /*'transportType' => 'smtp',
+            'transportOptions' => array(
+                'host' => 'mail.motivator-travel.by',
+                'username' => 'help@motivator-travel.by',
+                'password' => 'Testtest1@',
+                'port' => '25',
+                'encryption'=>'tls',
+            ),
+            'logging' => true,*/
+            'dryRun' => true
         ),
     ),
 

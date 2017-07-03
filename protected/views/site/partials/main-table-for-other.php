@@ -3,7 +3,8 @@
     use application\modules\admin\models\Text;
 ?>
 
-<table id="all-tasks" class="table table-bordered main-table">
+<table id="all-tasks" class="table table-bordered main-table 
+    <?php echo $filtered ? 'filtered' : '' ?>">
     <tr>
         <th class="col1">Дата размещения заявки на тур/<br>
          имя автора заявки/ <br>
@@ -72,6 +73,14 @@
                 <?php endif; ?>
             </td>
         </tr>
+
+        <?php if ($model->data()->id == \Yii::app()->user->getFlash('createdTaskId', null)): ?>
+        <tr>
+            <td colspan="5">
+                <b class="green"><?php echo Text::get('sent-email-message'); ?></b>
+            </td>
+        </tr>
+        <?php endif;?>
         
         <?php endforeach;?>
     <?php else:?>

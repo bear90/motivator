@@ -6,7 +6,7 @@
     use application\models\entities\Configuration;
     use application\models\Tour;
     use application\models\Tourist;
-    use application\models\TouragentManager;
+    use application\models\Entity;
     use application\models\Entity\Template;
 
     class Tool {
@@ -123,7 +123,7 @@
         {
             $templateEntity = Template::get($name);
             $content = $templateEntity && $templateEntity->content? $templateEntity->content : '';
-            $subject = $templateEntity && $templateEntity->subject? $templateEntity->subject : 'От системы «МОТИВАТОР»';
+            $subject = $templateEntity && $templateEntity->subject? $templateEntity->subject : 'От портала «Penki.by»';
 
             $placeholders = [
                 '~SITE_DOMAIN~' => Configuration::get(Configuration::SITE_DOMAIN),
@@ -146,20 +146,17 @@
                     
                     $placeholders = [];
                     
-                    if (isset($data['tourist']))
+                    if (isset($data['task']))
                     {
-                        $tourist = $data['tourist'];
+                        $task = $data['task'];
+                        $user = new Entity\User($task->user);
                         $placeholders = [
-                            '~cabinetNumber~' => $tourist->id,
-                            '~autologinLink~' => $tourist->user->getAutoLoginLink(),
+                            '~cabinetNumber~' => $task->id,
+                            '~autologinLink~' => $user->getAutoLoginLink(),
                         ];
-                        if ($name == 'registration')
+                        if ($name == 'add-task')
                         {
-                            $placeholders['~password~'] = $tourist->user->password;
-                        }
-                        if ($name == 'new_offers')
-                        {
-                            $placeholders['~offerId~'] = $data['offer']->id;
+                            $placeholders['~password~'] = $user->data()->password;
                         }
                     }
                     
