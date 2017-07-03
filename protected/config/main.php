@@ -50,6 +50,7 @@ return array(
             'rules' => array(
                 // REST patterns
                 ['api/touristCreate', 'pattern'=>'api/tourist', 'verb'=>'POST'],
+                ['turoperatoram/index', 'pattern'=>'o-portale'],
                 // Others
                 '<controller:\w+>/<action:\w+>/<id:\d+>' => '<controller>/<action>',
                 '<module:\w+>/<controller:\w+>/<action:\w+>' => '<module>/<controller>/<action>',
