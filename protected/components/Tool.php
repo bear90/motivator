@@ -47,7 +47,7 @@
             $message->setBody($text, 'text/html');
              
             $message->addTo($to);
-            $message->setFrom(\Yii::app()->params['adminEmail'], 'Сервис «Penki.by»');
+            $message->setFrom(\Yii::app()->params['adminEmail'], 'Портал penki.by');
             $message->setSender(\Yii::app()->params['senderEmail']);
             $message->setSubject($template['subject']);
             
@@ -82,7 +82,7 @@
             $message->setBody($text, 'text/html');
              
             $message->addTo($tourist->email);
-            $message->setFrom(\Yii::app()->params['adminEmail'], 'Сервис «МОТИВАТОР»');
+            $message->setFrom(\Yii::app()->params['adminEmail'], 'Портал penki.by');
             $message->setSender(\Yii::app()->params['senderEmail']);
             $message->setSubject($template['subject']);
             
