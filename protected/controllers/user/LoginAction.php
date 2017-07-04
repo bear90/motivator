@@ -20,7 +20,7 @@ class LoginAction extends \CAction
             $loginForm->password = $password;
 
             if ($loginForm->validate() && $loginForm->loginByHash(UserRole::USER, $hash)) {
-                $this->controller->redirect(\Yii::app()->createUrl('user/dashboard'));
+                $this->controller->redirect(\Yii::app()->createUrl('/#block-main-table'));
                 return;
             }
         }
