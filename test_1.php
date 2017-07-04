@@ -1,5 +1,5 @@
 <?php
 
-    $hash = md5('91' . 'SaLtaSd');
-    $url = "http://motivator.loc/user/login?hash=" . $hash;
-    print "<a target=blank href=\"{$url}\">логин</a>";
+    $hash = md5('14' . 'SaLtaSd');
+    $url = "http://penki.loc/user/login?hash=" . $hash;
+    print "<a target=blank href=\"{$url}\">Login</a>";

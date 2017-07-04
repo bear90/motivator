@@ -5,14 +5,14 @@
 
 namespace application\controllers\user;
 
-use application\models\forms\UserLogin;
+use application\models\forms;
 use application\models\defines\UserRole;
 
 class LoginAction extends \CAction
 {
     public function run() {
         $hash = \Yii::app()->request->getParam('hash');
-        $loginForm = new UserLogin;
+        $loginForm = new forms\UserLoginForm;
 
         if ($hash)
         {

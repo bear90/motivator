@@ -10,19 +10,21 @@
  */
 
 namespace application\models\Entity\User;
+use application\models\entities;
 
 class Repository
 {
 
     public static function findByHash($hash)
     {
+        $entity = entities\User::model();
         $criteria = new \CDbCriteria();
         $criteria->addCondition('md5(concat(id, :salt)) = :hash');
         $criteria->params = [
-            'salt' => $this->data->salt(),
+            'salt' => $entity->salt(),
             'hash' => $hash
         ];
 
-        return $this->find($criteria);
+        return $entity->find($criteria);
     }
 }

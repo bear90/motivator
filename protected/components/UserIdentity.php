@@ -53,7 +53,7 @@ class UserIdentity extends CUserIdentity {
     
     public function authenticateByHash() 
     {
-        $user = User::model()->findByHash($this->password);
+        $user = Entity\User\Repository::findByHash($this->password);
 
         if ($user == null || $user->id == 0 || $user->roleId != $this->role) {
             $this->errorCode = self::ERROR_USERNAME_INVALID;
