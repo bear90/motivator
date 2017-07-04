@@ -1010,7 +1010,17 @@ img.sltour {height: 148px;}
 }
 
 .btn.btn-yellow:hover {
-    background: #fb7b00;
+    background: #fd4141;
+    opacity: 0.9;
+}
+
+.btn.btn-red {
+    background: #fb2a2a;
+    color: #000000;
+}
+
+.btn.btn-red:hover {
+    background: #fb2a2a;
     opacity: 0.9;
 }
 

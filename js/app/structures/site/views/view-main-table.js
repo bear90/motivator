@@ -13,6 +13,7 @@ define([
             'click button.cancel-offer': "clickCancelOffer",
             'click a.offer-add-price': "clickOfferAddPrice",
             'keydown input.price': "keydownInputPrice",
+            'click a.remove-offer': "clickRemoveOffer",
         },
 
         templateOfferPrice: _.template(OfferPriceTmpl),
@@ -41,6 +42,12 @@ define([
 
         render:  function (){
 
+        },
+
+        clickRemoveOffer:  function (e){
+            //e.preventDefault();
+
+            return confirm('Вы уверены?');
         },
 
         clickOfferAddPrice: function(e) {
