@@ -3,7 +3,7 @@
     use application\modules\admin\models\Text;
 ?>
 
-<table id="all-tasks" class="table table-bordered main-table">
+<table id="all-tasks" class="table table-bordered main-table filtered">
     <tr>
         <th class="col1">Дата размещения заявки на тур/<br>
          имя автора заявки/ <br>
@@ -72,6 +72,21 @@
                 <?php endif; ?>
             </td>
         </tr>
+
+        <tr class="offers-row">
+            <td colspan="5">
+                <?php if (count($entity->offers)) : ?>
+                    <?php $this->renderPartial('partials/offer-list', [
+                        'offers' => $entity->offers,
+                        'taskId' => $model->data()->id,
+                        'showContactForFirtsOne' => true
+                    ])?>
+                <?php else: ?>
+                    <?php echo Text::get('empty-offers'); ?>
+                <?php endif; ?>
+            </td>
+        </tr>
+        
         
         <?php endforeach;?>
     <?php else:?>

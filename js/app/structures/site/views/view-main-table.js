@@ -17,11 +17,7 @@ define([
 
         templateOfferPrice: _.template(OfferPriceTmpl),
 
-        initialize: function(){
-            /*$(document).on('keydown', 'input.price', function (e){console.log(e.keyCode);
-
-            });*/
-        },
+        initialize: function() {},
 
         keydownInputPrice:  function (e){
             // Allow: backspace, delete, tab, escape, enter
@@ -64,6 +60,7 @@ define([
             var $el = this.$(e.target);
             var $offersRow = $el.closest('tr').next('tr.offers-row');
 
+            $offersRow.find('button.add-offer2').removeClass('hidden');
             $offersRow.toggleClass('hidden');
         },
 
@@ -73,6 +70,7 @@ define([
             var $form = $addOfferRow.find('form');
             var id = "offer_form_" + $el.data('id');
 
+            $el.addClass('hidden');
             $addOfferRow.toggleClass('hidden');
 
             if (!!$form.data('initialized') === false) {
@@ -90,6 +88,7 @@ define([
             var $form = $addOfferRow.find('form');
             var id = "offer_form_" + $el.data('id');
 
+            $offersRow.find('button.add-offer2').addClass('hidden');
             $offersRow.removeClass('hidden');
             $addOfferRow.toggleClass('hidden');
 
@@ -102,7 +101,6 @@ define([
         },
 
         scrollTo: function(id) {
-            console.log($("#" + id).offset().top);
             var position = parseInt($("#" + id).offset().top) - 150;
             $('html, body').animate({
                 scrollTop: position
