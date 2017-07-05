@@ -83,7 +83,9 @@
                         'showContactForFirtsOne' => true
                     ])?>
                 <?php else: ?>
-                    <?php echo Text::get('empty-offers'); ?>
+                    <div class="text-center">
+                        <?php echo Text::get('empty-offers'); ?>
+                    </div>
                 <?php endif; ?>
             </td>
         </tr>
