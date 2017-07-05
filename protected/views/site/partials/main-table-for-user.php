@@ -97,4 +97,9 @@
             </td>
         </tr>
     <?php endif;?>
+    <tr>
+        <td colspan="5">
+            <a href="/user/logout" class="btn btn-default btn-yellow">ВЕРНУТЬСЯ К ПОЛНОМУ СПИСКУ ЗАЯВОК НА ТУРЫ</a>
+        </td>
+    </tr>
 </table>
