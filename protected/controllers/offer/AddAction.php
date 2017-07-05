@@ -26,6 +26,8 @@ class AddAction extends \CAction
         $model->setPrice($offer->data());
 
         \Yii::app()->user->setFlash('offerForTask', $attributes['taskId']);
+
+        \Tool::sendEmailWithView($model->data()->email, 'add-offer', []);
         
         $this->controller->redirect('/#offer_' . $offer->data()->id);
     }
