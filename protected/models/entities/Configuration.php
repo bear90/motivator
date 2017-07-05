@@ -20,6 +20,10 @@ class Configuration extends BaseEntity {
     const SITE_DOMAIN = 'SITE_DOMAIN';
     
     const FIRST_NOTICE_TERM  = 'FIRST_NOTICE_TERM';
+    
+    const SECOND_NOTICE_TERM  = 'SECOND_NOTICE_TERM';
+    
+    const LAST_NOTICE_TERM  = 'LAST_NOTICE_TERM';
 
     private static $aValues = null;
 

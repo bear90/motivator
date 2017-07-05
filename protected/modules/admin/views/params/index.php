@@ -17,6 +17,14 @@
         <td>Cрок до первого предупреждения</td>
         <td><?php echo CHtml::textField('config['.Configuration::FIRST_NOTICE_TERM.']', Configuration::get(Configuration::FIRST_NOTICE_TERM), ['class' => 'form-control']); ?></td>
     </tr>
+    <tr>
+        <td>Cрок до второго предупреждения</td>
+        <td><?php echo CHtml::textField('config['.Configuration::SECOND_NOTICE_TERM.']', Configuration::get(Configuration::SECOND_NOTICE_TERM), ['class' => 'form-control']); ?></td>
+    </tr>
+    <tr>
+        <td>Cрок до удаления заявки</td>
+        <td><?php echo CHtml::textField('config['.Configuration::LAST_NOTICE_TERM.']', Configuration::get(Configuration::LAST_NOTICE_TERM), ['class' => 'form-control']); ?></td>
+    </tr>
 </table>
 <div class="form-group">
     <button type="submit" class="btn btn-default">Сохранить</button>
