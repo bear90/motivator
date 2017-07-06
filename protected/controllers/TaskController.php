@@ -21,6 +21,7 @@ class TaskController extends \CController
             'captcha' => ['class'=>'CCaptchaAction', 'maxLength' => 6],
             'add' => 'application\\controllers\\task\\AddAction',
             'delete' => 'application\\controllers\\task\\DeleteAction',
+            'prolong' => 'application\\controllers\\task\\ProlongAction',
         ];
     }
 }

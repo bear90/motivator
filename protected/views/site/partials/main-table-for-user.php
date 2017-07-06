@@ -1,6 +1,7 @@
 <?php
     use application\models\Entity;
     use application\modules\admin\models\Text;
+    use application\models\entities\Configuration;
 ?>
 
 <table id="all-tasks" class="table table-bordered main-table filtered">
@@ -27,6 +28,11 @@
                 <?php echo $model->createdAt(); ?><br>
                 <?php echo $model->data()->relName->name; ?><br>
                 № <?php echo $model->data()->id; ?><br>
+                
+                <?php if($model->getAge() == intval(Configuration::get(Configuration::FIRST_NOTICE_TERM))): ?>
+                    <a href="/task/prolong/<?php echo $model->data()->id; ?>" class="btn btn-default btn-green">Продлить размещение заявки</a><br>
+                <?php endif; ?>
+
                 <a href="/task/delete/<?php echo $model->data()->id; ?>" class="btn btn-default btn-red remove-offer">Удалить заявку</a>
             </td>
 
@@ -73,6 +79,14 @@
                 <?php endif; ?>
             </td>
         </tr>
+
+        <?php if($actionMessage) : ?>
+            <tr class="offers-row">
+                <td colspan="5">
+                    <b class="green"><?php echo $actionMessage; ?></b>
+                </td>
+            </tr>
+        <?php endif; ?>
 
         <tr class="offers-row">
             <td colspan="5">

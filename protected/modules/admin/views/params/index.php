@@ -25,6 +25,10 @@
         <td>Cрок до удаления заявки</td>
         <td><?php echo CHtml::textField('config['.Configuration::LAST_NOTICE_TERM.']', Configuration::get(Configuration::LAST_NOTICE_TERM), ['class' => 'form-control']); ?></td>
     </tr>
+    <tr>
+        <td>Cрок продления размещения</td>
+        <td><?php echo CHtml::textField('config['.Configuration::TASK_PROLONG_TERM.']', Configuration::get(Configuration::TASK_PROLONG_TERM), ['class' => 'form-control']); ?></td>
+    </tr>
 </table>
 <div class="form-group">
     <button type="submit" class="btn btn-default">Сохранить</button>

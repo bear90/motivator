@@ -185,7 +185,8 @@ use application\modules\admin\models\Text;
         'offerForTask' => $offerForTask,
         'entities' => $entities,
         'filterForm' => $filterForm,
-        'offerForm' => $offerForm
+        'offerForm' => $offerForm,
+        'actionMessage' => $actionMessage,
     ])?>
         
 

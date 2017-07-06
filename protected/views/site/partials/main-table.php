@@ -80,7 +80,8 @@
             ])?>
         <?php elseif(\Yii::app()->user->isUser()): ?>
             <?php $this->renderPartial('partials/main-table-for-user', [
-                'entities' => $entities
+                'entities' => $entities,
+                'actionMessage' => $actionMessage,
             ])?>
         <?php else: ?>
             <?php $this->renderPartial('partials/main-table-for-other', [

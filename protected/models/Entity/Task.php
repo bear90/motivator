@@ -126,4 +126,14 @@ class Task
             }
         }
     }
+
+    public function getAge()
+    {
+        $createdAt = new \DateTime($this->data->createdAt);
+        $createdAt->setTime('06', '00', '00');
+        $now = new \DateTime();
+
+        $interval = $now->diff($createdAt);
+        return $interval->days;
+    }
 }

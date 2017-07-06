@@ -44,6 +44,7 @@ class IndexAction extends \CAction
             'filterForm' => new \CForm('application.views.forms.task-filter-form', $filterForm),
             'loginForm' => new \CForm('application.views.forms.user-login-form', $loginForm),
             'loginMessage' => \Yii::app()->user->getFlash('loginMessage', null),
+            'actionMessage' => \Yii::app()->user->getFlash('actionMessage', null),
             'entities' => $entities,
             'offerForTask' => \Yii::app()->user->getFlash('offerForTask', null),
         ]);

@@ -24,6 +24,8 @@ class Configuration extends BaseEntity {
     const SECOND_NOTICE_TERM  = 'SECOND_NOTICE_TERM';
     
     const LAST_NOTICE_TERM  = 'LAST_NOTICE_TERM';
+    
+    const TASK_PROLONG_TERM  = 'TASK_PROLONG_TERM';
 
     private static $aValues = null;
 
