@@ -46,7 +46,7 @@ $part6 = array_filter($pages, function($item){
 <h3>Страница «ТУРАГЕНТАМ»</h3>
 <?php $this->renderPartial('partials/table' , ['pages' => $part2]); ?>
 
-<h3>Страница «ТУРОПЕРАТОРАМ»</h3>
+<h3>Страница «О ПОРТАЛЕ»</h3>
 <?php $this->renderPartial('partials/table' , ['pages' => $part3]); ?>
 
 <h3>Страница «КОНТАКТЫ»</h3>
