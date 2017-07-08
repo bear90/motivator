@@ -5,10 +5,10 @@
 return array(
     'components' => array(
         'db' => array(
-            'connectionString' => 'mysql:host=localhost;dbname=penkiby_main',
+            'connectionString' => 'mysql:host=localhost;dbname=user2034796_penkiby',
             'emulatePrepare' => true,
-            'username' => 'penkiby_main',
-            'password' => 'OrOrUPWr$21',
+            'username' => 'penkiby',
+            'password' => 'gUjWR986',
             'charset' => 'utf8',
         )
     ),

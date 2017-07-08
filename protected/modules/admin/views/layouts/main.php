@@ -7,7 +7,7 @@
 
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     
-    <title>Мотиватор - Диспетчерская</title>
+    <title>Портал penki.by– Диспетчерская</title>
     <link rel="stylesheet" href="/css/admin.css">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/jquery-ui.min.css">

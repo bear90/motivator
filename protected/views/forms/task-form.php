@@ -117,7 +117,8 @@ return [
             'layout' => '{label}{input}',
             'attributes' => [
                 'name' => 'verifyCode',
-                'class' => 'form-control'
+                'class' => 'form-control',
+                'autocomplete' => 'off'
             ]
 
         ],
