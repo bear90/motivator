@@ -34,6 +34,8 @@ class ProlongAction extends \CAction
             $task->createdAt = $date->format('Y-m-d H:i:s');
             $task->save();
 
+            $days = intval(Configuration::get(Configuration::LAST_NOTICE_TERM));
+            $date->modify("+{$days} days");
             $message = 'Размещение заявки продлено до ' . $date->format('d.m.Y');
             \Yii::app()->user->setFlash('actionMessage', $message);
 
