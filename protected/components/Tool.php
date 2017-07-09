@@ -2,11 +2,9 @@
 
     //namespace application\models;
 
-    use application\models\defines\TouristStatus;
     use application\models\entities\Configuration;
-    use application\models\Tour;
-    use application\models\Tourist;
     use application\models\Entity;
+    use application\models\entities;
     use application\models\Entity\Template;
 
     class Tool {
@@ -54,9 +52,9 @@
             return \Yii::app()->mail->send($message);
         }
 
-        public static function sendEmailWithLayout(Tourist $tourist, $view, array $data = [])
+        public static function sendEmailWithLayout(entities\Task $task, $view, array $data = [])
         {
-            $data['tourist'] = $tourist;
+            $data['task'] = $task;
             $template = self::fetchTemplate($view, $data);
 
             \Yii::import('application.extensions.yii-mail.YiiMailMessage');
@@ -73,7 +71,7 @@
                     : new CController('YiiInform');
 
                 $text = $controller->renderInternal($path, [
-                    'tourist' => $tourist,
+                    'task' => $task,
                     'content' => $template['content'],
                     'view' => $view
                 ], true);
