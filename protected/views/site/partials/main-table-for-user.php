@@ -94,7 +94,7 @@
                     <?php $this->renderPartial('partials/offer-list', [
                         'offers' => $entity->offers,
                         'taskId' => $model->data()->id,
-                        'showContactForFirtsOne' => true
+                        'showContact' => true
                     ])?>
                 <?php else: ?>
                     <div class="text-center">

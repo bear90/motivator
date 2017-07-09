@@ -11,7 +11,7 @@
             <div class="col-md-12">
                 <h3>Предложение №<?php echo $i; ?></h3>
 
-                <?php if($showContactForFirtsOne && $i==count($offers)): ?>
+                <?php if($showContact || $showContactForFirtsOne && $i==count($offers)): ?>
                     <div><?php echo $offers[$i-1]->contact; ?></div>
                 <?php endif; ?>
 
