@@ -1,6 +1,8 @@
 <?php
     use application\models\defines\Offer\PriceType;
     use application\modules\admin\models\Text;
+
+    $showContact = isset($showContact) ? boolval($showContact) : false;
 ?>
 
 <?php if (count($offers)) : ?>
