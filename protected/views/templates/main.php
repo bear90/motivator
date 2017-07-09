@@ -15,11 +15,11 @@
 </style>
 
 
-<p><b>ЛИЧНЫЙ  КАБИНЕТ № <?php echo $task->id?></b></p>
+<p><b>ЗАЯВКА № <?php echo $task->id?></b></p>
 
 <?php if(!in_array($view, array('last-notification'))): ?>
     
-    <p><a href="<?php echo $user->getAutoLoginLink(); ?>">Перейти в личный кабинет</a></p>
+    <p><a href="<?php echo $user->getAutoLoginLink(); ?>">Перейти в раздел заявки</a></p>
 
 <?php endif; ?>
 
