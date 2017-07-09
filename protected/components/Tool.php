@@ -148,11 +148,11 @@
                     {
                         $task = $data['task'];
                         $user = new Entity\User($task->user);
-                        $createdAt = new \DateTime($task->createdAt);
+                        $prolongationDate = new \DateTime($task->prolongationDate);
                         $placeholders = [
                             '~cabinetNumber~' => $task->id,
                             '~autologinLink~' => $user->getAutoLoginLink(),
-                            '~expiredAt~' => $createdAt->format('d.m.Y'),
+                            '~expiredAt~' => $prolongationDate->format('d.m.Y'),
                         ];
                         if ($name == 'add-task')
                         {

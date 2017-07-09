@@ -22,7 +22,8 @@ class DailycronCommand extends CConsoleCommand
 
         // First notification
         $criteria = new CDbCriteria();
-        $criteria->addCondition('DATE(ADDDATE(createdAt, INTERVAL :days DAY)) = :date');
+        $criteria->addCondition('prolongationDate > 0 AND DATE(ADDDATE(prolongationDate, INTERVAL :days DAY)) = :date');
+        $criteria->addCondition('prolongationDate IS NULL AND DATE(ADDDATE(createdAt, INTERVAL :days DAY)) = :date', 'OR');
         $criteria->params = [
             'date' => $dateTime->format('Y-m-d'),
             'days' => ceil(Configuration::get(Configuration::FIRST_NOTICE_TERM))
@@ -34,7 +35,8 @@ class DailycronCommand extends CConsoleCommand
 
         // Second notification
         $criteria = new CDbCriteria();
-        $criteria->addCondition('DATE(ADDDATE(createdAt, INTERVAL :days DAY)) = :date');
+        $criteria->addCondition('prolongationDate > 0 AND DATE(ADDDATE(prolongationDate, INTERVAL :days DAY)) = :date');
+        $criteria->addCondition('prolongationDate IS NULL AND DATE(ADDDATE(createdAt, INTERVAL :days DAY)) = :date', 'OR');
         $criteria->params = [
             'date' => $dateTime->format('Y-m-d'),
             'days' => ceil(Configuration::get(Configuration::SECOND_NOTICE_TERM))
@@ -46,7 +48,8 @@ class DailycronCommand extends CConsoleCommand
 
         // Last notification
         $criteria = new CDbCriteria();
-        $criteria->addCondition('DATE(ADDDATE(createdAt, INTERVAL :days DAY)) = :date');
+        $criteria->addCondition('prolongationDate > 0 AND DATE(ADDDATE(prolongationDate, INTERVAL :days DAY)) = :date');
+        $criteria->addCondition('prolongationDate IS NULL AND DATE(ADDDATE(createdAt, INTERVAL :days DAY)) = :date', 'OR');
         $criteria->params = [
             'date' => $dateTime->format('Y-m-d'),
             'days' => ceil(Configuration::get(Configuration::LAST_NOTICE_TERM))

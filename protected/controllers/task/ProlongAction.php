@@ -27,11 +27,11 @@ class ProlongAction extends \CAction
         ]);
 
         if ($task) {
-            $date = new \DateTime($task->createdAt);
+            $date = new \DateTime($task->prolongationDate);
             $days = intval(Configuration::get(Configuration::TASK_PROLONG_TERM));
             $date->modify("+{$days} days");
 
-            $task->createdAt = $date->format('Y-m-d H:i:s');
+            $task->prolongationDate = $date->format('Y-m-d H:i:s');
             $task->save();
 
             $days = intval(Configuration::get(Configuration::LAST_NOTICE_TERM));
