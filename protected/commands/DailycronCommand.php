@@ -28,7 +28,7 @@ class DailycronCommand extends CConsoleCommand
             'days' => ceil(Configuration::get(Configuration::FIRST_NOTICE_TERM))
         ];
         foreach (entities\Task::model()->findAll($criteria) as $task) {
-            \Tool::sendEmailWithView($task->email, 'first-notification');
+            \Tool::sendEmailWithLayout($task, 'first-notification');
             $firstNotification++;
         }
 
@@ -40,7 +40,7 @@ class DailycronCommand extends CConsoleCommand
             'days' => ceil(Configuration::get(Configuration::SECOND_NOTICE_TERM))
         ];
         foreach (entities\Task::model()->findAll($criteria) as $task) {
-            \Tool::sendEmailWithView($task->email, 'second-notification');
+            \Tool::sendEmailWithLayout($task, 'second-notification');
             $secondNotification++;
         }
 
@@ -52,7 +52,7 @@ class DailycronCommand extends CConsoleCommand
             'days' => ceil(Configuration::get(Configuration::LAST_NOTICE_TERM))
         ];
         foreach (entities\Task::model()->findAll($criteria) as $task) {
-            \Tool::sendEmailWithView($task->email, 'last-notification');
+            \Tool::sendEmailWithLayout($task, 'last-notification');
             $lastNotification++;
         }
 
