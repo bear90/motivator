@@ -36,6 +36,8 @@ class ProlongAction extends \CAction
 
             $message = 'Размещение заявки продлено до ' . $date->format('d.m.Y');
             \Yii::app()->user->setFlash('actionMessage', $message);
+
+            \Tool::sendEmailWithView($task->email, 'prolong-task', ['task' => $task]);
         }
         $this->controller->redirect('/#block-main-table');
     }
