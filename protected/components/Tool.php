@@ -79,7 +79,7 @@
             
             $message->setBody($text, 'text/html');
              
-            $message->addTo($tourist->email);
+            $message->addTo($task->email);
             $message->setFrom(\Yii::app()->params['adminEmail'], 'Портал penki.by');
             $message->setSender(\Yii::app()->params['senderEmail']);
             $message->setSubject($template['subject']);
