@@ -115,6 +115,11 @@ class AdminController extends \CController
                 'label' => 'Шаблоны писем',
                 'url' => '/admin/template',
             ],
+            [
+                'key' => 'password',
+                'label' => 'Пароли',
+                'url' => '/admin/security',
+            ],
             /*[
                 'key' => 'search',
                 'label' => 'Поиск туристов',
