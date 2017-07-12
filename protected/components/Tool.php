@@ -149,7 +149,10 @@
                         $task = $data['task'];
                         $user = new Entity\User($task->user);
                         $prolongationDate = new \DateTime($task->prolongationDate);
+                        $relName = $task->relName;
+
                         $placeholders = [
+                            '~name~' => 'Уважаем' . ($relName->type == 1 ? 'ый ' : 'ая ') . $relName->name,
                             '~cabinetNumber~' => $task->id,
                             '~autologinLink~' => $user->getAutoLoginLink(),
                             '~expiredAt~' => $prolongationDate->format('d.m.Y'),
