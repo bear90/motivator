@@ -20,6 +20,7 @@ class SecurityController extends AdminController
         return [
             'index' => 'application\\modules\\admin\\controllers\\security\\IndexAction',
             'delete' => 'application\\modules\\admin\\controllers\\security\\DeleteAction',
+            'view' => 'application\\modules\\admin\\controllers\\security\\ViewAction',
         ];
     }
 }

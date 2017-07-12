@@ -21,9 +21,6 @@ section {
     padding-bottom: 50px;
 }
 
-table.text-table th:nth-child(1){
-
-}
 table.text-table th:nth-child(2){
     width: 10%;
 }
@@ -45,3 +42,5 @@ table.balance th, table.balance td {text-align: center;}
 
 #tourtype .btn,
 #user-name .btn {display: block; margin-bottom: 5px;}
+
+#password table th:nth-child(1) {width: 30px; }

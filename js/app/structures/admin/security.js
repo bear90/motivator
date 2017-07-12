@@ -9,6 +9,41 @@
 
         events: {
             'keydown input[name=count]': "keydownInputInt",
+            'click button.view': "clickView",
+            'click button.delete': "clickDelete",
+        },
+
+        clickView: function (e) {
+            var $form = this.$(e.target).closest('form'),
+                action;
+            
+
+            if ($form.find('input[type=checkbox]:checked').size() == 0) {
+                alert('Не выбраны ни один пароль');
+                return;
+            }
+
+            action = $form.attr('action');
+            $form.attr('action', action + '/view')
+                .attr("target", "_blank")
+                .submit();
+            $form.attr('action', action).attr("target", "");
+        },
+
+        clickDelete: function (e) {
+            var $form = this.$(e.target).closest('form'),
+                action;
+            
+            if ($form.find('input[type=checkbox]:checked').size() == 0) {
+                alert('Не выбраны ни один пароль');
+                return;
+            }
+
+            if (confirm('Вы уверены?')) {
+                action = $form.attr('action');
+                $form.attr('action', action + '/delete');
+                $form.submit();
+            }
         },
 
         keydownInputInt:  function (e){
@@ -32,7 +67,7 @@
         },
 
         initialize: function () {
-            this.$el.find('form').bootstrapValidator({
+            this.$el.find('form.generate-password-form').bootstrapValidator({
                 excluded: [':disabled'],
                 feedbackIcons: {
                     valid: 'glyphicon glyphicon-ok',

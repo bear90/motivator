@@ -11,6 +11,9 @@
         <h3>Пароли</h3>
         
         <?php echo $form->renderBegin(); ?>
+
+            <?php echo $form['action']; ?>
+
             <table class="table table-bordered text-table">
                 <tr>
                     <th><!-- --></th>
@@ -19,7 +22,9 @@
                 </tr>
                 <?php foreach ($entities as $entity):?>
                     <tr>
-                        <td></td>
+                        <td>
+                            <?php echo CHtml::checkBox('password[]', false, ['value' => $entity->id]); ?>
+                        </td>
                         <td><?php echo $entity->password; ?></td>
 
                         <td>
@@ -32,25 +37,25 @@
             </table>
 
             <div class="form-group">
-                <button type="submit" class="btn btn-default btn-xs">Удалить</button>
+                <button type="button" class="btn btn-default btn-xs delete">Удалить</button>
 
-                <button type="submit" class="btn btn-default btn-xs">Просмотреть</button>
+                <button type="button" class="btn btn-default btn-xs view">Просмотреть</button>
             </div>
 
         <?php echo $form->renderEnd(); ?>
 
 
-        <?php echo $form->renderBegin(); ?>
+        <?php echo $generateForm->renderBegin(); ?>
             
-            <?php echo $form['action']; ?>
+            <?php echo $generateForm['action']; ?>
 
             <div class="form-group">
-                <?php echo $form['count']; ?>
+                <?php echo $generateForm['count']; ?>
             </div>
 
             <button type="submit" class="btn btn-default btn-xs">Сгенерировать</button>
 
-        <?php echo $form->renderEnd(); ?>
+        <?php echo $generateForm->renderEnd(); ?>
 
 
     </div>

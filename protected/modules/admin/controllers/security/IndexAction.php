@@ -23,7 +23,8 @@ class IndexAction extends \CAction
         $isPost = \Yii::app()->request->isPostRequest;
         $action = $isPost ? \Yii::app()->request->getParam('action') : null;
 
-        $form = new forms\PasswordGeneratorForm();
+        $form = new forms\PasswordUpdateForm();
+        $generateForm = new forms\PasswordGeneratorForm();
 
         if ($action == 'generate')
         {
@@ -49,7 +50,8 @@ class IndexAction extends \CAction
         ]);
         
         $this->controller->render('index', [
-            'form' => new \CForm('application.modules.admin.views.forms.password-generate-form', $form),
+            'form' => new \CForm('application.modules.admin.views.forms.password-update-form', $form),
+            'generateForm' => new \CForm('application.modules.admin.views.forms.password-generate-form', $generateForm),
             'entities' => $entities,
             'message' => \Yii::app()->user->getFlash('message', ''),
             'error' => \Yii::app()->user->getFlash('error', ''),
