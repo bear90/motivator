@@ -33,19 +33,50 @@ use application\modules\admin\models\Text;
   </div>
 
     <div class="row" id="manager-login-form">
-        <div class="col-md-12 button">
+        <div class="col-md-6 button">
+          <?php if (!\Yii::app()->user->isManager()): ?>
+              <a href="#login-form1" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default">ОЗНАКОМИТЬСЯ С ПРЕДЛОЖЕНИЯМИ</a>
+          <?php else: ?>
+              <a href="/#block-main-table" id="btn-privet-cabinet" class="btn btn-default">ОЗНАКОМИТЬСЯ С ПРЕДЛОЖЕНИЯМИ</a>
+          <?php endif; ?>
+        </div>
+
+        <div class="col-md-6 button">
         <?php if (!\Yii::app()->user->isManager()): ?>
-            <a href="#login-form" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default">ОЗНАКОМИТЬСЯ СО ВСЕМИ ПРЕДЛОЖЕНИЯМИ / РАЗМЕСТИТЬ ПРЕДЛОЖЕНИЕ</a>
+            <a href="#login-form2" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default">РАЗМЕСТИТЬ ПРЕДЛОЖЕНИЕ</a>
         <?php else: ?>
-            <a href="/#block-main-table" id="btn-privet-cabinet" class="btn btn-default">ОЗНАКОМИТЬСЯ СО ВСЕМИ ПРЕДЛОЖЕНИЯМИ / РАЗМЕСТИТЬ ПРЕДЛОЖЕНИЕ</a>
+            <a href="/#block-main-table" id="btn-privet-cabinet" class="btn btn-default">РАЗМЕСТИТЬ ПРЕДЛОЖЕНИЕ</a>
         <?php endif; ?>
         </div>
     </div>
 
     <?php if (!\Yii::app()->user->isManager()): ?>
     <div class="row">
-        <div class="col-md-4 col-md-offset-4">
-            <div class="block-login collapse<?php if ($error): ?> in<?php endif; ?>" id="login-form">
+        <div class="col-md-4 col-md-offset-1">
+            <div class="block-login collapse<?php if ($error): ?> in<?php endif; ?>" id="login-form1">
+                <?php echo $loginForm->renderBegin(); ?>
+
+                    <div class="form-group">
+                        <?php echo $loginForm['submit']; ?>
+                    </div>
+
+                    <div class="form-group">
+                        <?php echo $loginForm['password']; ?>
+                    </div>
+
+                    <?php if ($error): ?>
+                      <div class="alert alert-danger" role="alert"><?php echo $error; ?></div>
+                    <?php endif; ?>
+
+                    <div class="form-block button">
+                        <button type="submit" class="btn btn-default btn-green">Войти</button>
+                    </div>
+                <?php echo $loginForm->renderEnd(); ?>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-md-offset-1">
+            <div class="block-login collapse<?php if ($error): ?> in<?php endif; ?>" id="login-form2">
                 <?php echo $loginForm->renderBegin(); ?>
 
                     <div class="form-group">

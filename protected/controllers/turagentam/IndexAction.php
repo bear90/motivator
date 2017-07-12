@@ -22,11 +22,14 @@ class IndexAction extends \CAction
             $loginForm->password = \Yii::app()->request->getPost('password');
             $loginForm->code = \Yii::app()->request->getPost('code');
             
-            if ($loginForm->validate() && $loginForm->loginWithCode()) {
+            if ($loginForm->validate() && $loginForm->code !== null && $loginForm->loginWithCode()) {
+                $this->controller->redirect(\Yii::app()->createUrl('/#block-main-table'));
+                return;
+            } elseif ($loginForm->validate() && $loginForm->code === null && $loginForm->loginWithoutCode()) {
                 $this->controller->redirect(\Yii::app()->createUrl('/#block-main-table'));
                 return;
             } else {
-                \Yii::app()->user->setFlash('error', "Не верный логин или пароль");
+                \Yii::app()->user->setFlash('error', "Не верный пароль");
             }
         }
 
