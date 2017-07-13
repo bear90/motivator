@@ -15,7 +15,7 @@ class TestAction extends \CAction
             $message = "Line 1\r\nLine 2\r\nLine 3";
             $message = wordwrap($message, 70, "\r\n");
             print "Mail: ";
-            var_dump(mail($tourist, 'My Subject', $message));
+            var_dump(mail($tourist, 'My Subject', $message, '-f' . $tourist));
         } else {
             $sent = \Tool::sendEmailWithView($tourist, 'add-task');
 
