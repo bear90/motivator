@@ -21,6 +21,7 @@ class AdminModule extends CWebModule {
         'country' => 'application\modules\admin\controllers\CountryController',
         'tourtype' => 'application\modules\admin\controllers\TourTypeController',
         'security' => 'application\modules\admin\controllers\SecurityController',
+        'code' => 'application\modules\admin\controllers\CodeController',
     ];
 }
 

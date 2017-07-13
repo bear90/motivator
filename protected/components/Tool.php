@@ -149,6 +149,9 @@
                         $task = $data['task'];
                         $user = new Entity\User($task->user);
                         $prolongationDate = new \DateTime($task->prolongationDate);
+                        $days = intval(Configuration::get(Configuration::LAST_NOTICE_TERM));
+                        $prolongationDate->modify("+{$days} days");
+
                         $relName = $task->relName;
 
                         $placeholders = [

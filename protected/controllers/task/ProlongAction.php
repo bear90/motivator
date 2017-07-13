@@ -27,7 +27,8 @@ class ProlongAction extends \CAction
         ]);
 
         if ($task) {
-            $date = new \DateTime($task->prolongationDate);
+            $fromDate = !empty($task->prolongationDate) ? $task->prolongationDate : $task->createdAt;
+            $date = new \DateTime($fromDate);
             $days = intval(Configuration::get(Configuration::TASK_PROLONG_TERM));
             $date->modify("+{$days} days");
 

@@ -47,6 +47,7 @@ class IndexAction extends \CAction
             'actionMessage' => \Yii::app()->user->getFlash('actionMessage', null),
             'entities' => $entities,
             'offerForTask' => \Yii::app()->user->getFlash('offerForTask', null),
+            'createdTaskId' => \Yii::app()->user->getFlash('createdTaskId', null),
         ]);
     }
 

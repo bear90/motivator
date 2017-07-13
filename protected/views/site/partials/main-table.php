@@ -76,17 +76,20 @@
             <?php $this->renderPartial('partials/main-table-for-manager', [
                 'entities' => $entities,
                 'offerForm' => $offerForm,
-                'offerForTask' => $offerForTask
+                'offerForTask' => $offerForTask,
+                'filtered' => !empty($createdTaskId),
             ])?>
         <?php elseif(\Yii::app()->user->isUser()): ?>
             <?php $this->renderPartial('partials/main-table-for-user', [
                 'entities' => $entities,
                 'actionMessage' => $actionMessage,
+                'filtered' => !empty($createdTaskId),
             ])?>
         <?php else: ?>
             <?php $this->renderPartial('partials/main-table-for-other', [
                 'entities' => $entities,
-                'filtered' => $filterForm->getModel(false)->filtered()
+                'filtered' => $filterForm->getModel(false)->filtered() || !empty($createdTaskId),
+                'createdTaskId' => $createdTaskId
             ])?>
         <?php endif; ?>
     </div>

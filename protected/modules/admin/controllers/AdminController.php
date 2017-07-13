@@ -120,6 +120,11 @@ class AdminController extends \CController
                 'label' => 'Пароли',
                 'url' => '/admin/security',
             ],
+            [
+                'key' => 'code',
+                'label' => 'Коды',
+                'url' => '/admin/code',
+            ],
             /*[
                 'key' => 'search',
                 'label' => 'Поиск туристов',

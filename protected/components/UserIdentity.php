@@ -6,6 +6,7 @@
  * data can identity the user.
  */
 use application\models\entities\User;
+use application\models\entities\Code;
 use application\models\Entity;
 use application\models\defines;
 
@@ -39,10 +40,12 @@ class UserIdentity extends CUserIdentity {
     public function authenticateByCode() {
         $user = User::model()->findByAttributes(array(
             'password' => $this->password,
-            'code' => $this->code
         ));
+        $code = Code::model()->findByAttributes([
+            'code' => $this->code
+        ]);
 
-        if ($user == null || $user->id == 0 || $user->roleId != $this->role) {
+        if ($user == null || $user->id == 0 || $user->roleId != $this->role || $code == null) {
             $this->errorCode = self::ERROR_USERNAME_INVALID;
         } else {
             $this->errorCode = self::ERROR_NONE;

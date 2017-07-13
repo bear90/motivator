@@ -187,6 +187,7 @@ use application\modules\admin\models\Text;
         'filterForm' => $filterForm,
         'offerForm' => $offerForm,
         'actionMessage' => $actionMessage,
+        'createdTaskId' => $createdTaskId
     ])?>
         
 
