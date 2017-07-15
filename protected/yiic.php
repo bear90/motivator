@@ -10,7 +10,7 @@ if (file_exists($sEnvFile)) {
     $environment = trim(file_get_contents($sEnvFile));
 }
 
-$yiic = '../vendor/yiisoft/yii/framework/yiic.php';
+$yiic = dirname( __FILE__ ) . '../vendor/yiisoft/yii/framework/yiic.php';
 
 // Include config files
 $configMain = require_once(dirname( __FILE__ ) . '/config/console.php');
