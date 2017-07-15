@@ -57,6 +57,7 @@ class DailycronCommand extends CConsoleCommand
         foreach (entities\Task::model()->findAll($criteria) as $task) {
             \Tool::sendEmailWithLayout($task, 'last-notification');
             $lastNotification++;
+            $task->delete();
         }
 
         //$this->doBackup();
