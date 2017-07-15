@@ -14,6 +14,6 @@ return array(
     ),
     'params' => array(
         'adminEmail'    =>'abonent@penki.by',
-        'senderEmail' => 'igorshablovsky@gmail.com',
+        'senderEmail' => 'webmaster@d0012280.atservers.net',
     )
 );
