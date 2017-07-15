@@ -16,7 +16,7 @@ return [
             ]
         ],
         'count' => [
-            'label' => 'Колличество паролей:',
+            'label' => 'Количество паролей:',
             'type' => 'text',
             'layout' => '{label}{input}{error}',
             'attributes' => [

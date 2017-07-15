@@ -8,7 +8,7 @@
 
 <div class="row" id="code">
     <div class="col-md-6">
-        <h3>Пароли</h3>
+        <h3>Коды</h3>
         
         <?php echo $form->renderBegin(); ?>
 

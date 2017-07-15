@@ -78,12 +78,14 @@
                 'offerForm' => $offerForm,
                 'offerForTask' => $offerForTask,
                 'filtered' => !empty($createdTaskId),
+                'createdTaskId' => $createdTaskId
             ])?>
         <?php elseif(\Yii::app()->user->isUser()): ?>
             <?php $this->renderPartial('partials/main-table-for-user', [
                 'entities' => $entities,
                 'actionMessage' => $actionMessage,
                 'filtered' => !empty($createdTaskId),
+                'createdTaskId' => $createdTaskId
             ])?>
         <?php else: ?>
             <?php $this->renderPartial('partials/main-table-for-other', [

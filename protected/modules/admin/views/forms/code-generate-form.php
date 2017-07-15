@@ -16,7 +16,7 @@ return [
             ]
         ],
         'count' => [
-            'label' => 'Колличество кодов:',
+            'label' => 'Количество кодов:',
             'type' => 'text',
             'layout' => '{label}{input}{error}',
             'attributes' => [

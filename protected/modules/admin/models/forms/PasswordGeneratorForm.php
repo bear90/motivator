@@ -26,7 +26,7 @@ class PasswordGeneratorForm extends \CFormModel
 
     public function attributeLabels(){
         return [
-            'count' => 'Колличество',
+            'count' => 'Количество',
         ];
     }
 }

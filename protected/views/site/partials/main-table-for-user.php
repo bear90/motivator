@@ -103,6 +103,14 @@
                 <?php endif; ?>
             </td>
         </tr>
+
+        <?php if ($model->data()->id == $createdTaskId): ?>
+        <tr>
+            <td colspan="5">
+                <b class="green"><?php echo Text::get('sent-email-message'); ?></b>
+            </td>
+        </tr>
+        <?php endif;?>
         
         
         <?php endforeach;?>

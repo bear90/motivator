@@ -24,7 +24,7 @@ class CodeGeneratorForm extends \CFormModel
 
     public function attributeLabels(){
         return [
-            'count' => 'Колличество',
+            'count' => 'Количество',
         ];
     }
 }
