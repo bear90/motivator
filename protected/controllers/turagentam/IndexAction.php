@@ -28,15 +28,18 @@ class IndexAction extends \CAction
             } elseif ($loginForm->validate() && $loginForm->code === null && $loginForm->loginWithoutCode()) {
                 $this->controller->redirect(\Yii::app()->createUrl('/#block-main-table'));
                 return;
+            } elseif(is_null($loginForm->code)) {
+                \Yii::app()->user->setFlash('errorLoginView', "Не верный пароль");
             } else {
-                $mess = is_null($loginForm->code) ? "Не верный пароль" : "Не верный пароль или код";
-                \Yii::app()->user->setFlash('error', $mess);
+                \Yii::app()->user->setFlash('errorLogin', "Не верный пароль или код");
             }
         }
 
         $this->controller->render('index', [
+            'loginFormView' => new \CForm('application.views.forms.manager-login-form-view', $loginForm),
             'loginForm' => new \CForm('application.views.forms.manager-login-form', $loginForm),
-            'error' => \Yii::app()->user->getFlash('error'),
+            'errorLoginView' => \Yii::app()->user->getFlash('errorLoginView'),
+            'errorLogin' => \Yii::app()->user->getFlash('errorLogin'),
         ]);
     }
 }

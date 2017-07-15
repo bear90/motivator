@@ -54,32 +54,32 @@ use application\modules\admin\models\Text;
     <div class="row">
       <div class="col-md-4 col-md-offset-1">
         <?php if (!\Yii::app()->user->isManager() || !Yii::app()->user->getState('viewOnly')): ?>
-          <div class="block-login collapse<?php if ($error): ?> in<?php endif; ?>" id="login-form1">
-              <?php echo $loginForm->renderBegin(); ?>
+          <div class="block-login collapse<?php if ($errorLoginView && $loginFormView->submitted()): ?> in<?php endif; ?>" id="login-form1">
+              <?php echo $loginFormView->renderBegin(); ?>
 
                   <div class="form-group">
-                      <?php echo $loginForm['submit']; ?>
+                      <?php echo $loginFormView['submit']; ?>
                   </div>
 
                   <div class="form-group">
-                      <?php echo $loginForm['password']; ?>
+                      <?php echo $loginFormView['password']; ?>
                   </div>
 
-                  <?php if ($error): ?>
-                    <div class="alert alert-danger" role="alert"><?php echo $error; ?></div>
+                  <?php if ($errorLoginView): ?>
+                    <div class="alert alert-danger" role="alert"><?php echo $errorLoginView; ?></div>
                   <?php endif; ?>
 
                   <div class="form-block button">
                       <button type="submit" class="btn btn-default btn-green">Войти</button>
                   </div>
-              <?php echo $loginForm->renderEnd(); ?>
+              <?php echo $loginFormView->renderEnd(); ?>
           </div>
         <?php endif; ?>
       </div>
 
       <div class="col-md-4 col-md-offset-1">
         <?php if (!\Yii::app()->user->isManager() || Yii::app()->user->getState('viewOnly')): ?>
-          <div class="block-login collapse<?php if ($error): ?> in<?php endif; ?>" id="login-form2">
+          <div class="block-login collapse<?php if ($errorLogin && $loginForm->submitted()): ?> in<?php endif; ?>" id="login-form2">
               <?php echo $loginForm->renderBegin(); ?>
 
                   <div class="form-group">
@@ -94,8 +94,8 @@ use application\modules\admin\models\Text;
                       <?php echo $loginForm['code']; ?>
                   </div>
 
-                  <?php if ($error): ?>
-                    <div class="alert alert-danger" role="alert"><?php echo $error; ?></div>
+                  <?php if ($errorLogin): ?>
+                    <div class="alert alert-danger" role="alert"><?php echo $errorLogin; ?></div>
                   <?php endif; ?>
 
                   <div class="form-block button">
