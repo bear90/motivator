@@ -125,6 +125,11 @@ class AdminController extends \CController
                 'label' => 'Коды',
                 'url' => '/admin/code',
             ],
+            [
+                'key' => 'view',
+                'label' => 'Просмотр',
+                'url' => '/#block-main-table',
+            ],
             /*[
                 'key' => 'search',
                 'label' => 'Поиск туристов',

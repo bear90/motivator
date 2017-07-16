@@ -72,7 +72,13 @@
         
         <?php endif; ?>
 
-        <?php if(\Yii::app()->user->isManager()): ?>
+        <?php if(\Yii::app()->user->isAdmin()): ?>
+            <?php $this->renderPartial('partials/main-table-for-admin', [
+                'entities' => $entities,
+                'filtered' => true,
+                'createdTaskId' => $createdTaskId
+            ])?>
+        <?php elseif(\Yii::app()->user->isManager()): ?>
             <?php $this->renderPartial('partials/main-table-for-manager', [
                 'entities' => $entities,
                 'offerForm' => $offerForm,
