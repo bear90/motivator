@@ -10,7 +10,7 @@
     <?php for($i = count($offers); $i>0; $i--) : ?>
 
         <div class="row" id="offer_<?php echo $offers[$i-1]->id; ?>">
-            <div class="col-md-12">
+            <div class="col-md-12 text-center">
                 <h3>Предложение №<?php echo $i; ?></h3>
 
                 <?php if($showContact || $showContactForFirtsOne && $i==count($offers)): ?>
