@@ -29,7 +29,7 @@
                 <?php echo $model->data()->relName->name; ?><br>
                 № <?php echo $model->data()->id; ?><br>
                 
-                <?php if($model->getAge() == intval(Configuration::get(Configuration::FIRST_NOTICE_TERM))): ?>
+                <?php if($model->canProlong()): ?>
                     <a href="/task/prolong/<?php echo $model->data()->id; ?>" class="btn btn-default btn-green">Продлить размещение заявки</a><br>
                 <?php endif; ?>
 

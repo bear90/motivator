@@ -77,11 +77,17 @@
         </tr>
         <tr class="offers-row <?php echo $offerForTask == $model->data()->id ? '' : 'hidden'?>">
             <td colspan="5">
-                <?php $this->renderPartial('partials/offer-list', [
-                    'offers' => $entity->offers,
-                    'taskId' => $model->data()->id,
-                    'showContactForFirtsOne' => $offerForTask == $model->data()->id
-                ])?>
+                <?php if (count($entity->offers)) : ?>
+                    <?php $this->renderPartial('partials/offer-list', [
+                        'offers' => $entity->offers,
+                        'taskId' => $model->data()->id,
+                        'showContactForFirtsOne' => $offerForTask == $model->data()->id
+                    ])?>
+                <?php else: ?>
+                    <div class="text-center">
+                        <p>По данной заявке пока нет предложений. Будьте первыми!</p>
+                    </div>
+                <?php endif; ?>
             </td>
         </tr>
         <tr class="add-offer-row hidden" id="task_<?php echo $model->data()->id; ?>">

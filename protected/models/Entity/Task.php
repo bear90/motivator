@@ -13,6 +13,7 @@ namespace application\models\Entity;
 use application\models\Tools;
 use application\models\entities;
 use application\models\defines;
+use application\models\entities\Configuration;
 
 class Task
 {
@@ -127,13 +128,16 @@ class Task
         }
     }
 
-    public function getAge()
+    public function canProlong()
     {
-        $createdAt = new \DateTime($this->data->createdAt);
-        $createdAt->setTime('06', '00', '00');
-        $now = new \DateTime();
+        $fromDate = $this->data->prolongationDate ?: $this->data->createdAt;
+        $term = intval(Configuration::get(Configuration::FIRST_NOTICE_TERM));
 
-        $interval = $now->diff($createdAt);
-        return $interval->days;
+        $now = new \DateTime();
+        $date = new \DateTime($fromDate);
+        $date->setTime('06', '00', '00');
+        $date->modify("+{$term} days");
+
+        return $date <= $now;
     }
 }
