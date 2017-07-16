@@ -14,6 +14,7 @@ namespace application\modules\admin\controllers;
 
 class ParamsController extends AdminController
 {
+    public $jsModule = 'params';
 
     public function actions(){
         return [

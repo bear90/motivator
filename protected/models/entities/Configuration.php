@@ -27,6 +27,8 @@ class Configuration extends BaseEntity {
     
     const TASK_PROLONG_TERM  = 'TASK_PROLONG_TERM';
 
+    const CODE_LIVE_TIME  = 'CODE_LIVE_TIME';
+
     private static $aValues = null;
 
     /**

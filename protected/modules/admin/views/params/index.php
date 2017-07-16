@@ -29,6 +29,14 @@
         <td>Cрок продления размещения</td>
         <td><?php echo CHtml::textField('config['.Configuration::TASK_PROLONG_TERM.']', Configuration::get(Configuration::TASK_PROLONG_TERM), ['class' => 'form-control']); ?></td>
     </tr>
+    <tr>
+        <td>Cрок действия кода доступа (часы)</td>
+        <td>
+            <div class="form-group">
+                <?php echo CHtml::textField('config['.Configuration::CODE_LIVE_TIME.']', Configuration::get(Configuration::CODE_LIVE_TIME), ['class' => 'form-control integer']); ?>
+            </div>
+        </td>
+    </tr>
 </table>
 <div class="form-group">
     <button type="submit" class="btn btn-default">Сохранить</button>
