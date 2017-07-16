@@ -19,6 +19,7 @@ class DailycronCommand extends CConsoleCommand
         $firstNotification = 0;
         $secondNotification = 0;
         $lastNotification = 0;
+        $tourStarted = 0;
 
         // First notification
         $criteria = new CDbCriteria();
@@ -60,11 +61,24 @@ class DailycronCommand extends CConsoleCommand
             $task->delete();
         }
 
+        // Delete after start
+        $criteria = new CDbCriteria();
+        $criteria->addCondition('startedAt > 0 AND DATE(ADDDATE(startedAt, INTERVAL :days DAY)) >= :date');
+        $criteria->params = [
+            'date' => $dateTime->format('Y-m-d'),
+            'days' => 1
+        ];
+        foreach (entities\Task::model()->findAll($criteria) as $task) {
+            $tourStarted++;
+            $task->delete();
+        }
+
         //$this->doBackup();
 
         print("Count of 1st notifications: {$firstNotification}\n");
         print("Count of 2nd notifications: {$secondNotification}\n");
         print("Count of last notifications with deletion: {$lastNotification}\n");
+        print("Count of started tours with deletion: {$tourStarted}\n");
         print("---------------------\n");
         print("\n");
     }
