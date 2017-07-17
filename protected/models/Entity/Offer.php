@@ -35,6 +35,7 @@ class Offer
     {
         if ($attributes) {
             $this->data->attributes = $attributes;
+
         }
         $this->data->save();
 

@@ -35,7 +35,7 @@ class IndexAction extends \CAction
         }
 
         $criteria = $this->getCriteria($filterForm);
-        $criteria->with['offers'] = ['order' => 'offers.id ASC'];
+        $criteria->with['offers'] = ['order' => 'offers.id DESC'];
         $entities = Entity\Task\Repository::getAll($criteria);
 
         $this->controller->render('index', [

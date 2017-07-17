@@ -14,11 +14,70 @@ define([
             'click a.offer-add-price': "clickOfferAddPrice",
             'keydown input.price': "keydownInputPrice",
             'click a.remove-offer': "clickRemoveOffer",
+            'click a.favorite': "clickMakeFavorite",
+            'click a.not_priority': "clickMakeNotPriority",
         },
 
         templateOfferPrice: _.template(OfferPriceTmpl),
 
         initialize: function() {},
+
+        clickMakeFavorite:  function (e){
+            e.preventDefault();
+            var $el = this.$(e.target);
+            var $row = $el.closest('.item.row');
+            var $wrap = $row.parent();
+            var data = {
+                id: $row.data('id'),
+                type: 1
+            }
+
+            $.post('/api/change-offer-type', data)
+                .done(function (data) {
+                    $row.find('.row.priority .col-md-6:first').html('<b>ПРИОРИТЕТНОЕ</b>');
+                    $row.find('.row.priority .col-md-6:last').html('<a href="#" class="not_priority">добавить в общий список</a>');
+                    
+                    /*$target = $wrap.find('div.favorite:last');
+                    if (!$target.size()) {
+                        $target = $wrap.find('div.common:last');
+                    }
+                    if ($row.data('id') != $target.data('id'))
+                        $row.insertAfter($target);*/
+                })
+                /*.fail(function (data) {
+                    console.log('fail', data)
+                });*/
+        },
+
+        clickMakeNotPriority:  function (e){
+            e.preventDefault();
+            var $el = this.$(e.target);
+            var $row = $el.closest('.item.row');
+            var $wrap = $row.parent();
+            var data = {
+                id: $row.data('id'),
+                type: 2
+            }
+
+            $.post('/api/change-offer-type', data)
+                .done(function (data) {
+                    $row.find('.row.priority .col-md-6:first').html('<a href="#" class="favorite">добавить в раздел «ИЗБРАННОЕ»</a>');
+                    $row.find('.row.priority .col-md-6:last').html('<b>НЕПРИОРИТЕТНОЕ</b>');
+
+                    /*var $target = $wrap.find('div.not-priority:last');
+                    if (!$target.size()) {
+                        $target = $wrap.find('div.favorite:last');
+                    }
+                    if (!$target.size()) {
+                        $target = $wrap.find('div.common:last');
+                    }
+                    if ($row.data('id') != $target.data('id'))
+                        $row.insertAfter($target);*/
+                })
+                /*.fail(function (data) {
+                    console.log('fail', data)
+                });*/
+        },
 
         keydownInputPrice:  function (e){
             // Allow: backspace, delete, tab, escape, enter

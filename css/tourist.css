@@ -1033,3 +1033,8 @@ img.sltour {height: 148px;}
 }
 
 #login-user {margin-bottom: 20px;}
+
+.priority b {color: #fd8019}
+.priority a:active,
+.priority a:hover,
+.priority a {text-decoration: underline; color: #fd8019}

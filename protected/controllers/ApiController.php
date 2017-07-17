@@ -6,13 +6,13 @@ class ApiController extends \CController {
 
     public function actions(){
         return [
-            'touristCreate' => 'application\\controllers\\api\\TouristCreateAction',
-            'calculate-choice-tour' => 'application\\controllers\\api\\CalculateChoiceTourAction',
-            'calculate-change-tour' => 'application\\controllers\\api\\CalculateChangeTourAction',
-            'search-tourist' => 'application\\controllers\\api\\SearchTouristAction',
-            'ask-question' => 'application\\controllers\\api\\AskQuestionAction',
-            'close-message' => 'application\\controllers\\api\\CloseMessageAction',
-            'check-order' => 'application\\controllers\\api\\CheckOrderAction',
+            //'touristCreate' => 'application\\controllers\\api\\TouristCreateAction',
+            //'calculate-choice-tour' => 'application\\controllers\\api\\CalculateChoiceTourAction',
+            //'calculate-change-tour' => 'application\\controllers\\api\\CalculateChangeTourAction',
+            //'search-tourist' => 'application\\controllers\\api\\SearchTouristAction',
+            'change-offer-type' => 'application\\controllers\\api\\ChangeOfferTypeAction',
+            //'close-message' => 'application\\controllers\\api\\CloseMessageAction',
+            //'check-order' => 'application\\controllers\\api\\CheckOrderAction',
         ];
     }
 }

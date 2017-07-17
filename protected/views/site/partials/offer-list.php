@@ -1,41 +1,85 @@
 <?php
     use application\models\defines\Offer\PriceType;
+    use application\models\defines\Offer;
     use application\modules\admin\models\Text;
 
     $showContact = isset($showContact) ? boolval($showContact) : false;
+    $count = count($offers);
+
+    $class = function ($type)
+    {
+        switch ($type) {
+            case Offer\Type::FAVORITE:
+                return 'favorite';
+
+            case Offer\Type::NOT_PRIORITY:
+                return 'not-priority';
+            
+            default:
+                return 'common';
+        }
+    };
+
+    uasort($offers, function($a, $b) {
+        if ($a->type == $b->type) {
+            return 0;
+        }
+        return ($a->type < $b->type) ? -1 : 1;
+    });
 ?>
 
-<?php if (count($offers)) : ?>
+<?php if ($count) : ?>
 
-    <?php for($i = count($offers); $i>0; $i--) : ?>
+    <?php foreach($offers as $num => $offer) : ?>
 
-        <div class="row" id="offer_<?php echo $offers[$i-1]->id; ?>">
+        <div class="item row <?php echo $class($offer->type); ?>" id="offer_<?php echo $offer->id; ?>"
+             data-id="<?php echo $offer->id; ?>">
             <div class="col-md-12 text-center">
-                <h3>Предложение №<?php echo $i; ?></h3>
+                <h3>Предложение №<?php echo $count - $num; ?></h3>
+                <div class="row priority">
+                    
+                    <div class="col-md-6">
+                        <?php if ($offer->type == Offer\Type::FAVORITE) : ?>
+                            <b>ПРИОРИТЕТНОЕ</b>
+                        <?php else : ?>
+                            <a href="#" class="favorite">добавить в раздел «ИЗБРАННОЕ»</a>
+                        <?php endif; ?>
+                    </div>
 
-                <?php if($showContact || $showContactForFirtsOne && $i==count($offers)): ?>
-                    <div><?php echo $offers[$i-1]->contact; ?></div>
+                    <div class="col-md-6">
+                        <?php if ($offer->type == Offer\Type::NOT_PRIORITY) : ?>
+                            <b>НЕПРИОРИТЕТНОЕ</b>
+                        <?php else : ?>
+                            <a href="#" class="not_priority">добавить в общий список</a>
+                        <?php endif; ?>
+                        
+                    </div>
+
+                </div>
+
+                <?php if($showContact || $showContactForFirtsOne && $num==count($offers)): ?>
+                    <div><?php echo $offer->contact; ?></div>
                 <?php endif; ?>
 
-                <div><?php echo $offers[$i-1]->description; ?></div>
+                <div><?php echo $offer->description; ?></div>
 
-                <?php if(!is_null($offers[$i-1]->price)) : ?>
+                <?php if(!is_null($offer->price)) : ?>
                     <div>
-                        Штатная продажа: <?php echo ceil($offers[$i-1]->price); ?>€
+                        Штатная продажа: <?php echo ceil($offer->price); ?>€
                     </div>
                 <?php endif; ?>
 
-                <?php if(!is_null($offers[$i-1]->earlyPrice)) : ?>
+                <?php if(!is_null($offer->earlyPrice)) : ?>
                     <div>
                         Ранее бронирование: 
-                        <i class="fa fa-snowflake-o" aria-hidden="true"></i> <?php echo ceil($offers[$i-1]->earlyPrice); ?>€
+                        <i class="fa fa-snowflake-o" aria-hidden="true"></i> <?php echo ceil($offer->earlyPrice); ?>€
                     </div>
                 <?php endif; ?>
 
-                <?php if(!is_null($offers[$i-1]->lastMinPrice)) : ?>
+                <?php if(!is_null($offer->lastMinPrice)) : ?>
                     <div>
                         Горящий тур:
-                        <span class="glyphicon glyphicon-fire"></span> <?php echo ceil($offers[$i-1]->lastMinPrice); ?>€
+                        <span class="glyphicon glyphicon-fire"></span> <?php echo ceil($offer->lastMinPrice); ?>€
                     </div>
                 <?php endif; ?>
             </div>
@@ -43,7 +87,7 @@
 
         
 
-    <?php endfor;?>
+    <?php endforeach;?>
 
     <?php if (Yii::app()->user->isManager() && !Yii::app()->user->getState('viewOnly')) : ?>
         <button type="button" class="btn btn-default btn-green add-offer2" data-id="<?php echo $taskId; ?>">Разместить предложение</button>
