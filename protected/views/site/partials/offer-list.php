@@ -36,26 +36,29 @@
              data-id="<?php echo $offer->id; ?>">
             <div class="col-md-12 text-center">
                 <h3>Предложение №<?php echo $count - $num; ?></h3>
-                <div class="row priority">
-                    
-                    <div class="col-md-6">
-                        <?php if ($offer->type == Offer\Type::FAVORITE) : ?>
-                            <b>ПРИОРИТЕТНОЕ</b>
-                        <?php else : ?>
-                            <a href="#" class="favorite">добавить в раздел «ИЗБРАННОЕ»</a>
-                        <?php endif; ?>
-                    </div>
 
-                    <div class="col-md-6">
-                        <?php if ($offer->type == Offer\Type::NOT_PRIORITY) : ?>
-                            <b>НЕПРИОРИТЕТНОЕ</b>
-                        <?php else : ?>
-                            <a href="#" class="not_priority">добавить в общий список</a>
-                        <?php endif; ?>
+                <?php if(\Yii::app()->user->isUser()): ?>
+                    <div class="row priority">
                         
-                    </div>
+                        <div class="col-md-6">
+                            <?php if ($offer->type == Offer\Type::FAVORITE) : ?>
+                                <b>ПРИОРИТЕТНОЕ</b>
+                            <?php else : ?>
+                                <a href="#" class="favorite">добавить в раздел «ИЗБРАННОЕ»</a>
+                            <?php endif; ?>
+                        </div>
 
-                </div>
+                        <div class="col-md-6">
+                            <?php if ($offer->type == Offer\Type::NOT_PRIORITY) : ?>
+                                <b>НЕПРИОРИТЕТНОЕ</b>
+                            <?php else : ?>
+                                <a href="#" class="not_priority">добавить в общий список</a>
+                            <?php endif; ?>
+                            
+                        </div>
+
+                    </div>
+                <?php endif; ?>
 
                 <?php if($showContact || $showContactForFirtsOne && $num==count($offers)): ?>
                     <div><?php echo $offer->contact; ?></div>

@@ -37,12 +37,12 @@ define([
                     $row.find('.row.priority .col-md-6:first').html('<b>ПРИОРИТЕТНОЕ</b>');
                     $row.find('.row.priority .col-md-6:last').html('<a href="#" class="not_priority">добавить в общий список</a>');
                     
-                    /*$target = $wrap.find('div.favorite:last');
-                    if (!$target.size()) {
-                        $target = $wrap.find('div.common:last');
-                    }
-                    if ($row.data('id') != $target.data('id'))
-                        $row.insertAfter($target);*/
+                        /*$target = $wrap.find('div.favorite:last');
+                        if (!$target.size()) {
+                            $target = $wrap.find('div.common:last');
+                        }
+                        if ($row.data('id') != $target.data('id'))
+                            $row.insertAfter($target);*/
                 })
                 /*.fail(function (data) {
                     console.log('fail', data)
