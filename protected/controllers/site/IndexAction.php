@@ -35,7 +35,7 @@ class IndexAction extends \CAction
         }
 
         $criteria = $this->getCriteria($filterForm);
-        $criteria->with['offers'] = ['order' => 'offers.id DESC'];
+        $criteria->with['offers'] = ['order' => 'offers.type, offers.sort DESC'];
         $entities = Entity\Task\Repository::getAll($criteria);
 
         $this->controller->render('index', [
@@ -49,6 +49,7 @@ class IndexAction extends \CAction
             'offerForTask' => \Yii::app()->user->getFlash('offerForTask', null),
             'createdTaskId' => \Yii::app()->user->getFlash('createdTaskId', null),
         ]);
+
     }
 
     private function getCriteria(forms\TaskFilterForm $filterForm)

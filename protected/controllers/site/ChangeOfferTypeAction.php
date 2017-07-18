@@ -9,7 +9,7 @@
  *
  */
 
-namespace application\controllers\api;
+namespace application\controllers\site;
 
 use application\models\entities;
 use application\models\Entity;
@@ -34,12 +34,24 @@ class ChangeOfferTypeAction extends \CApiAction
 
         if ($type == Offer\Type::FAVORITE) {
             $model->save(['type' => Offer\Type::FAVORITE]);
-            return ['updated' => $id];
         } elseif ($type == Offer\Type::NOT_PRIORITY) {
             $model->save(['type' => Offer\Type::NOT_PRIORITY]);
-            return ['updated' => $id];
+        } else {
+            throw new \CHttpException(400, 'Bad Request');
         }
 
-        throw new \CHttpException(400, 'Bad Request');
+        $taskEntity = entities\Task::model()->findByPk($entity->taskId, [
+            'with' => ['offers' => ['order' => 'offers.type, offers.sort desc']]
+        ]);
+        $data = [
+            'offers' => $taskEntity->offers,
+            'taskId' => $taskEntity->id,
+            'showContact' => true
+        ];
+
+        return [
+            'updated' => $id,
+            'widget' => $this->controller->renderPartial('partials/offer-list', $data, true, true)
+        ];
     }
 }

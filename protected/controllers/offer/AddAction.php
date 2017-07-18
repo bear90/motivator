@@ -18,6 +18,7 @@ class AddAction extends \CAction
         $offer = new Entity\Offer();
         $this->setPrice($offer, $attributes['priceType'], $attributes['price']);
         unset($attributes['priceType'], $attributes['price']);
+        $attributes['sort'] = $this->getSort($attributes['taskId']);
         $offer->save($attributes);
 
         // Update price
@@ -30,6 +31,15 @@ class AddAction extends \CAction
         \Tool::sendEmailWithLayout($model->data(), 'add-offer', []);
         
         $this->controller->redirect('/#offer_' . $offer->data()->id);
+    }
+
+    private function getSort($taskId) {
+        $sort = \Yii::app()->db->createCommand()
+            ->select('max(sort)')
+            ->from('tbl_offer')
+            ->where('taskId = :id', ['id' => $taskId])
+            ->queryScalar();
+        return !empty($sort) ? $sort + 1 : 1;
     }
 
     public function setPrice(Entity\Offer $offer, array $type, array $price)

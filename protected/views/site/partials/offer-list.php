@@ -19,13 +19,6 @@
                 return 'common';
         }
     };
-
-    uasort($offers, function($a, $b) {
-        if ($a->type == $b->type) {
-            return 0;
-        }
-        return ($a->type < $b->type) ? -1 : 1;
-    });
 ?>
 
 <?php if ($count) : ?>
@@ -35,7 +28,7 @@
         <div class="item row <?php echo $class($offer->type); ?>" id="offer_<?php echo $offer->id; ?>"
              data-id="<?php echo $offer->id; ?>">
             <div class="col-md-12 text-center">
-                <h3>Предложение №<?php echo $count - $num; ?></h3>
+                <h3>Предложение №<?php echo $offer->sort; ?></h3>
 
                 <?php if(\Yii::app()->user->isUser()): ?>
                     <div class="row priority">

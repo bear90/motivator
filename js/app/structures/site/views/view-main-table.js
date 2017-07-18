@@ -32,17 +32,13 @@ define([
                 type: 1
             }
 
-            $.post('/api/change-offer-type', data)
+            $.post({
+                url: '/site/change-offer-type',
+                data: data,
+                dataType: 'json'
+            })
                 .done(function (data) {
-                    $row.find('.row.priority .col-md-6:first').html('<b>ПРИОРИТЕТНОЕ</b>');
-                    $row.find('.row.priority .col-md-6:last').html('<a href="#" class="not_priority">добавить в общий список</a>');
-                    
-                        /*$target = $wrap.find('div.favorite:last');
-                        if (!$target.size()) {
-                            $target = $wrap.find('div.common:last');
-                        }
-                        if ($row.data('id') != $target.data('id'))
-                            $row.insertAfter($target);*/
+                    $wrap.html(data.widget);
                 })
                 /*.fail(function (data) {
                     console.log('fail', data)
@@ -59,20 +55,13 @@ define([
                 type: 2
             }
 
-            $.post('/api/change-offer-type', data)
+            $.post({
+                url: '/site/change-offer-type',
+                data: data,
+                dataType: 'json'
+            })
                 .done(function (data) {
-                    $row.find('.row.priority .col-md-6:first').html('<a href="#" class="favorite">добавить в раздел «ИЗБРАННОЕ»</a>');
-                    $row.find('.row.priority .col-md-6:last').html('<b>НЕПРИОРИТЕТНОЕ</b>');
-
-                    /*var $target = $wrap.find('div.not-priority:last');
-                    if (!$target.size()) {
-                        $target = $wrap.find('div.favorite:last');
-                    }
-                    if (!$target.size()) {
-                        $target = $wrap.find('div.common:last');
-                    }
-                    if ($row.data('id') != $target.data('id'))
-                        $row.insertAfter($target);*/
+                    $wrap.html(data.widget);
                 })
                 /*.fail(function (data) {
                     console.log('fail', data)
