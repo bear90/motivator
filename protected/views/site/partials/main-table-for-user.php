@@ -33,7 +33,7 @@
                     <a href="/task/prolong/<?php echo $model->data()->id; ?>" class="btn btn-default btn-green">Продлить размещение заявки</a><br>
                 <?php endif; ?>
 
-                <a href="/task/delete/<?php echo $model->data()->id; ?>" class="btn btn-default btn-red remove-offer">Удалить заявку</a>
+                <a href="/task/delete/<?php echo $model->data()->id; ?>" class="btn btn-default btn-delete remove-offer">Удалить заявку</a>
             </td>
 
             <td>

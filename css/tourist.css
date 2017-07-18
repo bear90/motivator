@@ -1024,6 +1024,17 @@ img.sltour {height: 148px;}
     opacity: 0.9;
 }
 
+.btn.btn-delete{
+    background: white;
+    border: 1px solid;
+    color: red;
+}
+
+.btn.btn-delete:hover {
+    background: white;
+    opacity: 0.9;
+}
+
 #manager-login-form .button {
     text-align: center;
 }
