@@ -17,7 +17,8 @@ class Code extends BaseEntity
     public function rules(){
         return [
             ['code', 'required'],
-            ['comment', 'type', 'type' => 'string'],
+            ['comment, expiredAt', 'type', 'type' => 'string'],
+            ['deleted', 'type', 'type' => 'integer'],
         ];
     }
 

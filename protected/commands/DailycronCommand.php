@@ -20,6 +20,7 @@ class DailycronCommand extends CConsoleCommand
         $secondNotification = 0;
         $lastNotification = 0;
         $tourStarted = 0;
+        $deletedCodes = 0;
 
         // First notification
         $criteria = new CDbCriteria();
@@ -73,12 +74,18 @@ class DailycronCommand extends CConsoleCommand
             $task->delete();
         }
 
+        // Delete expired codes
+        $criteria = new CDbCriteria();
+        $criteria->addCondition('expiredAt > 0 AND expiredAt < NOW()');
+        $deletedCodes = entities\Code::model()->udateAll(['deleted' => 1], $criteria);
+
         //$this->doBackup();
 
         print("Count of 1st notifications: {$firstNotification}\n");
         print("Count of 2nd notifications: {$secondNotification}\n");
         print("Count of last notifications with deletion: {$lastNotification}\n");
         print("Count of started tours with deletion: {$tourStarted}\n");
+        print("Count of deleted codes: {$deletedCodes}\n");
         print("---------------------\n");
         print("\n");
     }

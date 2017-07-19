@@ -27,6 +27,10 @@ class AddAction extends \CAction
         $model->setPrice($offer->data());
 
         \Yii::app()->user->setFlash('offerForTask', $attributes['taskId']);
+        \Yii::app()->user->setState('viewOnly', true);
+        // Expire code
+        $code = \Yii::app()->user->getState('code');
+        entities\Code::model()->updateAll(['deleted' => 1], 'code = :code', ['code' => $code]);
 
         \Tool::sendEmailWithLayout($model->data(), 'add-offer', []);
         

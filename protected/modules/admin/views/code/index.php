@@ -18,6 +18,7 @@
                 <tr>
                     <th><!-- --></th>
                     <th>Код</th>
+                    <th>Время жизни</th>
                     <th>Операция</th>
                 </tr>
                 <?php foreach ($entities as $entity):?>
@@ -26,6 +27,11 @@
                             <?php echo CHtml::checkBox('code[]', false, ['value' => $entity->id]); ?>
                         </td>
                         <td><?php echo $entity->code; ?></td>
+                        <td>
+                        <?php echo $entity->expiredAt != '0000-00-00 00:00:00' 
+                            ? (new \DateTime($entity->expiredAt))->format('d.m.Y') 
+                            : '-'; ?>
+                        </td>
 
                         <td>
                             <a href="<?php echo Yii::app()->createUrl("/admin/code/delete/{$entity->id}")?>" type="button" class="btn btn-danger btn-xs">

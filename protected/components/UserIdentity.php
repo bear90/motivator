@@ -42,7 +42,8 @@ class UserIdentity extends CUserIdentity {
             'password' => $this->password,
         ));
         $code = Code::model()->findByAttributes([
-            'code' => $this->code
+            'code' => $this->code,
+            'deleted' => 0
         ]);
 
         if ($user == null || $user->id == 0 || $user->roleId != $this->role || $code == null) {

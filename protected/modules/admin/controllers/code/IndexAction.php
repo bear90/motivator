@@ -13,6 +13,7 @@ namespace application\modules\admin\controllers\code;
 
 use application\models\Entity;
 use application\models\entities;
+use application\models\entities\Configuration;
 use application\modules\admin\models\forms;
 use application\models\defines\UserRole;
 
@@ -31,8 +32,14 @@ class IndexAction extends \CAction
             $n = (int) \Yii::app()->request->getPost('count');
             for ($i=0; $i<$n; $i++) {
                 $model = new Entity\Code();
+
+                $date = new \DateTime();
+                $hours = intval(Configuration::get(Configuration::CODE_LIVE_TIME));
+                $date->modify("+{$hours} hours");
+
                 $attributes = [
                     'code' => Entity\User::generatePassword(6),
+                    'expiredAt' => $date->format('Y-m-d H:i:s')
                 ];
                 $model->save($attributes);
             }
