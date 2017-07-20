@@ -1,5 +1,8 @@
 define([
-    'validator'
+    'validator',
+    'jquery',
+    'jqueryui',
+    'jquery-combobox'
 ], function(){
     return Backbone.View.extend({
         
@@ -133,6 +136,15 @@ define([
 
             // Set datapicker
             this.$(".datepicker").datepicker({
+                changeMonth: true,
+                dateFormat: "dd.mm.yy",
+                minDate: new Date,
+                onClose: $.proxy(function( selectedDate, calendar, e ) {
+                    this.$('form').bootstrapValidator('revalidateField', 'task[startedAt]');
+                }, this),
+            });
+
+            this.$(".combobox").datepicker({
                 changeMonth: true,
                 dateFormat: "dd.mm.yy",
                 minDate: new Date,

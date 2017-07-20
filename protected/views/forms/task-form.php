@@ -36,7 +36,7 @@ return [
             'attributes' => [
                 'id' => '',
                 'name' => 'task[country][]',
-                'class' => 'form-control country'
+                'class' => 'form-control country combobox'
             ]
         ],
         'tourType' => [

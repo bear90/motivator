@@ -1049,3 +1049,19 @@ img.sltour {height: 148px;}
 .priority a:active,
 .priority a:hover,
 .priority a {text-decoration: underline; color: #fd8019}
+
+.custom-combobox {
+    position: relative;
+    display: inline-block;
+  }
+  a.custom-combobox-toggle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-left: -1px;
+    padding: 0;
+  }
+  .custom-combobox-input {
+    margin: 0;
+    padding: 5px 10px;
+  }

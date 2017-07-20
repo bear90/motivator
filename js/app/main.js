@@ -9,8 +9,11 @@ var Session = {
 require.config({
     urlArgs: "ver=1.0.3",
     paths: {
-        "jquery": "vendor/jquery/dist/jquery.min",
-        "jqueryui": "vendor/jquery-ui-1.11.4/jquery-ui.min",
+        //"jquery": "vendor/jquery/dist/jquery.min",
+        "jquery": "vendor/jquery/jquery",
+        "jqueryui": "vendor/jquery-ui-1.12.1/jquery-ui.min",
+        //"jqueryui": "vendor/jquery-ui-1.11.4/jquery-ui.min",
+        "jquery-combobox": "vendor/jquery.combobox/jquery.combobox",
         "bootstrap": "vendor/bootstrap/bootstrap.min",
         "underscore": "vendor/underscore-amd/underscore-min",
         "underscore-string" : 'vendor/underscore.string.min',

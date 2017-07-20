@@ -19,7 +19,8 @@
     <link rel="stylesheet" href="/css/plugins/slidebars.css">
     <link rel="stylesheet" href="/css/modules/tab.css">
     <link rel="stylesheet" href="/css/tourist.css?ver=1.0.4">
-    <link rel="stylesheet" href="/css/jquery-ui.min.css">
+    <!-- <link rel="stylesheet" href="/css/jquery-ui.min.css"> -->
+    <link rel="stylesheet" href="/css/jquery.ui/jquery-ui.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
