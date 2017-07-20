@@ -17,7 +17,7 @@ return array(
     'params'=>array(
         'helpEmail'    =>'help@motivator-travel.by',
         'adminEmail'    =>'abonent@penki.by',
-        'senderEmail' => 'webmaster@d0012280.atservers.net',
+        'senderEmail' => 'webmaster@penki.by',
         'yiiPath'       => '/home/user2007762/frameworks/1.1.17/framework/yii.php',
     ),
 );
