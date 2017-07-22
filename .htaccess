@@ -3,7 +3,7 @@ RewriteEngine On
 #RewriteCond %{SERVER_PORT} !^443$
 #RewriteCond %{HTTPS} !=on
 ## Reditect to HTTPS
-#RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R=310,L]
+#RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R=301,L]
 
 RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
