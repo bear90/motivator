@@ -1,9 +1,11 @@
 /**
  * Created by m.soza on 25.02.2016.
  */
-define(['jquery', 'jqueryui'], function(){
+define(['jquery', 'jqueryui'], function($){
 
     $( function() {
+
+        console.log($.fn.jquery);
         $.widget( "custom.combobox", {
             _create: function() {
                 this.wrapper = $( "<span>" )
