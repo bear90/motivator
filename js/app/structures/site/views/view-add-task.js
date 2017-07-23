@@ -18,7 +18,11 @@ define([
         initialize: function(){
             var self = this;
 
-            $( ".filtered-select" ).combobox();
+            $(".filtered-select").combobox({change: function( e, ui ) {
+                var $el = $(e.target);
+                
+                self.$('form').bootstrapValidator('revalidateField', $el.attr('name'));
+            }});
 
             this.$('form').bootstrapValidator({
                 message: 'Данные введены неверно',
@@ -29,21 +33,21 @@ define([
                 },
                 fields: {
                     '_task[name1]': {
+                        trigger: "blur",
                         validators: {
                             callback: {
                                 message: "Вам необходимо выбрать имя!",
                                 callback: function (value, validator, $field) {
-                                    var $el1 = self.$('[name="_task[name1]"]');
-                                    var $_el1 = self.$('[name="task[name1]"]');
-                                    var $el2 = self.$('[name="_task[name2]"]');
-                                    var $_el2 = self.$('[name="task[name2]"]');
-                                    console.log('validation1');
-                                    return $_el1.val() != '0' || $_el2.val() != '0';
+                                    var $el1 = self.$('[name="task[name1]"]');
+                                    var $el2 = self.$('[name="task[name2]"]');
+                                    
+                                    return $el1.val() != '0' || $el2.val() != '0';
                                 }
                             },
                         }
                     },
                     '_task[name2]': {
+                        trigger: "blur",
                         validators: {
                             callback: {
                                 message: "Вам необходимо выбрать имя!",

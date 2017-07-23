@@ -1076,3 +1076,10 @@ a.custom-combobox-toggle {
 .custom-combobox .ui-state-default {
     background: none;
 }
+
+label.with-help {margin-bottom: 0;}
+.help-block.above{margin-top: 0;}
+
+.form-group.combobox .form-control-feedback {
+    right: 20px;
+}

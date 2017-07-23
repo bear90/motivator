@@ -88,12 +88,12 @@ use application\modules\admin\models\Text;
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <div class="form-group">
+                        <div class="form-group combobox">
                             <?php echo $taskForm['name1']; ?>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-group">
+                        <div class="form-group combobox">
                             <?php echo $taskForm['name2']; ?>
                         </div>
                     </div>
@@ -106,7 +106,9 @@ use application\modules\admin\models\Text;
                     </div>
                 </div>
 
-                <div class="form-group">
+                <div class="form-group combobox">
+                    <label class="with-help">Укажите страну/страны тура:</label>
+                    <div class="help-block above">Чтобы ускорить выбор страны, введите первые буквы её названия</div>
                     <?php echo $taskForm['country']; ?>
                     <a href="#" id="task-add-country">+ Добавить страну</a>
                 </div>

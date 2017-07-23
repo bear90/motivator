@@ -31,7 +31,7 @@ return [
         'country' => [
             'label' => 'Укажите страну/страны тура:',
             'type' => 'dropdownlist',
-            'layout' => '{label}{input}',
+            'layout' => '{input}',
             'items' => ['' => ''] + application\models\Entity\Country::getOptions(),
             'attributes' => [
                 'id' => '',

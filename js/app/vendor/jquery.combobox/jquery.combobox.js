@@ -3,9 +3,8 @@
  */
 define(['jquery', 'jqueryui'], function(){
 
-    console.log($.fn.jquery);
     $.widget( "custom.combobox", {
-        _create: function() {
+        _create: function(s) {
             this.wrapper = $( "<span>" )
                 .addClass( "custom-combobox" )
                 .insertAfter( this.element );
@@ -25,11 +24,11 @@ define(['jquery', 'jqueryui'], function(){
                 .attr( "title", "" )
                 .attr( "name",  "_" + this.element.attr('name'))
                 .addClass( "custom-combobox-input ui-widget ui-widget-content ui-state-default ui-corner-left" )
-                .autocomplete({
+                .autocomplete($.extend(this.options, {
                     delay: 0,
                     minLength: 0,
                     source: $.proxy( this, "_source" )
-                })
+                }))
                 .tooltip({
                     classes: {
                         "ui-tooltip": "ui-state-highlight"
