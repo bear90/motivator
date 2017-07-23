@@ -961,7 +961,7 @@ img.sltour {height: 148px;}
 #block-main-table .glyphicon-fire {color: red;}
 #block-main-table .fa-snowflake-o {color: deepskyblue;}
 
-#add-task select.form-control {margin-bottom: 5px;}
+#add-task .custom-combobox {margin-bottom: 5px;}
 #add-task .add-task-form > .help-block {margin-bottom: 15px; margin-top: -10px; display: inline-block;}
 
 #main-add-buttons {margin-bottom: 10px} 
@@ -1052,16 +1052,27 @@ img.sltour {height: 148px;}
 
 .custom-combobox {
     position: relative;
-    display: inline-block;
-  }
-  a.custom-combobox-toggle {
+    display: block;
+}
+a.custom-combobox-toggle {
     position: absolute;
     top: 0;
     bottom: 0;
-    margin-left: -1px;
+    margin-left: -2em;
     padding: 0;
-  }
-  .custom-combobox-input {
+    border-left: none;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    background: none;
+}
+.custom-combobox-input {
     margin: 0;
     padding: 5px 10px;
-  }
+}
+.custom-combobox input {
+    width: 100%;
+    border-radius: 5px;
+}
+.custom-combobox .ui-state-default {
+    background: none;
+}

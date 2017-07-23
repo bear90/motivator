@@ -5,7 +5,7 @@ define([
     'structures/site/views/view-add-task',
     'structures/site/views/view-add-task-filter',
     'structures/site/views/view-main-table',
-    'bootstrap'
+    //'bootstrap'
 ], function(AddTaskView, AddTaskFilterView, MainTableView){
 
     var Index = Backbone.View.extend({

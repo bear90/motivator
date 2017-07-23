@@ -15,7 +15,7 @@ return [
             'items' => [''] + application\models\Entity\User\Name::getOptions1(),
             'attributes' => [
                 'name' => 'task[name1]',
-                'class' => 'form-control'
+                'class' => 'form-control filtered-select'
             ]
         ],
         'name2' => [
@@ -25,7 +25,7 @@ return [
             'items' => [''] + application\models\Entity\User\Name::getOptions2(),
             'attributes' => [
                 'name' => 'task[name2]',
-                'class' => 'form-control'
+                'class' => 'form-control filtered-select'
             ]
         ],
         'country' => [
@@ -36,7 +36,7 @@ return [
             'attributes' => [
                 'id' => '',
                 'name' => 'task[country][]',
-                'class' => 'form-control country combobox'
+                'class' => 'form-control country filtered-select'
             ]
         ],
         'tourType' => [

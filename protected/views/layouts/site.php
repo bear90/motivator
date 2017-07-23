@@ -74,11 +74,11 @@
 </div>
 
 <!--SlideBars plugin-->
-<script src="js/slidebars.js" type="text/javascript"></script>
+<!-- <script src="js/slidebars.js" type="text/javascript"></script> -->
 
 <!-- Main bxSlider -->
-<script src="/js/jquery.bxslider.min.js" type="text/javascript"></script>
-<script src="/js/settings-tourist.js" type="text/javascript"></script>
+<!-- <script src="/js/jquery.bxslider.min.js" type="text/javascript"></script> -->
+<!-- <script src="/js/settings-tourist.js" type="text/javascript"></script> -->
 
 <script data-main="js/app/main.js" src="js/app/vendor/requirejs/require.js"></script>
 

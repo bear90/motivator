@@ -18,6 +18,8 @@ define([
         initialize: function(){
             var self = this;
 
+            $( ".filtered-select" ).combobox();
+
             this.$('form').bootstrapValidator({
                 message: 'Данные введены неверно',
                 feedbackIcons: {
@@ -26,24 +28,32 @@ define([
                     validating: 'glyphicon glyphicon-refresh'
                 },
                 fields: {
-                    'task[name1]': {
+                    '_task[name1]': {
                         validators: {
                             callback: {
                                 message: "Вам необходимо выбрать имя!",
                                 callback: function (value, validator, $field) {
-                                    var $el = self.$('select[name="task[name2]"]');
-                                    return $el.val() != '0' || value != '0';
+                                    var $el1 = self.$('[name="_task[name1]"]');
+                                    var $_el1 = self.$('[name="task[name1]"]');
+                                    var $el2 = self.$('[name="_task[name2]"]');
+                                    var $_el2 = self.$('[name="task[name2]"]');
+                                    console.log('validation1');
+                                    return $_el1.val() != '0' || $_el2.val() != '0';
                                 }
                             },
                         }
                     },
-                    'task[name2]': {
+                    '_task[name2]': {
                         validators: {
                             callback: {
                                 message: "Вам необходимо выбрать имя!",
                                 callback: function (value, validator, $field) {
-                                    var $el = self.$('select[name="task[name1]"]');
-                                    return $el.val() != '0' || value != '0';
+                                    var $el1 = self.$('[name="_task[name2]"]');
+                                    var $_el1 = self.$('[name="task[name2]"]');
+                                    var $el2 = self.$('[name="_task[name1]"]');
+                                    var $_el2 = self.$('[name="task[name1]"]');
+                                    console.log('validation2');
+                                    return $_el1.val() != '0' || $_el2.val() != '0';
                                 }
                             },
                         }
@@ -55,7 +65,7 @@ define([
                             },
                         }
                     },
-                    'task[country][]': {
+                    '_task[country][]': {
                         validators: {
                             notEmpty: {
                                 message: "Вам необходимо выбрать страну тура!"
@@ -143,15 +153,6 @@ define([
                     this.$('form').bootstrapValidator('revalidateField', 'task[startedAt]');
                 }, this),
             });
-
-            this.$(".combobox").datepicker({
-                changeMonth: true,
-                dateFormat: "dd.mm.yy",
-                minDate: new Date,
-                onClose: $.proxy(function( selectedDate, calendar, e ) {
-                    this.$('form').bootstrapValidator('revalidateField', 'task[startedAt]');
-                }, this),
-            });
         },
 
         render:  function (){
@@ -161,8 +162,9 @@ define([
         clickAddCountry:  function (e){
             e.preventDefault();
             var $el = this.$(e.target);
+            var $clone = $el.siblings('select:first').clone();
 
-            $el.siblings('select:first').clone().insertBefore($el);
+            console.log($clone.insertBefore($el).combobox());
         },
 
         selectName:  function (e){
