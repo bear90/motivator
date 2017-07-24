@@ -75,7 +75,7 @@ use application\modules\admin\models\Text;
             </div>
         </div>
 
-        <div class="row " id="add-task">
+        <div class="row hidden" id="add-task">
             <div class="col-md-6">
                 <?php echo $taskForm->renderBegin(); ?>
 
