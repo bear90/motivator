@@ -9,8 +9,6 @@ define([
         events: {
             'click a#task-add-country': "clickAddCountry",
             'change select#task_childCount': "selectChildCount",
-            'change select#task_name1': "selectName",
-            'change select#task_name2': "selectName",
             'change input#task_checkbox': "changeCheckbox",
             "click a#gaide-link": "clickGaideLink",
         },
@@ -24,9 +22,13 @@ define([
                     
                     self.$('form').bootstrapValidator('revalidateField', $el.attr('name'));
                 },
-                lookupFilter: function (suggestion, query, queryLowerCase) {
-                    console.log(suggestion);
-                    return suggestion.value.toLowerCase().indexOf(queryLowerCase) === 0;
+                select: function(e, ui) {
+                    var $el = $(e.target);
+                    var name = $el.attr('name');
+
+                    if (ui.item.value && (name == '_task[name1]' || name == '_task[name2]')) {
+                        self.skipSiblingName($el);
+                    }
                 }
             });
 
@@ -44,10 +46,9 @@ define([
                             callback: {
                                 message: "Вам необходимо выбрать имя!",
                                 callback: function (value, validator, $field) {
-                                    var $el1 = self.$('[name="task[name1]"]');
-                                    var $el2 = self.$('[name="task[name2]"]');
-                                    
-                                    return $el1.val() != '0' || $el2.val() != '0';
+                                    var val1 = self.$('[name="task[name1]"]').val();
+                                    var val2 = self.$('[name="task[name2]"]').val();
+                                    return (val1 != '0' && !!val1) || (val2 != '0' && !!val2);
                                 }
                             },
                         }
@@ -58,12 +59,9 @@ define([
                             callback: {
                                 message: "Вам необходимо выбрать имя!",
                                 callback: function (value, validator, $field) {
-                                    var $el1 = self.$('[name="_task[name2]"]');
-                                    var $_el1 = self.$('[name="task[name2]"]');
-                                    var $el2 = self.$('[name="_task[name1]"]');
-                                    var $_el2 = self.$('[name="task[name1]"]');
-                                    console.log('validation2');
-                                    return $_el1.val() != '0' || $_el2.val() != '0';
+                                    var val1 = self.$('[name="task[name2]"]').val();
+                                    var val2 = self.$('[name="task[name1]"]').val();
+                                    return (val1 != '0' && !!val1) || (val2 != '0' && !!val2);
                                 }
                             },
                         }
@@ -177,26 +175,22 @@ define([
             console.log($clone.insertBefore($el).combobox());
         },
 
-        selectName:  function (e){
-            var $el = $(e.target);
-            var $row = $el.closest('.row');
-            
+        skipSiblingName:  function ($el){
+            var $row = $el.closest('#add-task');
             switch($el.attr('name')) {
-                case "task[name1]":
-                    if ($el.val()) {
-                        $row.find('#task_name2').val(0);
-                    }
+                case "_task[name1]":
+                    $row.find('input[name="_task[name2]"]').val("");
+                    $row.find('select[name="task[name2]"]').val("");
                     break;
 
-                case "task[name2]":
-                    if ($el.val()) {
-                        $row.find('#task_name1').val(0);
-                    }
+                case "_task[name2]":
+                    $row.find('input[name="_task[name1]"]').val("");
+                    $row.find('select[name="task[name1]"]').val("");
                     break;
             }
 
-            this.$('form').bootstrapValidator('revalidateField', 'task[name1]');
-            this.$('form').bootstrapValidator('revalidateField', 'task[name2]');
+            this.$('form').bootstrapValidator('revalidateField', '_task[name1]');
+            this.$('form').bootstrapValidator('revalidateField', '_task[name2]');
         },
 
         selectChildCount:  function (e){

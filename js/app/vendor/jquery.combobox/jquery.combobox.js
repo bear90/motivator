@@ -121,12 +121,12 @@ define(['jquery', 'jqueryui'], function(){
             // Remove invalid value
             this.input
                 .val( "" )
-                .attr( "title", value + " didn't match any item" )
-                .tooltip( "open" );
+                //.attr( "title", value + " didn't match any item" )
+                //.tooltip( "open" );
             this.element.val( "" );
-            this._delay(function() {
+            /*this._delay(function() {
                 this.input.tooltip( "close" ).attr( "title", "" );
-            }, 2500 );
+            }, 2500 );*/
             this.input.autocomplete( "instance" ).term = "";
         },
 
