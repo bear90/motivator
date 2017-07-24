@@ -64,7 +64,7 @@ class DailycronCommand extends CConsoleCommand
 
         // Delete after start
         $criteria = new CDbCriteria();
-        $criteria->addCondition('startedAt > 0 AND DATE(ADDDATE(startedAt, INTERVAL :days DAY)) >= :date');
+        $criteria->addCondition('startedAt > 0 AND DATE(ADDDATE(startedAt, INTERVAL :days DAY)) <= :date');
         $criteria->params = [
             'date' => $dateTime->format('Y-m-d'),
             'days' => 1
