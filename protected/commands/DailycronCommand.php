@@ -77,7 +77,7 @@ class DailycronCommand extends CConsoleCommand
         // Delete expired codes
         $criteria = new CDbCriteria();
         $criteria->addCondition('expiredAt > 0 AND expiredAt < NOW()');
-        $deletedCodes = entities\Code::model()->udateAll(['deleted' => 1], $criteria);
+        $deletedCodes = entities\Code::model()->updateAll(['deleted' => 1], $criteria);
 
         //$this->doBackup();
 
