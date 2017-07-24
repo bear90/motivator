@@ -75,40 +75,34 @@ use application\modules\admin\models\Text;
             </div>
         </div>
 
-        <div class="row hidden" id="add-task">
+        <div class="row " id="add-task">
             <div class="col-md-6">
                 <?php echo $taskForm->renderBegin(); ?>
 
                 
                 <div class="row">
-                <div class="col-md-12">
-                    <b>Укажите свое имя:</b>
-                </div>
-                
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group combobox">
-                            <?php echo $taskForm['name1']; ?>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group combobox">
-                            <?php echo $taskForm['name2']; ?>
-                        </div>
-                    </div>
-                </div>
-                <span class="help-block">В случае отсутствия вашего имени в списке, выберите из него имя, наиболее близкое по звучанию к вашему</span>
-                
-                <div class="row">
                     <div class="col-md-12">
-                        
+                        <b>Укажите свое имя:</b>
                     </div>
                 </div>
 
                 <div class="form-group combobox">
+                    <label class="with-help">мужское</label>
+                    <div class="help-block above">Чтобы ускорить выбор имени введите его первые буквы</div>
+                    <?php echo $taskForm['name1']; ?>
+                </div>
+
+                <div class="form-group combobox">
+                    <label class="with-help">женское</label>
+                    <div class="help-block above">Чтобы ускорить выбор имени введите его первые буквы</div>
+                    <?php echo $taskForm['name2']; ?>
+                </div>
+
+                <span class="help-block">В случае отсутствия вашего имени в списке, выберите из него имя, наиболее близкое по звучанию к вашему</span>
+
+                <div class="form-group combobox">
                     <label class="with-help">Укажите страну/страны тура:</label>
-                    <div class="help-block above">Чтобы ускорить выбор страны, введите первые буквы её названия</div>
+                    <div class="help-block above">Для выбора страны введите первые буквы её названия</div>
                     <?php echo $taskForm['country']; ?>
                     <a href="#" id="task-add-country">+ Добавить страну</a>
                 </div>

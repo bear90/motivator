@@ -11,7 +11,7 @@ return [
         'name1' => [
             'label' => 'мужское',
             'type' => 'dropdownlist',
-            'layout' => '{label}{input}',
+            'layout' => '{input}',
             'items' => [''] + application\models\Entity\User\Name::getOptions1(),
             'attributes' => [
                 'name' => 'task[name1]',
@@ -21,7 +21,7 @@ return [
         'name2' => [
             'label' => 'женское',
             'type' => 'dropdownlist',
-            'layout' => '{label}{input}',
+            'layout' => '{input}',
             'items' => [''] + application\models\Entity\User\Name::getOptions2(),
             'attributes' => [
                 'name' => 'task[name2]',

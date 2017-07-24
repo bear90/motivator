@@ -18,11 +18,17 @@ define([
         initialize: function(){
             var self = this;
 
-            $(".filtered-select").combobox({change: function( e, ui ) {
-                var $el = $(e.target);
-                
-                self.$('form').bootstrapValidator('revalidateField', $el.attr('name'));
-            }});
+            $(".filtered-select").combobox({
+                change: function( e, ui ) {
+                    var $el = $(e.target);
+                    
+                    self.$('form').bootstrapValidator('revalidateField', $el.attr('name'));
+                },
+                lookupFilter: function (suggestion, query, queryLowerCase) {
+                    console.log(suggestion);
+                    return suggestion.value.toLowerCase().indexOf(queryLowerCase) === 0;
+                }
+            });
 
             this.$('form').bootstrapValidator({
                 message: 'Данные введены неверно',

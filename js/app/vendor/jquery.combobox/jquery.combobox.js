@@ -53,7 +53,7 @@ define(['jquery', 'jqueryui'], function(){
 
             $( "<a>" )
                 .attr( "tabIndex", -1 )
-                .attr( "title", "Show All Items" )
+                .attr( "title", "" )
                 .tooltip()
                 .appendTo( this.wrapper )
                 .button({
@@ -81,7 +81,7 @@ define(['jquery', 'jqueryui'], function(){
         },
 
         _source: function( request, response ) {
-            var matcher = new RegExp( $.ui.autocomplete.escapeRegex(request.term), "i" );
+            var matcher = new RegExp( "^" + $.ui.autocomplete.escapeRegex(request.term), "i" );
             response( this.element.children( "option" ).map(function() {
                 var text = $( this ).text();
                 if ( this.value && ( !request.term || matcher.test(text) ) )
