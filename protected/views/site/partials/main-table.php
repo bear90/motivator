@@ -31,6 +31,7 @@
                 <div id="add-task-filter-country" class="block hidden">
                     <div class="form-group">
                         <?php echo $filterForm['country']; ?>
+                        <div class="help-block">Чтобы ускорить выбор страны,<br> введите первые буквы её названия</div>
                     </div>
 
                     <button type="submit" class="btn btn-default">Найти</button>

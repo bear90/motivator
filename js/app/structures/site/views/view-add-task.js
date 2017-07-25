@@ -185,6 +185,8 @@ define([
             e.preventDefault();
             var $el = this.$(e.target);
             var $clone = $el.siblings('select:first').clone();
+
+            $clone.insertBefore($el).combobox()
         },
 
         skipSiblingName:  function ($el){
