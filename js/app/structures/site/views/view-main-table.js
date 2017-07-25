@@ -20,7 +20,9 @@ define([
 
         templateOfferPrice: _.template(OfferPriceTmpl),
 
-        initialize: function() {},
+        initialize: function() {
+            this.$(".filtered-select").combobox();
+        },
 
         clickMakeFavorite:  function (e){
             e.preventDefault();

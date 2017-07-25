@@ -98,8 +98,6 @@ use application\modules\admin\models\Text;
                     <?php echo $taskForm['name2']; ?>
                 </div>
 
-                <span class="help-block">В случае отсутствия вашего имени в списке, выберите из него имя, наиболее близкое по звучанию к вашему</span>
-
                 <div class="form-group combobox">
                     <label class="with-help">Укажите страну/страны тура:</label>
                     <div class="help-block above">Для выбора страны введите первые буквы её названия</div>

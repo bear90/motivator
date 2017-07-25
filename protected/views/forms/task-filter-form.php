@@ -16,7 +16,7 @@ return [
             'attributes' => [
                 'id' => '',
                 'name' => 'country',
-                'class' => 'form-control'
+                'class' => 'form-control filtered-select'
             ]
         ],
         'startedAtAny' => [

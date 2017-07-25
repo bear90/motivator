@@ -16,7 +16,7 @@ define([
         initialize: function(){
             var self = this;
 
-            $(".filtered-select").combobox({
+            this.$(".filtered-select").combobox({
                 change: function( e, ui ) {
                     var $el = $(e.target);
                     
@@ -26,9 +26,18 @@ define([
                     var $el = $(e.target);
                     var name = $el.attr('name');
 
-                    if (ui.item.value && (name == '_task[name1]' || name == '_task[name2]')) {
-                        self.skipSiblingName($el);
+                    if (ui.item.value) {
+                        switch (true) {
+                            case (name == '_task[name1]' || name == '_task[name2]'):
+                                self.skipSiblingName($el);
+                                break;
+
+                            case (e.type == 'comboboxselect'):
+                                self.$('form').bootstrapValidator('revalidateField', "_" + $el.attr('name'));
+                                break;
+                        }
                     }
+
                 }
             });
 
@@ -74,10 +83,15 @@ define([
                         }
                     },
                     '_task[country][]': {
+                        trigger: "blur",
                         validators: {
-                            notEmpty: {
-                                message: "Вам необходимо выбрать страну тура!"
-                            },
+                            callback: {
+                                message: "Вам необходимо выбрать страну тура!",
+                                callback: function (value, validator, $field) {
+                                    var val = $field.parent().siblings('select').val();
+                                    return val != '0' && !!val;
+                                }
+                            }
                         }
                     },
                     'task[tourType]': {
@@ -171,8 +185,6 @@ define([
             e.preventDefault();
             var $el = this.$(e.target);
             var $clone = $el.siblings('select:first').clone();
-
-            console.log($clone.insertBefore($el).combobox());
         },
 
         skipSiblingName:  function ($el){

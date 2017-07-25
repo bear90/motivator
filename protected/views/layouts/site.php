@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="/css/jquery/bootstrapValidator.min.css">
     <link rel="stylesheet" href="/css/plugins/slidebars.css">
     <link rel="stylesheet" href="/css/modules/tab.css">
-    <link rel="stylesheet" href="/css/tourist.css?ver=1.0.4">
+    <link rel="stylesheet" href="/css/tourist.css?ver=1.0.5">
     <!-- <link rel="stylesheet" href="/css/jquery-ui.min.css"> -->
     <link rel="stylesheet" href="/css/jquery.ui/jquery-ui.css">
 

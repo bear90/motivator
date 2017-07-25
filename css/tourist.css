@@ -1074,7 +1074,7 @@ a.custom-combobox-toggle {
     border-radius: 5px;
 }
 .custom-combobox .ui-state-default {
-    background: none;
+    background: white;
 }
 
 label.with-help {margin-bottom: 0;}
