@@ -2,9 +2,7 @@
 /**
 * This command class implement daily jobs
 */
-use application\models\defines\TouristStatus;
-use application\models\Configuration;
-use application\models\Tourist;
+use application\models\entities;
 
 class MinutecronCommand extends CConsoleCommand
 {
@@ -15,18 +13,11 @@ class MinutecronCommand extends CConsoleCommand
 
         // Get tourists for deletion
         $criteria = new CDbCriteria();
-        $criteria->addCondition('statusId = :status');
-        $criteria->addCondition('ADDDATE(createdAt, INTERVAL :days DAY) < NOW()');
-        $criteria->params = [
-            'status' => TouristStatus::WANT_DISCONT,
-            'days' => Configuration::get(Configuration::ORDER_TOUR_TIMER)
-        ];
-        foreach (Tourist::model()->findAll($criteria) as $tourist) {
-            Tool::sendEmailWithLayout($tourist, 'cabinet_deleted');
-            $tourist->delete();
-            $touristDeleted++;
-        }
+        $criteria->addCondition('deleted = 0');
+        $criteria->addCondition('expiredAt > 0 AND expiredAt < NOW()');
 
-        print("Count of deleted tourists: {$touristDeleted}\n");
+        $count = entities\Code::model()->deleteAll($criteria);
+
+        print("Count of deleted codes: {$count}\n");
     }
 }

@@ -29,6 +29,8 @@ class Configuration extends BaseEntity {
 
     const CODE_LIVE_TIME  = 'CODE_LIVE_TIME';
 
+    const CODE_PHONE_LIVE_TIME  = 'CODE_PHONE_LIVE_TIME';
+
     private static $aValues = null;
 
     /**
