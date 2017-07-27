@@ -16,6 +16,7 @@ use application\models\entities;
 use application\models\entities\Configuration;
 use application\modules\admin\models\forms;
 use application\models\defines\UserRole;
+use application\models\defines;
 
 class IndexAction extends \CAction
 {
@@ -38,6 +39,7 @@ class IndexAction extends \CAction
                 $date->modify("+{$hours} hours");
 
                 $attributes = [
+                    'type' => defines\Code\Type::AD,
                     'code' => Entity\User::generatePassword(6),
                     'expiredAt' => $date->format('Y-m-d H:i:s')
                 ];

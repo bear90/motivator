@@ -122,8 +122,13 @@ class AdminController extends \CController
             ],
             [
                 'key' => 'code',
-                'label' => 'Коды',
+                'label' => 'Рекламные коды',
                 'url' => '/admin/code',
+            ],
+            [
+                'key' => 'phonecode',
+                'label' => 'Телефонные коды',
+                'url' => '/admin/phonecode',
             ],
             [
                 'key' => 'view',
