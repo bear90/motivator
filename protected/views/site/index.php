@@ -48,9 +48,9 @@ use application\modules\admin\models\Text;
 
             <div class="col-md-6">
                 <?php if (!\Yii::app()->user->isUser()): ?>
-                    <a href="#login-user" id="btn-user-login" class="btn btn-default">ПОКАЗАТЬ ПРЕДЛОЖЕНИЯ</a>
+                    <a href="#login-user" id="btn-user-login" class="btn btn-default">ВОЙТИ В РАЗДЕЛ ЗАЯВКИ</a>
                 <?php else: ?>
-                    <a href="/#block-main-table" class="btn btn-default">ПОКАЗАТЬ ПРЕДЛОЖЕНИЯ</a>
+                    <a href="/#block-main-table" class="btn btn-default">ВОЙТИ В РАЗДЕЛ ЗАЯВКИ</a>
                 <?php endif; ?>
             </div>
         </div>

@@ -70,6 +70,7 @@ class DailycronCommand extends CConsoleCommand
             'days' => 1
         ];
         foreach (entities\Task::model()->findAll($criteria) as $task) {
+            \Tool::sendEmailWithLayout($task, 'last-notification');
             $tourStarted++;
             $task->delete();
         }
