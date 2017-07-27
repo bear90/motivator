@@ -53,7 +53,7 @@
                     </div>
                 <?php endif; ?>
 
-                <?php if($showContact || $showContactForFirtsOne && $num==count($offers)): ?>
+                <?php if($showContact || $showContactForFirtsOne && $offer->sort==count($offers)): ?>
                     <div><?php echo $offer->contact; ?></div>
                 <?php endif; ?>
 
