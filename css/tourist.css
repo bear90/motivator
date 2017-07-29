@@ -979,8 +979,8 @@ img.sltour {height: 148px;}
 .logo h2 > span {font-size: 24px; font-family: impact, arial; color: #e36c0a}
 .logo h1 > span > span,
 .logo h2 > span > span {color: #808080}
-.logo h1 i {font-size: 22px; font-style: normal;}
-.logo h2 i {font-size: 20px; font-style: normal;}
+.turistam .logo h1 i {font-size: 22px; font-style: normal;}
+.turistam .logo h2 i {font-size: 20px; font-style: normal;}
 
 #block-main-table h2 {text-align: center;}
 #block-main-table .filter {text-decoration: underline;}
