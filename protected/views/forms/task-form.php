@@ -111,6 +111,16 @@ return [
             ]
 
         ],
+        'planPrice' => [
+            'label' => 'Укажите примерный планируемый бюджет тура в €:',
+            'type' => 'text',
+            'layout' => '{label}{input}',
+            'attributes' => [
+                'name' => 'task[planPrice]',
+                'class' => 'form-control'
+            ]
+
+        ],
         'verifyCode' => [
             'label' => 'Введите текст с картинки:',
             'type' => 'text',

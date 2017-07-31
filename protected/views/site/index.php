@@ -135,6 +135,10 @@ use application\modules\admin\models\Text;
                 </div>
 
                 <div class="form-group">
+                    <?php echo $taskForm['planPrice']; ?>
+                </div>
+
+                <div class="form-group">
                     <?php echo $taskForm['email']; ?>
                     <span class="help-block">Ваш e-mail будет скрыт от посетителей сайта и недоступен для просмотра менеджерами турагентств. Он будет использован для отправки вам информационных писем администратором сайта в связи с обслуживанием вашей заявки</span>
                 </div>

@@ -136,6 +136,13 @@ define([
                             },
                         }
                     },
+                    'task[planPrice]': {
+                        validators: {
+                            notEmpty: {
+                                message: "Необходимо ввести примерный планируемый бюджет тура в €."
+                            }, // notEmpty
+                        } // validators
+                    },
                     'task[email]': {
                         validators: {
                             notEmpty: {

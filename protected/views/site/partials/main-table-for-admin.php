@@ -10,7 +10,8 @@
          имя автора заявки/ <br>
          порядковый номер заявки</th>
         <th class="col2">Страна тура/<br>
-        вид тура</th>
+        вид тура/<br>
+        примерный бюджет</th>
         <th class="col3">Количество взрослых туристов/ <br>
         количество детей (возраст)</th>
         <th class="col4">Продолжительность тура/ <br>
@@ -34,7 +35,10 @@
 
             <td>
                 <?php echo implode('-', $model->getCountryOptions()); ?>/<br>
-                <?php echo $model->data()->relTourType->name; ?>
+                <?php echo $model->data()->relTourType->name; ?>/<br>
+                <?php if($model->data()->planPrice): ?>
+                <?php echo $model->data()->planPrice; ?>€
+                <?php endif; ?>
             </td>
             
             <td>
