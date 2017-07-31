@@ -14,10 +14,10 @@ html, body{height:100%; margin:0;padding:0}
 
 aside {
     float: left;
-    width: 250px;
+    width: 200px;
 }
 section {
-    margin-left: 280px;
+    margin-left: 220px;
     padding-bottom: 50px;
 }
 
@@ -45,3 +45,11 @@ table.balance th, table.balance td {text-align: center;}
 
 #code table th:nth-child(1),
 #password table th:nth-child(1) {width: 30px; }
+
+table#tasks td,
+table#tasks th {text-align: center;}
+table#tasks .col1 {min-width: 245px;}
+table#tasks .col2 {}
+table#tasks .col3 {min-width: 255px;}
+table#tasks .col4 {min-width: 210px;}
+table#tasks .col5 {}

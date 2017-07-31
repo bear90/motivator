@@ -131,14 +131,19 @@ class AdminController extends \CController
                 'url' => '/admin/phonecode',
             ],
             [
-                'key' => 'view',
-                'label' => 'Просмотр',
-                'url' => '/#block-main-table',
-            ],
-            [
                 'key' => 'congifuration',
                 'label' => 'Настройки',
                 'url' => '/admin/configuration',
+            ],
+            [
+                'key' => 'task',
+                'label' => 'Удаление заявки',
+                'url' => '/admin/task',
+            ],
+            [
+                'key' => 'view',
+                'label' => 'Просмотр',
+                'url' => '/#block-main-table',
             ],
             /*[
                 'key' => 'search',

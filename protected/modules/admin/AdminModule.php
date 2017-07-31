@@ -23,6 +23,7 @@ class AdminModule extends CWebModule {
         'security' => 'application\modules\admin\controllers\SecurityController',
         'code' => 'application\modules\admin\controllers\CodeController',
         'phonecode' => 'application\modules\admin\controllers\PhoneCodeController',
+        'task' => 'application\modules\admin\controllers\TaskController',
     ];
 }
 
