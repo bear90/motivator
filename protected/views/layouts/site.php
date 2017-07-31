@@ -8,9 +8,9 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Портал penki.by - Туристам</title>
-    <meta content="Motivator" name='description'>
-    <meta content="Motivator" name='keywords'>
+    <title>Портал penki.by - Туристам | Туры по выгодной цене</title>
+    <meta name='description' content="Поиск туров по выгодной цене. Горящие туры, раннее бронирование, туры со скидкой">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="shortcut icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="/css/font-awesome.min.css">
