@@ -1082,6 +1082,13 @@ a.custom-combobox-toggle {
     background: white;
 }
 
+.ui-autocomplete {
+    max-height: 210px;
+    overflow-y: auto;
+    /* prevent horizontal scrollbar */
+    overflow-x: hidden;
+}
+
 label.with-help {margin-bottom: 0;}
 .help-block.above{margin-top: 0;}
 
