@@ -61,7 +61,7 @@
 
                 <?php if(!is_null($offer->price)) : ?>
                     <div>
-                        Штатная продажа: <?php echo ceil($offer->price); ?>€
+                        Обычная продажа: <?php echo ceil($offer->price); ?>€
                     </div>
                 <?php endif; ?>
 

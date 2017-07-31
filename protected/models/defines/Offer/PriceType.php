@@ -17,7 +17,7 @@ class PriceType
     public static function getOptions() 
     {
         return [
-            self::GENERAL => 'Штатная продажа',
+            self::GENERAL => 'Обычная продажа',
             self::EARLY_BOOKING => 'Раннее бронирование',
             self::LASTMINUTE_TOUR => 'Горящий тур',
         ];
