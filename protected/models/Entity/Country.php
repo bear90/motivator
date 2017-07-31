@@ -85,7 +85,8 @@ class Country
 
     public static function getOptions()
     {
-        $list = entities\Country::model()->options()->findAll();
+        $criteria = new \CDbCriteria(['order' => 'name']);
+        $list = entities\Country::model()->options()->findAll($criteria);
         $list = \CHtml::listData($list, 'id', 'name');
 
         return $list;

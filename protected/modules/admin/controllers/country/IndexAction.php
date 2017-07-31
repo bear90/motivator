@@ -35,7 +35,8 @@ class IndexAction extends \CAction
             }
         }
 
-        $entities = entities\Country::model()->findAll();
+        $criteria = new \CDbCriteria(['order' => 'name']);
+        $entities = entities\Country::model()->findAll($criteria);
         
         $this->controller->render('index', [
             'form' => new \CForm('application.modules.admin.views.forms.country-form', $form),
