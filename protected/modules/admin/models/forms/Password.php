@@ -28,11 +28,11 @@ class Password extends \CFormModel
                 'compareAttribute' => 'password2'
             ],
             ['password', 'length', 
-                'min' => 12
+                'min' => 6
             ],
             ['password', 'unique',
                 'attributeName' => 'password',
-                'className' => '\\application\\models\\User',
+                'className' => '\\application\\models\\entities\\User',
                 'criteria' => [
                     'condition' => 't.roleId = :managerRole',
                     'params' => [

@@ -13,7 +13,7 @@ namespace application\modules\admin\controllers\configuration;
 
 
 use application\modules\admin\models\forms;
-use application\models\User;
+use application\models\entities\User;
 
 class IndexAction extends \CAction
 {
@@ -23,11 +23,13 @@ class IndexAction extends \CAction
 
         if (\Yii::app()->request->isPostRequest)
         {
+
             $formEntity->password = \Yii::app()->request->getPost('password');
             $formEntity->password2 = \Yii::app()->request->getPost('password2');
 
             if($formEntity->validate())
             {
+                
                 $entity = User::model()->findByPk(\Yii::app()->user->model->id);
                 $entity->password = $formEntity->password;
                 $entity->save();

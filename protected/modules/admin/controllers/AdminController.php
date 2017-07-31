@@ -135,6 +135,11 @@ class AdminController extends \CController
                 'label' => 'Просмотр',
                 'url' => '/#block-main-table',
             ],
+            [
+                'key' => 'congifuration',
+                'label' => 'Настройки',
+                'url' => '/admin/configuration',
+            ],
             /*[
                 'key' => 'search',
                 'label' => 'Поиск туристов',
@@ -155,11 +160,7 @@ class AdminController extends \CController
                 'label' => 'Рассылка',
                 'url' => '/admin/post',
             ],
-            [
-                'key' => 'congifuration',
-                'label' => 'Настройки',
-                'url' => '/admin/configuration',
-            ],
+            
             [
                 'key' => 'banner',
                 'label' => 'Рекламный блок',
