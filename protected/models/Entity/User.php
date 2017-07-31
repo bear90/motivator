@@ -80,9 +80,11 @@ class User
 
                 if ($isNum && $counterNum < $limit || $counterChar == $limit) {
                     $password .= rand(0, 9);
+                    $counterNum++;
                 } else {
                     $char = rand(0, 1) ? rand(ord('a'), ord('z')) : rand(ord('A'), ord('Z'));
                     $password .= chr($char);
+                    $counterChar++;
                 }
             }
             return $password;
