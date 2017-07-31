@@ -17,7 +17,7 @@
 
 <p><b>ЗАЯВКА № <?php echo $task->id?></b></p>
 
-<?php if(!in_array($view, array('last-notification'))): ?>
+<?php if(!in_array($view, array('last-notification', 'admin-deletion'))): ?>
     
     <p><a href="<?php echo $user->getAutoLoginLink(); ?>">Перейти в раздел заявки</a></p>
 

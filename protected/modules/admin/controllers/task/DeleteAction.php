@@ -19,8 +19,11 @@ class DeleteAction extends \CAction
     {
         if ($id) {
             $entity = entities\Task::model()->findByPk($id);
-            if($entity)
+            if($entity) {
+                \Tool::sendEmailWithLayout($entity, 'admin-deletion');
+                
                 $entity->delete();
+            }
 
             \Yii::app()->user->setFlash('message', "Запись удалена успешно.");
         }
