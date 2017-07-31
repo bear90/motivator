@@ -84,7 +84,8 @@ class Name
 
     public static function getOptions1()
     {
-        $list = entities\UserName::model()->options()->findAllByAttributes(['type' => 1]);
+        $criteria = new \CDbCriteria(['order' => 'name']);
+        $list = entities\UserName::model()->options()->findAllByAttributes(['type' => 1], $criteria);
         $list = \CHtml::listData($list, 'id', 'name');
 
         return $list;
@@ -92,7 +93,8 @@ class Name
 
     public static function getOptions2()
     {
-        $list = entities\UserName::model()->options()->findAllByAttributes(['type' => 2]);
+        $criteria = new \CDbCriteria(['order' => 'name']);
+        $list = entities\UserName::model()->options()->findAllByAttributes(['type' => 2], $criteria);
         $list = \CHtml::listData($list, 'id', 'name');
 
         return $list;

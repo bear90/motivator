@@ -54,8 +54,9 @@ class IndexAction extends \CAction
             }
         }
 
-        $maleEntities = entities\UserName::model()->findAllByAttributes(['type' => 1]);
-        $femaleEntities = entities\UserName::model()->findAllByAttributes(['type' => 2]);
+        $criteria = new \CDbCriteria(['order' => 'name']);
+        $maleEntities = entities\UserName::model()->findAllByAttributes(['type' => 1], $criteria);
+        $femaleEntities = entities\UserName::model()->findAllByAttributes(['type' => 2], $criteria);
         
         $this->controller->render('index', [
             'formMale' => new \CForm('application.modules.admin.views.forms.name-form', $formMale),
