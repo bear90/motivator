@@ -10,10 +10,6 @@
     $user = new Entity\User($task->user);
 ?>
 
-<style>
-    a, p {font-size: 26px}
-</style>
-
 
 <p><b>ЗАЯВКА № <?php echo $task->id?></b></p>
 
