@@ -12,6 +12,14 @@
             'click button.view': "clickView",
             'click button.not-show': "clickHide",
             'click button.delete': "clickDelete",
+            'click input[name=showall]': "changeShowall",
+        },
+
+        changeShowall: function (e) {
+            var $form = this.$(e.target).closest('form'),
+                action;
+            
+            $form.submit();
         },
 
         clickView: function (e) {

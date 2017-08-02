@@ -12,6 +12,12 @@
         
         <?php echo $form->renderBegin(); ?>
 
+            <div class="checkbox">
+                <label>
+                    <?php echo $form['showall']; ?> Показать скрытые
+                </label>
+            </div>
+
             <?php echo $form['action']; ?>
 
             <table class="table table-bordered text-table" id="codes">
@@ -30,9 +36,15 @@
                         <td><?php echo $entity->code; ?></td>
                         <td class="status">
                             <?php if($entity->deleted): ?>
-                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true" title="Использованный"></span>
                             <?php else: ?>
-                                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                <span class="glyphicon glyphicon-ok" aria-hidden="true" title="Активный"></span>
+                            <?php endif; ?>
+
+                            <?php if($entity->hidden): ?>
+                                <span class="glyphicon glyphicon-eye-close" aria-hidden="true" title="Скрыт"></span>
+                            <?php else: ?>
+                                <span class="glyphicon glyphicon-eye-open" aria-hidden="true" title="Не скрыт"></span>
                             <?php endif; ?>
                         </td>
                         <td>

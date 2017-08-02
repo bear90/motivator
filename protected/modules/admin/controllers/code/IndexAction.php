@@ -32,29 +32,36 @@ class IndexAction extends \CAction
         $criteria->condition = 'hidden = 0';
         $criteria->order = 'createdAt ASC';
 
-        if ($action == 'generate')
-        {
-            $n = (int) \Yii::app()->request->getPost('count');
-            for ($i=0; $i<$n; $i++) {
-                $model = new Entity\Code();
+        switch ($action) {
+            case 'generate':
+                $n = (int) \Yii::app()->request->getPost('count');
+                for ($i=0; $i<$n; $i++) {
+                    $model = new Entity\Code();
 
-                $date = new \DateTime();
-                $hours = intval(Configuration::get(Configuration::CODE_LIVE_TIME));
-                $date->modify("+{$hours} hours");
+                    $date = new \DateTime();
+                    $hours = intval(Configuration::get(Configuration::CODE_LIVE_TIME));
+                    $date->modify("+{$hours} hours");
 
-                $attributes = [
-                    'type' => defines\Code\Type::AD,
-                    'code' => Entity\User::generatePassword(6),
-                    'expiredAt' => $date->format('Y-m-d H:i:s')
-                ];
-                $model->save($attributes);
-            }
+                    $attributes = [
+                        'type' => defines\Code\Type::AD,
+                        'code' => Entity\User::generatePassword(6),
+                        'expiredAt' => $date->format('Y-m-d H:i:s')
+                    ];
+                    $model->save($attributes);
+                }
 
-            $message = \Yii::t('front', 'n==1#код|n<5#кода|n>4#кодов', $n);
-            \Yii::app()->user->setFlash('message', "Сгенерировано {$n} {$message}.");
+                $message = \Yii::t('front', 'n==1#код|n<5#кода|n>4#кодов', $n);
+                \Yii::app()->user->setFlash('message', "Сгенерировано {$n} {$message}.");
+                
+                $this->controller->redirect(\Yii::app()->createUrl('/admin/code'));
+                return;
             
-            $this->controller->redirect(\Yii::app()->createUrl('/admin/code'));
-            return;
+            case 'showall':
+                $form->showall = \Yii::app()->request->getParam('showall');
+                if ($form->showall) {
+                    $criteria->addCondition('hidden = 1', 'OR');
+                }
+                break;
         }
 
         $entities = entities\Code::model()->findAll($criteria);

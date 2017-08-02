@@ -14,6 +14,7 @@ namespace application\modules\admin\models\forms;
 
 class CodeUpdateForm extends \CFormModel
 {
+    public $showall;
     public $code;
 
     public function rules(){
