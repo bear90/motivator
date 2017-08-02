@@ -18,7 +18,7 @@ class Code extends BaseEntity
         return [
             ['code', 'required'],
             ['comment, expiredAt', 'type', 'type' => 'string'],
-            ['deleted, type', 'type', 'type' => 'integer'],
+            ['deleted, type, hidden', 'type', 'type' => 'integer'],
         ];
     }
 

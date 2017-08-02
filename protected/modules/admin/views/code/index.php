@@ -14,10 +14,11 @@
 
             <?php echo $form['action']; ?>
 
-            <table class="table table-bordered text-table">
+            <table class="table table-bordered text-table" id="codes">
                 <tr>
                     <th><!-- --></th>
                     <th>Код</th>
+                    <th>Статус</th>
                     <th>Время жизни</th>
                     <th>Операция</th>
                 </tr>
@@ -27,6 +28,13 @@
                             <?php echo CHtml::checkBox('code[]', false, ['value' => $entity->id]); ?>
                         </td>
                         <td><?php echo $entity->code; ?></td>
+                        <td class="status">
+                            <?php if($entity->deleted): ?>
+                                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            <?php else: ?>
+                                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                            <?php endif; ?>
+                        </td>
                         <td>
                         <?php echo $entity->expiredAt != '0000-00-00 00:00:00' 
                             ? (new \DateTime($entity->expiredAt))->format('d.m.Y') 
@@ -46,6 +54,9 @@
                 <button type="button" class="btn btn-default btn-xs delete">Удалить</button>
 
                 <button type="button" class="btn btn-default btn-xs view">Просмотреть</button>
+
+                <button type="button" class="btn btn-default btn-xs not-show">Скрыть</button>
+                <button type="button" class="btn btn-default btn-xs not-show" disabled="">Показать</button>
             </div>
 
         <?php echo $form->renderEnd(); ?>

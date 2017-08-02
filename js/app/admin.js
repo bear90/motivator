@@ -2,7 +2,7 @@
  * Created by m.soza on 25.02.2016.
  */
 require.config({
-    urlArgs: "ver=1.0.5",
+    urlArgs: "ver=1.0.6",
     paths: {
         "jquery": "vendor/jquery/dist/jquery.min",
         "jqueryui": "vendor/jquery-ui-1.11.4/jquery-ui.min",

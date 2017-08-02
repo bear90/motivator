@@ -28,6 +28,10 @@ class IndexAction extends \CAction
         $form = new forms\CodeUpdateForm();
         $generateForm = new forms\CodeGeneratorForm();
 
+        $criteria = new \CDbCriteria();
+        $criteria->condition = 'hidden = 0';
+        $criteria->order = 'createdAt ASC';
+
         if ($action == 'generate')
         {
             $n = (int) \Yii::app()->request->getPost('count');
@@ -53,7 +57,7 @@ class IndexAction extends \CAction
             return;
         }
 
-        $entities = entities\Code::model()->findAll();
+        $entities = entities\Code::model()->findAll($criteria);
         
         $this->controller->render('index', [
             'form' => new \CForm('application.modules.admin.views.forms.code-update-form', $form),
