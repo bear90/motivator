@@ -68,7 +68,12 @@
                 <button type="button" class="btn btn-default btn-xs view">Просмотреть</button>
 
                 <button type="button" class="btn btn-default btn-xs not-show">Скрыть</button>
-                <button type="button" class="btn btn-default btn-xs not-show" disabled="">Показать</button>
+
+                <?php if($form->getModel()->showall): ?>
+                    <button type="button" class="btn btn-default btn-xs not-hide">Показать</button>
+                <?php else: ?>    
+                    <button type="button" class="btn btn-default btn-xs not-hide" disabled="">Показать</button>
+                <?php endif; ?>
             </div>
 
         <?php echo $form->renderEnd(); ?>

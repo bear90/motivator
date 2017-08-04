@@ -15,10 +15,11 @@ namespace application\modules\admin\models\forms;
 class PasswordUpdateForm extends \CFormModel
 {
     public $password;
+    public $showall;
 
     public function rules(){
         return [
-            ['password', 'safe'],
+            ['password, showall', 'safe'],
         ];
     }
 }

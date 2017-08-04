@@ -12,7 +12,14 @@ return [
             'type' => 'hidden',
             'attributes' => [
                 'name' => 'action',
-                'value' => 'update',
+                'value' => 'showall',
+            ]
+        ],
+        'showall' => [
+            'type' => 'checkbox',
+            'layout' => '{input}',
+            'attributes' => [
+                'name' => 'showall',
             ]
         ],
         'password' => [

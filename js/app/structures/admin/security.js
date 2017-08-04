@@ -11,6 +11,44 @@
             'keydown input[name=count]': "keydownInputInt",
             'click button.view': "clickView",
             'click button.delete': "clickDelete",
+            'click button.not-show': "clickHide",
+            'click button.not-hide': "clickShow",
+            'click input[name=showall]': "changeShowall",
+        },
+
+        changeShowall: function (e) {
+            var $form = this.$(e.target).closest('form'),
+                action;
+            
+            $form.submit();
+        },
+
+        clickShow: function (e) {
+            var $form = this.$(e.target).closest('form'),
+                action;
+            
+            if ($form.find('input[type=checkbox]:checked').size() == 0) {
+                alert('Не выбраны ни один код');
+                return;
+            }
+
+            action = $form.attr('action');
+            $form.attr('action', action + '/show');
+            $form.submit();
+        },
+
+        clickHide: function (e) {
+            var $form = this.$(e.target).closest('form'),
+                action;
+            
+            if ($form.find('input[type=checkbox]:checked').size() == 0) {
+                alert('Не выбраны ни один код');
+                return;
+            }
+
+            action = $form.attr('action');
+            $form.attr('action', action + '/hide');
+            $form.submit();
         },
 
         clickView: function (e) {

@@ -26,28 +26,39 @@ class IndexAction extends \CAction
         $form = new forms\PasswordUpdateForm();
         $generateForm = new forms\PasswordGeneratorForm();
 
-        if ($action == 'generate')
-        {
-            $n = (int) \Yii::app()->request->getPost('count');
-            for ($i=0; $i<$n; $i++) {
-                $model = new Entity\User();
-                $attributes = [
-                    'password' => $model->generatePassword(8),
-                    'roleId' => UserRole::MANAGER
-                ];
-                $model->save($attributes);
-            }
+        $criteria = new \CDbCriteria();
+        $criteria->condition = 'hidden = 0';
+        $criteria->order = 'id ASC';
 
-            $message = \Yii::t('front', 'n==1#пароль|n<5#пароля|n>4#паролей', $n);
-            \Yii::app()->user->setFlash('message', "Сгенерировано {$n} {$message}.");
-            
-            $this->controller->redirect(\Yii::app()->createUrl('/admin/security'));
-            return;
+        switch ($action) {
+            case 'generate':
+                $n = (int) \Yii::app()->request->getPost('count');
+                for ($i=0; $i<$n; $i++) {
+                    $model = new Entity\User();
+                    $attributes = [
+                        'password' => $model->generatePassword(8),
+                        'roleId' => UserRole::MANAGER
+                    ];
+                    $model->save($attributes);
+                }
+
+                $message = \Yii::t('front', 'n==1#пароль|n<5#пароля|n>4#паролей', $n);
+                \Yii::app()->user->setFlash('message', "Сгенерировано {$n} {$message}.");
+                
+                $this->controller->redirect(\Yii::app()->createUrl('/admin/security'));
+                return;
+
+            case 'showall':
+                $form->showall = \Yii::app()->request->getParam('showall');
+                if ($form->showall) {
+                    $criteria->addCondition('hidden = 1', 'OR');
+                }
+                break;
         }
 
         $entities = entities\User::model()->findAllByAttributes([
             'roleId' => UserRole::MANAGER
-        ]);
+        ], $criteria);
         
         $this->controller->render('index', [
             'form' => new \CForm('application.modules.admin.views.forms.password-update-form', $form),

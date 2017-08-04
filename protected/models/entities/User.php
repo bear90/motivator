@@ -25,6 +25,7 @@ class User extends BaseEntity
         return [
             ['password, roleId', 'required'],
             ['code', 'type', 'type' => 'string'],
+            ['hidden', 'type', 'type' => 'integer'],
         ];
     }
 

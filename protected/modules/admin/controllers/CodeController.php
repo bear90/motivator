@@ -22,6 +22,7 @@ class CodeController extends AdminController
             'delete' => 'application\\modules\\admin\\controllers\\code\\DeleteAction',
             'view' => 'application\\modules\\admin\\controllers\\code\\ViewAction',
             'hide' => 'application\\modules\\admin\\controllers\\code\\HideAction',
+            'show' => 'application\\modules\\admin\\controllers\\code\\ShowAction',
         ];
     }
 }
