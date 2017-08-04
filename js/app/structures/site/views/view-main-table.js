@@ -242,7 +242,7 @@ define([
                 plugins: [
                   'autolink link image'
                 ],
-                toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | link',
+                toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | link | removeformat ',
                 setup: function(editor) {
                     editor.on('keyup', function(e) {
                         var $form = $(editor.targetElm).closest('form');
