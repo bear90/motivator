@@ -6,9 +6,9 @@
 <table id="all-tasks" class="table table-bordered main-table 
     <?php echo $filtered ? 'filtered' : '' ?>">
     <tr>
-        <th class="col1">Дата размещения заявки на тур/<br>
-         имя автора заявки/ <br>
-         порядковый номер заявки</th>
+        <th class="col1">Порядковый номер заявки/<br>
+         дата размещения заявки на тур/ <br>
+         имя автора заявки</th>
         <th class="col2">Страна тура/<br>
         вид тура/<br>
         примерный бюджет</th>
@@ -26,10 +26,9 @@
         ?>
     <tr id="task_<?php echo $model->data()->id; ?>">
             <td>
+                № <?php echo $model->data()->id; ?><br>
                 <?php echo $model->createdAt(); ?><br>
                 <?php echo $model->data()->relName->name; ?><br>
-                № <?php echo $model->data()->id; ?><br>
-
                 <a href="#" class="offers-link">подробнее</a><br>
             </td>
 
