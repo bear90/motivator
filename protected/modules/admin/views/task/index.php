@@ -43,7 +43,7 @@
                         <td>
                             <?php echo implode('-', $model->getCountryOptions()); ?>/<br>
                             <?php echo $model->data()->relTourType->name; ?>/<br>
-                            <?php if($model->data()->planPrice): ?>
+                            <?php if(0 && $model->data()->planPrice): ?>
                             <?php echo $model->data()->planPrice; ?>€
                             <?php endif; ?>
                         </td>

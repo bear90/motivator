@@ -134,9 +134,11 @@ use application\modules\admin\models\Text;
                     </div>
                 </div>
 
-                <div class="form-group">
+                <?php
+                /*<div class="form-group">
                     <?php echo $taskForm['planPrice']; ?>
                 </div>
+                */?>
 
                 <div class="form-group">
                     <?php echo $taskForm['email']; ?>
