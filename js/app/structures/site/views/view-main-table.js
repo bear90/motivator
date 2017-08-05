@@ -243,6 +243,7 @@ define([
                   'autolink link image'
                 ],
                 toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | link | removeformat ',
+                default_link_target:"_blank",
                 setup: function(editor) {
                     editor.on('keyup', function(e) {
                         var $form = $(editor.targetElm).closest('form');
