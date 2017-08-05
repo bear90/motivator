@@ -28,7 +28,7 @@
         <div class="item row <?php echo $class($offer->type); ?>" id="offer_<?php echo $offer->id; ?>"
              data-id="<?php echo $offer->id; ?>">
             <div class="col-md-12 text-center">
-                <h3>Предложение №<?php echo $offer->sort; ?></h3>
+                <h4>Предложение №<?php echo $offer->sort; ?></h4>
 
                 <?php if(\Yii::app()->user->isUser()): ?>
                     <div class="row priority">
@@ -37,7 +37,7 @@
                             <?php if ($offer->type == Offer\Type::FAVORITE) : ?>
                                 <b>ПРИОРИТЕТНОЕ</b>
                             <?php else : ?>
-                                <a href="#" class="favorite">добавить в раздел «ИЗБРАННОЕ»</a>
+                                <a href="#" class="favorite">Присвоить статус «ПРИОРИТЕТНОЕ»</a>
                             <?php endif; ?>
                         </div>
 
@@ -45,7 +45,7 @@
                             <?php if ($offer->type == Offer\Type::NOT_PRIORITY) : ?>
                                 <b>НЕПРИОРИТЕТНОЕ</b>
                             <?php else : ?>
-                                <a href="#" class="not_priority">добавить в общий список</a>
+                                <a href="#" class="not_priority">Добавить в общий список</a>
                             <?php endif; ?>
                             
                         </div>
