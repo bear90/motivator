@@ -61,21 +61,21 @@
 
                 <?php if(!is_null($offer->price)) : ?>
                     <div>
-                        Обычная продажа: <?php echo ceil($offer->price); ?>€
+                        Обычная продажа: <?php echo ceil($offer->price); ?>$
                     </div>
                 <?php endif; ?>
 
                 <?php if(!is_null($offer->earlyPrice)) : ?>
                     <div>
                         Ранее бронирование: 
-                        <i class="fa fa-snowflake-o" aria-hidden="true"></i> <?php echo ceil($offer->earlyPrice); ?>€
+                        <i class="fa fa-snowflake-o" aria-hidden="true"></i> <?php echo ceil($offer->earlyPrice); ?>$
                     </div>
                 <?php endif; ?>
 
                 <?php if(!is_null($offer->lastMinPrice)) : ?>
                     <div>
                         Горящий тур:
-                        <span class="glyphicon glyphicon-fire"></span> <?php echo ceil($offer->lastMinPrice); ?>€
+                        <span class="glyphicon glyphicon-fire"></span> <?php echo ceil($offer->lastMinPrice); ?>$
                     </div>
                 <?php endif; ?>
             </div>

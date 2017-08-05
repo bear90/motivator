@@ -24,7 +24,7 @@
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <label for="">Укажите стоимость тура в €:</label>
+                <label for="">Укажите стоимость тура в $:</label>
             </div>
         </div>
     </div>

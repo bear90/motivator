@@ -139,7 +139,7 @@ define([
                     'task[planPrice]': {
                         validators: {
                             notEmpty: {
-                                message: "Необходимо ввести примерный планируемый бюджет тура в €."
+                                message: "Необходимо ввести примерный планируемый бюджет тура в $."
                             }, // notEmpty
                         } // validators
                     },

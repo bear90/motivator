@@ -39,7 +39,7 @@ return [
             ]
         ],
         'price' => [
-            'label' => 'Укажите стоимость тура в €:',
+            'label' => 'Укажите стоимость тура в $:',
             'type' => 'text',
             'layout' => '{input}',
             'attributes' => [
