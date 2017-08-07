@@ -8,12 +8,12 @@
     <?php echo $offerForm->renderBegin(); ?>
     <?php echo $offerForm['taskId']; ?>
 
-    <div class="form-group description">
-        <?php echo $offerForm['description']; ?>
-    </div>
-
     <div class="form-group contact">
         <?php echo $offerForm['contact']; ?>
+    </div>
+
+    <div class="form-group description">
+        <?php echo $offerForm['description']; ?>
     </div>
 
     <div class="row">
