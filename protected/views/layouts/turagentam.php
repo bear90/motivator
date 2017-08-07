@@ -45,7 +45,7 @@
             <div class="row">
                 <div class="col-xs-12 col-xs-offset-0 col-sm-4 col-sm-offset-4 col-lg-3 col-lg-offset-0">
                     <a class="logo" href="/">
-                        <h2 class="text-right text-logo"><span>П<span>ортал</span> <i>penki.by</i></span></h2>
+                        <h2 class="text-right text-logo"><span>П<span>ортал</span><i>penki.by</i></span></h2>
                     </a>
                 </div>
                 <div class="col-md-6" id="footer-menu">
