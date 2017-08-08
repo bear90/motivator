@@ -126,7 +126,7 @@ use application\modules\admin\models\Text;
                 </div>
 
                 <div class="form-group">
-                    <label class="control-label" for="task_startedAt">Укажите предполагаемую дату начала тура:</label>
+                    <label class="control-label" for="task_startedAt">Укажите планируемую дату начала тура:</label>
                     <div class="input-group">
                         <div class="input-group-addon calendar"><span class="glyphicon glyphicon-calendar"></span>
                         </div>
