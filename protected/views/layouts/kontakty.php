@@ -34,7 +34,7 @@
                 <span class="icon-bar"></span>
             </div>
             <a class="logo" href="/">
-                <h1 class="text-right text-logo"><span>П<span>ортал</span> <i>penki.by</i></span></h1>
+                <h1 class="text-right text-logo"><span>П<span>ортал</span><i>penki.by</i></span></h1>
             </a>
         </header>
 
@@ -45,7 +45,7 @@
                 <div class="col-xs-12 col-xs-offset-0 col-sm-4 col-sm-offset-4 col-lg-3 col-lg-offset-0">
 
                     <a class="logo" href="<?php echo Yii::app()->createUrl("admin/dashboard/login"); ?>">
-                        <h2 class="text-right text-logo"><span>П<span>ортал</span><i>penki.by</i></span></h2>
+                        <h2 class="text-right text-logo"><span>П<span>роект</span><i>penki.by</i></span></h2>
                     </a>
                     
                 </div>

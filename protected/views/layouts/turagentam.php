@@ -35,7 +35,7 @@
                 <span class="icon-bar"></span>
             </div>
             <a class="logo" href="/">
-                <h1 class="text-right text-logo"><span>П<span>ортал</span> <i>penki.by</i></span></h1>
+                <h1 class="text-right text-logo"><span>П<span>роект</span><i>penki.by</i></span></h1>
             </a>
         </header>
 
