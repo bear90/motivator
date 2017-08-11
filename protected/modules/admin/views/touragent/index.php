@@ -20,10 +20,23 @@
                 <div class="desc hidden">Всего: 0</div>
             </td>
             <td>
-                <a href="<?php echo Yii::app()->createUrl("admin/touragent/{$touragent->id}"); ?>">Редактировать</a><br>
-                <a href="<?php echo Yii::app()->createUrl("admin/touragent/edit/{$touragent->id}"); ?>?action=<?php echo $touragent->status ? 'deactivate' : 'activate'?>">
-                        <?php echo $touragent->status==0 ? 'Заблокировать' : 'Разблокировать'; ?>
-                    </a>
+                
+                <a href="<?php echo Yii::app()->createUrl("/admin/touragent/edit/{$touragent->id}")?>" 
+                    type="button" class="btn btn-default btn-xs">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Редактировать
+                </a>
+
+                <a href="<?php echo Yii::app()->createUrl("admin/touragent/edit/{$touragent->id}"); ?>?action=<?php echo $touragent->status == 1 ? 'deactivate' : 'activate'?>" 
+                    type="button" class="btn btn-default btn-xs">
+                    <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 
+                    <?php echo $touragent->status==1 ? 'Заблокировать' : 'Разблокировать'; ?>
+                </a>
+
+                <a href="<?php echo Yii::app()->createUrl("/admin/touragent/delete/{$touragent->id}")?>" 
+                    type="button" class="btn btn-danger btn-xs">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Удалить
+                </a>
+
             </td>
         </tr>
     <?php endforeach; ?>
