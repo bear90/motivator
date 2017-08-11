@@ -11,6 +11,8 @@ class m170811_040709_create_table_touragent extends CDbMigration
             'userId' => 'INT NOT NULL',
             'status' => 'INT NOT NULL DEFAULT 0',
 		]);
+        
+        $this->createIndex('FK_tbl_touragent_userId_idx', 'tbl_touragent', 'userId');
 		
 		$this->addForeignKey('FK_tbl_touragent_userId', 'tbl_touragent', ['userId'], 'tbl_user', ['id'], 
 			'CASCADE', 
