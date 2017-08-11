@@ -22,21 +22,21 @@ use application\modules\admin\models\Text;
     <!--Gallery-->
     <div class="row">
         <ul class="tourist-gallery hidden-xs">
-            <li><img src="img/slide-4.jpg" alt="1"></li>
-            <li><img src="img/slide-7.jpg" alt="2"></li>
-            <li><img src="img/slide-8.jpg" alt="3"></li>
-            <li><img src="img/slide-2.jpg" alt="4"></li>
-            <li><img src="img/slide-6.jpg" alt="5"></li>
+            <li><img src="img/site-1.jpg" alt="1"></li>
+            <li><img src="img/site-2.jpg" alt="2"></li>
+            <li><img src="img/site-3.jpg" alt="3"></li>
+            <li><img src="img/site-4.jpg" alt="4"></li>
+            <li><img src="img/site-5.jpg" alt="5"></li>
         </ul>
     </div>
     <!--Slider-->
     <div class="row" id="slider">
         <ul class="tourist-slider visible-xs-block">
-            <li><img src="img/slide-4.jpg" alt="1"></li>
-            <li><img src="img/slide-7.jpg" alt="2"></li>
-            <li><img src="img/slide-8.jpg" alt="3"></li>
-            <li><img src="img/slide-2.jpg" alt="4"></li>
-            <li><img src="img/slide-6.jpg" alt="5"></li>
+            <li><img src="img/site-1.jpg" alt="1"></li>
+            <li><img src="img/site-2.jpg" alt="2"></li>
+            <li><img src="img/site-3.jpg" alt="3"></li>
+            <li><img src="img/site-4.jpg" alt="4"></li>
+            <li><img src="img/site-5.jpg" alt="5"></li>
         </ul>
     </div>
     <!--Privet cabinet tourist-->

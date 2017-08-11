@@ -141,6 +141,11 @@ class AdminController extends \CController
                 'url' => '/admin/task',
             ],
             [
+                'key' => 'touragent',
+                'label' => 'Турагенты',
+                'url' => '/admin/touragent',
+            ],
+            [
                 'key' => 'view',
                 'label' => 'Просмотр',
                 'url' => '/#block-main-table',

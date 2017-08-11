@@ -59,6 +59,7 @@ body {
 @media (min-width: 992px) {
     .tourist-gallery li {
         border-color: #e7e7e7;
+        min-width: 1px;
     }
 }
 
