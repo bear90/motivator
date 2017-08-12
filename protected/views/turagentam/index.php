@@ -33,26 +33,18 @@ use application\modules\admin\models\Text;
   </div>
 
     <div class="row" id="manager-login-form">
-        <div class="col-md-6 button">
-          <?php if (!\Yii::app()->user->isManager() || !Yii::app()->user->getState('viewOnly')): ?>
-              <a href="#login-form1" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default">ОЗНАКОМИТЬСЯ С ПРЕДЛОЖЕНИЯМИ</a>
-          <?php else: ?>
-              <a href="/#block-main-table" id="btn-privet-cabinet" class="btn btn-default">ОЗНАКОМИТЬСЯ С ПРЕДЛОЖЕНИЯМИ</a>
-          <?php endif; ?>
-        </div>
-
-        <div class="col-md-6 button">
+        <div class="col-md-12 button">
         <?php if (!\Yii::app()->user->isManager() || Yii::app()->user->getState('viewOnly')): ?>
-            <a href="#login-form2" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default">РАЗМЕСТИТЬ ПРЕДЛОЖЕНИЕ</a>
+            <a href="#login-form1" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default">РАБОЧИЕ КАБИНЕТЫ ТУРАГЕНТСТВ</a>
         <?php else: ?>
-            <a href="/#block-main-table" id="btn-privet-cabinet" class="btn btn-default">РАЗМЕСТИТЬ ПРЕДЛОЖЕНИЕ</a>
+            <a href="/#block-main-table" id="btn-privet-cabinet" class="btn btn-default">РАБОЧИЕ КАБИНЕТЫ ТУРАГЕНТСТВ</a>
         <?php endif; ?>
         </div>
     </div>
 
     
     <div class="row">
-      <div class="col-md-4 col-md-offset-1">
+      <div class="col-md-4 col-md-offset-4">
         <?php if (!\Yii::app()->user->isManager() || !Yii::app()->user->getState('viewOnly')): ?>
           <div class="block-login collapse<?php if ($errorLoginView && $loginFormView->submitted()): ?> in<?php endif; ?>" id="login-form1">
               <?php echo $loginFormView->renderBegin(); ?>
@@ -73,35 +65,6 @@ use application\modules\admin\models\Text;
                       <button type="submit" class="btn btn-default btn-green">Войти</button>
                   </div>
               <?php echo $loginFormView->renderEnd(); ?>
-          </div>
-        <?php endif; ?>
-      </div>
-
-      <div class="col-md-4 col-md-offset-1">
-        <?php if (!\Yii::app()->user->isManager() || Yii::app()->user->getState('viewOnly')): ?>
-          <div class="block-login collapse<?php if ($errorLogin && $loginForm->submitted()): ?> in<?php endif; ?>" id="login-form2">
-              <?php echo $loginForm->renderBegin(); ?>
-
-                  <div class="form-group">
-                      <?php echo $loginForm['submit']; ?>
-                  </div>
-
-                  <div class="form-group">
-                      <?php echo $loginForm['password']; ?>
-                  </div>
-
-                  <div class="form-group">
-                      <?php echo $loginForm['code']; ?>
-                  </div>
-
-                  <?php if ($errorLogin): ?>
-                    <div class="alert alert-danger" role="alert"><?php echo $errorLogin; ?></div>
-                  <?php endif; ?>
-
-                  <div class="form-block button">
-                      <button type="submit" class="btn btn-default btn-green">Войти</button>
-                  </div>
-              <?php echo $loginForm->renderEnd(); ?>
           </div>
         <?php endif; ?>
       </div>
