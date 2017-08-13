@@ -991,6 +991,7 @@ img.sltour {height: 148px;}
 #block-main-table table th.col3 {min-width: 255px;}
 #block-main-table table th.col4 {min-width: 230px;}
 #block-main-table table th.col5 {}
+#block-main-table table .offers-row .priority {position: relative; top: 20px; margin-top: -20px;}
 #block-main-table table .offers-row,
 #block-main-table table .add-offer-row {text-align: left;}
 #block-main-table table .add-offer-row .price .form-control {}
