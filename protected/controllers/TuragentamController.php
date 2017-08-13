@@ -24,7 +24,7 @@ class TuragentamController extends \CController {
     public function filterAccessControl($filterChain) {
 
         if(\Yii::app()->user->model === null && \Yii::app()->controller->action->id !== 'index') {
-            $this->redirect('/turagentam');
+            $this->redirect('/turagentstvam');
         } else {
             $filterChain->run();
         }

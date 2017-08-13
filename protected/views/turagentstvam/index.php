@@ -15,8 +15,8 @@ use application\modules\admin\models\Text;
   <div class="row">
       <ul class="tourist-gallery hidden-xs">
           <li><img src="img/turagentam-11.png" alt="1"></li>
-          <li><img src="img/turagentam-22.png" alt="2"></li>
           <li><img src="img/turagentam-33.png" alt="3"></li>
+          <li><img src="img/turagentam-22.png" alt="2"></li>
           <li><img src="img/turagentam-44.png" alt="4"></li>
           <li><img src="img/turagentam-55.png" alt="5"></li>
       </ul>
@@ -25,8 +25,8 @@ use application\modules\admin\models\Text;
   <div class="row" id="slider">
       <ul class="tourist-slider visible-xs-block">
           <li><img src="img/turagentam-11.png" alt="1"></li>
-          <li><img src="img/turagentam-22.png" alt="2"></li>
           <li><img src="img/turagentam-33.png" alt="3"></li>
+          <li><img src="img/turagentam-22.png" alt="2"></li>
           <li><img src="img/turagentam-44.png" alt="4"></li>
           <li><img src="img/turagentam-55.png" alt="5"></li>
       </ul>
