@@ -21,12 +21,12 @@
             </td>
             <td>
                 
-                <a href="<?php echo Yii::app()->createUrl("/admin/touragent/edit/{$touragent->id}")?>" 
+                <a href="<?php echo Yii::app()->createUrl("/admin/touragent/{$touragent->id}")?>"
                     type="button" class="btn btn-default btn-xs">
                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Редактировать
                 </a>
 
-                <a href="<?php echo Yii::app()->createUrl("admin/touragent/edit/{$touragent->id}"); ?>?action=<?php echo $touragent->status == 1 ? 'deactivate' : 'activate'?>" 
+                <a href="<?php echo Yii::app()->createUrl("admin/touragent/edit/{$touragent->id}"); ?>?action=<?php echo $touragent->status == 1 ? 'deactivate' : 'activate'?>"
                     type="button" class="btn btn-default btn-xs">
                     <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 
                     <?php echo $touragent->status==1 ? 'Заблокировать' : 'Разблокировать'; ?>

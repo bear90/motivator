@@ -26,7 +26,7 @@ class IndexAction extends \CAction
                 $this->controller->redirect(\Yii::app()->createUrl('/#block-main-table'));
                 return;
             } elseif ($loginForm->validate() && $loginForm->code === null && $loginForm->loginWithoutCode()) {
-                $this->controller->redirect(\Yii::app()->createUrl('/#block-main-table'));
+                $this->controller->redirect(\Yii::app()->createUrl('/turagentstvam'));
                 return;
             } elseif(is_null($loginForm->code)) {
                 \Yii::app()->user->setFlash('errorLoginView', "Не верный пароль");

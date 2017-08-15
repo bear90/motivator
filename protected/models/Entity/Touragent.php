@@ -55,6 +55,7 @@ class Touragent
         }
         $html = "<p>Турагентство: " . $this->data->name . "</p>";
         $html .= "<p>Сайт: <a href='{$link}'>" . $this->data->site . "</a></p>";
+        $html .= "<p>Менеджер: </p>";
 
         return $html;
     }
