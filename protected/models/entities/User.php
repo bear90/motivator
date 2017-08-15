@@ -33,7 +33,7 @@ class User extends BaseEntity
     {
         return [
             'tourist'=>[self::HAS_ONE, 'application\\models\\Tourist', 'userId'],
-            'touragent'=>[self::HAS_ONE, 'application\\models\\Touragent', 'userId'],
+            'touragent'=>[self::HAS_ONE, 'application\\models\\entities\\Touragent', 'userId'],
             'role'=>[self::BELONGS_TO, 'application\\models\\UserRole', 'roleId'],
         ];
     }

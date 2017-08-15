@@ -27,7 +27,6 @@ class ManagerLoginForm extends \CFormModel
         if ($this->identity->errorCode === \UserIdentity::ERROR_NONE) {
             $duration = $this->rememberMe ? 3600 * 24 * 30 : 0; // 30 days
             \Yii::app()->user->login($this->identity, $duration);
-            \Yii::app()->user->setState('viewOnly', true);
             $user = new Entity\User(\Yii::app()->user->model);
             $user->markLoginTime();
 
@@ -48,7 +47,6 @@ class ManagerLoginForm extends \CFormModel
         if ($this->identity->errorCode === \UserIdentity::ERROR_NONE) {
             $duration = $this->rememberMe ? 3600 * 24 * 30 : 0; // 30 days
             \Yii::app()->user->login($this->identity, $duration);
-            \Yii::app()->user->setState('viewOnly', false);
             \Yii::app()->user->setState('code', $this->code);
             $user = new Entity\User(\Yii::app()->user->model);
             $user->markLoginTime();

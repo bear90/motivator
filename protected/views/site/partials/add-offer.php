@@ -1,7 +1,13 @@
 <?php
     use application\models\defines\Offer\PriceType;
+    use application\models\Entity;
 
     $offerForm->getModel()->taskId = $taskId;
+
+    $entity = \Yii::app()->user->getModel()->touragent;
+    $touragent = new Entity\Touragent($entity);
+
+    $offerForm->getModel()->contact = $touragent->getContacts();
 ?>
 
 <div id="offer_form_<?php echo $taskId; ?>">

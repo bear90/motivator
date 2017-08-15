@@ -33,11 +33,11 @@ use application\modules\admin\models\Text;
   </div>
 
     <div class="row" id="manager-login-form">
-        <div class="col-md-12 button">
-        <?php if (!\Yii::app()->user->isManager() || Yii::app()->user->getState('viewOnly')): ?>
+        <div class="col-md-6 col-md-offset-3 button">
+        <?php if (!\Yii::app()->user->isManager()): ?>
             <a href="#login-form1" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default">РАБОЧИЕ КАБИНЕТЫ ТУРАГЕНТСТВ</a>
         <?php else: ?>
-            <a href="/#block-main-table" id="btn-privet-cabinet" class="btn btn-default">РАБОЧИЕ КАБИНЕТЫ ТУРАГЕНТСТВ</a>
+            <?php $this->renderPartial('partials/dashboard', [])?>
         <?php endif; ?>
         </div>
     </div>
@@ -45,7 +45,7 @@ use application\modules\admin\models\Text;
     
     <div class="row">
       <div class="col-md-4 col-md-offset-4">
-        <?php if (!\Yii::app()->user->isManager() || !Yii::app()->user->getState('viewOnly')): ?>
+        <?php if (!\Yii::app()->user->isManager()): ?>
           <div class="block-login collapse<?php if ($errorLoginView && $loginFormView->submitted()): ?> in<?php endif; ?>" id="login-form1">
               <?php echo $loginFormView->renderBegin(); ?>
 

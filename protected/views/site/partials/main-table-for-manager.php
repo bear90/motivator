@@ -33,9 +33,8 @@
                 <?php echo $model->data()->relName->name; ?><br>
                 <a href="#" class="offers-link">подробнее</a><br>
 
-                <?php if(!Yii::app()->user->getState('viewOnly')) : ?>
-                    <button type="button" data-id="<?php echo $model->data()->id; ?>" class="btn btn-default btn-green add-offer">Разместить предложение</button>
-                <?php endif; ?>
+                <button type="button" data-id="<?php echo $model->data()->id; ?>" class="btn btn-default btn-green add-offer">Разместить предложение</button>
+                
             </td>
 
             <td>

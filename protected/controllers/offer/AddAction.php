@@ -14,6 +14,7 @@ class AddAction extends \CAction
     {
         $attributes = \Yii::app()->request->getPost('offer');
         $attributes['createdBy'] = \Yii::app()->user->model->id;
+        $attributes['touragentId'] = \Yii::app()->user->model->touragent->id;
 
         $offer = new Entity\Offer();
         $this->setPrice($offer, $attributes['priceType'], $attributes['price']);
@@ -27,7 +28,6 @@ class AddAction extends \CAction
         $model->setPrice($offer->data());
 
         \Yii::app()->user->setFlash('offerForTask', $attributes['taskId']);
-        \Yii::app()->user->setState('viewOnly', true);
         // Expire code
         $code = \Yii::app()->user->getState('code');
         entities\Code::model()->updateAll(['deleted' => 1], 'code = :code', ['code' => $code]);

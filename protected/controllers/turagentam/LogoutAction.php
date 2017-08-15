@@ -11,6 +11,6 @@ class LogoutAction extends \CAction
         \Yii::app()->user->identityCookie = array();
         \Yii::app()->user->logout();
         
-        $this->controller->redirect('/turagentam');
+        $this->controller->redirect('/turagentstvam');
     }
 }

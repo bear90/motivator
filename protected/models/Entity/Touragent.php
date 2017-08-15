@@ -46,4 +46,16 @@ class Touragent
 
         return true;
     }
+
+    public function getContacts()
+    {
+        $link = $this->data->site;
+        if (substr($link, 0, 4) != 'http') {
+            $link = "http://{$link}";
+        }
+        $html = "<p>Турагентство: " . $this->data->name . "</p>";
+        $html .= "<p>Сайт: <a href='{$link}'>" . $this->data->site . "</a></p>";
+
+        return $html;
+    }
 }

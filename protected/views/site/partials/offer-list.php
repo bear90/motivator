@@ -85,7 +85,7 @@
 
     <?php endforeach;?>
 
-    <?php if (Yii::app()->user->isManager() && !Yii::app()->user->getState('viewOnly')) : ?>
+    <?php if (Yii::app()->user->isManager()) : ?>
         <button type="button" class="btn btn-default btn-green add-offer2" data-id="<?php echo $taskId; ?>">Разместить предложение</button>
     <?php endif; ?>
 

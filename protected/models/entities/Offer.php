@@ -19,7 +19,7 @@ class Offer extends BaseEntity
             ['contact, description, taskId', 'required'],
             ['type, sort', 'type', 'type' => 'integer'],
             ['price, earlyPrice, lastMinPrice', 'type', 'type' => 'float'],
-            ['createdBy', 'safe']
+            ['createdBy, touragentId', 'safe']
         ];
     }
 
