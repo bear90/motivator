@@ -1,4 +1,5 @@
 <?php
+    use application\models\Entity\Touragent;
     use application\models\entities\Configuration;
 ?>
 <h2>Турагенты:</h2>
@@ -17,7 +18,7 @@
                 <?php echo $touragent->name; ?><br>
                 <a href="#" class="more">Количество размещённых предложений</a>
 
-                <div class="desc hidden">Всего: 0</div>
+                <div class="desc hidden">Всего: <?php echo Touragent\Repository::total($touragent->id); ?></div>
             </td>
             <td>
                 

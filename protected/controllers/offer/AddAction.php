@@ -27,11 +27,15 @@ class AddAction extends \CAction
         $model = new Entity\Task($task);
         $model->setPrice($offer->data());
 
-        \Yii::app()->user->setFlash('offerForTask', $attributes['taskId']);
-        // Expire code
-        $code = \Yii::app()->user->getState('code');
-        entities\Code::model()->updateAll(['deleted' => 1], 'code = :code', ['code' => $code]);
+        // Add information about offer of the touragent
+        $touragentOffer = new Entity\Touragent\Offer();
+        $touragentOffer->save([
+            'touragentId' => $attributes['touragentId'],
+            'offerId' => $offer->data()->id
+        ]);
 
+        \Yii::app()->user->setFlash('offerForTask', $attributes['taskId']);
+        
         \Tool::sendEmailWithLayout($model->data(), 'add-offer', []);
         
         $this->controller->redirect('/#offer_' . $offer->data()->id);

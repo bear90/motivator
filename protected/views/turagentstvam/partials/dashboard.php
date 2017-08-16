@@ -1,4 +1,6 @@
 <?php
+    use application\models\Entity\Touragent;
+
     $user = \Yii::app()->user->getModel();
 ?>
 <div class="dashboard">
@@ -10,7 +12,7 @@
 
     <div class="row block-stat collapse" id="offers-stat">
         <div class="col-md-6">Всего:</div>
-        <div class="col-md-6 text-right">0</div>
+        <div class="col-md-6 text-right"><?php echo Touragent\Repository::total($user->touragent->id); ?></div>
     </div>
 
     <div class="row">
