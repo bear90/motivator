@@ -40,6 +40,10 @@ body {
 }
 
 /*---Gallery---*/
+
+.turoperatoram .tourist-gallery {
+    border-bottom: 1px solid #ebebeb;
+}
 @media (min-width: 768px) {
     .tourist-gallery {
         padding: 0;
