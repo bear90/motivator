@@ -8,6 +8,7 @@
 use application\models\entities\User;
 use application\models\entities\Code;
 use application\models\Entity;
+use application\models\entities;
 use application\models\defines;
 
 class UserIdentity extends CUserIdentity {
@@ -22,13 +23,25 @@ class UserIdentity extends CUserIdentity {
     public function setCode($code) {
         $this->code = $code;
     }
+
+    private function hasTouragent($userId) {
+        $criteria = new \CDbCriteria();
+        $criteria->addCondition('userId = :userId');
+        $criteria->addCondition('status = :active');
+        $criteria->params = [
+            'userId' => $userId,
+            'active' => 1
+        ];
+        return entities\Touragent::model()->exists($criteria);
+    }
     
     public function authenticate() {
         $user = User::model()->findByAttributes(array(
             'password' => $this->password
         ));
 
-        if ($user == null || $user->id == 0 || $user->roleId != $this->role) {
+        if ($user == null || $user->id == 0 || $user->roleId != $this->role || 
+            ($this->role == defines\UserRole::MANAGER && !$this->hasTouragent($user->id))) {
             $this->errorCode = self::ERROR_USERNAME_INVALID;
         } else {
             $this->errorCode = self::ERROR_NONE;
