@@ -12,6 +12,7 @@ class OfferForm extends \CFormModel
     public $priceType;
     public $price;
     public $taskId;
+    public $checkbox;
 
     public function rules(){
         return [];

@@ -55,5 +55,12 @@ return [
                 'class' => 'form-control'
             ]
         ],
+        'checkbox' => [
+            'type' => 'checkbox',
+            'layout' => '{input}',
+            'attributes' => [
+                'name' => 'offer[checkbox]',
+            ]
+        ],
     ]
 ];

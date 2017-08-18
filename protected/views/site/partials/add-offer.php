@@ -1,6 +1,7 @@
 <?php
     use application\models\defines\Offer\PriceType;
     use application\models\Entity;
+    use application\modules\admin\models\Text;
 
     $offerForm->getModel()->taskId = $taskId;
 
@@ -48,6 +49,17 @@
         </div>
     </div>
     <a href="#" class="offer-add-price">+ Добавить режим продажи тура</a>
+
+    <div class="form-group">
+        <div class="checkbox">
+            <label>
+                <?php echo $offerForm['checkbox']; ?>
+                <?php echo Text::get('offer-gaide'); ?>
+            </label>
+        </div>
+
+        <div class="gaide hidden"><?php echo Text::get('offer-contract'); ?></div>
+    </div>
 
     <div class="form-block button">
         <button type="submit" class="btn btn-default btn-green">Разместить предложение</button>
