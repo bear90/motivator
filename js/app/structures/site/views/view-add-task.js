@@ -55,9 +55,9 @@ define([
                             callback: {
                                 message: "Вам необходимо выбрать имя!",
                                 callback: function (value, validator, $field) {
-                                    var val1 = self.$('[name="task[name1]"]').val();
-                                    var val2 = self.$('[name="task[name2]"]').val();
-                                    return (val1 != '0' && !!val1) || (val2 != '0' && !!val2);
+                                    var val2 = self.$('[name="_task[name2]"]').val();
+                                    console.log(value, val2, (value.length > 0 || val2.length > 0));
+                                    return value.length > 0 || val2.length > 0;
                                 }
                             },
                         }
@@ -68,9 +68,9 @@ define([
                             callback: {
                                 message: "Вам необходимо выбрать имя!",
                                 callback: function (value, validator, $field) {
-                                    var val1 = self.$('[name="task[name2]"]').val();
-                                    var val2 = self.$('[name="task[name1]"]').val();
-                                    return (val1 != '0' && !!val1) || (val2 != '0' && !!val2);
+                                    var val2 = self.$('[name="_task[name1]"]').val();
+                                    console.log(value, val2, (value.length > 0 || val2.length > 0));
+                                    return value.length > 0 || val2.length > 0;
                                 }
                             },
                         }
@@ -88,8 +88,7 @@ define([
                             callback: {
                                 message: "Вам необходимо выбрать страну тура!",
                                 callback: function (value, validator, $field) {
-                                    var val = $field.parent().siblings('select').val();
-                                    return val != '0' && !!val;
+                                    return value.length > 0;
                                 }
                             }
                         }
