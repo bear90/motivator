@@ -38,6 +38,11 @@
                     <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Удалить
                 </a>
 
+                <a href="<?php echo Yii::app()->createUrl("/admin/touragent/reset/{$touragent->id}")?>" 
+                    type="button" class="btn btn-danger btn-xs">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Обнулить статистику
+                </a>
+
             </td>
         </tr>
     <?php endforeach; ?>

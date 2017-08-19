@@ -16,6 +16,7 @@ class TouragentController extends AdminController {
             'add' => 'application\\modules\\admin\\controllers\\touragent\\AddAction',
             'edit' => 'application\\modules\\admin\\controllers\\touragent\\EditAction',
             'delete' => 'application\\modules\\admin\\controllers\\touragent\\DeleteAction',
+            'reset' => 'application\\modules\\admin\\controllers\\touragent\\ResetAction',
             'clear' => 'application\\modules\\admin\\controllers\\touragent\\ClearAction',
             'clear-discont' => 'application\\modules\\admin\\controllers\\touragent\\ClearDiscontAction',
             'manager' => 'application\\modules\\admin\\controllers\\touragent\\ManagerAction',
