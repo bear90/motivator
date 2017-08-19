@@ -7,7 +7,7 @@ var Session = {
 };
 
 require.config({
-    urlArgs: "ver=1.0.7",
+    urlArgs: "ver=1.0.8",
     paths: {
         //"jquery": "vendor/jquery/dist/jquery.min",
         "jquery": "vendor/jquery/jquery",
