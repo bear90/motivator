@@ -24,7 +24,7 @@ class Touragent extends BaseEntity
     public function relations()
     {
         return [
-            'user' => [self::BELONGS_TO, 'application\\models\\User', 'userId'],
+            'user' => [self::BELONGS_TO, 'application\\models\\entities\\User', 'userId'],
         ];
     }
 

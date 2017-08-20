@@ -15,6 +15,17 @@
     <?php echo $offerForm->renderBegin(); ?>
     <?php echo $offerForm['taskId']; ?>
 
+    <div class="form-group">
+        <div class="checkbox">
+            <label>
+                <?php echo $offerForm['checkbox']; ?>
+                <?php echo Text::get('offer-gaide'); ?>
+            </label>
+        </div>
+
+        <div class="gaide hidden"><?php echo Text::get('offer-contract'); ?></div>
+    </div>
+
     <div class="form-group description">
         <?php echo $offerForm['description']; ?>
     </div>
@@ -49,17 +60,6 @@
         </div>
     </div>
     <a href="#" class="offer-add-price">+ Добавить режим продажи тура</a>
-
-    <div class="form-group">
-        <div class="checkbox">
-            <label>
-                <?php echo $offerForm['checkbox']; ?>
-                <?php echo Text::get('offer-gaide'); ?>
-            </label>
-        </div>
-
-        <div class="gaide hidden"><?php echo Text::get('offer-contract'); ?></div>
-    </div>
 
     <div class="form-block button">
         <button type="submit" class="btn btn-default btn-green">Разместить предложение</button>

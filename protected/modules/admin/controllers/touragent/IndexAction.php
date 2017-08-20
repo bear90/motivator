@@ -67,17 +67,19 @@ class IndexAction extends \CAction
         $this->controller->render('edit', [
             'touragent' => $touragent,
             'success' => $success,
-            'touragentForm' => new \CForm('application.modules.admin.views.forms.touragent-form', $touragentFormEntity)
+            'touragentForm' => new \CForm('application.modules.admin.views.forms.touragent-form', $touragentFormEntity),
         ]);
     }
 
     public function listAction()
     {
         $touragents = Touragent::model()->findAll();
+        $filterFormEntity = new forms\TouragentFilterForm();
 
         $this->controller->render('index', [
             'touragents' => $touragents,
             'message' => \Yii::app()->user->getFlash('message', ''),
+            'filterForm' => new \CForm('application.modules.admin.views.forms.touragent-filter-form', $filterFormEntity)
         ]);
     }
 }

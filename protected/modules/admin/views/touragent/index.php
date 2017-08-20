@@ -13,12 +13,46 @@
         <th width="20">Операции</th>
     </tr>
     <?php foreach((array) $touragents as $touragent): ?>
+        
+        <?php 
+            $model = new Touragent($touragent);
+            $filterForm->getModel()->touragentId = $touragent->id; 
+        ?>
+
         <tr>
             <td>
-                <?php echo $touragent->name; ?><br>
-                <a href="#" class="more">Количество размещённых предложений</a>
+                <p><?php echo $touragent->name; ?></p>
+                <p><a href="<?php echo $model->getLink(); ?>"><?php echo $touragent->site; ?></a></p>
+                <p><?php echo $touragent->user->password; ?></p>
+                
 
-                <div class="desc hidden">Всего: <?php echo Touragent\Repository::total($touragent->id); ?></div>
+                <p><a href="#" class="more">Количество размещённых предложений</a></p>
+
+                <div class="desc hidden">
+                    <?php echo $filterForm->renderBegin(); ?>
+                        <?php echo $filterForm['touragentId']; ?> 
+
+                        <p>Всего: <?php echo Touragent\Repository::total($touragent->id); ?></p>
+                        <p>
+                            <div class="form-group">
+                                За период 
+                            </div>
+                            <div class="form-group">
+                                <?php echo $filterForm['from']; ?> 
+                            </div>
+
+                            <div class="form-group">
+                                <?php echo $filterForm['to']; ?>
+                            </div>
+                            
+                            <button type="button" class="btn btn-default find">Показать</button>
+                            <button type="button" class="btn btn-default reset">Очистить</button>
+                        </p>
+
+                        <p class="ajax"><!-- --></p>
+
+                    <?php echo $filterForm->renderEnd(); ?>
+                </div>
             </td>
             <td>
                 

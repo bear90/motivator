@@ -59,4 +59,14 @@ class Touragent
 
         return $html;
     }
+
+    public function getLink()
+    {
+        $link = $this->data->site;
+        if (substr($link, 0, 4) != 'http') {
+            $link = "http://{$link}";
+        }
+        
+        return $link;
+    }
 }
