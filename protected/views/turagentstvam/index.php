@@ -33,11 +33,11 @@ use application\modules\admin\models\Text;
   </div>
 
     <div class="row" id="manager-login-form">
-        <div class="col-md-6 col-md-offset-3 button">
+        <div class="col-md-10 col-md-offset-1 button">
         <?php if (!\Yii::app()->user->isManager()): ?>
             <a href="#login-form1" data-toggle="collapse"  id="btn-privet-cabinet" class="btn btn-default">РАБОЧИЕ КАБИНЕТЫ ТУРАГЕНТСТВ</a>
         <?php else: ?>
-            <?php $this->renderPartial('partials/dashboard', [])?>
+            <?php $this->renderPartial('partials/dashboard', ['filterForm' => $filterForm])?>
         <?php endif; ?>
         </div>
     </div>
