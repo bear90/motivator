@@ -16,21 +16,21 @@ use application\modules\admin\models\Text;
     <!--Gallery-->
     <div class="row">
         <ul class="tourist-gallery hidden-xs">
-            <li><img src="img/turoperatoram-3.jpg" alt="3"></li>
-            <li><img src="img/turoperatoram-5.jpg" alt="5"></li>
-            <li><img src="img/turoperatoram-11.png" alt="1"></li>
-            <li><img src="img/turoperatoram-2.jpg" alt="2"></li>
-            <li><img src="img/turoperatoram-44.png" alt="4"></li>
+            <li><img src="img/o-portale-1.jpg" alt="3"></li>
+            <li><img src="img/o-portale-2.jpg" alt="5"></li>
+            <li><img src="img/o-portale-3.jpg" alt="1"></li>
+            <li><img src="img/o-portale-4.jpg" alt="2"></li>
+            <li><img src="img/o-portale-5.jpg" alt="4"></li>
         </ul>
     </div>
     <!--Slider-->
     <div class="row" id="slider">
         <ul class="tourist-slider visible-xs-block">
-            <li><img src="img/turoperatoram-11.png" alt="1"></li>
-            <li><img src="img/turoperatoram-2.jpg" alt="2"></li>
-            <li><img src="img/turoperatoram-3.png" alt="3"></li>
-            <li><img src="img/turoperatoram-5.jpg" alt="5"></li>
-            <li><img src="img/turoperatoram-4.png" alt="4"></li>
+            <li><img src="img/o-portale-1.jpg" alt="1"></li>
+            <li><img src="img/o-portale-2.jpg" alt="2"></li>
+            <li><img src="img/o-portale-3.jpg" alt="3"></li>
+            <li><img src="img/o-portale-4.jpg" alt="5"></li>
+            <li><img src="img/o-portale-5.jpg" alt="4"></li>
         </ul>
     </div>
     <!--Address-->
