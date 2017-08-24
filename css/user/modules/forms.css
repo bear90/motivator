@@ -1,19 +1,4 @@
-::-webkit-input-placeholder {
-    text-transform: uppercase;
-    font-weight: bold;
-}
-::-moz-placeholder{
-    text-transform: uppercase;
-    font-weight: bold;
-}/* Firefox 19+ */
-:-moz-placeholder{
-    text-transform: uppercase;
-    font-weight: bold;
-}/* Firefox 18- */
-:-ms-input-placeholder{
-    text-transform: uppercase;
-    font-weight: bold;
-}
+
 @media (max-width: 500px){
     ::-webkit-input-placeholder {
         font-size: 1em;
