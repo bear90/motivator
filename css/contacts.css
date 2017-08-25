@@ -59,7 +59,7 @@ body {}
 /*Address*/
 .address-block {
     background-color: #ebebeb;
-    margin: 26px 26px 29px;
+    margin: 26px 0 0;
     padding: 39px 20px 23px;
     min-height: 235px;
 }
