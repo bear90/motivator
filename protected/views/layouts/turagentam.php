@@ -9,7 +9,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="shortcut icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/jquery/bootstrapValidator.min.css">
     <link rel="stylesheet" href="css/plugins/slidebars.css">
     <link rel="stylesheet" href="/css/modules/tab.css">
     <link rel="stylesheet" href="css/tourist.css?ver=1.0.2">
@@ -45,7 +44,7 @@
         <footer class="container-fluid">
             <div class="row">
                 <div class="col-xs-12 col-xs-offset-0 col-sm-4 col-sm-offset-4 col-lg-3 col-lg-offset-0">
-                    <a class="logo" href="/">
+                     <a class="logo" href="/">
                         <h2 class="text-right text-logo"><span>П<span>роект</span><i>penki.by</i></span></h2>
                     </a>
                 </div>
