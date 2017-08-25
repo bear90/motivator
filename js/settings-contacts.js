@@ -20,16 +20,6 @@
 
 $(document).ready(function() {
 
-    localSettings();
-
-    $(window).resize(function () {
-        localSettings();
-    });
-
-    $(window).bind('resize', function() {
-        //location.reload();
-    });
-
     $('#side-menu a').click(function () {
         $(this).parent().siblings().css('border-color', 'rgba(0, 0, 0, 0.57)');
         $(this).parent().prev().css('border-color', '#ed791a');
@@ -45,17 +35,3 @@ $(document).ready(function() {
         slideWidth: $('#blank').outerWidth()/2 + 30
     });
 });
-
-function localSettings() {
-    var hDoc = $(window).height();
-    var wDoc = $(window).width();
-    var hAddr = $('.address-block').height();
-    var deltaLg = hDoc - $('header').outerHeight() - $('footer').outerHeight() - $('#blank').outerHeight() - 20;
-    var deltaXs = hDoc - $('header').outerHeight() - $('footer').outerHeight() - ($('#blank').outerWidth()/2 + 120 );
-
-    /*if(wDoc <= 768){
-        $('.address-block').height(deltaXs);
-    }else{
-        $('.address-block').height(hAddr + deltaLg);
-    }*/
-}

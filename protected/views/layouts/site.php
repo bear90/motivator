@@ -19,11 +19,14 @@
     <link rel="stylesheet" href="/css/plugins/slidebars.css">
     <link rel="stylesheet" href="/css/modules/tab.css">
     <link rel="stylesheet" href="/css/tourist.css?ver=1.0.5">
-    <!-- <link rel="stylesheet" href="/css/jquery-ui.min.css"> -->
     <link rel="stylesheet" href="/css/jquery.ui/jquery-ui.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body class="turistam">
 
@@ -75,14 +78,24 @@
     ]); ?>
 </div>
 
-<!--SlideBars plugin-->
-<!-- <script src="js/slidebars.js" type="text/javascript"></script> -->
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/js/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrapValidator.min.js" type="text/javascript"></script>
+    <!--SlideBars plugin-->
+    <script src="js/slidebars.js" type="text/javascript"></script>
 
-<!-- Main bxSlider -->
-<!-- <script src="/js/jquery.bxslider.min.js" type="text/javascript"></script> -->
-<!-- <script src="/js/settings-tourist.js" type="text/javascript"></script> -->
+    <!-- Main bxSlider -->
+    <script src="js/jquery.bxslider.min.js" type="text/javascript"></script>
+    <!--Local settings-->
+    <script src="js/settings-contacts.js"></script>
 
-<script data-main="js/app/main.js" src="js/app/vendor/requirejs/require.js"></script>
+    <!--Local settings-->
+    <script src="js/settings-tourist.js"></script>
+
+    <script data-main="js/app/main.js" src="js/app/vendor/requirejs/require.js"></script>
+
 
 <!--Local settings-->
 

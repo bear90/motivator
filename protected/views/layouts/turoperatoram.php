@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="shortcut icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/jquery/bootstrapValidator.min.css">
     <link rel="stylesheet" href="css/plugins/slidebars.css">
     <link rel="stylesheet" href="/css/modules/tab.css">
     <link rel="stylesheet" href="css/tourist.css">
@@ -82,13 +83,14 @@
     <script src="/js/jquery.min.js"></script>
     <!-- Latest compiled and minified JavaScript -->
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrapValidator.min.js" type="text/javascript"></script>
     <!--SlideBars plugin-->
     <script src="js/slidebars.js" type="text/javascript"></script>
 
     <!-- Main bxSlider -->
     <script src="js/jquery.bxslider.min.js" type="text/javascript"></script>
     <!--Local settings-->
-    <script src="js/settings-contacts.js"></script>
+    <script src="js/settings-tourist.js"></script>
 
     <script data-main="js/app/main.js" src="js/app/vendor/requirejs/require.js"></script>
 
