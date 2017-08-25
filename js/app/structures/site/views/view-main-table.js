@@ -260,10 +260,21 @@ define([
                 menubar: false,
                 statusbar: false,
                 plugins: [
-                  'autolink link image'
+                  'autolink link image paste'
                 ],
                 toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | link | removeformat ',
+                
                 default_link_target:"_blank",
+                extended_valid_elements : "a[href|target=_blank]",
+                
+                paste_use_dialog : false,
+                paste_auto_cleanup_on_paste : true,
+                paste_convert_headers_to_strong : false,
+                paste_strip_class_attributes : "all",
+                paste_remove_spans : true,
+                paste_remove_styles : true,
+                paste_retain_style_properties : "",
+
                 setup: function(editor) {
                     editor.on('keyup', function(e) {
                         var $form = $(editor.targetElm).closest('form');
