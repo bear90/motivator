@@ -56,7 +56,7 @@ define([
                                 message: "Вам необходимо выбрать имя!",
                                 callback: function (value, validator, $field) {
                                     var val2 = self.$('[name="_task[name2]"]').val();
-                                    console.log(value, val2, (value.length > 0 || val2.length > 0));
+                                    console.log("1 val2:", val2, "; value: ", value, (value.length > 0 || val2.length > 0));
                                     return value.length > 0 || val2.length > 0;
                                 }
                             },
@@ -69,7 +69,7 @@ define([
                                 message: "Вам необходимо выбрать имя!",
                                 callback: function (value, validator, $field) {
                                     var val2 = self.$('[name="_task[name1]"]').val();
-                                    console.log(value, val2, (value.length > 0 || val2.length > 0));
+                                    console.log("2 val2:", val2, "; value: ", value, (value.length > 0 || val2.length > 0));
                                     return value.length > 0 || val2.length > 0;
                                 }
                             },
@@ -201,16 +201,21 @@ define([
                 case "_task[name1]":
                     $row.find('input[name="_task[name2]"]').val("");
                     $row.find('select[name="task[name2]"]').val("");
+
+                    setTimeout($.proxy(function(){
+                        this.$('form').bootstrapValidator('revalidateField', '_task[name2]');
+                    }, this), 200);
                     break;
 
                 case "_task[name2]":
                     $row.find('input[name="_task[name1]"]').val("");
                     $row.find('select[name="task[name1]"]').val("");
+
+                    setTimeout($.proxy(function(){
+                        this.$('form').bootstrapValidator('revalidateField', '_task[name1]');
+                    }, this), 200);
                     break;
             }
-
-            this.$('form').bootstrapValidator('revalidateField', '_task[name1]');
-            this.$('form').bootstrapValidator('revalidateField', '_task[name2]');
         },
 
         selectChildCount:  function (e){
