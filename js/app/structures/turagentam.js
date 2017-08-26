@@ -48,7 +48,7 @@ define([
         },
 
         render: function(){
-            this.$('form').bootstrapValidator({
+            this.$('form.form-inline').bootstrapValidator({
                 message: 'Данные введены неверно',
                 feedbackIcons: {
                     valid: 'glyphicon glyphicon-ok',
