@@ -56,7 +56,7 @@ define([
                                 message: "Вам необходимо выбрать имя!",
                                 callback: function (value, validator, $field) {
                                     var val2 = self.$('[name="_task[name2]"]').val();
-                                    console.log("1 val2:", val2, "; value: ", value, (value.length > 0 || val2.length > 0));
+                                    
                                     return value.length > 0 || val2.length > 0;
                                 }
                             },
@@ -69,7 +69,7 @@ define([
                                 message: "Вам необходимо выбрать имя!",
                                 callback: function (value, validator, $field) {
                                     var val2 = self.$('[name="_task[name1]"]').val();
-                                    console.log("2 val2:", val2, "; value: ", value, (value.length > 0 || val2.length > 0));
+                                    
                                     return value.length > 0 || val2.length > 0;
                                 }
                             },
