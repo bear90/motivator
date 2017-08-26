@@ -1001,7 +1001,7 @@ img.sltour {height: 148px;}
 #add-task {margin-bottom: 10px} 
 
 #main-add-buttons {text-align: center}
-#main-add-buttons a.btn {width: 300px}
+#main-add-buttons a.btn {width: 300px; margin-bottom: 10px;}
 
 .main-table th {text-align: center; background-color: #fbd4b4}
 .main-table {text-align: center; background: url('images/background2.png') #fde9d9 10px 80px;}
