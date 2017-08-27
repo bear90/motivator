@@ -17,7 +17,6 @@ define([
             'click a.favorite': "clickMakeFavorite",
             'click a.not_priority': "clickMakeNotPriority",
             'change input[name="offer[checkbox]"]': "changeCheckbox",
-            "click .checkbox label > a": "clickGaideLink",
         },
 
         templateOfferPrice: _.template(OfferPriceTmpl),
@@ -181,12 +180,6 @@ define([
         changeCheckbox:  function (e){
             var $el = this.$(e.target);
             $el.closest('form').bootstrapValidator('revalidateField', 'offer[checkbox]');
-        },
-
-        clickGaideLink: function(e) {
-            e.preventDefault();
-            var $el = this.$(e.target);
-            $el.closest('.checkbox').next('.gaide').toggleClass('hidden');
         },
 
         initOffer: function($offerRow) {

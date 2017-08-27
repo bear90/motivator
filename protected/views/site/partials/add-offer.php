@@ -22,8 +22,6 @@
                 <?php echo Text::get('offer-gaide'); ?>
             </label>
         </div>
-
-        <div class="gaide hidden"><?php echo Text::get('offer-contract'); ?></div>
     </div>
 
     <div class="form-group description">
