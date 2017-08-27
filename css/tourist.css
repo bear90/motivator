@@ -5,6 +5,12 @@
 @import "modules/accordion.css" handheld, screen;
 @import "modules/footer.css" handheld, screen;
 
+button:active {
+    outline: none;
+    border: none;
+}
+
+button:focus {outline:0 !important;}
 
 body {
     min-width: 320px;
