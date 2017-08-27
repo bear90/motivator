@@ -30,9 +30,9 @@ class IndexAction extends \CAction
                 $this->controller->redirect(\Yii::app()->createUrl('/turagentstvam'));
                 return;
             } elseif(is_null($loginForm->code)) {
-                \Yii::app()->user->setFlash('errorLoginView', "Не верный пароль");
+                \Yii::app()->user->setFlash('errorLoginView', "Неверный пароль");
             } else {
-                \Yii::app()->user->setFlash('errorLogin', "Не верный пароль или код");
+                \Yii::app()->user->setFlash('errorLogin', "Неверный пароль или код");
             }
         }
 

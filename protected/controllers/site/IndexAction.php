@@ -30,7 +30,7 @@ class IndexAction extends \CAction
                 $this->controller->redirect(\Yii::app()->createUrl('/#block-main-table'));
                 return;
             } else {
-                \Yii::app()->user->setFlash('loginMessage', 'Не верный логин или пароль');
+                \Yii::app()->user->setFlash('loginMessage', 'Неверный пароль');
             }
         }
 
