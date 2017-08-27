@@ -6,10 +6,10 @@ return array(
     // application components
     'components'=>array(
         'db'=>array(
-            'connectionString'  => 'mysql:host=localhost;dbname=user2007762_motivator_dev',
+            'connectionString'  => 'mysql:host=localhost;dbname=user2034796_penkiby_dev',
             'emulatePrepare'    => true,
-            'username'          => 'motivator_dev',
-            'password'          => 'HUpK4ToC',
+            'username'          => 'penkiby_dev',
+            'password'          => 'QRGqLtOd',
             'charset'           => 'utf8',
         ),
     ),
