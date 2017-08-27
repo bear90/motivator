@@ -1044,6 +1044,10 @@ img.sltour {height: 148px;}
     display: inline-block;
 }
 
+@media (max-width: 1024px) {
+    #block-main-table table .offers-row .priority {margin-bottom: 40px;}
+}
+
 #add-task-filter {margin-bottom: 20px;}
 
 .bold {font-weight: bold;}
