@@ -12,6 +12,7 @@
 namespace application\modules\admin\models\forms;
 
 use application\models\defines\UserRole;
+use application\models\entities;
 
 class TouragentForm extends \CFormModel
 {
@@ -36,17 +37,34 @@ class TouragentForm extends \CFormModel
                 'allowEmpty' => true,
                 'min' => 6
             ],
-            ['password', 'unique',
+            /*['password', 'unique',
                 'attributeName' => 'password',
                 'className' => '\\application\\models\\entities\\User',
                 'criteria' => [
-                    'condition' => 't.roleId = :managerRole',
+                    'condition' => 't.roleId = :managerRole AND (:userId IS NULL OR id != :userId)',
                     'params' => [
                         'managerRole' => UserRole::MANAGER,
+                        'userId' => $this->userId
                     ]
                 ]
-            ]
+            ],*/
+            ['password', 'validatePassword']
         ];
+    }
+
+    public function validatePassword($attribute){
+        $pass = $this->$attribute;
+        $criteria = new \CDbCriteria();
+        $criteria->addCondition('t.roleId = :managerRole and password = :pass');
+        $criteria->params['managerRole'] = UserRole::MANAGER;
+        $criteria->params['pass'] = $pass;
+        if ($this->userId) {
+            $criteria->addCondition('t.id != :userId');
+            $criteria->params['userId'] = $this->userId;
+        }
+        if(entities\User::model()->exists($criteria)) {
+            $this->addError($attribute, \Yii::t('front', 'Пароль "{n}" уже занят.', $pass));
+        }
     }
 
     public function attributeLabels(){

@@ -14,7 +14,8 @@ namespace application\modules\admin\controllers\touragent;
 use application\modules\admin\models\forms;
 use application\models\Entity\Touragent;
 
-use application\models\Entity\User;
+use application\models\entities;
+use application\models\Entity;
 use application\models\defines\UserRole;
 
 class AddAction extends \CAction
@@ -27,12 +28,26 @@ class AddAction extends \CAction
         if (\Yii::app()->request->isPostRequest)
         {
             $formEntity->attributes = \Yii::app()->request->getPost('Touragent');
+            
+            //Check User by password
+            $user = entities\User::model()->findByAttributes(['password' => $formEntity->password]);
+            
+            //var_dump($user, $user->touragent);die();
+
+            if ($user && is_null($user->touragent)) {
+                $formEntity->userId = $user->id;
+            }
 
             if($formEntity->validate())
             {
+
                 // Create User
-                $user = new User;
-                $user->create($formEntity->password, UserRole::MANAGER);
+                if ($user && is_null($user->touragent)) {
+                    $user = new Entity\User($user);
+                } else {
+                    $user = new Entity\User;
+                    $user->create($formEntity->password, UserRole::MANAGER);
+                }
 
                 // Save data
                 $attributes = $formEntity->attributes;
