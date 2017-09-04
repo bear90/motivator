@@ -60,7 +60,7 @@ class IndexAction extends \CAction
                     $touragentFormEntity->password2 = '';
                 }
 
-                $success = 'Тураген успешно обновлен';
+                $success = 'Турагент успешно обновлен';
             }
         }
 
