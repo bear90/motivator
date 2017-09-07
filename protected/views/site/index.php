@@ -171,6 +171,23 @@ use application\modules\admin\models\Text;
         </div>
     </div>
 
+    <div class="row"></div>
+    <div class="row" id="ticker">
+        <div class="col-md-12 text">250 минских турагентств имеют свои рабочие кабинеты на <span>П</span>ортале <span>penki.by</span></div>
+
+        <div class="col-md-12">
+            <marquee>
+                <span>ЧУП «Вулкан»</span><span class="circle"></span>
+                <span>ООО «Гулливер»</span><span class="circle"></span>
+                <span>ОДО «Драйв-ТУР»</span><span class="circle"></span>
+                <span>ЧУП «Жесть-ТРЭВЕЛ»</span><span class="circle"></span>
+                <span>ООО «Икар»</span><span class="circle"></span>
+                <span>ОДО «Командор»</span><span class="circle"></span>
+                <span>ЧУП «Ласточка»</span>
+            </marquee>
+        </div>
+    </div>
+
     <!--Discounts-->
     <div class="center-block" id="discount-attraction">
         <?php echo Text::get('turistam-slogan'); ?>

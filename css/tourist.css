@@ -1150,3 +1150,20 @@ label.with-help {margin-bottom: 0;}
 #manager-login-form .dashboard .block-stat {
     text-align: left;
 }
+
+#ticker .text {text-align: center; font-size: 18px;}
+#ticker marquee {font-size: 30px;}
+#ticker .circle {
+    width: 10px;
+    height: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background: orange;
+    display: inline-block;
+    top: -5px;
+    position: relative;
+    margin-left: 5px;
+
+
+}
