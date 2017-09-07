@@ -92,7 +92,7 @@ define([
         },
 
         render:  function (){
-
+            this.scrollTo('main-slider', 10, 500);
         },
 
         clickRemoveOffer:  function (e){
@@ -136,7 +136,7 @@ define([
                 this.initOffer($addOfferRow);
             }
 
-            this.scrollTo(id);
+            this.scrollTo(id, 150);
         },
 
         clickAddOffer:  function (e){
@@ -155,14 +155,15 @@ define([
                 this.initOffer($addOfferRow);
             }
 
-            this.scrollTo(id);
+            this.scrollTo(id, 150);
         },
 
-        scrollTo: function(id) {
-            var position = parseInt($("#" + id).offset().top) - 150;
+        scrollTo: function(id, offset, speed) {
+            var position = parseInt($("#" + id).offset().top) - offset;
+            speed = !!speed ? speed : 2000;
             $('html, body').animate({
                 scrollTop: position
-            }, 2000);
+            }, speed);
         },
 
         clickCancelOffer:  function (e){

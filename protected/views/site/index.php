@@ -171,7 +171,12 @@ use application\modules\admin\models\Text;
         </div>
     </div>
 
-    <div class="row"></div>
+    <div class="row" id="main-slider">
+        <div class="col-md-12">
+            <img src="/img/slider-1.jpg" alt="">
+        </div>
+        
+    </div>
     <div class="row" id="ticker">
         <div class="col-md-12 text">250 минских турагентств имеют свои рабочие кабинеты на <span>П</span>ортале <span>penki.by</span></div>
 

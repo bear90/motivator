@@ -1151,6 +1151,9 @@ label.with-help {margin-bottom: 0;}
     text-align: left;
 }
 
+#main-slider {text-align: center; margin-bottom: 16px;}
+
+#ticker {background-color: #fde9d9;}
 #ticker .text {text-align: center; font-size: 18px;}
 #ticker .text span {color: #fd8019;}
 #ticker marquee {font-size: 30px;}
