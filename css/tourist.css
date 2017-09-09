@@ -1169,6 +1169,5 @@ label.with-help {margin-bottom: 0;}
     top: -2px;
     position: relative;
     margin-left: 5px;
-
-
 }
+#ticker .circle:last-child{display: none;}
