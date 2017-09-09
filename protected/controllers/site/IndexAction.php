@@ -48,6 +48,7 @@ class IndexAction extends \CAction
             'entities' => $entities,
             'offerForTask' => \Yii::app()->user->getFlash('offerForTask', null),
             'createdTaskId' => \Yii::app()->user->getFlash('createdTaskId', null),
+            'touragentNames' => Entity\Touragent\Repository::getTouragentNames()
         ]);
 
     }

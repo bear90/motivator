@@ -1152,11 +1152,12 @@ label.with-help {margin-bottom: 0;}
 }
 
 #main-slider {text-align: center; margin-bottom: 16px;}
+#main-slider img {border: 1px solid #999;}
 
 #ticker {background-color: #fde9d9;}
 #ticker .text {text-align: center; font-size: 18px;}
 #ticker .text span {color: #fd8019;}
-#ticker marquee {font-size: 30px;}
+#ticker marquee {font-size: 18px;}
 #ticker .circle {
     width: 10px;
     height: 10px;
@@ -1165,7 +1166,7 @@ label.with-help {margin-bottom: 0;}
     border-radius: 5px;
     background: #fd8019;
     display: inline-block;
-    top: -5px;
+    top: -2px;
     position: relative;
     margin-left: 5px;
 
