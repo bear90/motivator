@@ -212,7 +212,9 @@ define([
                                         format: 'text'
                                     });
 
-                                    return text.length >= 5;
+                                    regexp = /Менеджер:\s*\S{5,}/m;
+
+                                    return regexp.test(text);
                                 }
                             },
                         }
