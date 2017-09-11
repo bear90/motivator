@@ -172,7 +172,7 @@ use application\modules\admin\models\Text;
     </div>
 
     <div class="row" id="main-slider">
-        <div class="col-md-12">
+        <div class="col-md-8 col-md-offset-2">
             <img src="/img/slider-1.jpg" alt="">
         </div>
         

@@ -7,7 +7,7 @@ var Session = {
 };
 
 require.config({
-    urlArgs: "ver=1.0.12",
+    urlArgs: "ver=1.0.13",
     paths: {
         //"jquery": "vendor/jquery/dist/jquery.min",
         "jquery": "vendor/jquery/jquery",
@@ -22,6 +22,7 @@ require.config({
         "tinymce": "vendor/tinymce/tinymce.min",
         "tinymce.jquery": "vendor/tinymce/jquery.tinymce.min",
         "text": "vendor/requirejs/text",
+        "jquery.cookie": "vendor/jquery-cookie/jquery.cookie",
     }
 });
 

@@ -2,7 +2,8 @@ define([
     'text!structures/site/tmpl/offer_price.html',
     'validator',
     'tinymce',
-    'tinymce.jquery'
+    'tinymce.jquery',
+    'jquery.cookie'
 ], function(OfferPriceTmpl){
     return Backbone.View.extend({
         
@@ -92,7 +93,13 @@ define([
         },
 
         render:  function (){
-            this.scrollTo('main-slider', 10, 500);
+            console.log(!!$.cookie('main-slider'));
+            if (!!$.cookie('main-slider') === false) {
+                this.scrollTo('main-slider', 10, 500);
+                var cookURL =  $.cookie('main-slider', 1, { expires: 360 }); 
+            }
+
+            
         },
 
         clickRemoveOffer:  function (e){
