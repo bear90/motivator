@@ -62,7 +62,8 @@ class TouragentForm extends \CFormModel
             $criteria->addCondition('t.id != :userId');
             $criteria->params['userId'] = $this->userId;
         }
-        if(entities\User::model()->exists($criteria)) {
+        $user = entities\User::model()->find($criteria, ['with' => 'touragent']);
+        if($user && !is_null($user->touragent)) {
             $this->addError($attribute, \Yii::t('front', 'Пароль "{n}" уже занят.', $pass));
         }
     }
