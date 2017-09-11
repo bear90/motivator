@@ -178,7 +178,7 @@ use application\modules\admin\models\Text;
         
     </div>
     <div class="row" id="ticker">
-        <div class="col-md-12 text">250 минских турагентств имеют свои рабочие кабинеты на <span>П</span>ортале <span>penki.by</span></div>
+        <div class="col-md-12 text"><?php echo Text::get('touristam-cout-tourgents'); ?></div>
 
         <div class="col-md-12">
             <marquee scrollamount="20">
