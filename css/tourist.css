@@ -1152,7 +1152,9 @@ label.with-help {margin-bottom: 0;}
 }
 
 #main-slider {text-align: center; margin-bottom: 16px;}
-#main-slider img {border: 1px solid #999; width: 100%;}
+#main-slider img {border: 1px solid #999; width: 100%; display: none; opacity: 0;}
+#main-slider img:first-child{display: inline-block;}
+#main-slider .wraper {}
 
 #ticker {background-color: #fde9d9;}
 #ticker .text {text-align: center; font-size: 18px;}

@@ -8,6 +8,7 @@
  */
 
 use application\modules\admin\models\Text;
+use application\models\entities\Configuration;
 
 ?>
 <section id="blank" class="container-fluid" data-structure="index">
@@ -173,7 +174,28 @@ use application\modules\admin\models\Text;
 
     <div class="row" id="main-slider">
         <div class="col-md-8 col-md-offset-2">
-            <img src="/img/slider-1.jpg" alt="">
+            <div class="wraper">
+                <img src="/img/slider-1.jpg" alt=""  class="first"
+                    data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_1); ?>">
+                <img src="/img/slider-2.jpg" alt="" 
+                    data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_2); ?>">
+                <img src="/img/slider-3.jpg" alt="" 
+                    data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_3); ?>">
+                <img src="/img/slider-4.jpg" alt="" 
+                    data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_4); ?>">
+                <img src="/img/slider-5.jpg" alt="" 
+                    data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_5); ?>">
+                <img src="/img/slider-6.jpg" alt="" 
+                    data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_6); ?>">
+                <img src="/img/slider-7.jpg" alt="" 
+                    data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_7); ?>">
+                <img src="/img/slider-8.jpg" alt="" 
+                    data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_8); ?>">
+                <img src="/img/slider-9.jpg" alt="" 
+                    data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_9); ?>">
+                <img src="/img/slider-10.jpg" alt="" 
+                    data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_10); ?>">
+            </div>
         </div>
         
     </div>

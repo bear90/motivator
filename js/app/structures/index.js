@@ -5,8 +5,9 @@ define([
     'structures/site/views/view-add-task',
     'structures/site/views/view-add-task-filter',
     'structures/site/views/view-main-table',
+    'structures/site/views/view-slider',
     //'bootstrap'
-], function(AddTaskView, AddTaskFilterView, MainTableView){
+], function(AddTaskView, AddTaskFilterView, MainTableView, SliderView){
 
     var Index = Backbone.View.extend({
 
@@ -62,6 +63,10 @@ define([
 
             (new MainTableView({
                 el: '#block-main-table'
+            })).render();
+
+            (new SliderView({
+                el: '#main-slider'
             })).render();
 
             //Accordion
