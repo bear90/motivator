@@ -1014,6 +1014,7 @@ img.sltour {height: 148px;}
 .main-table.filtered {text-align: center; background-image: none;}
 
 header .slogan {padding-top: 20px; }
+header .slogan p {margin: 0; }
 
 .logo {display: inline-block; width: auto; float: left; margin: 0 15px;}
 .logo h1 > span {font-size: 27px; font-family: impact, arial; color: #e36c0a}
