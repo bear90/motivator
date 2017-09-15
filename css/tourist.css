@@ -1013,7 +1013,9 @@ img.sltour {height: 148px;}
 .main-table {text-align: center; background: url('images/background2.png') #fde9d9 10px 80px;}
 .main-table.filtered {text-align: center; background-image: none;}
 
-.logo {}
+header .slogan {padding-top: 20px; }
+
+.logo {display: inline-block; width: auto; float: left; margin: 0 15px;}
 .logo h1 > span {font-size: 27px; font-family: impact, arial; color: #e36c0a}
 .logo h2 > span {font-size: 23px; font-family: impact, arial; color: #e36c0a}
 .logo h1 > span > span,
@@ -1173,3 +1175,5 @@ label.with-help {margin-bottom: 0;}
     margin-left: 5px;
 }
 #ticker .circle:last-child{display: none;}
+
+
