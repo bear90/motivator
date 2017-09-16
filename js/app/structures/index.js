@@ -15,6 +15,9 @@ define([
             "click a.internal": "linkClick",
             "click a#btn-add-task": "clickAddTask",
             "click a#btn-user-login": "clickUserLogin",
+            "click a.show-feedback-button": "clickShowFeedback",
+            "click a.submit-button": "clickSubmitFeedback",
+            "click a.glyphicon-remove-sign": "clickHideFeedback",
         },
 
         initialize:function () {
@@ -37,6 +40,68 @@ define([
                     $('#tabPartners').trigger('click');
                     break;
             }
+        },
+
+        clickShowFeedback: function(e) {
+            e.preventDefault();
+            
+            var $el = this.$(e.target);
+
+            $el.addClass('hidden');
+            $el.siblings('a.glyphicon-remove-sign').removeClass('hidden');
+            $el.siblings('form').removeClass('hidden');
+        },
+
+        clickHideFeedback: function(e) {
+            e.preventDefault();
+            
+            var $el = this.$(e.target);
+
+            $el.addClass('hidden');
+            $el.siblings('a.show-feedback-button').removeClass('hidden');
+            $el.siblings('form').addClass('hidden');
+
+            $el.siblings('form').find('.alert').text("").addClass('hidden')
+        },
+
+        clickSubmitFeedback: function(e) {
+            e.preventDefault();
+
+            var $form = this.$(e.target).closest('form');
+
+            $.ajax('api/send-feedback', {
+                type: "POST",
+                data: $form.serialize(),
+                dataType: 'json',
+                cache: false,
+                contentType: false,
+                processData: false
+            }).done((function(data) {
+                if (data.error)
+                {
+                    this.feedbackError('Ошибка отправки. Попробуйте позже.')
+                } else {
+                    this.feedbackSuccess(data.message);
+                    $form.find('textarea').val('');
+                }
+            }).bind(this))
+            .fail((function (e, data) {
+                this.feedbackError('Ошибка отправки. Попробуйте позже.')
+            }).bind(this));
+        },
+
+        feedbackSuccess: function(msg){
+            this.$('#feedback form .alert')
+                .text(msg)
+                .removeClass('alert-success alert-danger hidden')
+                .addClass('alert-success');
+        },
+
+        feedbackError: function(msg){
+            this.$('#feedback form .alert')
+                .text(msg)
+                .removeClass('alert-success alert-danger hidden')
+                .addClass('alert-danger');
         },
 
         linkClick: function(e){

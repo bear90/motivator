@@ -13,6 +13,7 @@ class ApiController extends \CController {
             //'close-message' => 'application\\controllers\\api\\CloseMessageAction',
             //'check-order' => 'application\\controllers\\api\\CheckOrderAction',
             'touragent-offers' => 'application\\controllers\\api\\TouragentOffersAction',
+            'send-feedback' => 'application\\controllers\\api\\SendFeedbackAction',
         ];
     }
 }

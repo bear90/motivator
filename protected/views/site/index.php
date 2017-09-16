@@ -229,6 +229,10 @@ use application\models\entities\Configuration;
         'actionMessage' => $actionMessage,
         'createdTaskId' => $createdTaskId
     ])?>
+
+    <?php $this->renderPartial('partials/feedback', [
+        'feedbackForm' => $feedbackForm,
+    ]); ?>
         
 
 </section>
