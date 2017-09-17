@@ -15,6 +15,7 @@ define([
 
         timeout: null,
         autoplay: false,
+        ready: true,
 
         initialize: function(){
             this.index = 0;
@@ -54,17 +55,13 @@ define([
 
         start: function() {
             // Show current slide
-            var defer = this.slide().render()
-
             this.$('a.play').addClass('hidden');
             this.$('a.pause').removeClass('hidden');
             this.$('a.backward').removeClass('hidden');
             this.autoplay = true;
 
             // Set timeout after the showing
-            defer.done((function(){
-                this.timeout = setTimeout(this.showNext.bind(this), this.slide().getDelay());
-            }).bind(this));
+            this.timeout = setTimeout(this.showNext.bind(this), this.slide().getDelay());
         },
 
         stop: function () {
@@ -75,6 +72,7 @@ define([
         },
 
         showNext: function() {
+            this.ready = false;
             clearTimeout(this.timeout);
 
             // Hide current slide
@@ -85,18 +83,20 @@ define([
                 return this.next().slide().render();
             }).bind(this));
             
-            if (this.autoplay) {
-                // Set timeout after the showing
-                defer.done((function(){
+            // Set timeout after the showing
+            defer.done((function(){
+                if (this.autoplay) {
                     this.timeout = setTimeout(this.showNext.bind(this), this.slide().getDelay());
                     if (this.slide().getDelay() > 9*1000) {
                         this.stop();
                     }
-                }).bind(this));
-            }
+                }
+                this.ready = true;
+            }).bind(this));
         },
 
         showPrev: function() {
+            this.ready = false;
             clearTimeout(this.timeout);
 
             // Hide current slide
@@ -107,19 +107,22 @@ define([
                 return this.prev().slide().render();
             }).bind(this));
             
-            if (this.autoplay) {
-                // Set timeout after the showing
-                defer.done((function(){
+            
+            // Set timeout after the showing
+            defer.done((function(){
+                if (this.autoplay) {
                     this.timeout = setTimeout(this.showNext.bind(this), this.slide().getDelay());
                     if (this.slide().getDelay() > 9*1000) {
                         this.stop();
                     }
-                }).bind(this));
-            }
+                }
+                this.ready = true;
+            }).bind(this));
         },
 
         showFirst: function() {
             clearTimeout(this.timeout);
+            this.ready = false;
 
             // Hide current slide
             var defer = this.slide().hide();
@@ -129,40 +132,51 @@ define([
                 return this.first().slide().render();
             }).bind(this));
             
-            if (this.autoplay) {
-                // Set timeout after the showing
-                defer.done((function(){
+            // Set timeout after the showing
+            defer.done((function(){
+                if (this.autoplay) {
                     this.timeout = setTimeout(this.showNext.bind(this), this.slide().getDelay());
                     if (this.slide().getDelay() > 9*1000) {
                         this.stop();
                     }
-                }).bind(this));
-            }
+                }
+                this.ready = true;
+            }).bind(this));
         },
 
         clickPlay: function(e) {
             e.preventDefault();
-            this.start();
+            if (this.ready) {
+                this.start();
+            }
         },
 
         clickPause: function(e) {
             e.preventDefault();
-            this.stop();
+            if (this.ready) {
+                this.stop();
+            }
         },
 
         clickNext: function(e) {
             e.preventDefault();
-            this.showNext();
+            if (this.ready) {
+                this.showNext();
+            }
         },
 
         clickPrev: function(e) {
             e.preventDefault();
-            this.showPrev();
+            if (this.ready) {
+                this.showPrev();
+            }
         },
 
         clickBackward: function(e) {
             e.preventDefault();
-            this.showFirst();
+            if (this.ready) {
+                this.showFirst();
+            }
         },
 
         render:  function (){
