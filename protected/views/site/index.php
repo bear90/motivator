@@ -172,33 +172,45 @@ use application\models\entities\Configuration;
         </div>
     </div>
 
-    <div class="row" id="main-slider">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="wraper">
-                <img src="/img/slider-1.jpg" alt=""  class="first"
-                    data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_1); ?>">
-                <img src="/img/slider-2.jpg" alt="" 
-                    data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_2); ?>">
-                <img src="/img/slider-3.jpg" alt="" 
-                    data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_3); ?>">
-                <img src="/img/slider-4.jpg" alt="" 
-                    data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_4); ?>">
-                <img src="/img/slider-5.jpg" alt="" 
-                    data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_5); ?>">
-                <img src="/img/slider-6.jpg" alt="" 
-                    data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_6); ?>">
-                <img src="/img/slider-7.jpg" alt="" 
-                    data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_7); ?>">
-                <img src="/img/slider-8.jpg" alt="" 
-                    data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_8); ?>">
-                <img src="/img/slider-9.jpg" alt="" 
-                    data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_9); ?>">
-                <img src="/img/slider-10.jpg" alt="" 
-                    data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_10); ?>">
+    <div id="main-slider">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="wraper">
+                    <img src="/img/slider-1.jpg" alt=""  class="first"
+                        data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_1); ?>">
+                    <img src="/img/slider-2.jpg" alt="" 
+                        data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_2); ?>">
+                    <img src="/img/slider-3.jpg" alt="" 
+                        data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_3); ?>">
+                    <img src="/img/slider-4.jpg" alt="" 
+                        data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_4); ?>">
+                    <img src="/img/slider-5.jpg" alt="" 
+                        data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_5); ?>">
+                    <img src="/img/slider-6.jpg" alt="" 
+                        data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_6); ?>">
+                    <img src="/img/slider-7.jpg" alt="" 
+                        data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_7); ?>">
+                    <img src="/img/slider-8.jpg" alt="" 
+                        data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_8); ?>">
+                    <img src="/img/slider-9.jpg" alt="" 
+                        data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_9); ?>">
+                    <img src="/img/slider-10.jpg" alt="" 
+                        data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_10); ?>">
+                </div>
             </div>
         </div>
-        
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 action">
+                <a href="#" class="backward hidden"><span class="glyphicon glyphicon-fast-backward"></span></a>
+                <a href="#" class="prev"><span class="glyphicon glyphicon-step-backward"></span></a>
+                <a href="#" class="play"><span class="glyphicon glyphicon-play"></span></a>
+                <a href="#" class="pause hidden"><span class="glyphicon glyphicon-pause"></span></a>
+                <a href="#" class="next"><span class="glyphicon glyphicon-step-forward"></span></a>
+            </div>
+        </div>
     </div>
+
     <div class="row" id="ticker">
         <div class="col-md-12 text"><?php echo Text::get('touristam-cout-tourgents'); ?></div>
 
