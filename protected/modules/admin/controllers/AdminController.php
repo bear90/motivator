@@ -146,6 +146,11 @@ class AdminController extends \CController
                 'url' => '/admin/touragent',
             ],
             [
+                'key' => 'feedback',
+                'label' => 'Отзывы',
+                'url' => '/admin/feedback',
+            ],
+            [
                 'key' => 'view',
                 'label' => 'Просмотр',
                 'url' => '/#block-main-table',

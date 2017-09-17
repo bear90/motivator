@@ -73,9 +73,6 @@ define([
                 type: "POST",
                 data: $form.serialize(),
                 dataType: 'json',
-                cache: false,
-                contentType: false,
-                processData: false
             }).done((function(data) {
                 if (data.error)
                 {

@@ -11,31 +11,29 @@
 
 namespace application\controllers\api;
 
-\Yii::import('application.extensions.yii-mail.YiiMailMessage');
-\Yii::import('application.extensions.yii-mail.vendors.swiftMailer.swift_required');
+use application\models\entities;
+use application\models\Tools;
 
 
 class SendFeedbackAction extends \CApiAction
 {
     public function doRun()
     {
-        
-        $message = new \YiiMailMessage;
         $text = \Yii::app()->request->getPost('feedback');
 
-        $message->setBody($text, 'text/html');
+        $userId = null;
+        if (\Yii::app()->user && \Yii::app()->user->getModel()) {
+            $userId = \Yii::app()->user->getModel()->id;
+        }
 
-        $emailTo = \Yii::app()->params['helpEmail'];
+        $feedback = new entities\Feedback;
+        $feedback->text = $text;
+        $feedback->userId = $userId;
+        $feedback->save();
 
-        $message->addTo($emailTo);
-        $message->setFrom(\Yii::app()->params['helpEmail'], 'Портал Penki.by');
-        $message->setSender(\Yii::app()->params['senderEmail']);
-        $message->setSubject('Ответ с сайта');
+        if ($feedback->hasErrors()) {
 
-        
-        if (!\Yii::app()->mail->send($message))
-        {
-            throw new \Exception('Ошибка отправки сообщения');
+            throw new \Exception (Tools::errorsToString($feedback->getErrors()));
         }
 
         return [
