@@ -53,9 +53,11 @@ define([
         },
 
         clickHideFeedback: function(e) {
-            e.preventDefault();
+            if (!!e) {
+                e.preventDefault();
+            }
             
-            var $el = this.$(e.target);
+            var $el = this.$('a.glyphicon-remove-sign');
 
             $el.addClass('hidden');
             $el.siblings('a.show-feedback-button').removeClass('hidden');
@@ -80,6 +82,8 @@ define([
                 } else {
                     this.feedbackSuccess(data.message);
                     $form.find('textarea').val('');
+
+                    setTimeout(this.clickHideFeedback.bind(this), 4000);
                 }
             }).bind(this))
             .fail((function (e, data) {
