@@ -1185,7 +1185,9 @@ label.with-help {margin-bottom: 0;}
 }
 #ticker .circle:last-child{display: none;}
 
-
+@media (max-width: 720px) {
+    #feedback {display: none;}
+}
 #feedback {
     position: fixed;
     bottom: 0;

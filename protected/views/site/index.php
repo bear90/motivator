@@ -176,26 +176,10 @@ use application\models\entities\Configuration;
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="wraper">
-                    <img src="/img/slider-1.jpg" alt=""  class="first"
-                        data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_1); ?>">
-                    <img src="/img/slider-2.jpg" alt="" 
-                        data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_2); ?>">
-                    <img src="/img/slider-3.jpg" alt="" 
-                        data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_3); ?>">
-                    <img src="/img/slider-4.jpg" alt="" 
-                        data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_4); ?>">
-                    <img src="/img/slider-5.jpg" alt="" 
-                        data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_5); ?>">
-                    <img src="/img/slider-6.jpg" alt="" 
-                        data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_6); ?>">
-                    <img src="/img/slider-7.jpg" alt="" 
-                        data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_7); ?>">
-                    <img src="/img/slider-8.jpg" alt="" 
-                        data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_8); ?>">
-                    <img src="/img/slider-9.jpg" alt="" 
-                        data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_9); ?>">
-                    <img src="/img/slider-10.jpg" alt="" 
-                        data-delay="<?php echo Configuration::get(Configuration::SLIDE_SHOWING_TIME_10); ?>">
+                    <?php foreach([1,2,3,4,5,7,12,13,14,19,20,25,26] as $i): ?>
+                        <img src="/img/slider-<?php echo $i; ?>.jpg" alt=""
+                        data-delay="<?php echo Configuration::get("SLIDE_SHOWING_TIME_{$i}"); ?>">
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
