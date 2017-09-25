@@ -176,10 +176,10 @@ use application\models\entities\Configuration;
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="wraper">
-                    <?php foreach([1,2,3,4,5,7,12,13,14,19,20,25,26] as $i): ?>
+                    <?php for($i=1; $i<34; $i++): ?>
                         <img src="/img/slider-<?php echo $i; ?>.jpg" alt=""
                         data-delay="<?php echo Configuration::get("SLIDE_SHOWING_TIME_{$i}"); ?>">
-                    <?php endforeach; ?>
+                    <?php endfor; ?>
                 </div>
             </div>
         </div>
