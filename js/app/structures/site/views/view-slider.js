@@ -87,7 +87,7 @@ define([
             defer.done((function(){
                 if (this.autoplay) {
                     this.timeout = setTimeout(this.showNext.bind(this), this.slide().getDelay());
-                    if (this.slide().getDelay() > 9*1000) {
+                    if (this.slide().getDelay() > 9*1000 || this.index==0) {
                         this.stop();
                     }
                 }
