@@ -204,7 +204,7 @@ define([
                         selector: '#' + task_id + ' .contact textarea',
                         validators: {
                             callback: {
-                                message: "Вам необходимо ввести интернет ссылку на сайт вашего турагентства, а также ваше имя и контактные данные!",
+                                message: "Вам необходимо ввести ваше имя и контактные данные!",
                                 callback: function(value, validator, $field) {
                                     // Get the plain text without HTML
                                     var text = tinyMCE.get($field.attr('id')).getContent({
