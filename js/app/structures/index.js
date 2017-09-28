@@ -134,12 +134,12 @@ define([
                 el: '#add-task-filter'
             })).render();
 
-            (new MainTableView({
-                el: '#block-main-table'
-            })).render();
-
             (new SliderView({
                 el: '#main-slider'
+            })).render();
+
+            (new MainTableView({
+                el: '#block-main-table'
             })).render();
 
             //Accordion
