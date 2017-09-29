@@ -211,7 +211,7 @@ define([
                                         format: 'text'
                                     });
 
-                                    regexp = /Менеджер:\s*\S{5,}/m;
+                                    regexp = /Менеджер:\s*\S{3,}/m;
 
                                     return regexp.test(text);
                                 }
