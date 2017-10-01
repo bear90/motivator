@@ -11,6 +11,7 @@ return [
             'type' => 'text',
             'layout' => '{input}',
             'attributes' => [
+                'id' => '',
                 'placeholder' => 'С',
                 'class' => 'form-control datepicker',
                 'name' => 'Filter[from]',
@@ -20,6 +21,7 @@ return [
             'type' => 'text',
             'layout' => '{input}',
             'attributes' => [
+                'id' => '',
                 'placeholder' => 'По',
                 'class' => 'form-control datepicker',
                 'name' => 'Filter[to]',
