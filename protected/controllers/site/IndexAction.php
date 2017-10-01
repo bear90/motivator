@@ -20,6 +20,7 @@ class IndexAction extends \CAction
         $filterForm = new forms\TaskFilterForm();
         $taskForm = new forms\TaskForm();
         $offerForm = new forms\OfferForm();
+        $feedbackForm = new forms\FeedbackForm();
 
         if (\Yii::app()->request->isPostRequest)
         {
@@ -43,11 +44,13 @@ class IndexAction extends \CAction
             'offerForm' => new \CForm('application.views.forms.offer-form', $offerForm),
             'filterForm' => new \CForm('application.views.forms.task-filter-form', $filterForm),
             'loginForm' => new \CForm('application.views.forms.user-login-form', $loginForm),
+            'feedbackForm' => new \CForm('application.views.forms.feedback-form', $feedbackForm),
             'loginMessage' => \Yii::app()->user->getFlash('loginMessage', null),
             'actionMessage' => \Yii::app()->user->getFlash('actionMessage', null),
             'entities' => $entities,
             'offerForTask' => \Yii::app()->user->getFlash('offerForTask', null),
             'createdTaskId' => \Yii::app()->user->getFlash('createdTaskId', null),
+            'touragentNames' => Entity\Touragent\Repository::getTouragentNames()
         ]);
 
     }

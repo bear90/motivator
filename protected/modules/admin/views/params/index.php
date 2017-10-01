@@ -45,6 +45,23 @@
             </div>
         </td>
     </tr>
+
+    
+    <?php for($i=1; $i<41; $i++): ?>
+    <tr>
+        <td>Время показа cлайда №<?php echo $i; ?> (сек)</td>
+        <td>
+            <div class="form-group">
+                <?php echo CHtml::textField(
+                    'config[SLIDE_SHOWING_TIME_' . $i . ']', 
+                    Configuration::get("SLIDE_SHOWING_TIME_{$i}"), 
+                    ['class' => 'form-control integer']
+                ); ?>
+            </div>
+        </td>
+    </tr>
+    <?php endfor; ?>
+
 </table>
 <div class="form-group">
     <button type="submit" class="btn btn-default">Сохранить</button>

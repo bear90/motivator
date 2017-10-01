@@ -2,6 +2,7 @@
 /**
  * @author soza.mihail@gmail.com
  */
+use application\modules\admin\models\Text;
 ?>
 <!DOCTYPE html>
 <html>
@@ -43,7 +44,8 @@
         </div>
         <a class="logo" href="/">
             <h1 class="text-right text-logo"><span>П<span>ортал</span><i>penki.by</i></span></h1>
-        </a>
+        </a> 
+        <div class="slogan"><?php echo Text::get('top-slogan'); ?></div>
     </header>
 
     <?php echo $content; ?>

@@ -5,8 +5,9 @@ define([
     'structures/site/views/view-add-task',
     'structures/site/views/view-add-task-filter',
     'structures/site/views/view-main-table',
+    'structures/site/views/view-slider',
     //'bootstrap'
-], function(AddTaskView, AddTaskFilterView, MainTableView){
+], function(AddTaskView, AddTaskFilterView, MainTableView, SliderView){
 
     var Index = Backbone.View.extend({
 
@@ -14,6 +15,9 @@ define([
             "click a.internal": "linkClick",
             "click a#btn-add-task": "clickAddTask",
             "click a#btn-user-login": "clickUserLogin",
+            "click a.show-feedback-button": "clickShowFeedback",
+            "click a.submit-button": "clickSubmitFeedback",
+            "click a.glyphicon-remove-sign": "clickHideFeedback",
         },
 
         initialize:function () {
@@ -38,6 +42,76 @@ define([
             }
         },
 
+        clickShowFeedback: function(e) {
+            e.preventDefault();
+            
+            var $el = this.$(e.target),
+                $form = $el.siblings('form');
+
+            $el.addClass('hidden');
+            $el.siblings('a.glyphicon-remove-sign').removeClass('hidden');
+
+            $form.removeClass('hidden');
+
+            $form.find('textarea').removeClass('hidden');
+            $form.find('a.submit-button').removeClass('hidden')
+        },
+
+        clickHideFeedback: function(e) {
+            if (!!e) {
+                e.preventDefault();
+            }
+            
+            var $el = this.$('a.glyphicon-remove-sign');
+
+            $el.addClass('hidden');
+            $el.siblings('a.show-feedback-button').removeClass('hidden');
+            $el.siblings('form').addClass('hidden');
+
+            $el.siblings('form').find('.alert').text("").addClass('hidden')
+        },
+
+        clickSubmitFeedback: function(e) {
+            e.preventDefault();
+
+            var $form = this.$(e.target).closest('form');
+
+            $.ajax('api/send-feedback', {
+                type: "POST",
+                data: $form.serialize(),
+                dataType: 'json',
+            }).done((function(data) {
+                if (data.error)
+                {
+                    this.feedbackError('Ошибка отправки. Попробуйте позже.')
+                } else {
+                    this.feedbackSuccess(data.message);
+                    $form.find('textarea').val('');
+                    $form.find('textarea').addClass('hidden');
+                    $form.find('a.submit-button').addClass('hidden');
+
+                    setTimeout(this.clickHideFeedback.bind(this), 4000);
+                }
+            }).bind(this))
+            .fail((function (e, data) {
+                this.feedbackError('Ошибка отправки. Попробуйте позже.')
+            }).bind(this));
+        },
+
+        feedbackSuccess: function(msg){
+            this.$('#feedback form .alert')
+                .text(msg)
+                .removeClass('alert-success alert-danger hidden')
+                .addClass('alert-success');
+        },
+
+        feedbackError: function(msg){
+            this.$('#feedback form .alert')
+                .text(msg)
+                .removeClass('alert-success alert-danger hidden')
+                .addClass('alert-danger');
+        },
+
         linkClick: function(e){
             var $el = $(e.target);
 
@@ -58,6 +132,10 @@ define([
 
             (new AddTaskFilterView({
                 el: '#add-task-filter'
+            })).render();
+
+            (new SliderView({
+                el: '#main-slider'
             })).render();
 
             (new MainTableView({

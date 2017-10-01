@@ -54,7 +54,7 @@
                 <?php endif; ?>
 
                 <?php if($showContact || $showContactForFirtsOne && $offer->sort==count($offers)): ?>
-                    <div><?php echo $offer->contact; ?></div>
+                    <div><?php echo str_replace('Турагентство: ', '', $offer->contact); ?></div>
                 <?php endif; ?>
 
                 <div><?php echo $offer->description; ?></div>

@@ -2,7 +2,8 @@ define([
     'text!structures/site/tmpl/offer_price.html',
     'validator',
     'tinymce',
-    'tinymce.jquery'
+    'tinymce.jquery',
+    'jquery.cookie'
 ], function(OfferPriceTmpl){
     return Backbone.View.extend({
         
@@ -92,7 +93,12 @@ define([
         },
 
         render:  function (){
+            if (!!$.cookie('main-slider') === false) {
+                this.scrollTo('main-slider', 10, 500);
+                var cookURL =  $.cookie('main-slider', 1, { expires: 360 }); 
+            }
 
+            
         },
 
         clickRemoveOffer:  function (e){
@@ -136,7 +142,7 @@ define([
                 this.initOffer($addOfferRow);
             }
 
-            this.scrollTo(id);
+            this.scrollTo(id, 150);
         },
 
         clickAddOffer:  function (e){
@@ -155,14 +161,15 @@ define([
                 this.initOffer($addOfferRow);
             }
 
-            this.scrollTo(id);
+            this.scrollTo(id, 150);
         },
 
-        scrollTo: function(id) {
-            var position = parseInt($("#" + id).offset().top) - 150;
+        scrollTo: function(id, offset, speed) {
+            var position = parseInt($("#" + id).offset().top) - offset;
+            speed = !!speed ? speed : 2000;
             $('html, body').animate({
                 scrollTop: position
-            }, 2000);
+            }, speed);
         },
 
         clickCancelOffer:  function (e){
@@ -197,14 +204,16 @@ define([
                         selector: '#' + task_id + ' .contact textarea',
                         validators: {
                             callback: {
-                                message: "Вам необходимо ввести интернет ссылку на сайт вашего турагентства, а также ваше имя и контактные данные!",
+                                message: "Вам необходимо ввести ваше имя и контактные данные!",
                                 callback: function(value, validator, $field) {
                                     // Get the plain text without HTML
                                     var text = tinyMCE.get($field.attr('id')).getContent({
                                         format: 'text'
                                     });
 
-                                    return text.length >= 5;
+                                    regexp = /Менеджер:\s*\S{3,}/m;
+
+                                    return regexp.test(text);
                                 }
                             },
                         }

@@ -8,6 +8,7 @@
  */
 
 use application\modules\admin\models\Text;
+use application\models\entities\Configuration;
 
 ?>
 <section id="blank" class="container-fluid" data-structure="index">
@@ -171,6 +172,41 @@ use application\modules\admin\models\Text;
         </div>
     </div>
 
+    <div id="main-slider">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="wraper">
+                    <?php for($i=1; $i<34; $i++): ?>
+                        <img src="/img/slider-<?php echo $i; ?>.jpg" alt=""
+                        data-delay="<?php echo Configuration::get("SLIDE_SHOWING_TIME_{$i}"); ?>">
+                    <?php endfor; ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 action">
+                <a href="#" class="backward hidden"><span class="glyphicon glyphicon-fast-backward"></span></a>
+                <a href="#" class="prev"><span class="glyphicon glyphicon-step-backward"></span></a>
+                <a href="#" class="play"><span class="glyphicon glyphicon-play"></span></a>
+                <a href="#" class="pause hidden"><span class="glyphicon glyphicon-pause"></span></a>
+                <a href="#" class="next"><span class="glyphicon glyphicon-step-forward"></span></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" id="ticker">
+        <div class="col-md-12 text"><?php echo Text::get('touristam-cout-tourgents'); ?></div>
+
+        <div class="col-md-12">
+            <marquee scrollamount="20">
+                <?php foreach($touragentNames as $name): ?>
+                    <span><?php echo $name; ?></span><span class="circle"></span>
+                <?php endforeach; ?>
+            </marquee>
+        </div>
+    </div>
+
     <!--Discounts-->
     <div class="center-block" id="discount-attraction">
         <?php echo Text::get('turistam-slogan'); ?>
@@ -189,6 +225,12 @@ use application\modules\admin\models\Text;
         'actionMessage' => $actionMessage,
         'createdTaskId' => $createdTaskId
     ])?>
+
+    <?php if(!\Yii::app()->user->isManager()): ?>
+    <?php $this->renderPartial('partials/feedback', [
+        'feedbackForm' => $feedbackForm,
+    ]); ?>
+    <?php endif; ?>
         
 
 </section>

@@ -1013,6 +1013,9 @@ img.sltour {height: 148px;}
 .main-table {text-align: center; background: url('images/background2.png') #fde9d9 10px 80px;}
 .main-table.filtered {text-align: center; background-image: none;}
 
+header .slogan {padding-top: 0px; }
+header .slogan p {margin: 0; }
+
 .logo {}
 .logo h1 > span {font-size: 27px; font-family: impact, arial; color: #e36c0a}
 .logo h2 > span {font-size: 23px; font-family: impact, arial; color: #e36c0a}
@@ -1149,4 +1152,57 @@ label.with-help {margin-bottom: 0;}
 }
 #manager-login-form .dashboard .block-stat {
     text-align: left;
+}
+
+#main-slider {text-align: center; margin-bottom: 16px;}
+#main-slider img {border: 1px solid #999; width: 100%; display: none; opacity: 0;}
+#main-slider img:first-child{display: inline-block;  opacity: 1;}
+#main-slider .action {
+    padding-top: 15px;
+}
+#main-slider .action a {
+    border: 2px solid;
+    border-radius: 20px;
+    padding: 4px 6px;
+    display: inline-block;
+}
+
+#ticker {background-color: #fde9d9;}
+#ticker .text {text-align: center; font-size: 18px;}
+#ticker .text span {color: #fd8019;}
+#ticker marquee {font-size: 18px;}
+#ticker .circle {
+    width: 10px;
+    height: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    background: #fd8019;
+    display: inline-block;
+    top: -2px;
+    position: relative;
+    margin-left: 5px;
+}
+#ticker .circle:last-child{display: none;}
+
+@media (max-width: 720px) {
+    #feedback {display: none;}
+}
+#feedback {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    background: #ccc;
+    padding: 5px 20px 5px 10px;
+    border-top: 1px solid #fd8019;
+    border-right: 1px solid #fd8019;
+    border-left: 1px solid #fd8019;
+}
+#feedback textarea {width: 100%; height: 100px}
+#feedback .glyphicon {
+    float: right;
+    text-decoration: none;
+    position: relative;
+    right: -15px;
 }

@@ -55,3 +55,11 @@ table#tasks .col4 {min-width: 210px;}
 table#tasks .col5 {}
 
 table#codes td.status{width: 70px; text-align: center;}
+
+ol#feedback {}
+ol#feedback li {padding-bottom: 20px; padding-right: 100px; position: relative;}
+ol#feedback li .action {
+    position: absolute;
+    right: 0;
+    top: 0;
+}

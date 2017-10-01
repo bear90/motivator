@@ -33,7 +33,7 @@ define([
                                 break;
 
                             case (e.type == 'comboboxselect'):
-                                self.$('form').bootstrapValidator('revalidateField', "_" + $el.attr('name'));
+                                //self.$('form').bootstrapValidator('revalidateField', "_" + $el.attr('name'));
                                 break;
                         }
                     }
@@ -50,7 +50,7 @@ define([
                 },
                 fields: {
                     '_task[name1]': {
-                        trigger: "blur",
+                        //trigger: "blur",
                         validators: {
                             callback: {
                                 message: "Вам необходимо выбрать имя!",
@@ -63,7 +63,7 @@ define([
                         }
                     },
                     '_task[name2]': {
-                        trigger: "blur",
+                        //trigger: "blur",
                         validators: {
                             callback: {
                                 message: "Вам необходимо выбрать имя!",

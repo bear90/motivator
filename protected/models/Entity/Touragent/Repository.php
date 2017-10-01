@@ -24,4 +24,15 @@ class Repository
 
         return entities\TouragentOffer::model()->count($criteria);
     }
+
+    public static function getTouragentNames()
+    {
+        $names = \Yii::app()->db->createCommand()
+            ->select('name')
+            ->from('tbl_touragent')
+            ->where('status = 1')
+            ->queryColumn();
+            
+        return $names;
+    }
 }

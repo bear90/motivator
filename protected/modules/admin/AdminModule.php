@@ -24,6 +24,7 @@ class AdminModule extends CWebModule {
         'code' => 'application\modules\admin\controllers\CodeController',
         'phonecode' => 'application\modules\admin\controllers\PhoneCodeController',
         'task' => 'application\modules\admin\controllers\TaskController',
+        'feedback' => 'application\modules\admin\controllers\FeedbackController',
     ];
 }
 
