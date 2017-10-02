@@ -11,6 +11,7 @@ define([
             'click button.add-offer': "clickAddOffer",
             'click button.add-offer2': "clickAddOffer2",
             'click a.offers-link': "clickOffersLink",
+            'click a.tour-description-link': "clickTourDescriptionLink",
             'click button.cancel-offer': "clickCancelOffer",
             'click a.offer-add-price': "clickOfferAddPrice",
             'keydown input.price': "keydownInputPrice",
@@ -117,6 +118,15 @@ define([
                     $el.addClass('hidden');
                 }
             }
+        },
+
+        clickTourDescriptionLink:  function (e){
+            e.preventDefault();
+            var $el = this.$(e.target);
+            var $description = $el.siblings('.tour-description');
+
+            $description.removeClass('hidden');
+            $el.addClass('hidden');
         },
 
         clickOffersLink:  function (e){

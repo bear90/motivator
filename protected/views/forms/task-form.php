@@ -119,7 +119,16 @@ return [
                 'name' => 'task[planPrice]',
                 'class' => 'form-control'
             ]
-
+        ],
+        'description' => [
+            'label' => 'Пожелания к туру:',
+            'type' => 'text',
+            'layout' => '{label}{input}',
+            'attributes' => [
+                'name' => 'task[description]',
+                'class' => 'form-control',
+                'maxlength'=>100
+            ]
         ],
         'verifyCode' => [
             'label' => 'Введите текст с картинки:',

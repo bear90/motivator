@@ -20,6 +20,7 @@ class TaskForm extends \CFormModel
     public $planPrice;
     public $verifyCode;
     public $checkbox;
+    public $description;
 
     public function rules(){
         return [

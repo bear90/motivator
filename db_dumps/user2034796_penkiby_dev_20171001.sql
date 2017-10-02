@@ -3,10 +3,11 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: mysql5.activeby.net
--- Время создания: Окт 01 2017 г., 06:13
+-- Время создания: Окт 01 2017 г., 06:20
 -- Версия сервера: 5.5.52
 -- Версия PHP: 5.4.45
 
+SET FOREIGN_KEY_CHECKS=0;
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -1578,6 +1579,7 @@ ALTER TABLE `tbl_touragent`
 ALTER TABLE `tbl_touragent_offer`
   ADD CONSTRAINT `FK_tbl_touragent_offer_offerId` FOREIGN KEY (`offerId`) REFERENCES `tbl_offer` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   ADD CONSTRAINT `FK_tbl_touragent_offer_touragentId` FOREIGN KEY (`touragentId`) REFERENCES `tbl_touragent` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+SET FOREIGN_KEY_CHECKS=1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

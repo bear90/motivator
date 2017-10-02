@@ -111,6 +111,10 @@ use application\models\entities\Configuration;
                 </div>
 
                 <div class="form-group">
+                    <?php echo $taskForm['description']; ?>
+                </div>
+
+                <div class="form-group">
                     <?php echo $taskForm['adultCount']; ?>
                 </div>
 

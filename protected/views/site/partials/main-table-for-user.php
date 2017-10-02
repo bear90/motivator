@@ -11,7 +11,7 @@
          имя автора заявки</th>
 
         <th class="col2">Страна тура/<br>
-        вид тура<!--/<br>
+        подробнее о туре<!--/<br>
          примерный бюджет --></th>
         
         <th class="col3">Количество взрослых туристов/ <br>
@@ -43,10 +43,17 @@
 
             <td>
                 <?php echo implode('-', $model->getCountryOptions()); ?>/<br>
-                <?php echo $model->data()->relTourType->name; /*?>/<br>
-                <?php if($model->data()->planPrice): ?>
-                <?php echo $model->data()->planPrice; ?>$
-                <?php endif; */?>
+                <a href="#" class="tour-description-link">Подробнее о туре</a>
+
+                <div class="tour-description hidden">
+                    <?php echo $model->data()->relTourType->name; ?>/<br>
+                    <?php if($model->data()->description): ?>
+                    <?php echo $model->data()->description; ?>
+                    <?php endif;?>
+                    <?php /*if($model->data()->planPrice): ?>
+                    <?php echo $model->data()->planPrice; ?>$
+                    <?php endif; */?>
+                </div>
             </td>
             
             <td>
