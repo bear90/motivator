@@ -65,7 +65,7 @@ use application\modules\admin\models\Text;
             <div class="col-md-3" id="creator"></div>
         </div>
         <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12 text-uppercase text-center" id="copyright">COPYRIGHT 2016-<?php echo date('Y'); ?>  ©  2016-<?php echo date('Y'); ?>  ЛАЗАРЕВ Д.А.  ВСЕ ПРАВА ЗАЩИЩЕНЫ.</div>
+            <div class="col-sm-12 col-md-12 col-lg-12 text-uppercase text-center" id="copyright">COPYRIGHT 2016-<?php echo date('Y'); ?>  ©  2016-<?php echo date('Y'); ?>  ШАБЛОВСКИЙ И.Б.  ВСЕ ПРАВА ЗАЩИЩЕНЫ.</div>
         </div>
     </footer>
 </div>
