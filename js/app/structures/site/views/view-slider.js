@@ -146,7 +146,6 @@ define([
 
         clickPlay: function(e) {
             e.preventDefault();
-            return false;
             if (this.ready) {
                 this.start();
             }
@@ -154,7 +153,6 @@ define([
 
         clickPause: function(e) {
             e.preventDefault();
-            return false;
             if (this.ready) {
                 this.stop();
             }
@@ -162,7 +160,6 @@ define([
 
         clickNext: function(e) {
             e.preventDefault();
-            return false;
             if (this.ready) {
                 this.showNext();
             }
@@ -170,7 +167,6 @@ define([
 
         clickPrev: function(e) {
             e.preventDefault();
-            return false;
             if (this.ready) {
                 this.showPrev();
             }
@@ -178,7 +174,6 @@ define([
 
         clickBackward: function(e) {
             e.preventDefault();
-            return false;
             if (this.ready) {
                 this.showFirst();
             }
@@ -186,7 +181,7 @@ define([
 
         render:  function (){
             if (!!$.cookie('main-slider') === false) {
-                //this.start();
+                this.start();
             }
         },
     });
