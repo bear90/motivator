@@ -17,9 +17,10 @@
 
     <div class="form-group">
         <div class="checkbox">
-            <label>
+            <label class="touragent-gaide">
                 <?php echo $offerForm['checkbox']; ?>
                 <?php echo Text::get('offer-gaide'); ?>
+                <div class="terms hidden"><?php echo Text::get('gaide'); ?></div>
             </label>
         </div>
     </div>

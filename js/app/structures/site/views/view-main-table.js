@@ -19,12 +19,22 @@ define([
             'click a.favorite': "clickMakeFavorite",
             'click a.not_priority': "clickMakeNotPriority",
             'change input[name="offer[checkbox]"]': "changeCheckbox",
+            'click .touragent-gaide a': "clickGaideLink",
         },
 
         templateOfferPrice: _.template(OfferPriceTmpl),
 
         initialize: function() {
             this.$(".filtered-select").combobox();
+        },
+
+        clickGaideLink: function (e) {
+            e.preventDefault();
+            var $el = this.$(e.target);
+            var $row = $el.closest('.touragent-gaide');
+            var $terms = $row.find('.terms');
+
+            $terms.toggleClass('hidden');
         },
 
         clickMakeFavorite:  function (e){
