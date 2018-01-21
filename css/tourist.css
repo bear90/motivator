@@ -1027,17 +1027,19 @@ header .slogan p {margin: 0; }
 
 #block-main-table h2 {text-align: center;}
 #block-main-table .filter {text-decoration: underline;}
-#block-main-table table th.col1 {min-width: 275px;}
-#block-main-table table th.col2 {}
-#block-main-table table th.col3 {min-width: 255px;}
-#block-main-table table th.col4 {min-width: 240px;}
-#block-main-table table th.col5 {}
+#block-main-table table {table-layout: fixed; word-wrap:break-word; width: 100%;}
+#block-main-table table .col1 {min-width: 275px; word-wrap: break-word;}
+#block-main-table table .col2 {}
+#block-main-table table .col3 {min-width: 255px;}
+#block-main-table table .col4 {min-width: 240px;}
+#block-main-table table .col5 {}
 #block-main-table table .offers-row .priority {position: relative; top: 20px; margin-top: -20px;}
 #block-main-table table .offers-row .item {margin-bottom: 20px;}
 #block-main-table table .offers-row,
 #block-main-table table .add-offer-row {text-align: left;}
 #block-main-table table .add-offer-row .price .form-control {}
 #block-main-table table .add-offer-row .price .form-group {margin-bottom: 5px;}
+#block-main-table table td {word-wrap: break-word;}
 #block-main-table .more {text-decoration: underline;}
 #block-main-table .btn.add-offer2 {margin-left: 200px}
 #block-main-table .btn {
@@ -1045,6 +1047,11 @@ header .slogan p {margin: 0; }
     padding: 5px 20px;
     margin: 5px 0;
     display: inline-block;
+}
+
+@media (max-width: 720px) {
+    #feedback {display: none;}
+    #block-main-table table {table-layout: auto; word-wrap: break-word;}
 }
 
 @media (max-width: 1024px) {
