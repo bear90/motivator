@@ -71,6 +71,10 @@ use application\modules\admin\models\Text;
     </div>
 
   <div class="address-block">
+    <div class="user-gaide"><button type="button" class="btn btn-small btn-green add-offer">Пользовательское соглашение</button></div>
+    
+    <div class="terms hidden"><?php echo Text::get('gaide'); ?></div>
+
     <?php echo Text::get('turagentam'); ?>
   </div>
   

@@ -10,7 +10,17 @@ define([
         events: {
             //'click .show-list': 'showList',
             'click button.find': "clickShow",
-            'click button.reset': "clickReset"
+            'click button.reset': "clickReset",
+            'click .user-gaide button': "clickGaideLink"
+        },
+
+        clickGaideLink: function (e) {
+            e.preventDefault();
+            var $el = this.$(e.target);
+            var $row = $el.closest('.address-block');
+            var $terms = $row.find('.terms');
+
+            $terms.toggleClass('hidden');
         },
 
         clickShow: function(e){

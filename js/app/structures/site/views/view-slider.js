@@ -11,6 +11,7 @@ define([
             'click a.next': 'clickNext',
             'click a.prev': 'clickPrev',
             'click a.backward': 'clickBackward',
+            'click .wraper img:first': 'clickPlay',
         },
 
         timeout: null,

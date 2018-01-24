@@ -1213,3 +1213,6 @@ label.with-help {margin-bottom: 0;}
     position: relative;
     right: -15px;
 }
+
+.address-block .user-gaide {text-align: center; margin-bottom: 20px;}
+.address-block .user-gaide button {padding: 3px 10px;}
