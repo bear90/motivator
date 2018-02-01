@@ -9,8 +9,9 @@ use application\modules\admin\models\Text;
 <head lang="en">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Портал penki.by - Туристам | Туры по выгодной цене</title>
-    <meta name='description' content="Поиск туров по выгодной цене. Горящие туры, раннее бронирование, туры со скидкой">
+    <title>Бесплатное размещение заявки на тур Предложения от разных турагентств в одном месте</title>
+    <meta name="Keywords" content="Тур из Минска, на море, в Египет, Турция, Кипр, Болгария, Грузия, Греция, Таиланд, Бали, Испания, Италия, Львов, автобусные туры из Минска, тур выходного дня, горящие туры, туры  по Европе, купить недорогой тур, тур в Санкт-Петербург, отдых тур">
+    <meta name='description' content="Заполни заявку-жди  выгодного предложения  по лучшей цене от конкурирующих турагентств. Экономия времени  на поиск тура. Удобство поиска">
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="shortcut icon" href="/img/favicon.ico">

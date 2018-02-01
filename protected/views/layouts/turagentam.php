@@ -3,9 +3,9 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Портал penki.by - Турагентствам</title>
-    <meta content="Motivator" name='description'>
-    <meta content="Motivator" name='keywords'>
+    <title>Размещение предложений турагентств по заявкам желающих купить тур туристов</title>
+    <meta content="Изучение предложений  на туры конкурирующих турагентств Размещение турагентством  своих лучших предложений  туров  по соотношению цена/качество" name='description'>
+    <meta content="поиск тура, туры от всех туроператоров, турагентство, туристическая фирма, магазин туроператоров, активные продажи туров, конкурентные предложения по заявкам туристов, полная стоимость тура, аукцион туров" name='keywords'>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <link rel="shortcut icon" href="/img/favicon.ico">
     <link rel="stylesheet" href="/css/bootstrap.min.css">
