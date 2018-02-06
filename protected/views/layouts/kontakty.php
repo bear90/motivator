@@ -3,7 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Адреса, телефоны для отправки вопросов, предложений и оперативной связи</title>
+    <title>Адреса, телефоны для отправки предложений, оперативной связи</title>
     <meta content="Контактные данные для связи по работе Портала  по телефонной связи, электронной и обычной почте" name='description'>
     <meta content="написать на портал, письмо, жалоба, сообщение, телефон, лучшие туры, ,тур сайты Минска, отдых на море, горящий тур официальный сайт, Египет путевка, туры в Прагу из Минска, куда поехать отдохнуть" name='keywords'>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
