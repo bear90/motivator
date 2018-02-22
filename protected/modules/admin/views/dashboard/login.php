@@ -14,6 +14,12 @@
             <div class="form-group">
                 <?php echo $loginForm['password']; ?>
             </div>
+            <div class="form-group">
+                    <?php echo $loginForm['verifyCode']; ?>
+
+                    <?php $this->widget('CCaptcha') ?>
+                </div>
+                
             <div class="checkbox">
                   <label>
                     <input type="checkbox"> Запомнить меня

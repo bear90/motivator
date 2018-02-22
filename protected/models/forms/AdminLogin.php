@@ -17,7 +17,14 @@ class AdminLogin extends \CFormModel
 
     public $login;
     public $password;
+    public $verifyCode;
     public $rememberMe = true;
+
+    public function rules(){
+        return [
+            ['verifyCode', 'captcha'],
+        ];
+    }
 
     public function login() {
         if ($this->identity === null) {

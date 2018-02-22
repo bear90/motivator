@@ -13,6 +13,17 @@ return [
                 'class' => 'form-control',
                 'name' => 'password',
             ]
-        ]
+        ],
+        'verifyCode' => [
+            'label' => 'Введите текст с картинки:',
+            'type' => 'text',
+            'layout' => '{label}{input}',
+            'attributes' => [
+                'name' => 'verifyCode',
+                'class' => 'form-control',
+                'autocomplete' => 'off'
+            ]
+
+        ],
     ]
 ];

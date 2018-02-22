@@ -18,6 +18,8 @@ class DashboardController extends AdminController
     
     public function actions(){
         return [
+            'captcha' => ['class'=>'CCaptchaAction', 'maxLength' => 6],
+            'checkcapture' => 'application\\modules\\admin\\controllers\\dashboard\\CheckcaptureAction',
             'login' => 'application\\modules\\admin\\controllers\\dashboard\\LoginAction',
         ];
     }

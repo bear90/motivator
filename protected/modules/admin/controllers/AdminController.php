@@ -18,6 +18,7 @@ class AdminController extends \CController
 
     protected $whiteListAction = array(
         'dashboard' => array(
+            'captcha',
             'login',
             'logout',
         ),
