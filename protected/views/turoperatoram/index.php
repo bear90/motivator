@@ -38,4 +38,10 @@ use application\modules\admin\models\Text;
         <?php echo Text::get('turoperatoram'); ?>
     </div>
 
+<div class="fixed-socseti">
+        <a target="_blank" href="https://vk.com/portalpenkiby"><img src="/img/soc-vk.png" alt=""></a>
+        <a target="_blank" href="https://www.facebook.com/penki.by/"><img src="/img/soc-fb.png" alt=""></a>
+        <a target="_blank" href="https://ok.ru/group/53891158704331"><img src="/img/soc-od.png" alt=""></a>
+        <a target="_blank" href="https://www.instagram.com/penkiby/"><img src="/img/soc-ig.png" alt=""></a>
+    </div>
 </section>
