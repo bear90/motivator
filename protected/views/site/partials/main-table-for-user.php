@@ -42,7 +42,7 @@
             </td>
 
             <td>
-                <?php echo implode('-', $model->getCountryOptions()); ?>/<br>
+                <?php echo implode(' или ', $model->getCountryOptions()); ?>/<br>
                 <a href="#" class="tour-description-link">Подробнее о туре</a>
 
                 <div class="tour-description hidden">

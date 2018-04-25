@@ -36,7 +36,7 @@
             </td>
 
             <td>
-                <?php echo implode('-', $model->getCountryOptions()); ?>/<br>
+                <?php echo implode(' или ', $model->getCountryOptions()); ?>/<br>
                 <?php echo $model->data()->relTourType->name; /*?>/<br>
                 <?php if($model->data()->planPrice): ?>
                 <?php echo $model->data()->planPrice; ?>$
