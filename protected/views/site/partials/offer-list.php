@@ -67,7 +67,7 @@
 
                 <?php if(!is_null($offer->earlyPrice)) : ?>
                     <div>
-                        Ранее бронирование: 
+                        Раннее бронирование: 
                         <i class="fa fa-snowflake-o" aria-hidden="true"></i> <?php echo ceil($offer->earlyPrice); ?>$
                     </div>
                 <?php endif; ?>
