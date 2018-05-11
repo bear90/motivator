@@ -100,10 +100,9 @@ use application\models\entities\Configuration;
                 </div>
 
                 <div class="form-group combobox">
-                    <label class="with-help">Укажите страну/страны тура:</label>
+                    <label class="with-help">Укажите страну тура:</label>
                     <div class="help-block above">Для выбора страны введите первые буквы её названия</div>
                     <?php echo $taskForm['country']; ?>
-                    <a href="#" id="task-add-country">+ Добавить страну</a>
                 </div>
 
                 <div class="form-group">
