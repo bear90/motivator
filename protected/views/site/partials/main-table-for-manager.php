@@ -90,13 +90,15 @@
                 <?php endif; ?>
             </td>
         </tr>
-        <tr class="offers-row <?php echo $offerForTask == $model->data()->id ? '' : 'hidden'?>">
+        <tr class="offers-row 
+            <?php echo $model->hasOffersFromTouragent(\Yii::app()->user->model->touragent->id) ? '' : 'hidden'?>">
             <td colspan="5">
                 <?php if (count($entity->offers)) : ?>
                     <?php $this->renderPartial('partials/offer-list', [
                         'offers' => $entity->offers,
                         'taskId' => $model->data()->id,
-                        'showContactForFirtsOne' => $offerForTask == $model->data()->id
+                        'showContactForFirtsOne' => $offerForTask == $model->data()->id,
+                        'touragentId' => \Yii::app()->user->model->touragent->id,
                     ])?>
                 <?php else: ?>
                     <div class="text-center">

@@ -140,4 +140,14 @@ class Task
 
         return $date <= $now;
     }
+
+    public function hasOffersFromTouragent($touragentId) {
+        foreach ($this->data->offers as $offer) {
+            if ($offer->touragentId == $touragentId) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
 }
