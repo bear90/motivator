@@ -82,6 +82,13 @@ define([
                             },
                         }
                     },
+                    'task[finishedAt]': {
+                        validators: {
+                            notEmpty: {
+                                message: "Вам необходимо ввести планируемую дату конца тура!"
+                            },
+                        }
+                    },
                     '_task[country][]': {
                         trigger: "blur",
                         validators: {
@@ -178,7 +185,19 @@ define([
                 dateFormat: "dd.mm.yy",
                 minDate: new Date,
                 onClose: $.proxy(function( selectedDate, calendar, e ) {
-                    this.$('form').bootstrapValidator('revalidateField', 'task[startedAt]');
+                    //debugger;
+                    let date = calendar.input.datepicker("getDate");
+                    switch (calendar.id) {
+                        case "task_startedAt":
+                            this.$('#task_finishedAt').datepicker("option", "minDate", date);
+                            this.$('form').bootstrapValidator('revalidateField', 'task[startedAt]');
+                            break;
+
+                        case "task_finishedAt":
+                            this.$('#task_startedAt').datepicker("option", "maxDate", date);
+                            this.$('form').bootstrapValidator('revalidateField', 'task[finishedAt]');
+                            break;
+                    }
                 }, this),
             });
         },

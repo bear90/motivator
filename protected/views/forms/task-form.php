@@ -101,6 +101,14 @@ return [
             ]
 
         ],
+        'finishedAt' => [
+            'type' => 'text',
+            'layout' => '{input}',
+            'attributes' => [
+                'name' => 'task[finishedAt]',
+                'class' => 'form-control datepicker'
+            ]
+        ],
         'email' => [
             'label' => 'Укажите свой e-mail:',
             'type' => 'text',

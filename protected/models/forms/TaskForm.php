@@ -16,6 +16,7 @@ class TaskForm extends \CFormModel
     public $childAge;
     public $days;
     public $startedAt;
+    public $finishedAt;
     public $email;
     public $planPrice;
     public $verifyCode;
