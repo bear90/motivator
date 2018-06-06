@@ -228,6 +228,8 @@ define([
         initOffer: function($offerRow) {
             var task_id = $offerRow.attr('id');
             
+            this.$("#" + task_id).find('.no-offers').addClass('hidden');
+
             $offerRow.find('form').bootstrapValidator({
                 excluded: [':disabled'],
                 feedbackIcons: {

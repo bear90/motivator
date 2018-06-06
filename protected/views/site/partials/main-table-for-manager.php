@@ -28,13 +28,18 @@
         ?>
         <tr class="task-row" id="task_<?php echo $model->data()->id; ?>">
             <td>
-                № <?php echo $model->data()->id; ?><br>
-                <?php echo $model->createdAt(); ?><br>
-                <?php echo $model->data()->relName->name; ?><br>
-                <a href="#" class="offers-link">подробнее</a><br>
+                <div style="position: relative;">
+                    № <?php echo $model->data()->id; ?><br>
+                    <?php echo $model->createdAt(); ?><br>
+                    <?php echo $model->data()->relName->name; ?><br>
+                    <a href="#" class="offers-link">подробнее</a><br>
 
-                <button type="button" data-id="<?php echo $model->data()->id; ?>" class="btn btn-default btn-green add-offer">Разместить предложение</button>
-                
+                    <button type="button" data-id="<?php echo $model->data()->id; ?>" class="btn btn-default btn-green add-offer">Разместить предложение</button>
+
+                    <?php if (!$model->hasOffersFromTouragent(\Yii::app()->user->model->touragent->id)) : ?>
+                        <div class="no-offers blink">Заявка пока не обработана вашим турагенством!</div>
+                    <?php endif; ?>
+                </div>
             </td>
 
             <td>
