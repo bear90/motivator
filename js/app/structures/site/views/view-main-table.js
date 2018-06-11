@@ -143,9 +143,25 @@ define([
             e.preventDefault();
             var $el = this.$(e.target);
             var $offersRow = $el.closest('tr').next('tr.offers-row');
+            var action = $el.data('action');
+            if (action === undefined) {
+                action = "open"
+            }
 
             $offersRow.find('button.add-offer2').removeClass('hidden');
-            $offersRow.toggleClass('hidden');
+
+            switch (action) {
+                case "open":
+                    $offersRow.removeClass('hidden');
+                    $offersRow.find('.row').removeClass('hidden');
+                    $el.data('action', "close");
+                    break;
+                case "close":
+                    $offersRow.addClass('hidden');
+                    $offersRow.find('.row').find('>td').addClass('hidden');
+                    $el.data('action', "open");
+                    break;
+            }
         },
 
         clickAddOffer2:  function (e){
@@ -212,6 +228,8 @@ define([
         initOffer: function($offerRow) {
             var task_id = $offerRow.attr('id');
             
+            this.$("#" + task_id).find('.no-offers').addClass('hidden');
+
             $offerRow.find('form').bootstrapValidator({
                 excluded: [':disabled'],
                 feedbackIcons: {

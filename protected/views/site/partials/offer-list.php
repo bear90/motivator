@@ -1,31 +1,21 @@
 <?php
     use application\models\defines\Offer\PriceType;
     use application\models\defines\Offer;
+    use application\models\Entity;
     use application\modules\admin\models\Text;
 
+    $helper = new Entity\Offer\Helper();
+
     $showContact = isset($showContact) ? boolval($showContact) : false;
+    $touragentId = isset($touragentId) ? $touragentId : null;
+
     $count = count($offers);
-
-    $class = function ($type)
-    {
-        switch ($type) {
-            case Offer\Type::FAVORITE:
-                return 'favorite';
-
-            case Offer\Type::NOT_PRIORITY:
-                return 'not-priority';
-            
-            default:
-                return 'common';
-        }
-    };
 ?>
 
 <?php if ($count) : ?>
 
     <?php foreach($offers as $num => $offer) : ?>
-
-        <div class="item row <?php echo $class($offer->type); ?>" id="offer_<?php echo $offer->id; ?>"
+        <div class="item row <?php echo $helper->getHtmlClass($offer, $touragentId); ?>" id="offer_<?php echo $offer->id; ?>"
              data-id="<?php echo $offer->id; ?>">
             <div class="col-md-12 text-center">
                 <h4>Предложение №<?php echo $offer->sort; ?></h4>
@@ -53,7 +43,8 @@
                     </div>
                 <?php endif; ?>
 
-                <?php if($showContact || $showContactForFirtsOne && $offer->sort==count($offers)): ?>
+                <?php if($helper->showForTouragent($offer, $touragentId) || $showContact || 
+                         $showContactForFirtsOne && $offer->sort==count($offers)): ?>
                     <div><?php echo str_replace('Турагентство: ', '', $offer->contact); ?></div>
                 <?php endif; ?>
 
