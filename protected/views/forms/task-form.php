@@ -36,7 +36,8 @@ return [
             'attributes' => [
                 'id' => '',
                 'name' => 'task[country][]',
-                'class' => 'form-control country filtered-select'
+                'class' => 'form-control country filtered-select',
+                'autocomplete' => 'off'
             ]
         ],
         'tourType' => [
@@ -131,7 +132,7 @@ return [
         'description' => [
             'label' => 'Пожелания к туру:',
             'type' => 'text',
-            'layout' => '{label}{input}',
+            'layout' => '{input}',
             'attributes' => [
                 'name' => 'task[description]',
                 'class' => 'form-control',

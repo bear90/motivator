@@ -110,6 +110,8 @@ use application\models\entities\Configuration;
                 </div>
 
                 <div class="form-group">
+                    <label class="with-help">Пожелания к туру:</label>
+                    <div class="help-block above"><?php echo Configuration::get("TASK_DESCRIPTION_HELP"); ?></div>
                     <?php echo $taskForm['description']; ?>
                 </div>
 

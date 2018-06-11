@@ -30,6 +30,8 @@ class Configuration extends BaseEntity {
     const CODE_LIVE_TIME  = 'CODE_LIVE_TIME';
 
     const CODE_PHONE_LIVE_TIME  = 'CODE_PHONE_LIVE_TIME';
+    
+    const TASK_DESCRIPTION_HELP  = 'TASK_DESCRIPTION_HELP';
 
     const SLIDE_SHOWING_TIME_1  = 'SLIDE_SHOWING_TIME_1';
     const SLIDE_SHOWING_TIME_2  = 'SLIDE_SHOWING_TIME_2';
