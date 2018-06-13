@@ -36,7 +36,8 @@ return [
             'attributes' => [
                 'id' => '',
                 'name' => 'task[country][]',
-                'class' => 'form-control country filtered-select'
+                'class' => 'form-control country filtered-select',
+                'autocomplete' => 'off'
             ]
         ],
         'tourType' => [
@@ -101,6 +102,14 @@ return [
             ]
 
         ],
+        'finishedAt' => [
+            'type' => 'text',
+            'layout' => '{input}',
+            'attributes' => [
+                'name' => 'task[finishedAt]',
+                'class' => 'form-control datepicker'
+            ]
+        ],
         'email' => [
             'label' => 'Укажите свой e-mail:',
             'type' => 'text',
@@ -123,7 +132,7 @@ return [
         'description' => [
             'label' => 'Пожелания к туру:',
             'type' => 'text',
-            'layout' => '{label}{input}',
+            'layout' => '{input}',
             'attributes' => [
                 'name' => 'task[description]',
                 'class' => 'form-control',

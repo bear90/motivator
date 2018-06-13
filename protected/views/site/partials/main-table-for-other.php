@@ -19,7 +19,7 @@
         
         <th class="col4">Предполагаемая<br>
         продолжительность тура/<br>
-        планируемая дата начала тура</th>
+        период начала тура</th>
         
         <th class="col5">Самое <br>выгодное<br> предложение</th>
     </tr>
@@ -58,7 +58,7 @@
             <td>
                 <?php echo $model->data()->days; ?>
                 <?php echo Yii::t('front', 'n==1#день|n<5#дня|n>4#дней', $model->data()->days) ?> /<br>
-                <?php echo $model->startedAt(); ?>
+                <?php echo $model->startedPeriod(); ?>
             </td>
             
             <td>

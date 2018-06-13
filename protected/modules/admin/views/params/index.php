@@ -45,6 +45,14 @@
             </div>
         </td>
     </tr>
+    <tr>
+        <td>Поясняющий текст к полю "Страна тура"</td>
+        <td>
+            <div class="form-group">
+                <?php echo CHtml::textField('config['.Configuration::TASK_DESCRIPTION_HELP.']', Configuration::get(Configuration::TASK_DESCRIPTION_HELP), ['class' => 'form-control']); ?>
+            </div>
+        </td>
+    </tr>
 
     
     <?php for($i=1; $i<41; $i++): ?>

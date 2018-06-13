@@ -110,6 +110,8 @@ use application\models\entities\Configuration;
                 </div>
 
                 <div class="form-group">
+                    <label class="with-help">Пожелания к туру:</label>
+                    <div class="help-block above"><?php echo Configuration::get("TASK_DESCRIPTION_HELP"); ?></div>
                     <?php echo $taskForm['description']; ?>
                 </div>
 
@@ -129,13 +131,33 @@ use application\models\entities\Configuration;
                     <?php echo $taskForm['days']; ?>
                 </div>
 
-                <div class="form-group">
-                    <label class="control-label" for="task_startedAt">Укажите планируемую дату начала тура:</label>
-                    <div class="input-group">
-                        <div class="input-group-addon calendar"><span class="glyphicon glyphicon-calendar"></span>
+                <div>
+                    <label class="control-label" for="task_startedAt">Укажите период начала тура:</label>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon calendar">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </div>
+                                    <?php echo $taskForm['startedAt']; ?>
+                                </div>
+                            </div>
                         </div>
-                        <?php echo $taskForm['startedAt']; ?>
+                        
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-addon calendar">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </div>
+                                    <?php echo $taskForm['finishedAt']; ?>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+                    
                 </div>
 
                 <?php

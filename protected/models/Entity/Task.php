@@ -95,6 +95,16 @@ class Task
         return $startedAt->format($format);
     }
 
+    public function startedPeriod($format='d.m.Y')
+    {
+        $startedAt = new \DateTime($this->data->startedAt);
+        if ($this->data->finishedAt) {
+            $finishedAt = new \DateTime($this->data->finishedAt);
+            return $startedAt->format($format) . "-" . $finishedAt->format($format);
+        }
+        return $startedAt->format($format);
+    }
+
     public function getCountryOptions()
     {
         $list = $this->data->countries;
