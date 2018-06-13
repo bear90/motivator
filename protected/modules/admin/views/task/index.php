@@ -36,8 +36,6 @@
                             <?php echo $model->createdAt(); ?><br>
                             <?php echo $model->data()->relName->name; ?><br>
                             № <?php echo $model->data()->id; ?><br>
-
-                            <a href="#" class="offers-link">подробнее</a><br>
                         </td>
 
                         <td>
