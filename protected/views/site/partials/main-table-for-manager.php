@@ -95,8 +95,7 @@
                 <?php endif; ?>
             </td>
         </tr>
-        <tr class="offers-row 
-            <?php echo $model->hasOffersFromTouragent(\Yii::app()->user->model->touragent->id) ? '' : 'hidden'?>">
+        <tr class="offers-row hidden">
             <td colspan="5">
                 <?php if (count($entity->offers)) : ?>
                     <?php $this->renderPartial('partials/offer-list', [
