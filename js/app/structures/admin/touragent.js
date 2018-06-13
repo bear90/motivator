@@ -8,8 +8,9 @@ define([
 
         events: {
             'click .more': "clickMore",
-            'click button.find': "clickShow",
-            'click button.reset': "clickReset"
+            'click .desc button.find': "clickShow",
+            'click .desc button.reset': "clickReset",
+            'click .filter button.reset': "clickFilterReset"
         },
 
         clickShow: function(e){
@@ -38,6 +39,11 @@ define([
 
             $form[0].reset();
             $form.find('.ajax').html('');
+        },
+
+        clickFilterReset: function(e){
+            e.preventDefault();
+            window.location = '/admin/touragent';
         },
 
         clickMore: function(e){

@@ -73,13 +73,27 @@ class IndexAction extends \CAction
 
     public function listAction()
     {
-        $touragents = Touragent::model()->findAll();
+        $isPost = \Yii::app()->request->isPostRequest;
+
         $filterFormEntity = new forms\TouragentFilterForm();
+        $form = new forms\TouragentFilterForm2();
+        $criteria = new \CDbCriteria();
+
+        if ($isPost) {
+            $form->name = \Yii::app()->request->getPost('name');
+            if ($form->validate() && !empty($form->name)) {
+                $criteria->condition = 'name = :name';
+                $criteria->params['name'] = $form->name;
+            }
+        }
+
+        $touragents = Touragent::model()->findAll($criteria);
 
         $this->controller->render('index', [
             'touragents' => $touragents,
             'message' => \Yii::app()->user->getFlash('message', ''),
-            'filterForm' => new \CForm('application.modules.admin.views.forms.touragent-filter-form', $filterFormEntity)
+            'filterForm' => new \CForm('application.modules.admin.views.forms.touragent-filter-form', $filterFormEntity),
+            'form' => new \CForm('application.modules.admin.views.forms.touragent-filter-form2', $form)
         ]);
     }
 }

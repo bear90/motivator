@@ -3,9 +3,23 @@
     use application\models\entities\Configuration;
 ?>
 <h2>Турагенты:</h2>
+
 <?php if($message): ?>
-    <div><?php echo $message; ?></div><br>
+    <div class="alert alert-success" role="alert"><?php echo $message; ?></div>
 <?php endif; ?>
+
+<div class="row" style="height: 50px">
+    <div class="col-md-6">
+        <?php echo $form->renderBegin(); ?>
+            <div class="form-group">
+                <?php echo $form['name']; ?>
+            </div>
+
+            <button type="submit" class="btn btn-default">Найти</button>
+            <button type="button" class="btn btn-default reset">Очистить</button>
+        <?php echo $form->renderEnd(); ?>
+    </div>  
+</div>
 
 <table class="table table-bordered">
     <tr>
