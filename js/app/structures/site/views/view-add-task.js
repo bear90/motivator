@@ -238,6 +238,21 @@ define([
         },
 
 
+        validateTourDate:  function (startedAt, finishedAt){
+            if (startedAt && finishedAt) {
+                part = startedAt.split('.');
+                start = new Date(part[2], part[1], part[0]);
+                part = finishedAt.split('.');
+                finish = new Date(part[2], part[1], part[0]);
+                if (finish < start) {
+                    return false;
+                }
+            }
+
+            return true;
+        },
+
+
         clickAddCountry:  function (e){
             e.preventDefault();
             var $el = this.$(e.target);
