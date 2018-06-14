@@ -98,7 +98,8 @@ return [
             'layout' => '{input}',
             'attributes' => [
                 'name' => 'task[startedAt]',
-                'class' => 'form-control datepicker'
+                'class' => 'form-control datepicker',
+                'autocomplete' => 'off'
             ]
 
         ],
@@ -107,7 +108,8 @@ return [
             'layout' => '{input}',
             'attributes' => [
                 'name' => 'task[finishedAt]',
-                'class' => 'form-control datepicker'
+                'class' => 'form-control datepicker',
+                'autocomplete' => 'off'
             ]
         ],
         'email' => [
