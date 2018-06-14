@@ -80,12 +80,28 @@ define([
                             notEmpty: {
                                 message: "Вам необходимо ввести планируемую дату начала тура!"
                             },
+                            callback: {
+                                message: "Дата начала не может быть старше даты конца тура!",
+                                callback: function (startedAt, validator, $field) {
+                                    var finishedAt = self.$('[name="task[finishedAt]"]').val();
+                                    
+                                    return self.validateTourDate(startedAt, finishedAt);
+                                }
+                            },
                         }
                     },
                     'task[finishedAt]': {
                         validators: {
                             notEmpty: {
                                 message: "Вам необходимо ввести планируемую дату конца тура!"
+                            },
+                            callback: {
+                                message: "Дата начала не может быть старше даты конца тура!",
+                                callback: function (finishedAt, validator, $field) {
+                                    var startedAt = self.$('[name="task[startedAt]"]').val();
+                                    
+                                    return self.validateTourDate(startedAt, finishedAt);
+                                }
                             },
                         }
                     },
@@ -205,6 +221,37 @@ define([
         render:  function (){
 
         },
+        
+
+        validateTourDate:  function (startedAt, finishedAt){
+            if (startedAt && finishedAt) {
+                part = startedAt.split('.');
+                start = new Date(part[2], part[1], part[0]);
+                part = finishedAt.split('.');
+                finish = new Date(part[2], part[1], part[0]);
+                if (finish < start) {
+                    return false;
+                }
+            }
+
+            return true;
+        },
+
+
+        validateTourDate:  function (startedAt, finishedAt){
+            if (startedAt && finishedAt) {
+                part = startedAt.split('.');
+                start = new Date(part[2], part[1], part[0]);
+                part = finishedAt.split('.');
+                finish = new Date(part[2], part[1], part[0]);
+                if (finish < start) {
+                    return false;
+                }
+            }
+
+            return true;
+        },
+
 
         clickAddCountry:  function (e){
             e.preventDefault();
