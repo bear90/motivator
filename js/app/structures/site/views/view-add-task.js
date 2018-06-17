@@ -11,6 +11,11 @@ define([
             'change select#task_childCount': "selectChildCount",
             'change input#task_checkbox': "changeCheckbox",
             "click a#gaide-link": "clickGaideLink",
+            "keydown .datepicker": "keyDownDatepicker",
+        },
+
+        keyDownDatepicker: function(e) {
+            e.preventDefault();
         },
 
         initialize: function(){
