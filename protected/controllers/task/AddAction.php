@@ -23,6 +23,8 @@ class AddAction extends \CAction
 
         $startedAt = new \DateTime($attributes['startedAt']);
         $attributes['startedAt'] = $startedAt->format("Y-m-d H:i:s");
+        $finishedAt = new \DateTime($attributes['finishedAt']);
+        $attributes['finishedAt'] = $finishedAt->format("Y-m-d H:i:s");
         $attributes['name'] = !empty($attributes['name1']) ? $attributes['name1'] : $attributes['name2'];
         //var_dump($attributes);die;
         
