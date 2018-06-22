@@ -97,7 +97,7 @@ use application\modules\admin\models\Text;
     <!--Local settings-->
     <script src="js/settings-tourist.js"></script>
 
-    <script data-main="js/app/main.js" src="js/app/vendor/requirejs/require.js"></script>
+    <script data-main="js/app/main.js?ver=1.0.27" src="js/app/vendor/requirejs/require.js"></script>
 
 
 <!--Local settings-->
