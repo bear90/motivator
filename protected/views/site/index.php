@@ -203,9 +203,9 @@ use application\models\entities\Configuration;
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="wraper">
-                    <?php for ($i = 1, $j = 0; $i < 34; $i++) : ?>
+                    <?php for ($i = 1; $i < 34; $i++) : ?>
                         <?php if (Configuration::get("SLIDE_SHOWING_TIME_{$i}") > 0) : ?>
-                            <img src="/img/slider-<?php echo ++$j; ?>.jpg" alt=""
+                            <img src="/img/slider-<?php echo $i; ?>.jpg" alt=""
                                  data-delay="<?php echo Configuration::get("SLIDE_SHOWING_TIME_{$i}"); ?>">
                         <?php endif; ?>
                     <?php endfor; ?>
