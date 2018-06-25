@@ -4,7 +4,7 @@ define([
     'jquery.cookie'
 ], function(_, SlideView){
     return Backbone.View.extend({
-        
+
         events: {
             'click a.play': 'clickPlay',
             'click a.pause': 'clickPause',
@@ -78,17 +78,17 @@ define([
 
             // Hide current slide
             var defer = this.slide().hide();
-            
+
             // Show next slide after the hiding
             defer.pipe((function(){
                 return this.next().slide().render();
             }).bind(this));
-            
+
             // Set timeout after the showing
             defer.done((function(){
                 if (this.autoplay) {
                     this.timeout = setTimeout(this.showNext.bind(this), this.slide().getDelay());
-                    if (this.slide().getDelay() > 9*1000 || this.index==0 || this.slide().getDelay()==0) {
+                    if (this.slide().getDelay() > 9*1000 || this.index==0) {
                         this.stop();
                     }
                 }
@@ -102,18 +102,18 @@ define([
 
             // Hide current slide
             var defer = this.slide().hide();
-            
+
             // Show next slide after the hiding
             defer.pipe((function(){
                 return this.prev().slide().render();
             }).bind(this));
-            
-            
+
+
             // Set timeout after the showing
             defer.done((function(){
                 if (this.autoplay) {
                     this.timeout = setTimeout(this.showNext.bind(this), this.slide().getDelay());
-                    if (this.slide().getDelay() > 9*1000 || this.slide().getDelay()==0) {
+                    if (this.slide().getDelay() > 9*1000) {
                         this.stop();
                     }
                 }
@@ -127,17 +127,17 @@ define([
 
             // Hide current slide
             var defer = this.slide().hide();
-            
+
             // Show next slide after the hiding
             defer.pipe((function(){
                 return this.first().slide().render();
             }).bind(this));
-            
+
             // Set timeout after the showing
             defer.done((function(){
                 if (this.autoplay) {
                     this.timeout = setTimeout(this.showNext.bind(this), this.slide().getDelay());
-                    if (this.slide().getDelay() > 9*1000 || this.slide().getDelay()==0) {
+                    if (this.slide().getDelay() > 9*1000) {
                         this.stop();
                     }
                 }
