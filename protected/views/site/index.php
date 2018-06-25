@@ -16,7 +16,7 @@ use application\models\entities\Configuration;
     <div class="row" id="main-menu">
         <div class="col-md-12 col-lg-11 col-lg-offset-1">
             <?php $this->widget('application\\components\\widgets\\MenuWidget', [
-              'active' => 'turistam'
+                'active' => 'turistam',
             ]); ?>
         </div>
     </div>
@@ -44,7 +44,8 @@ use application\models\entities\Configuration;
     <div class="center-block" id="privet-cabinet">
         <div class="row" id="main-add-buttons">
             <div class="col-md-6">
-                <a href="#add-task" data-toggle="collapse"  id="btn-add-task" class="btn btn-default">РАЗМЕСТИТЬ  ЗАЯВКУ  НА  ТУР</a>
+                <a href="#add-task" data-toggle="collapse" id="btn-add-task" class="btn btn-default">РАЗМЕСТИТЬ ЗАЯВКУ
+                    НА ТУР</a>
             </div>
 
             <div class="col-md-6">
@@ -55,11 +56,11 @@ use application\models\entities\Configuration;
                 <?php endif; ?>
             </div>
         </div>
-        
+
         <div class="row <?php echo $loginMessage ? '' : 'hidden'; ?>" id="login-user">
             <div class="col-md-4 col-md-offset-7">
                 <?php echo $loginForm->renderBegin(); ?>
-                
+
                 <div class="form-group">
                     <?php echo $loginForm['password']; ?>
                 </div>
@@ -80,7 +81,7 @@ use application\models\entities\Configuration;
             <div class="col-md-6">
                 <?php echo $taskForm->renderBegin(); ?>
 
-                
+
                 <div class="row">
                     <div class="col-md-12">
                         <b>Укажите свое имя:</b>
@@ -145,7 +146,7 @@ use application\models\entities\Configuration;
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="col-md-6">
                             <div class="form-group">
                                 <div class="input-group">
@@ -157,14 +158,14 @@ use application\models\entities\Configuration;
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
 
                 <?php
                 /*<div class="form-group">
                     <?php echo $taskForm['planPrice']; ?>
                 </div>
-                */?>
+                */ ?>
 
                 <div class="form-group">
                     <?php echo $taskForm['email']; ?>
@@ -181,7 +182,8 @@ use application\models\entities\Configuration;
                     <div class="checkbox">
                         <label>
                             <?php echo $taskForm['checkbox']; ?>
-                            С правилами работы сервиса и <a id="gaide-link" href="#">пользовательским соглашением</a> ознакомлен
+                            С правилами работы сервиса и <a id="gaide-link" href="#">пользовательским соглашением</a>
+                            ознакомлен
                         </label>
                     </div>
 
@@ -201,9 +203,11 @@ use application\models\entities\Configuration;
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="wraper">
-                    <?php for($i=1; $i<34; $i++): ?>
-                        <img src="/img/slider-<?php echo $i; ?>.jpg" alt=""
-                        data-delay="<?php echo Configuration::get("SLIDE_SHOWING_TIME_{$i}"); ?>">
+                    <?php for ($i = 1; $i < 34; $i++) : ?>
+                        <?php if (Configuration::get("SLIDE_SHOWING_TIME_{$i}") > 0) : ?>
+                            <img src="/img/slider-<?php echo $i; ?>.jpg" alt=""
+                                 data-delay="<?php echo Configuration::get("SLIDE_SHOWING_TIME_{$i}"); ?>">
+                        <?php endif; ?>
                     <?php endfor; ?>
                 </div>
             </div>
@@ -225,7 +229,7 @@ use application\models\entities\Configuration;
 
         <div class="col-md-12">
             <marquee scrollamount="20">
-                <?php foreach($touragentNames as $name): ?>
+                <?php foreach ($touragentNames as $name): ?>
                     <span><?php echo $name; ?></span><span class="circle"></span>
                 <?php endforeach; ?>
             </marquee>
@@ -241,22 +245,22 @@ use application\models\entities\Configuration;
         <?php echo Text::get('turistam-description'); ?>
     </div>
 
-    
+
     <?php $this->renderPartial('partials/main-table', [
         'offerForTask' => $offerForTask,
         'entities' => $entities,
         'filterForm' => $filterForm,
         'offerForm' => $offerForm,
         'actionMessage' => $actionMessage,
-        'createdTaskId' => $createdTaskId
-    ])?>
+        'createdTaskId' => $createdTaskId,
+    ]) ?>
 
-    <?php if(!\Yii::app()->user->isManager()): ?>
-    <?php $this->renderPartial('partials/feedback', [
-        'feedbackForm' => $feedbackForm,
-    ]); ?>
+    <?php if (!\Yii::app()->user->isManager()): ?>
+        <?php $this->renderPartial('partials/feedback', [
+            'feedbackForm' => $feedbackForm,
+        ]); ?>
     <?php endif; ?>
-        
+
 
     <div class="fixed-socseti">
         <a target="_blank" href="https://vk.com/portalpenkiby"><img src="/img/soc-vk.png" alt=""></a>
