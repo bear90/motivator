@@ -202,7 +202,7 @@ define([
                 minDate: new Date,
                 onClose: $.proxy(function( selectedDate, calendar, e ) {
                     //debugger;
-                    let date = calendar.input.datepicker("getDate");
+                    var date = calendar.input.datepicker("getDate");
                     switch (calendar.id) {
                         case "task_startedAt":
                             this.$('#task_finishedAt').datepicker("option", "minDate", date);
