@@ -37,7 +37,7 @@
                     <button type="button" data-id="<?php echo $model->data()->id; ?>" class="btn btn-default btn-green add-offer">Разместить предложение</button>
 
                     <?php if (!$model->hasOffersFromTouragent(\Yii::app()->user->model->touragent->id)) : ?>
-                        <div class="no-offers blink">Заявка пока не обработана вашим турагенством!</div>
+                        <div class="no-offers blink">Заявка пока не обработана вашим турагентством!</div>
                     <?php endif; ?>
                 </div>
             </td>
