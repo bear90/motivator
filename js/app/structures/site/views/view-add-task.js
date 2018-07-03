@@ -15,7 +15,7 @@ define([
         },
 
         keyDownDatepicker: function(e) {
-            e.preventDefault();
+            return false;
         },
 
         initialize: function(){
