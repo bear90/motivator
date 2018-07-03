@@ -82,8 +82,7 @@ class IndexAction extends \CAction
         if ($isPost) {
             $form->name = \Yii::app()->request->getPost('name');
             if ($form->validate() && !empty($form->name)) {
-                $criteria->condition = 'name = :name';
-                $criteria->params['name'] = $form->name;
+                $criteria->compare('name', $form->name, true);
             }
         }
 
