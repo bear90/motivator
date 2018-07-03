@@ -1000,6 +1000,7 @@ img.sltour {height: 148px;}
 #block-main-table .glyphicon-fire {color: red;}
 #block-main-table .fa-snowflake-o {color: deepskyblue;}
 
+#add-task .datepicker {background: #FFFFFF;}
 #add-task .custom-combobox {margin-bottom: 5px;}
 #add-task .add-task-form > .help-block {margin-bottom: 15px; margin-top: -10px; display: inline-block;}
 
