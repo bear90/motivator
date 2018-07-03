@@ -99,7 +99,8 @@ return [
             'attributes' => [
                 'name' => 'task[startedAt]',
                 'class' => 'form-control datepicker',
-                'autocomplete' => 'off'
+                'autocomplete' => 'off',
+                'readonly' => "readonly",
             ]
 
         ],
@@ -109,7 +110,8 @@ return [
             'attributes' => [
                 'name' => 'task[finishedAt]',
                 'class' => 'form-control datepicker',
-                'autocomplete' => 'off'
+                'autocomplete' => 'off',
+                'readonly' => "readonly",
             ]
         ],
         'email' => [
